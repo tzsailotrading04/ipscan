@@ -1,67 +1,51 @@
-name: ipv4-scan
+name: ipscan
 
 on:
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 env:
-  BASE: "0"
-  TOTAL: "60"
-  RATE: "150000"
-  PORTS: "1080,3128,8080,8888,8000,8008,8081,8118,9050,9999"
+  TOTAL: 60
+  BASE: 0
+  RATE: 150000
+  PORTS: "1080,1081,3128,3129,4145,5555,8000,8008,8080,8081,8085,8118,8888,9050,9999,10000,10808,10809"
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 350
     strategy:
       fail-fast: false
-      max-parallel: 20
       matrix:
         shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     steps:
-      - name: install
+      - name: install masscan
         run: sudo apt-get update -qq && sudo apt-get install -y -qq masscan
       - name: scan
         run: |
-          ulimit -n 65536
-          S=$(( BASE + ${{ matrix.shard }} ))
-          echo "shard $S of $TOTAL"
-          sudo masscan 1.0.0.0-223.255.255.255 -p$PORTS --rate $RATE --seed 1 --exclude 255.255.255.255 --shard $S/$TOTAL -oL raw_$S.txt --wait 5
-          grep '^open' raw_$S.txt | awk '{print $4":"$3}' | sort -u > out_$S.txt || true
-          wc -l out_$S.txt
+          S=$((BASE + ${{ matrix.shard }}))
+          echo "shard $S of $TOTAL ports=$PORTS rate=$RATE"
+          sudo masscan 0.0.0.0/0 -p$PORTS --rate $RATE --seed 1 \
+            --exclude 255.255.255.255 --shard $S/$TOTAL --wait 3 -oL out.txt
+          awk '$1=="open" {t=($3==1080||$3==1081||$3==10808||$3==10809||$3==9050||$3==4145||$3==8085||$3==5555||$3==10000)?"socks5":"http"; print t"://"$4":"$3}' out.txt | sort -u > list_${{ matrix.shard }}.txt
+          wc -l list_${{ matrix.shard }}.txt
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: shard-${{ matrix.shard }}
-          path: out_*.txt
-          if-no-files-found: ignore
+          name: s_${{ matrix.shard }}
+          path: list_${{ matrix.shard }}.txt
+          retention-days: 14
 
   merge:
     needs: scan
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          pattern: shard-*
+          path: arts
           merge-multiple: true
-      - name: combine
-        run: |
-          cat out_*.txt | sort -u > merged_$BASE.txt
-          rm -f out_*.txt
-          wc -l merged_$BASE.txt
-      - name: push
-        run: |
-          git config user.name scanbot
-          git config user.email scanbot@users.noreply.github.com
-          git add -A
-          git commit -m "scan base $BASE" || true
-          git push
-
-
-
-
+      - run: cat arts/*.txt | sort -u > merged.txt && wc -l merged.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merged
+          path: merged.txt
+          retention-days: 14
