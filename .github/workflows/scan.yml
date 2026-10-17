@@ -8,14 +8,14 @@ permissions:
 
 env:
   BASE: "0"
-  TOTAL: "180"
-  RATE: "25000"
+  TOTAL: "20"
+  RATE: "50000"
   PORTS: "1080,3128,8080,8888"
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 355
     strategy:
       fail-fast: false
       max-parallel: 20
@@ -26,18 +26,22 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq masscan
       - name: scan
         run: |
+          ulimit -n 65536
           S=$(( BASE + ${{ matrix.shard }} ))
           echo "shard $S of $TOTAL"
-          sudo masscan 1.0.0.0-223.255.255.255 -p$PORTS --rate $RATE --shard $S/$TOTAL -oL raw_$S.txt --wait 5
-          grep '^open' raw_$S.txt | awk '{print $4":"$3}' | sort -u > out_$S.txt
+          sudo masscan 1.0.0.0-223.255.255.255 -p$PORTS --rate $RATE --seed 1 --exclude 255.255.255.255 --shard $S/$TOTAL -oL raw_$S.txt --wait 5
+          grep '^open' raw_$S.txt | awk '{print $4":"$3}' | sort -u > out_$S.txt || true
           wc -l out_$S.txt
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: shard-${{ matrix.shard }}
           path: out_*.txt
+          if-no-files-found: ignore
 
   merge:
     needs: scan
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,6 +52,7 @@ jobs:
       - name: combine
         run: |
           cat out_*.txt | sort -u > merged_$BASE.txt
+          rm -f out_*.txt
           wc -l merged_$BASE.txt
       - name: push
         run: |
