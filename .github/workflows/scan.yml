@@ -1,1 +1,58 @@
+name: ipv4-scan
 
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  BASE: "0"
+  TOTAL: "180"
+  RATE: "25000"
+  PORTS: "1080,3128,8080,8888"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    steps:
+      - name: install
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq masscan
+      - name: scan
+        run: |
+          S=$(( BASE + ${{ matrix.shard }} ))
+          echo "shard $S of $TOTAL"
+          sudo masscan 1.0.0.0-223.255.255.255 -p$PORTS --rate $RATE --shard $S/$TOTAL -oL raw_$S.txt --wait 5
+          grep '^open' raw_$S.txt | awk '{print $4":"$3}' | sort -u > out_$S.txt
+          wc -l out_$S.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.shard }}
+          path: out_*.txt
+
+  merge:
+    needs: scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-*
+          merge-multiple: true
+      - name: combine
+        run: |
+          cat out_*.txt | sort -u > merged_$BASE.txt
+          wc -l merged_$BASE.txt
+      - name: push
+        run: |
+          git config user.name scanbot
+          git config user.email scanbot@users.noreply.github.com
+          git add -A
+          git commit -m "scan base $BASE" || true
+          git push
