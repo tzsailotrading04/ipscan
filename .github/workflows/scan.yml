@@ -9,7 +9,7 @@ permissions:
 env:
   BASE: "0"
   TOTAL: "20"
-  RATE: "50000"
+  RATE: "100000"
   PORTS: "1080,3128,8080,8888"
 
 jobs:
