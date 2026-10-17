@@ -10,7 +10,7 @@ env:
   BASE: "0"
   TOTAL: "60"
   RATE: "150000"
-  PORTS: "1080,3128,8080,8888"
+  PORTS: "1080,3128,8080,8888,8000,8008,8081,8118,9050,9999"
 
 jobs:
   scan:
@@ -61,5 +61,7 @@ jobs:
           git add -A
           git commit -m "scan base $BASE" || true
           git push
+
+
 
 
