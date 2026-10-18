@@ -1,0 +1,31 @@
+name: full
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        required: true
+        default: '0'
+      rate:
+        required: false
+        default: '300000'
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        i: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq masscan
+      - run: |
+          S=$(( ${{ github.event.inputs.base }} + ${{ matrix.i }} ))
+          sudo masscan 0.0.0.0/0 -p8080,3128,1080,80,8888,8000,8118,3129,8081,8088 --rate ${{ github.event.inputs.rate }} --seed 1 --exclude 255.255.255.255 --shard $S/40 -oL out_$S.txt
+          awk '$1=="open" {print "http://"$4":"$3}' out_$S.txt | sort -u > s_$S.txt
+          wc -l s_$S.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s_${{ matrix.i }}
+          path: s_*.txt
