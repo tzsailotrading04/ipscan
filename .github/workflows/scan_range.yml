@@ -1,0 +1,60 @@
+name: range-scan
+
+on:
+  workflow_dispatch:
+    inputs:
+      shards:
+        description: 'JSON array of part indexes, e.g. [0,1,2]'
+        required: true
+        default: '[0,1,2,3,4,5,6,7,8,9]'
+
+env:
+  RATE: 150000
+  PORTS: "1084,1086,1089,1090,3126,3130,4444,5000,6588,7777,8004,8005,8006,8007,8011,8020,8050,8089,8091,8111,8123,8180,8200,8884,8885,8886,8887,8899,9001,9080,9090,10001,10100,11000,18080,20000"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJson(inputs.shards) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: install masscan
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq masscan
+      - name: scan
+        run: |
+          echo "part ${{ matrix.shard }} ports=$PORTS rate=$RATE"
+          sudo masscan -iL ranges/rp_${{ matrix.shard }}.txt -p$PORTS --rate $RATE -oL out.txt || true
+      - name: package partial results
+        if: always()
+        run: |
+          if [ -f out.txt ]; then
+            wc -l out.txt
+            awk '$1=="open" {t=($3==1084||$3==1086||$3==1089||$3==1090||$3==3126||$3==3130)?"socks5":"http"; print t"://"$4":"$3}' out.txt | sort -u > list_${{ matrix.shard }}.txt
+            wc -l list_${{ matrix.shard }}.txt
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r_${{ matrix.shard }}
+          path: list_${{ matrix.shard }}.txt
+          retention-days: 14
+
+  merge:
+    needs: scan
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: arts
+          merge-multiple: true
+      - run: cat arts/*.txt | sort -u > merged.txt && wc -l merged.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merged
+          path: merged.txt
+          retention-days: 14
