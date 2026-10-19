@@ -1,0 +1,13 @@
+﻿name: ip6
+on:
+  workflow_dispatch:
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - name: probe
+        run: |
+          echo "--- ip -6 addr ---"; ip -6 addr || true
+          echo "--- ip -6 route ---"; ip -6 route || true
+          echo "--- v6 egress ---"; curl -6 -s --max-time 10 https://ifconfig.co || echo NO_V6_EGRESS
+          echo "--- v4 egress ---"; curl -4 -s --max-time 10 https://ifconfig.co || true
