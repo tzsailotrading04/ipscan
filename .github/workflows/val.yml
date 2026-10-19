@@ -18,10 +18,11 @@ jobs:
       - run: |
           N=$(( ${{ github.event.inputs.base }} + ${{ matrix.i }} ))
           curl -sSfL -o part.txt "https://raw.githubusercontent.com/Thazuala04/ipscan/main/parts/p_$N.txt"
-          python3 validate.py part.txt real_$N.txt 800 || true
-          wc -l real_$N.txt
+          python3 validate.py part.txt real.txt 800 || true
+          wc -l real.txt
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           name: v_${{ github.event.inputs.base }}_${{ matrix.i }}
-          path: real_$N.txt
+          path: real.txt
+          if-no-files-found: error
