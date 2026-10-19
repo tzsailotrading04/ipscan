@@ -22,7 +22,7 @@ jobs:
           echo "part $PART file $f lines $(wc -l < $f)"
           : > plain.txt; : > https.txt; : > socks.txt
           ( while true; do sleep 60; echo "[$(date -u +%H:%M:%S)] plain=$(wc -l < plain.txt) https=$(wc -l < https.txt) socks=$(wc -l < socks.txt)"; done ) &
-          tr -d '\r' < "$f" | xargs -P 600 -n 16 sh -c 'for q in "$@"; do
+          tr -d '\r' < "$f" | cut -d: -f1,2 | xargs -P 600 -n 16 sh -c 'for q in "$@"; do
               pt=${q##*:}
               a=$(curl -s --connect-timeout 3 --max-time 8 --proxy "http://$q" http://api.ipify.org)
               case "$a" in [0-9]*.[0-9]*) echo "$q $a" >> plain.txt;; esac
