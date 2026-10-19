@@ -1,0 +1,59 @@
+﻿name: pscan
+on:
+  workflow_dispatch:
+    inputs:
+      part:
+        required: true
+      total:
+        required: true
+      ports:
+        required: false
+        default: '3128 8118 8888 8080 8000 8081 1080 10808'
+      socks:
+        required: false
+        default: '1080 10808 1081 9050 4145'
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - name: scan
+        run: |
+          set +e
+          ulimit -n 65535
+          PART="${{ inputs.part }}"
+          TOTAL="${{ inputs.total }}"
+          PORTS="${{ inputs.ports }}"
+          SOCKS="${{ inputs.socks }}"
+          echo "part=$PART total=$TOTAL ports=$PORTS"
+          : > res.txt
+          ( while true; do sleep 120; echo "[$(date -u +%H:%M)] hits=$(wc -l < res.txt)"; done ) &
+          awk -v part="$PART" -v total="$TOTAL" -v pl="$PORTS" -v sk="$SOCKS" -F'[-.]' '
+            BEGIN{ np=split(pl,p," ") }
+            {
+              s=($1*16777216)+($2*65536)+($3*256)+$4
+              e=($5*16777216)+($6*65536)+($7*256)+$8
+              for(i=s;i<=e;i++){
+                if(++n % total == part){
+                  ip = sprintf("%d.%d.%d.%d", int(i/16777216)%256, int(i/65536)%256, int(i/256)%256, i%256)
+                  for(k=1;k<=np;k++){
+                    pt=p[k]
+                    if(index(" " sk " ", " " pt " ")>0) sc="socks5h"; else sc="http"
+                    print ip ":" pt " " sc
+                  }
+                }
+              }
+            }' ranges_big.txt \
+          | xargs -P 600 -n 8 sh -c 'for it in "$@"; do
+              q=${it% *}; sc=${it##* }
+              a=$(curl -s --connect-timeout 2 --max-time 5 --proxy "$sc://$q" https://api.ipify.org)
+              case "$a" in [0-9]*.[0-9]*) echo "$sc $q $a" >> res.txt;; esac
+            done' _
+          echo "DONE hits=$(wc -l < res.txt)"
+          head -40 res.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: res-${{ inputs.part }}
+          path: res.txt
