@@ -6,17 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: run
-        run: |
-          n=0; : > exits.txt
+      - run: |
+          : > exits.txt
           while read -r p; do
             [ -z "$p" ] && continue
-            n=$((n+1))
-            ip=$(curl -s --max-time 12 --proxy "http://$p" https://api.ipify.org || echo FAIL)
-            echo "node $n  $p  ->  $ip"
-            echo "$ip" >> exits.txt
+            curl -s --max-time 12 --proxy "http://$p" https://api.ipify.org >> exits.txt || echo FAIL >> exits.txt
+            echo "$p -> $(tail -1 exits.txt)"
           done < proxies10.txt
           echo "---"
-          echo "nodes launched: $n"
-          echo "distinct exits: $(sort -u exits.txt | wc -l)"
-          sort -u exits.txt
+          echo "distinct: $(sort -u exits.txt | wc -l)"
