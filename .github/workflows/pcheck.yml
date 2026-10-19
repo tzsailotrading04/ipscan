@@ -1,0 +1,45 @@
+﻿name: pcheck
+on:
+  workflow_dispatch:
+    inputs:
+      part:
+        required: true
+      socks:
+        required: false
+        default: '1080 10808 1081 9050 4145'
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set +e
+          ulimit -n 65535
+          PART="${{ inputs.part }}"
+          export SOCKS="${{ inputs.socks }}"
+          f="parts/p_$PART.txt"
+          echo "part $PART file $f lines $(wc -l < $f)"
+          : > plain.txt; : > https.txt; : > socks.txt
+          ( while true; do sleep 60; echo "[$(date -u +%H:%M:%S)] plain=$(wc -l < plain.txt) https=$(wc -l < https.txt) socks=$(wc -l < socks.txt)"; done ) &
+          tr -d '\r' < "$f" | xargs -P 600 -n 16 sh -c 'for q in "$@"; do
+              pt=${q##*:}
+              a=$(curl -s --connect-timeout 3 --max-time 8 --proxy "http://$q" http://api.ipify.org)
+              case "$a" in [0-9]*.[0-9]*) echo "$q $a" >> plain.txt;; esac
+              b=$(curl -s --connect-timeout 3 --max-time 12 --proxy "http://$q" https://api.ipify.org)
+              case "$b" in [0-9]*.[0-9]*) echo "$q $b" >> https.txt;; esac
+              case " $SOCKS " in *" $pt "*)
+                c=$(curl -s --connect-timeout 3 --max-time 12 --proxy "socks5h://$q" https://api.ipify.org)
+                case "$c" in [0-9]*.[0-9]*) echo "$q $c" >> socks.txt;; esac
+              ;; esac
+            done' _
+          echo "DONE plain=$(wc -l < plain.txt) https=$(wc -l < https.txt) socks=$(wc -l < socks.txt)"
+          head -20 https.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r-${{ inputs.part }}
+          path: |
+            plain.txt
+            https.txt
+            socks.txt
