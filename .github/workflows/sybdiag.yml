@@ -1,0 +1,27 @@
+﻿name: sybdiag
+on:
+  workflow_dispatch:
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          n=0
+          while read -r p; do
+            p=$(printf '%s' "$p" | tr -d '\r')
+            [ -z "$p" ] && continue
+            n=$((n+1))
+            if [ $n -gt 3 ]; then continue; fi
+            echo "===== $p ====="
+            echo "-- A https/CONNECT"
+            curl -s -o /dev/null -w "code=%{http_code}\n" --max-time 12 --proxy "http://$p" https://api.ipify.org || echo AFAIL
+            echo "-- B plain http"
+            curl -s --max-time 12 --proxy "http://$p" http://api.ipify.org || echo BFAIL
+            echo
+            echo "-- C http to IP literal"
+            curl -s --max-time 12 --proxy "http://$p" http://1.1.1.1/cdn-cgi/trace || echo CFAIL
+            echo
+            echo "-- D verbose head"
+            curl -sv --max-time 12 --proxy "http://$p" http://api.ipify.org 2>&1 | head -12
+          done < proxies10.txt
