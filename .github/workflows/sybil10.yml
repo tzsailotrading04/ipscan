@@ -9,9 +9,11 @@ jobs:
       - run: |
           : > exits.txt
           while read -r p; do
+            p=$(printf '%s' "$p" | tr -d '\r')
             [ -z "$p" ] && continue
-            curl -s --max-time 12 --proxy "http://$p" https://api.ipify.org >> exits.txt || echo FAIL >> exits.txt
-            echo "$p -> $(tail -1 exits.txt)"
+            ip=$(curl -s --max-time 15 --proxy "http://$p" https://api.ipify.org || echo FAIL)
+            echo "$p -> $ip"
+            echo "$ip" >> exits.txt
           done < proxies10.txt
           echo "---"
           echo "distinct: $(sort -u exits.txt | wc -l)"
