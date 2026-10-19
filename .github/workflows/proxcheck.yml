@@ -1,0 +1,25 @@
+﻿name: proxcheck
+on:
+  workflow_dispatch:
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          : > plain.txt; : > connect.txt
+          n=0
+          while read -r p; do
+            p=$(printf '%s' "$p" | tr -d '\r')
+            [ -z "$p" ] && continue
+            n=$((n+1))
+            r=$(curl -s --max-time 8 --proxy "http://$p" http://api.ipify.org)
+            if printf '%s' "$r" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then echo "$r" >> plain.txt; fi
+            c=$(curl -s --max-time 8 --proxy "http://$p" https://api.ipify.org)
+            if printf '%s' "$c" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then echo "$c" >> connect.txt; fi
+            if [ $((n % 50)) -eq 0 ]; then echo "done $n plain=$(wc -l < plain.txt) connect=$(wc -l < connect.txt)"; fi
+          done < proxies200.txt
+          echo "---"
+          echo "tested: $n"
+          echo "plain-http OK: $(wc -l < plain.txt)"
+          echo "https CONNECT OK: $(wc -l < connect.txt)"
