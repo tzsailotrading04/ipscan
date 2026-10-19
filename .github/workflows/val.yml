@@ -1,0 +1,27 @@
+name: val
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        required: true
+        default: "0"
+jobs:
+  val:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        i: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          N=$(( ${{ github.event.inputs.base }} + ${{ matrix.i }} ))
+          curl -sSfL -o part.txt "https://raw.githubusercontent.com/Thazuala04/ipscan/main/parts/p_$N.txt"
+          python3 validate.py part.txt real_$N.txt 800 || true
+          wc -l real_$N.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v_${{ github.event.inputs.base }}_${{ matrix.i }}
+          path: real_$N.txt
