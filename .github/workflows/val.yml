@@ -8,7 +8,7 @@ on:
 jobs:
   val:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 90
     strategy:
       fail-fast: false
       matrix:
@@ -18,7 +18,7 @@ jobs:
       - run: |
           N=$(( ${{ github.event.inputs.base }} + ${{ matrix.i }} ))
           curl -sSfL -o part.txt "https://raw.githubusercontent.com/Thazuala04/ipscan/main/parts/p_$N.txt"
-          python3 validate.py part.txt real.txt 800 || true
+          REALF=real.txt DEADF=dead.txt DONEF=done.txt python3 fast3.py part.txt 800 || true
           wc -l real.txt
       - if: always()
         uses: actions/upload-artifact@v4
