@@ -25,18 +25,28 @@ const (
 	conc           = 2000
 	connectTimeout = 3 * time.Second
 	totalTimeout   = 12 * time.Second
+	rangedURL      = "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
 )
 
 var ipv4Re = regexp.MustCompile(`^\d+\.\d+\.\d+\.\d+$`)
 var ipifyIPs []net.IP
+var cdnIPs []net.IP
 
 func initDNS() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	ips, _ := net.DefaultResolver.LookupIP(ctx, "ip4", "api.ipify.org")
-	for _, ip := range ips {
-		if ip4 := ip.To4(); ip4 != nil {
-			ipifyIPs = append(ipifyIPs, ip4)
+	if ips, err := net.DefaultResolver.LookupIP(ctx, "ip4", "api.ipify.org"); err == nil {
+		for _, ip := range ips {
+			if ip4 := ip.To4(); ip4 != nil {
+				ipifyIPs = append(ipifyIPs, ip4)
+			}
+		}
+	}
+	if ips, err := net.DefaultResolver.LookupIP(ctx, "ip4", "cdn.jsdelivr.net"); err == nil {
+		for _, ip := range ips {
+			if ip4 := ip.To4(); ip4 != nil {
+				cdnIPs = append(cdnIPs, ip4)
+			}
 		}
 	}
 }
@@ -137,7 +147,6 @@ func dialSocks5(ctx context.Context, proxyAddr, targetAddr string) (net.Conn, er
 	}
 	conn.SetDeadline(time.Now().Add(8 * time.Second))
 
-	// Greeting: VER=5, NMETHODS=1, METHOD=0 (no auth)
 	if _, err := conn.Write([]byte{0x05, 0x01, 0x00}); err != nil {
 		conn.Close()
 		return nil, err
@@ -152,7 +161,6 @@ func dialSocks5(ctx context.Context, proxyAddr, targetAddr string) (net.Conn, er
 		return nil, fmt.Errorf("socks5 auth rejected: %x", greetResp)
 	}
 
-	// CONNECT request with domain name (ATYP=0x03)
 	hb := []byte(host)
 	req := make([]byte, 0, 7+len(hb))
 	req = append(req, 0x05, 0x01, 0x00, 0x03, byte(len(hb)))
@@ -213,6 +221,8 @@ func dialSocks4(ctx context.Context, proxyAddr, targetAddr string) (net.Conn, er
 	var ip4 net.IP
 	if host == "api.ipify.org" && len(ipifyIPs) > 0 {
 		ip4 = ipifyIPs[0]
+	} else if host == "cdn.jsdelivr.net" && len(cdnIPs) > 0 {
+		ip4 = cdnIPs[0]
 	} else {
 		ips, err := net.DefaultResolver.LookupIP(ctx, "ip4", host)
 		if err != nil || len(ips) == 0 {
@@ -255,11 +265,13 @@ type probeResult struct {
 	alive  bool
 	exitIP string
 	ttfbMs int64
+	kbps   float64
 }
 
 func testOneScheme(scheme, addr string) (probeResult, bool) {
 	tr := &http.Transport{
-		DisableKeepAlives:   true,
+		DisableKeepAlives:   false,
+		MaxIdleConnsPerHost: 2,
 		TLSHandshakeTimeout: 6 * time.Second,
 		TLSClientConfig:     &tls.Config{InsecureSkipVerify: false},
 		DialContext: func(ctx context.Context, network, targetAddr string) (net.Conn, error) {
@@ -320,10 +332,51 @@ func testOneScheme(scheme, addr string) (probeResult, bool) {
 		ttfb = time.Since(tStart)
 	}
 
+	// Perform ~256 KB ranged download through the same proxy to measure KB/s
+	dlCtx, dlCancel := context.WithTimeout(context.Background(), totalTimeout)
+	defer dlCancel()
+
+	var dlWrote, dlFirst time.Time
+	dlTrace := &httptrace.ClientTrace{
+		WroteRequest: func(info httptrace.WroteRequestInfo) {
+			if dlWrote.IsZero() {
+				dlWrote = time.Now()
+			}
+		},
+		GotFirstResponseByte: func() {
+			if dlFirst.IsZero() {
+				dlFirst = time.Now()
+			}
+		},
+	}
+	dlReq, _ := http.NewRequestWithContext(httptrace.WithClientTrace(dlCtx, dlTrace), "GET", rangedURL, nil)
+	dlReq.Header.Set("Range", "bytes=0-262143")
+	dlReq.Header.Set("Accept-Encoding", "identity")
+
+	var kbps float64
+	if dlResp, err := cl.Do(dlReq); err == nil {
+		if !dlWrote.IsZero() && !dlFirst.IsZero() && dlFirst.After(dlWrote) {
+			if d := dlFirst.Sub(dlWrote); d < ttfb {
+				ttfb = d
+			}
+		}
+		tBody := time.Now()
+		n, _ := io.Copy(io.Discard, io.LimitReader(dlResp.Body, 262144))
+		dlResp.Body.Close()
+		dur := time.Since(tBody).Seconds()
+		if dur <= 0.001 {
+			dur = 0.001
+		}
+		if n > 0 {
+			kbps = (float64(n) / 1024.0) / dur
+		}
+	}
+
 	return probeResult{
 		alive:  true,
 		exitIP: parsedIP.To4().String(),
 		ttfbMs: ttfb.Milliseconds(),
+		kbps:   kbps,
 	}, false
 }
 
@@ -376,7 +429,6 @@ func main() {
 		fmt.Fprintln(os.Stderr, "open:", err)
 		os.Exit(1)
 	}
-	// Strip UTF-8 BOM if present
 	rawBytes = bytes.TrimPrefix(rawBytes, []byte{0xef, 0xbb, 0xbf})
 
 	var addrs []string
@@ -411,7 +463,7 @@ func main() {
 			if r.alive {
 				atomic.AddInt64(&live, 1)
 				mu.Lock()
-				fmt.Fprintf(w, "%s %s %d\n", a, r.exitIP, r.ttfbMs)
+				fmt.Fprintf(w, "%s %s %d %.1f\n", a, r.exitIP, r.ttfbMs, r.kbps)
 				w.Flush()
 				mu.Unlock()
 			}
