@@ -1,8 +1,6 @@
 name: bigscan
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 19 * * *'
 env:
   RATE: 120000
   SRC: https://raw.githubusercontent.com/Thazuala04/ipscan/main
