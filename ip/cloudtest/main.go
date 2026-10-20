@@ -22,10 +22,12 @@ import (
 )
 
 const (
-	conc           = 2000
-	connectTimeout = 3 * time.Second
-	totalTimeout   = 12 * time.Second
-	rangedURL      = "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
+	conc            = 2000
+	connectTimeout  = 3 * time.Second
+	totalTimeout    = 12 * time.Second
+	downloadTimeout = 15 * time.Second
+	maxDownloadRead = 262144
+	rangedURL       = "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"
 )
 
 var ipv4Re = regexp.MustCompile(`^\d+\.\d+\.\d+\.\d+$`)
@@ -332,8 +334,18 @@ func testOneScheme(scheme, addr string) (probeResult, bool) {
 		ttfb = time.Since(tStart)
 	}
 
-	// Perform ~256 KB ranged download through the same proxy to measure KB/s
-	dlCtx, dlCancel := context.WithTimeout(context.Background(), totalTimeout)
+	kbps, ttfb := measureThroughput(tr, ttfb)
+
+	return probeResult{
+		alive:  true,
+		exitIP: parsedIP.To4().String(),
+		ttfbMs: ttfb.Milliseconds(),
+		kbps:   kbps,
+	}, false
+}
+
+func measureThroughput(tr *http.Transport, ttfb time.Duration) (float64, time.Duration) {
+	dlCtx, dlCancel := context.WithTimeout(context.Background(), downloadTimeout)
 	defer dlCancel()
 
 	var dlWrote, dlFirst time.Time
@@ -353,31 +365,29 @@ func testOneScheme(scheme, addr string) (probeResult, bool) {
 	dlReq.Header.Set("Range", "bytes=0-262143")
 	dlReq.Header.Set("Accept-Encoding", "identity")
 
-	var kbps float64
-	if dlResp, err := cl.Do(dlReq); err == nil {
-		if !dlWrote.IsZero() && !dlFirst.IsZero() && dlFirst.After(dlWrote) {
-			if d := dlFirst.Sub(dlWrote); d < ttfb {
-				ttfb = d
-			}
-		}
-		tBody := time.Now()
-		n, _ := io.Copy(io.Discard, io.LimitReader(dlResp.Body, 262144))
-		dlResp.Body.Close()
-		dur := time.Since(tBody).Seconds()
-		if dur <= 0.001 {
-			dur = 0.001
-		}
-		if n > 0 {
-			kbps = (float64(n) / 1024.0) / dur
+	dlClient := &http.Client{Transport: tr}
+	dlResp, err := dlClient.Do(dlReq)
+	if err != nil || dlResp == nil {
+		return 0, ttfb
+	}
+	if !dlWrote.IsZero() && !dlFirst.IsZero() && dlFirst.After(dlWrote) {
+		if d := dlFirst.Sub(dlWrote); d < ttfb {
+			ttfb = d
 		}
 	}
-
-	return probeResult{
-		alive:  true,
-		exitIP: parsedIP.To4().String(),
-		ttfbMs: ttfb.Milliseconds(),
-		kbps:   kbps,
-	}, false
+	tBody := time.Now()
+	// Even if dlCtx (15s budget) expires mid-read, io.Copy returns all bytes received so far in n.
+	n, _ := io.Copy(io.Discard, io.LimitReader(dlResp.Body, maxDownloadRead))
+	dlResp.Body.Close()
+	dur := time.Since(tBody).Seconds()
+	if dur <= 0.001 {
+		dur = 0.001
+	}
+	if n <= 0 {
+		return 0, ttfb
+	}
+	kbps := (float64(n) / 1024.0) / dur
+	return kbps, ttfb
 }
 
 func probeAuto(addr string) probeResult {
