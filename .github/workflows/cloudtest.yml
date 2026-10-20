@@ -1,0 +1,126 @@
+name: cloudtest
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'bigscan_cloud run ID to test'
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120]
+    steps:
+      - uses: actions/checkout@v4
+      - name: build tester
+        run: go build -o cloudtest ip/cloudtest/main.go
+      - name: download bigscan_merged
+        uses: actions/download-artifact@v4
+        with:
+          name: bigscan_merged
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: in_art
+      - name: slice and test
+        run: |
+          ulimit -n 65535
+          idx=$(( ${{ matrix.shard }} - 1 ))
+          n=$(printf %03d $idx)
+          mkdir -p slices
+          split -n l/120 -d -a 3 --additional-suffix=.txt in_art/merged.txt slices/s_
+          cp "slices/s_$n.txt" slice.txt
+          echo "shard=${{ matrix.shard }} lines_in=$(wc -l < slice.txt)"
+          ./cloudtest slice.txt "c_${{ matrix.shard }}.txt"
+          echo "live=$(wc -l < c_${{ matrix.shard }}.txt)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c_${{ matrix.shard }}
+          path: c_${{ matrix.shard }}.txt
+          retention-days: 3
+          if-no-files-found: ignore
+
+  merge:
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: download bigscan_merged for line count
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: bigscan_merged
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: in_art
+      - name: download shard results
+        uses: actions/download-artifact@v4
+        with:
+          pattern: c_*
+          path: arts
+          merge-multiple: true
+      - name: dedupe and summarize
+        run: |
+          find arts -name '*.txt' -exec cat {} + > all_live.txt 2>/dev/null || true
+          LINES_IN=0
+          if [ -f in_art/merged.txt ]; then
+            LINES_IN=$(wc -l < in_art/merged.txt)
+          fi
+          python3 - "$LINES_IN" << 'EOF' | tee summary.txt
+          import sys
+
+          lines_in = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+          live = 0
+          by_exit = {}
+
+          with open("all_live.txt", "r", encoding="utf-8", errors="ignore") as f:
+              for raw in f:
+                  parts = raw.strip().split()
+                  if len(parts) < 3:
+                      continue
+                  live += 1
+                  addr, exit_ip = parts[0], parts[1]
+                  try:
+                      ttfb = int(parts[2])
+                  except ValueError:
+                      ttfb = 999999
+                  if exit_ip not in by_exit or ttfb < by_exit[exit_ip][1]:
+                      by_exit[exit_ip] = (addr, ttfb)
+
+          items = sorted(by_exit.items(), key=lambda kv: kv[1][1])
+          with open("pool_cloud.txt", "w", encoding="utf-8") as out:
+              for exit_ip, (addr, ttfb) in items:
+                  out.write(f"{addr} {exit_ip} {ttfb}\n")
+
+          ttfbs = [kv[1][1] for kv in items]
+          n = len(ttfbs)
+          def pct(p):
+              if n == 0:
+                  return 0
+              return ttfbs[min(n - 1, int(round((p / 100.0) * (n - 1))))]
+
+          u100 = sum(1 for t in ttfbs if t < 100)
+          u500 = sum(1 for t in ttfbs if t < 500)
+          u1000 = sum(1 for t in ttfbs if t < 1000)
+
+          print(f"lines_in: {lines_in}")
+          print(f"live: {live}")
+          print(f"unique_exits: {n}")
+          print(f"ttfb_ms_percentiles: p10={pct(10)} p25={pct(25)} p50={pct(50)} p75={pct(75)} p90={pct(90)} p99={pct(99)}")
+          print(f"under_100ms: {u100}")
+          print(f"under_500ms: {u500}")
+          print(f"under_1000ms: {u1000}")
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cloudtest_merged
+          path: |
+            pool_cloud.txt
+            summary.txt
+          retention-days: 3
