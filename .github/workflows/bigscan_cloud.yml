@@ -43,7 +43,33 @@ jobs:
           curl -fsSL -o r.txt "$SRC/data/ranges_cloud.txt" || curl -fsSL -o r.txt "$SRC/ranges_cloud.txt"
           echo "rangelines=$(wc -l < r.txt)"
           mkdir -p ranges
-          split -n l/$SHARDS -d -a 3 --additional-suffix=.txt r.txt ranges/rp_
+          awk -F/ -v N="$SHARDS" '
+            NF == 2 {
+              k++
+              lines[k] = $0
+              w[k] = 2^(32 - $2)
+              tot += w[k]
+            }
+            END {
+              for (b = 0; b < N; b++) {
+                fn = sprintf("ranges/rp_%03d.txt", b)
+                printf "" > fn
+                close(fn)
+              }
+              b = 0
+              acc = 0
+              for (i = 1; i <= k; i++) {
+                fn = sprintf("ranges/rp_%03d.txt", b)
+                print lines[i] >> fn
+                acc += w[i]
+                if (b < N - 1 && acc >= ((b + 1) * tot) / N) {
+                  close(fn)
+                  b++
+                }
+              }
+              close(sprintf("ranges/rp_%03d.txt", b))
+            }
+          ' r.txt
           cp "ranges/rp_$n.txt" my.txt
           echo "shardlines=$(wc -l < my.txt)"
       - name: scan
