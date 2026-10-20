@@ -1,0 +1,550 @@
+name: freshpoll
+
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Hours to poll (default 5)'
+        required: true
+        default: '5'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup tester and pull previous state
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOURS_IN: ${{ inputs.hours }}
+        run: |
+          set -e
+          ulimit -n 65535
+          cd ip/freshpoll
+          go build -o ../../freshpoll main.go
+          cd ../..
+
+          touch pool_fresh_live.txt seen.txt
+          if [ ! -s source_yield.tsv ]; then
+            printf "cycle\ttimestamp\tsource\tfetched\tnew_tested\tlive\tyield_pct\n" > source_yield.tsv
+          fi
+
+          # Attempt to pull state from the most recent previous freshpoll run via GitHub API
+          set +e
+          RUNS_JSON=$(curl -sSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/freshpoll.yml/runs?per_page=20" 2>/dev/null)
+          PREV_IDS=$(echo "$RUNS_JSON" | jq -r --arg cur "$GITHUB_RUN_ID" '.workflow_runs[]? | select((.id|tostring) != $cur) | .id' 2>/dev/null)
+          RESTORED=0
+          for rid in $PREV_IDS; do
+            ARTS_JSON=$(curl -sSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${rid}/artifacts?per_page=100" 2>/dev/null)
+            SEEN_ID=$(echo "$ARTS_JSON" | jq -r '.artifacts[]? | select(.name=="seen" and .expired==false) | .id' 2>/dev/null | head -n1)
+            LIVE_ID=$(echo "$ARTS_JSON" | jq -r '.artifacts[]? | select(.name=="pool_fresh_live" and .expired==false) | .id' 2>/dev/null | head -n1)
+            YIELD_ID=$(echo "$ARTS_JSON" | jq -r '.artifacts[]? | select(.name=="source_yield" and .expired==false) | .id' 2>/dev/null | head -n1)
+            if [ -n "$SEEN_ID" ] && [ "$SEEN_ID" != "null" ]; then
+              echo "Restoring state from previous run $rid ..."
+              mkdir -p /tmp/prev_art
+              if curl -sSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${SEEN_ID}/zip" -o /tmp/prev_art/seen.zip; then
+                unzip -o -q /tmp/prev_art/seen.zip -d . || true
+              fi
+              if [ -n "$LIVE_ID" ] && [ "$LIVE_ID" != "null" ]; then
+                if curl -sSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+                  "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${LIVE_ID}/zip" -o /tmp/prev_art/live.zip; then
+                  unzip -o -q /tmp/prev_art/live.zip -d . || true
+                fi
+              fi
+              if [ -n "$YIELD_ID" ] && [ "$YIELD_ID" != "null" ]; then
+                if curl -sSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+                  "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${YIELD_ID}/zip" -o /tmp/prev_art/yield.zip; then
+                  unzip -o -q /tmp/prev_art/yield.zip -d . || true
+                fi
+              fi
+              rm -rf /tmp/prev_art
+              RESTORED=1
+              break
+            fi
+          done
+          set -e
+          if [ "$RESTORED" -eq 1 ]; then
+            echo "State restored: seen=$(wc -l < seen.txt) lines, pool_fresh_live=$(wc -l < pool_fresh_live.txt) lines"
+          else
+            echo "Starting with fresh state."
+          fi
+
+          HOURS_VAL="${HOURS_IN:-5}"
+          START_TS=$(date +%s)
+          END_TS=$(awk -v s="$START_TS" -v h="$HOURS_VAL" 'BEGIN { printf "%d", s + int(h * 3600) }')
+          PrevCycle=$(awk 'NR>1 && $1+0 > m { m = $1+0 } END { print m+0 }' source_yield.tsv 2>/dev/null || echo 0)
+          echo "START_TS=$START_TS" >> "$GITHUB_ENV"
+          echo "END_TS=$END_TS" >> "$GITHUB_ENV"
+          echo "CYCLE=$PrevCycle" >> "$GITHUB_ENV"
+          echo "DONE=0" >> "$GITHUB_ENV"
+
+          cat << 'EOF' > /tmp/run_cycle.sh
+          #!/usr/bin/env bash
+          set -e
+          ulimit -n 65535
+          NOW=$(date +%s)
+          if [ "$NOW" -ge "$END_TS" ]; then
+            echo "DONE=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          CYCLE=$(( CYCLE + 1 ))
+          echo "CYCLE=$CYCLE" >> "$GITHUB_ENV"
+          TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          # Identify sources under 0.5% cumulative yield after 3+ cycles
+          awk -F'\t' '
+            NR > 1 {
+              src = $3
+              cycles[src]++
+              fetched[src] += $4
+              tested[src] += $5
+              live[src] += $6
+            }
+            END {
+              for (s in cycles) {
+                if (cycles[s] >= 3) {
+                  denom = (tested[s] > 0) ? tested[s] : fetched[s]
+                  if (denom > 0 && (100.0 * live[s] / denom) < 0.5) {
+                    print s
+                  }
+                }
+              }
+            }
+          ' source_yield.tsv > /tmp/skip_sources.txt
+
+          rm -rf /tmp/src_fetch
+          mkdir -p /tmp/src_fetch
+
+          awk '
+            NR==FNR { skip[$0]=1; next }
+            {
+              gsub(/\r/, "")
+              if ($0 != "" && !($0 in skip)) {
+                idx++
+                printf "%d\t%s\n", idx, $0
+              }
+            }
+          ' /tmp/skip_sources.txt config/fresh_sources.txt > /tmp/active_sources.tsv
+
+          SOURCES_FETCHED=$(wc -l < /tmp/active_sources.tsv | tr -d ' ')
+
+          cat /tmp/active_sources.tsv | xargs -P 25 -n 2 bash -c '
+            idx="$1"
+            url="$2"
+            curl -sSL --max-time 15 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" "$url" 2>/dev/null \
+              | tr -d "\r\357\273\277" \
+              | grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}:[0-9]{2,5}" \
+              | awk -F"[:.]" "\$1<=255 && \$2<=255 && \$3<=255 && \$4<=255 && \$5>=1 && \$5<=65535 { printf \"%d.%d.%d.%d:%d\n\", \$1,\$2,\$3,\$4,\$5 }" \
+              | sort -u > "/tmp/src_fetch/s_${idx}.txt" || true
+          ' _
+
+          cat /tmp/src_fetch/s_*.txt 2>/dev/null | sort -u > /tmp/all_fetched.txt || touch /tmp/all_fetched.txt
+
+          awk '
+            NR==FNR { seen[$1]=1; next }
+            !($1 in seen) { print $1; seen[$1]=1 }
+          ' seen.txt /tmp/all_fetched.txt > /tmp/new_batch.txt
+
+          NEW_LINES=$(wc -l < /tmp/new_batch.txt | tr -d ' ')
+          if [ "$NEW_LINES" -gt 0 ]; then
+            cat /tmp/new_batch.txt >> seen.txt
+            ./freshpoll /tmp/new_batch.txt /tmp/live_batch.txt >/dev/null
+            cat /tmp/live_batch.txt >> pool_fresh_live.txt
+          else
+            : > /tmp/live_batch.txt
+          fi
+
+          LIVE_CYCLE=$(wc -l < /tmp/live_batch.txt | tr -d ' ')
+          FAST_CYCLE=$(awk '$3+0 < 1000 && $4+0 >= 300 { c++ } END { print c+0 }' /tmp/live_batch.txt)
+          SLOW_CYCLE=$(( LIVE_CYCLE - FAST_CYCLE ))
+
+          # Update source_yield.tsv per source
+          awk '
+            FILENAME == "/tmp/new_batch.txt" { is_new[$1]=1; next }
+            FILENAME == "pool_fresh_live.txt" { is_live[$1]=1; next }
+            FILENAME == "/tmp/active_sources.tsv" {
+              idx = $1
+              url = $2
+              sf = "/tmp/src_fetch/s_" idx ".txt"
+              fc = 0; nt = 0; lv = 0
+              while ((getline line < sf) > 0) {
+                fc++
+                if (line in is_new) nt++
+                if (line in is_live) lv++
+              }
+              close(sf)
+              denom = (fc > 0) ? fc : 1
+              ypct = (fc > 0) ? (100.0 * lv / fc) : 0.0
+              printf "%d\t%s\t%s\t%d\t%d\t%d\t%.3f\n", cycle, ts, url, fc, nt, lv, ypct
+            }
+          ' cycle="$CYCLE" ts="$TS" /tmp/new_batch.txt pool_fresh_live.txt /tmp/active_sources.tsv >> source_yield.tsv
+
+          echo "cycle=${CYCLE} sources_fetched=${SOURCES_FETCHED} new_lines=${NEW_LINES} live=${LIVE_CYCLE} FAST=${FAST_CYCLE} SLOW=${SLOW_CYCLE}"
+          EOF
+          chmod +x /tmp/run_cycle.sh
+
+          cat << 'EOF' > /tmp/sleep_next.sh
+          #!/usr/bin/env bash
+          set -e
+          NOW=$(date +%s)
+          if [ "$NOW" -ge "$END_TS" ]; then
+            echo "DONE=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          NEXT_MARK=$(( ((NOW / 1800) + 1) * 1800 ))
+          if [ "$NEXT_MARK" -ge "$END_TS" ]; then
+            REM=$(( END_TS - NOW ))
+            if [ "$REM" -gt 0 ] && [ "$REM" -le 60 ]; then
+              sleep "$REM"
+            fi
+            echo "DONE=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          SLEEP_SEC=$(( NEXT_MARK - NOW ))
+          echo "Sleeping ${SLEEP_SEC}s until next 30-minute mark..."
+          sleep "$SLEEP_SEC"
+          EOF
+          chmod +x /tmp/sleep_next.sh
+
+      - name: Cycle 1
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 1
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 2
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 2
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 3
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 3
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 4
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 4
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 5
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 5
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 6
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 6
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 7
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 7
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 8
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 8
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 9
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 9
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 10
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 10
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 11
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: env.DONE != '1'
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
+      - name: Sleep 11
+        if: env.DONE != '1'
+        run: /tmp/sleep_next.sh
+
+      - name: Cycle 12
+        if: env.DONE != '1'
+        run: /tmp/run_cycle.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pool_fresh_live
+          path: pool_fresh_live.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seen
+          path: seen.txt
+          retention-days: 3
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source_yield
+          path: source_yield.tsv
+          retention-days: 3
+          overwrite: true
