@@ -2,6 +2,11 @@ name: portexpand
 
 on:
   workflow_dispatch:
+    inputs:
+      input_file:
+        description: 'Input candidate file'
+        required: false
+        default: 'ip/pe_ips.txt'
 
 permissions:
   actions: write
@@ -65,28 +70,33 @@ jobs:
       - name: Expand slice and test
         run: |
           ulimit -n 65535
+          INPUT_FILE="${{ github.event.inputs.input_file || 'ip/pe_ips.txt' }}"
           SHARD_IDX=$(( ${{ matrix.shard }} - 1 ))
-          awk -v s="$SHARD_IDX" 'NR % 120 == s' ip/pe_ips.txt > /tmp/shard_ips.txt
-          IP_COUNT=$(wc -l < /tmp/shard_ips.txt | tr -d ' ')
+          awk -v s="$SHARD_IDX" 'NR % 120 == s' "$INPUT_FILE" > /tmp/shard_slice.txt
+          SLICE_COUNT=$(wc -l < /tmp/shard_slice.txt | tr -d ' ')
           
-          awk '
-            NR==FNR {
-              gsub(/\r/, "")
-              if ($1 != "") ports[$1]=1
-              next
-            }
-            {
-              gsub(/\r/, "")
-              if ($1 != "") {
-                for (p in ports) {
-                  printf "%s:%s\n", $1, p
+          if grep -q ":" /tmp/shard_slice.txt; then
+            cp /tmp/shard_slice.txt /tmp/shard_targets.txt
+          else
+            awk '
+              NR==FNR {
+                gsub(/\r/, "")
+                if ($1 != "") ports[$1]=1
+                next
+              }
+              {
+                gsub(/\r/, "")
+                if ($1 != "") {
+                  for (p in ports) {
+                    printf "%s:%s\n", $1, p
+                  }
                 }
               }
-            }
-          ' ip/pe_ports.txt /tmp/shard_ips.txt > /tmp/shard_targets.txt
+            ' ip/pe_ports.txt /tmp/shard_slice.txt > /tmp/shard_targets.txt
+          fi
           
           TARGET_COUNT=$(wc -l < /tmp/shard_targets.txt | tr -d ' ')
-          echo "Shard ${{ matrix.shard }}: $IP_COUNT IPs expanded to $TARGET_COUNT targets"
+          echo "Shard ${{ matrix.shard }}: $SLICE_COUNT lines prepared to $TARGET_COUNT targets"
           
           ./petester /tmp/shard_targets.txt "pe_${{ matrix.shard }}.txt"
           LIVE_COUNT=$(wc -l < "pe_${{ matrix.shard }}.txt" | tr -d ' ')
@@ -114,9 +124,14 @@ jobs:
 
       - name: Run Merge and Generate Summary
         run: |
-          TOTAL_IPS=$(wc -l < ip/pe_ips.txt | tr -d ' ')
-          TOTAL_PORTS=$(wc -l < ip/pe_ports.txt | tr -d ' ')
-          TOTAL_LINES_IN=$(( TOTAL_IPS * TOTAL_PORTS ))
+          INPUT_FILE="${{ github.event.inputs.input_file || 'ip/pe_ips.txt' }}"
+          if grep -q ":" "$INPUT_FILE"; then
+            TOTAL_LINES_IN=$(wc -l < "$INPUT_FILE" | tr -d ' ')
+          else
+            TOTAL_IPS=$(wc -l < "$INPUT_FILE" | tr -d ' ')
+            TOTAL_PORTS=$(wc -l < ip/pe_ports.txt | tr -d ' ')
+            TOTAL_LINES_IN=$(( TOTAL_IPS * TOTAL_PORTS ))
+          fi
 
           touch master_pool.txt
           
