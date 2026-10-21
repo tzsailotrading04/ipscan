@@ -57,10 +57,8 @@ func main() {
 			if addr == "" { return }
 			exit, ttfb, kbps, err := probe(proto, addr)
 			if err != nil || exit == "" { return }
-			tier := "SLOW"
-			if ttfb < fastTTFB && kbps >= fastKB { tier = "FAST" }
 			mu.Lock()
-			fmt.Fprintf(o, "%s\t%s\t%s\t%d\t%.0f\n", addr, proto, tier, ttfb.Milliseconds(), kbps)
+			fmt.Fprintf(o, "%s %s %d %.0f\n", addr, exit, ttfb.Milliseconds(), kbps)
 			mu.Unlock()
 		}(l)
 	}
