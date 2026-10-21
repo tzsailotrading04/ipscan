@@ -55,6 +55,6 @@ jobs:
       - run: |
           git config user.name harvest-bot
           git config user.email bot@local
-          git add ip/public_pool.txt ip/public_residential.txt ip/public_dc.txt
+          git add -A ip/ master_pool.txt ; true
           git commit -m "harvest $(date -u +%FT%TZ)" || echo "nothing new"
           git push
