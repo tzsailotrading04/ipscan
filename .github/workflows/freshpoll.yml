@@ -557,6 +557,3 @@ jobs:
           path: source_yield.tsv
           retention-days: 3
           overwrite: true
-concurrency:
-  group: freshpoll
-  cancel-in-progress: false
