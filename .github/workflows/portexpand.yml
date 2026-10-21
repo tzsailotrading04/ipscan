@@ -1,0 +1,192 @@
+name: portexpand
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 18
+      matrix:
+        shard: [
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+          11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+          21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+          31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+          41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+          51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+          61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+          71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+          81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+          91, 92, 93, 94, 95, 96, 97, 98, 99, 100,
+          101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
+          111, 112, 113, 114, 115, 116, 117, 118, 119, 120
+        ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build tester
+        run: |
+          ulimit -n 65535
+          cd ip/portexpand
+          go build -o ../../petester main.go
+          cd ../..
+
+      - name: Control verification on pub.txt
+        if: matrix.shard == 1
+        run: |
+          ulimit -n 65535
+          if [ -f "ip/pub.txt" ]; then
+            echo "Running control verification against ip/pub.txt ..."
+            ./petester ip/pub.txt /tmp/pub_live.txt
+            TOT=$(wc -l < ip/pub.txt | tr -d ' ')
+            LIVE=$(wc -l < /tmp/pub_live.txt | tr -d ' ')
+            RATE=$(awk -v l="$LIVE" -v t="$TOT" 'BEGIN { printf "%.2f", 100.0 * l / t }')
+            echo "Control score: $LIVE / $TOT ($RATE%)"
+            # Pub score is ~6.3%, accept 4.5% - 8.5%
+            awk -v r="$RATE" 'BEGIN {
+              if (r < 4.5 || r > 8.5) {
+                print "ERROR: Control check failed, rate outside ~6.3%: " r "%";
+                exit 1;
+              }
+              print "Control check passed: " r "%";
+            }'
+          fi
+
+      - name: Expand slice and test
+        run: |
+          ulimit -n 65535
+          SHARD_IDX=$(( ${{ matrix.shard }} - 1 ))
+          awk -v s="$SHARD_IDX" 'NR % 120 == s' ip/pe_ips.txt > /tmp/shard_ips.txt
+          IP_COUNT=$(wc -l < /tmp/shard_ips.txt | tr -d ' ')
+          
+          awk '
+            NR==FNR {
+              gsub(/\r/, "")
+              if ($1 != "") ports[$1]=1
+              next
+            }
+            {
+              gsub(/\r/, "")
+              if ($1 != "") {
+                for (p in ports) {
+                  printf "%s:%s\n", $1, p
+                }
+              }
+            }
+          ' ip/pe_ports.txt /tmp/shard_ips.txt > /tmp/shard_targets.txt
+          
+          TARGET_COUNT=$(wc -l < /tmp/shard_targets.txt | tr -d ' ')
+          echo "Shard ${{ matrix.shard }}: $IP_COUNT IPs expanded to $TARGET_COUNT targets"
+          
+          ./petester /tmp/shard_targets.txt "pe_${{ matrix.shard }}.txt"
+          LIVE_COUNT=$(wc -l < "pe_${{ matrix.shard }}.txt" | tr -d ' ')
+          echo "Shard ${{ matrix.shard }}: $LIVE_COUNT live proxies found"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pe_${{ matrix.shard }}
+          path: pe_${{ matrix.shard }}.txt
+          retention-days: 3
+
+  merge:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: pe_*
+          merge-multiple: true
+          path: shards/
+
+      - name: Run Merge and Generate Summary
+        run: |
+          TOTAL_IPS=$(wc -l < ip/pe_ips.txt | tr -d ' ')
+          TOTAL_PORTS=$(wc -l < ip/pe_ports.txt | tr -d ' ')
+          TOTAL_LINES_IN=$(( TOTAL_IPS * TOTAL_PORTS ))
+
+          touch master_pool.txt
+          
+          awk -v lines_in="$TOTAL_LINES_IN" '
+            FILENAME == "master_pool.txt" {
+              if (NF >= 2) held[$2] = 1
+              next
+            }
+            {
+              total_live++
+              proxy = $1
+              exit_ip = $2
+              ttfb = $3 + 0
+              kbps = $4 + 0.0
+              is_fast = (ttfb < 1000 && kbps >= 300.0)
+
+              if (!(exit_ip in seen)) {
+                seen[exit_ip] = 1
+                best_proxy[exit_ip] = proxy
+                best_ttfb[exit_ip] = ttfb
+                best_kbps[exit_ip] = kbps
+                best_fast[exit_ip] = is_fast
+              } else {
+                if (!best_fast[exit_ip] && is_fast) {
+                  best_proxy[exit_ip] = proxy
+                  best_ttfb[exit_ip] = ttfb
+                  best_kbps[exit_ip] = kbps
+                  best_fast[exit_ip] = 1
+                } else if (best_fast[exit_ip] == is_fast) {
+                  if (ttfb < best_ttfb[exit_ip] || (ttfb == best_ttfb[exit_ip] && kbps > best_kbps[exit_ip])) {
+                    best_proxy[exit_ip] = proxy
+                    best_ttfb[exit_ip] = ttfb
+                    best_kbps[exit_ip] = kbps
+                  }
+                }
+              }
+            }
+            END {
+              for (eip in seen) {
+                uniq_exits++
+                if (best_fast[eip]) fast_count++; else slow_count++
+                if (eip in held) {
+                  already_held++
+                } else {
+                  new_exits++
+                }
+                printf "%s %s %d %.1f\n", best_proxy[eip], eip, best_ttfb[eip], best_kbps[eip] > "pe_merged.txt"
+              }
+              hit_rate = (lines_in > 0 ? (100.0 * total_live / lines_in) : 0.0)
+              print "=== PORT EXPANSION SUMMARY ===" > "pe_summary.txt"
+              printf "lines_in: %d\n", lines_in > "pe_summary.txt"
+              printf "live: %d\n", total_live > "pe_summary.txt"
+              printf "unique_exits: %d\n", uniq_exits > "pe_summary.txt"
+              printf "FAST: %d\n", fast_count > "pe_summary.txt"
+              printf "SLOW: %d\n", slow_count > "pe_summary.txt"
+              printf "hit_rate: %.4f%%\n", hit_rate > "pe_summary.txt"
+              printf "new_exits_not_in_master: %d\n", new_exits > "pe_summary.txt"
+              printf "already_held_in_master: %d\n", already_held > "pe_summary.txt"
+            }
+          ' master_pool.txt shards/pe_*.txt
+
+          sort -k3,3n -k4,4nr pe_merged.txt -o pe_merged.txt
+          cat pe_summary.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pe_merged
+          path: pe_merged.txt
+          retention-days: 7
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pe_summary
+          path: pe_summary.txt
+          retention-days: 7
