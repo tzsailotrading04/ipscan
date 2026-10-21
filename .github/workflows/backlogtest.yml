@@ -1,0 +1,226 @@
+name: backlogtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_file:
+        description: 'Input candidate file'
+        required: false
+        default: 'backlog/raw_all_net.txt'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+          11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+          21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+          31, 32, 33, 34, 35, 36, 37, 38, 39, 40
+        ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build tester
+        run: |
+          ulimit -n 65535
+          go build -o cloudtest ip/cloudtest/main.go
+
+      - name: Control verification on pub.txt
+        if: matrix.shard == 1
+        run: |
+          ulimit -n 65535
+          if [ ! -f "ip/pub.txt" ]; then
+            echo "ERROR: ip/pub.txt not found!"
+            exit 1
+          fi
+          echo "Running control verification against ip/pub.txt ..."
+          ./cloudtest ip/pub.txt /tmp/pub_live.txt
+          TOT=$(wc -l < ip/pub.txt | tr -d ' ')
+          LIVE=$(wc -l < /tmp/pub_live.txt | tr -d ' ')
+          RATE=$(awk -v l="$LIVE" -v t="$TOT" 'BEGIN { printf "%.2f", 100.0 * l / t }')
+          echo "CONTROL REPORT: Live=$LIVE / Total=$TOT ($RATE%)"
+          echo "Expected: ~143/2266 (~6.3%)"
+          awk -v l="$LIVE" -v t="$TOT" -v r="$RATE" 'BEGIN {
+            if (r < 4.5 || r > 8.5) {
+              print "ERROR: Control check failed! Count " l "/" t " (" r "%) is outside expected ~6.3%";
+              exit 1;
+            }
+            print "Control check passed: " l "/" t " (" r "%)";
+          }'
+
+      - name: Slice and test
+        run: |
+          ulimit -n 65535
+          INPUT_FILE="${{ github.event.inputs.input_file || 'backlog/raw_all_net.txt' }}"
+          if [ ! -f "$INPUT_FILE" ]; then
+            echo "ERROR: input file $INPUT_FILE not found!"
+            exit 1
+          fi
+          SHARD_IDX=$(( ${{ matrix.shard }} - 1 ))
+          awk -v s="$SHARD_IDX" 'NR % 40 == s' "$INPUT_FILE" > /tmp/shard_slice.txt
+          LINES_IN=$(wc -l < /tmp/shard_slice.txt | tr -d ' ')
+          echo "Shard ${{ matrix.shard }}: $LINES_IN lines to test"
+
+          ./cloudtest /tmp/shard_slice.txt "b_${{ matrix.shard }}.txt"
+          LIVE=$(wc -l < "b_${{ matrix.shard }}.txt" | tr -d ' ')
+
+          python3 - "$LINES_IN" "${{ matrix.shard }}" "$LIVE" << 'EOF'
+          import sys
+          lines_in = sys.argv[1]
+          shard = sys.argv[2]
+          live = sys.argv[3]
+          by_exit = set()
+          fast_c = 0
+          slow_c = 0
+          try:
+              with open(f"b_{shard}.txt") as f:
+                  for line in f:
+                      parts = line.strip().split()
+                      if len(parts) >= 3:
+                          by_exit.add(parts[1])
+                          try:
+                              ttfb = int(parts[2])
+                              kbps = float(parts[3]) if len(parts) >= 4 else 0.0
+                              if ttfb < 1000 and kbps >= 300.0:
+                                  fast_c += 1
+                              else:
+                                  slow_c += 1
+                          except ValueError:
+                              slow_c += 1
+          except Exception:
+              pass
+          print(f"PER_SHARD_METRICS: shard={shard} lines_in={lines_in} live={live} unique={len(by_exit)} FAST={fast_c} SLOW={slow_c}")
+          EOF
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: b_${{ matrix.shard }}
+          path: b_${{ matrix.shard }}.txt
+          retention-days: 3
+          if-no-files-found: ignore
+
+  merge:
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: b_*
+          merge-multiple: true
+          path: shards/
+
+      - name: Merge, dedupe and generate summary
+        run: |
+          INPUT_FILE="${{ github.event.inputs.input_file || 'backlog/raw_all_net.txt' }}"
+          LINES_IN=0
+          if [ -f "$INPUT_FILE" ]; then
+            LINES_IN=$(wc -l < "$INPUT_FILE" | tr -d ' ')
+          fi
+
+          touch master_pool.txt
+          find shards -name '*.txt' -exec cat {} + > all_shards.txt 2>/dev/null || true
+
+          python3 - "$LINES_IN" << 'EOF' | tee summary.txt
+          import sys
+
+          lines_in = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+          held = set()
+          with open("master_pool.txt", "r", errors="ignore") as f:
+              for line in f:
+                  parts = line.strip().split()
+                  if len(parts) >= 2:
+                      held.add(parts[1])
+
+          by_exit = {}
+          total_live = 0
+
+          def is_fast(ttfb, kbps):
+              return ttfb < 1000 and kbps >= 300.0
+
+          with open("all_shards.txt", "r", errors="ignore") as f:
+              for line in f:
+                  parts = line.strip().split()
+                  if len(parts) < 3:
+                      continue
+                  total_live += 1
+                  addr, exit_ip = parts[0], parts[1]
+                  try:
+                      ttfb = int(parts[2])
+                  except ValueError:
+                      ttfb = 999999
+                  try:
+                      kbps = float(parts[3]) if len(parts) >= 4 else 0.0
+                  except ValueError:
+                      kbps = 0.0
+
+                  fast = is_fast(ttfb, kbps)
+                  if exit_ip not in by_exit:
+                      by_exit[exit_ip] = (addr, ttfb, kbps, fast)
+                  else:
+                      _, prev_ttfb, prev_kbps, prev_fast = by_exit[exit_ip]
+                      if (fast and not prev_fast) or (fast == prev_fast and (ttfb < prev_ttfb or (ttfb == prev_ttfb and kbps > prev_kbps))):
+                          by_exit[exit_ip] = (addr, ttfb, kbps, fast)
+
+          items = sorted(by_exit.items(), key=lambda kv: (not kv[1][3], kv[1][1], -kv[1][2]))
+          fast_count = 0
+          slow_count = 0
+          new_exits = 0
+          already_held = 0
+
+          with open("raw_all_merged.txt", "w", encoding="utf-8") as fm, \
+               open("raw_all_fast.txt", "w", encoding="utf-8") as ff, \
+               open("raw_all_slow.txt", "w", encoding="utf-8") as fs:
+              for exit_ip, (addr, ttfb, kbps, fast) in items:
+                  line = f"{addr} {exit_ip} {ttfb} {kbps:.1f}\n"
+                  fm.write(line)
+                  if fast:
+                      fast_count += 1
+                      ff.write(line)
+                  else:
+                      slow_count += 1
+                      fs.write(line)
+                  if exit_ip in held:
+                      already_held += 1
+                  else:
+                      new_exits += 1
+
+          uniq_exits = len(items)
+          hit_rate = (100.0 * total_live / lines_in) if lines_in > 0 else 0.0
+
+          print("=== RAW_ALL_NET BACKLOG TEST SUMMARY ===")
+          print(f"lines_in: {lines_in}")
+          print(f"live: {total_live}")
+          print(f"unique_exits: {uniq_exits}")
+          print(f"FAST: {fast_count}")
+          print(f"SLOW: {slow_count}")
+          print(f"hit_rate: {hit_rate:.4f}%")
+          print(f"new_exits_not_in_master: {new_exits}")
+          print(f"already_held_in_master: {already_held}")
+          EOF
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw_all_merged
+          path: raw_all_merged.txt
+          retention-days: 7
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raw_all_summary
+          path: summary.txt
+          retention-days: 7
