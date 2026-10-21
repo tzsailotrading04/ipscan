@@ -83,8 +83,10 @@ def lookup_asn(u):
         return asn_rows[i][2], asn_rows[i][4]
     return "0", "UNKNOWN"
 
+DC_ASNS = {'54600', '21859', '53667'}
+
 RES_ASNS = {
-    '54600', '138089', '21859', '149360', '142393', '34984', '210976', '28458', '141071',
+    '138089', '149360', '142393', '34984', '210976', '28458', '141071',
     '45305', '263767', '38264', '58224', '32098', '21003', '202561', '135607', '23956',
     '270075', '4788', '37403', '38511', '55685', '45700', '29873', '20001', '27951', '272405'
 }
@@ -101,7 +103,8 @@ DC_SUBS = [
     'dmit', 'colohouse', 'hostdime', 'liquidweb', 'ipxo', 'tierpoint', 'cogent', 'shinjiru',
     'fdcservers', 'intergrid', 'tzulo', 'shock', 'quadrix', 'hostkey', 'blazingfast',
     'time4vps', 'timeweb', 'ionos', 'godaddy', 'rackspace', 'equinix', 'cdn', 'freakhosting',
-    'ucloud', 'ctrls', 'aeza', 'zscaler', 'gtt-backbone', 'tor-exit', 'emerald-onion'
+    'ucloud', 'ctrls', 'aeza', 'zscaler', 'gtt-backbone', 'tor-exit', 'emerald-onion',
+    'raksmart', 'ponynet'
 ]
 
 MOB_SUBS = [
@@ -112,14 +115,14 @@ MOB_SUBS = [
 
 ISP_SUBS = [
     'telecom', 'telekom', 'telephon', 'telecomunicacoes', 'telecomunicaciones', 'broadband',
-    'cable', 'communication', 'comunicaciones', 'comunicacion', 'online', 'jaringan', 'internet',
-    'fiber', 'fibre', 'fibra', 'dsl', 'adsl', 'isp', 'telefonica', 'telia', 'telenor', 'kpn',
+    'cable', 'communication', 'comunicaciones', 'comunicacion', 'jaringan', 'internet',
+    'fiber', 'fibre', 'fibra', 'dsl', 'adsl', 'isp', 'wireless', 'telefonica', 'telia', 'telenor', 'kpn',
     'swisscom', 'comcast', 'verizon', 'charter', 'cox', 'centurylink', 'frontier',
     'windstream', 'mediacom', 'altice', 'rogers', 'bell canada', 'telus', 'shaw',
     'videotron', 'at&t', 'bellsouth', 'telkom', 'telstra', 'optus', 'iinet', 'tpg',
     'vocus', 'singtel', 'starhub', 'pccw', 'hkt', 'china telecom', 'china unicom',
     'chinanet', 'kddi', 'softbank', 'biglobe', 'plala', 'so-net', 'jcom', 'viettel',
-    'vnpt', 'fpt', 'pln', 'ufinet', 'cantv', 'myrepublic', 'tot-net', 'net',
+    'vnpt', 'fpt', 'pln', 'ufinet', 'cantv', 'myrepublic', 'tot-net',
     'idnic', 'redes', 'kabel', 'satelit', 'starlink'
 ]
 
@@ -128,6 +131,8 @@ def classify(u, asn, asn_name):
     asn_num = str(asn).upper().replace("AS", "").strip()
     
     # 1. Explicit ASNs
+    if asn_num in DC_ASNS:
+        return "DATACENTER"
     if asn_num in MOB_ASNS:
         return "MOBILE"
     if asn_num in RES_ASNS:
