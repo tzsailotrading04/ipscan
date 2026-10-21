@@ -14,48 +14,49 @@ trap 'rm -rf "$TMP_DIR"' EXIT
 echo "=== Master Merge Starting ==="
 echo "Scanning for pool files under $(pwd) ..."
 
-# Collect pools and tag their origin
-# Format in tagged file: <origin> <ip:port> <exit_ip> <ttfb_ms> <kbps>
 TAGGED="$TMP_DIR/tagged_all.txt"
 : > "$TAGGED"
 
+# Helper to normalize any pool line to: <origin>\t<proxy>\t<exit_ip>\t<ttfb_ms>\t<kbps>
+normalize_line() {
+  awk -v orig="$1" '{
+    if (NF >= 2) {
+      proxy = $1
+      if ($2 ~ /^(http|socks4|socks5)$/ && NF >= 3) {
+        exit_ip = $3
+        raw_ttfb = $5
+        raw_kbps = $6
+        gsub(/[^0-9]/, "", raw_ttfb)
+        gsub(/[^0-9.]/, "", raw_kbps)
+        ttfb = (raw_ttfb != "" ? raw_ttfb + 0 : 9999)
+        kbps = (raw_kbps != "" ? raw_kbps + 0.0 : 0.0)
+      } else {
+        exit_ip = $2
+        ttfb = ($3 != "" ? $3 + 0 : 9999)
+        kbps = ($4 != "" ? $4 + 0.0 : 0.0)
+      }
+      if (exit_ip ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/) {
+        printf "%s\t%s\t%s\t%d\t%.1f\n", orig, proxy, exit_ip, ttfb, kbps
+      }
+    }
+  }' "$2" >> "$TAGGED"
+}
+
 # 1. Curated verified pool
 if [ -f "ip/pool_verified.txt" ]; then
-  awk '{
-    # ip:port exit_ip ttfb_ms kbps (kbps may be missing or 0 in older formats)
-    if (NF >= 2) {
-      exit_ip = $2
-      ttfb = ($3 != "" ? $3 + 0 : 9999)
-      kbps = ($4 != "" ? $4 + 0.0 : 0.0)
-      printf "curated\t%s\t%s\t%d\t%.1f\n", $1, exit_ip, ttfb, kbps
-    }
-  }' ip/pool_verified.txt >> "$TAGGED"
+  normalize_line "curated" "ip/pool_verified.txt"
   echo "Loaded ip/pool_verified.txt: $(wc -l < ip/pool_verified.txt | tr -d ' ') rows"
 fi
 
 # 2. Freshpoll live pools
 find . -type f \( -name "pool_fresh_live.txt" -o -name "pool_fresh_live*.txt" \) 2>/dev/null | while read -r f; do
-  awk '{
-    if (NF >= 2) {
-      exit_ip = $2
-      ttfb = ($3 != "" ? $3 + 0 : 9999)
-      kbps = ($4 != "" ? $4 + 0.0 : 0.0)
-      printf "freshpoll\t%s\t%s\t%d\t%.1f\n", $1, exit_ip, ttfb, kbps
-    }
-  }' "$f" >> "$TAGGED"
+  normalize_line "freshpoll" "$f"
   echo "Loaded $f: $(wc -l < "$f" | tr -d ' ') rows"
 done
 
 # 3. Cloud scan pools
 find . -type f \( -name "pool_cloud.txt" -o -name "pool_cloud_*.txt" \) 2>/dev/null | while read -r f; do
-  awk '{
-    if (NF >= 2) {
-      exit_ip = $2
-      ttfb = ($3 != "" ? $3 + 0 : 9999)
-      kbps = ($4 != "" ? $4 + 0.0 : 0.0)
-      printf "cloud_scan\t%s\t%s\t%d\t%.1f\n", $1, exit_ip, ttfb, kbps
-    }
-  }' "$f" >> "$TAGGED"
+  normalize_line "cloud_scan" "$f"
   echo "Loaded $f: $(wc -l < "$f" | tr -d ' ') rows"
 done
 
@@ -63,7 +64,6 @@ TOTAL_TAGGED=$(wc -l < "$TAGGED" | tr -d ' ')
 echo "Total raw records collected across all pools: $TOTAL_TAGGED"
 
 # Deduplicate by exit IP (field 3), preferring FAST over SLOW, lowest TTFB, highest kbps
-# Output master_pool.txt: ip:port exit_ip ttfb_ms kbps
 awk -F'\t' '
 {
   orig = $1
@@ -74,7 +74,6 @@ awk -F'\t' '
 
   is_fast = (ttfb < 1000 && kbps >= 300.0)
 
-  # Track origin presence for summary
   origins[exit_ip, orig] = 1
 
   if (!(exit_ip in seen)) {
@@ -84,14 +83,12 @@ awk -F'\t' '
     best_kbps[exit_ip] = kbps
     best_fast[exit_ip] = is_fast
   } else {
-    # If currently not fast, but new one is fast, replace
     if (!best_fast[exit_ip] && is_fast) {
       best_proxy[exit_ip] = proxy
       best_ttfb[exit_ip] = ttfb
       best_kbps[exit_ip] = kbps
       best_fast[exit_ip] = 1
     } else if (best_fast[exit_ip] == is_fast) {
-      # Both fast or both slow: pick lowest ttfb, or higher kbps
       if (ttfb < best_ttfb[exit_ip] || (ttfb == best_ttfb[exit_ip] && kbps > best_kbps[exit_ip])) {
         best_proxy[exit_ip] = proxy
         best_ttfb[exit_ip] = ttfb
@@ -116,7 +113,6 @@ END {
     }
     total_unique++
 
-    # Count origins
     c = origins[eip, "curated"] + 0
     fp = origins[eip, "freshpoll"] + 0
     cs = origins[eip, "cloud_scan"] + 0
@@ -149,7 +145,6 @@ END {
 }
 ' "$TAGGED"
 
-# Sort outputs cleanly by TTFB
 sort -k3,3n -k4,4nr master_pool.txt -o master_pool.txt
 if [ -f master_fast.txt ]; then
   sort -k3,3n -k4,4nr master_fast.txt -o master_fast.txt
