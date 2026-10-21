@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-tools/classify_and_snowball.py - Classify master pool by ASN and build residential snowball
+tools/classify_and_snowball.py - Classify master pool by ASN authoritatively via PeeringDB and build residential snowball
 """
 
 import os
 import bisect
 import socket
 import struct
-import re
+import csv
 from collections import Counter
 
 ROOT = r"D:\DEpinFarm"
@@ -16,6 +16,7 @@ RES_RANGES_FILE = os.path.join(ROOT, "data", "residential_ranges.txt")
 MOB_RANGES_FILE = os.path.join(ROOT, "data", "mobile_ranges.txt")
 MASTER_POOL_FILE = os.path.join(ROOT, "master_pool.txt")
 MASTER_FAST_FILE = os.path.join(ROOT, "master_fast.txt")
+CACHE_FILE = os.path.join(ROOT, "data", "peeringdb_cache.tsv")
 OUT_TSV = os.path.join(ROOT, "master_pool_classified.tsv")
 OUT_SNOWBALL = os.path.join(ROOT, "ip", "rs_snowball.txt")
 
@@ -71,11 +72,19 @@ def load_asn_table():
     starts = [r[0] for r in rows]
     return rows, starts
 
-print("Loading ASN table and range files...")
+print("Loading ASN table, range files, and PeeringDB cache...")
 asn_rows, asn_starts = load_asn_table()
 res_intervals, res_starts = load_ranges(RES_RANGES_FILE)
 mob_intervals, mob_starts = load_ranges(MOB_RANGES_FILE)
-print(f"Loaded {len(asn_rows):,} ASN rows, {len(res_intervals):,} residential ranges, {len(mob_intervals):,} mobile ranges.")
+
+pdb_cache = {}
+if os.path.exists(CACHE_FILE):
+    with open(CACHE_FILE, "r", encoding="utf-8", errors="ignore") as f:
+        reader = csv.DictReader(f, delimiter="\t")
+        for row in reader:
+            pdb_cache[row["asn"]] = row
+
+print(f"Loaded {len(asn_rows):,} ASN rows, {len(res_intervals):,} residential ranges, {len(mob_intervals):,} mobile ranges, {len(pdb_cache):,} PeeringDB entries.")
 
 def lookup_asn(u):
     i = bisect.bisect_right(asn_starts, u) - 1
@@ -84,12 +93,6 @@ def lookup_asn(u):
     return "0", "UNKNOWN"
 
 DC_ASNS = {'54600', '21859', '53667'}
-
-RES_ASNS = {
-    '138089', '149360', '142393', '34984', '210976', '28458', '141071',
-    '45305', '263767', '38264', '58224', '32098', '21003', '202561', '135607', '23956',
-    '270075', '4788', '37403', '38511', '55685', '45700', '29873', '20001', '27951', '272405'
-}
 MOB_ASNS = {'63501', '58485'}
 
 DC_SUBS = [
@@ -126,32 +129,49 @@ ISP_SUBS = [
     'idnic', 'redes', 'kabel', 'satelit', 'starlink'
 ]
 
+TELCO_PATTERNS = [
+    'telecom', 'telefonica', 'telkom', 'telstra', 'vnpt', 'pldt', 'globe',
+    'frontier', 'superonline', 'total play', 'true internet', 'biznet'
+]
+
+def keyword_fallback(u, combined_name):
+    for dc in DC_SUBS:
+        if dc in combined_name:
+            return "DATACENTER"
+    if in_intervals(u, res_intervals, res_starts) or any(isp in combined_name for isp in ISP_SUBS):
+        return "RESIDENTIAL"
+    return "UNKNOWN"
+
 def classify(u, asn, asn_name):
     d = asn_name.lower()
     asn_num = str(asn).upper().replace("AS", "").strip()
     
-    # 1. Explicit ASNs
+    pdb_info = pdb_cache.get(asn_num, {})
+    info_type = pdb_info.get("info_type", "404")
+    pdb_name = (pdb_info.get("name", "") + " " + pdb_info.get("name_long", "")).lower()
+    combined_name = f"{d} {pdb_name}"
+
+    # 1. MOBILE takes precedence: mobile ranges or cellular keywords or explicit mobile ASNs
+    if asn_num in MOB_ASNS or in_intervals(u, mob_intervals, mob_starts) or any(m in combined_name for m in MOB_SUBS):
+        return "MOBILE"
+
+    # Explicit DC ASNs
     if asn_num in DC_ASNS:
         return "DATACENTER"
-    if asn_num in MOB_ASNS:
-        return "MOBILE"
-    if asn_num in RES_ASNS:
+
+    # 2. PeeringDB info_type classification
+    if info_type == "Cable/DSL/ISP":
         return "RESIDENTIAL"
-
-    # 2. Datacenter keywords
-    for dc in DC_SUBS:
-        if dc in d:
-            return "DATACENTER"
-
-    # 3. Mobile ranges / keywords
-    if in_intervals(u, mob_intervals, mob_starts) or any(m in d for m in MOB_SUBS):
-        return "MOBILE"
-
-    # 4. Residential ranges / ISP keywords
-    if in_intervals(u, res_intervals, res_starts) or any(isp in d for isp in ISP_SUBS):
-        return "RESIDENTIAL"
-
-    return "UNKNOWN"
+    elif info_type in ("Content", "Enterprise"):
+        return "DATACENTER"
+    elif info_type == "NSP":
+        if any(pat in combined_name for pat in TELCO_PATTERNS):
+            return "RESIDENTIAL"
+        else:
+            return "UNCERTAIN"
+    else:
+        # Not Disclosed, 404, or unlisted -> fall back to existing keyword rules
+        return keyword_fallback(u, combined_name)
 
 # Read master_fast.txt to identify FAST exits
 fast_exits = set()
@@ -228,15 +248,15 @@ for row in classified_rows:
 print("\n=== CLASSIFICATION SUMMARY ===")
 print(f"{'CLASS':<15} {'TOTAL':<10} {'FAST':<10} {'SLOW':<10}")
 print("-" * 45)
-for c in ["RESIDENTIAL", "MOBILE", "DATACENTER", "UNKNOWN"]:
+for c in ["RESIDENTIAL", "MOBILE", "DATACENTER", "UNCERTAIN", "UNKNOWN"]:
     print(f"{c:<15} {total_counts[c]:<10} {fast_counts[c]:<10} {slow_counts[c]:<10}")
 print("-" * 45)
 total_all = len(classified_rows)
-total_fast = len(fast_exits)
-total_slow = total_all - total_fast
+total_fast = sum(fast_counts.values())
+total_slow = sum(slow_counts.values())
 print(f"{'TOTAL':<15} {total_all:<10} {total_fast:<10} {total_slow:<10}")
 
-# STEP 3 - Build residential snowball
+# STEP 5 - Build residential snowball
 print("\nBuilding residential snowball from RESIDENTIAL exits...")
 snowball_targets = set()
 
