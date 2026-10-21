@@ -71,8 +71,21 @@ jobs:
         run: |
           ulimit -n 65535
           INPUT_FILE="${{ github.event.inputs.input_file || 'ip/pe_ips.txt' }}"
+          if [ -f "$INPUT_FILE" ]; then
+            REAL_INPUT="$INPUT_FILE"
+          elif [ -f "ip/$INPUT_FILE" ]; then
+            REAL_INPUT="ip/$INPUT_FILE"
+          else
+            echo "ERROR: input file $INPUT_FILE not found!"
+            exit 1
+          fi
+          
           SHARD_IDX=$(( ${{ matrix.shard }} - 1 ))
-          awk -v s="$SHARD_IDX" 'NR % 120 == s' "$INPUT_FILE" > /tmp/shard_slice.txt
+          if [[ "$REAL_INPUT" == *.gz ]]; then
+            gzip -dc "$REAL_INPUT" | awk -v s="$SHARD_IDX" 'NR % 120 == s' > /tmp/shard_slice.txt
+          else
+            awk -v s="$SHARD_IDX" 'NR % 120 == s' "$REAL_INPUT" > /tmp/shard_slice.txt
+          fi
           SLICE_COUNT=$(wc -l < /tmp/shard_slice.txt | tr -d ' ')
           
           if grep -q ":" /tmp/shard_slice.txt; then
@@ -125,10 +138,21 @@ jobs:
       - name: Run Merge and Generate Summary
         run: |
           INPUT_FILE="${{ github.event.inputs.input_file || 'ip/pe_ips.txt' }}"
-          if grep -q ":" "$INPUT_FILE"; then
-            TOTAL_LINES_IN=$(wc -l < "$INPUT_FILE" | tr -d ' ')
+          if [ -f "$INPUT_FILE" ]; then
+            REAL_INPUT="$INPUT_FILE"
+          elif [ -f "ip/$INPUT_FILE" ]; then
+            REAL_INPUT="ip/$INPUT_FILE"
           else
-            TOTAL_IPS=$(wc -l < "$INPUT_FILE" | tr -d ' ')
+            echo "ERROR: input file $INPUT_FILE not found!"
+            exit 1
+          fi
+          
+          if [[ "$REAL_INPUT" == *.gz ]]; then
+            TOTAL_LINES_IN=$(gzip -dc "$REAL_INPUT" | wc -l | tr -d ' ')
+          elif grep -q ":" "$REAL_INPUT"; then
+            TOTAL_LINES_IN=$(wc -l < "$REAL_INPUT" | tr -d ' ')
+          else
+            TOTAL_IPS=$(wc -l < "$REAL_INPUT" | tr -d ' ')
             TOTAL_PORTS=$(wc -l < ip/pe_ports.txt | tr -d ' ')
             TOTAL_LINES_IN=$(( TOTAL_IPS * TOTAL_PORTS ))
           fi

@@ -1,0 +1,6 @@
+file	composition_tag	raw_lines	deduped_lines	deduped_file
+harvest_px.txt	list-derived	13208615	13034896	dedup_harvest_px.txt
+cand.txt	list-derived	5883221	1879040	dedup_cand.txt
+raw_all.txt	list-derived	4252935	2685428	dedup_raw_all.txt
+harvest_uniq.txt	scan-derived	22635085	8364683	dedup_harvest_uniq.txt
+scan_r2.txt	scan-derived	11925252	931033	dedup_scan_r2.txt
