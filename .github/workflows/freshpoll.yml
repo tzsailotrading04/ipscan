@@ -12,6 +12,10 @@ permissions:
   actions: read
   contents: read
 
+concurrency:
+  group: freshpoll_${{ github.repository }}
+  cancel-in-progress: false
+
 jobs:
   poll:
     runs-on: ubuntu-latest
@@ -32,7 +36,7 @@ jobs:
 
           touch pool_fresh_live.txt seen.txt
           if [ ! -s source_yield.tsv ]; then
-            printf "cycle\ttimestamp\tsource\tfetched\tnew_tested\tlive\tyield_pct\n" > source_yield.tsv
+            printf "cycle\ttimestamp\tsource\tfetched\tnew_lines\tlive\n" > source_yield.tsv
           fi
 
           # Attempt to pull state from the most recent previous freshpoll run via GitHub API
@@ -113,20 +117,23 @@ jobs:
           echo "CYCLE=$CYCLE" >> "$GITHUB_ENV"
           TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-          # Identify sources under 0.5% cumulative yield after 3+ cycles
+          # Keep a source unless it contributes 0 new lines across 5 consecutive cycles
           awk -F'\t' '
             NR > 1 {
               src = $3
+              nl = $5 + 0
+              hist[src] = hist[src] "," nl
               cycles[src]++
-              fetched[src] += $4
-              tested[src] += $5
-              live[src] += $6
             }
             END {
               for (s in cycles) {
-                if (cycles[s] >= 3) {
-                  denom = (tested[s] > 0) ? tested[s] : fetched[s]
-                  if (denom > 0 && (100.0 * live[s] / denom) < 0.5) {
+                if (cycles[s] >= 5) {
+                  n = split(hist[s], arr, ",")
+                  zeroes = 0
+                  for (i = n; i > n - 5; i--) {
+                    if (arr[i] == "0") zeroes++
+                  }
+                  if (zeroes == 5) {
                     print s
                   }
                 }
@@ -172,7 +179,7 @@ jobs:
           FAST_CYCLE=$(awk '$3+0 < 1000 && $4+0 >= 300 { c++ } END { print c+0 }' /tmp/live_batch.txt)
           SLOW_CYCLE=$(( LIVE_CYCLE - FAST_CYCLE ))
 
-          # Update source_yield.tsv per source
+          # Update source_yield.tsv per source (record new-line contribution, no yield percentage)
           awk '
             FILENAME == "/tmp/new_batch.txt" { is_new[$1]=1; next }
             FILENAME == "pool_fresh_live.txt" { is_live[$1]=1; next }
@@ -187,9 +194,7 @@ jobs:
                 if (line in is_live) lv++
               }
               close(sf)
-              denom = (fc > 0) ? fc : 1
-              ypct = (fc > 0) ? (100.0 * lv / fc) : 0.0
-              printf "%d\t%s\t%s\t%d\t%d\t%d\t%.3f\n", cycle, ts, url, fc, nt, lv, ypct
+              printf "%d\t%s\t%s\t%d\t%d\t%d\n", cycle, ts, url, fc, nt, lv
             }
           ' cycle="$CYCLE" ts="$TS" /tmp/new_batch.txt pool_fresh_live.txt /tmp/active_sources.tsv >> source_yield.tsv
 
@@ -552,3 +557,6 @@ jobs:
           path: source_yield.tsv
           retention-days: 3
           overwrite: true
+concurrency:
+  group: freshpoll
+  cancel-in-progress: false

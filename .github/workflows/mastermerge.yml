@@ -1,0 +1,82 @@
+name: mastermerge
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch all latest pools from both accounts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          mkdir -p ghart/freshpoll/Thazuala04 ghart/freshpoll/tzsailotrading04
+          mkdir -p ghart/cloudtest/Thazuala04 ghart/cloudtest/tzsailotrading04
+
+          download_latest_art() {
+            local owner="$1"
+            local wf="$2"
+            local art_name="$3"
+            local out_dir="$4"
+
+            echo "Finding latest $art_name from $owner/$wf ..."
+            set +e
+            local runs_json=$(curl -sSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${owner}/ipscan/actions/workflows/${wf}/runs?per_page=10" 2>/dev/null)
+            local run_ids=$(echo "$runs_json" | jq -r '.workflow_runs[]? | .id' 2>/dev/null)
+
+            for rid in $run_ids; do
+              local arts_json=$(curl -sSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${owner}/ipscan/actions/runs/${rid}/artifacts?per_page=100" 2>/dev/null)
+              local art_id=$(echo "$arts_json" | jq -r --arg an "$art_name" '.artifacts[]? | select(.name==$an and .expired==false) | .id' 2>/dev/null | head -n1)
+              if [ -n "$art_id" ] && [ "$art_id" != "null" ]; then
+                echo "Downloading $art_name (id $art_id) from run $rid into $out_dir ..."
+                curl -sSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" \
+                  "https://api.github.com/repos/${owner}/ipscan/actions/artifacts/${art_id}/zip" -o /tmp/art.zip
+                unzip -o -q /tmp/art.zip -d "$out_dir" || true
+                rm -f /tmp/art.zip
+                break
+              fi
+            done
+            set -e
+          }
+
+          download_latest_art "Thazuala04" "freshpoll.yml" "pool_fresh_live" "ghart/freshpoll/Thazuala04"
+          download_latest_art "tzsailotrading04" "freshpoll.yml" "pool_fresh_live" "ghart/freshpoll/tzsailotrading04"
+          download_latest_art "Thazuala04" "cloudtest.yml" "cloudtest_merged" "ghart/cloudtest/Thazuala04"
+          download_latest_art "tzsailotrading04" "cloudtest.yml" "cloudtest_merged" "ghart/cloudtest/tzsailotrading04"
+
+      - name: Run Master Merge
+        run: |
+          chmod +x tools/merge_master.sh
+          bash tools/merge_master.sh .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: master_pool
+          path: master_pool.txt
+          retention-days: 7
+          overwrite: true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: master_fast
+          path: master_fast.txt
+          retention-days: 7
+          overwrite: true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: master_summary
+          path: master_summary.txt
+          retention-days: 7
+          overwrite: true
