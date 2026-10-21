@@ -43,22 +43,24 @@ jobs:
         if: matrix.shard == 1
         run: |
           ulimit -n 65535
-          if [ -f "ip/pub.txt" ]; then
-            echo "Running control verification against ip/pub.txt ..."
-            ./petester ip/pub.txt /tmp/pub_live.txt
-            TOT=$(wc -l < ip/pub.txt | tr -d ' ')
-            LIVE=$(wc -l < /tmp/pub_live.txt | tr -d ' ')
-            RATE=$(awk -v l="$LIVE" -v t="$TOT" 'BEGIN { printf "%.2f", 100.0 * l / t }')
-            echo "Control score: $LIVE / $TOT ($RATE%)"
-            # Pub score is ~6.3%, accept 4.5% - 8.5%
-            awk -v r="$RATE" 'BEGIN {
-              if (r < 4.5 || r > 8.5) {
-                print "ERROR: Control check failed, rate outside ~6.3%: " r "%";
-                exit 1;
-              }
-              print "Control check passed: " r "%";
-            }'
+          if [ ! -f "ip/pub.txt" ]; then
+            echo "ERROR: ip/pub.txt not found!"
+            exit 1
           fi
+          echo "Running control verification against ip/pub.txt ..."
+          ./petester ip/pub.txt /tmp/pub_live.txt
+          TOT=$(wc -l < ip/pub.txt | tr -d ' ')
+          LIVE=$(wc -l < /tmp/pub_live.txt | tr -d ' ')
+          RATE=$(awk -v l="$LIVE" -v t="$TOT" 'BEGIN { printf "%.2f", 100.0 * l / t }')
+          echo "CONTROL REPORT: Live=$LIVE / Total=$TOT ($RATE%)"
+          echo "Expected: ~143/2266 (~6.3%)"
+          awk -v l="$LIVE" -v t="$TOT" -v r="$RATE" 'BEGIN {
+            if (r < 4.5 || r > 8.5) {
+              print "ERROR: Control check failed! Count " l "/" t " (" r "%) is outside expected ~6.3%";
+              exit 1;
+            }
+            print "Control check passed: " l "/" t " (" r "%)";
+          }'
 
       - name: Expand slice and test
         run: |
