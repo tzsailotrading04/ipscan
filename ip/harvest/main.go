@@ -112,6 +112,102 @@ func probe(addr string, dialTO, readTO time.Duration) (bool, string) {
 	return true, s
 }
 
+func probeSOCKS5(addr string, dialTO, readTO time.Duration) (bool, string) {
+	tDial0 := time.Now()
+	d := net.Dialer{Timeout: dialTO}
+	conn, err := d.Dial("tcp", addr)
+	dialDuration := time.Since(tDial0)
+	atomic.AddInt64(&totalDialMs, dialDuration.Milliseconds())
+	atomic.AddInt64(&totalDials, 1)
+	if err != nil {
+		return false, ""
+	}
+	if tcp, ok := conn.(*net.TCPConn); ok {
+		tcp.SetLinger(0)
+	} else {
+		fmt.Println("LINGER_FAIL: conn is not *net.TCPConn")
+	}
+	defer conn.Close()
+
+	tRead0 := time.Now()
+	defer func() {
+		readDuration := time.Since(tRead0)
+		atomic.AddInt64(&totalReadMs, readDuration.Milliseconds())
+		atomic.AddInt64(&totalReads, 1)
+	}()
+
+	conn.SetDeadline(time.Now().Add(readTO))
+
+	// greeting: ver=5, 1 method, no-auth
+	if _, err := conn.Write([]byte{0x05, 0x01, 0x00}); err != nil {
+		return false, ""
+	}
+	greet := make([]byte, 2)
+	if _, err := io.ReadFull(conn, greet); err != nil {
+		return false, ""
+	}
+	if greet[0] != 0x05 || greet[1] != 0x00 {
+		return false, "" // 0xFF = needs auth
+	}
+
+	// CONNECT api.ipify.org:80
+	host := "api.ipify.org"
+	req := []byte{0x05, 0x01, 0x00, 0x03, byte(len(host))}
+	req = append(req, []byte(host)...)
+	req = append(req, 0x00, 0x50)
+	if _, err := conn.Write(req); err != nil {
+		return false, ""
+	}
+
+	head := make([]byte, 4)
+	if _, err := io.ReadFull(conn, head); err != nil {
+		return false, ""
+	}
+	if head[1] != 0x00 {
+		return false, ""
+	}
+	var skip int
+	switch head[3] {
+	case 0x01:
+		skip = 4
+	case 0x03:
+		b := make([]byte, 1)
+		if _, err := io.ReadFull(conn, b); err != nil {
+			return false, ""
+		}
+		skip = int(b[0])
+	case 0x04:
+		skip = 16
+	default:
+		return false, ""
+	}
+	if _, err := io.ReadFull(conn, make([]byte, skip+2)); err != nil {
+		return false, ""
+	}
+
+	conn.Write([]byte("GET / HTTP/1.0\r\nHost: api.ipify.org\r\n\r\n"))
+	br := bufio.NewReaderSize(conn, 512)
+	st, err := br.ReadString('\n')
+	if err != nil || !strings.Contains(st, " 200") {
+		return false, ""
+	}
+	for {
+		l, err := br.ReadString('\n')
+		if err != nil {
+			return false, ""
+		}
+		if l == "\r\n" || l == "\n" {
+			break
+		}
+	}
+	body, _ := io.ReadAll(io.LimitReader(br, 64))
+	s := strings.TrimSpace(string(body))
+	if net.ParseIP(s) == nil {
+		return false, ""
+	}
+	return true, s
+}
+
 func parse(line string) string {
 	s := line
 	if i := strings.Index(s, "://"); i >= 0 {
@@ -193,6 +289,17 @@ func main() {
 		}
 	}
 
+	proto := "http"
+	if p := os.Getenv("PROTO"); p != "" {
+		proto = strings.ToLower(p)
+	}
+	if len(os.Args) >= 6 && (strings.ToLower(os.Args[5]) == "socks5" || strings.ToLower(os.Args[5]) == "http") {
+		proto = strings.ToLower(os.Args[5])
+	}
+	if len(os.Args) >= 7 {
+		proto = strings.ToLower(os.Args[6])
+	}
+
 	wArg, dArg, rArg := "24000", "500", "15000"
 	if len(os.Args) >= 4 {
 		wArg = os.Args[3]
@@ -203,7 +310,7 @@ func main() {
 	if len(os.Args) >= 6 {
 		rArg = os.Args[5]
 	}
-	fmt.Printf("ARGS workers=%s dial=%s read=%s\n", wArg, dArg, rArg)
+	fmt.Printf("ARGS workers=%s dial=%s read=%s proto=%s\n", wArg, dArg, rArg, proto)
 
 	// Sample sockstat and goroutines concurrently during execution
 	var maxInuse int
@@ -247,7 +354,13 @@ func main() {
 				return
 			}
 			t0 := time.Now()
-			ok, exit := probe(addr, dialTO, deadline)
+			var ok bool
+			var exit string
+			if proto == "socks5" {
+				ok, exit = probeSOCKS5(addr, dialTO, deadline)
+			} else {
+				ok, exit = probe(addr, dialTO, deadline)
+			}
 			if !ok || exit == "" {
 				return
 			}
