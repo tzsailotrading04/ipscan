@@ -42,7 +42,9 @@ func probe(addr string, dialTO, readTO time.Duration) (bool, string) {
 		return false, ""
 	}
 	if tcp, ok := conn.(*net.TCPConn); ok {
-		tcp.SetLinger(0) // RST on close -> NO TIME_WAIT. critical.
+		tcp.SetLinger(0)
+	} else {
+		fmt.Println("LINGER_FAIL: conn is not *net.TCPConn")
 	}
 	defer conn.Close()
 
