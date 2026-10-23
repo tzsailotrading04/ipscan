@@ -16,3 +16,11 @@ seen.txt
 ip/kaggle_v5_targets.txt
 kaggle/acct1/
 kaggle/acct2/
+kaggle/targets_dataset/
+
+kaggle/backlog/
+kaggle/dialtest_out/
+kaggle/snowball/
+kaggle/out*/
+kaggle/acct*out*/
+kaggle/acct*/access_token
