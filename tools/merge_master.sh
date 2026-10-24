@@ -60,6 +60,12 @@ find . -type f \( -name "pool_cloud.txt" -o -name "pool_cloud_*.txt" \) 2>/dev/n
   echo "Loaded $f: $(wc -l < "$f" | tr -d ' ') rows"
 done
 
+# 4. Kaggle fleet hits
+find hits -type f -name "hits_*.txt" 2>/dev/null | while read -r f; do
+  normalize_line "kaggle_fleet" "$f"
+  echo "Loaded $f: $(wc -l < "$f" | tr -d ' ') rows"
+done
+
 TOTAL_TAGGED=$(wc -l < "$TAGGED" | tr -d ' ')
 echo "Total raw records collected across all pools: $TOTAL_TAGGED"
 

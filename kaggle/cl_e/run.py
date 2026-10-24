@@ -117,17 +117,12 @@ def main():
             if c:
                 cidrs.append(c)
 
-    # STEP 2 Arithmetic
-    P = len(ports)
-    N = len(cidrs)
-    ROUNDS = 10
-    total_units = P * N
-    units_per_round = total_units // ROUNDS
-    slice_size = units_per_round // 20
-    my_start = round_val * units_per_round + SLICE_IDX * slice_size
-    my_end = my_start + slice_size - 1
+    # Disjoint slices: 867,515 CIDRs / 20 kernels = 43,376 per kernel
+    SLICE_SIZE = 43376
+    my_start = SLICE_IDX * SLICE_SIZE
+    my_end = min((SLICE_IDX + 1) * SLICE_SIZE - 1, len(cidrs) - 1)
 
-    log(f"SLICE {SLICE_IDX} ROUND {round_val} START {my_start} END {my_end}")
+    log(f"SLICE {SLICE_IDX} BOUNDS [{my_start}, {my_end}] COUNT {my_end - my_start + 1}")
 
     # Control targets
     control_file = os.path.join(repo_dir, "ip", "control_fresh.txt")
@@ -189,19 +184,17 @@ def main():
                 time.sleep(3)
 
     # 4. WORK-LOOP: chunk into ~2,000,000 targets per chunk
-    cur_idx = my_start
+    cur_cidr_idx = my_start
+    chunk_counter = 0
     is_first_chunk = True
 
-    while cur_idx <= my_end:
+    while cur_cidr_idx <= my_end:
         elapsed_total = time.time() - START_TIME
         if elapsed_total >= HARD_STOP_SECS:
             log(f"HARD_STOP reached at {elapsed_total:.0f}s. Final checkpoint...")
             break
 
-        cur_port_idx = cur_idx // N
-        if cur_port_idx >= P:
-            break
-        cur_port = ports[cur_port_idx]
+        cur_port = ports[chunk_counter % len(ports)]
         cur_proto = "socks5" if cur_port in SOCKS_PORTS else "http"
         cur_dial_ms = 750
         cur_read_ms = 30000 if cur_proto == "socks5" else 8000
@@ -209,27 +202,20 @@ def main():
         chunk_cidrs = []
         chunk_target_count = 0
 
-        while cur_idx <= my_end:
-            p_idx = cur_idx // N
-            if p_idx >= P:
-                break
-            p = ports[p_idx]
-            proto = "socks5" if p in SOCKS_PORTS else "http"
-            if p != cur_port or proto != cur_proto:
-                break
-
-            c = cidrs[cur_idx % N]
+        while cur_cidr_idx <= my_end:
+            c = cidrs[cur_cidr_idx]
             try:
                 num = ipaddress.IPv4Network(c).num_addresses
                 chunk_cidrs.append(c)
                 chunk_target_count += num
-                cur_idx += 1
+                cur_cidr_idx += 1
                 if chunk_target_count >= 2000000:
                     break
             except Exception:
-                cur_idx += 1
+                cur_cidr_idx += 1
 
         if not chunk_cidrs:
+            cur_cidr_idx = my_start
             continue
 
         target_file = os.path.join(working_dir, f"t_{SLICE_IDX}.txt")
@@ -367,6 +353,7 @@ def main():
 
         log(f"CHUNK src={SLICE_IDX} round={round_val} port={cur_port} targets={pure_targets} alive={chunk_alive} rate={rate}/s time={elapsed_chunk:.1f}s")
         push_hits_to_repo(force=False)
+        chunk_counter += 1
 
     # FINAL EXIT
     push_hits_to_repo(force=True)
