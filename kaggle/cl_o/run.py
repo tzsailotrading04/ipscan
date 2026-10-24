@@ -20,9 +20,14 @@ SOCKS_PORTS = {"1080", "1081", "1082", "1083", "1085", "1086", "1088", "1090", "
 def log(msg):
     print(msg, flush=True)
 
+def git_sync(repo_dir):
+    subprocess.run(["git", "fetch", "origin", "main"], cwd=repo_dir, check=False)
+    r = subprocess.run(["git", "reset", "--hard", "origin/main"], cwd=repo_dir, check=False)
+    return r.returncode == 0
+
 def main():
     log("=" * 60)
-    log(f"STARTING V69 RUN: SLICE={SLICE_IDX} KERNEL={KERNEL_SLUG}")
+    log(f"STARTING V70 RUN: SLICE={SLICE_IDX} KERNEL={KERNEL_SLUG}")
     log("=" * 60)
 
     # 1. STEP: probe environment
@@ -59,10 +64,11 @@ def main():
             os.environ["PATH"] = "/usr/local/go/bin:" + os.environ.get("PATH", "")
             go_bin = "/usr/local/go/bin/go"
 
-    # Clone repo with token
-    log("STEP: git clone / pull repo")
+    # Clone or hard sync repo with token
+    log("STEP: git clone / sync repo")
     if os.path.exists(repo_dir):
-        subprocess.run(["git", "-C", repo_dir, "pull"], check=False)
+        if not git_sync(repo_dir):
+            log("GIT_SYNC_FAIL")
     else:
         subprocess.run(["git", "clone", "--depth", "1", REPO_URL, repo_dir], check=True)
 
@@ -157,14 +163,13 @@ def main():
 
         for attempt in range(5):
             try:
-                subprocess.run(["git", "-C", repo_dir, "pull", "--rebase", "origin", "main"], capture_output=True, check=False)
                 repo_hits_dir = os.path.join(repo_dir, "hits")
                 os.makedirs(repo_hits_dir, exist_ok=True)
                 dest = os.path.join(repo_hits_dir, f"hits_{SLICE_IDX}.txt")
                 shutil.copy2(hits_local, dest)
-                subprocess.run(["git", "-C", repo_dir, "add", f"hits/hits_{SLICE_IDX}.txt"], check=True)
-                subprocess.run(["git", "-C", repo_dir, "commit", "-m", f"update hits_{SLICE_IDX} at {int(now)}"], capture_output=True, check=False)
-                r = subprocess.run(["git", "-C", repo_dir, "push", "origin", "main"], capture_output=True, text=True)
+                subprocess.run(["git", "add", f"hits/hits_{SLICE_IDX}.txt"], cwd=repo_dir, check=True)
+                subprocess.run(["git", "commit", "-m", f"update hits_{SLICE_IDX} at {int(now)}"], cwd=repo_dir, capture_output=True, check=False)
+                r = subprocess.run(["git", "push", "origin", "main"], cwd=repo_dir, capture_output=True, text=True)
                 if r.returncode == 0:
                     log(f"GIT_PUSH_OK {SLICE_IDX}")
                     last_git_push = now
@@ -199,6 +204,13 @@ def main():
         if elapsed_total >= HARD_STOP_SECS:
             log(f"HARD_STOP reached at {elapsed_total:.0f}s. Final checkpoint...")
             break
+
+        # Hard sync to origin/main before starting pass
+        if not git_sync(repo_dir):
+            log("GIT_SYNC_FAIL")
+            time.sleep(10)
+            continue
+        log("GIT_SYNC_OK")
 
         cur_port = port_cycle[pass_counter % len(port_cycle)]
         cur_proto = "socks5" if cur_port in SOCKS_PORTS else "http"
