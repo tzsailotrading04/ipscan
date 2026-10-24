@@ -270,84 +270,38 @@ def main():
                 log("DBG target_head_fail " + str(e))
 
         if is_first_chunk:
-            def _run_arm(arm_name, dial_ms):
-                log(f"[{arm_name}] START WARMUP dial={dial_ms}")
-                warmup_target = os.path.join(working_dir, f"warmup_{arm_name}.txt")
+            try:
+                warmup_target = os.path.join(working_dir, "warmup_targets.txt")
                 with open(target_file, "r", encoding="utf-8", errors="ignore") as tf_in, \
                      open(warmup_target, "w", encoding="utf-8", newline="\n") as tf_out:
                     for idx, line in enumerate(tf_in):
                         if idx >= 50000:
                             break
                         tf_out.write(line)
-                warmup_devnull = "/dev/null" if os.name != "nt" else os.path.join(working_dir, f"warmup_{arm_name}_null.txt")
-                cmd_warmup = [harvest_bin, warmup_target, warmup_devnull, "24000", str(dial_ms), "8000", cur_proto]
-                env_w = os.environ.copy()
-                env_w["CONCURRENCY"] = "24000"
-                env_w["DIAL_TIMEOUT_MS"] = str(dial_ms)
-                env_w["READ_TIMEOUT_MS"] = "8000"
-                env_w["PROTO"] = cur_proto
-                subprocess.run(cmd_warmup, env=env_w, check=False)
+                warmup_devnull = "/dev/null" if os.name != "nt" else os.path.join(working_dir, "warmup_null.txt")
+                cmd_warmup = [
+                    harvest_bin,
+                    warmup_target,
+                    warmup_devnull,
+                    "24000",
+                    str(cur_dial_ms),
+                    str(cur_read_ms),
+                    cur_proto
+                ]
+                env_warmup = os.environ.copy()
+                env_warmup["CONCURRENCY"] = "24000"
+                env_warmup["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
+                env_warmup["READ_TIMEOUT_MS"] = str(cur_read_ms)
+                env_warmup["PROTO"] = cur_proto
+                subprocess.run(cmd_warmup, env=env_warmup, check=False)
                 try:
                     if os.path.exists(warmup_target):
                         os.remove(warmup_target)
                 except Exception:
                     pass
-                log(f"[{arm_name}] WARMUP_DONE")
-
-                log(f"[{arm_name}] START REAL SCAN dial={dial_ms}")
-                arm_out = os.path.join(working_dir, f"out_{arm_name}.txt")
-                if os.path.exists(arm_out):
-                    os.remove(arm_out)
-                cmd_arm = [harvest_bin, target_file, arm_out, "24000", str(dial_ms), "8000", cur_proto]
-                env_arm = os.environ.copy()
-                env_arm["CONCURRENCY"] = "24000"
-                env_arm["DIAL_TIMEOUT_MS"] = str(dial_ms)
-                env_arm["READ_TIMEOUT_MS"] = "8000"
-                env_arm["PROTO"] = cur_proto
-
-                t0 = time.time()
-                proc = subprocess.Popen(cmd_arm, env=env_arm, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
-                for line in proc.stdout:
-                    l = line.strip()
-                    if l.startswith("ARGS") or "error" in l.lower():
-                        log(f"  [{arm_name}] {l}")
-                proc.wait()
-                dt = time.time() - t0
-
-                ca = 0
-                cfa = 0
-                ch_alive = 0
-                if os.path.exists(arm_out):
-                    with open(arm_out, "r", encoding="utf-8", errors="ignore") as f:
-                        for line in f:
-                            l = line.strip()
-                            if not l:
-                                continue
-                            addr = l.split()[0]
-                            if addr in ctrl_set_fast:
-                                cfa += 1
-                            if addr in control_set:
-                                ca += 1
-                            else:
-                                ch_alive += 1
-                    try:
-                        os.remove(arm_out)
-                    except Exception:
-                        pass
-
-                pure_t = chunk_target_count
-                rate = int(pure_t / dt) if dt > 0 else 0
-                log(f"{arm_name}_DONE dial={dial_ms} control_alive={ca}/{len(control_targets)} ctrl_fast_alive={cfa}/{len(ctrl_set_fast)} chunk_alive={ch_alive} rate={rate}/s time={dt:.1f}s")
-                return ca, cfa, rate, dt
-
-            ca_a, cfa_a, rate_a, dt_a = _run_arm("ARM_A", 750)
-            ca_b, cfa_b, rate_b, dt_b = _run_arm("ARM_B", 1500)
-            log("=" * 60)
-            log(f"SUMMARY ARM_A (dial=750):  control_alive={ca_a}/{len(control_targets)} ctrl_fast_alive={cfa_a}/{len(ctrl_set_fast)} rate={rate_a}/s time={dt_a:.1f}s")
-            log(f"SUMMARY ARM_B (dial=1500): control_alive={ca_b}/{len(control_targets)} ctrl_fast_alive={cfa_b}/{len(ctrl_set_fast)} rate={rate_b}/s time={dt_b:.1f}s")
-            log("=" * 60)
-            log("AB_TEST_COMPLETE")
-            sys.exit(0)
+                log("WARMUP_DONE")
+            except Exception as e:
+                log(f"WARMUP_ERR: {e}")
 
         # Execute scanner
         cmd = [

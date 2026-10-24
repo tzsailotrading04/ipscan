@@ -15,7 +15,7 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 START_TIME = time.time()
 HARD_STOP_SECS = 10 * 3600  # 10 hours
 
-SOCKS_PORTS = {"1080", "1081", "1082", "1085", "1086", "1088", "1090", "4145", "9050", "9150", "10809", "10909"}
+SOCKS_PORTS = {"1080", "1081", "1082", "1083", "1088", "10801", "10808", "10809", "4145", "4153", "2080", "9050"}
 
 def log(msg):
     print(msg, flush=True)
@@ -120,7 +120,7 @@ def main():
     # STEP 2 Arithmetic
     P = len(ports)
     N = len(cidrs)
-    ROUNDS = 28
+    ROUNDS = 10
     total_units = P * N
     units_per_round = total_units // ROUNDS
     slice_size = units_per_round // 20
@@ -253,6 +253,40 @@ def main():
                         written_count += 1
                 except Exception:
                     pass
+
+        if is_first_chunk:
+            try:
+                warmup_target = os.path.join(working_dir, "warmup_targets.txt")
+                with open(target_file, "r", encoding="utf-8", errors="ignore") as tf_in, \
+                     open(warmup_target, "w", encoding="utf-8", newline="\n") as tf_out:
+                    for idx, line in enumerate(tf_in):
+                        if idx >= 50000:
+                            break
+                        tf_out.write(line)
+                warmup_devnull = "/dev/null" if os.name != "nt" else os.path.join(working_dir, "warmup_null.txt")
+                cmd_warmup = [
+                    harvest_bin,
+                    warmup_target,
+                    warmup_devnull,
+                    "24000",
+                    str(cur_dial_ms),
+                    str(cur_read_ms),
+                    cur_proto
+                ]
+                env_warmup = os.environ.copy()
+                env_warmup["CONCURRENCY"] = "24000"
+                env_warmup["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
+                env_warmup["READ_TIMEOUT_MS"] = str(cur_read_ms)
+                env_warmup["PROTO"] = cur_proto
+                subprocess.run(cmd_warmup, env=env_warmup, check=False)
+                try:
+                    if os.path.exists(warmup_target):
+                        os.remove(warmup_target)
+                except Exception:
+                    pass
+                log("WARMUP_DONE")
+            except Exception as e:
+                log(f"WARMUP_ERR: {e}")
 
         # Execute scanner
         cmd = [
