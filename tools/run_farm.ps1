@@ -1,3 +1,6 @@
+# AUTO-PUSH DISABLED FOR v71 ROLLOUT
+exit 0
+
 $root = "D:\DEpinFarm"
 $ROUNDS = 28
 function L($m){ "$(Get-Date -f 'yyyy-MM-dd HH:mm:ss') $m" | Add-Content "$root\work\farm.log" }
@@ -7,6 +10,7 @@ $accounts = @(
   @{a='acct2'; u='zomuanpuia';       k=@('c','d','j','k','l')},
   @{a='acct3'; u='laldinthari';      k=@('e','f','m','n','o')},
   @{a='acct4'; u='lalsangkima';      k=@('p','q','r','s','t')},
+  @{a='acct6'; u='spectatorlone';    k=@('u','v','w','x','y')},
   @{a='acct5'; u='remruata';         k=@('verify','merge')}
 )
 

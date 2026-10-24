@@ -71,18 +71,25 @@ def main():
     other_cidrs = [c for c in cidrs if c not in prod_set and c not in hosting_set]
     print(f"Found {len(other_cidrs)} other CIDRs.", flush=True)
 
-    num_slices = 20
+    slices_file = os.path.join(ROOT, "work", "slices.txt")
+    num_slices = 25
+    if os.path.exists(slices_file):
+        try:
+            num_slices = int(open(slices_file, "r", encoding="utf-8").read().strip())
+        except Exception:
+            num_slices = 25
+    print(f"Distributing across {num_slices} slices...", flush=True)
     slices = [[] for _ in range(num_slices)]
 
-    # 1. Round-robin productive CIDRs across 20 slices
+    # 1. Round-robin productive CIDRs across slices
     for i, c in enumerate(prod_cidrs):
         slices[i % num_slices].append(c)
 
-    # 2. Round-robin hosting CIDRs across 20 slices
+    # 2. Round-robin hosting CIDRs across slices
     for i, c in enumerate(hosting_cidrs):
         slices[i % num_slices].append(c)
 
-    # 3. Round-robin other CIDRs across 20 slices
+    # 3. Round-robin other CIDRs across slices
     for i, c in enumerate(other_cidrs):
         slices[i % num_slices].append(c)
 

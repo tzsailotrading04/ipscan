@@ -115,12 +115,20 @@ def main():
             if c:
                 cidrs.append(c)
 
-    # Disjoint slices: 867,515 CIDRs / 20 kernels = 43,376 per kernel
-    SLICE_SIZE = 43376
-    my_start = SLICE_IDX * SLICE_SIZE
-    my_end = min((SLICE_IDX + 1) * SLICE_SIZE - 1, len(cidrs) - 1)
+    # Disjoint slices: dynamic based on work/slices.txt (e.g. 25 kernels = 34,700 per kernel)
+    slices_file = os.path.join(repo_dir, "work", "slices.txt")
+    total_slices = 25
+    if os.path.exists(slices_file):
+        try:
+            total_slices = int(open(slices_file, "r", encoding="utf-8").read().strip())
+        except Exception:
+            total_slices = 25
 
-    log(f"SLICE {SLICE_IDX} BOUNDS [{my_start}, {my_end}] COUNT {my_end - my_start + 1}")
+    slice_size = len(cidrs) // total_slices
+    my_start = SLICE_IDX * slice_size
+    my_end = min((SLICE_IDX + 1) * slice_size - 1, len(cidrs) - 1) if SLICE_IDX < total_slices - 1 else len(cidrs) - 1
+
+    log(f"SLICE {SLICE_IDX}/{total_slices} BOUNDS [{my_start}, {my_end}] COUNT {my_end - my_start + 1}")
 
     # Control targets
     control_file = os.path.join(repo_dir, "ip", "control_fresh.txt")

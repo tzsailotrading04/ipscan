@@ -32,12 +32,19 @@ NOTEBOOK_ASSIGNMENTS = [
     ("acct4", "lalsangkima", "r", 17),
     ("acct4", "lalsangkima", "s", 18),
     ("acct4", "lalsangkima", "t", 19),
+
+    # acct6 (spectatorlone)
+    ("acct6", "spectatorlone", "u", 20),
+    ("acct6", "spectatorlone", "v", 21),
+    ("acct6", "spectatorlone", "w", 22),
+    ("acct6", "spectatorlone", "x", 23),
+    ("acct6", "spectatorlone", "y", 24),
 ]
 
 def main():
     template_code = open(TEMPLATE_PATH, "r", encoding="utf-8").read()
 
-    print("Generating 20 kernel directories...", flush=True)
+    print("Generating 25 kernel directories...", flush=True)
     count = 0
 
     for acct, user, letter, slice_idx in NOTEBOOK_ASSIGNMENTS:
