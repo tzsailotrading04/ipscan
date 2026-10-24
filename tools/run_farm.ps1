@@ -1,6 +1,3 @@
-# AUTO-PUSH DISABLED FOR v71 ROLLOUT
-exit 0
-
 $root = "D:\DEpinFarm"
 $ROUNDS = 28
 function L($m){ "$(Get-Date -f 'yyyy-MM-dd HH:mm:ss') $m" | Add-Content "$root\work\farm.log" }
@@ -11,7 +8,7 @@ $accounts = @(
   @{a='acct3'; u='laldinthari';      k=@('e','f','m','n','o')},
   @{a='acct4'; u='lalsangkima';      k=@('p','q','r','s','t')},
   @{a='acct6'; u='spectatorlone';    k=@('u','v','w','x','y')},
-  @{a='acct5'; u='remruata';         k=@('verify','merge')}
+  @{a='acct5'; u='remruata';         k=@('verify','merge','z','aa')}
 )
 
 $round = [int](Get-Content "$root\work\round.txt")
@@ -32,7 +29,15 @@ foreach ($acct in $accounts) {
     }
 
     $raw = $st -replace '[\r\n]+', ' '
-    if ($st -notmatch 'COMPLETE|ERROR|CANCEL|FAILED|CANCEL_ACKNOWLEDGED') {
+
+    # GUARD: NEVER push a running or queued kernel (prevents zombie + slot burn)
+    if ($st -match 'RUNNING|QUEUED') {
+      L "SKIP $slug (RUNNING/QUEUED: $raw)"
+      continue
+    }
+
+    # Only push if COMPLETE, absent (404/not found), ERROR, or CANCELLED
+    if ($st -notmatch 'COMPLETE|ERROR|CANCEL|FAILED|CANCEL_ACKNOWLEDGED|404|not found') {
       L "SKIP $slug ($raw)"
       continue
     }
