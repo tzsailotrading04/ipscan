@@ -6,7 +6,8 @@ $accounts = @(
   @{a='acct1'; u='lalthazualasailo'; k=@('a','b','g','h','i')},
   @{a='acct2'; u='zomuanpuia';       k=@('c','d','j','k','l')},
   @{a='acct3'; u='laldinthari';      k=@('e','f','m','n','o')},
-  @{a='acct4'; u='lalsangkima';      k=@('p','q','r','s','t')}
+  @{a='acct4'; u='lalsangkima';      k=@('p','q','r','s','t')},
+  @{a='acct5'; u='remruata';         k=@('merge')}
 )
 
 $round = [int](Get-Content "$root\work\round.txt")
