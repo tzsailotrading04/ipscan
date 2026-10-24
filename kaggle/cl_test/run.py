@@ -153,6 +153,17 @@ def main():
                     ctrl_fast_targets.append(s)
                     ctrl_set_fast.add(s)
 
+    # Master pool tracking for duplicate measurement
+    master_pool_file = os.path.join(repo_dir, "master_pool.txt")
+    master_pool_set = set()
+    if os.path.exists(master_pool_file):
+        with open(master_pool_file, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                p = line.strip().split()
+                if p:
+                    master_pool_set.add(p[0])
+    log(f"MASTER_POOL_LOADED entries={len(master_pool_set)}")
+
     # Hits tracking
     hits_local = os.path.join(working_dir, f"hits_{SLICE_IDX}.txt")
     seen_addrs = set()
@@ -168,6 +179,7 @@ def main():
     total_new_exits = 0
     seen_exit_ips = set()
     last_git_push = time.time()
+    chunk_counter = 0
 
     def push_hits_to_repo(force=False):
         nonlocal last_git_push
@@ -332,6 +344,8 @@ def main():
         chunk_alive = 0
         control_alive = 0
         ctrl_fast_alive = 0
+        chunk_new = 0
+        chunk_dup = 0
 
         if os.path.exists(out_file):
             with open(out_file, "r", encoding="utf-8", errors="ignore") as out_f, \
@@ -357,6 +371,12 @@ def main():
 
                     chunk_alive += 1
                     total_alive_hits += 1
+
+                    if addr in master_pool_set:
+                        chunk_dup += 1
+                    else:
+                        chunk_new += 1
+                        master_pool_set.add(addr)
 
                     if len(parts) >= 2:
                         exit_ip = parts[1]
@@ -465,8 +485,13 @@ def main():
         total_scanned_targets += pure_targets
         rate = int(pure_targets / elapsed_chunk) if elapsed_chunk > 0 else 0
 
-        log(f"CHUNK src={SLICE_IDX} round={round_val} port={cur_port} targets={pure_targets} alive={chunk_alive} rate={rate}/s time={elapsed_chunk:.1f}s")
+        log(f"CHUNK round={round_val} found={chunk_alive} new={chunk_new} dup={chunk_dup} src={SLICE_IDX} port={cur_port} targets={pure_targets} alive={chunk_alive} rate={rate}/s time={elapsed_chunk:.1f}s")
         push_hits_to_repo(force=False)
+
+        chunk_counter += 1
+        if chunk_counter >= 10:
+            log("10_CHUNKS_COMPLETE")
+            break
 
     # FINAL EXIT
     push_hits_to_repo(force=True)
