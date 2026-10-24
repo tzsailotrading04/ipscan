@@ -30,6 +30,12 @@ foreach ($acct in $accounts) {
 
     $raw = $st -replace '[\r\n]+', ' '
 
+    # GUARD: NEVER push on rate limit (429)
+    if ($st -match '429|Too Many Requests') {
+      L "SKIP $slug (429 rate limit)"
+      continue
+    }
+
     # GUARD: NEVER push a running or queued kernel (prevents zombie + slot burn)
     if ($st -match 'RUNNING|QUEUED') {
       L "SKIP $slug (RUNNING/QUEUED: $raw)"
