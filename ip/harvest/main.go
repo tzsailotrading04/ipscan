@@ -222,6 +222,35 @@ func parse(line string) string {
 	return s
 }
 
+func incIP(ip net.IP) {
+	for j := len(ip) - 1; j >= 0; j-- {
+		ip[j]++
+		if ip[j] > 0 {
+			break
+		}
+	}
+}
+
+func expandLine(line string, out *[]string) {
+	if strings.IndexByte(line, '/') < 0 {
+		*out = append(*out, line)
+		return
+	}
+	j := strings.LastIndexByte(line, ':')
+	if j < 0 {
+		*out = append(*out, line)
+		return
+	}
+	cidr, port := line[:j], line[j+1:]
+	ip, ipnet, err := net.ParseCIDR(cidr)
+	if err != nil {
+		return
+	}
+	for cur := ip.Mask(ipnet.Mask); ipnet.Contains(cur); incIP(cur) {
+		*out = append(*out, cur.String()+":"+port)
+	}
+}
+
 func main() {
 	if len(os.Args) < 3 {
 		return
@@ -243,7 +272,7 @@ func main() {
 	sc.Buffer(make([]byte, 1<<20), 1<<20)
 	for sc.Scan() {
 		if s := strings.TrimSpace(sc.Text()); s != "" {
-			lines = append(lines, s)
+			expandLine(s, &lines)
 		}
 	}
 
