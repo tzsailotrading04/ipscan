@@ -37,6 +37,31 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 def log(m):
     print(m, flush=True)
 
+def atomic_write(filepath, lines):
+    tmp_path = filepath + ".tmp"
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(tmp_path, "w", encoding="utf-8", newline="\n") as f:
+        for line in lines:
+            f.write(line + "\n")
+        f.flush()
+        try:
+            os.fsync(f.fileno())
+        except Exception:
+            pass
+    os.replace(tmp_path, filepath)
+
+def load_verified_set(repo_dir):
+    vp = os.path.join(repo_dir, OUT_REL)
+    d = {}
+    if os.path.exists(vp):
+        with open(vp, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                line_str = line.strip()
+                if line_str and "\t" in line_str:
+                    k = line_str.split("\t")[0]
+                    d[k] = line_str
+    return d
+
 def git_sync(repo_dir):
     subprocess.run(["git", "-C", repo_dir, "fetch", "origin", "main"], check=False)
     r = subprocess.run(["git", "-C", repo_dir, "reset", "--hard", "origin/main"], check=False)
@@ -191,6 +216,10 @@ def check(k):
 run_once = "--once" in sys.argv
 cycle = 0
 
+# Persistent memory set across cycles in this session
+persistent_alive = load_verified_set(REPO)
+log(f"INITIAL_PERSISTENT_ALIVE={len(persistent_alive)}")
+
 while True:
     cycle += 1
     log(f"\n--- VERIFICATION CYCLE {cycle} ---")
@@ -201,6 +230,13 @@ while True:
 
     # 1. Pull latest repo (fetch + reset --hard)
     git_sync(REPO)
+
+    # Accumulate any proxies that remote has into our persistent set
+    remote_verified = load_verified_set(REPO)
+    for k, v in remote_verified.items():
+        if k not in persistent_alive:
+            persistent_alive[k] = v
+    log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
     # 2. Gather candidates
     rows = []
@@ -260,48 +296,49 @@ while True:
 
     # 4. Verify pool
     log(f"STEP: verify with {WORKERS} workers, timeout={TIMEOUT}s")
-    alive = []
+    alive_batch = []
     done = 0
     t_start = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for r in ex.map(check, rows, chunksize=64):
             done += 1
             if r:
-                alive.append(r)
+                alive_batch.append(r)
+                k = r.split("\t")[0]
+                persistent_alive[k] = r
             if done % 5000 == 0:
-                log(f"  checked {done}/{len(rows)} alive={len(alive)}")
+                log(f"  checked {done}/{len(rows)} alive_batch={len(alive_batch)} persistent_total={len(persistent_alive)}")
             if time.time() - START > HARD_STOP:
                 log("HARD_STOP during verification")
                 break
 
     v_elapsed = time.time() - t_start
-    log(f"VERIFIED_ALIVE={len(alive)} out of {len(rows)} in {v_elapsed:.1f}s")
+    log(f"CYCLE_SUMMARY: batch_checked={len(rows)} batch_survived={len(alive_batch)} total_persistent={len(persistent_alive)} in {v_elapsed:.1f}s")
 
-    # 5. Rewrite verified_alive.txt
+    # 5. Atomically replace verified_alive.txt, pub.txt, and pub_fast.txt from the FULL persistent set
     out = os.path.join(REPO, OUT_REL)
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    with open(out, "w", encoding="utf-8", newline="\n") as f:
-        for r in alive:
-            f.write(r + "\n")
+    full_alive_lines = sorted(persistent_alive.values())
+    atomic_write(out, full_alive_lines)
 
-    # Update pub.txt and pub_fast.txt
     pub_file = os.path.join(REPO, "ip", "pub.txt")
-    with open(pub_file, "w", encoding="utf-8", newline="\n") as f:
-        for r in alive:
-            f.write(r.split("\t")[0] + "\n")
+    pub_lines = [r.split("\t")[0] for r in full_alive_lines]
+    atomic_write(pub_file, pub_lines)
 
     pub_fast_file = os.path.join(REPO, "ip", "pub_fast.txt")
-    fast_rows = [r.split("\t")[0] for r in alive if "\tFAST" in r or "\tMED" in r]
-    with open(pub_fast_file, "w", encoding="utf-8", newline="\n") as f:
-        for fr in fast_rows[:500]:
-            f.write(fr + "\n")
+    fast_rows = [r.split("\t")[0] for r in full_alive_lines if "\tFAST" in r or "\tMED" in r]
+    atomic_write(pub_fast_file, fast_rows[:1000])
 
     # 6. Commit + push with retry x5
     pushed = False
     for attempt in range(1, 6):
         subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
+        # Re-apply persistent set over any merge/pull
+        atomic_write(out, sorted(persistent_alive.values()))
+        atomic_write(pub_file, pub_lines)
+        atomic_write(pub_fast_file, fast_rows[:1000])
+
         subprocess.run(["git", "-C", REPO, "add", OUT_REL, "ip/pub.txt", "ip/pub_fast.txt"], check=False)
-        subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: cycle {cycle} verified_alive={len(alive)} pool={len(rows)}"], capture_output=True)
+        subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: cycle {cycle} verified_alive={len(full_alive_lines)} (batch_survived={len(alive_batch)}) pool={len(rows)}"], capture_output=True)
         r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
         if r.returncode == 0:
             log("GIT_PUSH_OK")
