@@ -15,7 +15,13 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 OUT_REL = "ip/harvest/verified_alive.txt"
-CANDIDATES = ["master_pool.txt", "ip/harvest/verified_alive.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt"]
+CANDIDATES = [
+    "master_pool.txt",
+    "ip/harvest/verified_alive.txt",
+    "ip/harvest/feeds_raw.txt",
+    "ip/harvest/leakix.txt",
+    "ip/harvest/shodan_expanded.txt"
+]
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
 WORKERS = 4000
@@ -31,13 +37,18 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 def log(m):
     print(m, flush=True)
 
+def git_sync(repo_dir):
+    subprocess.run(["git", "-C", repo_dir, "fetch", "origin", "main"], check=False)
+    r = subprocess.run(["git", "-C", repo_dir, "reset", "--hard", "origin/main"], check=False)
+    return r.returncode == 0
+
 log("=" * 60)
 log("VERIFIER CONTINUOUS LOOP START (cl_verify)")
 log("=" * 60)
 
 if os.path.exists("/kaggle/working"):
     if os.path.exists(REPO):
-        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
+        git_sync(REPO)
     else:
         subprocess.run(["git", "clone", "--depth", "1", REPO_URL, REPO], check=True)
 
@@ -188,8 +199,8 @@ while True:
         log(f"HARD_STOP reached ({elapsed:.0f}s). Exiting.")
         break
 
-    # 1. Pull latest repo
-    subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
+    # 1. Pull latest repo (fetch + reset --hard)
+    git_sync(REPO)
 
     # 2. Gather candidates
     rows = []
