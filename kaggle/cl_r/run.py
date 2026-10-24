@@ -184,6 +184,15 @@ def main():
                 time.sleep(3)
 
     # 4. WORK-LOOP: chunk into ~2,000,000 targets per chunk
+    # Weighted port cycle (v62/v64): drop dead ports (3128, 1081, 9050), weight 8080 to 70%
+    port_cycle = (['8080'] * 70 +
+                  ['8000'] * 10 +
+                  ['8888'] * 8 +
+                  ['1080'] * 8 +
+                  ['999'] * 2 +
+                  ['80'] * 1 +
+                  ['8118'] * 1)
+
     cur_cidr_idx = my_start
     chunk_counter = 0
     is_first_chunk = True
@@ -194,7 +203,7 @@ def main():
             log(f"HARD_STOP reached at {elapsed_total:.0f}s. Final checkpoint...")
             break
 
-        cur_port = ports[chunk_counter % len(ports)]
+        cur_port = port_cycle[chunk_counter % len(port_cycle)]
         cur_proto = "socks5" if cur_port in SOCKS_PORTS else "http"
         cur_dial_ms = 750
         cur_read_ms = 30000 if cur_proto == "socks5" else 8000

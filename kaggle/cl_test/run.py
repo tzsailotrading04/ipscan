@@ -204,17 +204,20 @@ def main():
                 log(f"git push attempt {attempt+1} error: {e}")
                 time.sleep(3)
 
-    # 4. WORK-LOOP: chunk into ~2,000,000 targets per chunk
+    tested_ports = {'8080', '3128', '1080', '8000', '8888', '8118', '999', '1081', '9050', '80'}
+    survey_ports = [p for p in ports if p not in tested_ports]
+    log(f"PORT_SURVEY_QUEUE: {len(survey_ports)} untested ports to survey")
+
+    # 4. WORK-LOOP: chunk into ~2,000,000 targets per chunk across all survey ports
     cur_cidr_idx = my_start
     is_first_chunk = True
 
-    while cur_cidr_idx <= my_end:
+    for port_idx, cur_port in enumerate(survey_ports):
         elapsed_total = time.time() - START_TIME
         if elapsed_total >= HARD_STOP_SECS:
             log(f"HARD_STOP reached at {elapsed_total:.0f}s. Final checkpoint...")
             break
 
-        cur_port = ports[chunk_counter % len(ports)]
         cur_proto = "socks5" if cur_port in SOCKS_PORTS else "http"
         cur_dial_ms = 750
         cur_read_ms = 30000 if cur_proto == "socks5" else 8000
@@ -470,14 +473,14 @@ def main():
         pure_targets = chunk_target_count
         total_scanned_targets += pure_targets
         rate = int(pure_targets / elapsed_chunk) if elapsed_chunk > 0 else 0
+        new_per_s = (chunk_new / elapsed_chunk) if elapsed_chunk > 0 else 0.0
 
+        log(f"PORT_SURVEY idx={port_idx+1}/{len(survey_ports)} port={cur_port} proto={cur_proto} targets={pure_targets} found={chunk_alive} new={chunk_new} time={elapsed_chunk:.1f}s new_per_s={new_per_s:.4f}")
         log(f"CHUNK round={round_val} found={chunk_alive} new={chunk_new} dup={chunk_dup} src={SLICE_IDX} port={cur_port} targets={pure_targets} alive={chunk_alive} rate={rate}/s time={elapsed_chunk:.1f}s")
         push_hits_to_repo(force=False)
-
         chunk_counter += 1
-        if chunk_counter >= 10:
-            log("10_CHUNKS_COMPLETE")
-            break
+
+    log("82_PORTS_SURVEY_COMPLETE")
 
     # FINAL EXIT
     push_hits_to_repo(force=True)
