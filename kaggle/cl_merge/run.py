@@ -16,9 +16,14 @@ def ip2int(ip_str):
     parts = ip_str.split(".")
     return (int(parts[0]) << 24) | (int(parts[1]) << 16) | (int(parts[2]) << 8) | int(parts[3])
 
+def git_sync(repo_dir):
+    subprocess.run(["git", "fetch", "origin", "main"], cwd=repo_dir, check=False)
+    r = subprocess.run(["git", "reset", "--hard", "origin/main"], cwd=repo_dir, check=False)
+    return r.returncode == 0
+
 def main():
     log("=" * 60)
-    log("STARTING KAGGLE MERGER KERNEL: cl_merge")
+    log("STARTING KAGGLE MERGER KERNEL: cl_merge (v66)")
     log("=" * 60)
 
     # Determine workspace
@@ -69,12 +74,23 @@ def main():
         return ("XX", "0")
 
     run_once = "--once" in sys.argv
+    cycle_num = 0
 
     while True:
-        log("\n--- Starting merge iteration ---")
+        cycle_num += 1
+        log(f"\n--- Starting merge iteration {cycle_num} ---")
         try:
-            # 1. Pull latest from remote
-            subprocess.run(["git", "-C", repo_dir, "pull", "--rebase", "origin", "main"], check=False)
+            # STEP 1: Diagnose working tree status before sync
+            st = subprocess.run(["git", "status", "--short"], cwd=repo_dir, capture_output=True, text=True)
+            st_text = st.stdout.strip()
+            log(f"GIT_STATUS: {st_text if st_text else '<clean>'}")
+
+            # STEP 2: Hard sync to origin/main (no pull --rebase)
+            if not git_sync(repo_dir):
+                log("GIT_SYNC_FAIL")
+                time.sleep(10)
+                continue
+            log("GIT_SYNC_OK")
 
             # 2. Load existing master_pool
             master_pool_file = os.path.join(repo_dir, "master_pool.txt")
@@ -142,29 +158,35 @@ def main():
                 with open(master_pool_file, "r", encoding="utf-8", errors="ignore") as f:
                     final_pool_rows = sum(1 for line in f if line.strip())
 
-            # 6. Commit + push with retry x3
+            # 6. Commit + push (keep existing commit + git push origin main, no pull --rebase)
+            push_ok = True
             if merged_count > 0:
                 pushed = False
                 for attempt in range(1, 4):
                     try:
-                        subprocess.run(["git", "-C", repo_dir, "pull", "--rebase", "origin", "main"], check=False)
-                        subprocess.run(["git", "-C", repo_dir, "add", "master_pool.txt"], check=True)
-                        subprocess.run(["git", "-C", repo_dir, "commit", "-m", f"cl_merge: +{merged_count} new proxies (pool={final_pool_rows})"], check=False)
-                        r = subprocess.run(["git", "-C", repo_dir, "push", "origin", "main"], capture_output=True, text=True)
+                        subprocess.run(["git", "add", "master_pool.txt"], cwd=repo_dir, check=True)
+                        subprocess.run(["git", "commit", "-m", f"cl_merge: +{merged_count} new proxies (pool={final_pool_rows})"], cwd=repo_dir, check=False)
+                        r = subprocess.run(["git", "push", "origin", "main"], cwd=repo_dir, capture_output=True, text=True)
                         if r.returncode == 0:
                             log(f"GIT_PUSH_OK attempt {attempt}")
                             pushed = True
                             break
                         else:
                             log(f"Push attempt {attempt} failed: {r.stderr.strip()[:100]}")
-                            time.sleep(random.randint(2, 6))
+                            # Clean working tree before rebase if remote had commits
+                            subprocess.run(["git", "fetch", "origin", "main"], cwd=repo_dir, check=False)
+                            subprocess.run(["git", "rebase", "origin/main"], cwd=repo_dir, check=False)
+                            time.sleep(random.randint(2, 5))
                     except Exception as e:
                         log(f"Push error attempt {attempt}: {e}")
-                        time.sleep(3)
+                        time.sleep(2)
                 if not pushed:
                     log("WARN: Failed to push to origin/main after 3 attempts")
+                    push_ok = False
+            else:
+                log("GIT_PUSH_OK (no net-new rows)")
 
-            print(f"MERGED={merged_count} POOL_ROWS={final_pool_rows}", flush=True)
+            print(f"VERIFY_LINE cycle={cycle_num} GIT_SYNC=ok MERGED={merged_count} POOL_ROWS={final_pool_rows} GIT_PUSH_OK={'YES' if push_ok else 'NO'}", flush=True)
 
         except Exception as e:
             log(f"Merge loop error: {e}")
@@ -173,8 +195,9 @@ def main():
             log("Single iteration (--once) completed.")
             break
 
-        log("Sleeping 900s (15 minutes)...")
-        time.sleep(900)
+        sleep_sec = 120 if cycle_num <= 4 else 900
+        log(f"Sleeping {sleep_sec}s...")
+        time.sleep(sleep_sec)
 
 if __name__ == "__main__":
     main()
