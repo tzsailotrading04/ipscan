@@ -15,14 +15,14 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 START_TIME = time.time()
 HARD_STOP_SECS = 10 * 3600  # 10 hours
 
-SOCKS_PORTS = {"1080", "1081", "1082", "1083", "1088", "10801", "10808", "10809", "4145", "4153", "2080", "9050"}
+SOCKS_PORTS = {"1080", "1081", "1082", "1083", "1085", "1086", "1088", "1090", "9150", "10801", "10808", "10809", "10909", "4145", "4153", "2080", "9050"}
 
 def log(msg):
     print(msg, flush=True)
 
 def main():
     log("=" * 60)
-    log(f"STARTING V46 RUN: SLICE={SLICE_IDX} KERNEL={KERNEL_SLUG}")
+    log(f"STARTING V69 RUN: SLICE={SLICE_IDX} KERNEL={KERNEL_SLUG}")
     log("=" * 60)
 
     # 1. STEP: probe environment
@@ -101,14 +101,6 @@ def main():
         except Exception:
             round_val = 0
 
-    ports_file = os.path.join(repo_dir, "ip", "pe_ports.txt")
-    ports = []
-    with open(ports_file, "r", encoding="utf-8") as f:
-        for line in f:
-            p = line.strip()
-            if p:
-                ports.append(p)
-
     ranges_file = os.path.join(repo_dir, "data", "ranges_all.txt")
     cidrs = []
     with open(ranges_file, "r", encoding="utf-8") as f:
@@ -183,186 +175,207 @@ def main():
                 log(f"git push attempt {attempt+1} error: {e}")
                 time.sleep(3)
 
-    # 4. WORK-LOOP: chunk into ~2,000,000 targets per chunk
-    # Weighted port cycle (v62/v64): drop dead ports (3128, 1081, 9050), weight 8080 to 70%
-    port_cycle = (['8080'] * 70 +
-                  ['8000'] * 10 +
-                  ['8888'] * 8 +
-                  ['1080'] * 8 +
-                  ['999'] * 2 +
-                  ['80'] * 1 +
-                  ['8118'] * 1)
+    # 4. WORK-LOOP: ONE port per full pass over its slice, then move to NEXT port
+    # Measured port cycle (v69 survey data + pool yields):
+    port_cycle = [
+        '81', '8080', '443', '1080', '8000', '8888',
+        '81', '1082', '83', '8080', '1083', '443', '999', '1080', '8118', '80',
+        '81', '8080', '1088', '3125', '443', '3127', '20171', '1080', '8000', '8888',
+        '81', '8080', '443', '1080', '1111', '2080', '3129', '4145', '4153', '5678',
+        '7001', '7777', '8081', '8082', '8083', '8085', '8088', '8090', '8181', '8889',
+        '9000', '9090', '9999', '10000', '10801', '10808', '18080', '8123', '8127',
+        '8128', '8129', '8880', '8084', '8086', '8087', '8089', '8001', '8008', '8010',
+        '9091', '6588', '5000', '5050', '5500', '6060', '7000', '7070', '8282', '8383',
+        '8484', '8585', '8686', '8787', '8989', '9191', '9292', '9393', '9494', '9595',
+        '9696', '9797', '9898', '10500', '15000', '18888', '20000', '20172'
+    ]
 
-    cur_cidr_idx = my_start
+    pass_counter = 0
     chunk_counter = 0
     is_first_chunk = True
 
-    while cur_cidr_idx <= my_end:
+    while True:
         elapsed_total = time.time() - START_TIME
         if elapsed_total >= HARD_STOP_SECS:
             log(f"HARD_STOP reached at {elapsed_total:.0f}s. Final checkpoint...")
             break
 
-        cur_port = port_cycle[chunk_counter % len(port_cycle)]
+        cur_port = port_cycle[pass_counter % len(port_cycle)]
         cur_proto = "socks5" if cur_port in SOCKS_PORTS else "http"
         cur_dial_ms = 750
         cur_read_ms = 30000 if cur_proto == "socks5" else 8000
+        log(f"STARTING_PASS src={SLICE_IDX} pass={pass_counter} port={cur_port} proto={cur_proto}")
 
-        chunk_cidrs = []
-        chunk_target_count = 0
+        cur_cidr_idx = my_start
+        pass_scanned = 0
+        pass_alive = 0
 
         while cur_cidr_idx <= my_end:
-            c = cidrs[cur_cidr_idx]
-            try:
-                num = ipaddress.IPv4Network(c).num_addresses
-                chunk_cidrs.append(c)
-                chunk_target_count += num
-                cur_cidr_idx += 1
-                if chunk_target_count >= 2000000:
-                    break
-            except Exception:
-                cur_cidr_idx += 1
+            elapsed_total = time.time() - START_TIME
+            if elapsed_total >= HARD_STOP_SECS:
+                log(f"HARD_STOP reached at {elapsed_total:.0f}s during pass {pass_counter}.")
+                break
 
-        if not chunk_cidrs:
-            cur_cidr_idx = my_start
-            continue
+            chunk_cidrs = []
+            chunk_target_count = 0
 
-        target_file = os.path.join(working_dir, f"t_{SLICE_IDX}.txt")
-        out_file = os.path.join(working_dir, f"out_{SLICE_IDX}.txt")
-        if os.path.exists(out_file):
-            os.remove(out_file)
-
-        written_count = 0
-        with open(target_file, "w", encoding="utf-8", newline="\n") as tf:
-            if is_first_chunk and control_targets:
-                for ct in control_targets:
-                    tf.write(f"{ct}\n")
-                    written_count += 1
-            for c in chunk_cidrs:
+            while cur_cidr_idx <= my_end:
+                c = cidrs[cur_cidr_idx]
                 try:
-                    net = ipaddress.IPv4Network(c)
-                    s_int = int(net.network_address)
-                    e_int = int(net.broadcast_address)
-                    for u in range(s_int, e_int + 1):
-                        tf.write(f"{ipaddress.IPv4Address(u)}:{cur_port}\n")
-                        written_count += 1
+                    num = ipaddress.IPv4Network(c).num_addresses
+                    chunk_cidrs.append(c)
+                    chunk_target_count += num
+                    cur_cidr_idx += 1
+                    if chunk_target_count >= 2000000:
+                        break
                 except Exception:
-                    pass
+                    cur_cidr_idx += 1
 
-        if is_first_chunk:
-            try:
-                warmup_target = os.path.join(working_dir, "warmup_targets.txt")
-                with open(target_file, "r", encoding="utf-8", errors="ignore") as tf_in, \
-                     open(warmup_target, "w", encoding="utf-8", newline="\n") as tf_out:
-                    for idx, line in enumerate(tf_in):
-                        if idx >= 50000:
-                            break
-                        tf_out.write(line)
-                warmup_devnull = "/dev/null" if os.name != "nt" else os.path.join(working_dir, "warmup_null.txt")
-                cmd_warmup = [
-                    harvest_bin,
-                    warmup_target,
-                    warmup_devnull,
-                    "24000",
-                    str(cur_dial_ms),
-                    str(cur_read_ms),
-                    cur_proto
-                ]
-                env_warmup = os.environ.copy()
-                env_warmup["CONCURRENCY"] = "24000"
-                env_warmup["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
-                env_warmup["READ_TIMEOUT_MS"] = str(cur_read_ms)
-                env_warmup["PROTO"] = cur_proto
-                subprocess.run(cmd_warmup, env=env_warmup, check=False)
-                try:
-                    if os.path.exists(warmup_target):
-                        os.remove(warmup_target)
-                except Exception:
-                    pass
-                log("WARMUP_DONE")
-            except Exception as e:
-                log(f"WARMUP_ERR: {e}")
+            if not chunk_cidrs:
+                break
 
-        # Execute scanner
-        cmd = [
-            harvest_bin,
-            target_file,
-            out_file,
-            "24000",
-            str(cur_dial_ms),
-            str(cur_read_ms),
-            cur_proto
-        ]
-        env = os.environ.copy()
-        env["CONCURRENCY"] = "24000"
-        env["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
-        env["READ_TIMEOUT_MS"] = str(cur_read_ms)
-        env["PROTO"] = cur_proto
-
-        t0 = time.time()
-        proc = subprocess.Popen(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
-        for line in proc.stdout:
-            l = line.strip()
-            if l.startswith("ARGS") or "error" in l.lower():
-                log(f"  [{cur_proto}:{cur_port}] {l}")
-        proc.wait()
-        elapsed_chunk = time.time() - t0
-
-        # Parse output
-        chunk_alive = 0
-        control_alive = 0
-
-        if os.path.exists(out_file):
-            with open(out_file, "r", encoding="utf-8", errors="ignore") as out_f, \
-                 open(hits_local, "a", encoding="utf-8", newline="\n") as hits_f:
-                for line in out_f:
-                    l = line.strip()
-                    if not l:
-                        continue
-                    parts = l.split()
-                    if not parts:
-                        continue
-                    addr = parts[0]
-
-                    if is_first_chunk and addr in control_set:
-                        control_alive += 1
-                        continue
-
-                    chunk_alive += 1
-                    total_alive_hits += 1
-
-                    if len(parts) >= 2:
-                        exit_ip = parts[1]
-                        if exit_ip not in seen_exit_ips:
-                            seen_exit_ips.add(exit_ip)
-                            total_new_exits += 1
-
-                    if addr not in seen_addrs:
-                        seen_addrs.add(addr)
-                        hits_f.write(f"{l}\n")
-
-            try:
+            target_file = os.path.join(working_dir, f"t_{SLICE_IDX}.txt")
+            out_file = os.path.join(working_dir, f"out_{SLICE_IDX}.txt")
+            if os.path.exists(out_file):
                 os.remove(out_file)
+
+            written_count = 0
+            with open(target_file, "w", encoding="utf-8", newline="\n") as tf:
+                if is_first_chunk and control_targets:
+                    for ct in control_targets:
+                        tf.write(f"{ct}\n")
+                        written_count += 1
+                for c in chunk_cidrs:
+                    try:
+                        net = ipaddress.IPv4Network(c)
+                        s_int = int(net.network_address)
+                        e_int = int(net.broadcast_address)
+                        for u in range(s_int, e_int + 1):
+                            tf.write(f"{ipaddress.IPv4Address(u)}:{cur_port}\n")
+                            written_count += 1
+                    except Exception:
+                        pass
+
+            if is_first_chunk:
+                try:
+                    warmup_target = os.path.join(working_dir, "warmup_targets.txt")
+                    with open(target_file, "r", encoding="utf-8", errors="ignore") as tf_in, \
+                         open(warmup_target, "w", encoding="utf-8", newline="\n") as tf_out:
+                        for idx, line in enumerate(tf_in):
+                            if idx >= 50000:
+                                break
+                            tf_out.write(line)
+                    warmup_devnull = "/dev/null" if os.name != "nt" else os.path.join(working_dir, "warmup_null.txt")
+                    cmd_warmup = [
+                        harvest_bin,
+                        warmup_target,
+                        warmup_devnull,
+                        "24000",
+                        str(cur_dial_ms),
+                        str(cur_read_ms),
+                        cur_proto
+                    ]
+                    env_warmup = os.environ.copy()
+                    env_warmup["CONCURRENCY"] = "24000"
+                    env_warmup["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
+                    env_warmup["READ_TIMEOUT_MS"] = str(cur_read_ms)
+                    env_warmup["PROTO"] = cur_proto
+                    subprocess.run(cmd_warmup, env=env_warmup, check=False)
+                    try:
+                        if os.path.exists(warmup_target):
+                            os.remove(warmup_target)
+                    except Exception:
+                        pass
+                    log("WARMUP_DONE")
+                except Exception as e:
+                    log(f"WARMUP_ERR: {e}")
+
+            # Execute scanner
+            cmd = [
+                harvest_bin,
+                target_file,
+                out_file,
+                "24000",
+                str(cur_dial_ms),
+                str(cur_read_ms),
+                cur_proto
+            ]
+            env = os.environ.copy()
+            env["CONCURRENCY"] = "24000"
+            env["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
+            env["READ_TIMEOUT_MS"] = str(cur_read_ms)
+            env["PROTO"] = cur_proto
+
+            t0 = time.time()
+            proc = subprocess.Popen(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
+            for line in proc.stdout:
+                l = line.strip()
+                if l.startswith("ARGS") or "error" in l.lower():
+                    log(f"  [{cur_proto}:{cur_port}] {l}")
+            proc.wait()
+            elapsed_chunk = time.time() - t0
+
+            # Parse output
+            chunk_alive = 0
+            control_alive = 0
+
+            if os.path.exists(out_file):
+                with open(out_file, "r", encoding="utf-8", errors="ignore") as out_f, \
+                     open(hits_local, "a", encoding="utf-8", newline="\n") as hits_f:
+                    for line in out_f:
+                        l = line.strip()
+                        if not l:
+                            continue
+                        parts = l.split()
+                        if not parts:
+                            continue
+                        addr = parts[0]
+
+                        if is_first_chunk and addr in control_set:
+                            control_alive += 1
+                            continue
+
+                        chunk_alive += 1
+                        total_alive_hits += 1
+
+                        if len(parts) >= 2:
+                            exit_ip = parts[1]
+                            if exit_ip not in seen_exit_ips:
+                                seen_exit_ips.add(exit_ip)
+                                total_new_exits += 1
+
+                        if addr not in seen_addrs:
+                            seen_addrs.add(addr)
+                            hits_f.write(f"{l}\n")
+
+                try:
+                    os.remove(out_file)
+                except Exception:
+                    pass
+
+            try:
+                os.remove(target_file)
             except Exception:
                 pass
 
-        try:
-            os.remove(target_file)
-        except Exception:
-            pass
+            if is_first_chunk and control_targets:
+                control_pct = (control_alive / len(control_targets)) * 100
+                log(f"CONTROL {control_alive}/{len(control_targets)} = {control_pct:.2f}%")
+                is_first_chunk = False
 
-        if is_first_chunk and control_targets:
-            control_pct = (control_alive / len(control_targets)) * 100
-            log(f"CONTROL {control_alive}/{len(control_targets)} = {control_pct:.2f}%")
-            is_first_chunk = False
+            pure_targets = written_count - (len(control_targets) if is_first_chunk else 0)
+            total_scanned_targets += pure_targets
+            pass_scanned += pure_targets
+            pass_alive += chunk_alive
+            rate = int(pure_targets / elapsed_chunk) if elapsed_chunk > 0 else 0
 
-        pure_targets = written_count - (len(control_targets) if is_first_chunk else 0)
-        total_scanned_targets += pure_targets
-        rate = int(pure_targets / elapsed_chunk) if elapsed_chunk > 0 else 0
+            log(f"CHUNK src={SLICE_IDX} pass={pass_counter} port={cur_port} chunk={chunk_counter} targets={pure_targets} alive={chunk_alive} rate={rate}/s time={elapsed_chunk:.1f}s")
+            push_hits_to_repo(force=False)
+            chunk_counter += 1
 
-        log(f"CHUNK src={SLICE_IDX} round={round_val} port={cur_port} targets={pure_targets} alive={chunk_alive} rate={rate}/s time={elapsed_chunk:.1f}s")
-        push_hits_to_repo(force=False)
-        chunk_counter += 1
+        log(f"PASS_COMPLETE src={SLICE_IDX} pass={pass_counter} port={cur_port} targets={pass_scanned} alive={pass_alive}")
+        push_hits_to_repo(force=True)
+        pass_counter += 1
 
     # FINAL EXIT
     push_hits_to_repo(force=True)
