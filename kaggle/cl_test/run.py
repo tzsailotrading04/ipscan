@@ -212,7 +212,7 @@ def main():
             break
         cur_port = ports[cur_port_idx]
         cur_proto = "socks5" if cur_port in SOCKS_PORTS else "http"
-        cur_dial_ms = 1500
+        cur_dial_ms = 750
         cur_read_ms = 30000 if cur_proto == "socks5" else 8000
 
         chunk_cidrs = []
@@ -268,6 +268,40 @@ def main():
                 log("DBG target_head=" + repr(th) + " ctrl_n=" + str(len(control_targets)) + " ctrl_head=" + repr(control_targets[:3]) + " cidr_n=" + str(len(chunk_cidrs)))
             except Exception as e:
                 log("DBG target_head_fail " + str(e))
+
+        if is_first_chunk:
+            try:
+                warmup_target = os.path.join(working_dir, "warmup_targets.txt")
+                with open(target_file, "r", encoding="utf-8", errors="ignore") as tf_in, \
+                     open(warmup_target, "w", encoding="utf-8", newline="\n") as tf_out:
+                    for idx, line in enumerate(tf_in):
+                        if idx >= 50000:
+                            break
+                        tf_out.write(line)
+                warmup_devnull = "/dev/null" if os.name != "nt" else os.path.join(working_dir, "warmup_null.txt")
+                cmd_warmup = [
+                    harvest_bin,
+                    warmup_target,
+                    warmup_devnull,
+                    "24000",
+                    str(cur_dial_ms),
+                    str(cur_read_ms),
+                    cur_proto
+                ]
+                env_warmup = os.environ.copy()
+                env_warmup["CONCURRENCY"] = "24000"
+                env_warmup["DIAL_TIMEOUT_MS"] = str(cur_dial_ms)
+                env_warmup["READ_TIMEOUT_MS"] = str(cur_read_ms)
+                env_warmup["PROTO"] = cur_proto
+                subprocess.run(cmd_warmup, env=env_warmup, check=False)
+                try:
+                    if os.path.exists(warmup_target):
+                        os.remove(warmup_target)
+                except Exception:
+                    pass
+                log("WARMUP_DONE")
+            except Exception as e:
+                log(f"WARMUP_ERR: {e}")
 
         # Execute scanner
         cmd = [
