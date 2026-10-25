@@ -1,7 +1,7 @@
 engine=v98.97
 shard=09
 egress_ip=34.170.143.87
-offset=3343
+offset=3643
 total=6000000
 kept_lines=0
 not_found=509
@@ -10,6 +10,6 @@ ok_no_keep=0
 ok_with_ports=0
 other=0
 pacer_rate=10.0
-rate_limit=891
+rate_limit=1191
 rolling_429=100.00
 timeout=0
