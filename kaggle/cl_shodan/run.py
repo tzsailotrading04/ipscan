@@ -13,7 +13,6 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 
-# Step 2: Read shard index from env var or argv
 shard_str = os.environ.get("SHARD_INDEX", os.environ.get("SLICE_IDX", ""))
 if not shard_str and len(sys.argv) > 1:
     for arg in sys.argv[1:]:
@@ -45,7 +44,7 @@ def git_sync():
 def push_progress(offset, total, cand_count):
     if not os.path.exists("/kaggle/working"):
         return
-    log(f"Pushing checkpoint to GitHub: offset={offset}/{total} candidates={cand_count}")
+    log(f"Pushing checkpoint to GitHub: offset={offset:,}/{total:,} candidates={cand_count:,}")
     prog_rel = f"ip/harvest/shodan_progress_{SHARD_TAG}.txt"
     shard_rel = f"ip/harvest/shodan_shard_{SHARD_TAG}.txt"
     
@@ -80,7 +79,7 @@ def query_ip(ip):
 
 def main():
     log("=" * 60)
-    log(f"DISTRIBUTED SHODAN ENGINE - SHARD {SHARD_TAG}")
+    log(f"DISTRIBUTED SHODAN ENGINE (FULL /24 COVERAGE) - SHARD {SHARD_TAG}")
     log(f"Concurrency: {WORKERS} workers | Rate Cap: {MAX_REQS_PER_SEC} req/s")
     log("=" * 60)
 
@@ -91,25 +90,36 @@ def main():
         subprocess.run(["git", "-C", REPO, "config", "user.email", f"shodan{SHARD_TAG}@depinfarm.org"], check=False)
         git_sync()
 
-    # 1. Load shard target IPs
+    # 1. Load shard /24 prefixes and expand to full /24 (256 IPs per subnet)
     shard_file = os.path.join(REPO, "work", "shards", f"shard_{SHARD_TAG}.txt")
-    ips = []
+    subnets = []
     if os.path.exists(shard_file):
         with open(shard_file, "r", encoding="ascii") as f:
-            ips = [l.strip() for l in f if l.strip()]
+            for l in f:
+                line = l.strip()
+                if line:
+                    subnets.append(line.rsplit(".", 1)[0])
     else:
-        # Fallback to reading work/shodan_shards.txt
         all_shards = os.path.join(REPO, "work", "shodan_shards.txt")
         if os.path.exists(all_shards):
             tag_prefix = f"{SHARD_TAG}\t"
             with open(all_shards, "r", encoding="utf-8") as f:
-                ips = [l.strip().split("\t")[1] for l in f if l.startswith(tag_prefix)]
+                for l in f:
+                    if l.startswith(tag_prefix):
+                        ip = l.strip().split("\t")[1]
+                        subnets.append(ip.rsplit(".", 1)[0])
 
-    total_ips = len(ips)
-    log(f"Loaded {total_ips:,} target IPs for shard {SHARD_TAG}")
+    num_subnets = len(subnets)
+    total_ips = num_subnets * 256
+    log(f"Loaded {num_subnets:,} /24 subnets -> {total_ips:,} total IPs (full /24 coverage) for shard {SHARD_TAG}")
     if total_ips == 0:
-        log("ERROR: No IPs found for this shard. Exiting.")
+        log("ERROR: No subnets found for this shard. Exiting.")
         sys.exit(1)
+
+    def get_ip(offset):
+        sub_i = offset // 256
+        host_i = offset % 256
+        return f"{subnets[sub_i]}.{host_i}"
 
     # 2. Read resume offset
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{SHARD_TAG}.txt")
@@ -122,7 +132,7 @@ def main():
                     resume_offset = int(val)
         except Exception:
             pass
-    log(f"Resume offset: {resume_offset:,} / {total_ips:,}")
+    log(f"Resume offset: {resume_offset:,} / {total_ips:,} ({resume_offset/total_ips*100:.2f}%)")
 
     out_shard_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{SHARD_TAG}.txt")
     os.makedirs(os.path.dirname(out_shard_file), exist_ok=True)
@@ -142,7 +152,6 @@ def main():
     total_ok = 0
 
     out_handle = open(out_shard_file, "a", encoding="utf-8")
-
     batch_size = 500
     current_idx = resume_offset
 
@@ -154,7 +163,8 @@ def main():
                 log("HARD_STOP time reached. Exiting cleanly.")
                 break
 
-            batch = ips[current_idx : current_idx + batch_size]
+            batch_len = min(batch_size, total_ips - current_idx)
+            batch = [get_ip(current_idx + i) for i in range(batch_len)]
             t_batch_start = time.time()
 
             results = list(pool.map(query_ip, batch))
@@ -195,7 +205,8 @@ def main():
             if now - last_log_time >= 30:
                 elapsed = now - START_TIME
                 speed = (processed_count - resume_offset) / max(1.0, elapsed)
-                log(f"Progress: {processed_count:,}/{total_ips:,} ({processed_count/total_ips*100:.1f}%) | Speed: {speed:.1f} req/s | Cands: {cands_found:,} | 429s: {total_429s}")
+                pct = processed_count / total_ips * 100
+                log(f"Progress: {processed_count:,}/{total_ips:,} ({pct:.2f}%) | Speed: {speed:.1f} req/s | Cands: {cands_found:,} | 429s: {total_429s}")
                 last_log_time = now
 
             # Periodic push to GitHub (every 15 min)
@@ -208,7 +219,6 @@ def main():
     finally:
         pool.shutdown(wait=False)
         out_handle.close()
-        # Final save of progress
         with open(prog_file, "w") as pf:
             pf.write(str(processed_count) + "\n")
         push_progress(processed_count, total_ips, cands_found)
