@@ -23,10 +23,10 @@ if not shard_str:
 SHARD_IDX = int(shard_str)
 SHARD_TAG = f"{SHARD_IDX:02d}"
 
-CONC = 80
-TARGET_RATE = 90  # Target rate req/s (safety cap: never exceed 95 req/s)
+CONC = 30  # 30 continuous async workers
+TARGET_RATE = 88.0  # Paced target rate: 88 req/s (safely under 95 req/s ceiling)
 MAX_SHARD_IPS = 3_350_000  # Cap per shard: 20 x 3.35M = 67M fleet milestone
-PUSH_INTERVAL = 900  # 15 minutes
+PUSH_INTERVAL = 300  # 5 minutes checkpoint push interval
 HARD_STOP = 9.5 * 3600  # 9.5 hours for Kaggle session
 START_TIME = time.time()
 BASE_URL = "https://internetdb.shodan.io/"
@@ -45,7 +45,7 @@ def push_progress(offset, total, cand_count):
     log(f"Pushing checkpoint to GitHub: offset={offset:,}/{total:,} candidates={cand_count:,}")
     prog_rel = f"ip/harvest/shodan_progress_{SHARD_TAG}.txt"
     shard_rel = f"ip/harvest/shodan_shard_{SHARD_TAG}.txt"
-    
+
     for attempt in range(5):
         subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
         subprocess.run(["git", "-C", REPO, "add", prog_rel, shard_rel], check=False)
@@ -58,28 +58,49 @@ def push_progress(offset, total, cand_count):
         time.sleep(2)
     log("GIT_PUSH_FAILED after 5 attempts")
 
-async def fetch_ip(session, ip, sem):
-    async with sem:
-        try:
-            async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=8)) as r:
-                if r.status == 200:
-                    data = await r.json()
-                    return (ip, "ok", data.get("ports", []))
-                elif r.status == 404:
-                    return (ip, "not_found", [])
-                elif r.status == 429:
-                    return (ip, "rate_limit", None)
-                else:
-                    return (ip, f"http_{r.status}", [])
-        except asyncio.TimeoutError:
-            return (ip, "timeout", [])
-        except Exception:
-            return (ip, "error", [])
+class LightPacer:
+    """Smooth token-bucket pacer guaranteeing maximum req/s without burst."""
+    def __init__(self, max_per_sec=88.0):
+        self.max_per_sec = max_per_sec
+        self.win_start = time.perf_counter()
+        self.win_count = 0
+        self.lock = asyncio.Lock()
+
+    async def acquire(self):
+        async with self.lock:
+            now = time.perf_counter()
+            elapsed = now - self.win_start
+            if elapsed < 1.0:
+                if self.win_count >= self.max_per_sec:
+                    await asyncio.sleep(1.0 - elapsed)
+                    self.win_start = time.perf_counter()
+                    self.win_count = 0
+            else:
+                self.win_start = now
+                self.win_count = 0
+            self.win_count += 1
+
+async def fetch_ip(session, ip):
+    try:
+        async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=4)) as r:
+            if r.status == 200:
+                data = await r.json()
+                return ("ok", data.get("ports", []))
+            elif r.status == 404:
+                return ("not_found", [])
+            elif r.status == 429:
+                return ("rate_limit", None)
+            else:
+                return (f"http_{r.status}", [])
+    except asyncio.TimeoutError:
+        return ("timeout", [])
+    except Exception:
+        return ("error", [])
 
 async def async_main():
     log("=" * 60)
-    log(f"DISTRIBUTED SHODAN ENGINE (EXPANDED /24, CAPPED AT 3.35M) - SHARD {SHARD_TAG}")
-    log(f"Concurrency: {CONC} connections | Paced Cap: {TARGET_RATE} req/s | Shard Target: {MAX_SHARD_IPS:,} IPs")
+    log(f"DISTRIBUTED SHODAN ENGINE (CONTINUOUS PIPELINE, PACED AT 88 REQ/S) - SHARD {SHARD_TAG}")
+    log(f"Workers: {CONC} continuous coroutines | Target Rate: {TARGET_RATE} req/s | Shard Target: {MAX_SHARD_IPS:,} IPs")
     log("=" * 60)
 
     if os.path.exists("/kaggle/working"):
@@ -111,7 +132,7 @@ async def async_main():
     num_subnets = len(subnets)
     raw_total_ips = num_subnets * 256
     total_ips = min(raw_total_ips, MAX_SHARD_IPS)
-    log(f"Loaded {num_subnets:,} /24 subnets. Capped Target: {total_ips:,} IPs for shard {SHARD_TAG}")
+    log(f"Loaded {num_subnets:,} /24 subnets. Target: {total_ips:,} IPs for shard {SHARD_TAG}")
     if total_ips == 0:
         log("ERROR: No subnets found for this shard. Exiting.")
         sys.exit(1)
@@ -143,89 +164,84 @@ async def async_main():
             cands_found = sum(1 for _ in f)
     log(f"Existing candidates in shard file: {cands_found:,}")
 
-    # 3. Main processing loop
-    last_push_time = time.time()
-    last_log_time = time.time()
+    # 3. Continuous async execution pipeline
+    pacer = LightPacer(max_per_sec=TARGET_RATE)
+    idx_lock = asyncio.Lock()
+    write_lock = asyncio.Lock()
+    current_idx = resume_offset
     processed_count = resume_offset
     total_429s = 0
-    total_ok = 0
+    last_log_time = time.time()
+    last_push_time = time.time()
     log_window_count = 0
     log_window_start = time.time()
 
     out_handle = open(out_shard_file, "a", encoding="utf-8")
-
-    batch_size = 500
-    current_idx = resume_offset
-
-    sem = asyncio.Semaphore(CONC)
-    conn = aiohttp.TCPConnector(limit=CONC, ttl_dns_cache=600, enable_cleanup_closed=True)
+    conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+    async def worker():
+        nonlocal current_idx, processed_count, cands_found, total_429s, log_window_count
+        while current_idx < total_ips:
+            if time.time() - START_TIME >= HARD_STOP:
+                break
+
+            async with idx_lock:
+                if current_idx >= total_ips:
+                    break
+                my_offset = current_idx
+                current_idx += 1
+
+            ip = get_ip(my_offset)
+            await pacer.acquire()
+
+            status, ports = await fetch_ip(session, ip)
+            if status == "ok" and ports:
+                lines = [f"{ip}:{p}\n" for p in ports]
+                async with write_lock:
+                    out_handle.writelines(lines)
+                    out_handle.flush()
+                    cands_found += len(lines)
+            elif status == "rate_limit":
+                total_429s += 1
+                await asyncio.sleep(2.0)  # gentle 2s backoff on worker
+
+            async with idx_lock:
+                if my_offset + 1 > processed_count:
+                    processed_count = my_offset + 1
+                log_window_count += 1
+
+    async def monitor():
+        nonlocal last_log_time, last_push_time, log_window_count, log_window_start
+        while current_idx < total_ips and (time.time() - START_TIME < HARD_STOP):
+            await asyncio.sleep(5)
+            now = time.time()
+
+            # Periodic log every 60s
+            if now - last_log_time >= 60:
+                win_elapsed = now - log_window_start
+                instant_rate = log_window_count / max(0.1, win_elapsed)
+                cum_elapsed = now - START_TIME
+                cum_rate = (processed_count - resume_offset) / max(0.1, cum_elapsed)
+                pct = processed_count / total_ips * 100
+                log(f"Rate: {instant_rate:.1f} req/s (cum: {cum_rate:.1f} req/s) | Progress: {processed_count:,}/{total_ips:,} ({pct:.1f}%) | Cands: {cands_found:,} | 429s: {total_429s}")
+                last_log_time = now
+                log_window_start = now
+                log_window_count = 0
+
+            # Periodic push to GitHub every 5 minutes
+            if now - last_push_time >= PUSH_INTERVAL:
+                with open(prog_file, "w") as pf:
+                    pf.write(str(processed_count) + "\n")
+                push_progress(processed_count, total_ips, cands_found)
+                last_push_time = now
 
     async with aiohttp.ClientSession(connector=conn, headers=headers) as session:
         try:
-            while current_idx < total_ips:
-                if time.time() - START_TIME >= HARD_STOP:
-                    log("HARD_STOP time reached. Exiting cleanly.")
-                    break
-
-                batch_len = min(batch_size, total_ips - current_idx)
-                batch = [get_ip(current_idx + i) for i in range(batch_len)]
-                t_batch_start = time.time()
-
-                results = await asyncio.gather(*[fetch_ip(session, ip, sem) for ip in batch])
-
-                new_cands = []
-                batch_429 = 0
-
-                for ip, status, ports in results:
-                    if status == "ok" and ports:
-                        total_ok += 1
-                        for p in ports:
-                            new_cands.append(f"{ip}:{p}\n")
-                    elif status == "rate_limit":
-                        batch_429 += 1
-                        total_429s += 1
-
-                if new_cands:
-                    out_handle.writelines(new_cands)
-                    out_handle.flush()
-                    cands_found += len(new_cands)
-
-                current_idx += len(batch)
-                processed_count = current_idx
-                log_window_count += len(batch)
-
-                # Pacing: ensure we do not exceed TARGET_RATE (e.g. 90 req/s)
-                t_batch_el = time.time() - t_batch_start
-                min_expected_time = len(batch) / TARGET_RATE
-                if t_batch_el < min_expected_time:
-                    await asyncio.sleep(min_expected_time - t_batch_el)
-
-                # Handle 429 backoff
-                if batch_429 > 0:
-                    log(f"WARNING: Encountered {batch_429} HTTP 429s in batch! Backing off 30s...")
-                    await asyncio.sleep(30)
-
-                # Periodic log every 60 seconds
-                now = time.time()
-                if now - last_log_time >= 60:
-                    win_elapsed = now - log_window_start
-                    instant_rate = log_window_count / max(0.1, win_elapsed)
-                    cum_elapsed = now - START_TIME
-                    cum_rate = (processed_count - resume_offset) / max(0.1, cum_elapsed)
-                    pct = processed_count / total_ips * 100
-                    log(f"Rate: {instant_rate:.1f} req/s (cum: {cum_rate:.1f} req/s) | Progress: {processed_count:,}/{total_ips:,} ({pct:.1f}%) | Cands: {cands_found:,} | 429s: {total_429s}")
-                    last_log_time = now
-                    log_window_start = now
-                    log_window_count = 0
-
-                # Periodic push to GitHub every 15 minutes
-                if now - last_push_time >= PUSH_INTERVAL:
-                    with open(prog_file, "w") as pf:
-                        pf.write(str(processed_count) + "\n")
-                    push_progress(processed_count, total_ips, cands_found)
-                    last_push_time = now
-
+            worker_tasks = [asyncio.create_task(worker()) for _ in range(CONC)]
+            monitor_task = asyncio.create_task(monitor())
+            await asyncio.gather(*worker_tasks)
+            monitor_task.cancel()
         finally:
             out_handle.close()
             with open(prog_file, "w") as pf:
