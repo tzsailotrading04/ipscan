@@ -25,6 +25,7 @@ SHARD_TAG = f"{SHARD_IDX:02d}"
 
 CONC = 80
 TARGET_RATE = 90  # Target rate req/s (safety cap: never exceed 95 req/s)
+MAX_SHARD_IPS = 3_350_000  # Cap per shard: 20 x 3.35M = 67M fleet milestone
 PUSH_INTERVAL = 900  # 15 minutes
 HARD_STOP = 9.5 * 3600  # 9.5 hours for Kaggle session
 START_TIME = time.time()
@@ -72,13 +73,13 @@ async def fetch_ip(session, ip, sem):
                     return (ip, f"http_{r.status}", [])
         except asyncio.TimeoutError:
             return (ip, "timeout", [])
-        except Exception as e:
+        except Exception:
             return (ip, "error", [])
 
 async def async_main():
     log("=" * 60)
-    log(f"DISTRIBUTED SHODAN ENGINE (AIOHTTP ASYNC) - SHARD {SHARD_TAG}")
-    log(f"Concurrency: {CONC} connections | Paced Cap: {TARGET_RATE} req/s")
+    log(f"DISTRIBUTED SHODAN ENGINE (EXPANDED /24, CAPPED AT 3.35M) - SHARD {SHARD_TAG}")
+    log(f"Concurrency: {CONC} connections | Paced Cap: {TARGET_RATE} req/s | Shard Target: {MAX_SHARD_IPS:,} IPs")
     log("=" * 60)
 
     if os.path.exists("/kaggle/working"):
@@ -88,24 +89,37 @@ async def async_main():
         subprocess.run(["git", "-C", REPO, "config", "user.email", f"shodan{SHARD_TAG}@depinfarm.org"], check=False)
         git_sync()
 
-    # 1. Load shard target entries
+    # 1. Load shard /24 prefixes
     shard_file = os.path.join(REPO, "work", "shards", f"shard_{SHARD_TAG}.txt")
-    ips = []
+    subnets = []
     if os.path.exists(shard_file):
         with open(shard_file, "r", encoding="ascii") as f:
-            ips = [l.strip() for l in f if l.strip()]
+            for l in f:
+                line = l.strip()
+                if line:
+                    subnets.append(line.rsplit(".", 1)[0])
     else:
         all_shards = os.path.join(REPO, "work", "shodan_shards.txt")
         if os.path.exists(all_shards):
             tag_prefix = f"{SHARD_TAG}\t"
             with open(all_shards, "r", encoding="utf-8") as f:
-                ips = [l.strip().split("\t")[1] for l in f if l.startswith(tag_prefix)]
+                for l in f:
+                    if l.startswith(tag_prefix):
+                        ip = l.strip().split("\t")[1]
+                        subnets.append(ip.rsplit(".", 1)[0])
 
-    total_ips = len(ips)
-    log(f"Loaded {total_ips:,} target IPs for shard {SHARD_TAG}")
+    num_subnets = len(subnets)
+    raw_total_ips = num_subnets * 256
+    total_ips = min(raw_total_ips, MAX_SHARD_IPS)
+    log(f"Loaded {num_subnets:,} /24 subnets. Capped Target: {total_ips:,} IPs for shard {SHARD_TAG}")
     if total_ips == 0:
-        log("ERROR: No targets found for this shard. Exiting.")
+        log("ERROR: No subnets found for this shard. Exiting.")
         sys.exit(1)
+
+    def get_ip(offset):
+        sub_i = offset // 256
+        host_i = offset % 256
+        return f"{subnets[sub_i]}.{host_i}"
 
     # 2. Read resume offset
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{SHARD_TAG}.txt")
@@ -154,14 +168,14 @@ async def async_main():
                     log("HARD_STOP time reached. Exiting cleanly.")
                     break
 
-                batch = ips[current_idx : current_idx + batch_size]
+                batch_len = min(batch_size, total_ips - current_idx)
+                batch = [get_ip(current_idx + i) for i in range(batch_len)]
                 t_batch_start = time.time()
 
                 results = await asyncio.gather(*[fetch_ip(session, ip, sem) for ip in batch])
 
                 new_cands = []
                 batch_429 = 0
-                retries_needed = []
 
                 for ip, status, ports in results:
                     if status == "ok" and ports:
@@ -171,7 +185,6 @@ async def async_main():
                     elif status == "rate_limit":
                         batch_429 += 1
                         total_429s += 1
-                        retries_needed.append(ip)
 
                 if new_cands:
                     out_handle.writelines(new_cands)
@@ -219,7 +232,10 @@ async def async_main():
                 pf.write(str(processed_count) + "\n")
             push_progress(processed_count, total_ips, cands_found)
 
-    log(f"FINISHED SHARD {SHARD_TAG}. Total processed: {processed_count:,}/{total_ips:,}. Candidates: {cands_found:,}. 429s: {total_429s}")
+    if processed_count >= total_ips:
+        log(f"SHARD {SHARD_TAG} REACHED {total_ips:,} CAP (67M FLEET TARGET). DONE.")
+    else:
+        log(f"SESSION STOPPED AT {processed_count:,}/{total_ips:,}. Candidates: {cands_found:,}. 429s: {total_429s}")
 
 def main():
     asyncio.run(async_main())
