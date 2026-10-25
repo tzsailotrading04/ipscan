@@ -20,7 +20,8 @@ CANDIDATES = [
     "ip/harvest/verified_alive.txt",
     "ip/harvest/feeds_raw.txt",
     "ip/harvest/leakix.txt",
-    "ip/harvest/shodan_expanded.txt"
+    "ip/harvest/shodan_expanded.txt",
+    "ip/harvest/dataset_ports.txt"
 ]
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
