@@ -48,6 +48,14 @@ async def run_git(cmd):
     await asyncio.to_thread(subprocess.run, full_cmd, capture_output=True)
 
 
+async def run_git_rc(cmd):
+    if not os.path.exists("/kaggle/working"):
+        return 1
+    full_cmd = [cmd[0], "-C", REPO] + cmd[1:]
+    proc = await asyncio.to_thread(subprocess.run, full_cmd, capture_output=True)
+    return proc.returncode
+
+
 def git_sync():
     if not os.path.exists("/kaggle/working"):
         return
@@ -61,13 +69,18 @@ async def stop_monitor():
         await asyncio.sleep(60)
         try:
             await run_git(["git", "fetch", "origin", "main", "--quiet"])
-            await run_git(["git", "reset", "--hard", "origin/main", "--quiet"])
+            rc = await run_git_rc(["git", "cat-file", "-e", f"origin/main:{STOP_FILE}"])
+            if rc == 0:
+                STOPPING = True
+                print("[STOP] flag seen on origin/main, draining...", flush=True)
+                break
         except Exception:
             pass
         stop_path = os.path.join(REPO, STOP_FILE) if not os.path.isabs(STOP_FILE) else STOP_FILE
         if os.path.exists(stop_path):
             STOPPING = True
             print("[STOP] flag seen, draining...", flush=True)
+            break
 
 
 def atomic_write(filepath, content):
