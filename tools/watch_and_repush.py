@@ -34,8 +34,8 @@ def main():
     t0 = time.time()
     saw_stale = False
     reason = "TIMEOUT"
-    print(f"Watching origin/main up to {MAX_WAIT // 60} min for stale v94 pods to die...")
-    print(f"Signal: commits containing '{STALE_MARK}' must stop arriving\n")
+    print(f"Watching origin/main up to {MAX_WAIT // 60} min for stale v94 pods to die...", flush=True)
+    print(f"Signal: commits containing '{STALE_MARK}' must stop arriving\n", flush=True)
 
     while time.time() - t0 < MAX_WAIT:
         pull()
@@ -44,7 +44,7 @@ def main():
         new = sum(1 for s in subs if NEW_MARK in s)
         n_stats = stats_count()
         el = int(time.time() - t0)
-        print(f"[{el:4d}s] last{QUIET_MIN}m: stale_v94={stale:2d}  v98.2={new:2d}  stats_files={n_stats}")
+        print(f"[{el:4d}s] last{QUIET_MIN}m: stale_v94={stale:2d}  v98.2={new:2d}  stats_files={n_stats}", flush=True)
         if stale > 0:
             saw_stale = True
         if n_stats > 0:
@@ -55,28 +55,28 @@ def main():
             break
         time.sleep(60)
 
-    print(f"\nLOOP EXIT: {reason}")
+    print(f"\nLOOP EXIT: {reason}", flush=True)
 
     if reason == "NEW CODE ALREADY LIVE":
-        print("v98.2 pods already running - skipping re-push")
+        print("v98.2 pods already running - skipping re-push", flush=True)
     else:
-        print("Re-pushing all 20 shards...")
+        print("Re-pushing all 20 shards...", flush=True)
         r = subprocess.run([sys.executable, os.path.join(REPO, "tools", "deploy_shodan_v98.py")],
                            cwd=REPO, text=True)
-        print(f"deploy exit={r.returncode}")
+        print(f"deploy exit={r.returncode}", flush=True)
 
-    print(f"\nSettling {SETTLE}s...")
+    print(f"\nSettling {SETTLE}s...", flush=True)
     time.sleep(SETTLE)
 
-    print("\nRunning verifier...")
+    print("\nRunning verifier...", flush=True)
     subprocess.run([sys.executable, os.path.join(REPO, "tools", "verify_v982.py"), "600"], cwd=REPO)
 
     n = stats_count()
-    print(f"\nFINAL stats_files={n}")
+    print(f"\nFINAL stats_files={n}", flush=True)
     if n == 0:
-        print("RESULT: nothing running - report the loop log")
+        print("RESULT: nothing running - report the loop log", flush=True)
         sys.exit(2)
-    print("RESULT: v98.2 IS RUNNING")
+    print("RESULT: v98.2 IS RUNNING", flush=True)
     return 0
 
 
