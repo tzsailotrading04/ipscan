@@ -2,25 +2,31 @@ import os
 import json
 import time
 import subprocess
-from kaggle.api.kaggle_api_extended import KaggleApi
 
 ROOT = r"D:\DEpinFarm"
 userprofile = os.environ.get("USERPROFILE", r"C:\Users\pc")
 kaggle_bin = os.path.join(userprofile, r"AppData\Local\Python\pythoncore-3.14-64\Scripts\kaggle.exe")
 
-def push_kernel_serialized(acct, folder, max_tries=5):
+def push_kernel_serialized(acct, user, slug, folder, max_tries=5):
     token_p = os.path.join(ROOT, "kaggle", acct, "access_token")
     token = open(token_p).read().strip()
     env = os.environ.copy()
     env["KAGGLE_CONFIG_DIR"] = os.path.join(ROOT, "kaggle", acct)
     env["KAGGLE_API_TOKEN"] = token
 
+    full_slug = f"{user}/{slug}"
     base_name = os.path.basename(folder)
+
+    # Free the session slot if replacing an existing kernel
+    print(f"Stopping & deleting {full_slug} to free session slot...", flush=True)
+    subprocess.run([kaggle_bin, "kernels", "delete", "-y", full_slug], env=env, capture_output=True, text=True)
+    time.sleep(3)
+
     for attempt in range(1, max_tries + 1):
         r = subprocess.run([kaggle_bin, "kernels", "push", "-p", folder], env=env, capture_output=True, text=True)
         out = (r.stdout + "\n" + r.stderr).strip()
         if "successfully pushed" in out:
-            print(f"pushed {base_name} successfully")
+            print(f"pushed {base_name} ({full_slug}) successfully")
             return True
         elif "409" in out or "Conflict" in out:
             wait = 8 * attempt
@@ -28,7 +34,7 @@ def push_kernel_serialized(acct, folder, max_tries=5):
             time.sleep(wait)
         else:
             print(f"FAILED {base_name}: {out}")
-            return False
+            time.sleep(3)
             
     print(f"gave up on {base_name}")
     return False
@@ -64,7 +70,7 @@ def prepare_shard_folder(shard_idx, user):
     with open(os.path.join(k_dir, "run.py"), "w", encoding="utf-8") as f:
         f.write(content)
 
-    return k_dir
+    return k_dir, slug
 
 if __name__ == "__main__":
     import sys
@@ -72,5 +78,5 @@ if __name__ == "__main__":
     acct = sys.argv[2] if len(sys.argv) > 2 else "acct1"
     user = sys.argv[3] if len(sys.argv) > 3 else "lalthazualasailo"
     
-    folder = prepare_shard_folder(shard_id, user)
-    push_kernel_serialized(acct, folder)
+    folder, slug = prepare_shard_folder(shard_id, user)
+    push_kernel_serialized(acct, user, slug, folder)
