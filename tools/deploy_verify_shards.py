@@ -8,10 +8,10 @@ userprofile = os.environ.get("USERPROFILE", r"C:\Users\pc")
 kaggle_bin = os.path.join(userprofile, r"AppData\Local\Python\pythoncore-3.14-64\Scripts\kaggle.exe")
 
 VERIFY_FLEET = [
-    (0, "acct1", "lalthazualasailo", "ipscan-cl-verify-0"),
-    (1, "acct2", "zomuanpuia", "ipscan-cl-verify-1"),
-    (2, "acct3", "laldinthari", "ipscan-cl-verify-2"),
-    (3, "acct4", "lalsangkima", "ipscan-cl-verify-3"),
+    (0, "acct6", "spectatorlone", "ipscan-cl-verify-0"),
+    (1, "acct6", "spectatorlone", "ipscan-cl-verify-1"),
+    (2, "acct6", "spectatorlone", "ipscan-cl-verify-2"),
+    (3, "acct5", "remruata", "ipscan-cl-verify-3"),
 ]
 
 def deploy_verify_shard(shard_id, acct, user, slug, total_shards=4):
@@ -51,10 +51,6 @@ def deploy_verify_shard(shard_id, acct, user, slug, total_shards=4):
     env = os.environ.copy()
     env["KAGGLE_CONFIG_DIR"] = os.path.join(ROOT, "kaggle", acct)
     env["KAGGLE_API_TOKEN"] = token
-
-    # Check and delete existing if present
-    subprocess.run([kaggle_bin, "kernels", "delete", "-y", f"{user}/{slug}"], env=env, capture_output=True, text=True)
-    time.sleep(3)
 
     for attempt in range(1, 6):
         r = subprocess.run([kaggle_bin, "kernels", "push", "-p", k_dir], env=env, capture_output=True, text=True)
