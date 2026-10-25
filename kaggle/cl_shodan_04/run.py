@@ -6,7 +6,7 @@ import asyncio
 import aiohttp
 import subprocess
 
-ENGINE_VER = "v98.97"
+ENGINE_VER = "v98.102"
 OUT_PREFIX = "v98_"
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
@@ -37,6 +37,9 @@ PUSH_INTERVAL = 300
 HARD_STOP = 9.5 * 3600
 START_TIME = time.time()
 BASE_URL = "https://internetdb.shodan.io/"
+
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+HEADERS = {"User-Agent": UA, "Accept": "application/json"}
 
 
 def log(msg):
@@ -190,7 +193,7 @@ def write_offset(path, val):
 
 
 class AdaptivePacer:
-    def __init__(self, start=20.0, lo=10.0, hi=90.0):
+    def __init__(self, start=20.0, lo=10.0, hi=120.0):
         self.rate = float(start)
         self.lo = float(lo)
         self.hi = float(hi)
@@ -237,7 +240,7 @@ class AdaptivePacer:
 
 async def fetch_ip(session, ip):
     try:
-        async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=4)) as r:
+        async with session.get(BASE_URL + ip, headers=HEADERS, timeout=aiohttp.ClientTimeout(total=4)) as r:
             status_code = r.status
             retry_after = r.headers.get("Retry-After")
             if status_code == 200:
@@ -257,7 +260,7 @@ async def fetch_ip(session, ip):
 
 async def async_main():
     log("=" * 66)
-    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (20->10..90) | cap {MAX_SHARD_IPS:,}")
+    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (20->10..120) | cap {MAX_SHARD_IPS:,}")
     log("=" * 66)
 
     if os.path.exists("/kaggle/working"):
@@ -295,7 +298,7 @@ async def async_main():
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
 
-    pacer = AdaptivePacer(start=20.0, lo=10.0, hi=90.0)
+    pacer = AdaptivePacer(start=20.0, lo=10.0, hi=120.0)
     idx_lock = asyncio.Lock()
     write_lock = asyncio.Lock()
     current_idx = resume_offset
@@ -317,7 +320,6 @@ async def async_main():
 
     out_handle = open(out_shard_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
     async def worker():
         nonlocal current_idx, processed_count, cands_found, log_window_count
@@ -386,10 +388,10 @@ async def async_main():
                 push_progress(processed_count, total_ips, cands_found, stats)
                 last_push_time = now
 
-    async with aiohttp.ClientSession(connector=conn, headers=headers) as session:
+    async with aiohttp.ClientSession(connector=conn, headers=HEADERS) as session:
         global EGRESS_IP
         try:
-            async with session.get("https://api.ipify.org") as r:
+            async with session.get("https://api.ipify.org", headers=HEADERS) as r:
                 EGRESS_IP = (await r.text()).strip()
         except Exception:
             EGRESS_IP = "unknown"
