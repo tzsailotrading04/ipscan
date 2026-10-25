@@ -50,16 +50,28 @@ def atomic_write(filepath, lines):
             pass
     os.replace(tmp_path, filepath)
 
-def load_verified_set(repo_dir):
+def load_verified_set(repo_dir, default_pass=0):
     vp = os.path.join(repo_dir, OUT_REL)
     d = {}
     if os.path.exists(vp):
         with open(vp, "r", encoding="utf-8", errors="ignore") as f:
             for line in f:
                 line_str = line.strip()
-                if line_str and "\t" in line_str:
-                    k = line_str.split("\t")[0]
-                    d[k] = line_str
+                if not line_str or "\t" not in line_str:
+                    continue
+                parts = line_str.split("\t")
+                k = parts[0]
+                if len(parts) >= 8:
+                    try:
+                        seen_pass = int(parts[7])
+                        prefix = "\t".join(parts[:7])
+                    except Exception:
+                        seen_pass = default_pass
+                        prefix = "\t".join(parts[:7])
+                else:
+                    seen_pass = default_pass
+                    prefix = "\t".join(parts[:7])
+                d[k] = (prefix, seen_pass)
     return d
 
 def git_sync(repo_dir):
@@ -216,8 +228,8 @@ def check(k):
 run_once = "--once" in sys.argv
 cycle = 0
 
-# Persistent memory set across cycles in this session
-persistent_alive = load_verified_set(REPO)
+# Persistent memory set across cycles in this session: key -> (line_prefix_7cols, last_seen_pass)
+persistent_alive = load_verified_set(REPO, default_pass=0)
 log(f"INITIAL_PERSISTENT_ALIVE={len(persistent_alive)}")
 
 while True:
@@ -232,10 +244,10 @@ while True:
     git_sync(REPO)
 
     # Accumulate any proxies that remote has into our persistent set
-    remote_verified = load_verified_set(REPO)
-    for k, v in remote_verified.items():
-        if k not in persistent_alive:
-            persistent_alive[k] = v
+    remote_verified = load_verified_set(REPO, default_pass=cycle - 1)
+    for k, (prefix, remote_seen) in remote_verified.items():
+        if k not in persistent_alive or remote_seen > persistent_alive[k][1]:
+            persistent_alive[k] = (prefix, remote_seen)
     log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
     # 2. Gather candidates
@@ -305,7 +317,7 @@ while True:
             if r:
                 alive_batch.append(r)
                 k = r.split("\t")[0]
-                persistent_alive[k] = r
+                persistent_alive[k] = (r, cycle)
             if done % 5000 == 0:
                 log(f"  checked {done}/{len(rows)} alive_batch={len(alive_batch)} persistent_total={len(persistent_alive)}")
             if time.time() - START > HARD_STOP:
@@ -313,19 +325,30 @@ while True:
                 break
 
     v_elapsed = time.time() - t_start
-    log(f"CYCLE_SUMMARY: batch_checked={len(rows)} batch_survived={len(alive_batch)} total_persistent={len(persistent_alive)} in {v_elapsed:.1f}s")
+    log(f"CYCLE_SUMMARY: batch_checked={len(rows)} batch_survived={len(alive_batch)} persistent_before_prune={len(persistent_alive)} in {v_elapsed:.1f}s")
+
+    # Step 2: PRUNE. Drop any proxy whose last_seen is older than 2 full passes (cycle - seen_pass > 2)
+    pruned_alive = {}
+    dropped_count = 0
+    for k, (prefix, seen_pass) in persistent_alive.items():
+        if (cycle - seen_pass) <= 2:
+            pruned_alive[k] = (prefix, seen_pass)
+        else:
+            dropped_count += 1
+    persistent_alive = pruned_alive
+    log(f"PRUNING: dropped={dropped_count} remaining={len(persistent_alive)} (retention window: last_seen >= {cycle - 2})")
 
     # 5. Atomically replace verified_alive.txt, pub.txt, and pub_fast.txt from the FULL persistent set
     out = os.path.join(REPO, OUT_REL)
-    full_alive_lines = sorted(persistent_alive.values())
+    full_alive_lines = sorted(f"{prefix}\t{seen_pass}" for prefix, seen_pass in persistent_alive.values())
     atomic_write(out, full_alive_lines)
 
     pub_file = os.path.join(REPO, "ip", "pub.txt")
-    pub_lines = [r.split("\t")[0] for r in full_alive_lines]
+    pub_lines = [k for k in sorted(persistent_alive.keys())]
     atomic_write(pub_file, pub_lines)
 
     pub_fast_file = os.path.join(REPO, "ip", "pub_fast.txt")
-    fast_rows = [r.split("\t")[0] for r in full_alive_lines if "\tFAST" in r or "\tMED" in r]
+    fast_rows = [k for k, (prefix, _) in sorted(persistent_alive.items()) if "\tFAST" in prefix or "\tMED" in prefix]
     atomic_write(pub_fast_file, fast_rows[:1000])
 
     # 6. Commit + push with retry x5
@@ -333,12 +356,12 @@ while True:
     for attempt in range(1, 6):
         subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
         # Re-apply persistent set over any merge/pull
-        atomic_write(out, sorted(persistent_alive.values()))
+        atomic_write(out, full_alive_lines)
         atomic_write(pub_file, pub_lines)
         atomic_write(pub_fast_file, fast_rows[:1000])
 
         subprocess.run(["git", "-C", REPO, "add", OUT_REL, "ip/pub.txt", "ip/pub_fast.txt"], check=False)
-        subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: cycle {cycle} verified_alive={len(full_alive_lines)} (batch_survived={len(alive_batch)}) pool={len(rows)}"], capture_output=True)
+        subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: cycle {cycle} PASS_SURVIVORS={len(alive_batch)} pool_after_prune={len(full_alive_lines)} candidates={len(rows)}"], capture_output=True)
         r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
         if r.returncode == 0:
             log("GIT_PUSH_OK")
