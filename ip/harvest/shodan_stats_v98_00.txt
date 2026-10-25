@@ -1,6 +1,6 @@
 engine=v98.2
 shard=00
-offset=131824
+offset=158224
 total=6000000
 kept_lines=9
 not_found=523
@@ -8,5 +8,5 @@ ok=8
 ok_no_keep=0
 ok_with_ports=8
 other=0
-rate_limit=131469
+rate_limit=157869
 timeout=0
