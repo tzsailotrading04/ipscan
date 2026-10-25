@@ -7,6 +7,7 @@ import struct
 import ssl
 import subprocess
 import random
+import glob
 from concurrent.futures import ThreadPoolExecutor
 from bisect import bisect_right
 
@@ -15,14 +16,10 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 OUT_REL = "ip/harvest/verified_alive.txt"
-CANDIDATES = [
-    "master_pool.txt",
-    "ip/harvest/verified_alive.txt",
-    "ip/harvest/feeds_raw.txt",
-    "ip/harvest/leakix.txt",
-    "ip/harvest/shodan_expanded.txt",
-    "ip/harvest/dataset_ports.txt"
-]
+CANDIDATES = ["ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
+              "ip/harvest/hits_new_exits.txt", "ip/harvest/net_new.txt"]
+CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
+CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_*.txt"))
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
 WORKERS = 4000
