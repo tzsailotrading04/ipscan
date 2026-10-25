@@ -23,21 +23,29 @@ if not shard_str:
 SHARD_IDX = int(shard_str)
 SHARD_TAG = f"{SHARD_IDX:02d}"
 
-CONC = 30  # 30 continuous async workers
-TARGET_RATE = 88.0  # Paced target rate: 88 req/s (safely under 95 req/s ceiling)
-MAX_SHARD_IPS = 3_350_000  # Cap per shard: 20 x 3.35M = 67M fleet milestone
-PUSH_INTERVAL = 300  # 5 minutes checkpoint push interval
-HARD_STOP = 9.5 * 3600  # 9.5 hours for Kaggle session
+# ---- v98 tuning ----
+NUM_SHARDS = int(os.environ.get("NUM_SHARDS", "20"))
+CONC = 180                 # v98: Little's Law -> 88 req/s x 2.0s latency = 176 workers
+TARGET_RATE = 88.0         # paced ceiling, safely under the ~95 req/s Cloudflare wall
+MAX_SHARD_IPS = 6_000_000  # v98: was 3_350_000 -> fleet 120M IPs
+PUSH_INTERVAL = 300
+HARD_STOP = 9.5 * 3600
 START_TIME = time.time()
 BASE_URL = "https://internetdb.shodan.io/"
+
 
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [SHARD {SHARD_TAG}] {msg}", flush=True)
 
+
 def git_sync():
     if not os.path.exists("/kaggle/working"):
         return
-    subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], capture_output=True)
+    subprocess.run(
+        ["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
+        capture_output=True,
+    )
+
 
 def push_progress(offset, total, cand_count):
     if not os.path.exists("/kaggle/working"):
@@ -47,19 +55,83 @@ def push_progress(offset, total, cand_count):
     shard_rel = f"ip/harvest/shodan_shard_{SHARD_TAG}.txt"
 
     for attempt in range(5):
-        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
+        subprocess.run(
+            ["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
+            capture_output=True,
+        )
         subprocess.run(["git", "-C", REPO, "add", prog_rel, shard_rel], check=False)
         msg = f"cl_shodan_{SHARD_TAG}: offset={offset}/{total} cands={cand_count}"
         subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True)
-        r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
+        r = subprocess.run(
+            ["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True
+        )
         if r.returncode == 0:
             log("GIT_PUSH_OK")
             return
         time.sleep(2)
     log("GIT_PUSH_FAILED after 5 attempts")
 
+
+def norm_subnet(line):
+    """Accept '1.2.3.4', '1.2.3.4/24' or '1.2.3' -> return '1.2.3'."""
+    s = line.strip()
+    if not s:
+        return None
+    if "/" in s:
+        s = s.split("/")[0]
+    parts = s.split(".")
+    if len(parts) == 4:
+        return ".".join(parts[:3])
+    if len(parts) == 3:
+        return s
+    return None
+
+
+def load_strided_subnets():
+    """Load the FULL master subnet list, dedupe, then take every Nth entry.
+
+    Contiguous slicing gave shard 00 the bottom of the IP space and shard 14 the
+    middle, so 13 of 20 shards landed in thin regions and yielded exactly 0.000%.
+    Striding gives every shard the same thin/fat mix.
+    """
+    master = os.path.join(REPO, "work", "shodan_shards.txt")
+    if not os.path.exists(master):
+        log(f"ERROR: master list missing at {master}")
+        return []
+
+    seen = set()
+    ordered = []
+    with open(master, "r", encoding="utf-8", errors="ignore") as f:
+        for l in f:
+            parts = l.rstrip("\n").split("\t")
+            cand = parts[1] if len(parts) >= 2 else parts[0]
+            s = norm_subnet(cand)
+            if s and s not in seen:
+                seen.add(s)
+                ordered.append(s)
+
+    total_unique = len(ordered)
+    strided = ordered[SHARD_IDX::NUM_SHARDS]
+    log(f"Master subnets: {total_unique:,} unique | strided slice for shard {SHARD_TAG}: {len(strided):,}")
+    return strided
+
+
+def load_pe_ports():
+    path = os.path.join(REPO, "ip", "pe_ports.txt")
+    ports = set()
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            for l in f:
+                l = l.strip()
+                if l.isdigit():
+                    ports.add(int(l))
+    log(f"Loaded {len(ports)} proxy ports for output filtering")
+    return ports
+
+
 class LightPacer:
-    """Smooth token-bucket pacer guaranteeing maximum req/s without burst."""
+    """Smooth token-bucket pacer guaranteeing max req/s without burst."""
+
     def __init__(self, max_per_sec=88.0):
         self.max_per_sec = max_per_sec
         self.win_start = time.perf_counter()
@@ -80,6 +152,7 @@ class LightPacer:
                 self.win_count = 0
             self.win_count += 1
 
+
 async def fetch_ip(session, ip):
     try:
         async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=4)) as r:
@@ -97,10 +170,11 @@ async def fetch_ip(session, ip):
     except Exception:
         return ("error", [])
 
+
 async def async_main():
     log("=" * 60)
-    log(f"DISTRIBUTED SHODAN ENGINE (CONTINUOUS PIPELINE, PACED AT 88 REQ/S) - SHARD {SHARD_TAG}")
-    log(f"Workers: {CONC} continuous coroutines | Target Rate: {TARGET_RATE} req/s | Shard Target: {MAX_SHARD_IPS:,} IPs")
+    log(f"SHODAN ENGINE v98 (STRIDED SHARDS, CONC={CONC}, PACED {TARGET_RATE:.0f}/s) - SHARD {SHARD_TAG}")
+    log(f"Shard target: {MAX_SHARD_IPS:,} IPs | {NUM_SHARDS} shards total")
     log("=" * 60)
 
     if os.path.exists("/kaggle/working"):
@@ -110,39 +184,22 @@ async def async_main():
         subprocess.run(["git", "-C", REPO, "config", "user.email", f"shodan{SHARD_TAG}@depinfarm.org"], check=False)
         git_sync()
 
-    # 1. Load shard /24 prefixes
-    shard_file = os.path.join(REPO, "work", "shards", f"shard_{SHARD_TAG}.txt")
-    subnets = []
-    if os.path.exists(shard_file):
-        with open(shard_file, "r", encoding="ascii") as f:
-            for l in f:
-                line = l.strip()
-                if line:
-                    subnets.append(line.rsplit(".", 1)[0])
-    else:
-        all_shards = os.path.join(REPO, "work", "shodan_shards.txt")
-        if os.path.exists(all_shards):
-            tag_prefix = f"{SHARD_TAG}\t"
-            with open(all_shards, "r", encoding="utf-8") as f:
-                for l in f:
-                    if l.startswith(tag_prefix):
-                        ip = l.strip().split("\t")[1]
-                        subnets.append(ip.rsplit(".", 1)[0])
-
-    num_subnets = len(subnets)
-    raw_total_ips = num_subnets * 256
-    total_ips = min(raw_total_ips, MAX_SHARD_IPS)
-    log(f"Loaded {num_subnets:,} /24 subnets. Target: {total_ips:,} IPs for shard {SHARD_TAG}")
-    if total_ips == 0:
-        log("ERROR: No subnets found for this shard. Exiting.")
+    subnets = load_strided_subnets()
+    if not subnets:
+        log("ERROR: no subnets for this shard. Exiting.")
         sys.exit(1)
+
+    pe_ports = load_pe_ports()
+
+    raw_total_ips = len(subnets) * 256
+    total_ips = min(raw_total_ips, MAX_SHARD_IPS)
+    log(f"Strided subnets: {len(subnets):,} -> raw {raw_total_ips:,} IPs, capped to {total_ips:,}")
 
     def get_ip(offset):
         sub_i = offset // 256
         host_i = offset % 256
         return f"{subnets[sub_i]}.{host_i}"
 
-    # 2. Read resume offset
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{SHARD_TAG}.txt")
     resume_offset = 0
     if os.path.exists(prog_file):
@@ -153,7 +210,7 @@ async def async_main():
                     resume_offset = int(val)
         except Exception:
             pass
-    log(f"Resume offset: {resume_offset:,} / {total_ips:,} ({resume_offset/total_ips*100:.2f}%)")
+    log(f"Resume offset: {resume_offset:,} / {total_ips:,} ({resume_offset / total_ips * 100:.2f}%)")
 
     out_shard_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{SHARD_TAG}.txt")
     os.makedirs(os.path.dirname(out_shard_file), exist_ok=True)
@@ -162,15 +219,15 @@ async def async_main():
     if os.path.exists(out_shard_file):
         with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as f:
             cands_found = sum(1 for _ in f)
-    log(f"Existing candidates in shard file: {cands_found:,}")
+    log(f"Existing candidate lines in shard file: {cands_found:,}")
 
-    # 3. Continuous async execution pipeline
     pacer = LightPacer(max_per_sec=TARGET_RATE)
     idx_lock = asyncio.Lock()
     write_lock = asyncio.Lock()
     current_idx = resume_offset
     processed_count = resume_offset
     total_429s = 0
+    kept_lines = 0
     last_log_time = time.time()
     last_push_time = time.time()
     log_window_count = 0
@@ -181,7 +238,7 @@ async def async_main():
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
     async def worker():
-        nonlocal current_idx, processed_count, cands_found, total_429s, log_window_count
+        nonlocal current_idx, processed_count, cands_found, total_429s, log_window_count, kept_lines
         while current_idx < total_ips:
             if time.time() - START_TIME >= HARD_STOP:
                 break
@@ -197,14 +254,17 @@ async def async_main():
 
             status, ports = await fetch_ip(session, ip)
             if status == "ok" and ports:
-                lines = [f"{ip}:{p}\n" for p in ports]
-                async with write_lock:
-                    out_handle.writelines(lines)
-                    out_handle.flush()
-                    cands_found += len(lines)
+                keep = [p for p in ports if p in pe_ports]
+                if keep:
+                    lines = [f"{ip}:{p}\n" for p in keep]
+                    async with write_lock:
+                        out_handle.writelines(lines)
+                        out_handle.flush()
+                        cands_found += len(lines)
+                        kept_lines += len(lines)
             elif status == "rate_limit":
                 total_429s += 1
-                await asyncio.sleep(2.0)  # gentle 2s backoff on worker
+                await asyncio.sleep(2.0)
 
             async with idx_lock:
                 if my_offset + 1 > processed_count:
@@ -217,19 +277,21 @@ async def async_main():
             await asyncio.sleep(5)
             now = time.time()
 
-            # Periodic log every 60s
             if now - last_log_time >= 60:
                 win_elapsed = now - log_window_start
                 instant_rate = log_window_count / max(0.1, win_elapsed)
                 cum_elapsed = now - START_TIME
                 cum_rate = (processed_count - resume_offset) / max(0.1, cum_elapsed)
                 pct = processed_count / total_ips * 100
-                log(f"Rate: {instant_rate:.1f} req/s (cum: {cum_rate:.1f} req/s) | Progress: {processed_count:,}/{total_ips:,} ({pct:.1f}%) | Cands: {cands_found:,} | 429s: {total_429s}")
+                log(
+                    f"Rate: {instant_rate:.1f} req/s (cum: {cum_rate:.1f} req/s) | "
+                    f"Progress: {processed_count:,}/{total_ips:,} ({pct:.1f}%) | "
+                    f"Cands: {cands_found:,} | 429s: {total_429s}"
+                )
                 last_log_time = now
                 log_window_start = now
                 log_window_count = 0
 
-            # Periodic push to GitHub every 5 minutes
             if now - last_push_time >= PUSH_INTERVAL:
                 with open(prog_file, "w") as pf:
                     pf.write(str(processed_count) + "\n")
@@ -249,12 +311,14 @@ async def async_main():
             push_progress(processed_count, total_ips, cands_found)
 
     if processed_count >= total_ips:
-        log(f"SHARD {SHARD_TAG} REACHED {total_ips:,} CAP (67M FLEET TARGET). DONE.")
+        log(f"SHARD {SHARD_TAG} REACHED CAP ({total_ips:,}). DONE.")
     else:
-        log(f"SESSION STOPPED AT {processed_count:,}/{total_ips:,}. Candidates: {cands_found:,}. 429s: {total_429s}")
+        log(f"SESSION STOPPED AT {processed_count:,}/{total_ips:,}. Cands: {cands_found:,}. 429s: {total_429s}")
+
 
 def main():
     asyncio.run(async_main())
+
 
 if __name__ == "__main__":
     main()
