@@ -1,14 +1,14 @@
 engine=v98.111
 shard=07
 egress_ip=35.185.12.47
-offset=195324
+offset=216732
 total=6000000
 kept_lines=45083
-not_found=150590
+not_found=171747
 ok=31268
 ok_no_keep=2074
 ok_with_ports=31265
-other=166
+other=312
 pacer_rate=400.0
 rate_limit=0
 rolling_429=0.00
