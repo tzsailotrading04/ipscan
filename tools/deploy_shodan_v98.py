@@ -3,7 +3,15 @@ import os, sys, time, shutil, subprocess, tempfile
 ROOT = r"D:\DEpinFarm"
 ACC_DIR = os.path.join(ROOT, "kaggle")
 SRC = os.path.join(ROOT, "kaggle", "cl_shodan")
-OWNER = "tzsailotrading04"
+
+ACCT_USER = {
+    "acct1": "lalthazualasailo",
+    "acct2": "zomuanpuia",
+    "acct3": "laldinthari",
+    "acct4": "lalsangkima",
+    "acct5": "remruata",
+    "acct6": "spectatorlone",
+}
 
 SHARD_ACCT = {
     0: "acct5", 1: "acct5",
@@ -35,6 +43,7 @@ META = """{{
 def push_one(idx):
     tag = f"{idx:02d}"
     acct = SHARD_ACCT[idx]
+    owner = ACCT_USER[acct]
     d = os.path.join(TMP, f"shard_{tag}")
     if os.path.exists(d):
         shutil.rmtree(d)
@@ -44,19 +53,17 @@ def push_one(idx):
         code = f.read()
 
     if '    shard_str = "0"' not in code:
-        print(f"  !! marker not found in run.py for shard {tag}")
+        print(f"  !! marker not found in run.py for shard {tag}", flush=True)
     code = code.replace('    shard_str = "0"', f'    shard_str = "{tag}"')
 
     with open(os.path.join(d, "run.py"), "w", encoding="utf-8") as f:
         f.write(code)
-    with open(os.path.join(d, "kernel-metadata.json"), "w", encoding="utf-8") as f:
-        f.write(META.format(owner=OWNER, tag=tag))
 
-    tok = open(os.path.join(ACC_DIR, acct, "access_token")).read().strip()
-    env = os.environ.copy()
-    env["KAGGLE_API_TOKEN"] = tok
-    env["KAGGLE_KEY"] = tok
-    env["KAGGLE_CONFIG_DIR"] = os.path.join(ACC_DIR, acct)
+    with open(os.path.join(d, "kernel-metadata.json"), "w", encoding="utf-8") as f:
+        f.write(META.format(owner=owner, tag=tag))
+
+    cfg = os.path.join(ACC_DIR, acct)
+    env = dict(os.environ, KAGGLE_CONFIG_DIR=cfg)
 
     for attempt in range(1, 6):
         r = subprocess.run(
@@ -65,16 +72,16 @@ def push_one(idx):
         )
         out = r.stdout + r.stderr
         if r.returncode == 0:
-            print(f"shard {tag} [{acct}] PUSH_OK")
+            print(f"shard {tag} [{acct}] PUSH_OK", flush=True)
             return True
         if "409" in out or "Conflict" in out:
             wait = 3 * attempt
-            print(f"shard {tag} [{acct}] 409, retry in {wait}s")
+            print(f"shard {tag} [{acct}] 409, retry in {wait}s", flush=True)
             time.sleep(wait)
             continue
-        print(f"shard {tag} [{acct}] FAIL: {out.strip()[:200]}")
+        print(f"shard {tag} [{acct}] FAIL: {out.strip()[:200]}", flush=True)
         return False
-    print(f"shard {tag} [{acct}] FAILED after 5 attempts")
+    print(f"shard {tag} [{acct}] FAILED after 5 attempts", flush=True)
     return False
 
 
@@ -87,8 +94,8 @@ def main():
     for i in order:
         if push_one(i):
             ok += 1
-        time.sleep(3)
-    print(f"\nPUSHED {ok}/{len(order)}")
+        time.sleep(2)
+    print(f"\nPUSHED {ok}/{len(order)}", flush=True)
 
 
 if __name__ == "__main__":

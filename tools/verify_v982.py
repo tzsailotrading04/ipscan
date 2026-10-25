@@ -30,10 +30,15 @@ def read_prog():
     o = {}
     for i in range(20):
         p = os.path.join(H, f"shodan_progress_v98_{i:02d}.txt")
+        vals = []
         try:
-            o[i] = int(open(p).read().strip())
+            for l in open(p, errors="ignore"):
+                t = l.strip()
+                if t.isdigit():
+                    vals.append(int(t))
         except Exception:
-            o[i] = 0
+            pass
+        o[i] = max(vals) if vals else 0
     return o
 
 def read_cands():
@@ -89,3 +94,4 @@ elif d["kept_lines"] > 0:
     print("DIAGNOSIS: WORKING")
 else:
     print("DIAGNOSIS: INCONCLUSIVE - report the status deltas")
+

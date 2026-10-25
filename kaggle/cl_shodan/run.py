@@ -121,6 +121,26 @@ def load_pe_ports():
     return ports
 
 
+def read_offset(path):
+    """Tolerate git conflict markers from autostash pop: take largest integer."""
+    if not os.path.exists(path):
+        return 0
+    vals = []
+    try:
+        with open(path, "r", errors="ignore") as f:
+            for line in f:
+                t = line.strip()
+                if t.isdigit():
+                    vals.append(int(t))
+    except Exception:
+        return 0
+    return max(vals) if vals else 0
+
+
+def write_offset(path, val):
+    with open(path, "w") as f:
+        f.write(str(val) + "\n")
+
 class LightPacer:
     def __init__(self, max_per_sec=88.0):
         self.max_per_sec = max_per_sec
@@ -187,14 +207,8 @@ async def async_main():
         return f"{subnets[offset // 256]}.{offset % 256}"
 
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
-    resume_offset = 0
-    if os.path.exists(prog_file):
-        try:
-            v = open(prog_file).read().strip()
-            if v.isdigit():
-                resume_offset = int(v)
-        except Exception:
-            pass
+    resume_offset = read_offset(prog_file)
+    write_offset(prog_file, resume_offset)
     log(f"resume_offset={resume_offset:,}/{total_ips:,}")
 
     out_shard_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt")
@@ -216,6 +230,15 @@ async def async_main():
     last_push_time = time.time()
     log_window_count = 0
     log_window_start = time.time()
+
+    try:
+        with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as _f:
+            _good = [l for l in _f if l.strip() and not l.startswith(("<<<", "===", ">>>"))]
+        with open(out_shard_file, "w", encoding="utf-8") as _f:
+            _f.writelines(_good)
+        log(f"shard file purged to {len(_good):,} clean lines")
+    except Exception as _e:
+        log(f"purge skipped: {_e}")
 
     out_handle = open(out_shard_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
@@ -305,3 +328,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
