@@ -16,6 +16,7 @@ REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"
 
 STOP_FILE = "work/STOP_SHODAN"
 STOPPING = False
+EGRESS_IP = "unknown"
 
 shard_str = os.environ.get("SHARD_INDEX", os.environ.get("SLICE_IDX", ""))
 if not shard_str and len(sys.argv) > 1:
@@ -100,7 +101,7 @@ def push_progress(offset, total, cand_count, stats):
     shard_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt"
     stats_rel = f"ip/harvest/shodan_stats_{OUT_PREFIX}{SHARD_TAG}.txt"
 
-    stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={offset}\ntotal={total}\n"
+    stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\negress_ip={EGRESS_IP}\noffset={offset}\ntotal={total}\n"
     for k in sorted(stats):
         stats_content += f"{k}={stats[k]}\n"
     atomic_write(os.path.join(REPO, stats_rel), stats_content)
@@ -386,6 +387,14 @@ async def async_main():
                 last_push_time = now
 
     async with aiohttp.ClientSession(connector=conn, headers=headers) as session:
+        global EGRESS_IP
+        try:
+            async with session.get("https://api.ipify.org") as r:
+                EGRESS_IP = (await r.text()).strip()
+        except Exception:
+            EGRESS_IP = "unknown"
+        log(f"EGRESS_IP={EGRESS_IP}")
+
         try:
             tasks = [asyncio.create_task(worker()) for _ in range(CONC)]
             mon = asyncio.create_task(monitor())
