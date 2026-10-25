@@ -6,7 +6,7 @@ import asyncio
 import aiohttp
 import subprocess
 
-ENGINE_VER = "v98.102"
+ENGINE_VER = "v98.109"
 OUT_PREFIX = "v98_"
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
@@ -31,7 +31,7 @@ SHARD_IDX = int(shard_str)
 SHARD_TAG = f"{SHARD_IDX:02d}"
 
 NUM_SHARDS = int(os.environ.get("NUM_SHARDS", "20"))
-CONC = 60
+CONC = 10
 MAX_SHARD_IPS = 6_000_000
 PUSH_INTERVAL = 300
 HARD_STOP = 9.5 * 3600
@@ -193,7 +193,7 @@ def write_offset(path, val):
 
 
 class AdaptivePacer:
-    def __init__(self, start=20.0, lo=10.0, hi=120.0):
+    def __init__(self, start=8.0, lo=6.0, hi=10.0):
         self.rate = float(start)
         self.lo = float(lo)
         self.hi = float(hi)
@@ -218,17 +218,18 @@ class AdaptivePacer:
 
     def on_result(self, status, retry_after=None):
         self.recent.append(1 if status != 429 else 0)
+        now = time.monotonic()
         if status == 429:
-            self.rate = max(self.lo, self.rate * 0.9)  # gentler decrease
+            self.rate = max(self.lo, self.rate * 0.9)
             if retry_after:
                 try:
                     ra_val = float(retry_after)
-                    if ra_val >= 2.0:  # only pause if long
-                        self.paused_until = time.monotonic() + min(ra_val, 60.0)
+                    if ra_val >= 5:
+                        self.paused_until = now + min(ra_val, 3600.0)
                 except (ValueError, TypeError):
                     pass
         elif (200 <= status < 400) or status == 404:  # 200,204,404 = SUCCESS
-            self.rate = min(self.hi, self.rate + 1.0)  # stronger increase
+            self.rate = min(self.hi, self.rate + 0.1)
         # 5xx and exceptions: neutral
         self.interval = 1.0 / self.rate
 
@@ -260,7 +261,7 @@ async def fetch_ip(session, ip):
 
 async def async_main():
     log("=" * 66)
-    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (20->10..120) | cap {MAX_SHARD_IPS:,}")
+    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (8->6..10) | cap {MAX_SHARD_IPS:,}")
     log("=" * 66)
 
     if os.path.exists("/kaggle/working"):
@@ -298,7 +299,7 @@ async def async_main():
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
 
-    pacer = AdaptivePacer(start=20.0, lo=10.0, hi=120.0)
+    pacer = AdaptivePacer(start=8.0, lo=6.0, hi=10.0)
     idx_lock = asyncio.Lock()
     write_lock = asyncio.Lock()
     current_idx = resume_offset
