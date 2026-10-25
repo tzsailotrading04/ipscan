@@ -1,0 +1,426 @@
+$ErrorActionPreference = "Stop"
+$root = "D:\DEpinFarm"
+Set-Location $root
+
+Write-Host "=== v98.2: writing run.py ===" -ForegroundColor Cyan
+$runpy = @'
+import os
+import sys
+import time
+import asyncio
+import aiohttp
+import subprocess
+
+ENGINE_VER = "v98.2"
+OUT_PREFIX = "v98_"
+
+_TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
+REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.git"
+WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
+REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
+
+shard_str = os.environ.get("SHARD_INDEX", os.environ.get("SLICE_IDX", ""))
+if not shard_str and len(sys.argv) > 1:
+    for arg in sys.argv[1:]:
+        if arg.isdigit():
+            shard_str = arg
+            break
+if not shard_str:
+    shard_str = "0"
+
+SHARD_IDX = int(shard_str)
+SHARD_TAG = f"{SHARD_IDX:02d}"
+
+NUM_SHARDS = int(os.environ.get("NUM_SHARDS", "20"))
+CONC = 180
+TARGET_RATE = 88.0
+MAX_SHARD_IPS = 6_000_000
+PUSH_INTERVAL = 300
+HARD_STOP = 9.5 * 3600
+START_TIME = time.time()
+BASE_URL = "https://internetdb.shodan.io/"
+
+
+def log(msg):
+    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [{ENGINE_VER} SHARD {SHARD_TAG}] {msg}", flush=True)
+
+
+def git_sync():
+    if not os.path.exists("/kaggle/working"):
+        return
+    subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
+                   capture_output=True)
+
+
+def push_progress(offset, total, cand_count, stats):
+    if not os.path.exists("/kaggle/working"):
+        return
+    prog_rel = f"ip/harvest/shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt"
+    shard_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt"
+    stats_rel = f"ip/harvest/shodan_stats_{OUT_PREFIX}{SHARD_TAG}.txt"
+
+    with open(os.path.join(REPO, stats_rel), "w") as sf:
+        sf.write(f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={offset}\ntotal={total}\n")
+        for k in sorted(stats):
+            sf.write(f"{k}={stats[k]}\n")
+
+    for attempt in range(5):
+        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
+                       capture_output=True)
+        subprocess.run(["git", "-C", REPO, "add", prog_rel, shard_rel, stats_rel], check=False)
+        msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={offset}/{total} cands={cand_count}"
+        subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True)
+        r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"],
+                           capture_output=True, text=True)
+        if r.returncode == 0:
+            log("GIT_PUSH_OK")
+            return
+        time.sleep(2)
+    log("GIT_PUSH_FAILED after 5 attempts")
+
+
+def norm_subnet(line):
+    s = line.strip()
+    if not s:
+        return None
+    if "/" in s:
+        s = s.split("/")[0]
+    parts = s.split(".")
+    if len(parts) == 4:
+        return ".".join(parts[:3])
+    if len(parts) == 3:
+        return s
+    return None
+
+
+def load_strided_subnets():
+    master = os.path.join(REPO, "work", "shodan_shards.txt")
+    if not os.path.exists(master):
+        log(f"ERROR: master list missing at {master}")
+        return []
+    seen = set()
+    ordered = []
+    with open(master, "r", encoding="utf-8", errors="ignore") as f:
+        for l in f:
+            parts = l.rstrip("\n").split("\t")
+            cand = parts[1] if len(parts) >= 2 else parts[0]
+            s = norm_subnet(cand)
+            if s and s not in seen:
+                seen.add(s)
+                ordered.append(s)
+    strided = ordered[SHARD_IDX::NUM_SHARDS]
+    log(f"Master subnets: {len(ordered):,} unique | strided slice: {len(strided):,}")
+    log(f"STRIDE_CHECK first={strided[0] if strided else 'NONE'} last={strided[-1] if strided else 'NONE'}")
+    return strided
+
+
+def load_pe_ports():
+    path = os.path.join(REPO, "ip", "pe_ports.txt")
+    ports = set()
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            for l in f:
+                l = l.strip()
+                if l.isdigit():
+                    ports.add(int(l))
+    log(f"Loaded {len(ports)} proxy ports")
+    return ports
+
+
+class LightPacer:
+    def __init__(self, max_per_sec=88.0):
+        self.max_per_sec = max_per_sec
+        self.win_start = time.perf_counter()
+        self.win_count = 0
+        self.lock = asyncio.Lock()
+
+    async def acquire(self):
+        async with self.lock:
+            now = time.perf_counter()
+            elapsed = now - self.win_start
+            if elapsed < 1.0:
+                if self.win_count >= self.max_per_sec:
+                    await asyncio.sleep(1.0 - elapsed)
+                    self.win_start = time.perf_counter()
+                    self.win_count = 0
+            else:
+                self.win_start = now
+                self.win_count = 0
+            self.win_count += 1
+
+
+async def fetch_ip(session, ip):
+    try:
+        async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=4)) as r:
+            if r.status == 200:
+                data = await r.json()
+                return ("ok", data.get("ports", []))
+            elif r.status == 404:
+                return ("not_found", [])
+            elif r.status == 429:
+                return ("rate_limit", None)
+            else:
+                return (f"http_{r.status}", [])
+    except asyncio.TimeoutError:
+        return ("timeout", [])
+    except Exception:
+        return ("error", [])
+
+
+async def async_main():
+    log("=" * 66)
+    log(f"{ENGINE_VER} START | CONC={CONC} | paced {TARGET_RATE:.0f}/s | cap {MAX_SHARD_IPS:,}")
+    log("=" * 66)
+
+    if os.path.exists("/kaggle/working"):
+        if not os.path.exists(REPO):
+            subprocess.run(["git", "clone", "--depth", "1", REPO_URL, REPO], check=True)
+        subprocess.run(["git", "-C", REPO, "config", "user.name", f"W{SHARD_TAG}"], check=False)
+        subprocess.run(["git", "-C", REPO, "config", "user.email", f"w{SHARD_TAG}@depinfarm.org"], check=False)
+        git_sync()
+
+    subnets = load_strided_subnets()
+    if not subnets:
+        log("ERROR: no subnets. Exiting.")
+        sys.exit(1)
+
+    pe_ports = load_pe_ports()
+
+    total_ips = min(len(subnets) * 256, MAX_SHARD_IPS)
+    log(f"total_ips={total_ips:,}")
+
+    def get_ip(offset):
+        return f"{subnets[offset // 256]}.{offset % 256}"
+
+    prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
+    resume_offset = 0
+    if os.path.exists(prog_file):
+        try:
+            v = open(prog_file).read().strip()
+            if v.isdigit():
+                resume_offset = int(v)
+        except Exception:
+            pass
+    log(f"resume_offset={resume_offset:,}/{total_ips:,}")
+
+    out_shard_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt")
+    os.makedirs(os.path.dirname(out_shard_file), exist_ok=True)
+    cands_found = 0
+    if os.path.exists(out_shard_file):
+        with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as f:
+            cands_found = sum(1 for _ in f)
+
+    stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
+             "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
+
+    pacer = LightPacer(max_per_sec=TARGET_RATE)
+    idx_lock = asyncio.Lock()
+    write_lock = asyncio.Lock()
+    current_idx = resume_offset
+    processed_count = resume_offset
+    last_log_time = time.time()
+    last_push_time = time.time()
+    log_window_count = 0
+    log_window_start = time.time()
+
+    out_handle = open(out_shard_file, "a", encoding="utf-8")
+    conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+    async def worker():
+        nonlocal current_idx, processed_count, cands_found, log_window_count
+        while current_idx < total_ips:
+            if time.time() - START_TIME >= HARD_STOP:
+                break
+            async with idx_lock:
+                if current_idx >= total_ips:
+                    break
+                my_offset = current_idx
+                current_idx += 1
+
+            ip = get_ip(my_offset)
+            await pacer.acquire()
+            status, ports = await fetch_ip(session, ip)
+
+            async with write_lock:
+                if status in stats:
+                    stats[status] += 1
+                else:
+                    stats["other"] += 1
+                if status == "ok":
+                    if ports:
+                        stats["ok_with_ports"] += 1
+                        keep = [p for p in ports if p in pe_ports]
+                        if keep:
+                            lines = [f"{ip}:{p}\n" for p in keep]
+                            out_handle.writelines(lines)
+                            out_handle.flush()
+                            cands_found += len(lines)
+                            stats["kept_lines"] += len(lines)
+                        else:
+                            stats["ok_no_keep"] += 1
+
+            if status == "rate_limit":
+                await asyncio.sleep(2.0)
+
+            async with idx_lock:
+                if my_offset + 1 > processed_count:
+                    processed_count = my_offset + 1
+                log_window_count += 1
+
+    async def monitor():
+        nonlocal last_log_time, last_push_time, log_window_count, log_window_start
+        while current_idx < total_ips and (time.time() - START_TIME < HARD_STOP):
+            await asyncio.sleep(5)
+            now = time.time()
+            if now - last_log_time >= 60:
+                el = now - log_window_start
+                ir = log_window_count / max(0.1, el)
+                pct = processed_count / total_ips * 100
+                log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | "
+                    f"cands={cands_found:,} | ok={stats['ok']} 404={stats['not_found']} "
+                    f"429={stats['rate_limit']} to={stats['timeout']} "
+                    f"ok_ports={stats['ok_with_ports']} no_keep={stats['ok_no_keep']}")
+                last_log_time = now
+                log_window_start = now
+                log_window_count = 0
+            if now - last_push_time >= PUSH_INTERVAL:
+                with open(prog_file, "w") as pf:
+                    pf.write(str(processed_count) + "\n")
+                push_progress(processed_count, total_ips, cands_found, stats)
+                last_push_time = now
+
+    async with aiohttp.ClientSession(connector=conn, headers=headers) as session:
+        try:
+            tasks = [asyncio.create_task(worker()) for _ in range(CONC)]
+            mon = asyncio.create_task(monitor())
+            await asyncio.gather(*tasks)
+            mon.cancel()
+        finally:
+            out_handle.close()
+            with open(prog_file, "w") as pf:
+                pf.write(str(processed_count) + "\n")
+            push_progress(processed_count, total_ips, cands_found, stats)
+
+    log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
+
+
+def main():
+    asyncio.run(async_main())
+
+
+if __name__ == "__main__":
+    main()
+'@
+Set-Content -Path "$root\kaggle\cl_shodan\run.py" -Value $runpy -Encoding ascii
+
+Write-Host "=== v98.2: writing verifier ===" -ForegroundColor Cyan
+$ver = @'
+import os, subprocess, sys, time
+
+REPO = r"D:\DEpinFarm"
+H = os.path.join(REPO, "ip", "harvest")
+WINDOW = int(sys.argv[1]) if len(sys.argv) > 1 else 600
+KEYS = ["ok", "not_found", "rate_limit", "timeout", "other", "ok_with_ports", "ok_no_keep", "kept_lines"]
+
+def pull():
+    subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
+                   capture_output=True)
+
+def read_stats():
+    agg = {k: 0 for k in KEYS}
+    engines = set()
+    for i in range(20):
+        p = os.path.join(H, f"shodan_stats_v98_{i:02d}.txt")
+        if not os.path.exists(p):
+            continue
+        for l in open(p, encoding="utf-8", errors="ignore"):
+            if "=" not in l:
+                continue
+            k, v = l.strip().split("=", 1)
+            if k == "engine":
+                engines.add(v)
+            elif k in agg and v.isdigit():
+                agg[k] += int(v)
+    return agg, engines
+
+def read_prog():
+    o = {}
+    for i in range(20):
+        p = os.path.join(H, f"shodan_progress_v98_{i:02d}.txt")
+        try:
+            o[i] = int(open(p).read().strip())
+        except Exception:
+            o[i] = 0
+    return o
+
+def read_cands():
+    o = {}
+    for i in range(20):
+        p = os.path.join(H, f"shodan_shard_v98_{i:02d}.txt")
+        try:
+            o[i] = sum(1 for _ in open(p, encoding="utf-8", errors="ignore"))
+        except Exception:
+            o[i] = 0
+    return o
+
+pull()
+s0, eng0 = read_stats()
+p0, c0 = read_prog(), read_cands()
+print(f"engines seen: {sorted(eng0) or ['NONE']}")
+print(f"waiting {WINDOW}s...", flush=True)
+t0 = time.time()
+time.sleep(WINDOW)
+pull()
+s1, eng1 = read_stats()
+p1, c1 = read_prog(), read_cands()
+el = time.time() - t0
+
+print("=" * 70)
+print(f"{'Shard':8}{'DeltaQ':>10}{'Req/s':>9}{'DltCands':>11}{'ok':>9}{'404':>9}")
+print("-" * 70)
+tq = tc = 0
+for i in range(20):
+    dq = max(0, p1[i] - p0[i]); dc = max(0, c1[i] - c0[i])
+    tq += dq; tc += dc
+    print(f"Shard {i:02d}{dq:>10,}{dq/max(1,el):>9.1f}{dc:>11,}"
+          f"{s1['ok']-s0['ok'] if False else 0:>9}{0:>9}")
+print("-" * 70)
+d = {k: s1[k] - s0[k] for k in KEYS}
+fleet = tq / max(1, el)
+print(f"FLEET RATE:      {fleet:,.1f} req/s")
+print(f"DELTA QUERIES:   {tq:,}")
+print(f"DELTA CAND LINES:{tc:,}   ({(tc/tq*100) if tq else 0:.3f}%)")
+print(f"STATUS DELTAS:   " + "  ".join(f"{k}={d[k]}" for k in KEYS))
+print(f"ENGINES:         {sorted(eng1) or ['NONE']}")
+print("=" * 70)
+
+if eng1 and all(e != "v98.2" for e in eng1):
+    print("DIAGNOSIS: WRONG CODE RUNNING - no v98.2 engine reported")
+elif d["ok"] == 0 and d["not_found"] > 0:
+    print("DIAGNOSIS: IP SPACE EMPTY - subnet list or offset mapping is wrong")
+elif d["ok"] > 0 and d["kept_lines"] == 0 and d["ok_no_keep"] > 0:
+    print("DIAGNOSIS: PORT FILTER TOO STRICT - InternetDB returns ports but none match pe_ports")
+elif d["rate_limit"] > tq * 0.05:
+    print("DIAGNOSIS: THROTTLED - lower TARGET_RATE to 80")
+elif d["kept_lines"] > 0:
+    print("DIAGNOSIS: WORKING")
+else:
+    print("DIAGNOSIS: INCONCLUSIVE - report the status deltas")
+'@
+Set-Content -Path "$root\tools\verify_v982.py" -Value $ver -Encoding ascii
+python -m py_compile "$root\tools\verify_v982.py"
+python -m py_compile "$root\kaggle\cl_shodan\run.py"
+
+Write-Host "=== v98.2: stale pod detector ===" -ForegroundColor Cyan
+git pull --rebase --autostash origin main | Out-Null
+$stale = git log --oneline -80 | Select-String "/3350000"
+Write-Host "  commits still running v94 code: $($stale.Count)"
+$stale | Select-Object -First 5 | ForEach-Object { Write-Host "   $_" }
+
+Write-Host "=== v98.2: commit and push ===" -ForegroundColor Cyan
+git add kaggle/cl_shodan/run.py tools/apply_v98_2.ps1 tools/verify_v982.py
+git commit -m "v98.2: v98_ file isolation, full instrumentation"
+git push origin main
+
+Write-Host "APPLY_V98_2_DONE" -ForegroundColor Green
