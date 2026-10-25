@@ -327,16 +327,16 @@ while True:
     v_elapsed = time.time() - t_start
     log(f"CYCLE_SUMMARY: batch_checked={len(rows)} batch_survived={len(alive_batch)} persistent_before_prune={len(persistent_alive)} in {v_elapsed:.1f}s")
 
-    # Step 2: PRUNE. Drop any proxy whose last_seen is older than 2 full passes (cycle - seen_pass > 2)
+    # Step 2: PRUNE. Tighten retention to 1 pass: drop any proxy whose last_seen is older than 1 pass or unverified
     pruned_alive = {}
     dropped_count = 0
     for k, (prefix, seen_pass) in persistent_alive.items():
-        if (cycle - seen_pass) <= 2:
+        if seen_pass >= 1 and (cycle - seen_pass) <= 1:
             pruned_alive[k] = (prefix, seen_pass)
         else:
             dropped_count += 1
     persistent_alive = pruned_alive
-    log(f"PRUNING: dropped={dropped_count} remaining={len(persistent_alive)} (retention window: last_seen >= {cycle - 2})")
+    log(f"PRUNING: dropped={dropped_count} remaining={len(persistent_alive)} (retention window: 1 pass, last_seen >= {max(1, cycle - 1)})")
 
     # 5. Atomically replace verified_alive.txt, pub.txt, and pub_fast.txt from the FULL persistent set
     out = os.path.join(REPO, OUT_REL)
