@@ -12,6 +12,7 @@ OUT_PATH = "D:/DEpinFarm/ip/harvest/shodan_expanded.txt"
 LOG_PATH = "D:/DEpinFarm/work/shodan_expand.log"
 FEEDS_RAW = "D:/DEpinFarm/ip/harvest/feeds_raw.txt"
 MASTER_POOL = "D:/DEpinFarm/master_pool.txt"
+CLOUD_TARGETS = "D:/DEpinFarm/ip/harvest/cloud_target_ips.txt"
 
 # Candidate proxy ports to harvest
 PROXY_PORTS = {
@@ -78,7 +79,7 @@ def run_expansion(limit=None):
     known_pairs = set()
     all_ips = set()
 
-    for p in [MASTER_POOL, FEEDS_RAW]:
+    for p in [MASTER_POOL, FEEDS_RAW, CLOUD_TARGETS]:
         if os.path.exists(p):
             with open(p, 'r', encoding='ascii', errors='ignore') as f:
                 for line in f:
@@ -86,6 +87,8 @@ def run_expansion(limit=None):
                     if ':' in line:
                         known_pairs.add(line)
                         all_ips.add(line.split(':')[0])
+                    elif line and not line.startswith('#'):
+                        all_ips.add(line)
 
     print(f"Total source unique IPs: {len(all_ips):,}", flush=True)
     print(f"Total known ip:port pairs: {len(known_pairs):,}", flush=True)
