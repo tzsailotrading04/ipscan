@@ -1,0 +1,12 @@
+engine=v98.9
+shard=16
+offset=1401
+total=6000000
+kept_lines=3
+not_found=508
+ok=3
+ok_no_keep=0
+ok_with_ports=3
+other=0
+rate_limit=890
+timeout=0
