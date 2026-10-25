@@ -254,7 +254,14 @@ while True:
     # 2. Gather candidates
     rows = []
     seen = set()
-    for rel in CANDIDATES:
+    import glob
+    all_candidate_files = list(CANDIDATES)
+    for shard_f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_*.txt")):
+        rel = os.path.relpath(shard_f, REPO).replace("\\", "/")
+        if rel not in all_candidate_files:
+            all_candidate_files.append(rel)
+
+    for rel in all_candidate_files:
         p = os.path.join(REPO, rel)
         if not os.path.exists(p):
             continue
