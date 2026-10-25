@@ -5,13 +5,16 @@ import asyncio
 import aiohttp
 import subprocess
 
-ENGINE_VER = "v98.2"
+ENGINE_VER = "v98.9"
 OUT_PREFIX = "v98_"
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
 REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.git"
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
+
+STOP_FILE = "work/STOP_SHODAN"
+STOPPING = False
 
 shard_str = os.environ.get("SHARD_INDEX", os.environ.get("SLICE_IDX", ""))
 if not shard_str and len(sys.argv) > 1:
@@ -27,7 +30,6 @@ SHARD_TAG = f"{SHARD_IDX:02d}"
 
 NUM_SHARDS = int(os.environ.get("NUM_SHARDS", "20"))
 CONC = 180
-TARGET_RATE = 88.0
 MAX_SHARD_IPS = 6_000_000
 PUSH_INTERVAL = 300
 HARD_STOP = 9.5 * 3600
@@ -39,11 +41,42 @@ def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [{ENGINE_VER} SHARD {SHARD_TAG}] {msg}", flush=True)
 
 
+async def run_git(cmd):
+    if not os.path.exists("/kaggle/working"):
+        return
+    full_cmd = [cmd[0], "-C", REPO] + cmd[1:]
+    await asyncio.to_thread(subprocess.run, full_cmd, capture_output=True)
+
+
 def git_sync():
     if not os.path.exists("/kaggle/working"):
         return
     subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
                    capture_output=True)
+
+
+async def stop_monitor():
+    global STOPPING
+    while not STOPPING:
+        await asyncio.sleep(60)
+        try:
+            await run_git(["git", "fetch", "origin", "main", "--quiet"])
+            await run_git(["git", "reset", "--hard", "origin/main", "--quiet"])
+        except Exception:
+            pass
+        stop_path = os.path.join(REPO, STOP_FILE) if not os.path.isabs(STOP_FILE) else STOP_FILE
+        if os.path.exists(stop_path):
+            STOPPING = True
+            print("[STOP] flag seen, draining...", flush=True)
+
+
+def atomic_write(filepath, content):
+    d = os.path.dirname(filepath)
+    os.makedirs(d, exist_ok=True)
+    tmp = filepath + f".tmp.{os.getpid()}"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write(content)
+    os.replace(tmp, filepath)
 
 
 def push_progress(offset, total, cand_count, stats):
@@ -53,10 +86,10 @@ def push_progress(offset, total, cand_count, stats):
     shard_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt"
     stats_rel = f"ip/harvest/shodan_stats_{OUT_PREFIX}{SHARD_TAG}.txt"
 
-    with open(os.path.join(REPO, stats_rel), "w") as sf:
-        sf.write(f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={offset}\ntotal={total}\n")
-        for k in sorted(stats):
-            sf.write(f"{k}={stats[k]}\n")
+    stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={offset}\ntotal={total}\n"
+    for k in sorted(stats):
+        stats_content += f"{k}={stats[k]}\n"
+    atomic_write(os.path.join(REPO, stats_rel), stats_content)
 
     for attempt in range(5):
         subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
@@ -138,29 +171,44 @@ def read_offset(path):
 
 
 def write_offset(path, val):
-    with open(path, "w") as f:
-        f.write(str(val) + "\n")
+    atomic_write(path, str(val) + "\n")
 
-class LightPacer:
-    def __init__(self, max_per_sec=88.0):
-        self.max_per_sec = max_per_sec
-        self.win_start = time.perf_counter()
-        self.win_count = 0
+
+class AdaptivePacer:
+    def __init__(self, start=50.0, lo=6.0, hi=90.0):
+        self.rate = float(start)
+        self.lo = float(lo)
+        self.hi = float(hi)
+        self.interval = 1.0 / self.rate
+        self.next_slot = time.monotonic()
         self.lock = asyncio.Lock()
+        self.paused_until = 0.0
 
     async def acquire(self):
         async with self.lock:
-            now = time.perf_counter()
-            elapsed = now - self.win_start
-            if elapsed < 1.0:
-                if self.win_count >= self.max_per_sec:
-                    await asyncio.sleep(1.0 - elapsed)
-                    self.win_start = time.perf_counter()
-                    self.win_count = 0
+            now = time.monotonic()
+            if now < self.paused_until:
+                wait = self.paused_until - now
             else:
-                self.win_start = now
-                self.win_count = 0
-            self.win_count += 1
+                if self.next_slot < now:
+                    self.next_slot = now
+                wait = self.next_slot - now
+                self.next_slot += self.interval
+        if wait > 0:
+            await asyncio.sleep(wait)
+
+    def on_ok(self):
+        self.rate = min(self.hi, self.rate + 0.5)
+        self.interval = 1.0 / self.rate
+
+    def on_429(self, retry_after=None):
+        self.rate = max(self.lo, self.rate * 0.5)
+        self.interval = 1.0 / self.rate
+        if retry_after:
+            try:
+                self.paused_until = time.monotonic() + min(float(retry_after), 300.0)
+            except (ValueError, TypeError):
+                pass
 
 
 async def fetch_ip(session, ip):
@@ -168,22 +216,23 @@ async def fetch_ip(session, ip):
         async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=4)) as r:
             if r.status == 200:
                 data = await r.json()
-                return ("ok", data.get("ports", []))
+                return ("ok", data.get("ports", []), None)
             elif r.status == 404:
-                return ("not_found", [])
+                return ("not_found", [], None)
             elif r.status == 429:
-                return ("rate_limit", None)
+                ra = r.headers.get("Retry-After")
+                return ("rate_limit", None, ra)
             else:
-                return (f"http_{r.status}", [])
+                return (f"http_{r.status}", [], None)
     except asyncio.TimeoutError:
-        return ("timeout", [])
+        return ("timeout", [], None)
     except Exception:
-        return ("error", [])
+        return ("error", [], None)
 
 
 async def async_main():
     log("=" * 66)
-    log(f"{ENGINE_VER} START | CONC={CONC} | paced {TARGET_RATE:.0f}/s | cap {MAX_SHARD_IPS:,}")
+    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (50->6..90) | cap {MAX_SHARD_IPS:,}")
     log("=" * 66)
 
     if os.path.exists("/kaggle/working"):
@@ -221,7 +270,7 @@ async def async_main():
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
 
-    pacer = LightPacer(max_per_sec=TARGET_RATE)
+    pacer = AdaptivePacer(start=50.0, lo=6.0, hi=90.0)
     idx_lock = asyncio.Lock()
     write_lock = asyncio.Lock()
     current_idx = resume_offset
@@ -247,6 +296,8 @@ async def async_main():
     async def worker():
         nonlocal current_idx, processed_count, cands_found, log_window_count
         while current_idx < total_ips:
+            if STOPPING:
+                break
             if time.time() - START_TIME >= HARD_STOP:
                 break
             async with idx_lock:
@@ -257,7 +308,12 @@ async def async_main():
 
             ip = get_ip(my_offset)
             await pacer.acquire()
-            status, ports = await fetch_ip(session, ip)
+            status, ports, retry_after = await fetch_ip(session, ip)
+
+            if status == "ok":
+                pacer.on_ok()
+            elif status == "rate_limit":
+                pacer.on_429(retry_after)
 
             async with write_lock:
                 if status in stats:
@@ -277,9 +333,6 @@ async def async_main():
                         else:
                             stats["ok_no_keep"] += 1
 
-            if status == "rate_limit":
-                await asyncio.sleep(2.0)
-
             async with idx_lock:
                 if my_offset + 1 > processed_count:
                     processed_count = my_offset + 1
@@ -287,14 +340,14 @@ async def async_main():
 
     async def monitor():
         nonlocal last_log_time, last_push_time, log_window_count, log_window_start
-        while current_idx < total_ips and (time.time() - START_TIME < HARD_STOP):
+        while current_idx < total_ips and not STOPPING and (time.time() - START_TIME < HARD_STOP):
             await asyncio.sleep(5)
             now = time.time()
             if now - last_log_time >= 60:
                 el = now - log_window_start
                 ir = log_window_count / max(0.1, el)
                 pct = processed_count / total_ips * 100
-                log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | "
+                log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | "
                     f"cands={cands_found:,} | ok={stats['ok']} 404={stats['not_found']} "
                     f"429={stats['rate_limit']} to={stats['timeout']} "
                     f"ok_ports={stats['ok_with_ports']} no_keep={stats['ok_no_keep']}")
@@ -302,8 +355,7 @@ async def async_main():
                 log_window_start = now
                 log_window_count = 0
             if now - last_push_time >= PUSH_INTERVAL:
-                with open(prog_file, "w") as pf:
-                    pf.write(str(processed_count) + "\n")
+                write_offset(prog_file, processed_count)
                 push_progress(processed_count, total_ips, cands_found, stats)
                 last_push_time = now
 
@@ -311,15 +363,19 @@ async def async_main():
         try:
             tasks = [asyncio.create_task(worker()) for _ in range(CONC)]
             mon = asyncio.create_task(monitor())
+            stop_task = asyncio.create_task(stop_monitor())
             await asyncio.gather(*tasks)
             mon.cancel()
+            stop_task.cancel()
         finally:
             out_handle.close()
-            with open(prog_file, "w") as pf:
-                pf.write(str(processed_count) + "\n")
+            write_offset(prog_file, processed_count)
             push_progress(processed_count, total_ips, cands_found, stats)
 
     log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
+    if STOPPING:
+        log("[STOP] Clean exit after drain.")
+        sys.exit(0)
 
 
 def main():
@@ -328,4 +384,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
