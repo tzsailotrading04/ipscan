@@ -1,11 +1,12 @@
 import os
 import sys
 import time
+import collections
 import asyncio
 import aiohttp
 import subprocess
 
-ENGINE_VER = "v98.9"
+ENGINE_VER = "v98.97"
 OUT_PREFIX = "v98_"
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
@@ -29,7 +30,7 @@ SHARD_IDX = int(shard_str)
 SHARD_TAG = f"{SHARD_IDX:02d}"
 
 NUM_SHARDS = int(os.environ.get("NUM_SHARDS", "20"))
-CONC = 180
+CONC = 60
 MAX_SHARD_IPS = 6_000_000
 PUSH_INTERVAL = 300
 HARD_STOP = 9.5 * 3600
@@ -188,7 +189,7 @@ def write_offset(path, val):
 
 
 class AdaptivePacer:
-    def __init__(self, start=50.0, lo=6.0, hi=90.0):
+    def __init__(self, start=20.0, lo=10.0, hi=90.0):
         self.rate = float(start)
         self.lo = float(lo)
         self.hi = float(hi)
@@ -196,6 +197,7 @@ class AdaptivePacer:
         self.next_slot = time.monotonic()
         self.lock = asyncio.Lock()
         self.paused_until = 0.0
+        self.recent = collections.deque(maxlen=200)
 
     async def acquire(self):
         async with self.lock:
@@ -210,42 +212,51 @@ class AdaptivePacer:
         if wait > 0:
             await asyncio.sleep(wait)
 
-    def on_ok(self):
-        self.rate = min(self.hi, self.rate + 0.5)
+    def on_result(self, status, retry_after=None):
+        self.recent.append(1 if status != 429 else 0)
+        if status == 429:
+            self.rate = max(self.lo, self.rate * 0.9)  # gentler decrease
+            if retry_after:
+                try:
+                    ra_val = float(retry_after)
+                    if ra_val >= 2.0:  # only pause if long
+                        self.paused_until = time.monotonic() + min(ra_val, 60.0)
+                except (ValueError, TypeError):
+                    pass
+        elif (200 <= status < 400) or status == 404:  # 200,204,404 = SUCCESS
+            self.rate = min(self.hi, self.rate + 1.0)  # stronger increase
+        # 5xx and exceptions: neutral
         self.interval = 1.0 / self.rate
 
-    def on_429(self, retry_after=None):
-        self.rate = max(self.lo, self.rate * 0.5)
-        self.interval = 1.0 / self.rate
-        if retry_after:
-            try:
-                self.paused_until = time.monotonic() + min(float(retry_after), 300.0)
-            except (ValueError, TypeError):
-                pass
+    def rolling_429(self):
+        if not self.recent:
+            return 0.0
+        return 100.0 * (1 - sum(self.recent) / len(self.recent))
 
 
 async def fetch_ip(session, ip):
     try:
         async with session.get(BASE_URL + ip, timeout=aiohttp.ClientTimeout(total=4)) as r:
-            if r.status == 200:
+            status_code = r.status
+            retry_after = r.headers.get("Retry-After")
+            if status_code == 200:
                 data = await r.json()
-                return ("ok", data.get("ports", []), None)
-            elif r.status == 404:
-                return ("not_found", [], None)
-            elif r.status == 429:
-                ra = r.headers.get("Retry-After")
-                return ("rate_limit", None, ra)
+                return ("ok", data.get("ports", []), status_code, retry_after)
+            elif status_code == 404:
+                return ("not_found", [], status_code, retry_after)
+            elif status_code == 429:
+                return ("rate_limit", None, status_code, retry_after)
             else:
-                return (f"http_{r.status}", [], None)
+                return (f"http_{status_code}", [], status_code, retry_after)
     except asyncio.TimeoutError:
-        return ("timeout", [], None)
+        return ("timeout", [], 0, None)
     except Exception:
-        return ("error", [], None)
+        return ("error", [], 0, None)
 
 
 async def async_main():
     log("=" * 66)
-    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (50->6..90) | cap {MAX_SHARD_IPS:,}")
+    log(f"{ENGINE_VER} START | CONC={CONC} | AdaptivePacer (20->10..90) | cap {MAX_SHARD_IPS:,}")
     log("=" * 66)
 
     if os.path.exists("/kaggle/working"):
@@ -283,12 +294,13 @@ async def async_main():
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
 
-    pacer = AdaptivePacer(start=50.0, lo=6.0, hi=90.0)
+    pacer = AdaptivePacer(start=20.0, lo=10.0, hi=90.0)
     idx_lock = asyncio.Lock()
     write_lock = asyncio.Lock()
     current_idx = resume_offset
     processed_count = resume_offset
     last_log_time = time.time()
+    last_pacer_log_time = time.time()
     last_push_time = time.time()
     log_window_count = 0
     log_window_start = time.time()
@@ -321,12 +333,8 @@ async def async_main():
 
             ip = get_ip(my_offset)
             await pacer.acquire()
-            status, ports, retry_after = await fetch_ip(session, ip)
-
-            if status == "ok":
-                pacer.on_ok()
-            elif status == "rate_limit":
-                pacer.on_429(retry_after)
+            status, ports, http_status, retry_after = await fetch_ip(session, ip)
+            pacer.on_result(http_status, retry_after)
 
             async with write_lock:
                 if status in stats:
@@ -352,10 +360,13 @@ async def async_main():
                 log_window_count += 1
 
     async def monitor():
-        nonlocal last_log_time, last_push_time, log_window_count, log_window_start
+        nonlocal last_log_time, last_pacer_log_time, last_push_time, log_window_count, log_window_start
         while current_idx < total_ips and not STOPPING and (time.time() - START_TIME < HARD_STOP):
             await asyncio.sleep(5)
             now = time.time()
+            if now - last_pacer_log_time >= 30:
+                log(f"[pacer] rate={pacer.rate:.1f} rolling429={pacer.rolling_429():.1f}%")
+                last_pacer_log_time = now
             if now - last_log_time >= 60:
                 el = now - log_window_start
                 ir = log_window_count / max(0.1, el)
@@ -369,6 +380,8 @@ async def async_main():
                 log_window_count = 0
             if now - last_push_time >= PUSH_INTERVAL:
                 write_offset(prog_file, processed_count)
+                stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
+                stats["pacer_rate"] = f"{pacer.rate:.1f}"
                 push_progress(processed_count, total_ips, cands_found, stats)
                 last_push_time = now
 
@@ -383,6 +396,8 @@ async def async_main():
         finally:
             out_handle.close()
             write_offset(prog_file, processed_count)
+            stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
+            stats["pacer_rate"] = f"{pacer.rate:.1f}"
             push_progress(processed_count, total_ips, cands_found, stats)
 
     log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
