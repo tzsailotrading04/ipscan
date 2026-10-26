@@ -1,10 +1,10 @@
 engine=v98.122
 shard=10
-egress_ip=34.178.42.118
-offset=10298
+egress_ip=34.91.169.198
+offset=10259
 total=6000000
 429_proxy=0
-429_shodan=591
+429_shodan=704
 direct_used=0
 kept_lines=448
 not_found=1545
