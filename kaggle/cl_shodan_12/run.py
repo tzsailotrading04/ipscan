@@ -395,13 +395,11 @@ async def async_main():
     print(f"[pool] shard={SHARD_IDX} cands={len(mine) if 'mine' in locals() else 0} working={len(PROXY_POOL)}", flush=True)
 
     if PROXY_POOL:
-        CONC = min(300, max(60, int(PER_PROXY_CAP * len(PROXY_POOL))))
-        pacer.hi = min(400.0, PER_PROXY_CAP * len(PROXY_POOL))
-        pacer.rate = max(20.0, pacer.hi * 0.5)
+        CONC = min(1200, max(120, int(6 * len(PROXY_POOL))))
+        pacer.hi = min(1500.0, 8.0 * len(PROXY_POOL))
+        pacer.rate = max(50.0, pacer.hi * 0.5)
     else:
-        CONC = 10
-        pacer.hi = 10.0
-        pacer.rate = 8.0
+        CONC = 10 ; pacer.hi = 10.0 ; pacer.rate = 8.0
     pacer.interval = 1.0 / pacer.rate
 
     log(f"Configured CONC={CONC} pacer.rate={pacer.rate:.1f} pacer.hi={pacer.hi:.1f} pool_size={len(PROXY_POOL)}")
@@ -524,8 +522,8 @@ async def async_main():
                 if len(PROXY_POOL) > 400:
                     PROXY_POOL = PROXY_POOL[:400]
                 if PROXY_POOL:
-                    pacer.hi = min(400.0, PER_PROXY_CAP * len(PROXY_POOL))
-                    pacer.rate = max(20.0, min(pacer.hi, pacer.rate))
+                    pacer.hi = min(1500.0, 8.0 * len(PROXY_POOL))
+                    pacer.rate = max(50.0, min(pacer.hi, pacer.rate))
                 log(f"[reverify] fresh={len(fresh)} total_pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
             except Exception as e:
                 log(f"[reverify] error: {e}")
