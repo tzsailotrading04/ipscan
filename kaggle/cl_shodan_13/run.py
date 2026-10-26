@@ -429,7 +429,7 @@ async def fetch_ip(session, ip, pacer):
 
 
 async def async_main():
-    global PROXY_POOL, CONC
+    global PROXY_POOL, CONC, POOL_MIN
 
     log("=" * 66)
     log(f"{ENGINE_VER} START | AdaptivePacer (proxy-driven) | cap {MAX_SHARD_IPS:,}")
@@ -566,6 +566,7 @@ async def async_main():
 
     async def monitor():
         nonlocal last_log_time, last_pacer_log_time, last_push_time, log_window_count, log_window_start
+        global POOL_MIN
         while current_idx < total_ips and not STOPPING and (time.time() - START_TIME < HARD_STOP):
             await asyncio.sleep(5)
             now = time.time()
