@@ -332,16 +332,16 @@ while True:
     v_elapsed = time.time() - t_start
     log(f"CYCLE_SUMMARY: batch_checked={len(rows)} batch_survived={len(alive_batch)} persistent_before_prune={len(persistent_alive)} in {v_elapsed:.1f}s")
 
-    # Step 2: PRUNE. Tighten retention to 1 pass: drop any proxy whose last_seen is older than 1 pass or unverified
+    # Step 2: PRUNE. Retention window: keep entries seen within the last 3 cycles
     pruned_alive = {}
     dropped_count = 0
     for k, (prefix, seen_pass) in persistent_alive.items():
-        if seen_pass >= 1 and (cycle - seen_pass) <= 1:
+        if seen_pass >= 1 and (cycle - seen_pass) <= 3:
             pruned_alive[k] = (prefix, seen_pass)
         else:
             dropped_count += 1
     persistent_alive = pruned_alive
-    log(f"PRUNING: dropped={dropped_count} remaining={len(persistent_alive)} (retention window: 1 pass, last_seen >= {max(1, cycle - 1)})")
+    log(f"PRUNING: dropped={dropped_count} remaining={len(persistent_alive)} (retention window: 3 cycles, last_seen >= {max(1, cycle - 3)})")
 
     # 5. Atomically replace verified_alive.txt, pub.txt, and pub_fast.txt from the FULL persistent set
     out = os.path.join(REPO, OUT_REL)
@@ -357,21 +357,17 @@ while True:
     atomic_write(pub_fast_file, fast_rows[:1000])
 
     # 6. Commit + push with retry x5
+    subprocess.run(["git", "-C", REPO, "add", OUT_REL, "ip/pub.txt", "ip/pub_fast.txt"], check=False)
+    subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: cycle {cycle} PASS_SURVIVORS={len(alive_batch)} pool_after_prune={len(full_alive_lines)} candidates={len(rows)}"], capture_output=True)
     pushed = False
     for attempt in range(1, 6):
-        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"], capture_output=True)
-        # Re-apply persistent set over any merge/pull
-        atomic_write(out, full_alive_lines)
-        atomic_write(pub_file, pub_lines)
-        atomic_write(pub_fast_file, fast_rows[:1000])
-
-        subprocess.run(["git", "-C", REPO, "add", OUT_REL, "ip/pub.txt", "ip/pub_fast.txt"], check=False)
-        subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: cycle {cycle} PASS_SURVIVORS={len(alive_batch)} pool_after_prune={len(full_alive_lines)} candidates={len(rows)}"], capture_output=True)
+        subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
         r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
         if r.returncode == 0:
             log("GIT_PUSH_OK")
             pushed = True
             break
+        subprocess.run(["git", "-C", REPO, "merge", "origin/main", "-X", "ours", "--no-edit"], capture_output=True)
         time.sleep(random.randint(2, 8))
 
     if not pushed:
