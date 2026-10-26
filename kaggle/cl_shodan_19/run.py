@@ -241,14 +241,17 @@ class AdaptivePacer:
         self.recent.append(1 if status != 429 else 0)
         now = time.monotonic()
         if status == 429:
-            self.rate = max(self.lo, self.rate * 0.9)
             if retry_after:
+                self.c429_shodan += 1
+                self.rate = max(self.lo, self.rate * 0.9)
                 try:
                     ra_val = float(retry_after)
                     if ra_val >= 5:
                         self.paused_until = now + min(ra_val, 3600.0)
                 except (ValueError, TypeError):
                     pass
+            else:
+                self.c429_proxy += 1
         elif (200 <= status < 400) or status == 404:  # 200,204,404 = SUCCESS
             self.rate = min(self.hi, self.rate + 0.1)
         # 5xx and exceptions: neutral
@@ -263,17 +266,48 @@ class AdaptivePacer:
 def load_candidates():
     """ALL entries, every tier, http + socks5, deterministically shuffled so
     every shard sees the SAME order and slices are DISJOINT."""
-    path = os.path.join(REPO_ROOT, "ip/harvest/verified_alive.txt")
+    pool_files = [
+        "master_pool.txt",
+        "ip/harvest/verified_alive.txt",
+        "ip/harvest/verified_alive_part_0.txt",
+        "ip/harvest/verified_alive_part_1.txt",
+        "ip/harvest/verified_alive_part_2.txt",
+        "ip/harvest/net_new.txt",
+        "ip/harvest/verified_alive.bak.txt",
+    ]
+    seen_addrs = set()
     out = []
-    try:
-        for line in open(path):
-            p = line.rstrip("\n").split("\t")
-            if len(p) < 8: continue
-            proto = p[1].strip().lower()
-            if proto not in ("http", "socks5"): continue
-            out.append((p[0], proto))
-    except Exception:
-        pass
+    for rel in pool_files:
+        path = os.path.join(REPO_ROOT, rel)
+        if not os.path.exists(path):
+            continue
+        try:
+            for line in open(path, "r", encoding="utf-8", errors="ignore"):
+                line = line.strip()
+                if not line:
+                    continue
+                if "\t" in line:
+                    p = line.split("\t")
+                    if len(p) < 8:
+                        continue
+                    proto = p[1].strip().lower()
+                    if proto not in ("http", "socks5"):
+                        continue
+                    addr = p[0].strip()
+                else:
+                    parts = line.split()
+                    if not parts:
+                        continue
+                    addr = parts[0].strip()
+                    proto = "http"
+                if ":" not in addr:
+                    continue
+                if addr in seen_addrs:
+                    continue
+                seen_addrs.add(addr)
+                out.append((addr, proto))
+        except Exception:
+            pass
     random.Random(12345).shuffle(out)
     return out
 
@@ -292,11 +326,11 @@ async def build_pool(items):
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
                                 async with s.get(BASE + rand_ip(), timeout=6) as r:
-                                    if r.status in (200, 404):
+                                    if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5")); return
                         else:
                             async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=6) as r:
-                                if r.status in (200, 404):
+                                if r.status < 500 and r.status != 407:
                                     pool.append((addr, "http")); return
                     except Exception:
                         pass
@@ -378,7 +412,8 @@ async def async_main():
             cands_found = sum(1 for _ in f)
 
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
-             "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
+             "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0,
+             "429_shodan": 0, "429_proxy": 0}
 
     # Startup â€” build pool BEFORE creating the main semaphore / worker tasks
     allc = []
@@ -493,6 +528,8 @@ async def async_main():
                 write_offset(prog_file, processed_count)
                 stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
                 stats["pacer_rate"] = f"{pacer.rate:.1f}"
+                stats["429_shodan"] = pacer.c429_shodan
+                stats["429_proxy"] = pacer.c429_proxy
                 push_progress(processed_count, total_ips, cands_found, stats)
                 last_push_time = now
 
@@ -552,6 +589,8 @@ async def async_main():
             write_offset(prog_file, processed_count)
             stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
             stats["pacer_rate"] = f"{pacer.rate:.1f}"
+            stats["429_shodan"] = pacer.c429_shodan
+            stats["429_proxy"] = pacer.c429_proxy
             push_progress(processed_count, total_ips, cands_found, stats)
 
     log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
