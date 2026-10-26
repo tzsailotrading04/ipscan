@@ -17,6 +17,6 @@ pool_size=64
 proxy_fail=1908
 proxy_ok=2667
 rate_limit=591
-req_s=4.1
+req_s=0.0
 rolling_429=21.00
 timeout=80
