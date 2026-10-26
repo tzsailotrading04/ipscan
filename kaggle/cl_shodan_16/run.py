@@ -235,6 +235,8 @@ class AdaptivePacer:
         self.lock = asyncio.Lock()
         self.paused_until = 0.0
         self.recent = collections.deque(maxlen=200)
+        self.c429_shodan = 0
+        self.c429_proxy = 0
 
     async def acquire(self):
         async with self.lock:
@@ -651,7 +653,7 @@ async def async_main():
     log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
     if STOPPING:
         log("[STOP] Clean exit after drain.")
-        sys.exit(0)
+        return
 
 
 def main():

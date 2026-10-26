@@ -68,10 +68,10 @@ foreach ($acct in $map.Keys) {
         $offset = $stats["offset"]
 
         $needsRestart = $false
-        if (($kStatus -match "COMPLETE" -and -not $STOPPED) -or ($kStatus -match "ERROR|CANCELLED")) {
+        if (-not $STOPPED -and ($kStatus -match "COMPLETE|ERROR|CANCELLED")) {
             Log-Msg "Shard $s ($kid) is $kStatus"
             $needsRestart = $true
-        } elseif ($engine -and $engine -ne $EXPECT) {
+        } elseif (-not $STOPPED -and $engine -and $engine -ne $EXPECT) {
             Log-Msg "Shard $s has engine=$engine (expected $EXPECT)"
             $needsRestart = $true
         }
