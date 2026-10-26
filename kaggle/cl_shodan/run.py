@@ -263,17 +263,35 @@ class AdaptivePacer:
 def load_candidates():
     """ALL entries, every tier, http + socks5, deterministically shuffled so
     every shard sees the SAME order and slices are DISJOINT."""
-    path = os.path.join(REPO_ROOT, "ip/harvest/verified_alive.txt")
+    pool_files = [
+        "ip/harvest/verified_alive.txt",
+        "ip/harvest/verified_alive_part_0.txt",
+        "ip/harvest/verified_alive_part_1.txt",
+        "ip/harvest/verified_alive_part_2.txt",
+        "ip/harvest/net_new.txt",
+        "ip/harvest/verified_alive.bak.txt",
+    ]
+    seen_addrs = set()
     out = []
-    try:
-        for line in open(path):
-            p = line.rstrip("\n").split("\t")
-            if len(p) < 8: continue
-            proto = p[1].strip().lower()
-            if proto not in ("http", "socks5"): continue
-            out.append((p[0], proto))
-    except Exception:
-        pass
+    for rel in pool_files:
+        path = os.path.join(REPO_ROOT, rel)
+        if not os.path.exists(path):
+            continue
+        try:
+            for line in open(path, "r", encoding="utf-8", errors="ignore"):
+                p = line.rstrip("\n").split("\t")
+                if len(p) < 8:
+                    continue
+                proto = p[1].strip().lower()
+                if proto not in ("http", "socks5"):
+                    continue
+                addr = p[0].strip()
+                if addr in seen_addrs:
+                    continue
+                seen_addrs.add(addr)
+                out.append((addr, proto))
+        except Exception:
+            pass
     random.Random(12345).shuffle(out)
     return out
 
