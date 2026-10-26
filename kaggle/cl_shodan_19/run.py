@@ -16,9 +16,21 @@ except Exception:
 
 PER_PROXY_CAP = 8.0
 PROXY_POOL = []          # list of (addr, proto)
+FAILS = {}               # (addr, proto) -> consecutive failure count
+NEXT_OK = {}             # addr -> monotonic time when next request is allowed
+STATS_PROXY_OK = 0
+STATS_PROXY_FAIL = 0
+STATS_DIRECT_USED = 0
+
+async def proxy_gate(addr):
+    now = time.monotonic()
+    nxt = NEXT_OK.get(addr, 0.0)
+    if nxt > now:
+        await asyncio.sleep(nxt - now)
+    NEXT_OK[addr] = max(now, nxt) + (1.0 / PER_PROXY_CAP)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.114"
+ENGINE_VER = "v98.122"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -319,21 +331,41 @@ async def build_pool(items):
         async def v(item):
             addr, proto = item
             async with sem:
-                for _ in range(2):
-                    try:
-                        if proto == "socks5":
-                            if not HAVE_SOCKS: return
+                if proto == "socks5":
+                    if not HAVE_SOCKS: return
+                    for _ in range(2):
+                        try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
                                 async with s.get(BASE + rand_ip(), timeout=6) as r:
                                     if r.status < 500 and r.status != 407:
-                                        pool.append((addr, "socks5")); return
-                        else:
+                                        pool.append((addr, "socks5"))
+                                        return
+                        except Exception:
+                            pass
+                else:
+                    # proto == "http"
+                    http_ok = False
+                    for _ in range(2):
+                        try:
                             async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=6) as r:
                                 if r.status < 500 and r.status != 407:
-                                    pool.append((addr, "http")); return
-                    except Exception:
-                        pass
+                                    pool.append((addr, "http"))
+                                    http_ok = True
+                                    return
+                        except Exception:
+                            pass
+                    # If http failed, try one socks5 attempt before discarding
+                    if not http_ok and HAVE_SOCKS:
+                        try:
+                            conn = ProxyConnector.from_url(f"socks5://{addr}")
+                            async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
+                                async with s.get(BASE + rand_ip(), timeout=6) as r:
+                                    if r.status < 500 and r.status != 407:
+                                        pool.append((addr, "socks5"))
+                                        return
+                        except Exception:
+                            pass
         await asyncio.gather(*[v(i) for i in items], return_exceptions=True)
     return pool
 
@@ -346,14 +378,21 @@ class HttpStatus(int):
 
 
 async def fetch_ip(session, ip, pacer):
+    global STATS_PROXY_OK, STATS_PROXY_FAIL, STATS_DIRECT_USED
     for attempt in range(3):
         if PROXY_POOL:
             addr, proto = random.choice(PROXY_POOL)
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
+            await proxy_gate(addr)
         else:
             use_proxy = None
         try:
-            async with session.get(BASE + ip, proxy=use_proxy, timeout=12) as r:
+            async with session.get(BASE + ip, proxy=use_proxy, timeout=8) as r:
+                if use_proxy:
+                    FAILS[(addr, proto)] = 0
+                    STATS_PROXY_OK += 1
+                else:
+                    STATS_DIRECT_USED += 1
                 pacer.on_result(r.status, r.headers.get("Retry-After"))
                 ports = []
                 if r.status == 200:
@@ -364,9 +403,15 @@ async def fetch_ip(session, ip, pacer):
                         pass
                 return HttpStatus(r.status, ports)
         except Exception:
-            if PROXY_POOL:
-                try: PROXY_POOL.remove((addr, proto))
-                except ValueError: pass
+            if use_proxy:
+                STATS_PROXY_FAIL += 1
+                key = (addr, proto)
+                FAILS[key] = FAILS.get(key, 0) + 1
+                if FAILS[key] >= 2:
+                    try:
+                        PROXY_POOL.remove(key)
+                    except ValueError:
+                        pass
             continue
     pacer.on_result(0)
     return None
@@ -413,7 +458,8 @@ async def async_main():
 
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0,
-             "429_shodan": 0, "429_proxy": 0}
+             "429_shodan": 0, "429_proxy": 0, "pool_size": len(PROXY_POOL),
+             "proxy_ok": 0, "proxy_fail": 0, "direct_used": 0, "req_s": "0.0"}
 
     # Startup â€” build pool BEFORE creating the main semaphore / worker tasks
     allc = []
@@ -428,9 +474,9 @@ async def async_main():
     print(f"[pool] shard={SHARD_IDX} cands={len(mine) if 'mine' in locals() else 0} working={len(PROXY_POOL)}", flush=True)
 
     CONC = min(2500, max(200, 12 * len(PROXY_POOL)))
-    PACER_HI = min(2000.0, max(200.0, 10.0 * len(PROXY_POOL)))
-    lo = max(50.0, PACER_HI * 0.3)
-    start = min(PACER_HI, max(lo, 100.0))
+    PACER_HI = min(20000.0, max(2000.0, 40.0 * len(PROXY_POOL)))
+    lo = max(200.0, PACER_HI * 0.1)
+    start = min(PACER_HI, 500.0)
     pacer = AdaptivePacer(start=start, lo=lo, hi=PACER_HI)
 
     log(f"Configured CONC={CONC} pacer.rate={pacer.rate:.1f} pacer.hi={pacer.hi:.1f} pool_size={len(PROXY_POOL)}")
@@ -530,38 +576,42 @@ async def async_main():
                 stats["pacer_rate"] = f"{pacer.rate:.1f}"
                 stats["429_shodan"] = pacer.c429_shodan
                 stats["429_proxy"] = pacer.c429_proxy
+                stats["pool_size"] = len(PROXY_POOL)
+                stats["proxy_ok"] = STATS_PROXY_OK
+                stats["proxy_fail"] = STATS_PROXY_FAIL
+                stats["direct_used"] = STATS_DIRECT_USED
+                stats["req_s"] = f"{ir:.1f}" if "ir" in locals() else "0.0"
                 push_progress(processed_count, total_ips, cands_found, stats)
                 last_push_time = now
 
-    async def reverify_loop():
+    async def pool_refill():
         nonlocal pacer
         global PROXY_POOL
-        reverify_offset = SHARD_IDX * 1250 + 1250
         while not STOPPING and (time.time() - START_TIME < HARD_STOP):
-            await asyncio.sleep(900)
+            await asyncio.sleep(600)
             if STOPPING:
                 break
             try:
-                if not allc:
+                if not mine:
                     continue
-                next_batch = [allc[(reverify_offset + i) % len(allc)] for i in range(min(800, len(allc)))]
-                reverify_offset = (reverify_offset + 800) % len(allc)
-                fresh = await build_pool(next_batch)
+                sample_batch = random.sample(mine, min(300, len(mine)))
+                fresh = await build_pool(sample_batch)
                 curr_set = set(PROXY_POOL)
-                for f in fresh:
-                    if f not in curr_set:
-                        PROXY_POOL.append(f)
-                        curr_set.add(f)
-                if len(PROXY_POOL) > 400:
-                    PROXY_POOL = PROXY_POOL[:400]
+                added = 0
+                for item in fresh:
+                    FAILS[item] = 0
+                    if item not in curr_set:
+                        PROXY_POOL.append(item)
+                        curr_set.add(item)
+                        added += 1
                 if PROXY_POOL:
-                    PACER_HI = min(2000.0, max(200.0, 10.0 * len(PROXY_POOL)))
+                    PACER_HI = min(20000.0, max(2000.0, 40.0 * len(PROXY_POOL)))
                     pacer.hi = PACER_HI
-                    pacer.lo = max(50.0, PACER_HI * 0.3)
+                    pacer.lo = max(200.0, PACER_HI * 0.1)
                     pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
-                log(f"[reverify] fresh={len(fresh)} total_pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
+                log(f"[refill] tested={len(sample_batch)} live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
             except Exception as e:
-                log(f"[reverify] error: {e}")
+                log(f"[refill] error: {e}")
 
     async with aiohttp.ClientSession(connector=conn, headers=HEADERS) as session:
         global EGRESS_IP
@@ -576,7 +626,7 @@ async def async_main():
             tasks = [asyncio.create_task(worker()) for _ in range(CONC)]
             mon = asyncio.create_task(monitor())
             stop_task = asyncio.create_task(stop_monitor())
-            rev_task = asyncio.create_task(reverify_loop())
+            rev_task = asyncio.create_task(pool_refill())
             await asyncio.gather(*tasks)
             mon.cancel()
             stop_task.cancel()
@@ -591,6 +641,11 @@ async def async_main():
             stats["pacer_rate"] = f"{pacer.rate:.1f}"
             stats["429_shodan"] = pacer.c429_shodan
             stats["429_proxy"] = pacer.c429_proxy
+            stats["pool_size"] = len(PROXY_POOL)
+            stats["proxy_ok"] = STATS_PROXY_OK
+            stats["proxy_fail"] = STATS_PROXY_FAIL
+            stats["direct_used"] = STATS_DIRECT_USED
+            stats["req_s"] = f"{ir:.1f}" if "ir" in locals() else "0.0"
             push_progress(processed_count, total_ips, cands_found, stats)
 
     log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
