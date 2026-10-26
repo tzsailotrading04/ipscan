@@ -18,8 +18,9 @@ PER_PROXY_CAP = 8.0
 PROXY_POOL = []          # list of (addr, proto)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.111"
+ENGINE_VER = "v98.113"
 OUT_PREFIX = "v98_"
+OUT_HANDLE = None
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
 REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.git"
@@ -81,7 +82,7 @@ async def run_git_rc(cmd):
 def git_sync():
     if not os.path.exists("/kaggle/working"):
         return
-    subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
+    subprocess.run(["git", "-C", REPO, "pull", "origin", "main"],
                    capture_output=True)
 
 
@@ -120,25 +121,28 @@ def push_progress(offset, total, cand_count, stats):
     prog_rel = f"ip/harvest/shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt"
     shard_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt"
     stats_rel = f"ip/harvest/shodan_stats_{OUT_PREFIX}{SHARD_TAG}.txt"
+    out_shard_file = os.path.join(REPO, shard_rel)
 
     stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\negress_ip={EGRESS_IP}\noffset={offset}\ntotal={total}\n"
     for k in sorted(stats):
         stats_content += f"{k}={stats[k]}\n"
     atomic_write(os.path.join(REPO, stats_rel), stats_content)
 
-    for attempt in range(5):
-        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
-                       capture_output=True)
-        subprocess.run(["git", "-C", REPO, "add", prog_rel, shard_rel, stats_rel], check=False)
-        msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={offset}/{total} cands={cand_count}"
-        subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True)
-        r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"],
-                           capture_output=True, text=True)
-        if r.returncode == 0:
-            log("GIT_PUSH_OK")
-            return
-        time.sleep(2)
-    log("GIT_PUSH_FAILED after 5 attempts")
+    msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={offset}/{total} cands={cand_count}"
+
+    global OUT_HANDLE
+    if OUT_HANDLE: OUT_HANDLE.flush(); OUT_HANDLE.close(); OUT_HANDLE = None
+
+    subprocess.run(["git","-C",REPO,"add",prog_rel,shard_rel,stats_rel], check=False)
+    subprocess.run(["git","-C",REPO,"commit","-m",msg], capture_output=True)
+
+    for attempt in range(3):
+        subprocess.run(["git","-C",REPO,"fetch","origin","main"], capture_output=True)
+        r = subprocess.run(["git","-C",REPO,"push","origin","main"], capture_output=True, text=True)
+        if r.returncode == 0: break
+        subprocess.run(["git","-C",REPO,"merge","origin/main","-X","ours","--no-edit"], capture_output=True)
+
+    OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
 
 
 def norm_subnet(line):
@@ -190,7 +194,7 @@ def load_pe_ports():
 
 
 def read_offset(path):
-    """Tolerate git conflict markers from autostash pop: take largest integer."""
+    """Tolerate git conflict markers: take largest integer."""
     if not os.path.exists(path):
         return 0
     vals = []
@@ -421,7 +425,8 @@ async def async_main():
     except Exception as _e:
         log(f"purge skipped: {_e}")
 
-    out_handle = open(out_shard_file, "a", encoding="utf-8")
+    global OUT_HANDLE
+    OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
 
     async def worker():
@@ -450,8 +455,9 @@ async def async_main():
                         keep = [p for p in ports if p in pe_ports]
                         if keep:
                             lines = [f"{ip}:{p}\n" for p in keep]
-                            out_handle.writelines(lines)
-                            out_handle.flush()
+                            if OUT_HANDLE:
+                                OUT_HANDLE.writelines(lines)
+                                OUT_HANDLE.flush()
                             cands_found += len(lines)
                             stats["kept_lines"] += len(lines)
                         else:
@@ -543,7 +549,10 @@ async def async_main():
             stop_task.cancel()
             rev_task.cancel()
         finally:
-            out_handle.close()
+            if OUT_HANDLE:
+                OUT_HANDLE.flush()
+                OUT_HANDLE.close()
+                OUT_HANDLE = None
             write_offset(prog_file, processed_count)
             stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
             stats["pacer_rate"] = f"{pacer.rate:.1f}"
