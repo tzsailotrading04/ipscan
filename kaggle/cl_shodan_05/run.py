@@ -429,7 +429,7 @@ async def fetch_ip(session, ip, pacer):
 
 
 async def async_main():
-    global PROXY_POOL, CONC
+    global PROXY_POOL, CONC, POOL_MIN
 
     log("=" * 66)
     log(f"{ENGINE_VER} START | AdaptivePacer (proxy-driven) | cap {MAX_SHARD_IPS:,}")
@@ -517,6 +517,11 @@ async def async_main():
     OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
 
+    stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
+    stats["pool_size"] = len(PROXY_POOL)
+    stats["pool_min"] = POOL_MIN
+    push_progress(processed_count, total_ips, cands_found, stats)
+
     async def worker():
         nonlocal current_idx, processed_count, cands_found, log_window_count
         while current_idx < total_ips:
@@ -566,6 +571,7 @@ async def async_main():
 
     async def monitor():
         nonlocal last_log_time, last_pacer_log_time, last_push_time, log_window_count, log_window_start
+        global POOL_MIN
         while current_idx < total_ips and not STOPPING and (time.time() - START_TIME < HARD_STOP):
             await asyncio.sleep(5)
             now = time.time()
