@@ -517,6 +517,11 @@ async def async_main():
     OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
 
+    stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
+    stats["pool_size"] = len(PROXY_POOL)
+    stats["pool_min"] = POOL_MIN
+    push_progress(processed_count, total_ips, cands_found, stats)
+
     async def worker():
         nonlocal current_idx, processed_count, cands_found, log_window_count
         while current_idx < total_ips:
