@@ -12,4 +12,4 @@ other=0
 pacer_rate=109.2
 rate_limit=150
 rolling_429=0.00
-timeout=4
+timeout=0
