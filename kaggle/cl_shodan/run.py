@@ -18,7 +18,7 @@ PER_PROXY_CAP = 8.0
 PROXY_POOL = []          # list of (addr, proto)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.113"
+ENGINE_VER = "v98.114"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -380,8 +380,6 @@ async def async_main():
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0}
 
-    pacer = AdaptivePacer(start=8.0, lo=6.0, hi=10.0)
-
     # Startup — build pool BEFORE creating the main semaphore / worker tasks
     allc = []
     try:
@@ -394,13 +392,11 @@ async def async_main():
         PROXY_POOL = []
     print(f"[pool] shard={SHARD_IDX} cands={len(mine) if 'mine' in locals() else 0} working={len(PROXY_POOL)}", flush=True)
 
-    if PROXY_POOL:
-        CONC = min(1200, max(120, int(6 * len(PROXY_POOL))))
-        pacer.hi = min(1500.0, 8.0 * len(PROXY_POOL))
-        pacer.rate = max(50.0, pacer.hi * 0.5)
-    else:
-        CONC = 10 ; pacer.hi = 10.0 ; pacer.rate = 8.0
-    pacer.interval = 1.0 / pacer.rate
+    CONC = min(2500, max(200, 12 * len(PROXY_POOL)))
+    PACER_HI = min(2000.0, max(200.0, 10.0 * len(PROXY_POOL)))
+    lo = max(50.0, PACER_HI * 0.3)
+    start = min(PACER_HI, max(lo, 100.0))
+    pacer = AdaptivePacer(start=start, lo=lo, hi=PACER_HI)
 
     log(f"Configured CONC={CONC} pacer.rate={pacer.rate:.1f} pacer.hi={pacer.hi:.1f} pool_size={len(PROXY_POOL)}")
 
@@ -522,8 +518,10 @@ async def async_main():
                 if len(PROXY_POOL) > 400:
                     PROXY_POOL = PROXY_POOL[:400]
                 if PROXY_POOL:
-                    pacer.hi = min(1500.0, 8.0 * len(PROXY_POOL))
-                    pacer.rate = max(50.0, min(pacer.hi, pacer.rate))
+                    PACER_HI = min(2000.0, max(200.0, 10.0 * len(PROXY_POOL)))
+                    pacer.hi = PACER_HI
+                    pacer.lo = max(50.0, PACER_HI * 0.3)
+                    pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
                 log(f"[reverify] fresh={len(fresh)} total_pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
             except Exception as e:
                 log(f"[reverify] error: {e}")
