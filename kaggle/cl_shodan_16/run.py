@@ -14,23 +14,27 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-PER_PROXY_CAP = 8.0
+PER_PROXY_CAP = 6.0
 PROXY_POOL = []          # list of (addr, proto)
+BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
 NEXT_OK = {}             # addr -> monotonic time when next request is allowed
 STATS_PROXY_OK = 0
 STATS_PROXY_FAIL = 0
 STATS_DIRECT_USED = 0
+STATS_BANNED_TOTAL = 0
 
 async def proxy_gate(addr):
-    now = time.monotonic()
-    nxt = NEXT_OK.get(addr, 0.0)
-    if nxt > now:
+    while True:
+        now = time.monotonic()
+        nxt = NEXT_OK.get(addr, 0.0)
+        if nxt <= now:
+            NEXT_OK[addr] = now + (1.0 / PER_PROXY_CAP)
+            return
         await asyncio.sleep(nxt - now)
-    NEXT_OK[addr] = max(now, nxt) + (1.0 / PER_PROXY_CAP)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.122"
+ENGINE_VER = "v98.123"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -241,13 +245,10 @@ class AdaptivePacer:
     async def acquire(self):
         async with self.lock:
             now = time.monotonic()
-            if now < self.paused_until:
-                wait = self.paused_until - now
-            else:
-                if self.next_slot < now:
-                    self.next_slot = now
-                wait = self.next_slot - now
-                self.next_slot += self.interval
+            if self.next_slot < now:
+                self.next_slot = now
+            wait = self.next_slot - now
+            self.next_slot += self.interval
         if wait > 0:
             await asyncio.sleep(wait)
 
@@ -258,12 +259,6 @@ class AdaptivePacer:
             if retry_after:
                 self.c429_shodan += 1
                 self.rate = max(self.lo, self.rate * 0.9)
-                try:
-                    ra_val = float(retry_after)
-                    if ra_val >= 5:
-                        self.paused_until = now + min(ra_val, 3600.0)
-                except (ValueError, TypeError):
-                    pass
             else:
                 self.c429_proxy += 1
         elif (200 <= status < 400) or status == 404:  # 200,204,404 = SUCCESS
@@ -380,10 +375,15 @@ class HttpStatus(int):
 
 
 async def fetch_ip(session, ip, pacer):
-    global STATS_PROXY_OK, STATS_PROXY_FAIL, STATS_DIRECT_USED
+    global STATS_PROXY_OK, STATS_PROXY_FAIL, STATS_DIRECT_USED, STATS_BANNED_TOTAL
     for attempt in range(3):
         if PROXY_POOL:
-            addr, proto = random.choice(PROXY_POOL)
+            now = time.monotonic()
+            unbanned = [p for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now]
+            if unbanned:
+                addr, proto = random.choice(unbanned)
+            else:
+                addr, proto = min(PROXY_POOL, key=lambda p: BANNED.get(p[0], 0.0))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
             await proxy_gate(addr)
         else:
@@ -395,7 +395,17 @@ async def fetch_ip(session, ip, pacer):
                     STATS_PROXY_OK += 1
                 else:
                     STATS_DIRECT_USED += 1
-                pacer.on_result(r.status, r.headers.get("Retry-After"))
+                ra = r.headers.get("Retry-After")
+                if r.status == 429:
+                    if ra:
+                        try:
+                            ra_val = float(ra)
+                        except (ValueError, TypeError):
+                            ra_val = 60.0
+                        if use_proxy:
+                            BANNED[addr] = time.monotonic() + min(ra_val, 600.0)
+                            STATS_BANNED_TOTAL += 1
+                pacer.on_result(r.status, ra)
                 ports = []
                 if r.status == 200:
                     try:
@@ -409,7 +419,7 @@ async def fetch_ip(session, ip, pacer):
                 STATS_PROXY_FAIL += 1
                 key = (addr, proto)
                 FAILS[key] = FAILS.get(key, 0) + 1
-                if FAILS[key] >= 2:
+                if FAILS[key] >= 3:
                     try:
                         PROXY_POOL.remove(key)
                     except ValueError:
@@ -578,11 +588,14 @@ async def async_main():
                 stats["pacer_rate"] = f"{pacer.rate:.1f}"
                 stats["429_shodan"] = pacer.c429_shodan
                 stats["429_proxy"] = pacer.c429_proxy
+                stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
+                stats["banned_total"] = STATS_BANNED_TOTAL
                 stats["pool_size"] = len(PROXY_POOL)
                 stats["proxy_ok"] = STATS_PROXY_OK
                 stats["proxy_fail"] = STATS_PROXY_FAIL
                 stats["direct_used"] = STATS_DIRECT_USED
-                stats["req_s"] = f"{ir:.1f}" if "ir" in locals() else "0.0"
+                total_resp = stats["ok"] + stats["not_found"] + stats["rate_limit"] + stats["timeout"] + stats["other"]
+                stats["req_s"] = f"{total_resp / max(0.1, time.time() - START_TIME):.1f}"
                 push_progress(processed_count, total_ips, cands_found, stats)
                 last_push_time = now
 
@@ -643,11 +656,14 @@ async def async_main():
             stats["pacer_rate"] = f"{pacer.rate:.1f}"
             stats["429_shodan"] = pacer.c429_shodan
             stats["429_proxy"] = pacer.c429_proxy
+            stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
+            stats["banned_total"] = STATS_BANNED_TOTAL
             stats["pool_size"] = len(PROXY_POOL)
             stats["proxy_ok"] = STATS_PROXY_OK
             stats["proxy_fail"] = STATS_PROXY_FAIL
             stats["direct_used"] = STATS_DIRECT_USED
-            stats["req_s"] = f"{ir:.1f}" if "ir" in locals() else "0.0"
+            total_resp = stats["ok"] + stats["not_found"] + stats["rate_limit"] + stats["timeout"] + stats["other"]
+            stats["req_s"] = f"{total_resp / max(0.1, time.time() - START_TIME):.1f}"
             push_progress(processed_count, total_ips, cands_found, stats)
 
     log(f"STOPPED {processed_count:,}/{total_ips:,} cands={cands_found:,} stats={stats}")
