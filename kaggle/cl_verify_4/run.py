@@ -28,7 +28,7 @@ def should_process_file(filepath, verify_idx, num_verify=9):
     # Non-shard files (feeds_raw, leakix, etc.) processed by instance 0
     return verify_idx == 0
 
-CANDIDATES = ["ip/harvest/lists_all.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
+CANDIDATES = ["ip/harvest/bulk_all.txt", "ip/harvest/lists_all.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
               "ip/harvest/hits_new_exits.txt", "ip/harvest/net_new.txt"]
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*_c*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
@@ -281,7 +281,7 @@ while True:
     log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
     # 2. Gather candidates (lists_all.txt FIRST, then new high-yield chunks)
-    list_files = [os.path.join(REPO, "ip", "harvest", "lists_all.txt")]
+    list_files = [os.path.join(REPO, "ip", "harvest", "bulk_all.txt"), os.path.join(REPO, "ip", "harvest", "lists_all.txt")]
     chunk_files = sorted(glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")))
     feed_files = [
         os.path.join(REPO, "ip", "harvest", "feeds_raw.txt"),
