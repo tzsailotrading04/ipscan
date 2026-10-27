@@ -39,7 +39,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.139"
+ENGINE_VER = "v98.140"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -406,7 +406,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=3) as r:
+                                async with s.get(BASE + rand_ip(), timeout=5) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -417,7 +417,7 @@ async def build_pool(items):
                     http_ok = False
                     for _ in range(2):
                         try:
-                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=3) as r:
+                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=5) as r:
                                 if r.status < 500 and r.status != 407:
                                     pool.append((addr, "http"))
                                     http_ok = True
@@ -429,7 +429,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=3) as r:
+                                async with s.get(BASE + rand_ip(), timeout=5) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -573,11 +573,14 @@ async def async_main():
     except Exception as e:
         log(f"build_pool error: {e}")
         PROXY_POOL = []
-    print(f"[pool] shard={SHARD_IDX} cands={len(mine) if 'mine' in locals() else 0} working={len(PROXY_POOL)}", flush=True)
+    parsed_cnt = len(mine) if 'mine' in locals() else 0
+    dropped_cnt = parsed_cnt - len(PROXY_POOL)
+    log(f"[pool] shard={SHARD_IDX} parsed={parsed_cnt} dropped={dropped_cnt} pool_size={len(PROXY_POOL)}")
+    print(f"[pool] shard={SHARD_IDX} parsed={parsed_cnt} dropped={dropped_cnt} pool_size={len(PROXY_POOL)}", flush=True)
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(8000, max(600, 6 * len(PROXY_POOL)))
+    CONC = min(4000, max(200, 3 * len(PROXY_POOL)))
     PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
