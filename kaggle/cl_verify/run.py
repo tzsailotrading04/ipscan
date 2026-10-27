@@ -316,6 +316,7 @@ while True:
     alive_batch = []
     done = 0
     t_start = time.time()
+    last_heartbeat = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for r in ex.map(check, rows, chunksize=64):
             done += 1
@@ -323,7 +324,13 @@ while True:
                 alive_batch.append(r)
                 k = r.split("\t")[0]
                 persistent_alive[k] = (r, cycle)
-            if done % 5000 == 0:
+            now_hb = time.time()
+            if now_hb - last_heartbeat >= 60:
+                rem = len(rows) - done
+                rate = done / max(0.1, now_hb - t_start)
+                log(f"  [HEARTBEAT] done={done:,}/{len(rows):,} remaining={rem:,} ({done/len(rows)*100:.1f}%) alive={len(alive_batch):,} rate={rate:.1f}/s")
+                last_heartbeat = now_hb
+            elif done % 5000 == 0:
                 log(f"  checked {done}/{len(rows)} alive_batch={len(alive_batch)} persistent_total={len(persistent_alive)}")
             if time.time() - START > HARD_STOP:
                 log("HARD_STOP during verification")
