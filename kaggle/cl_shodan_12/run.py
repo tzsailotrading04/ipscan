@@ -43,25 +43,35 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.158"
+ENGINE_VER = "v98.160"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
 
 SCAN_MODE = "direct"  # "direct" or "shodan"
 DIRECT_PORTS = [8080, 3128, 1080, 8000]
+DIRECT_SEM = None
+STAT_ERRNO99 = 0
 
 async def check_direct_port(ip, port):
-    try:
-        r, w = await asyncio.wait_for(asyncio.open_connection(ip, port), timeout=1.0)
-        w.close()
+    global STAT_ERRNO99, DIRECT_SEM
+    if DIRECT_SEM is None:
+        DIRECT_SEM = asyncio.Semaphore(12000)
+    async with DIRECT_SEM:
         try:
-            await w.wait_closed()
+            r, w = await asyncio.wait_for(asyncio.open_connection(ip, port), timeout=1.0)
+            w.close()
+            try:
+                await w.wait_closed()
+            except Exception:
+                pass
+            return port
+        except OSError as e:
+            if getattr(e, "errno", None) == 99 or "cannot assign requested address" in str(e).lower():
+                STAT_ERRNO99 += 1
+            return None
         except Exception:
-            pass
-        return port
-    except Exception:
-        return None
+            return None
 
 async def scan_direct(ip):
     res = await asyncio.gather(*[check_direct_port(ip, p) for p in DIRECT_PORTS], return_exceptions=True)
@@ -90,8 +100,8 @@ if not shard_str and len(sys.argv) > 1:
 if not shard_str:
     shard_str = "12"
 
-SHARD_IDX = int(shard_str)
-SHARD_TAG = f"{SHARD_IDX:02d}"
+SHARD_IDX = 12
+SHARD_TAG = "12"
 
 CONC = 10
 MAX_SHARD_IPS = 200_000_000
@@ -739,7 +749,7 @@ async def async_main():
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0,
              "429_shodan": 0, "429_proxy": 0, "pool_size": len(PROXY_POOL),
-             "proxy_ok": 0, "proxy_fail": 0, "direct_used": 0, "req_s": "0.0"}
+             "proxy_ok": 0, "proxy_fail": 0, "direct_used": 0, "errno99": 0, "req_s": "0.0"}
 
     # Raise file descriptor limit
     try:
@@ -755,12 +765,29 @@ async def async_main():
     except Exception as e:
         log(f"[ulimit] {e}")
 
+    # STEP 2 - ENABLE PORT REUSE
+    try:
+        subprocess.run(["sysctl", "-w", "net.ipv4.ip_local_port_range=10000 65535"], capture_output=True, check=False)
+        subprocess.run(["sysctl", "-w", "net.ipv4.tcp_tw_reuse=1"], capture_output=True, check=False)
+        pr_val = open("/proc/sys/net/ipv4/ip_local_port_range").read().strip()
+        tw_val = open("/proc/sys/net/ipv4/tcp_tw_reuse").read().strip()
+        if "10000" in pr_val:
+            log(f"[sysctl] port_range={pr_val} tcp_tw_reuse={tw_val}")
+            print(f"[sysctl] port_range={pr_val} tcp_tw_reuse={tw_val}", flush=True)
+        else:
+            log(f"SYSCTLDENIED (port_range={pr_val} tcp_tw_reuse={tw_val})")
+            print(f"SYSCTLDENIED (port_range={pr_val} tcp_tw_reuse={tw_val})", flush=True)
+    except Exception as e:
+        log(f"SYSCTLDENIED ({e})")
+        print(f"SYSCTLDENIED ({e})", flush=True)
+
     if SCAN_MODE == "direct":
         PROXY_POOL = []
-        CONC = 15000
-        pacer = AdaptivePacer(start=15000.0, lo=1000.0, hi=30000.0)
-        log(f"[mode] direct scan mode: skipping build_pool, CONC={CONC}")
-        print(f"[mode] direct scan mode: skipping build_pool, CONC={CONC}", flush=True)
+        CONC = 8000
+        pacer = AdaptivePacer(start=8000.0, lo=1000.0, hi=30000.0)
+        DIRECT_SEM = asyncio.Semaphore(12000)
+        log(f"[mode] direct scan mode: skipping build_pool, CONC={CONC}, DIRECT_SEM=12000")
+        print(f"[mode] direct scan mode: skipping build_pool, CONC={CONC}, DIRECT_SEM=12000", flush=True)
     else:
         # Startup — build pool BEFORE creating the main semaphore / worker tasks
         allc = []
@@ -905,8 +932,8 @@ async def async_main():
                 now_m = time.monotonic()
                 if SCAN_MODE == "direct":
                     hit_rate = (stats["kept_lines"] / max(1, processed_count)) * 1000.0
-                    log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']}")
-                    print(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']}", flush=True)
+                    log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']} | errno99={STAT_ERRNO99}")
+                    print(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']} | errno99={STAT_ERRNO99}", flush=True)
                 else:
                     usable_now = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
                     log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | usable={usable_now} pool={len(PROXY_POOL)} | "
@@ -936,6 +963,7 @@ async def async_main():
                 b_120_600 = sum(1 for exp in BANNED.values() if 120 <= (exp - now_m) <= 600)
                 log(f"[ban_histogram] <30s={b_under30} 30-120s={b_30_120} 120-600s={b_120_600}")
                 stats["banned_total"] = STATS_BANNED_TOTAL
+                stats["errno99"] = STAT_ERRNO99
                 now_m = time.monotonic()
                 stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
                 stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
