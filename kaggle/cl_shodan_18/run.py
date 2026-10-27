@@ -36,7 +36,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.127"
+ENGINE_VER = "v98.134"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -197,6 +197,9 @@ def load_strided_subnets():
     log(f"STRIDE_CHECK first={strided[0] if strided else 'NONE'} last={strided[-1] if strided else 'NONE'}")
     return strided
 
+
+PROXY_PORTS = {80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
+               8118, 8888, 9000, 4145, 10808}
 
 def load_pe_ports():
     path = os.path.join(REPO, "ip", "pe_ports.txt")
@@ -550,7 +553,7 @@ async def async_main():
                     stats["ok"] += 1
                     if ports:
                         stats["ok_with_ports"] += 1
-                        keep = [p for p in ports if p in pe_ports]
+                        keep = [p for p in ports if int(p) in PROXY_PORTS]
                         if keep:
                             lines = [f"{ip}:{p}\n" for p in keep]
                             if OUT_HANDLE:
