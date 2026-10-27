@@ -205,24 +205,36 @@ def try_socks5(ip, port):
     except Exception:
         return False
 
+PROXY_PORTS = [80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
+               8118, 8888, 9000, 4145, 10808]
+
 def check(k):
-    ip, port = k.rsplit(":", 1)
-    try:
-        port = int(port)
-    except Exception:
+    k = k.strip()
+    if not k:
         return None
-    t0 = time.time()
-    proto = None
-    if try_http(ip, port):
-        proto = "http"
-    elif try_socks5(ip, port):
-        proto = "socks5"
-    if not proto:
-        return None
-    ms = int((time.time() - t0) * 1000)
-    cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else "SLOW")
-    a, c, o = asn_of(ip)
-    return ip + ":" + str(port) + "\t" + proto + "\t" + c + "\t" + a + "\t" + o + "\t" + str(ms) + "\t" + cls
+    if ":" in k:
+        ip, port_str = k.rsplit(":", 1)
+        try:
+            test_ports = [int(port_str)]
+        except Exception:
+            test_ports = PROXY_PORTS
+    else:
+        ip = k
+        test_ports = PROXY_PORTS
+
+    for port in test_ports:
+        t0 = time.time()
+        proto = None
+        if try_http(ip, port):
+            proto = "http"
+        elif try_socks5(ip, port):
+            proto = "socks5"
+        if proto:
+            ms = int((time.time() - t0) * 1000)
+            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else "SLOW")
+            a, c, o = asn_of(ip)
+            return ip + ":" + str(port) + "\t" + proto + "\t" + c + "\t" + a + "\t" + o + "\t" + str(ms) + "\t" + cls
+    return None
 
 run_once = "--once" in sys.argv
 cycle = 0
@@ -276,7 +288,7 @@ while True:
                 if m.group(2):
                     keys = [ip + ":" + m.group(2)]
                 else:
-                    keys = [ip + ":" + pt for pt in FALLBACK_PORTS]
+                    keys = [ip]
                 for k in keys:
                     if k in seen:
                         continue
@@ -322,13 +334,17 @@ while True:
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for start in range(0, len(rows), BATCH):
             batch = rows[start:start+BATCH]
+            port_count = sum(1 for x in batch if ":" in x)
+            batch_alive = 0
             for r in ex.map(check, batch, chunksize=32):
                 done += 1
                 if r:
+                    batch_alive += 1
                     alive_batch.append(r)
                     k = r.split("\t")[0]
                     persistent_alive[k] = (r, cycle)
-            log(f"[BATCH] {start+len(batch):,}/{len(rows):,} done={done:,} alive={len(alive_batch):,}")
+            alive_rate = (batch_alive / len(batch) * 100) if batch else 0.0
+            log(f"[BATCH] {start+len(batch):,}/{len(rows):,} done={done:,} alive={len(alive_batch):,} had_port={port_count:,}/{len(batch):,} alive_rate={alive_rate:.2f}%")
 
             # Write verified_alive.txt after every batch (cheap, local)
             out_incr = os.path.join(REPO, OUT_REL)
