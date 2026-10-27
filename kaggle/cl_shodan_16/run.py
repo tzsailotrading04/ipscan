@@ -22,7 +22,7 @@ SKIP_REVERIFY = True  # skip re-verifying active pool proxies in refill
 PROXY_POOL = []          # list of (addr, proto)
 PROXY_CLASS = {}
 TOTAL_VERIFIED_PARSED = 0
-FETCH_TIMEOUTS = {"FAST": 10, "MED": 15, "OK": 20}
+FETCH_TIMEOUTS = {"FAST": 15, "MED": 20, "OK": 25}
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
 FAILS_UNTIL = {}         # addr -> monotonic expiry time
@@ -43,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.153"
+ENGINE_VER = "v98.154"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -453,6 +453,8 @@ async def build_pool(items):
     low_pri_pool = []   # 429, 403, other
     fail_counts = {"connect_error": 0, "timeout": 0, "bad_status": 0, "other": 0}
     status_counts = {"200": 0, "404": 0, "429": 0, "403": 0, "407": 0, "other": 0}
+    lat_hist = {"<1s": 0, "1-3s": 0, "3-8s": 0, "8-15s": 0, "15-25s": 0, ">25s": 0}
+    after_8s_count = 0
     other_types = {}
     sem = asyncio.Semaphore(600)
 
@@ -463,13 +465,33 @@ async def build_pool(items):
         if count < 10:
             print(f"[build_pool_other] {proto_tag} {name}: {e}", flush=True)
 
+    def record_latency(dur):
+        nonlocal after_8s_count
+        if dur < 1.0:
+            lat_hist["<1s"] += 1
+        elif dur < 3.0:
+            lat_hist["1-3s"] += 1
+        elif dur < 8.0:
+            lat_hist["3-8s"] += 1
+        elif dur < 15.0:
+            lat_hist["8-15s"] += 1
+        elif dur < 25.0:
+            lat_hist["15-25s"] += 1
+        else:
+            lat_hist[">25s"] += 1
+        if dur >= 8.0:
+            after_8s_count += 1
+
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
         async def try_http(addr):
+            t0 = time.monotonic()
             try:
-                async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=8) as r:
+                async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=15) as r:
+                    dur = time.monotonic() - t0
                     st_k = str(r.status)
                     status_counts[st_k if st_k in status_counts else "other"] += 1
                     if r.status < 500 and r.status != 407:
+                        record_latency(dur)
                         return r.status
                     return "bad_status"
             except asyncio.TimeoutError:
@@ -485,13 +507,16 @@ async def build_pool(items):
             if not HAVE_SOCKS:
                 record_other("socks5", RuntimeError("aiohttp_socks not available"))
                 return "other"
+            t0 = time.monotonic()
             try:
                 conn = ProxyConnector.from_url(f"socks5://{addr}")
                 async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                    async with s.get(BASE + rand_ip(), timeout=8) as r:
+                    async with s.get(BASE + rand_ip(), timeout=15) as r:
+                        dur = time.monotonic() - t0
                         st_k = str(r.status)
                         status_counts[st_k if st_k in status_counts else "other"] += 1
                         if r.status < 500 and r.status != 407:
+                            record_latency(dur)
                             return r.status
                         return "bad_status"
             except asyncio.TimeoutError:
@@ -558,6 +583,8 @@ async def build_pool(items):
     print(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}", flush=True)
     log(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}")
     print(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}", flush=True)
+    log(f"[build_pool_latency] <1s={lat_hist['<1s']} 1-3s={lat_hist['1-3s']} 3-8s={lat_hist['3-8s']} 8-15s={lat_hist['8-15s']} 15-25s={lat_hist['15-25s']} >25s={lat_hist['>25s']} after_8s={after_8s_count}")
+    print(f"[build_pool_latency] <1s={lat_hist['<1s']} 1-3s={lat_hist['1-3s']} 3-8s={lat_hist['3-8s']} 8-15s={lat_hist['8-15s']} 15-25s={lat_hist['15-25s']} >25s={lat_hist['>25s']} after_8s={after_8s_count}", flush=True)
     if other_types:
         log(f"[build_pool_other_types] {other_types}")
         print(f"[build_pool_other_types] {other_types}", flush=True)
@@ -584,7 +611,7 @@ async def fetch_ip(session, ip, pacer):
             else:
                 addr, proto = min(PROXY_POOL, key=lambda p: max(BANNED.get(p[0], 0.0), FAILS_UNTIL.get(p[0], 0.0)))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
-            to = FETCH_TIMEOUTS.get(PROXY_CLASS.get(addr, "MED"), 20)
+            to = FETCH_TIMEOUTS.get(PROXY_CLASS.get(addr, "MED"), 25)
             await proxy_gate(addr)
         else:
             use_proxy = None
@@ -713,7 +740,7 @@ async def async_main():
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(2000, max(120, 2 * len(PROXY_POOL)))
+    CONC = min(4000, max(120, int(1.5 * len(PROXY_POOL))))
     PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
