@@ -22,7 +22,7 @@ CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_*.txt"))
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
-WORKERS = 4000
+WORKERS = 1500
 TIMEOUT = 3
 HOST = "api.ipify.org"
 HARD_STOP = 9 * 3600
@@ -34,6 +34,7 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 
 def log(m):
     print(m, flush=True)
+    sys.stdout.flush()
 
 def atomic_write(filepath, lines):
     tmp_path = filepath + ".tmp"
@@ -318,7 +319,7 @@ while True:
     t_start = time.time()
     last_heartbeat = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-        for r in ex.map(check, rows, chunksize=64):
+        for r in ex.map(check, rows, chunksize=128):
             done += 1
             if r:
                 alive_batch.append(r)
@@ -329,6 +330,9 @@ while True:
                 rem = len(rows) - done
                 rate = done / max(0.1, now_hb - t_start)
                 log(f"  [HEARTBEAT] done={done:,}/{len(rows):,} remaining={rem:,} ({done/len(rows)*100:.1f}%) alive={len(alive_batch):,} rate={rate:.1f}/s")
+                out_incr = os.path.join(REPO, OUT_REL)
+                incr_lines = sorted(f"{prefix}\t{seen_pass}" for prefix, seen_pass in persistent_alive.values())
+                atomic_write(out_incr, incr_lines)
                 last_heartbeat = now_hb
             elif done % 5000 == 0:
                 log(f"  checked {done}/{len(rows)} alive_batch={len(alive_batch)} persistent_total={len(persistent_alive)}")
