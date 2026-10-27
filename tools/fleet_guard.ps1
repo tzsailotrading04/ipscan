@@ -101,15 +101,12 @@ foreach ($acct in $map.Keys) {
 
 # Check and revive all 9 verifier kernels (cl_verify_0 .. cl_verify_8)
 $vmap = [ordered]@{
-    0 = "acct6"
-    1 = "acct6"
-    2 = "acct6"
-    3 = "acct5"
-    4 = "acct5"
-    5 = "acct1"
-    6 = "acct2"
-    7 = "acct3"
-    8 = "acct4"
+    "acct1" = @("verify_0")
+    "acct2" = @("verify_1")
+    "acct3" = @("verify_2")
+    "acct4" = @("verify_3")
+    "acct5" = @("verify_4","verify_5","verify_6")
+    "acct6" = @("verify_7","verify_8")
 }
 
 foreach ($vk in $vmap.Keys) {

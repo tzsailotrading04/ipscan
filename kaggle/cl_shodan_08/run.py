@@ -39,7 +39,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.140"
+ENGINE_VER = "v98.142"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -320,15 +320,12 @@ class AdaptivePacer:
 
 
 def load_candidates():
-    """ALL entries, prioritized:
-    1. verified_alive.txt & verified_alive_part_*.txt (pre-verified)
-    2. net_new.txt
-    3. verified_alive.bak.txt (historical fallback)
-    master_pool.txt removed entirely to stop dead proxy dilution.
-    Total entries capped at 20,000 so the slice stays bounded.
-    Deterministic shuffle ensures every shard sees the SAME order and slices are DISJOINT.
+    """ALL pre-verified entries, latency-filtered:
+    Keep only FAST (ms < 1000) and MED (ms < 3000).
+    If fewer than 200, fill remainder with lowest-ms SLOW entries.
+    Total entries capped at 20,000.
     """
-    def parse_file(path):
+    def parse_verified(path):
         res = []
         if not os.path.exists(path):
             return res
@@ -338,61 +335,64 @@ def load_candidates():
                     line = line.strip()
                     if not line:
                         continue
-                    if "\t" in line:
-                        p = line.split("\t")
-                        if len(p) < 2:
-                            continue
-                        proto = p[1].strip().lower()
-                        if proto not in ("http", "socks5"):
-                            proto = "http"
-                        addr = p[0].strip()
-                    else:
-                        parts = line.split()
-                        if not parts:
-                            continue
-                        addr = parts[0].strip()
-                        proto = "http"
+                    p = line.split("\t")
+                    if len(p) < 2:
+                        continue
+                    addr = p[0].strip()
                     if ":" not in addr:
                         continue
-                    res.append((addr, proto))
+                    proto = p[1].strip().lower()
+                    if proto not in ("http", "socks5"):
+                        proto = "http"
+                    ms = 99999
+                    cls = "SLOW"
+                    if len(p) >= 6:
+                        try:
+                            ms = int(p[5].strip())
+                        except Exception:
+                            ms = 99999
+                    if len(p) >= 7:
+                        cls = p[6].strip().upper()
+                    res.append((addr, proto, ms, cls))
         except Exception:
             pass
         return res
 
     seen_addrs = set()
-    verified_entries = []
-    # 1. Pre-verified files first
+    fast_entries = []
+    med_entries = []
+    slow_entries = []
+
     v_files = [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
     v_files += sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
+
     for vf in v_files:
-        for addr, proto in parse_file(vf):
-            if addr not in seen_addrs:
-                seen_addrs.add(addr)
-                verified_entries.append((addr, proto))
-
-    # 2. net_new.txt
-    net_new_entries = []
-    nn_path = os.path.join(REPO_ROOT, "ip", "harvest", "net_new.txt")
-    for addr, proto in parse_file(nn_path):
-        if addr not in seen_addrs:
+        for addr, proto, ms, cls in parse_verified(vf):
+            if addr in seen_addrs:
+                continue
             seen_addrs.add(addr)
-            net_new_entries.append((addr, proto))
+            if cls == "FAST" or ms < 1000:
+                fast_entries.append((addr, proto, ms, "FAST"))
+            elif cls == "MED" or ms < 3000:
+                med_entries.append((addr, proto, ms, "MED"))
+            else:
+                slow_entries.append((addr, proto, ms, "SLOW"))
 
-    # 3. verified_alive.bak.txt (historical fallback)
-    bak_entries = []
-    bak_path = os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")
-    for addr, proto in parse_file(bak_path):
-        if addr not in seen_addrs:
-            seen_addrs.add(addr)
-            bak_entries.append((addr, proto))
+    pool_cands = fast_entries + med_entries
+    slow_used = 0
+    if len(pool_cands) < 200 and slow_entries:
+        slow_entries.sort(key=lambda x: x[2])
+        needed = 200 - len(pool_cands)
+        fill_slow = slow_entries[:needed]
+        pool_cands += fill_slow
+        slow_used = len(fill_slow)
 
-    MAX_CANDS = 20000
-    all_cands = verified_entries + net_new_entries + bak_entries
-    if len(all_cands) > MAX_CANDS:
-        all_cands = all_cands[:MAX_CANDS]
+    log(f"[pool_quality] FAST={len(fast_entries)} MED={len(med_entries)} SLOW={slow_used} total={len(pool_cands)}")
 
-    random.Random(12345).shuffle(all_cands)
-    return all_cands
+    out = [(x[0], x[1]) for x in pool_cands]
+    random.Random(12345).shuffle(out)
+    return out
 async def build_pool(items):
     pool = []
     sem = asyncio.Semaphore(600)
@@ -461,7 +461,7 @@ async def fetch_ip(session, ip, pacer):
         else:
             use_proxy = None
         try:
-            async with session.get(BASE + ip, proxy=use_proxy, timeout=8) as r:
+            async with session.get(BASE + ip, proxy=use_proxy, timeout=12) as r:
                 if use_proxy:
                     FAILS[(addr, proto)] = 0
                     FAILS_UNTIL.pop(addr, None)
