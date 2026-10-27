@@ -250,7 +250,7 @@ def check(k):
             proto = "socks5"
         if proto:
             ms = int((time.time() - t0) * 1000)
-            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else "SLOW")
+            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else ("OK" if ms < 8000 else "SLOW"))
             a, c, o = asn_of(ip)
             return ip + ":" + str(port) + "\t" + proto + "\t" + c + "\t" + a + "\t" + o + "\t" + str(ms) + "\t" + cls
     return None
