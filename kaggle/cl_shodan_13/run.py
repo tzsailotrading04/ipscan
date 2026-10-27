@@ -40,7 +40,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.146"
+ENGINE_VER = "v98.147"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -435,13 +435,17 @@ def load_candidates():
     return out
 async def build_pool(items):
     pool = []
+    fail_counts = {"connect_error": 0, "timeout": 0, "bad_status": 0, "other": 0}
     sem = asyncio.Semaphore(600)
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
         async def v(item):
             addr, proto = item
+            last_err = None
             async with sem:
                 if proto == "socks5":
-                    if not HAVE_SOCKS: return
+                    if not HAVE_SOCKS:
+                        fail_counts["other"] += 1
+                        return
                     for _ in range(2):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
@@ -450,8 +454,15 @@ async def build_pool(items):
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
+                                    else:
+                                        last_err = "bad_status"
+                        except asyncio.TimeoutError:
+                            last_err = "timeout"
+                        except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                                aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                            last_err = "connect_error"
                         except Exception:
-                            pass
+                            last_err = "other"
                 else:
                     # proto == "http"
                     http_ok = False
@@ -462,8 +473,15 @@ async def build_pool(items):
                                     pool.append((addr, "http"))
                                     http_ok = True
                                     return
+                                else:
+                                    last_err = "bad_status"
+                        except asyncio.TimeoutError:
+                            last_err = "timeout"
+                        except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                                aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                            last_err = "connect_error"
                         except Exception:
-                            pass
+                            last_err = "other"
                     # If http failed, try one socks5 attempt before discarding
                     if not http_ok and HAVE_SOCKS:
                         try:
@@ -473,9 +491,20 @@ async def build_pool(items):
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
+                                    else:
+                                        last_err = "bad_status"
+                        except asyncio.TimeoutError:
+                            last_err = "timeout"
+                        except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                                aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                            last_err = "connect_error"
                         except Exception:
-                            pass
+                            last_err = "other"
+            if last_err:
+                fail_counts[last_err] += 1
+
         await asyncio.gather(*[v(i) for i in items], return_exceptions=True)
+    log(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}")
     return pool
 
 
