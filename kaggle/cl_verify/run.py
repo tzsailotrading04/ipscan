@@ -18,6 +18,7 @@ REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"
 OUT_REL = "ip/harvest/verified_alive.txt"
 CANDIDATES = ["ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
               "ip/harvest/hits_new_exits.txt", "ip/harvest/net_new.txt"]
+CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*_c*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_*.txt"))
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
@@ -205,22 +206,27 @@ def try_socks5(ip, port):
     except Exception:
         return False
 
-PROXY_PORTS = [80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
-               8118, 8888, 9000, 4145, 10808]
+PROXY_PORTS = [8080, 3128, 1080, 8000, 8888, 80, 1081, 3127, 3129, 8001,
+               8081, 8118, 9000, 4145, 10808]
+PROXY_PORTS_SET = set(PROXY_PORTS)
 
 def check(k):
     k = k.strip()
     if not k:
         return None
+    ip = k
+    p = None
     if ":" in k:
         ip, port_str = k.rsplit(":", 1)
         try:
-            test_ports = [int(port_str)]
+            p = int(port_str)
         except Exception:
-            test_ports = PROXY_PORTS
+            p = None
+
+    if p is not None and p in PROXY_PORTS_SET:
+        test_ports = [p] + [x for x in PROXY_PORTS if x != p][:2]
     else:
-        ip = k
-        test_ports = PROXY_PORTS
+        test_ports = PROXY_PORTS[:4]
 
     for port in test_ports:
         t0 = time.time()
@@ -266,6 +272,10 @@ while True:
     seen = set()
     import glob
     all_candidate_files = list(CANDIDATES)
+    for chunk_f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")):
+        rel = os.path.relpath(chunk_f, REPO).replace("\\", "/")
+        if rel not in all_candidate_files:
+            all_candidate_files.append(rel)
     for shard_f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_*.txt")):
         rel = os.path.relpath(shard_f, REPO).replace("\\", "/")
         if rel not in all_candidate_files:
@@ -351,11 +361,11 @@ while True:
             incr_lines = sorted(f"{prefix}\t{seen_pass}" for prefix, seen_pass in persistent_alive.values())
             atomic_write(out_incr, incr_lines)
 
-            # Commit to git every 600 seconds
-            if time.time() - last_commit_time >= 600:
+            # Commit to git every 300 seconds
+            if time.time() - last_commit_time >= 300:
                 subprocess.run(["git", "-C", REPO, "add", OUT_REL], check=False)
                 subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: incremental batch done={done} alive={len(alive_batch)}"], capture_output=True)
-                for attempt in range(1, 4):
+                for attempt in range(1, 6):
                     subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
                     r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
                     if r.returncode == 0:
