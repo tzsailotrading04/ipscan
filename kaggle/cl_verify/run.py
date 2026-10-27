@@ -238,7 +238,7 @@ def check(k):
             proto = "socks5"
         if proto:
             ms = int((time.time() - t0) * 1000)
-            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else "SLOW")
+            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else ("OK" if ms < 8000 else "SLOW"))
             a, c, o = asn_of(ip)
             return ip + ":" + str(port) + "\t" + proto + "\t" + c + "\t" + a + "\t" + o + "\t" + str(ms) + "\t" + cls
     return None
@@ -407,7 +407,7 @@ while True:
     atomic_write(pub_file, pub_lines)
 
     pub_fast_file = os.path.join(REPO, "ip", "pub_fast.txt")
-    fast_rows = [k for k, (prefix, _) in sorted(persistent_alive.items()) if "\tFAST" in prefix or "\tMED" in prefix]
+    fast_rows = [k for k, (prefix, _) in sorted(persistent_alive.items()) if "\tFAST" in prefix or "\tMED" in prefix or "\tOK" in prefix]
     atomic_write(pub_fast_file, fast_rows[:1000])
 
     # 6. Commit + push with retry x5
