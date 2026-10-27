@@ -22,8 +22,8 @@ CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_*.txt"))
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
-WORKERS = 1500
-TIMEOUT = 3
+WORKERS = 2000
+TIMEOUT = 2
 HOST = "api.ipify.org"
 HARD_STOP = 9 * 3600
 START = time.time()
@@ -317,25 +317,38 @@ while True:
     alive_batch = []
     done = 0
     t_start = time.time()
-    last_heartbeat = time.time()
+    last_commit_time = time.time()
+    BATCH = 50000
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-        for r in ex.map(check, rows, chunksize=128):
-            done += 1
-            if r:
-                alive_batch.append(r)
-                k = r.split("\t")[0]
-                persistent_alive[k] = (r, cycle)
-            now_hb = time.time()
-            if now_hb - last_heartbeat >= 60:
-                rem = len(rows) - done
-                rate = done / max(0.1, now_hb - t_start)
-                log(f"  [HEARTBEAT] done={done:,}/{len(rows):,} remaining={rem:,} ({done/len(rows)*100:.1f}%) alive={len(alive_batch):,} rate={rate:.1f}/s")
-                out_incr = os.path.join(REPO, OUT_REL)
-                incr_lines = sorted(f"{prefix}\t{seen_pass}" for prefix, seen_pass in persistent_alive.values())
-                atomic_write(out_incr, incr_lines)
-                last_heartbeat = now_hb
-            elif done % 5000 == 0:
-                log(f"  checked {done}/{len(rows)} alive_batch={len(alive_batch)} persistent_total={len(persistent_alive)}")
+        for start in range(0, len(rows), BATCH):
+            batch = rows[start:start+BATCH]
+            for r in ex.map(check, batch, chunksize=32):
+                done += 1
+                if r:
+                    alive_batch.append(r)
+                    k = r.split("\t")[0]
+                    persistent_alive[k] = (r, cycle)
+            log(f"[BATCH] {start+len(batch):,}/{len(rows):,} done={done:,} alive={len(alive_batch):,}")
+
+            # Write verified_alive.txt after every batch (cheap, local)
+            out_incr = os.path.join(REPO, OUT_REL)
+            incr_lines = sorted(f"{prefix}\t{seen_pass}" for prefix, seen_pass in persistent_alive.values())
+            atomic_write(out_incr, incr_lines)
+
+            # Commit to git every 600 seconds
+            if time.time() - last_commit_time >= 600:
+                subprocess.run(["git", "-C", REPO, "add", OUT_REL], check=False)
+                subprocess.run(["git", "-C", REPO, "commit", "-m", f"cl_verify: incremental batch done={done} alive={len(alive_batch)}"], capture_output=True)
+                for attempt in range(1, 4):
+                    subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
+                    r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
+                    if r.returncode == 0:
+                        log("INCREMENTAL_GIT_PUSH_OK")
+                        break
+                    subprocess.run(["git", "-C", REPO, "merge", "origin/main", "-X", "ours", "--no-edit"], capture_output=True)
+                    time.sleep(2)
+                last_commit_time = time.time()
+
             if time.time() - START > HARD_STOP:
                 log("HARD_STOP during verification")
                 break
