@@ -4,7 +4,7 @@ $ErrorActionPreference = "Continue"
 $root = "D:\DEpinFarm"
 Set-Location $root
 $logFile = "$root\tools\fleet_guard.log"
-$EXPECT = if (Test-Path "work/VERSION") { (Get-Content "work/VERSION" -Raw).Trim() } else { "v98.114" }
+$EXPECT = if (Test-Path "work/VERSION") { (Get-Content "work/VERSION" -Raw).Trim() } else { "v98.143" }
 $STOPPED = Test-Path "work/STOP_SHODAN"
 
 function Log-Msg($msg) {
