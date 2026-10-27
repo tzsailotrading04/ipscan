@@ -16,7 +16,7 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 OUT_REL = "ip/harvest/verified_alive.txt"
-CANDIDATES = ["ip/harvest/lists_all.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
+CANDIDATES = ["ip/harvest/bulk_all.txt", "ip/harvest/lists_all.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
               "ip/harvest/hits_new_exits.txt", "ip/harvest/net_new.txt"]
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*_c*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
@@ -269,7 +269,7 @@ while True:
     log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
     # 2. Gather candidates (lists_all.txt FIRST, then new high-yield chunks)
-    list_files = [os.path.join(REPO, "ip", "harvest", "lists_all.txt")]
+    list_files = [os.path.join(REPO, "ip", "harvest", "bulk_all.txt"), os.path.join(REPO, "ip", "harvest", "lists_all.txt")]
     chunk_files = sorted(glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")))
     feed_files = [
         os.path.join(REPO, "ip", "harvest", "feeds_raw.txt"),
