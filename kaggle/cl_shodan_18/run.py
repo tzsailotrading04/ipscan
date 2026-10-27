@@ -36,7 +36,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.126"
+ENGINE_VER = "v98.127"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -325,7 +325,7 @@ def load_candidates():
 
 async def build_pool(items):
     pool = []
-    sem = asyncio.Semaphore(80)
+    sem = asyncio.Semaphore(400)
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
         async def v(item):
             addr, proto = item
@@ -336,7 +336,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=6) as r:
+                                async with s.get(BASE + rand_ip(), timeout=4) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -347,7 +347,7 @@ async def build_pool(items):
                     http_ok = False
                     for _ in range(2):
                         try:
-                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=6) as r:
+                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=4) as r:
                                 if r.status < 500 and r.status != 407:
                                     pool.append((addr, "http"))
                                     http_ok = True
@@ -359,7 +359,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=6) as r:
+                                async with s.get(BASE + rand_ip(), timeout=4) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -479,6 +479,7 @@ async def async_main():
     try:
         allc = load_candidates()
         mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice, ~1250 items
+        mine = random.Random(777).sample(mine, min(20000, len(mine)))
         async with aiohttp.ClientSession(headers=HEADERS) as tmp:
             PROXY_POOL = await build_pool(mine)
     except Exception as e:
@@ -488,8 +489,8 @@ async def async_main():
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(4000, max(300, 16 * len(PROXY_POOL)))
-    PACER_HI = min(20000.0, max(2000.0, 40.0 * len(PROXY_POOL)))
+    CONC = min(6000, max(400, 4 * len(PROXY_POOL)))
+    PACER_HI = min(20000.0, max(2000.0, 10.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
     pacer = AdaptivePacer(start=start, lo=lo, hi=PACER_HI)
@@ -625,7 +626,7 @@ async def async_main():
             if STOPPING:
                 break
             try:
-                sample_batch = random.sample(mine, min(400, len(mine))) if mine else []
+                sample_batch = random.sample(mine, min(800, len(mine))) if mine else []
                 shard_cands = []
                 if os.path.exists(out_shard_file):
                     try:
@@ -654,7 +655,7 @@ async def async_main():
                         curr_set.add(item)
                         added += 1
                 if PROXY_POOL:
-                    PACER_HI = min(20000.0, max(2000.0, 40.0 * len(PROXY_POOL)))
+                    PACER_HI = min(20000.0, max(2000.0, 10.0 * len(PROXY_POOL)))
                     pacer.hi = PACER_HI
                     pacer.lo = max(200.0, PACER_HI * 0.1)
                     pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
