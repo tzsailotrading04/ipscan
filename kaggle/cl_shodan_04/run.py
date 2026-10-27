@@ -43,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.151"
+ENGINE_VER = "v98.152"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -336,6 +336,8 @@ def load_candidates():
         res = []
         if not os.path.exists(path):
             return res
+        is_list = "lists_all" in os.path.basename(path)
+        is_legacy = "part_" not in os.path.basename(path)
         try:
             with open(path, "r", encoding="utf-8", errors="ignore") as f:
                 for line in f:
@@ -343,30 +345,32 @@ def load_candidates():
                     if not line:
                         continue
                     p = line.split("\t")
-                    if len(p) < 2:
-                        continue
                     addr = p[0].strip()
                     if ":" not in addr:
                         continue
-                    proto = p[1].strip().lower()
-                    if proto not in ("http", "socks5"):
-                        proto = "http"
-                    ms = 99999
-                    cls = "SLOW"
-                    if len(p) >= 6:
-                        try:
-                            ms = int(p[5].strip())
-                        except Exception:
-                            ms = 99999
-                    if len(p) >= 7:
-                        cls = p[6].strip().upper()
-                    raw_cycle = 1
-                    if len(p) >= 8:
-                        try:
-                            raw_cycle = int(p[7].strip())
-                        except Exception:
-                            raw_cycle = 1
-                    res.append((addr, proto, ms, cls, raw_cycle))
+                    if is_list:
+                        res.append((addr, "http", 2000, "OK", 1))
+                    else:
+                        proto = p[1].strip().lower() if len(p) >= 2 else "http"
+                        if proto not in ("http", "socks5"):
+                            proto = "http"
+                        ms = 99999
+                        cls = "SLOW"
+                        if len(p) >= 6:
+                            try:
+                                ms = int(p[5].strip())
+                            except Exception:
+                                ms = 99999
+                        if len(p) >= 7:
+                            cls = p[6].strip().upper()
+                        raw_cycle = 1
+                        if len(p) >= 8:
+                            try:
+                                raw_cycle = int(p[7].strip())
+                            except Exception:
+                                raw_cycle = 1
+                        cycle = 1 if is_legacy else raw_cycle
+                        res.append((addr, proto, ms, cls, cycle))
         except Exception:
             pass
         return res
@@ -374,6 +378,7 @@ def load_candidates():
     v_files = sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
     v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
     v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "lists_all.txt")]
 
     all_parsed = []
     total_parsed = 0
@@ -446,6 +451,7 @@ def load_candidates():
 async def build_pool(items):
     pool = []
     fail_counts = {"connect_error": 0, "timeout": 0, "bad_status": 0, "other": 0}
+    status_counts = {"200": 0, "404": 0, "429": 0, "403": 0, "407": 0, "other": 0}
     sem = asyncio.Semaphore(600)
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
         async def v(item):
@@ -461,6 +467,8 @@ async def build_pool(items):
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
                                 async with s.get(BASE + rand_ip(), timeout=8) as r:
+                                    st_k = str(r.status)
+                                    status_counts[st_k if st_k in status_counts else "other"] += 1
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -479,6 +487,8 @@ async def build_pool(items):
                     for _ in range(2):
                         try:
                             async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=8) as r:
+                                st_k = str(r.status)
+                                status_counts[st_k if st_k in status_counts else "other"] += 1
                                 if r.status < 500 and r.status != 407:
                                     pool.append((addr, "http"))
                                     http_ok = True
@@ -498,6 +508,8 @@ async def build_pool(items):
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
                                 async with s.get(BASE + rand_ip(), timeout=8) as r:
+                                    st_k = str(r.status)
+                                    status_counts[st_k if st_k in status_counts else "other"] += 1
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -515,6 +527,8 @@ async def build_pool(items):
 
         await asyncio.gather(*[v(i) for i in items], return_exceptions=True)
     log(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}")
+    log(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}")
+    print(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}", flush=True)
     return pool
 
 
@@ -573,7 +587,8 @@ async def fetch_ip(session, ip, pacer):
                 STATS_PROXY_FAIL += 1
                 key = (addr, proto)
                 FAILS[key] = FAILS.get(key, 0) + 1
-                FAILS_UNTIL[addr] = time.monotonic() + min(60.0, 5.0 * FAILS[key])
+                if FAILS[key] >= 2:
+                    FAILS_UNTIL[addr] = time.monotonic() + min(20.0, 5.0 * FAILS[key])
             continue
         except Exception:
             continue
