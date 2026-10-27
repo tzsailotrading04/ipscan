@@ -20,6 +20,8 @@ except Exception:
 PER_PROXY_CAP = 3.0
 PROXY_POOL = []          # list of (addr, proto)
 PROXY_CLASS = {}
+TOTAL_VERIFIED_PARSED = 0
+FETCH_TIMEOUTS = {"FAST": 10, "MED": 15, "OK": 20}
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
 FAILS_UNTIL = {}         # addr -> monotonic expiry time
@@ -40,7 +42,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.147"
+ENGINE_VER = "v98.149"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -323,9 +325,9 @@ class AdaptivePacer:
 def load_candidates():
     """Newest-first verified entries, cycle-filtered and latency-filtered:
     1. Read cycle field (last column).
-    2. Discard entries more than 5 cycles behind the highest seen.
+    2. Discard entries more than 20 cycles behind the highest seen (relaxed cutoff).
     3. Sort candidates descending by cycle (newest first).
-    4. Apply FAST/MED latency filter.
+    4. Apply FAST (<1000ms), MED (<3000ms), OK (<8000ms) latency filter.
     5. Log pool_pass_rate as kept/parsed.
     """
     def parse_verified(path):
@@ -338,7 +340,7 @@ def load_candidates():
                     line = line.strip()
                     if not line:
                         continue
-                    p = line.split("	")
+                    p = line.split("\t")
                     if len(p) < 2:
                         continue
                     addr = p[0].strip()
@@ -388,8 +390,8 @@ def load_candidates():
                 max_cycle = cycle
             all_parsed.append((addr, proto, ms, cls, cycle))
 
-    # Cutoff: discard entries whose cycle is more than 5 cycles behind highest seen
-    cutoff = max(0, max_cycle - 5)
+    # Cutoff: discard entries whose cycle is more than 20 cycles behind highest seen
+    cutoff = max(0, max_cycle - 20)
     log(f"[cycle_filter] max_cycle={max_cycle} cutoff={cutoff}")
 
     # Deduplicate by addr, keeping highest cycle
@@ -404,19 +406,22 @@ def load_candidates():
     candidates = list(best_by_addr.values())
     candidates.sort(key=lambda x: x[4], reverse=True)
 
-    # Filter FAST and MED
+    # Filter FAST (<1000ms), MED (<3000ms), OK (<8000ms)
     fast_entries = []
     med_entries = []
+    ok_entries = []
     slow_entries = []
     for addr, proto, ms, cls, cycle in candidates:
         if cls == "FAST" or ms < 1000:
             fast_entries.append((addr, proto, ms, "FAST", cycle))
         elif cls == "MED" or ms < 3000:
             med_entries.append((addr, proto, ms, "MED", cycle))
+        elif cls == "OK" or ms < 8000:
+            ok_entries.append((addr, proto, ms, "OK", cycle))
         else:
             slow_entries.append((addr, proto, ms, "SLOW", cycle))
 
-    pool_cands = fast_entries + med_entries
+    pool_cands = fast_entries + med_entries + ok_entries
     slow_used = 0
     if len(pool_cands) < 200 and slow_entries:
         slow_entries.sort(key=lambda x: x[2])
@@ -425,14 +430,17 @@ def load_candidates():
         pool_cands += fill_slow
         slow_used = len(fill_slow)
 
-    global PROXY_CLASS
+    global PROXY_CLASS, TOTAL_VERIFIED_PARSED
     PROXY_CLASS = {x[0]: x[3] for x in pool_cands}
+    TOTAL_VERIFIED_PARSED = total_parsed
 
     # STEP 4: Log pool_pass_rate as kept/parsed
-    log(f"pool_pass_rate={len(pool_cands)}/{total_parsed} ({100.0 * len(pool_cands) / max(1, total_parsed):.1f}%) | FAST={len(fast_entries)} MED={len(med_entries)} SLOW={slow_used}")
+    pass_rate_str = f"{len(pool_cands)}/{total_parsed} ({100.0 * len(pool_cands) / max(1, total_parsed):.1f}%)"
+    log(f"pool_pass_rate={pass_rate_str} | FAST={len(fast_entries)} MED={len(med_entries)} OK={len(ok_entries)} SLOW={slow_used}")
 
     out = [(x[0], x[1]) for x in pool_cands]
     return out
+
 async def build_pool(items):
     pool = []
     fail_counts = {"connect_error": 0, "timeout": 0, "bad_status": 0, "other": 0}
@@ -450,7 +458,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=5) as r:
+                                async with s.get(BASE + rand_ip(), timeout=8) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -468,7 +476,7 @@ async def build_pool(items):
                     http_ok = False
                     for _ in range(2):
                         try:
-                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=5) as r:
+                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=8) as r:
                                 if r.status < 500 and r.status != 407:
                                     pool.append((addr, "http"))
                                     http_ok = True
@@ -487,7 +495,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=5) as r:
+                                async with s.get(BASE + rand_ip(), timeout=8) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -526,7 +534,7 @@ async def fetch_ip(session, ip, pacer):
             else:
                 addr, proto = min(PROXY_POOL, key=lambda p: max(BANNED.get(p[0], 0.0), FAILS_UNTIL.get(p[0], 0.0)))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
-            to = 6 if PROXY_CLASS.get(addr, "MED") == "FAST" else 10
+            to = FETCH_TIMEOUTS.get(PROXY_CLASS.get(addr, "MED"), 20)
             await proxy_gate(addr)
         else:
             use_proxy = None
@@ -639,6 +647,9 @@ async def async_main():
         allc = load_candidates()
         mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice
         mine = mine[:20000]
+        pass_rate_str = f"{len(allc)}/{max(1, TOTAL_VERIFIED_PARSED)} ({100.0 * len(allc) / max(1, TOTAL_VERIFIED_PARSED):.1f}%)"
+        log(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}")
+        print(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}", flush=True)
         async with aiohttp.ClientSession(headers=HEADERS) as tmp:
             PROXY_POOL = await build_pool(mine)
     except Exception as e:
