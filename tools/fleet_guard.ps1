@@ -99,38 +99,55 @@ foreach ($acct in $map.Keys) {
     }
 }
 
-# Check and revive cl_verify (under acct5 / remruata)
-$verifyTok = "$root\kaggle\acct5\access_token"
-if (Test-Path $verifyTok) {
-    $env:KAGGLE_API_TOKEN = (Get-Content $verifyTok -Raw).Trim()
-    $vMetaPath = "$root\kaggle\cl_verify\kernel-metadata.json"
-    if (Test-Path $vMetaPath) {
-        $vMeta = Get-Content $vMetaPath -Raw | ConvertFrom-Json
-        $vkid = $vMeta.id
-        $vStatusOut = (kaggle kernels status $vkid 2>&1 | Out-String).Trim()
-        $vkStatus = "UNKNOWN"
-        foreach ($line in $vStatusOut -split "`n") {
-            if ($line -match 'status "([^"]+)"') { $vkStatus = $matches[1] }
-            elseif ($line -match 'status ([a-zA-Z0-9_\.]+)') { $vkStatus = $matches[1] }
+# Check and revive all 9 verifier kernels (cl_verify_0 .. cl_verify_8)
+$vmap = [ordered]@{
+    0 = "acct6"
+    1 = "acct6"
+    2 = "acct6"
+    3 = "acct5"
+    4 = "acct5"
+    5 = "acct5"
+    6 = "acct6"
+    7 = "acct5"
+    8 = "acct6"
+}
+
+foreach ($vk in $vmap.Keys) {
+    $vAcct = $vmap[$vk]
+    $vTokPath = "$root\kaggle\$vAcct\access_token"
+    if (-not (Test-Path $vTokPath)) { continue }
+    $env:KAGGLE_API_TOKEN = (Get-Content $vTokPath -Raw).Trim()
+
+    $vDir = "$root\kaggle\cl_verify_$vk"
+    $vMetaPath = "$vDir\kernel-metadata.json"
+    if (-not (Test-Path $vMetaPath)) { continue }
+    $vMeta = Get-Content $vMetaPath -Raw | ConvertFrom-Json
+    $vkid = $vMeta.id
+
+    $vStatusOut = (kaggle kernels status $vkid 2>&1 | Out-String).Trim()
+    $vkStatus = "UNKNOWN"
+    foreach ($line in $vStatusOut -split "`n") {
+        if ($line -match 'status "([^"]+)"') { $vkStatus = $matches[1] }
+        elseif ($line -match 'status ([a-zA-Z0-9_\.]+)') { $vkStatus = $matches[1] }
+    }
+    if (-not $STOPPED -and ($vkStatus -match "COMPLETE|ERROR|CANCELLED")) {
+        Log-Msg "Verifier cl_verify_$vk ($vkid) is $vkStatus, reviving..."
+        $pushed = $false
+        for ($t = 1; $t -le 3; $t++) {
+            $pushOut = (kaggle kernels push -p $vDir 2>&1 | Out-String).Trim()
+            if ($pushOut -match "409|Conflict") { Start-Sleep 5; continue }
+            $pushed = $true
+            break
         }
-        if (-not $STOPPED -and ($vkStatus -match "COMPLETE|ERROR|CANCELLED")) {
-            Log-Msg "Kernel cl_verify ($vkid) is $vkStatus, reviving..."
-            $pushed = $false
-            for ($t = 1; $t -le 3; $t++) {
-                $pushOut = (kaggle kernels push -p "$root\kaggle\cl_verify" 2>&1 | Out-String).Trim()
-                if ($pushOut -match "409|Conflict") { Start-Sleep 5; continue }
-                $pushed = $true
-                break
-            }
-            if ($pushed) {
-                Log-Msg "Re-pushed cl_verify successfully."
-                $restartedCount++
-            } else {
-                Log-Msg "Failed to re-push cl_verify: $pushOut"
-            }
+        if ($pushed) {
+            Log-Msg "Re-pushed cl_verify_$vk successfully."
+            $restartedCount++
         } else {
-            Log-Msg "Kernel cl_verify: status=$vkStatus"
+            Log-Msg "Failed to re-push cl_verify_$vk : $pushOut"
         }
+        Start-Sleep 3
+    } else {
+        Log-Msg "Verifier cl_verify_$vk: status=$vkStatus"
     }
 }
 
