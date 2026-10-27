@@ -24,8 +24,8 @@ CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_*.txt"))
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
 WORKERS = 2000
-TIMEOUT = 2
-HOST = "api.ipify.org"
+TIMEOUT = 5
+HOST = "internetdb.shodan.io"
 HARD_STOP = 9 * 3600
 START = time.time()
 
@@ -140,13 +140,14 @@ def try_http(ip, port):
             if not c:
                 break
             resp += c
-        if not (resp.startswith(b"HTTP/") and (b" 200" in resp.split(b"\r\n")[0] or b" 2" in resp.split(b"\r\n")[0])):
+        first_line = resp.split(b"\r\n")[0]
+        if not (resp.startswith(b"HTTP/") and (b" 200" in first_line or b" 2" in first_line)):
             s.close()
             return False
 
         tls_s = SSL_CTX.wrap_socket(s, server_hostname=HOST)
         tls_s.settimeout(TIMEOUT)
-        tls_s.sendall(f"GET / HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
+        tls_s.sendall(f"GET /1.1.1.1 HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
         body = b""
         while True:
             c = tls_s.recv(256)
@@ -155,9 +156,9 @@ def try_http(ip, port):
             body += c
         tls_s.close()
         if b"\r\n\r\n" in body:
-            _, cnt = body.split(b"\r\n\r\n", 1)
-            egress = cnt.strip().decode("utf-8", errors="ignore").split()[0]
-            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", egress):
+            header, _ = body.split(b"\r\n\r\n", 1)
+            status_line = header.split(b"\r\n")[0]
+            if status_line.startswith(b"HTTP/") and not any(status_line.startswith(p) for p in (b"HTTP/1.1 5", b"HTTP/1.0 5", b"HTTP/1.1 407", b"HTTP/1.0 407")):
                 return True
         return False
     except Exception:
@@ -189,7 +190,7 @@ def try_socks5(ip, port):
 
         tls_s = SSL_CTX.wrap_socket(s, server_hostname=HOST)
         tls_s.settimeout(TIMEOUT)
-        tls_s.sendall(f"GET / HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
+        tls_s.sendall(f"GET /1.1.1.1 HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
         body = b""
         while True:
             c = tls_s.recv(256)
@@ -198,9 +199,9 @@ def try_socks5(ip, port):
             body += c
         tls_s.close()
         if b"\r\n\r\n" in body:
-            _, cnt = body.split(b"\r\n\r\n", 1)
-            egress = cnt.strip().decode("utf-8", errors="ignore").split()[0]
-            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", egress):
+            header, _ = body.split(b"\r\n\r\n", 1)
+            status_line = header.split(b"\r\n")[0]
+            if status_line.startswith(b"HTTP/") and not any(status_line.startswith(p) for p in (b"HTTP/1.1 5", b"HTTP/1.0 5", b"HTTP/1.1 407", b"HTTP/1.0 407")):
                 return True
         return False
     except Exception:
