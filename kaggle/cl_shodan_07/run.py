@@ -198,6 +198,9 @@ def load_strided_subnets():
     return strided
 
 
+PROXY_PORTS = {80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
+               8118, 8888, 9000, 4145, 10808}
+
 def load_pe_ports():
     path = os.path.join(REPO, "ip", "pe_ports.txt")
     ports = set()
@@ -550,7 +553,7 @@ async def async_main():
                     stats["ok"] += 1
                     if ports:
                         stats["ok_with_ports"] += 1
-                        keep = [p for p in ports if p in pe_ports]
+                        keep = [p for p in ports if int(p) in PROXY_PORTS]
                         if keep:
                             lines = [f"{ip}:{p}\n" for p in keep]
                             if OUT_HANDLE:
