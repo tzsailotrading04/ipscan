@@ -106,10 +106,10 @@ $vmap = [ordered]@{
     2 = "acct6"
     3 = "acct5"
     4 = "acct5"
-    5 = "acct5"
-    6 = "acct6"
-    7 = "acct5"
-    8 = "acct6"
+    5 = "acct1"
+    6 = "acct2"
+    7 = "acct3"
+    8 = "acct4"
 }
 
 foreach ($vk in $vmap.Keys) {
