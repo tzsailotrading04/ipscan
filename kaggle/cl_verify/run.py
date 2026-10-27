@@ -267,24 +267,24 @@ while True:
             persistent_alive[k] = (prefix, remote_seen)
     log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
-    # 2. Gather candidates
-    rows = []
-    seen = set()
-    import glob
-    all_candidate_files = list(CANDIDATES)
-    for chunk_f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")):
-        rel = os.path.relpath(chunk_f, REPO).replace("\\", "/")
-        if rel not in all_candidate_files:
-            all_candidate_files.append(rel)
-    for shard_f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_*.txt")):
-        rel = os.path.relpath(shard_f, REPO).replace("\\", "/")
-        if rel not in all_candidate_files:
-            all_candidate_files.append(rel)
+    # 2. Gather candidates (prioritise new high-yield chunks first)
+    chunk_files = sorted(glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")))
+    feed_files = [
+        os.path.join(REPO, "ip", "harvest", "feeds_raw.txt"),
+        os.path.join(REPO, "ip", "harvest", "net_new.txt"),
+        os.path.join(REPO, "ip", "harvest", "leakix.txt"),
+        os.path.join(REPO, "ip", "harvest", "hits_new_exits.txt"),
+    ]
+    old_v98_files = sorted([f for f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*.txt")) if "_c" not in os.path.basename(f)])
+    legacy_files = sorted([f for f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_*.txt")) if "v98" not in os.path.basename(f)])
+    all_candidate_files = chunk_files + [f for f in feed_files if os.path.exists(f)] + old_v98_files + legacy_files
 
-    for rel in all_candidate_files:
-        p = os.path.join(REPO, rel)
+    combined_cands = []
+    seen = set()
+    for p in all_candidate_files:
         if not os.path.exists(p):
             continue
+        rel = os.path.relpath(p, REPO).replace(chr(92), "/")
         n = 0
         with open(p, "r", encoding="utf-8", errors="ignore") as f:
             for line in f:
@@ -303,10 +303,12 @@ while True:
                     if k in seen:
                         continue
                     seen.add(k)
-                    rows.append(k)
+                    combined_cands.append(k)
                     n += 1
-        log(f"LOADED {rel} new={n}")
 
+    # Index striding: each verifier takes every NUM_VERIFY-th candidate
+    rows = combined_cands[VERIFY_IDX::NUM_VERIFY]
+    log(f"VERIFIER {VERIFY_IDX}/{NUM_VERIFY} selected {len(rows):,} candidates out of {len(combined_cands):,} combined (stride={NUM_VERIFY})")
     log(f"TOTAL_CANDIDATES={len(rows)}")
     if not rows:
         log("No candidates to verify. Sleeping 60s...")
