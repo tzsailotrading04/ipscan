@@ -43,35 +43,59 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.160"
+ENGINE_VER = "v98.161"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
 
 SCAN_MODE = "direct"  # "direct" or "shodan"
-DIRECT_PORTS = [8080, 3128, 1080, 8000]
+DIRECT_PORTS = [80, 443, 8080, 3128, 1080, 1081, 8000, 8118, 8123, 8888, 8889, 9000, 3129, 6588, 4145]
 DIRECT_SEM = None
 STAT_ERRNO99 = 0
+STAT_TIMEOUT = 0
+STAT_REFUSED = 0
+STAT_GAIERROR = 0
+STAT_OTHER = 0
+OTHER_EXC_REPR = {}
 
 async def check_direct_port(ip, port):
-    global STAT_ERRNO99, DIRECT_SEM
+    global STAT_ERRNO99, STAT_TIMEOUT, STAT_REFUSED, STAT_GAIERROR, STAT_OTHER, DIRECT_SEM
     if DIRECT_SEM is None:
         DIRECT_SEM = asyncio.Semaphore(12000)
     async with DIRECT_SEM:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setblocking(False)
         try:
-            r, w = await asyncio.wait_for(asyncio.open_connection(ip, port), timeout=1.0)
-            w.close()
-            try:
-                await w.wait_closed()
-            except Exception:
-                pass
+            loop = asyncio.get_running_loop()
+            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=1.0)
             return port
+        except asyncio.TimeoutError:
+            STAT_TIMEOUT += 1
+            return None
+        except ConnectionRefusedError:
+            STAT_REFUSED += 1
+            return None
+        except socket.gaierror:
+            STAT_GAIERROR += 1
+            return None
         except OSError as e:
             if getattr(e, "errno", None) == 99 or "cannot assign requested address" in str(e).lower():
                 STAT_ERRNO99 += 1
+            else:
+                STAT_OTHER += 1
+                r = type(e).__name__ + f"({getattr(e, 'errno', '?')})"
+                OTHER_EXC_REPR[r] = OTHER_EXC_REPR.get(r, 0) + 1
             return None
-        except Exception:
+        except Exception as e:
+            STAT_OTHER += 1
+            r = type(e).__name__
+            OTHER_EXC_REPR[r] = OTHER_EXC_REPR.get(r, 0) + 1
             return None
+        finally:
+            try:
+                s.close()
+            except Exception:
+                pass
 
 async def scan_direct(ip):
     res = await asyncio.gather(*[check_direct_port(ip, p) for p in DIRECT_PORTS], return_exceptions=True)
@@ -932,8 +956,8 @@ async def async_main():
                 now_m = time.monotonic()
                 if SCAN_MODE == "direct":
                     hit_rate = (stats["kept_lines"] / max(1, processed_count)) * 1000.0
-                    log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']} | errno99={STAT_ERRNO99}")
-                    print(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']} | errno99={STAT_ERRNO99}", flush=True)
+                    log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']} | to={STAT_TIMEOUT} ref={STAT_REFUSED} gai={STAT_GAIERROR} e99={STAT_ERRNO99} oth={STAT_OTHER}")
+                    print(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']} | to={STAT_TIMEOUT} ref={STAT_REFUSED} gai={STAT_GAIERROR} e99={STAT_ERRNO99} oth={STAT_OTHER}", flush=True)
                 else:
                     usable_now = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
                     log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | usable={usable_now} pool={len(PROXY_POOL)} | "
@@ -964,6 +988,10 @@ async def async_main():
                 log(f"[ban_histogram] <30s={b_under30} 30-120s={b_30_120} 120-600s={b_120_600}")
                 stats["banned_total"] = STATS_BANNED_TOTAL
                 stats["errno99"] = STAT_ERRNO99
+                stats["timeout"] = STAT_TIMEOUT
+                stats["refused"] = STAT_REFUSED
+                stats["gaierror"] = STAT_GAIERROR
+                stats["other"] = STAT_OTHER
                 now_m = time.monotonic()
                 stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
                 stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
