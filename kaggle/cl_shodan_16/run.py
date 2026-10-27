@@ -40,7 +40,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.143"
+ENGINE_VER = "v98.144"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -321,10 +321,12 @@ class AdaptivePacer:
 
 
 def load_candidates():
-    """ALL pre-verified entries, latency-filtered:
-    Keep only FAST (ms < 1000) and MED (ms < 3000).
-    If fewer than 200, fill remainder with lowest-ms SLOW entries.
-    Total entries capped at 20,000.
+    """Newest-first verified entries, cycle-filtered and latency-filtered:
+    1. Read cycle field (last column).
+    2. Discard entries more than 5 cycles behind the highest seen.
+    3. Sort candidates descending by cycle (newest first).
+    4. Apply FAST/MED latency filter.
+    5. Log pool_pass_rate as kept/parsed.
     """
     def parse_verified(path):
         res = []
@@ -336,7 +338,7 @@ def load_candidates():
                     line = line.strip()
                     if not line:
                         continue
-                    p = line.split("\t")
+                    p = line.split("	")
                     if len(p) < 2:
                         continue
                     addr = p[0].strip()
@@ -354,31 +356,65 @@ def load_candidates():
                             ms = 99999
                     if len(p) >= 7:
                         cls = p[6].strip().upper()
-                    res.append((addr, proto, ms, cls))
+                    raw_cycle = 1
+                    if len(p) >= 8:
+                        try:
+                            raw_cycle = int(p[7].strip())
+                        except Exception:
+                            raw_cycle = 1
+                    res.append((addr, proto, ms, cls, raw_cycle))
         except Exception:
             pass
         return res
 
-    seen_addrs = set()
+    v_files = sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
+
+    all_parsed = []
+    total_parsed = 0
+    max_cycle = 0
+
+    for vf in v_files:
+        if not os.path.exists(vf):
+            continue
+        is_legacy = "part_" not in os.path.basename(vf)
+        entries = parse_verified(vf)
+        total_parsed += len(entries)
+        for addr, proto, ms, cls, raw_cycle in entries:
+            # Legacy files (verified_alive.txt / .bak) were pre-partition, default to cycle 1
+            cycle = 1 if is_legacy else raw_cycle
+            if cycle > max_cycle:
+                max_cycle = cycle
+            all_parsed.append((addr, proto, ms, cls, cycle))
+
+    # Cutoff: discard entries whose cycle is more than 5 cycles behind highest seen
+    cutoff = max(0, max_cycle - 5)
+    log(f"[cycle_filter] max_cycle={max_cycle} cutoff={cutoff}")
+
+    # Deduplicate by addr, keeping highest cycle
+    best_by_addr = {}
+    for addr, proto, ms, cls, cycle in all_parsed:
+        if cycle < cutoff:
+            continue
+        if addr not in best_by_addr or cycle > best_by_addr[addr][4]:
+            best_by_addr[addr] = (addr, proto, ms, cls, cycle)
+
+    # Sort candidates by cycle descending (newest verified come first)
+    candidates = list(best_by_addr.values())
+    candidates.sort(key=lambda x: x[4], reverse=True)
+
+    # Filter FAST and MED
     fast_entries = []
     med_entries = []
     slow_entries = []
-
-    v_files = [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
-    v_files += sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
-    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
-
-    for vf in v_files:
-        for addr, proto, ms, cls in parse_verified(vf):
-            if addr in seen_addrs:
-                continue
-            seen_addrs.add(addr)
-            if cls == "FAST" or ms < 1000:
-                fast_entries.append((addr, proto, ms, "FAST"))
-            elif cls == "MED" or ms < 3000:
-                med_entries.append((addr, proto, ms, "MED"))
-            else:
-                slow_entries.append((addr, proto, ms, "SLOW"))
+    for addr, proto, ms, cls, cycle in candidates:
+        if cls == "FAST" or ms < 1000:
+            fast_entries.append((addr, proto, ms, "FAST", cycle))
+        elif cls == "MED" or ms < 3000:
+            med_entries.append((addr, proto, ms, "MED", cycle))
+        else:
+            slow_entries.append((addr, proto, ms, "SLOW", cycle))
 
     pool_cands = fast_entries + med_entries
     slow_used = 0
@@ -392,10 +428,10 @@ def load_candidates():
     global PROXY_CLASS
     PROXY_CLASS = {x[0]: x[3] for x in pool_cands}
 
-    log(f"[pool_quality] FAST={len(fast_entries)} MED={len(med_entries)} SLOW={slow_used} total={len(pool_cands)}")
+    # STEP 4: Log pool_pass_rate as kept/parsed
+    log(f"pool_pass_rate={len(pool_cands)}/{total_parsed} ({100.0 * len(pool_cands) / max(1, total_parsed):.1f}%) | FAST={len(fast_entries)} MED={len(med_entries)} SLOW={slow_used}")
 
     out = [(x[0], x[1]) for x in pool_cands]
-    random.Random(12345).shuffle(out)
     return out
 async def build_pool(items):
     pool = []
@@ -573,7 +609,7 @@ async def async_main():
     try:
         allc = load_candidates()
         mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice
-        mine = random.Random(777).sample(mine, min(20000, len(mine)))
+        mine = mine[:20000]
         async with aiohttp.ClientSession(headers=HEADERS) as tmp:
             PROXY_POOL = await build_pool(mine)
     except Exception as e:

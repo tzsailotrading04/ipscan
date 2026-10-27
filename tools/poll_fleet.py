@@ -8,7 +8,7 @@ ROOT = r"D:\DEpinFarm"
 userprofile = os.environ.get("USERPROFILE", r"C:\Users\pc")
 kaggle_bin = os.path.join(userprofile, r"AppData\Local\Python\pythoncore-3.14-64\Scripts\kaggle.exe")
 
-SHARD_MAP = [
+SHARD_KERNELS = [
     ("acct5", "cl_shodan_00"), ("acct5", "cl_shodan_01"),
     ("acct1", "cl_shodan_02"), ("acct1", "cl_shodan_03"), ("acct1", "cl_shodan_04"), ("acct1", "cl_shodan_05"),
     ("acct2", "cl_shodan_06"), ("acct2", "cl_shodan_07"), ("acct2", "cl_shodan_08"), ("acct2", "cl_shodan_09"),
@@ -43,17 +43,17 @@ def check_one(item):
     except Exception as e:
         return k, f"ERR: {e}"
 
-def poll_until_complete():
+def poll_until_all_shards_complete():
     while True:
         with ThreadPoolExecutor(max_workers=10) as ex:
-            results = dict(ex.map(check_one, SHARD_MAP))
+            results = dict(ex.map(check_one, SHARD_KERNELS))
         complete = sum(1 for s in results.values() if any(w in s.lower() for w in ("complete", "error", "cancel")))
         running = sum(1 for s in results.values() if any(w in s.lower() for w in ("running", "queued")))
         print(f"[{time.strftime('%H:%M:%S')}] Shards: Complete: {complete}/20, Running: {running}/20", flush=True)
         if complete == 20:
             print("ALL 20 SHARDS COMPLETE!", flush=True)
             break
-        time.sleep(30)
+        time.sleep(20)
 
 if __name__ == "__main__":
-    poll_until_complete()
+    poll_until_all_shards_complete()
