@@ -17,7 +17,7 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-PER_PROXY_CAP = 4.0
+PER_PROXY_CAP = 3.0
 PROXY_POOL = []          # list of (addr, proto)
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
@@ -39,7 +39,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.136"
+ENGINE_VER = "v98.139"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -323,7 +323,8 @@ def load_candidates():
     """ALL entries, prioritized:
     1. verified_alive.txt & verified_alive_part_*.txt (pre-verified)
     2. net_new.txt
-    3. master_pool.txt (must not exceed 50% of the total candidate list)
+    3. verified_alive.bak.txt (historical fallback)
+    master_pool.txt removed entirely to stop dead proxy dilution.
     Total entries capped at 20,000 so the slice stays bounded.
     Deterministic shuffle ensures every shard sees the SAME order and slices are DISJOINT.
     """
@@ -337,8 +338,8 @@ def load_candidates():
                     line = line.strip()
                     if not line:
                         continue
-                    if "	" in line:
-                        p = line.split("	")
+                    if "\t" in line:
+                        p = line.split("\t")
                         if len(p) < 2:
                             continue
                         proto = p[1].strip().lower()
@@ -363,7 +364,6 @@ def load_candidates():
     # 1. Pre-verified files first
     v_files = [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
     v_files += sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
-    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
     for vf in v_files:
         for addr, proto in parse_file(vf):
             if addr not in seen_addrs:
@@ -378,33 +378,21 @@ def load_candidates():
             seen_addrs.add(addr)
             net_new_entries.append((addr, proto))
 
-    base_pool = verified_entries + net_new_entries
-
-    # 3. master_pool.txt
-    mp_entries = []
-    mp_path = os.path.join(REPO_ROOT, "master_pool.txt")
-    for addr, proto in parse_file(mp_path):
+    # 3. verified_alive.bak.txt (historical fallback)
+    bak_entries = []
+    bak_path = os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")
+    for addr, proto in parse_file(bak_path):
         if addr not in seen_addrs:
-            mp_entries.append((addr, proto))
+            seen_addrs.add(addr)
+            bak_entries.append((addr, proto))
 
     MAX_CANDS = 20000
-    if len(base_pool) > MAX_CANDS:
-        base_pool = base_pool[:MAX_CANDS]
+    all_cands = verified_entries + net_new_entries + bak_entries
+    if len(all_cands) > MAX_CANDS:
+        all_cands = all_cands[:MAX_CANDS]
 
-    # CAP: master_pool contribution <= 50% of total candidates => M <= len(base_pool) and B + M <= MAX_CANDS
-    max_master = min(len(base_pool), MAX_CANDS - len(base_pool))
-    if mp_entries and max_master > 0:
-        sample_master = random.Random(42).sample(mp_entries, min(len(mp_entries), max_master))
-    elif mp_entries and not base_pool:
-        sample_master = random.Random(42).sample(mp_entries, min(len(mp_entries), min(5000, MAX_CANDS)))
-    else:
-        sample_master = []
-
-    cands = base_pool + sample_master
-    random.Random(12345).shuffle(cands)
-    return cands
-
-
+    random.Random(12345).shuffle(all_cands)
+    return all_cands
 async def build_pool(items):
     pool = []
     sem = asyncio.Semaphore(600)
