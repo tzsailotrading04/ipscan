@@ -40,7 +40,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.144"
+ENGINE_VER = "v98.146"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -761,11 +761,21 @@ async def async_main():
         nonlocal pacer
         global PROXY_POOL, POOL_MIN, current_chunk, chunk_handle
         while not STOPPING and (time.time() - START_TIME < HARD_STOP):
-            await asyncio.sleep(600)
+            await asyncio.sleep(300)
             if STOPPING:
                 break
             try:
-                sample_batch = random.sample(mine, min(800, len(mine))) if mine else []
+                # Sync latest verified files from remote
+                try:
+                    await asyncio.to_thread(subprocess.run, ["git", "-C", REPO, "pull", "--quiet", "origin", "main"], capture_output=True)
+                except Exception:
+                    pass
+
+                # Step 1: Re-read pool files fresh each cycle & sample 400
+                fresh_cands = load_candidates()
+                mine_fresh = fresh_cands[SHARD_IDX::NUM_SHARDS][:20000]
+                sample_batch = random.sample(mine_fresh, min(400, len(mine_fresh))) if mine_fresh else []
+
                 shard_cands = []
                 cur_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
                 if os.path.exists(cur_chunk_file):
@@ -777,29 +787,34 @@ async def async_main():
                             for l in lines[-500:]:
                                 l = l.strip()
                                 if l and ":" in l and not l.startswith(("<", "=", ">")):
-                                    addr = l.split()[0].split("\t")[0]
+                                    addr = l.split()[0].split("	")[0]
                                     shard_cands.append((addr, "http"))
                     except Exception:
                         pass
+
                 combined = sample_batch + [item for item in shard_cands if item not in sample_batch]
                 if not combined:
                     continue
+
                 fresh = await build_pool(combined)
                 curr_set = set(PROXY_POOL)
                 added = 0
                 for item in fresh:
+                    # Step 3: Re-add recovered proxies & reset fails/cooldowns
                     FAILS[item] = 0
                     FAILS_UNTIL.pop(item[0], None)
+                    BANNED.pop(item[0], None)
                     if item not in curr_set:
                         PROXY_POOL.append(item)
                         curr_set.add(item)
                         added += 1
+
                 if PROXY_POOL:
                     PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
                     pacer.hi = PACER_HI
                     pacer.lo = max(200.0, PACER_HI * 0.1)
                     pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
-                log(f"[refill] tested={len(combined)} (mine={len(sample_batch)} shard={len(shard_cands)}) live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
+                log(f"[refill] tested={len(combined)} (fresh_pool={len(sample_batch)} shard={len(shard_cands)}) live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
             except Exception as e:
                 log(f"[refill] error: {e}")
 
