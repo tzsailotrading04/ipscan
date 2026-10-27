@@ -6,6 +6,8 @@ import asyncio
 import aiohttp
 import subprocess
 import random
+import glob
+import shutil
 
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "aiohttp-socks"], capture_output=True)
 try:
@@ -36,9 +38,13 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.134"
+ENGINE_VER = "v98.135"
 OUT_PREFIX = "v98_"
-OUT_HANDLE = None
+
+CHUNK_MAX = 100_000
+current_chunk = 1
+chunk_lines = 0
+chunk_handle = None
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
 REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.git"
@@ -63,7 +69,7 @@ SHARD_IDX = int(shard_str)
 SHARD_TAG = f"{SHARD_IDX:02d}"
 
 CONC = 10
-MAX_SHARD_IPS = 6_000_000
+MAX_SHARD_IPS = 200_000_000
 PUSH_INTERVAL = 300
 HARD_STOP = 9.5 * 3600
 START_TIME = time.time()
@@ -80,6 +86,16 @@ def rand_ip():
 
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [{ENGINE_VER} SHARD {SHARD_TAG}] {msg}", flush=True)
+
+
+def check_disk_space():
+    target = REPO if os.path.exists(REPO) else ("D:\\" if os.path.exists("D:\\") else "/")
+    try:
+        total, used, free = shutil.disk_usage(target)
+        free_gb = free / (1024 ** 3)
+        return free_gb
+    except Exception:
+        return 999.0
 
 
 async def run_git(cmd):
@@ -133,69 +149,114 @@ def atomic_write(filepath, content):
     os.replace(tmp, filepath)
 
 
+def read_progress(path):
+    if not os.path.exists(path):
+        return 0, 1
+    offset = 0
+    chunk = 1
+    try:
+        with open(path, "r", errors="ignore") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("chunk="):
+                    try:
+                        chunk = int(line.split("=")[1])
+                    except Exception:
+                        pass
+                elif line.isdigit():
+                    offset = max(offset, int(line))
+    except Exception:
+        pass
+    return offset, max(1, chunk)
+
+
+def write_progress(path, offset, chunk_num):
+    atomic_write(path, f"{offset}\nchunk={chunk_num}\n")
+
+
+def read_offset(path):
+    offset, _ = read_progress(path)
+    return offset
+
+
+def write_offset(path, val):
+    global current_chunk
+    write_progress(path, val, current_chunk)
+
+
 def push_progress(offset, total, cand_count, stats):
     if not os.path.exists("/kaggle/working"):
         return
     prog_rel = f"ip/harvest/shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt"
-    shard_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt"
+    chunk_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt"
     stats_rel = f"ip/harvest/shodan_stats_{OUT_PREFIX}{SHARD_TAG}.txt"
-    out_shard_file = os.path.join(REPO, shard_rel)
 
-    stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\negress_ip={EGRESS_IP}\noffset={offset}\ntotal={total}\n"
+    stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\negress_ip={EGRESS_IP}\noffset={offset}\ntotal={total}\nchunk={current_chunk}\n"
     for k in sorted(stats):
         stats_content += f"{k}={stats[k]}\n"
     atomic_write(os.path.join(REPO, stats_rel), stats_content)
 
-    msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={offset}/{total} cands={cand_count}"
+    msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={offset}/{total} cands={cand_count} chunk={current_chunk}"
 
-    global OUT_HANDLE
-    if OUT_HANDLE: OUT_HANDLE.flush(); OUT_HANDLE.close(); OUT_HANDLE = None
+    global chunk_handle
+    if chunk_handle:
+        chunk_handle.flush()
+        chunk_handle.close()
+        chunk_handle = None
 
-    subprocess.run(["git","-C",REPO,"add",prog_rel,shard_rel,stats_rel], check=False)
-    subprocess.run(["git","-C",REPO,"commit","-m",msg], capture_output=True)
+    subprocess.run(["git", "-C", REPO, "add", prog_rel, stats_rel, chunk_rel], check=False)
+    subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True)
 
     for attempt in range(3):
-        subprocess.run(["git","-C",REPO,"fetch","origin","main"], capture_output=True)
-        r = subprocess.run(["git","-C",REPO,"push","origin","main"], capture_output=True, text=True)
-        if r.returncode == 0: break
-        subprocess.run(["git","-C",REPO,"merge","origin/main","-X","ours","--no-edit"], capture_output=True)
+        subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
+        r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
+        if r.returncode == 0:
+            break
+        subprocess.run(["git", "-C", REPO, "merge", "origin/main", "-X", "ours", "--no-edit"], capture_output=True)
 
-    OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
-
-
-def norm_subnet(line):
-    s = line.strip()
-    if not s:
-        return None
-    if "/" in s:
-        s = s.split("/")[0]
-    parts = s.split(".")
-    if len(parts) == 4:
-        return ".".join(parts[:3])
-    if len(parts) == 3:
-        return s
-    return None
+    chunk_handle = open(os.path.join(REPO, chunk_rel), "a", encoding="utf-8")
 
 
 def load_strided_subnets():
-    master = os.path.join(REPO, "work", "shodan_shards.txt")
-    if not os.path.exists(master):
-        log(f"ERROR: master list missing at {master}")
-        return []
-    seen = set()
-    ordered = []
-    with open(master, "r", encoding="utf-8", errors="ignore") as f:
-        for l in f:
-            parts = l.rstrip("\n").split("\t")
-            cand = parts[1] if len(parts) >= 2 else parts[0]
-            s = norm_subnet(cand)
-            if s and s not in seen:
-                seen.add(s)
-                ordered.append(s)
-    strided = ordered[SHARD_IDX::NUM_SHARDS]
-    log(f"Master subnets: {len(ordered):,} unique | strided slice: {len(strided):,}")
-    log(f"STRIDE_CHECK first={strided[0] if strided else 'NONE'} last={strided[-1] if strided else 'NONE'}")
-    return strided
+    log(f"Generating full IPv4 public subnets for shard {SHARD_TAG}...")
+    t0 = time.time()
+    subnets = []
+    count = 0
+    for a in range(1, 224):
+        if a == 10 or a == 127:
+            continue
+        for b in range(256):
+            if a == 169 and b == 254:
+                continue
+            if a == 172 and 16 <= b <= 31:
+                continue
+            if a == 192 and b == 168:
+                continue
+            if a == 100 and 64 <= b <= 127:
+                continue
+            if a == 198 and (b == 18 or b == 19):
+                continue
+
+            if a == 192 and b == 0:
+                c_iter = (c for c in range(256) if c not in (0, 2))
+            elif a == 192 and b == 88:
+                c_iter = (c for c in range(256) if c != 99)
+            elif a == 198 and b == 51:
+                c_iter = (c for c in range(256) if c != 100)
+            elif a == 203 and b == 0:
+                c_iter = (c for c in range(256) if c != 113)
+            else:
+                c_iter = range(256)
+
+            prefix = f"{a}.{b}."
+            for c in c_iter:
+                if count % NUM_SHARDS == SHARD_IDX:
+                    subnets.append(f"{prefix}{c}")
+                count += 1
+    t1 = time.time()
+    log(f"Generated {len(subnets):,} subnets ({len(subnets)*256:,} IPs) for shard {SHARD_TAG} in {t1-t0:.2f}s (global public subnets: {count:,})")
+    log(f"STRIDE_CHECK first={subnets[0] if subnets else 'NONE'} last={subnets[-1] if subnets else 'NONE'}")
+    return subnets
 
 
 PROXY_PORTS = {80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
@@ -212,26 +273,6 @@ def load_pe_ports():
                     ports.add(int(l))
     log(f"Loaded {len(ports)} proxy ports")
     return ports
-
-
-def read_offset(path):
-    """Tolerate git conflict markers: take largest integer."""
-    if not os.path.exists(path):
-        return 0
-    vals = []
-    try:
-        with open(path, "r", errors="ignore") as f:
-            for line in f:
-                t = line.strip()
-                if t.isdigit():
-                    vals.append(int(t))
-    except Exception:
-        return 0
-    return max(vals) if vals else 0
-
-
-def write_offset(path, val):
-    atomic_write(path, str(val) + "\n")
 
 
 class AdaptivePacer:
@@ -328,7 +369,7 @@ def load_candidates():
 
 async def build_pool(items):
     pool = []
-    sem = asyncio.Semaphore(400)
+    sem = asyncio.Semaphore(600)
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
         async def v(item):
             addr, proto = item
@@ -339,7 +380,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=4) as r:
+                                async with s.get(BASE + rand_ip(), timeout=3) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -350,7 +391,7 @@ async def build_pool(items):
                     http_ok = False
                     for _ in range(2):
                         try:
-                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=4) as r:
+                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=3) as r:
                                 if r.status < 500 and r.status != 407:
                                     pool.append((addr, "http"))
                                     http_ok = True
@@ -362,7 +403,7 @@ async def build_pool(items):
                         try:
                             conn = ProxyConnector.from_url(f"socks5://{addr}")
                             async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=4) as r:
+                                async with s.get(BASE + rand_ip(), timeout=3) as r:
                                     if r.status < 500 and r.status != 407:
                                         pool.append((addr, "socks5"))
                                         return
@@ -434,10 +475,10 @@ async def fetch_ip(session, ip, pacer):
 
 
 async def async_main():
-    global PROXY_POOL, CONC, POOL_MIN
+    global PROXY_POOL, CONC, POOL_MIN, current_chunk, chunk_lines, chunk_handle
 
     log("=" * 66)
-    log(f"{ENGINE_VER} START | AdaptivePacer (proxy-driven) | cap {MAX_SHARD_IPS:,}")
+    log(f"{ENGINE_VER} START | AdaptivePacer (proxy-driven) | full IPv4")
     log("=" * 66)
 
     if os.path.exists("/kaggle/working"):
@@ -454,23 +495,41 @@ async def async_main():
 
     pe_ports = load_pe_ports()
 
-    total_ips = min(len(subnets) * 256, MAX_SHARD_IPS)
+    total_ips = len(subnets) * 256
     log(f"total_ips={total_ips:,}")
 
     def get_ip(offset):
         return f"{subnets[offset // 256]}.{offset % 256}"
 
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
-    resume_offset = read_offset(prog_file)
-    write_offset(prog_file, resume_offset)
-    log(f"resume_offset={resume_offset:,}/{total_ips:,}")
+    resume_offset, saved_chunk = read_progress(prog_file)
+    current_chunk = saved_chunk
 
-    out_shard_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}.txt")
-    os.makedirs(os.path.dirname(out_shard_file), exist_ok=True)
-    cands_found = 0
-    if os.path.exists(out_shard_file):
-        with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as f:
-            cands_found = sum(1 for _ in f)
+    chunk_pattern = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c*.txt")
+    existing_chunks = sorted(glob.glob(chunk_pattern))
+    if existing_chunks:
+        last_file = existing_chunks[-1]
+        m = re.search(r"_c(\d+)\.txt$", last_file)
+        if m:
+            c_num = int(m.group(1))
+            if c_num >= current_chunk:
+                current_chunk = c_num
+
+    chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+    chunk_lines = 0
+    if os.path.exists(chunk_file):
+        with open(chunk_file, "r", encoding="utf-8", errors="ignore") as f:
+            chunk_lines = sum(1 for _ in f)
+        if chunk_lines >= CHUNK_MAX:
+            current_chunk += 1
+            chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+            chunk_lines = 0
+
+    write_progress(prog_file, resume_offset, current_chunk)
+    log(f"resume_offset={resume_offset:,}/{total_ips:,} chunk={current_chunk} chunk_lines={chunk_lines}")
+
+    os.makedirs(os.path.dirname(chunk_file), exist_ok=True)
+    cands_found = chunk_lines
 
     stats = {"ok": 0, "not_found": 0, "rate_limit": 0, "timeout": 0,
              "other": 0, "ok_with_ports": 0, "ok_no_keep": 0, "kept_lines": 0,
@@ -481,7 +540,7 @@ async def async_main():
     allc = []
     try:
         allc = load_candidates()
-        mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice, ~1250 items
+        mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice
         mine = random.Random(777).sample(mine, min(20000, len(mine)))
         async with aiohttp.ClientSession(headers=HEADERS) as tmp:
             PROXY_POOL = await build_pool(mine)
@@ -492,8 +551,8 @@ async def async_main():
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(6000, max(400, 4 * len(PROXY_POOL)))
-    PACER_HI = min(20000.0, max(2000.0, 10.0 * len(PROXY_POOL)))
+    CONC = min(8000, max(600, 6 * len(PROXY_POOL)))
+    PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
     pacer = AdaptivePacer(start=start, lo=lo, hi=PACER_HI)
@@ -510,17 +569,7 @@ async def async_main():
     log_window_count = 0
     log_window_start = time.time()
 
-    try:
-        with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as _f:
-            _good = [l for l in _f if l.strip() and not l.startswith(("<<<", "===", ">>>"))]
-        with open(out_shard_file, "w", encoding="utf-8") as _f:
-            _f.writelines(_good)
-        log(f"shard file purged to {len(_good):,} clean lines")
-    except Exception as _e:
-        log(f"purge skipped: {_e}")
-
-    global OUT_HANDLE
-    OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
+    chunk_handle = open(chunk_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
 
     now_m = time.monotonic()
@@ -532,6 +581,7 @@ async def async_main():
 
     async def worker():
         nonlocal current_idx, processed_count, cands_found, log_window_count
+        global current_chunk, chunk_lines, chunk_handle
         while current_idx < total_ips:
             if STOPPING:
                 break
@@ -556,9 +606,17 @@ async def async_main():
                         keep = [p for p in ports if int(p) in PROXY_PORTS]
                         if keep:
                             lines = [f"{ip}:{p}\n" for p in keep]
-                            if OUT_HANDLE:
-                                OUT_HANDLE.writelines(lines)
-                                OUT_HANDLE.flush()
+                            if chunk_lines >= CHUNK_MAX:
+                                if chunk_handle:
+                                    chunk_handle.flush()
+                                    chunk_handle.close()
+                                current_chunk += 1
+                                next_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+                                chunk_handle = open(next_chunk_file, "a", encoding="utf-8")
+                                chunk_lines = 0
+                            chunk_handle.writelines(lines)
+                            chunk_handle.flush()
+                            chunk_lines += len(lines)
                             cands_found += len(lines)
                             stats["kept_lines"] += len(lines)
                         else:
@@ -579,7 +637,7 @@ async def async_main():
 
     async def monitor():
         nonlocal last_log_time, last_pacer_log_time, last_push_time, log_window_count, log_window_start
-        global POOL_MIN
+        global POOL_MIN, STOPPING
         while current_idx < total_ips and not STOPPING and (time.time() - START_TIME < HARD_STOP):
             await asyncio.sleep(5)
             now = time.time()
@@ -593,14 +651,21 @@ async def async_main():
                 now_m = time.monotonic()
                 usable_now = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
                 log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | usable={usable_now} pool={len(PROXY_POOL)} | "
-                    f"cands={cands_found:,} | ok={stats['ok']} 404={stats['not_found']} "
+                    f"cands={cands_found:,} chunk={current_chunk} | ok={stats['ok']} 404={stats['not_found']} "
                     f"429={stats['rate_limit']} to={stats['timeout']} "
                     f"ok_ports={stats['ok_with_ports']} no_keep={stats['ok_no_keep']}")
                 last_log_time = now
                 log_window_start = now
                 log_window_count = 0
             if now - last_push_time >= PUSH_INTERVAL:
-                write_offset(prog_file, processed_count)
+                free_gb = check_disk_space()
+                if free_gb < 8.0:
+                    log(f"[DISK_GUARD] CRITICAL: free disk space is {free_gb:.2f} GB (< 8 GB). Stopping cleanly.")
+                    STOPPING = True
+                elif free_gb < 15.0:
+                    log(f"[DISK_GUARD] WARNING: low disk space: {free_gb:.2f} GB free (< 15 GB).")
+
+                write_progress(prog_file, processed_count, current_chunk)
                 stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
                 stats["pacer_rate"] = f"{pacer.rate:.1f}"
                 stats["429_shodan"] = pacer.c429_shodan
@@ -623,7 +688,7 @@ async def async_main():
 
     async def pool_refill():
         nonlocal pacer
-        global PROXY_POOL, POOL_MIN
+        global PROXY_POOL, POOL_MIN, current_chunk, chunk_handle
         while not STOPPING and (time.time() - START_TIME < HARD_STOP):
             await asyncio.sleep(600)
             if STOPPING:
@@ -631,11 +696,12 @@ async def async_main():
             try:
                 sample_batch = random.sample(mine, min(800, len(mine))) if mine else []
                 shard_cands = []
-                if os.path.exists(out_shard_file):
+                cur_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+                if os.path.exists(cur_chunk_file):
                     try:
-                        if OUT_HANDLE:
-                            OUT_HANDLE.flush()
-                        with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as sf:
+                        if chunk_handle:
+                            chunk_handle.flush()
+                        with open(cur_chunk_file, "r", encoding="utf-8", errors="ignore") as sf:
                             lines = sf.readlines()
                             for l in lines[-500:]:
                                 l = l.strip()
@@ -658,7 +724,7 @@ async def async_main():
                         curr_set.add(item)
                         added += 1
                 if PROXY_POOL:
-                    PACER_HI = min(20000.0, max(2000.0, 10.0 * len(PROXY_POOL)))
+                    PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
                     pacer.hi = PACER_HI
                     pacer.lo = max(200.0, PACER_HI * 0.1)
                     pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
@@ -685,11 +751,11 @@ async def async_main():
             stop_task.cancel()
             rev_task.cancel()
         finally:
-            if OUT_HANDLE:
-                OUT_HANDLE.flush()
-                OUT_HANDLE.close()
-                OUT_HANDLE = None
-            write_offset(prog_file, processed_count)
+            if chunk_handle:
+                chunk_handle.flush()
+                chunk_handle.close()
+                chunk_handle = None
+            write_progress(prog_file, processed_count, current_chunk)
             stats["rolling_429"] = f"{pacer.rolling_429():.2f}"
             stats["pacer_rate"] = f"{pacer.rate:.1f}"
             stats["429_shodan"] = pacer.c429_shodan
