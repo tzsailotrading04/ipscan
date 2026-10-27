@@ -28,7 +28,7 @@ def should_process_file(filepath, verify_idx, num_verify=9):
     # Non-shard files (feeds_raw, leakix, etc.) processed by instance 0
     return verify_idx == 0
 
-CANDIDATES = ["ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
+CANDIDATES = ["ip/harvest/lists_all.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
               "ip/harvest/hits_new_exits.txt", "ip/harvest/net_new.txt"]
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*_c*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
@@ -279,7 +279,8 @@ while True:
             persistent_alive[k] = (prefix, remote_seen)
     log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
-    # 2. Gather candidates (prioritise new high-yield chunks first)
+    # 2. Gather candidates (lists_all.txt FIRST, then new high-yield chunks)
+    list_files = [os.path.join(REPO, "ip", "harvest", "lists_all.txt")]
     chunk_files = sorted(glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")))
     feed_files = [
         os.path.join(REPO, "ip", "harvest", "feeds_raw.txt"),
@@ -289,7 +290,7 @@ while True:
     ]
     old_v98_files = sorted([f for f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*.txt")) if "_c" not in os.path.basename(f)])
     legacy_files = sorted([f for f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_*.txt")) if "v98" not in os.path.basename(f)])
-    all_candidate_files = chunk_files + [f for f in feed_files if os.path.exists(f)] + old_v98_files + legacy_files
+    all_candidate_files = [f for f in list_files if os.path.exists(f)] + chunk_files + [f for f in feed_files if os.path.exists(f)] + old_v98_files + legacy_files
 
     combined_cands = []
     seen = set()
