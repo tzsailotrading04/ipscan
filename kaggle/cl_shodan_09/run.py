@@ -14,7 +14,7 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-PER_PROXY_CAP = 4.0
+PER_PROXY_CAP = 8.0
 PROXY_POOL = []          # list of (addr, proto)
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
@@ -36,7 +36,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.124"
+ENGINE_VER = "v98.125"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -417,12 +417,14 @@ async def fetch_ip(session, ip, pacer):
                     except Exception:
                         pass
                 return HttpStatus(r.status, ports)
-        except Exception:
+        except (asyncio.TimeoutError, aiohttp.ClientError, ConnectionError):
             if use_proxy:
                 STATS_PROXY_FAIL += 1
                 key = (addr, proto)
                 FAILS[key] = FAILS.get(key, 0) + 1
-                FAILS_UNTIL[addr] = time.monotonic() + min(300.0, 30.0 * FAILS[key])
+                FAILS_UNTIL[addr] = time.monotonic() + min(60.0, 5.0 * FAILS[key])
+            continue
+        except Exception:
             continue
     pacer.on_result(0)
     return None
@@ -486,7 +488,7 @@ async def async_main():
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(2500, max(200, 12 * len(PROXY_POOL)))
+    CONC = min(4000, max(300, 16 * len(PROXY_POOL)))
     PACER_HI = min(20000.0, max(2000.0, 40.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
@@ -517,6 +519,8 @@ async def async_main():
     OUT_HANDLE = open(out_shard_file, "a", encoding="utf-8")
     conn = aiohttp.TCPConnector(limit=CONC + 10, ttl_dns_cache=600, enable_cleanup_closed=True)
 
+    now_m = time.monotonic()
+    stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
     stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
     stats["pool_size"] = len(PROXY_POOL)
     stats["pool_min"] = POOL_MIN
@@ -582,7 +586,9 @@ async def async_main():
                 el = now - log_window_start
                 ir = log_window_count / max(0.1, el)
                 pct = processed_count / total_ips * 100
-                log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | "
+                now_m = time.monotonic()
+                usable_now = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
+                log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | usable={usable_now} pool={len(PROXY_POOL)} | "
                     f"cands={cands_found:,} | ok={stats['ok']} 404={stats['not_found']} "
                     f"429={stats['rate_limit']} to={stats['timeout']} "
                     f"ok_ports={stats['ok_with_ports']} no_keep={stats['ok_no_keep']}")
@@ -597,6 +603,8 @@ async def async_main():
                 stats["429_proxy"] = pacer.c429_proxy
                 stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
                 stats["banned_total"] = STATS_BANNED_TOTAL
+                now_m = time.monotonic()
+                stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
                 stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
                 POOL_MIN = min(POOL_MIN, len(PROXY_POOL))
                 stats["pool_size"] = len(PROXY_POOL)
@@ -613,13 +621,13 @@ async def async_main():
         nonlocal pacer
         global PROXY_POOL, POOL_MIN
         while not STOPPING and (time.time() - START_TIME < HARD_STOP):
-            await asyncio.sleep(300)
+            await asyncio.sleep(600)
             if STOPPING:
                 break
             try:
                 if not mine:
                     continue
-                sample_batch = random.sample(mine, min(600, len(mine)))
+                sample_batch = random.sample(mine, min(400, len(mine)))
                 fresh = await build_pool(sample_batch)
                 curr_set = set(PROXY_POOL)
                 added = 0
@@ -669,6 +677,8 @@ async def async_main():
             stats["429_proxy"] = pacer.c429_proxy
             stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
             stats["banned_total"] = STATS_BANNED_TOTAL
+            now_m = time.monotonic()
+            stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
             stats["cooling_now"] = sum(1 for exp in FAILS_UNTIL.values() if exp > time.monotonic())
             POOL_MIN = min(POOL_MIN, len(PROXY_POOL))
             stats["pool_size"] = len(PROXY_POOL)
