@@ -43,10 +43,30 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.157"
+ENGINE_VER = "v98.158"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
+
+SCAN_MODE = "direct"  # "direct" or "shodan"
+DIRECT_PORTS = [8080, 3128, 1080, 8000]
+
+async def check_direct_port(ip, port):
+    try:
+        r, w = await asyncio.wait_for(asyncio.open_connection(ip, port), timeout=1.0)
+        w.close()
+        try:
+            await w.wait_closed()
+        except Exception:
+            pass
+        return port
+    except Exception:
+        return None
+
+async def scan_direct(ip):
+    res = await asyncio.gather(*[check_direct_port(ip, p) for p in DIRECT_PORTS], return_exceptions=True)
+    return [p for p in res if isinstance(p, int)]
+
 current_chunk = 1
 chunk_lines = 0
 chunk_handle = None
@@ -721,34 +741,55 @@ async def async_main():
              "429_shodan": 0, "429_proxy": 0, "pool_size": len(PROXY_POOL),
              "proxy_ok": 0, "proxy_fail": 0, "direct_used": 0, "req_s": "0.0"}
 
-    # Startup — build pool BEFORE creating the main semaphore / worker tasks
-    allc = []
+    # Raise file descriptor limit
     try:
-        allc = load_candidates()
-        mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice
-        mine = mine[:20000]
-        pass_rate_str = f"{len(allc)}/{max(1, TOTAL_VERIFIED_PARSED)} ({100.0 * len(allc) / max(1, TOTAL_VERIFIED_PARSED):.1f}%)"
-        log(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}")
-        print(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}", flush=True)
-        async with aiohttp.ClientSession(headers=HEADERS) as tmp:
-            PROXY_POOL = await build_pool(mine)
+        import resource
+        soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)
+        target = 65535
+        if hard > 0 and hard < target:
+            target = hard
+        resource.setrlimit(resource.RLIMIT_NOFILE, (target, max(hard, target)))
+        soft_eff, hard_eff = resource.getrlimit(resource.RLIMIT_NOFILE)
+        log(f"[ulimit] RLIMIT_NOFILE soft={soft_eff} hard={hard_eff}")
+        print(f"[ulimit] RLIMIT_NOFILE soft={soft_eff} hard={hard_eff}", flush=True)
     except Exception as e:
-        log(f"build_pool error: {e}")
+        log(f"[ulimit] {e}")
+
+    if SCAN_MODE == "direct":
         PROXY_POOL = []
-    parsed_cnt = len(mine) if 'mine' in locals() else 0
-    dropped_cnt = parsed_cnt - len(PROXY_POOL)
-    log(f"[pool] shard={SHARD_IDX} parsed={parsed_cnt} dropped={dropped_cnt} pool_size={len(PROXY_POOL)}")
-    print(f"[pool] shard={SHARD_IDX} parsed={parsed_cnt} dropped={dropped_cnt} pool_size={len(PROXY_POOL)}", flush=True)
-    global POOL_MIN
-    POOL_MIN = len(PROXY_POOL)
+        CONC = 15000
+        pacer = AdaptivePacer(start=15000.0, lo=1000.0, hi=30000.0)
+        log(f"[mode] direct scan mode: skipping build_pool, CONC={CONC}")
+        print(f"[mode] direct scan mode: skipping build_pool, CONC={CONC}", flush=True)
+    else:
+        # Startup — build pool BEFORE creating the main semaphore / worker tasks
+        allc = []
+        try:
+            allc = load_candidates()
+            mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice
+            mine = mine[:20000]
+            pass_rate_str = f"{len(allc)}/{max(1, TOTAL_VERIFIED_PARSED)} ({100.0 * len(allc) / max(1, TOTAL_VERIFIED_PARSED):.1f}%)"
+            log(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}")
+            print(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}", flush=True)
+            async with aiohttp.ClientSession(headers=HEADERS) as tmp:
+                PROXY_POOL = await build_pool(mine)
+        except Exception as e:
+            log(f"build_pool error: {e}")
+            PROXY_POOL = []
+        parsed_cnt = len(mine) if 'mine' in locals() else 0
+        dropped_cnt = parsed_cnt - len(PROXY_POOL)
+        log(f"[pool] shard={SHARD_IDX} parsed={parsed_cnt} dropped={dropped_cnt} pool_size={len(PROXY_POOL)}")
+        print(f"[pool] shard={SHARD_IDX} parsed={parsed_cnt} dropped={dropped_cnt} pool_size={len(PROXY_POOL)}", flush=True)
+        global POOL_MIN
+        POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(4000, max(120, int(1.5 * len(PROXY_POOL))))
-    PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
-    lo = max(200.0, PACER_HI * 0.1)
-    start = min(PACER_HI, 500.0)
-    pacer = AdaptivePacer(start=start, lo=lo, hi=PACER_HI)
+        CONC = min(4000, max(120, int(1.5 * len(PROXY_POOL))))
+        PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
+        lo = max(200.0, PACER_HI * 0.1)
+        start = min(PACER_HI, 500.0)
+        pacer = AdaptivePacer(start=start, lo=lo, hi=PACER_HI)
 
-    log(f"Configured CONC={CONC} pacer.rate={pacer.rate:.1f} pacer.hi={pacer.hi:.1f} pool_size={len(PROXY_POOL)}")
+        log(f"Configured CONC={CONC} pacer.rate={pacer.rate:.1f} pacer.hi={pacer.hi:.1f} pool_size={len(PROXY_POOL)}")
 
     idx_lock = asyncio.Lock()
     write_lock = asyncio.Lock()
@@ -785,43 +826,63 @@ async def async_main():
                 current_idx += 1
 
             ip = get_ip(my_offset)
-            await pacer.acquire()
-            status = await fetch_ip(session, ip, pacer)
-            ports = getattr(status, "ports", [])
-
-            async with write_lock:
-                if status == 200:
-                    stats["ok"] += 1
-                    if ports:
+            if SCAN_MODE == "direct":
+                hits = await scan_direct(ip)
+                async with write_lock:
+                    if hits:
+                        stats["ok"] += 1
                         stats["ok_with_ports"] += 1
-                        first_match = next((p for p in ports if int(p) in PROXY_PORTS), None)
-                        if first_match is None:
-                            first_match = next((p for p in ports if int(p) in {443, 8443}), None)
-                        if first_match is not None:
-                            lines = [f"{ip}:{first_match}\n"]
-                            if chunk_lines >= CHUNK_MAX:
-                                if chunk_handle:
-                                    chunk_handle.flush()
-                                    chunk_handle.close()
-                                current_chunk += 1
-                                next_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
-                                chunk_handle = open(next_chunk_file, "a", encoding="utf-8")
-                                chunk_lines = 0
-                            chunk_handle.writelines(lines)
-                            chunk_handle.flush()
-                            chunk_lines += len(lines)
-                            cands_found += len(lines)
-                            stats["kept_lines"] += len(lines)
-                        else:
-                            stats["ok_no_keep"] += 1
-                elif status == 404:
-                    stats["not_found"] += 1
-                elif status == 429:
-                    stats["rate_limit"] += 1
-                elif status is None or status == 0:
-                    stats["timeout"] += 1
-                else:
-                    stats["other"] += 1
+                        lines = [f"{ip}:{p}\n" for p in hits]
+                        if chunk_lines + len(lines) >= CHUNK_MAX:
+                            if chunk_handle:
+                                chunk_handle.flush()
+                                chunk_handle.close()
+                            current_chunk += 1
+                            next_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+                            chunk_handle = open(next_chunk_file, "a", encoding="utf-8")
+                            chunk_lines = 0
+                        chunk_handle.writelines(lines)
+                        chunk_handle.flush()
+                        chunk_lines += len(lines)
+                        cands_found += len(lines)
+                        stats["kept_lines"] += len(lines)
+            else:
+                await pacer.acquire()
+                status = await fetch_ip(session, ip, pacer)
+                ports = getattr(status, "ports", [])
+                async with write_lock:
+                    if status == 200:
+                        stats["ok"] += 1
+                        if ports:
+                            stats["ok_with_ports"] += 1
+                            first_match = next((p for p in ports if int(p) in PROXY_PORTS), None)
+                            if first_match is None:
+                                first_match = next((p for p in ports if int(p) in {443, 8443}), None)
+                            if first_match is not None:
+                                lines = [f"{ip}:{first_match}\n"]
+                                if chunk_lines >= CHUNK_MAX:
+                                    if chunk_handle:
+                                        chunk_handle.flush()
+                                        chunk_handle.close()
+                                    current_chunk += 1
+                                    next_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+                                    chunk_handle = open(next_chunk_file, "a", encoding="utf-8")
+                                    chunk_lines = 0
+                                chunk_handle.writelines(lines)
+                                chunk_handle.flush()
+                                chunk_lines += len(lines)
+                                cands_found += len(lines)
+                                stats["kept_lines"] += len(lines)
+                            else:
+                                stats["ok_no_keep"] += 1
+                    elif status == 404:
+                        stats["not_found"] += 1
+                    elif status == 429:
+                        stats["rate_limit"] += 1
+                    elif status is None or status == 0:
+                        stats["timeout"] += 1
+                    else:
+                        stats["other"] += 1
 
             async with idx_lock:
                 if my_offset + 1 > processed_count:
@@ -842,11 +903,16 @@ async def async_main():
                 ir = log_window_count / max(0.1, el)
                 pct = processed_count / total_ips * 100
                 now_m = time.monotonic()
-                usable_now = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
-                log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | usable={usable_now} pool={len(PROXY_POOL)} | "
-                    f"cands={cands_found:,} chunk={current_chunk} | ok={stats['ok']} 404={stats['not_found']} "
-                    f"429={stats['rate_limit']} to={stats['timeout']} "
-                    f"ok_ports={stats['ok_with_ports']} no_keep={stats['ok_no_keep']}")
+                if SCAN_MODE == "direct":
+                    hit_rate = (stats["kept_lines"] / max(1, processed_count)) * 1000.0
+                    log(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']}")
+                    print(f"Rate {ir:.1f}/s | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | cands={cands_found} chunk={current_chunk} | hit_rate={hit_rate:.2f}/1000 IPs | hits={stats['kept_lines']}", flush=True)
+                else:
+                    usable_now = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
+                    log(f"Rate {ir:.1f}/s (pacer: {pacer.rate:.1f}/s) | {processed_count:,}/{total_ips:,} ({pct:.2f}%) | usable={usable_now} pool={len(PROXY_POOL)} | "
+                        f"cands={cands_found:,} chunk={current_chunk} | ok={stats['ok']} 404={stats['not_found']} "
+                        f"429={stats['rate_limit']} to={stats['timeout']} "
+                        f"ok_ports={stats['ok_with_ports']} no_keep={stats['ok_no_keep']}")
                 last_log_time = now
                 log_window_start = now
                 log_window_count = 0
@@ -962,7 +1028,7 @@ async def async_main():
             tasks = [asyncio.create_task(worker()) for _ in range(CONC)]
             mon = asyncio.create_task(monitor())
             stop_task = asyncio.create_task(stop_monitor())
-            rev_task = asyncio.create_task(pool_refill())
+            rev_task = asyncio.create_task(pool_refill()) if SCAN_MODE != "direct" else None
             await asyncio.gather(*tasks)
             mon.cancel()
             stop_task.cancel()
