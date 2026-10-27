@@ -43,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.155"
+ENGINE_VER = "v98.157"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -336,7 +336,7 @@ def load_candidates():
         res = []
         if not os.path.exists(path):
             return res
-        is_list = "lists_all" in os.path.basename(path)
+        is_list = ("lists_all" in os.path.basename(path)) or ("bulk_all" in os.path.basename(path))
         is_legacy = "part_" not in os.path.basename(path)
         try:
             with open(path, "r", encoding="utf-8", errors="ignore") as f:
@@ -379,6 +379,7 @@ def load_candidates():
     v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
     v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
     v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "lists_all.txt")]
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "bulk_all.txt")]
 
     all_parsed = []
     total_parsed = 0
@@ -456,7 +457,7 @@ async def build_pool(items):
     lat_hist = {"<1s": 0, "1-3s": 0, "3-8s": 0, "8-15s": 0, "15-25s": 0, ">25s": 0}
     after_8s_count = 0
     other_types = {}
-    sem = asyncio.Semaphore(600)
+    sem = asyncio.Semaphore(1200)
 
     def record_other(proto_tag, e):
         name = type(e).__name__
@@ -486,7 +487,7 @@ async def build_pool(items):
         async def try_http(addr):
             t0 = time.monotonic()
             try:
-                async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=15) as r:
+                async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=12) as r:
                     dur = time.monotonic() - t0
                     st_k = str(r.status)
                     status_counts[st_k if st_k in status_counts else "other"] += 1
@@ -511,7 +512,7 @@ async def build_pool(items):
             try:
                 conn = ProxyConnector.from_url(f"socks5://{addr}")
                 async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                    async with s.get(BASE + rand_ip(), timeout=15) as r:
+                    async with s.get(BASE + rand_ip(), timeout=12) as r:
                         dur = time.monotonic() - t0
                         st_k = str(r.status)
                         status_counts[st_k if st_k in status_counts else "other"] += 1
@@ -607,17 +608,8 @@ async def fetch_ip(session, ip, pacer):
             now = time.monotonic()
             usable = [p for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now and FAILS_UNTIL.get(p[0], 0.0) <= now]
             if usable:
-                fast_u = [p for p in usable if PROXY_CLASS.get(p[0]) == "FAST"]
-                med_u = [p for p in usable if PROXY_CLASS.get(p[0]) == "MED"]
-                ok_u = [p for p in usable if PROXY_CLASS.get(p[0]) == "OK"]
-                r = random.random()
-                if r < 0.60:
-                    target = fast_u or usable
-                elif r < 0.90:
-                    target = med_u or usable
-                else:
-                    target = ok_u or usable
-                addr, proto = random.choice(target)
+                weights = [3 if PROXY_CLASS.get(p[0]) == "FAST" else (2 if PROXY_CLASS.get(p[0]) == "MED" else 1) for p in usable]
+                addr, proto = random.choices(usable, weights=weights, k=1)[0]
             else:
                 addr, proto = min(PROXY_POOL, key=lambda p: max(BANNED.get(p[0], 0.0), FAILS_UNTIL.get(p[0], 0.0)))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
