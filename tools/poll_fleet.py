@@ -53,7 +53,7 @@ def poll_until_all_shards_complete():
         if complete == 20:
             print("ALL 20 SHARDS COMPLETE!", flush=True)
             break
-        time.sleep(20)
+        time.sleep(60)
 
 if __name__ == "__main__":
     poll_until_all_shards_complete()
