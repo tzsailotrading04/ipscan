@@ -43,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.154"
+ENGINE_VER = "v98.155"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -607,7 +607,17 @@ async def fetch_ip(session, ip, pacer):
             now = time.monotonic()
             usable = [p for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now and FAILS_UNTIL.get(p[0], 0.0) <= now]
             if usable:
-                addr, proto = random.choice(usable)
+                fast_u = [p for p in usable if PROXY_CLASS.get(p[0]) == "FAST"]
+                med_u = [p for p in usable if PROXY_CLASS.get(p[0]) == "MED"]
+                ok_u = [p for p in usable if PROXY_CLASS.get(p[0]) == "OK"]
+                r = random.random()
+                if r < 0.60:
+                    target = fast_u or usable
+                elif r < 0.90:
+                    target = med_u or usable
+                else:
+                    target = ok_u or usable
+                addr, proto = random.choice(target)
             else:
                 addr, proto = min(PROXY_POOL, key=lambda p: max(BANNED.get(p[0], 0.0), FAILS_UNTIL.get(p[0], 0.0)))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
