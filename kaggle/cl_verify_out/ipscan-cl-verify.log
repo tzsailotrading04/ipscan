@@ -1,0 +1,1134 @@
+[{"stream_name":"stdout","time":1.369927375,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":1.370038571,"data":"VERIFIER CONTINUOUS LOOP START (cl_verify)\n"}
+,{"stream_name":"stdout","time":1.370045047,"data":"============================================================\n"}
+,{"stream_name":"stderr","time":1.4232330499999999,"data":"Cloning into '/kaggle/working/ipscan'...\n"}
+,{"stream_name":"stderr","time":25.40154094,"data":"Updating files:  37% (252/668)\rUpdating files:  38% (254/668)\rUpdating files:  39% (261/668)\rUpdating files:  40% (268/668)\rUpdating files:  41% (274/668)\rUpdating files:  42% (281/668)\rUpdating files:  43% (288/668)\rUpdating files:  44% (294/668)\rUpdating files:  45% (301/668)\rUpdating files:  46% (308/668)\rUpdating files:  47% (314/668)\rUpdating files:  48% (321/668)\rUpdating files:  49% (328/668)\rUpdating files:  50% (334/668)\rUpdating files:  51% (341/668)\rUpdating files:  52% (348/668)\rUpdating files:  53% (355/668)\rUpdating files:  54% (361/668)\rUpdating files:  55% (368/668)\rUpdating files:  56% (375/668)\rUpdating files:  57% (381/668)\rUpdating files:  57% (385/668)\rUpdating files:  58% (388/668)\rUpdating files:  59% (395/668)\rUpdating files:  59% (396/668)\rUpdating files:  60% (401/668)\rUpdating files:  61% (408/668)\rUpdating files:  62% (415/668)\rUpdating files:  63% (421/668)\rUpdating files:  64% (428/668)\rUpdating files:  65% (435/668)\rUpdating files:  66% (441/668)\rUpdating files:  67% (448/668)\rUpdating files:  68% (455/668)\rUpdating files:  69% (461/668)\rUpdating files:  70% (468/668)\rUpdating files:  71% (475/668)\rUpdating files:  71% (480/668)\rUpdating files:  72% (481/668)\rUpdating files:  73% (488/668)\rUpdating files:  73% (489/668)\rUpdating files:  74% (495/668)\rUpdating files:  75% (501/668)\rUpdating files:  76% (508/668)\rUpdating files:  77% (515/668)\rUpdating files:  78% (522/668)\rUpdating files:  79% (528/668)\rUpdating files:  80% (535/668)\rUpdating files:  81% (542/668)\rUpdating files:  82% (548/668)\rUpdating files:  83% (555/668)\rUpdating files:  84% (562/668)\rUpdating files:  85% (568/668)\rUpdating files:  86% (575/668)\rUpdating files:  87% (582/668)\rUpdating files:  88% (588/668)\rUpdating files:  89% (595/668)\rUpdating files:  90% (602/668)\rUpdating files:  91% (608/668)\rUpdating files:  92% (615/668)\rUpdating files:  93% (622/668)\rUpdating files:  94% (628/668)\rUpdating files:  95% (635/668)\rUpdating files:  96% (642/668)\rUpdating files:  97% (648/668)\rUpdating files:  98% (655/668)\rUpdating files:  99% (662/668)\rUpdating files: 100% (668/668)\rUpdating files: 100% (668/668), done.\n"}
+,{"stream_name":"stdout","time":26.226281836,"data":"ASN_ROWS=539118\n"}
+,{"stream_name":"stdout","time":26.227740139,"data":"INITIAL_PERSISTENT_ALIVE=646\n"}
+,{"stream_name":"stdout","time":26.227775204,"data":"\n"}
+,{"stream_name":"stdout","time":26.227782424,"data":"--- VERIFICATION CYCLE 1 ---\n"}
+,{"stream_name":"stderr","time":26.512212653,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":26.512244688,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":27.629573438,"data":"HEAD is now at f96e0bc clear STOP flag\n"}
+,{"stream_name":"stdout","time":27.631635848,"data":"PERSISTENT_ALIVE_POOL=646\n"}
+,{"stream_name":"stdout","time":28.328484606,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":28.331553597,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":28.348077306,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":28.350517109,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":28.353586814,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":28.3698752,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5145\n"}
+,{"stream_name":"stdout","time":28.371806511,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":28.373955731,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":28.398153707,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8555\n"}
+,{"stream_name":"stdout","time":28.398189186,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":28.404711614,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=2339\n"}
+,{"stream_name":"stdout","time":28.404746866,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":28.412194451,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2674\n"}
+,{"stream_name":"stdout","time":28.420029733,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":28.42517379,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":28.442444609,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6530\n"}
+,{"stream_name":"stdout","time":28.442480442,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":28.456994253,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5378\n"}
+,{"stream_name":"stdout","time":28.457027751,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":28.466190827,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3232\n"}
+,{"stream_name":"stdout","time":28.475314604,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":28.475381398,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":28.478815153,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":28.492232588,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4421\n"}
+,{"stream_name":"stdout","time":28.492273102,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":28.521099824,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3788\n"}
+,{"stream_name":"stdout","time":28.522118744,"data":"LOADED ip/harvest/shodan_shard_00.txt new=290\n"}
+,{"stream_name":"stdout","time":28.540773817,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=6698\n"}
+,{"stream_name":"stdout","time":28.567451146,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10043\n"}
+,{"stream_name":"stdout","time":28.567609275,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":28.567621884,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":28.567708444,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":28.570677034,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":28.574836846,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1409\n"}
+,{"stream_name":"stdout","time":28.574872401,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":28.577345301,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=797\n"}
+,{"stream_name":"stdout","time":28.590002516,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=4713\n"}
+,{"stream_name":"stdout","time":28.592266902,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":28.599326472,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":28.620326062,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":28.634473027,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5016\n"}
+,{"stream_name":"stdout","time":28.648093465,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4685\n"}
+,{"stream_name":"stdout","time":28.658805641,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3909\n"}
+,{"stream_name":"stdout","time":28.664534565,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2028\n"}
+,{"stream_name":"stdout","time":28.664617939,"data":"TOTAL_CANDIDATES=368672\n"}
+,{"stream_name":"stdout","time":28.664621909,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":63.518840238,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":63.518900581,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":1960.726057472,"data":"  checked 5000/368672 alive_batch=29 persistent_total=659\n"}
+,{"stream_name":"stdout","time":1983.393856965,"data":"  checked 10000/368672 alive_batch=31 persistent_total=661\n"}
+,{"stream_name":"stdout","time":2024.363686015,"data":"  checked 15000/368672 alive_batch=31 persistent_total=661\n"}
+,{"stream_name":"stdout","time":2060.59742919,"data":"  checked 20000/368672 alive_batch=32 persistent_total=662\n"}
+,{"stream_name":"stdout","time":2085.079901672,"data":"  checked 25000/368672 alive_batch=32 persistent_total=662\n"}
+,{"stream_name":"stdout","time":2129.725478842,"data":"  checked 30000/368672 alive_batch=35 persistent_total=664\n"}
+,{"stream_name":"stdout","time":2162.882717768,"data":"  checked 35000/368672 alive_batch=40 persistent_total=669\n"}
+,{"stream_name":"stdout","time":2189.600820764,"data":"  checked 40000/368672 alive_batch=45 persistent_total=672\n"}
+,{"stream_name":"stdout","time":2215.444826129,"data":"  checked 45000/368672 alive_batch=45 persistent_total=672\n"}
+,{"stream_name":"stdout","time":2244.573198331,"data":"  checked 50000/368672 alive_batch=53 persistent_total=676\n"}
+,{"stream_name":"stdout","time":2317.983981202,"data":"  checked 55000/368672 alive_batch=53 persistent_total=676\n"}
+,{"stream_name":"stdout","time":2348.80703226,"data":"  checked 60000/368672 alive_batch=58 persistent_total=680\n"}
+,{"stream_name":"stdout","time":2414.96304712,"data":"  checked 65000/368672 alive_batch=58 persistent_total=680\n"}
+,{"stream_name":"stdout","time":2437.269254529,"data":"  checked 70000/368672 alive_batch=58 persistent_total=680\n"}
+,{"stream_name":"stdout","time":2466.825373468,"data":"  checked 75000/368672 alive_batch=58 persistent_total=680\n"}
+,{"stream_name":"stdout","time":2494.948716215,"data":"  checked 80000/368672 alive_batch=58 persistent_total=680\n"}
+,{"stream_name":"stdout","time":2520.049927144,"data":"  checked 85000/368672 alive_batch=61 persistent_total=683\n"}
+,{"stream_name":"stdout","time":2546.207177473,"data":"  checked 90000/368672 alive_batch=66 persistent_total=687\n"}
+,{"stream_name":"stdout","time":2585.909976805,"data":"  checked 95000/368672 alive_batch=66 persistent_total=687\n"}
+,{"stream_name":"stdout","time":2619.438066735,"data":"  checked 100000/368672 alive_batch=70 persistent_total=690\n"}
+,{"stream_name":"stdout","time":2645.450976341,"data":"  checked 105000/368672 alive_batch=74 persistent_total=692\n"}
+,{"stream_name":"stdout","time":2651.04114282,"data":"  checked 110000/368672 alive_batch=78 persistent_total=694\n"}
+,{"stream_name":"stdout","time":2672.890039937,"data":"  checked 115000/368672 alive_batch=80 persistent_total=696\n"}
+,{"stream_name":"stdout","time":2724.611918928,"data":"  checked 120000/368672 alive_batch=85 persistent_total=698\n"}
+,{"stream_name":"stdout","time":2769.324104538,"data":"  checked 125000/368672 alive_batch=88 persistent_total=700\n"}
+,{"stream_name":"stdout","time":2792.473595366,"data":"  checked 130000/368672 alive_batch=93 persistent_total=705\n"}
+,{"stream_name":"stdout","time":2815.174352894,"data":"  checked 135000/368672 alive_batch=108 persistent_total=720\n"}
+,{"stream_name":"stdout","time":2845.045332575,"data":"  checked 140000/368672 alive_batch=108 persistent_total=720\n"}
+,{"stream_name":"stdout","time":2877.191183913,"data":"  checked 145000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":2923.395018735,"data":"  checked 150000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":2952.697356356,"data":"  checked 155000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":3002.707821216,"data":"  checked 160000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":3039.275029087,"data":"  checked 165000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":3093.562915848,"data":"  checked 170000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":3122.193758316,"data":"  checked 175000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":3136.080836729,"data":"  checked 180000/368672 alive_batch=110 persistent_total=722\n"}
+,{"stream_name":"stdout","time":3156.360696489,"data":"  checked 185000/368672 alive_batch=111 persistent_total=723\n"}
+,{"stream_name":"stdout","time":3156.797178598,"data":"  checked 190000/368672 alive_batch=111 persistent_total=723\n"}
+,{"stream_name":"stdout","time":3156.845745005,"data":"  checked 195000/368672 alive_batch=112 persistent_total=724\n"}
+,{"stream_name":"stdout","time":3156.873192029,"data":"  checked 200000/368672 alive_batch=115 persistent_total=727\n"}
+,{"stream_name":"stdout","time":3156.897260534,"data":"  checked 205000/368672 alive_batch=118 persistent_total=730\n"}
+,{"stream_name":"stdout","time":3156.936406971,"data":"  checked 210000/368672 alive_batch=118 persistent_total=730\n"}
+,{"stream_name":"stdout","time":3156.960661532,"data":"  checked 215000/368672 alive_batch=120 persistent_total=732\n"}
+,{"stream_name":"stdout","time":3156.984156401,"data":"  checked 220000/368672 alive_batch=123 persistent_total=735\n"}
+,{"stream_name":"stdout","time":3157.011991096,"data":"  checked 225000/368672 alive_batch=141 persistent_total=751\n"}
+,{"stream_name":"stdout","time":3157.029868552,"data":"  checked 230000/368672 alive_batch=153 persistent_total=762\n"}
+,{"stream_name":"stdout","time":3157.046233327,"data":"  checked 235000/368672 alive_batch=165 persistent_total=767\n"}
+,{"stream_name":"stdout","time":3157.065590806,"data":"  checked 240000/368672 alive_batch=182 persistent_total=779\n"}
+,{"stream_name":"stdout","time":3157.081575317,"data":"  checked 245000/368672 alive_batch=189 persistent_total=785\n"}
+,{"stream_name":"stdout","time":3157.099975386,"data":"  checked 250000/368672 alive_batch=192 persistent_total=786\n"}
+,{"stream_name":"stdout","time":3157.123275882,"data":"  checked 255000/368672 alive_batch=223 persistent_total=808\n"}
+,{"stream_name":"stdout","time":3157.144700294,"data":"  checked 260000/368672 alive_batch=258 persistent_total=837\n"}
+,{"stream_name":"stdout","time":3157.160078571,"data":"  checked 265000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.175038949,"data":"  checked 270000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.189205446,"data":"  checked 275000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.207978637,"data":"  checked 280000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.222450227,"data":"  checked 285000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.235330906,"data":"  checked 290000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.249456595,"data":"  checked 295000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.265188932,"data":"  checked 300000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.279465136,"data":"  checked 305000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.292681677,"data":"  checked 310000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.307643075,"data":"  checked 315000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.32332396,"data":"  checked 320000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.337428379,"data":"  checked 325000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.353906801,"data":"  checked 330000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.3732205,"data":"  checked 335000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.389158931,"data":"  checked 340000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.409214817,"data":"  checked 345000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.424110205,"data":"  checked 350000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.437213605,"data":"  checked 355000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3157.454858405,"data":"  checked 360000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3159.551452407,"data":"  checked 365000/368672 alive_batch=282 persistent_total=854\n"}
+,{"stream_name":"stdout","time":3163.323450543,"data":"CYCLE_SUMMARY: batch_checked=368672 batch_survived=282 persistent_before_prune=854 in 3099.8s\n"}
+,{"stream_name":"stdout","time":3163.325114757,"data":"PRUNING: dropped=0 remaining=854 (retention window: 1 pass, last_seen \u003e= 1)\n"}
+,{"stream_name":"stdout","time":3165.366581525,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":3165.366621124,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":3465.366829924,"data":"\n"}
+,{"stream_name":"stdout","time":3465.366882302,"data":"--- VERIFICATION CYCLE 2 ---\n"}
+,{"stream_name":"stderr","time":3465.622679188,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":3465.622706593,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":3465.643657323,"data":"HEAD is now at 8ab1696 cl_verify: cycle 1 PASS_SURVIVORS=282 pool_after_prune=854 candidates=368672\n"}
+,{"stream_name":"stdout","time":3465.646447478,"data":"PERSISTENT_ALIVE_POOL=854\n"}
+,{"stream_name":"stdout","time":3466.338046904,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":3466.340985907,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":3466.354974601,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":3466.357006413,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":3466.359446758,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":3466.373205082,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5145\n"}
+,{"stream_name":"stdout","time":3466.375021517,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":3466.37729894,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":3466.401013845,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8555\n"}
+,{"stream_name":"stdout","time":3466.40105363,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.407463467,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=2339\n"}
+,{"stream_name":"stdout","time":3466.407507681,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.414808792,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2674\n"}
+,{"stream_name":"stdout","time":3466.422698783,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":3466.427969401,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":3466.445353621,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6530\n"}
+,{"stream_name":"stdout","time":3466.445412574,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.459609579,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5390\n"}
+,{"stream_name":"stdout","time":3466.459646641,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.468557023,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3232\n"}
+,{"stream_name":"stdout","time":3466.477255805,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":3466.477310829,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.480736512,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":3466.492392888,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4421\n"}
+,{"stream_name":"stdout","time":3466.492444648,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.50955356,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3788\n"}
+,{"stream_name":"stdout","time":3466.510750013,"data":"LOADED ip/harvest/shodan_shard_00.txt new=290\n"}
+,{"stream_name":"stdout","time":3466.528257075,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=6698\n"}
+,{"stream_name":"stdout","time":3466.556494962,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10043\n"}
+,{"stream_name":"stdout","time":3466.556535358,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.557279734,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.557302826,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.560098149,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":3466.56458985,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1409\n"}
+,{"stream_name":"stdout","time":3466.564625963,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":3466.56770641,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=797\n"}
+,{"stream_name":"stdout","time":3466.580616228,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=4713\n"}
+,{"stream_name":"stdout","time":3466.582923479,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":3466.589788659,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":3466.608827685,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":3466.623272405,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5016\n"}
+,{"stream_name":"stdout","time":3466.636552725,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4685\n"}
+,{"stream_name":"stdout","time":3466.647735179,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3909\n"}
+,{"stream_name":"stdout","time":3466.65350684,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2028\n"}
+,{"stream_name":"stdout","time":3466.653557434,"data":"TOTAL_CANDIDATES=368684\n"}
+,{"stream_name":"stdout","time":3466.653562331,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":3496.418041233,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":3496.418080825,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":4758.062083622,"data":"  checked 5000/368684 alive_batch=26 persistent_total=858\n"}
+,{"stream_name":"stdout","time":4758.075807709,"data":"  checked 10000/368684 alive_batch=27 persistent_total=859\n"}
+,{"stream_name":"stdout","time":4758.091648851,"data":"  checked 15000/368684 alive_batch=28 persistent_total=860\n"}
+,{"stream_name":"stdout","time":4758.104417672,"data":"  checked 20000/368684 alive_batch=29 persistent_total=860\n"}
+,{"stream_name":"stdout","time":4758.117031563,"data":"  checked 25000/368684 alive_batch=29 persistent_total=860\n"}
+,{"stream_name":"stdout","time":4758.129967311,"data":"  checked 30000/368684 alive_batch=32 persistent_total=861\n"}
+,{"stream_name":"stdout","time":4758.142608721,"data":"  checked 35000/368684 alive_batch=36 persistent_total=863\n"}
+,{"stream_name":"stdout","time":4758.156933696,"data":"  checked 40000/368684 alive_batch=47 persistent_total=874\n"}
+,{"stream_name":"stdout","time":4758.169415261,"data":"  checked 45000/368684 alive_batch=49 persistent_total=876\n"}
+,{"stream_name":"stdout","time":4758.181951258,"data":"  checked 50000/368684 alive_batch=50 persistent_total=877\n"}
+,{"stream_name":"stdout","time":4758.19628368,"data":"  checked 55000/368684 alive_batch=51 persistent_total=878\n"}
+,{"stream_name":"stdout","time":4758.211539271,"data":"  checked 60000/368684 alive_batch=55 persistent_total=880\n"}
+,{"stream_name":"stdout","time":4758.225639294,"data":"  checked 65000/368684 alive_batch=56 persistent_total=881\n"}
+,{"stream_name":"stdout","time":4758.240590648,"data":"  checked 70000/368684 alive_batch=56 persistent_total=881\n"}
+,{"stream_name":"stdout","time":4758.253394591,"data":"  checked 75000/368684 alive_batch=56 persistent_total=881\n"}
+,{"stream_name":"stdout","time":4758.266061451,"data":"  checked 80000/368684 alive_batch=56 persistent_total=881\n"}
+,{"stream_name":"stdout","time":4758.28136579,"data":"  checked 85000/368684 alive_batch=70 persistent_total=891\n"}
+,{"stream_name":"stdout","time":4758.294915233,"data":"  checked 90000/368684 alive_batch=82 persistent_total=900\n"}
+,{"stream_name":"stdout","time":4758.307482127,"data":"  checked 95000/368684 alive_batch=82 persistent_total=900\n"}
+,{"stream_name":"stdout","time":4758.320007717,"data":"  checked 100000/368684 alive_batch=85 persistent_total=903\n"}
+,{"stream_name":"stdout","time":4758.332587071,"data":"  checked 105000/368684 alive_batch=88 persistent_total=904\n"}
+,{"stream_name":"stdout","time":4758.347044458,"data":"  checked 110000/368684 alive_batch=94 persistent_total=907\n"}
+,{"stream_name":"stdout","time":4758.360173724,"data":"  checked 115000/368684 alive_batch=97 persistent_total=910\n"}
+,{"stream_name":"stdout","time":4758.37584321,"data":"  checked 120000/368684 alive_batch=105 persistent_total=916\n"}
+,{"stream_name":"stdout","time":4758.413420313,"data":"  checked 125000/368684 alive_batch=113 persistent_total=923\n"}
+,{"stream_name":"stdout","time":4758.457873747,"data":"  checked 130000/368684 alive_batch=119 persistent_total=929\n"}
+,{"stream_name":"stdout","time":4758.485658917,"data":"  checked 135000/368684 alive_batch=128 persistent_total=936\n"}
+,{"stream_name":"stdout","time":4758.540690712,"data":"  checked 140000/368684 alive_batch=128 persistent_total=936\n"}
+,{"stream_name":"stdout","time":4758.620925861,"data":"  checked 145000/368684 alive_batch=130 persistent_total=938\n"}
+,{"stream_name":"stdout","time":4759.065796297,"data":"  checked 150000/368684 alive_batch=130 persistent_total=938\n"}
+,{"stream_name":"stdout","time":4762.000081392,"data":"  checked 155000/368684 alive_batch=130 persistent_total=938\n"}
+,{"stream_name":"stdout","time":4769.459667235,"data":"  checked 160000/368684 alive_batch=130 persistent_total=938\n"}
+,{"stream_name":"stdout","time":4815.664492081,"data":"  checked 165000/368684 alive_batch=130 persistent_total=938\n"}
+,{"stream_name":"stdout","time":4880.513674304,"data":"  checked 170000/368684 alive_batch=134 persistent_total=942\n"}
+,{"stream_name":"stdout","time":4965.301027011,"data":"  checked 175000/368684 alive_batch=137 persistent_total=945\n"}
+,{"stream_name":"stdout","time":5010.39421602,"data":"  checked 180000/368684 alive_batch=138 persistent_total=946\n"}
+,{"stream_name":"stdout","time":5044.673673189,"data":"  checked 185000/368684 alive_batch=141 persistent_total=949\n"}
+,{"stream_name":"stdout","time":5074.17244723,"data":"  checked 190000/368684 alive_batch=142 persistent_total=950\n"}
+,{"stream_name":"stdout","time":5103.442210879,"data":"  checked 195000/368684 alive_batch=145 persistent_total=953\n"}
+,{"stream_name":"stdout","time":5131.1200658,"data":"  checked 200000/368684 alive_batch=146 persistent_total=954\n"}
+,{"stream_name":"stdout","time":5188.510287332,"data":"  checked 205000/368684 alive_batch=148 persistent_total=956\n"}
+,{"stream_name":"stdout","time":5219.592262698,"data":"  checked 210000/368684 alive_batch=154 persistent_total=962\n"}
+,{"stream_name":"stdout","time":5240.288438075,"data":"  checked 215000/368684 alive_batch=154 persistent_total=962\n"}
+,{"stream_name":"stdout","time":5313.104517521,"data":"  checked 220000/368684 alive_batch=155 persistent_total=963\n"}
+,{"stream_name":"stdout","time":5334.482374191,"data":"  checked 225000/368684 alive_batch=167 persistent_total=973\n"}
+,{"stream_name":"stdout","time":5363.319041194,"data":"  checked 230000/368684 alive_batch=172 persistent_total=976\n"}
+,{"stream_name":"stdout","time":5424.484043516,"data":"  checked 235000/368684 alive_batch=181 persistent_total=980\n"}
+,{"stream_name":"stdout","time":5455.475429577,"data":"  checked 240000/368684 alive_batch=194 persistent_total=989\n"}
+,{"stream_name":"stdout","time":5479.811609699,"data":"  checked 245000/368684 alive_batch=197 persistent_total=991\n"}
+,{"stream_name":"stdout","time":5537.566488296,"data":"  checked 250000/368684 alive_batch=198 persistent_total=992\n"}
+,{"stream_name":"stdout","time":5618.098637295,"data":"  checked 255000/368684 alive_batch=235 persistent_total=1014\n"}
+,{"stream_name":"stdout","time":5657.06333405,"data":"  checked 260000/368684 alive_batch=329 persistent_total=1078\n"}
+,{"stream_name":"stdout","time":5705.772854605,"data":"  checked 265000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5744.24697637,"data":"  checked 270000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5774.886331585,"data":"  checked 275000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5832.355233361,"data":"  checked 280000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5844.27023111,"data":"  checked 285000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5882.470354771,"data":"  checked 290000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5917.305803272,"data":"  checked 295000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5950.636662746,"data":"  checked 300000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":5982.620526032,"data":"  checked 305000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6018.901364115,"data":"  checked 310000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6056.254002908,"data":"  checked 315000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6086.446074043,"data":"  checked 320000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6130.399272753,"data":"  checked 325000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6217.07025219,"data":"  checked 330000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6295.889518269,"data":"  checked 335000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6317.175477399,"data":"  checked 340000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6335.228430447,"data":"  checked 345000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6335.315167256,"data":"  checked 350000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6335.334992277,"data":"  checked 355000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6335.356938085,"data":"  checked 360000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6338.217067461,"data":"  checked 365000/368684 alive_batch=373 persistent_total=1104\n"}
+,{"stream_name":"stdout","time":6341.50185608,"data":"CYCLE_SUMMARY: batch_checked=368684 batch_survived=373 persistent_before_prune=1104 in 2845.1s\n"}
+,{"stream_name":"stdout","time":6341.506134423,"data":"PRUNING: dropped=0 remaining=1104 (retention window: 1 pass, last_seen \u003e= 1)\n"}
+,{"stream_name":"stdout","time":6343.467247751,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":6343.467304841,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":6643.467488896,"data":"\n"}
+,{"stream_name":"stdout","time":6643.467564657,"data":"--- VERIFICATION CYCLE 3 ---\n"}
+,{"stream_name":"stderr","time":6643.712850588,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":6643.712887902,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":6643.731325494,"data":"HEAD is now at ef97159 cl_verify: cycle 2 PASS_SURVIVORS=373 pool_after_prune=1104 candidates=368684\n"}
+,{"stream_name":"stdout","time":6643.735180773,"data":"PERSISTENT_ALIVE_POOL=1104\n"}
+,{"stream_name":"stdout","time":6644.435469126,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":6644.438497831,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":6644.454346582,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":6644.456209339,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":6644.458466407,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":6644.472062092,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5145\n"}
+,{"stream_name":"stdout","time":6644.473897722,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":6644.475934524,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":6644.498856658,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8555\n"}
+,{"stream_name":"stdout","time":6644.498894751,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.506494452,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=2566\n"}
+,{"stream_name":"stdout","time":6644.506539193,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.514154568,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2677\n"}
+,{"stream_name":"stdout","time":6644.522786051,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":6644.528544008,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":6644.547906941,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6530\n"}
+,{"stream_name":"stdout","time":6644.547946614,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.563163099,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5390\n"}
+,{"stream_name":"stdout","time":6644.563201944,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.572009882,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3232\n"}
+,{"stream_name":"stdout","time":6644.580699157,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":6644.580736509,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.584482312,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":6644.596457271,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4428\n"}
+,{"stream_name":"stdout","time":6644.596511781,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.613436065,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3788\n"}
+,{"stream_name":"stdout","time":6644.614424816,"data":"LOADED ip/harvest/shodan_shard_00.txt new=288\n"}
+,{"stream_name":"stdout","time":6644.632429822,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=6698\n"}
+,{"stream_name":"stdout","time":6644.660319376,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10043\n"}
+,{"stream_name":"stdout","time":6644.660362485,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.660366598,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.66038013,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.66346846,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":6644.667456418,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1418\n"}
+,{"stream_name":"stdout","time":6644.667492208,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":6644.670234202,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=797\n"}
+,{"stream_name":"stdout","time":6644.684852707,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=4713\n"}
+,{"stream_name":"stdout","time":6644.687196563,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":6644.695061328,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":6644.714354157,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":6644.727980154,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5016\n"}
+,{"stream_name":"stdout","time":6644.74026756,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4685\n"}
+,{"stream_name":"stdout","time":6644.750700527,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3909\n"}
+,{"stream_name":"stdout","time":6644.756429472,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2028\n"}
+,{"stream_name":"stdout","time":6644.756481808,"data":"TOTAL_CANDIDATES=368928\n"}
+,{"stream_name":"stdout","time":6644.756486778,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":6673.002575409,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":6673.002624622,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":9505.470638168,"data":"  checked 5000/368928 alive_batch=7 persistent_total=1105\n"}
+,{"stream_name":"stdout","time":9505.630735392,"data":"  checked 10000/368928 alive_batch=9 persistent_total=1107\n"}
+,{"stream_name":"stdout","time":9505.694789426,"data":"  checked 15000/368928 alive_batch=10 persistent_total=1108\n"}
+,{"stream_name":"stdout","time":9505.771735134,"data":"  checked 20000/368928 alive_batch=10 persistent_total=1108\n"}
+,{"stream_name":"stdout","time":9505.876194973,"data":"  checked 25000/368928 alive_batch=11 persistent_total=1109\n"}
+,{"stream_name":"stdout","time":9505.901239935,"data":"  checked 30000/368928 alive_batch=13 persistent_total=1110\n"}
+,{"stream_name":"stdout","time":9505.95305144,"data":"  checked 35000/368928 alive_batch=21 persistent_total=1116\n"}
+,{"stream_name":"stdout","time":9505.982396588,"data":"  checked 40000/368928 alive_batch=36 persistent_total=1125\n"}
+,{"stream_name":"stdout","time":9506.009868593,"data":"  checked 45000/368928 alive_batch=36 persistent_total=1125\n"}
+,{"stream_name":"stdout","time":9506.041004591,"data":"  checked 50000/368928 alive_batch=48 persistent_total=1132\n"}
+,{"stream_name":"stdout","time":9506.066149298,"data":"  checked 55000/368928 alive_batch=52 persistent_total=1136\n"}
+,{"stream_name":"stdout","time":9506.109999244,"data":"  checked 60000/368928 alive_batch=194 persistent_total=1267\n"}
+,{"stream_name":"stdout","time":9506.132957841,"data":"  checked 65000/368928 alive_batch=281 persistent_total=1353\n"}
+,{"stream_name":"stdout","time":9506.152421719,"data":"  checked 70000/368928 alive_batch=281 persistent_total=1353\n"}
+,{"stream_name":"stdout","time":9506.176193351,"data":"  checked 75000/368928 alive_batch=290 persistent_total=1361\n"}
+,{"stream_name":"stdout","time":9506.192808864,"data":"  checked 80000/368928 alive_batch=290 persistent_total=1361\n"}
+,{"stream_name":"stdout","time":9506.213560882,"data":"  checked 85000/368928 alive_batch=307 persistent_total=1377\n"}
+,{"stream_name":"stdout","time":9506.236066744,"data":"  checked 90000/368928 alive_batch=308 persistent_total=1378\n"}
+,{"stream_name":"stdout","time":9506.256589593,"data":"  checked 95000/368928 alive_batch=309 persistent_total=1379\n"}
+,{"stream_name":"stdout","time":9506.271163138,"data":"  checked 100000/368928 alive_batch=310 persistent_total=1380\n"}
+,{"stream_name":"stdout","time":9506.288179401,"data":"  checked 105000/368928 alive_batch=321 persistent_total=1389\n"}
+,{"stream_name":"stdout","time":9506.309027887,"data":"  checked 110000/368928 alive_batch=323 persistent_total=1390\n"}
+,{"stream_name":"stdout","time":9506.329309909,"data":"  checked 115000/368928 alive_batch=337 persistent_total=1404\n"}
+,{"stream_name":"stdout","time":9506.348321152,"data":"  checked 120000/368928 alive_batch=342 persistent_total=1407\n"}
+,{"stream_name":"stdout","time":9506.364426335,"data":"  checked 125000/368928 alive_batch=345 persistent_total=1409\n"}
+,{"stream_name":"stdout","time":9506.382641282,"data":"  checked 130000/368928 alive_batch=347 persistent_total=1410\n"}
+,{"stream_name":"stdout","time":9506.400586432,"data":"  checked 135000/368928 alive_batch=352 persistent_total=1413\n"}
+,{"stream_name":"stdout","time":9506.417575804,"data":"  checked 140000/368928 alive_batch=352 persistent_total=1413\n"}
+,{"stream_name":"stdout","time":9506.442029915,"data":"  checked 145000/368928 alive_batch=356 persistent_total=1417\n"}
+,{"stream_name":"stdout","time":9506.464550656,"data":"  checked 150000/368928 alive_batch=356 persistent_total=1417\n"}
+,{"stream_name":"stdout","time":9506.483646072,"data":"  checked 155000/368928 alive_batch=356 persistent_total=1417\n"}
+,{"stream_name":"stdout","time":9506.509783231,"data":"  checked 160000/368928 alive_batch=356 persistent_total=1417\n"}
+,{"stream_name":"stdout","time":9506.531184801,"data":"  checked 165000/368928 alive_batch=356 persistent_total=1417\n"}
+,{"stream_name":"stdout","time":9506.55280739,"data":"  checked 170000/368928 alive_batch=356 persistent_total=1417\n"}
+,{"stream_name":"stdout","time":9506.573614578,"data":"  checked 175000/368928 alive_batch=357 persistent_total=1418\n"}
+,{"stream_name":"stdout","time":9506.598331895,"data":"  checked 180000/368928 alive_batch=358 persistent_total=1419\n"}
+,{"stream_name":"stdout","time":9506.618450722,"data":"  checked 185000/368928 alive_batch=359 persistent_total=1420\n"}
+,{"stream_name":"stdout","time":9506.638033776,"data":"  checked 190000/368928 alive_batch=359 persistent_total=1420\n"}
+,{"stream_name":"stdout","time":9506.657214903,"data":"  checked 195000/368928 alive_batch=361 persistent_total=1422\n"}
+,{"stream_name":"stdout","time":9506.6776988,"data":"  checked 200000/368928 alive_batch=362 persistent_total=1423\n"}
+,{"stream_name":"stdout","time":9506.695717937,"data":"  checked 205000/368928 alive_batch=362 persistent_total=1423\n"}
+,{"stream_name":"stdout","time":9506.714545623,"data":"  checked 210000/368928 alive_batch=362 persistent_total=1423\n"}
+,{"stream_name":"stdout","time":9506.730445883,"data":"  checked 215000/368928 alive_batch=362 persistent_total=1423\n"}
+,{"stream_name":"stdout","time":9506.748450067,"data":"  checked 220000/368928 alive_batch=363 persistent_total=1424\n"}
+,{"stream_name":"stdout","time":9506.768196844,"data":"  checked 225000/368928 alive_batch=369 persistent_total=1428\n"}
+,{"stream_name":"stdout","time":9506.789719678,"data":"  checked 230000/368928 alive_batch=374 persistent_total=1432\n"}
+,{"stream_name":"stdout","time":9506.810011945,"data":"  checked 235000/368928 alive_batch=375 persistent_total=1432\n"}
+,{"stream_name":"stdout","time":9506.831034981,"data":"  checked 240000/368928 alive_batch=391 persistent_total=1437\n"}
+,{"stream_name":"stdout","time":9506.852065819,"data":"  checked 245000/368928 alive_batch=393 persistent_total=1438\n"}
+,{"stream_name":"stdout","time":9506.873330136,"data":"  checked 250000/368928 alive_batch=394 persistent_total=1439\n"}
+,{"stream_name":"stdout","time":9506.893146083,"data":"  checked 255000/368928 alive_batch=408 persistent_total=1442\n"}
+,{"stream_name":"stdout","time":9506.911579253,"data":"  checked 260000/368928 alive_batch=436 persistent_total=1454\n"}
+,{"stream_name":"stdout","time":9506.929506161,"data":"  checked 265000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9506.950288914,"data":"  checked 270000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9506.971507718,"data":"  checked 275000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9506.996188165,"data":"  checked 280000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.025067224,"data":"  checked 285000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.055107938,"data":"  checked 290000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.085893746,"data":"  checked 295000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.123317028,"data":"  checked 300000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.163211151,"data":"  checked 305000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.1930897,"data":"  checked 310000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.22980942,"data":"  checked 315000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.255929746,"data":"  checked 320000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.285702568,"data":"  checked 325000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.317385515,"data":"  checked 330000/368928 alive_batch=453 persistent_total=1464\n"}
+,{"stream_name":"stdout","time":9507.3455792,"data":"  checked 335000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9507.375632779,"data":"  checked 340000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9507.403513569,"data":"  checked 345000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9507.44500867,"data":"  checked 350000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9507.528203987,"data":"  checked 355000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9507.557532486,"data":"  checked 360000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9507.587263394,"data":"  checked 365000/368928 alive_batch=454 persistent_total=1465\n"}
+,{"stream_name":"stdout","time":9512.116567565,"data":"CYCLE_SUMMARY: batch_checked=368928 batch_survived=454 persistent_before_prune=1465 in 2839.1s\n"}
+,{"stream_name":"stdout","time":9512.119157257,"data":"PRUNING: dropped=208 remaining=1257 (retention window: 1 pass, last_seen \u003e= 2)\n"}
+,{"stream_name":"stdout","time":9514.196062468,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":9514.196117827,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":9814.196632133,"data":"\n"}
+,{"stream_name":"stdout","time":9814.196701875,"data":"--- VERIFICATION CYCLE 4 ---\n"}
+,{"stream_name":"stderr","time":9814.826409206,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":9814.826460302,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stderr","time":9814.827717262,"data":"   7ab1e23..f5a3196  main       -\u003e origin/main\n"}
+,{"stream_name":"stdout","time":9814.845271049,"data":"HEAD is now at f5a3196 Merge remote-tracking branch 'origin/main'\n"}
+,{"stream_name":"stdout","time":9814.850533575,"data":"PERSISTENT_ALIVE_POOL=1257\n"}
+,{"stream_name":"stdout","time":9815.587289561,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":9815.59022844,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":9815.603824112,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":9815.605773777,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":9815.608219811,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":9815.621821642,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5145\n"}
+,{"stream_name":"stdout","time":9815.623328723,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":9815.625444555,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":9815.650581536,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8555\n"}
+,{"stream_name":"stdout","time":9815.650635287,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.658462622,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=2566\n"}
+,{"stream_name":"stdout","time":9815.658617943,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.666860784,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2676\n"}
+,{"stream_name":"stdout","time":9815.675534329,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":9815.681778148,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":9815.70087518,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6530\n"}
+,{"stream_name":"stdout","time":9815.700929203,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.715139982,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5391\n"}
+,{"stream_name":"stdout","time":9815.7152152,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.724208463,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3232\n"}
+,{"stream_name":"stdout","time":9815.733402815,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":9815.733474692,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.736967473,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":9815.748775717,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4428\n"}
+,{"stream_name":"stdout","time":9815.748823489,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.765713878,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3788\n"}
+,{"stream_name":"stdout","time":9815.766610817,"data":"LOADED ip/harvest/shodan_shard_00.txt new=289\n"}
+,{"stream_name":"stdout","time":9815.784014198,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=6698\n"}
+,{"stream_name":"stdout","time":9815.812026713,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10044\n"}
+,{"stream_name":"stdout","time":9815.812155813,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.812168099,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.812172963,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.815238843,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":9815.819375537,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1423\n"}
+,{"stream_name":"stdout","time":9815.819431198,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":9815.821922337,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=797\n"}
+,{"stream_name":"stdout","time":9815.834396622,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=4713\n"}
+,{"stream_name":"stdout","time":9815.836629043,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":9815.843421889,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":9815.862321191,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":9815.876215217,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5016\n"}
+,{"stream_name":"stdout","time":9815.889578298,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4685\n"}
+,{"stream_name":"stdout","time":9815.900334034,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3909\n"}
+,{"stream_name":"stdout","time":9815.906264087,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2028\n"}
+,{"stream_name":"stdout","time":9815.906335316,"data":"TOTAL_CANDIDATES=368935\n"}
+,{"stream_name":"stdout","time":9815.906341493,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":9845.200707643,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":9845.200757331,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":12933.539173745,"data":"  checked 5000/368935 alive_batch=36 persistent_total=1265\n"}
+,{"stream_name":"stdout","time":12996.569805193,"data":"  checked 10000/368935 alive_batch=48 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13018.513156899,"data":"  checked 15000/368935 alive_batch=49 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13047.66446824,"data":"  checked 20000/368935 alive_batch=50 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13073.329012094,"data":"  checked 25000/368935 alive_batch=50 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13152.60821056,"data":"  checked 30000/368935 alive_batch=51 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13192.430033052,"data":"  checked 35000/368935 alive_batch=51 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13266.484483182,"data":"  checked 40000/368935 alive_batch=52 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13304.2667947,"data":"  checked 45000/368935 alive_batch=52 persistent_total=1276\n"}
+,{"stream_name":"stdout","time":13347.927633212,"data":"  checked 50000/368935 alive_batch=62 persistent_total=1284\n"}
+,{"stream_name":"stdout","time":13395.653234634,"data":"  checked 55000/368935 alive_batch=63 persistent_total=1285\n"}
+,{"stream_name":"stdout","time":13399.018926253,"data":"  checked 60000/368935 alive_batch=72 persistent_total=1286\n"}
+,{"stream_name":"stdout","time":13399.065544578,"data":"  checked 65000/368935 alive_batch=75 persistent_total=1288\n"}
+,{"stream_name":"stdout","time":13399.090208423,"data":"  checked 70000/368935 alive_batch=75 persistent_total=1288\n"}
+,{"stream_name":"stdout","time":13399.130980407,"data":"  checked 75000/368935 alive_batch=76 persistent_total=1288\n"}
+,{"stream_name":"stdout","time":13399.174425945,"data":"  checked 80000/368935 alive_batch=76 persistent_total=1288\n"}
+,{"stream_name":"stdout","time":13399.195547382,"data":"  checked 85000/368935 alive_batch=85 persistent_total=1294\n"}
+,{"stream_name":"stdout","time":13399.220890267,"data":"  checked 90000/368935 alive_batch=86 persistent_total=1294\n"}
+,{"stream_name":"stdout","time":13399.239390411,"data":"  checked 95000/368935 alive_batch=88 persistent_total=1296\n"}
+,{"stream_name":"stdout","time":13399.255634054,"data":"  checked 100000/368935 alive_batch=92 persistent_total=1299\n"}
+,{"stream_name":"stdout","time":13399.276344585,"data":"  checked 105000/368935 alive_batch=94 persistent_total=1301\n"}
+,{"stream_name":"stdout","time":13399.295947524,"data":"  checked 110000/368935 alive_batch=99 persistent_total=1304\n"}
+,{"stream_name":"stdout","time":13399.327722289,"data":"  checked 115000/368935 alive_batch=101 persistent_total=1306\n"}
+,{"stream_name":"stdout","time":13399.348572748,"data":"  checked 120000/368935 alive_batch=104 persistent_total=1307\n"}
+,{"stream_name":"stdout","time":13399.373057444,"data":"  checked 125000/368935 alive_batch=110 persistent_total=1309\n"}
+,{"stream_name":"stdout","time":13399.392870206,"data":"  checked 130000/368935 alive_batch=126 persistent_total=1323\n"}
+,{"stream_name":"stdout","time":13399.416399916,"data":"  checked 135000/368935 alive_batch=180 persistent_total=1370\n"}
+,{"stream_name":"stdout","time":13399.434524198,"data":"  checked 140000/368935 alive_batch=182 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.452635866,"data":"  checked 145000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.471072881,"data":"  checked 150000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.485725862,"data":"  checked 155000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.504407956,"data":"  checked 160000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.52089241,"data":"  checked 165000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.539236042,"data":"  checked 170000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.556934567,"data":"  checked 175000/368935 alive_batch=184 persistent_total=1372\n"}
+,{"stream_name":"stdout","time":13399.571562282,"data":"  checked 180000/368935 alive_batch=185 persistent_total=1373\n"}
+,{"stream_name":"stdout","time":13399.585707073,"data":"  checked 185000/368935 alive_batch=186 persistent_total=1374\n"}
+,{"stream_name":"stdout","time":13399.600996842,"data":"  checked 190000/368935 alive_batch=186 persistent_total=1374\n"}
+,{"stream_name":"stdout","time":13399.615058324,"data":"  checked 195000/368935 alive_batch=188 persistent_total=1376\n"}
+,{"stream_name":"stdout","time":13399.629957117,"data":"  checked 200000/368935 alive_batch=192 persistent_total=1380\n"}
+,{"stream_name":"stdout","time":13399.648957321,"data":"  checked 205000/368935 alive_batch=193 persistent_total=1381\n"}
+,{"stream_name":"stdout","time":13399.671150284,"data":"  checked 210000/368935 alive_batch=196 persistent_total=1384\n"}
+,{"stream_name":"stdout","time":13399.688946343,"data":"  checked 215000/368935 alive_batch=198 persistent_total=1386\n"}
+,{"stream_name":"stdout","time":13399.705091162,"data":"  checked 220000/368935 alive_batch=199 persistent_total=1386\n"}
+,{"stream_name":"stdout","time":13399.726547125,"data":"  checked 225000/368935 alive_batch=204 persistent_total=1390\n"}
+,{"stream_name":"stdout","time":13399.744249795,"data":"  checked 230000/368935 alive_batch=206 persistent_total=1391\n"}
+,{"stream_name":"stdout","time":13399.7598396,"data":"  checked 235000/368935 alive_batch=210 persistent_total=1392\n"}
+,{"stream_name":"stdout","time":13399.774838232,"data":"  checked 240000/368935 alive_batch=214 persistent_total=1393\n"}
+,{"stream_name":"stdout","time":13399.7938462,"data":"  checked 245000/368935 alive_batch=219 persistent_total=1398\n"}
+,{"stream_name":"stdout","time":13399.815050716,"data":"  checked 250000/368935 alive_batch=221 persistent_total=1400\n"}
+,{"stream_name":"stdout","time":13399.832140269,"data":"  checked 255000/368935 alive_batch=229 persistent_total=1405\n"}
+,{"stream_name":"stdout","time":13399.847703844,"data":"  checked 260000/368935 alive_batch=257 persistent_total=1424\n"}
+,{"stream_name":"stdout","time":13399.863267715,"data":"  checked 265000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.878220414,"data":"  checked 270000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.89387796,"data":"  checked 275000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.916719237,"data":"  checked 280000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.931429037,"data":"  checked 285000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.951030015,"data":"  checked 290000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.969606562,"data":"  checked 295000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13399.985312577,"data":"  checked 300000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.002501869,"data":"  checked 305000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.016551698,"data":"  checked 310000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.03356971,"data":"  checked 315000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.048042588,"data":"  checked 320000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.067240652,"data":"  checked 325000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.092430435,"data":"  checked 330000/368935 alive_batch=277 persistent_total=1433\n"}
+,{"stream_name":"stdout","time":13400.113295638,"data":"  checked 335000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13400.132248309,"data":"  checked 340000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13400.150939638,"data":"  checked 345000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13400.170450888,"data":"  checked 350000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13400.187840033,"data":"  checked 355000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13400.208506846,"data":"  checked 360000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13401.491128214,"data":"  checked 365000/368935 alive_batch=279 persistent_total=1435\n"}
+,{"stream_name":"stdout","time":13405.221991666,"data":"CYCLE_SUMMARY: batch_checked=368935 batch_survived=279 persistent_before_prune=1435 in 3560.0s\n"}
+,{"stream_name":"stdout","time":13405.2243112,"data":"PRUNING: dropped=295 remaining=1140 (retention window: 1 pass, last_seen \u003e= 3)\n"}
+,{"stream_name":"stdout","time":13407.524991199,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":13407.525046247,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":13707.525417793,"data":"\n"}
+,{"stream_name":"stdout","time":13707.525567799,"data":"--- VERIFICATION CYCLE 5 ---\n"}
+,{"stream_name":"stderr","time":13707.795998876,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":13707.796044531,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":13707.828821442,"data":"HEAD is now at c17cd49 cl_verify: cycle 4 PASS_SURVIVORS=279 pool_after_prune=1140 candidates=368935\n"}
+,{"stream_name":"stdout","time":13707.834539383,"data":"PERSISTENT_ALIVE_POOL=1140\n"}
+,{"stream_name":"stdout","time":13708.600585047,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":13708.603476137,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":13708.618220224,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":13708.620294849,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":13708.62278616,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":13708.636306519,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5148\n"}
+,{"stream_name":"stdout","time":13708.638257306,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":13708.640534442,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":13708.663874776,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8555\n"}
+,{"stream_name":"stdout","time":13708.663933215,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.676824616,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=4498\n"}
+,{"stream_name":"stdout","time":13708.676864451,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.685016393,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2675\n"}
+,{"stream_name":"stdout","time":13708.692688781,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":13708.697489076,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":13708.714567061,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6530\n"}
+,{"stream_name":"stdout","time":13708.714616158,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.728635365,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5391\n"}
+,{"stream_name":"stdout","time":13708.728722105,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.737675561,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3239\n"}
+,{"stream_name":"stdout","time":13708.747015857,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":13708.747055247,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.750622657,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":13708.769146608,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4437\n"}
+,{"stream_name":"stdout","time":13708.769223164,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.780685374,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3788\n"}
+,{"stream_name":"stdout","time":13708.78171186,"data":"LOADED ip/harvest/shodan_shard_00.txt new=281\n"}
+,{"stream_name":"stdout","time":13708.800070469,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=6724\n"}
+,{"stream_name":"stdout","time":13708.827201122,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10044\n"}
+,{"stream_name":"stdout","time":13708.827252147,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.827307615,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.827416048,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.830749241,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":13708.834997191,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1445\n"}
+,{"stream_name":"stdout","time":13708.835033991,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":13708.837416035,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=797\n"}
+,{"stream_name":"stdout","time":13708.849725319,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=4729\n"}
+,{"stream_name":"stdout","time":13708.852075049,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":13708.858780934,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":13708.876842529,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":13708.890727786,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5046\n"}
+,{"stream_name":"stdout","time":13708.902964263,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4691\n"}
+,{"stream_name":"stdout","time":13708.913586199,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3909\n"}
+,{"stream_name":"stdout","time":13708.919184595,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2052\n"}
+,{"stream_name":"stdout","time":13708.919252835,"data":"TOTAL_CANDIDATES=371001\n"}
+,{"stream_name":"stdout","time":13708.919258953,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":13745.667778579,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":13745.667838399,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":16207.761255975,"data":"  checked 5000/371001 alive_batch=43 persistent_total=1146\n"}
+,{"stream_name":"stdout","time":16271.196293266,"data":"  checked 10000/371001 alive_batch=47 persistent_total=1150\n"}
+,{"stream_name":"stdout","time":16329.312289866,"data":"  checked 15000/371001 alive_batch=48 persistent_total=1151\n"}
+,{"stream_name":"stdout","time":16414.442753669,"data":"  checked 20000/371001 alive_batch=48 persistent_total=1151\n"}
+,{"stream_name":"stdout","time":16463.043862993,"data":"  checked 25000/371001 alive_batch=48 persistent_total=1151\n"}
+,{"stream_name":"stdout","time":16527.196548486,"data":"  checked 30000/371001 alive_batch=48 persistent_total=1151\n"}
+,{"stream_name":"stdout","time":16563.215152139,"data":"  checked 35000/371001 alive_batch=49 persistent_total=1151\n"}
+,{"stream_name":"stdout","time":16626.221547293,"data":"  checked 40000/371001 alive_batch=59 persistent_total=1159\n"}
+,{"stream_name":"stdout","time":16668.945487751,"data":"  checked 45000/371001 alive_batch=60 persistent_total=1160\n"}
+,{"stream_name":"stdout","time":16712.771963881,"data":"  checked 50000/371001 alive_batch=67 persistent_total=1165\n"}
+,{"stream_name":"stdout","time":16762.878461269,"data":"  checked 55000/371001 alive_batch=68 persistent_total=1166\n"}
+,{"stream_name":"stdout","time":16815.656764447,"data":"  checked 60000/371001 alive_batch=73 persistent_total=1170\n"}
+,{"stream_name":"stdout","time":16883.950040459,"data":"  checked 65000/371001 alive_batch=74 persistent_total=1170\n"}
+,{"stream_name":"stdout","time":16909.285629976,"data":"  checked 70000/371001 alive_batch=74 persistent_total=1170\n"}
+,{"stream_name":"stdout","time":16961.916936395,"data":"  checked 75000/371001 alive_batch=81 persistent_total=1177\n"}
+,{"stream_name":"stdout","time":16986.423521508,"data":"  checked 80000/371001 alive_batch=81 persistent_total=1177\n"}
+,{"stream_name":"stdout","time":17047.275373037,"data":"  checked 85000/371001 alive_batch=85 persistent_total=1181\n"}
+,{"stream_name":"stdout","time":17103.616194311,"data":"  checked 90000/371001 alive_batch=87 persistent_total=1183\n"}
+,{"stream_name":"stdout","time":17148.720632542,"data":"  checked 95000/371001 alive_batch=88 persistent_total=1184\n"}
+,{"stream_name":"stdout","time":17192.877836652,"data":"  checked 100000/371001 alive_batch=89 persistent_total=1185\n"}
+,{"stream_name":"stdout","time":17233.994276481,"data":"  checked 105000/371001 alive_batch=97 persistent_total=1192\n"}
+,{"stream_name":"stdout","time":17235.921311455,"data":"  checked 110000/371001 alive_batch=104 persistent_total=1197\n"}
+,{"stream_name":"stdout","time":17235.960334686,"data":"  checked 115000/371001 alive_batch=108 persistent_total=1200\n"}
+,{"stream_name":"stdout","time":17235.992689191,"data":"  checked 120000/371001 alive_batch=109 persistent_total=1201\n"}
+,{"stream_name":"stdout","time":17236.023445388,"data":"  checked 125000/371001 alive_batch=113 persistent_total=1204\n"}
+,{"stream_name":"stdout","time":17236.05212911,"data":"  checked 130000/371001 alive_batch=116 persistent_total=1207\n"}
+,{"stream_name":"stdout","time":17236.080731028,"data":"  checked 135000/371001 alive_batch=119 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.107804418,"data":"  checked 140000/371001 alive_batch=119 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.1367645,"data":"  checked 145000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.158038928,"data":"  checked 150000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.174905425,"data":"  checked 155000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.191650071,"data":"  checked 160000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.208120688,"data":"  checked 165000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.225072088,"data":"  checked 170000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.240607067,"data":"  checked 175000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.258906636,"data":"  checked 180000/371001 alive_batch=121 persistent_total=1209\n"}
+,{"stream_name":"stdout","time":17236.28178021,"data":"  checked 185000/371001 alive_batch=122 persistent_total=1210\n"}
+,{"stream_name":"stdout","time":17236.308787448,"data":"  checked 190000/371001 alive_batch=122 persistent_total=1210\n"}
+,{"stream_name":"stdout","time":17236.325999745,"data":"  checked 195000/371001 alive_batch=125 persistent_total=1213\n"}
+,{"stream_name":"stdout","time":17236.340943829,"data":"  checked 200000/371001 alive_batch=126 persistent_total=1214\n"}
+,{"stream_name":"stdout","time":17236.357538851,"data":"  checked 205000/371001 alive_batch=126 persistent_total=1214\n"}
+,{"stream_name":"stdout","time":17236.374993267,"data":"  checked 210000/371001 alive_batch=127 persistent_total=1215\n"}
+,{"stream_name":"stdout","time":17236.394376279,"data":"  checked 215000/371001 alive_batch=128 persistent_total=1216\n"}
+,{"stream_name":"stdout","time":17236.41769408,"data":"  checked 220000/371001 alive_batch=129 persistent_total=1217\n"}
+,{"stream_name":"stdout","time":17236.436253469,"data":"  checked 225000/371001 alive_batch=134 persistent_total=1222\n"}
+,{"stream_name":"stdout","time":17236.457071758,"data":"  checked 230000/371001 alive_batch=142 persistent_total=1227\n"}
+,{"stream_name":"stdout","time":17236.472973725,"data":"  checked 235000/371001 alive_batch=143 persistent_total=1227\n"}
+,{"stream_name":"stdout","time":17236.489025288,"data":"  checked 240000/371001 alive_batch=149 persistent_total=1232\n"}
+,{"stream_name":"stdout","time":17236.504184948,"data":"  checked 245000/371001 alive_batch=155 persistent_total=1238\n"}
+,{"stream_name":"stdout","time":17236.519904816,"data":"  checked 250000/371001 alive_batch=155 persistent_total=1238\n"}
+,{"stream_name":"stdout","time":17236.53578176,"data":"  checked 255000/371001 alive_batch=161 persistent_total=1242\n"}
+,{"stream_name":"stdout","time":17236.55482574,"data":"  checked 260000/371001 alive_batch=176 persistent_total=1252\n"}
+,{"stream_name":"stdout","time":17236.570333206,"data":"  checked 265000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.593638724,"data":"  checked 270000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.617238346,"data":"  checked 275000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.634740831,"data":"  checked 280000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.654030109,"data":"  checked 285000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.675804624,"data":"  checked 290000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.69399375,"data":"  checked 295000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.714971551,"data":"  checked 300000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.729786016,"data":"  checked 305000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.74649261,"data":"  checked 310000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.76126558,"data":"  checked 315000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.776201638,"data":"  checked 320000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.795425226,"data":"  checked 325000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.819958559,"data":"  checked 330000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.836327181,"data":"  checked 335000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.852745344,"data":"  checked 340000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.869000605,"data":"  checked 345000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.884592912,"data":"  checked 350000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.906797253,"data":"  checked 355000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17236.925161137,"data":"  checked 360000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17238.444956129,"data":"  checked 365000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17240.2251838,"data":"  checked 370000/371001 alive_batch=187 persistent_total=1261\n"}
+,{"stream_name":"stdout","time":17242.042033967,"data":"CYCLE_SUMMARY: batch_checked=371001 batch_survived=187 persistent_before_prune=1261 in 3496.4s\n"}
+,{"stream_name":"stdout","time":17242.0458803,"data":"PRUNING: dropped=416 remaining=845 (retention window: 1 pass, last_seen \u003e= 4)\n"}
+,{"stream_name":"stdout","time":17244.177828576,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":17244.177886704,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":17544.178216956,"data":"\n"}
+,{"stream_name":"stdout","time":17544.178283108,"data":"--- VERIFICATION CYCLE 6 ---\n"}
+,{"stream_name":"stderr","time":17544.445198695,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":17544.445254048,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":17544.462756227,"data":"HEAD is now at f02ec92 cl_verify: cycle 5 PASS_SURVIVORS=187 pool_after_prune=845 candidates=371001\n"}
+,{"stream_name":"stdout","time":17544.466279455,"data":"PERSISTENT_ALIVE_POOL=845\n"}
+,{"stream_name":"stdout","time":17545.156601981,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":17545.159197967,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":17545.173422559,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":17545.175341444,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":17545.177764788,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":17545.191654649,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5148\n"}
+,{"stream_name":"stdout","time":17545.193325849,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":17545.195423072,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":17545.21792071,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8555\n"}
+,{"stream_name":"stdout","time":17545.217955343,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.229591104,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=4498\n"}
+,{"stream_name":"stdout","time":17545.22962705,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.236726068,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2675\n"}
+,{"stream_name":"stdout","time":17545.24514175,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":17545.249790503,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":17545.267016911,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6530\n"}
+,{"stream_name":"stdout","time":17545.267069509,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.281450652,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5391\n"}
+,{"stream_name":"stdout","time":17545.281493515,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.290051993,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3239\n"}
+,{"stream_name":"stdout","time":17545.298868956,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":17545.298908267,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.302298967,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":17545.321155394,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4437\n"}
+,{"stream_name":"stdout","time":17545.321199127,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.331153017,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3788\n"}
+,{"stream_name":"stdout","time":17545.332095605,"data":"LOADED ip/harvest/shodan_shard_00.txt new=281\n"}
+,{"stream_name":"stdout","time":17545.350195736,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=6724\n"}
+,{"stream_name":"stdout","time":17545.375957339,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10044\n"}
+,{"stream_name":"stdout","time":17545.37599621,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.376003487,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.376125406,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.378992534,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":17545.382992909,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1445\n"}
+,{"stream_name":"stdout","time":17545.383047353,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":17545.385447929,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=797\n"}
+,{"stream_name":"stdout","time":17545.3985747,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=4729\n"}
+,{"stream_name":"stdout","time":17545.400751856,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":17545.407486814,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":17545.425517494,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":17545.438838498,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5046\n"}
+,{"stream_name":"stdout","time":17545.451024061,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4691\n"}
+,{"stream_name":"stdout","time":17545.462801963,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3909\n"}
+,{"stream_name":"stdout","time":17545.469036968,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2052\n"}
+,{"stream_name":"stdout","time":17545.469075877,"data":"TOTAL_CANDIDATES=371001\n"}
+,{"stream_name":"stdout","time":17545.469087585,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":17590.015734852,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":17590.015783552,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":20763.859821444,"data":"  checked 5000/371001 alive_batch=15 persistent_total=845\n"}
+,{"stream_name":"stdout","time":20763.9649329,"data":"  checked 10000/371001 alive_batch=18 persistent_total=846\n"}
+,{"stream_name":"stdout","time":20763.998919527,"data":"  checked 15000/371001 alive_batch=18 persistent_total=846\n"}
+,{"stream_name":"stdout","time":20764.027223911,"data":"  checked 20000/371001 alive_batch=18 persistent_total=846\n"}
+,{"stream_name":"stdout","time":20764.048196677,"data":"  checked 25000/371001 alive_batch=18 persistent_total=846\n"}
+,{"stream_name":"stdout","time":20764.076336167,"data":"  checked 30000/371001 alive_batch=20 persistent_total=848\n"}
+,{"stream_name":"stdout","time":20764.099657759,"data":"  checked 35000/371001 alive_batch=22 persistent_total=849\n"}
+,{"stream_name":"stdout","time":20764.131448821,"data":"  checked 40000/371001 alive_batch=26 persistent_total=851\n"}
+,{"stream_name":"stdout","time":20764.157201219,"data":"  checked 45000/371001 alive_batch=27 persistent_total=851\n"}
+,{"stream_name":"stdout","time":20764.177136893,"data":"  checked 50000/371001 alive_batch=64 persistent_total=877\n"}
+,{"stream_name":"stdout","time":20764.200908647,"data":"  checked 55000/371001 alive_batch=74 persistent_total=886\n"}
+,{"stream_name":"stdout","time":20764.230714046,"data":"  checked 60000/371001 alive_batch=139 persistent_total=943\n"}
+,{"stream_name":"stdout","time":20764.250638102,"data":"  checked 65000/371001 alive_batch=148 persistent_total=951\n"}
+,{"stream_name":"stdout","time":20764.270435814,"data":"  checked 70000/371001 alive_batch=148 persistent_total=951\n"}
+,{"stream_name":"stdout","time":20764.291217356,"data":"  checked 75000/371001 alive_batch=149 persistent_total=952\n"}
+,{"stream_name":"stdout","time":20764.312227064,"data":"  checked 80000/371001 alive_batch=149 persistent_total=952\n"}
+,{"stream_name":"stdout","time":20764.329129951,"data":"  checked 85000/371001 alive_batch=161 persistent_total=963\n"}
+,{"stream_name":"stdout","time":20764.345881187,"data":"  checked 90000/371001 alive_batch=163 persistent_total=965\n"}
+,{"stream_name":"stdout","time":20764.364332523,"data":"  checked 95000/371001 alive_batch=164 persistent_total=966\n"}
+,{"stream_name":"stdout","time":20764.378201935,"data":"  checked 100000/371001 alive_batch=173 persistent_total=975\n"}
+,{"stream_name":"stdout","time":20764.392177597,"data":"  checked 105000/371001 alive_batch=176 persistent_total=977\n"}
+,{"stream_name":"stdout","time":20764.411833932,"data":"  checked 110000/371001 alive_batch=181 persistent_total=979\n"}
+,{"stream_name":"stdout","time":20764.430200986,"data":"  checked 115000/371001 alive_batch=181 persistent_total=979\n"}
+,{"stream_name":"stdout","time":20764.444427064,"data":"  checked 120000/371001 alive_batch=183 persistent_total=981\n"}
+,{"stream_name":"stdout","time":20764.459730901,"data":"  checked 125000/371001 alive_batch=190 persistent_total=986\n"}
+,{"stream_name":"stdout","time":20764.476922419,"data":"  checked 130000/371001 alive_batch=198 persistent_total=992\n"}
+,{"stream_name":"stdout","time":20764.493716952,"data":"  checked 135000/371001 alive_batch=212 persistent_total=1005\n"}
+,{"stream_name":"stdout","time":20764.513871916,"data":"  checked 140000/371001 alive_batch=214 persistent_total=1007\n"}
+,{"stream_name":"stdout","time":20764.53280281,"data":"  checked 145000/371001 alive_batch=217 persistent_total=1009\n"}
+,{"stream_name":"stdout","time":20764.550060226,"data":"  checked 150000/371001 alive_batch=217 persistent_total=1009\n"}
+,{"stream_name":"stdout","time":20764.56977766,"data":"  checked 155000/371001 alive_batch=217 persistent_total=1009\n"}
+,{"stream_name":"stdout","time":20764.58479304,"data":"  checked 160000/371001 alive_batch=217 persistent_total=1009\n"}
+,{"stream_name":"stdout","time":20764.603402085,"data":"  checked 165000/371001 alive_batch=217 persistent_total=1009\n"}
+,{"stream_name":"stdout","time":20764.620058526,"data":"  checked 170000/371001 alive_batch=219 persistent_total=1011\n"}
+,{"stream_name":"stdout","time":20764.635025677,"data":"  checked 175000/371001 alive_batch=220 persistent_total=1012\n"}
+,{"stream_name":"stdout","time":20764.649999584,"data":"  checked 180000/371001 alive_batch=221 persistent_total=1013\n"}
+,{"stream_name":"stdout","time":20764.66962934,"data":"  checked 185000/371001 alive_batch=226 persistent_total=1018\n"}
+,{"stream_name":"stdout","time":20764.685550093,"data":"  checked 190000/371001 alive_batch=228 persistent_total=1020\n"}
+,{"stream_name":"stdout","time":20764.705828393,"data":"  checked 195000/371001 alive_batch=230 persistent_total=1022\n"}
+,{"stream_name":"stdout","time":20764.720651888,"data":"  checked 200000/371001 alive_batch=231 persistent_total=1023\n"}
+,{"stream_name":"stdout","time":20764.73434891,"data":"  checked 205000/371001 alive_batch=235 persistent_total=1027\n"}
+,{"stream_name":"stdout","time":20764.752143707,"data":"  checked 210000/371001 alive_batch=237 persistent_total=1029\n"}
+,{"stream_name":"stdout","time":20764.767781304,"data":"  checked 215000/371001 alive_batch=239 persistent_total=1031\n"}
+,{"stream_name":"stdout","time":20764.784944573,"data":"  checked 220000/371001 alive_batch=243 persistent_total=1035\n"}
+,{"stream_name":"stdout","time":20764.805490357,"data":"  checked 225000/371001 alive_batch=253 persistent_total=1043\n"}
+,{"stream_name":"stdout","time":20764.824933339,"data":"  checked 230000/371001 alive_batch=260 persistent_total=1048\n"}
+,{"stream_name":"stdout","time":20764.839538838,"data":"  checked 235000/371001 alive_batch=265 persistent_total=1052\n"}
+,{"stream_name":"stdout","time":20764.854631536,"data":"  checked 240000/371001 alive_batch=269 persistent_total=1055\n"}
+,{"stream_name":"stdout","time":20764.869068501,"data":"  checked 245000/371001 alive_batch=275 persistent_total=1061\n"}
+,{"stream_name":"stdout","time":20764.883422005,"data":"  checked 250000/371001 alive_batch=278 persistent_total=1063\n"}
+,{"stream_name":"stdout","time":20764.903498765,"data":"  checked 255000/371001 alive_batch=292 persistent_total=1073\n"}
+,{"stream_name":"stdout","time":20764.922979916,"data":"  checked 260000/371001 alive_batch=316 persistent_total=1088\n"}
+,{"stream_name":"stdout","time":20764.940742288,"data":"  checked 265000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20764.960693976,"data":"  checked 270000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20764.978775203,"data":"  checked 275000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20764.994737551,"data":"  checked 280000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.01529363,"data":"  checked 285000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.032154668,"data":"  checked 290000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.047722431,"data":"  checked 295000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.06783739,"data":"  checked 300000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.08669669,"data":"  checked 305000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.108926092,"data":"  checked 310000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.12412513,"data":"  checked 315000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.138400011,"data":"  checked 320000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.151164587,"data":"  checked 325000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.165971391,"data":"  checked 330000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.180235055,"data":"  checked 335000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.194796339,"data":"  checked 340000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.213880567,"data":"  checked 345000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.23200282,"data":"  checked 350000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.252325967,"data":"  checked 355000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.270875992,"data":"  checked 360000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20765.286703859,"data":"  checked 365000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20768.770720868,"data":"  checked 370000/371001 alive_batch=357 persistent_total=1117\n"}
+,{"stream_name":"stdout","time":20770.285727054,"data":"CYCLE_SUMMARY: batch_checked=371001 batch_survived=357 persistent_before_prune=1117 in 3180.3s\n"}
+,{"stream_name":"stdout","time":20770.287948755,"data":"PRUNING: dropped=216 remaining=901 (retention window: 1 pass, last_seen \u003e= 5)\n"}
+,{"stream_name":"stdout","time":20772.477853215,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":20772.477886583,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":21072.478180667,"data":"\n"}
+,{"stream_name":"stdout","time":21072.478247643,"data":"--- VERIFICATION CYCLE 7 ---\n"}
+,{"stream_name":"stderr","time":21072.951956206,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":21072.951999538,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stderr","time":21072.953336306,"data":"   86d1b6f..bcc720f  main       -\u003e origin/main\n"}
+,{"stream_name":"stdout","time":21072.986416996,"data":"HEAD is now at bcc720f Merge remote-tracking branch 'origin/main'\n"}
+,{"stream_name":"stdout","time":21072.990188246,"data":"PERSISTENT_ALIVE_POOL=901\n"}
+,{"stream_name":"stdout","time":21073.733525727,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":21073.737493379,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":21073.753469282,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":21073.755519915,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":21073.757940183,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":21073.774279642,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5469\n"}
+,{"stream_name":"stdout","time":21073.776327521,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":21073.778714086,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":21073.805088999,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8573\n"}
+,{"stream_name":"stdout","time":21073.805141694,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.821222772,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=5403\n"}
+,{"stream_name":"stdout","time":21073.821266063,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.828914497,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2691\n"}
+,{"stream_name":"stdout","time":21073.841025424,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":21073.846415806,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":21073.868289178,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6559\n"}
+,{"stream_name":"stdout","time":21073.868332928,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.883182435,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5419\n"}
+,{"stream_name":"stdout","time":21073.883258755,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.893528217,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3249\n"}
+,{"stream_name":"stdout","time":21073.903238061,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":21073.903490675,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.90679762,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":21073.925224969,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4447\n"}
+,{"stream_name":"stdout","time":21073.925262411,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.93692003,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3794\n"}
+,{"stream_name":"stdout","time":21073.938109886,"data":"LOADED ip/harvest/shodan_shard_00.txt new=281\n"}
+,{"stream_name":"stdout","time":21073.95664311,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=7077\n"}
+,{"stream_name":"stdout","time":21073.984986929,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10051\n"}
+,{"stream_name":"stdout","time":21073.985039328,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.985047378,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.985173406,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.988391509,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":21073.994781928,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=2166\n"}
+,{"stream_name":"stdout","time":21073.994866923,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":21073.998274773,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=819\n"}
+,{"stream_name":"stdout","time":21074.018442084,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=7041\n"}
+,{"stream_name":"stdout","time":21074.021155233,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":21074.028406335,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":21074.046850183,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7023\n"}
+,{"stream_name":"stdout","time":21074.061229283,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5263\n"}
+,{"stream_name":"stdout","time":21074.073846848,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4702\n"}
+,{"stream_name":"stdout","time":21074.084996674,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3912\n"}
+,{"stream_name":"stdout","time":21074.091227399,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2059\n"}
+,{"stream_name":"stdout","time":21074.091266635,"data":"TOTAL_CANDIDATES=375997\n"}
+,{"stream_name":"stdout","time":21074.091272789,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":21119.981266717,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":21119.981311716,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":25011.189767056,"data":"  checked 5000/375997 alive_batch=76 persistent_total=946\n"}
+,{"stream_name":"stdout","time":25011.222153747,"data":"  checked 10000/375997 alive_batch=85 persistent_total=954\n"}
+,{"stream_name":"stdout","time":25011.279322005,"data":"  checked 15000/375997 alive_batch=87 persistent_total=956\n"}
+,{"stream_name":"stdout","time":25011.447614898,"data":"  checked 20000/375997 alive_batch=88 persistent_total=957\n"}
+,{"stream_name":"stdout","time":25011.48750052,"data":"  checked 25000/375997 alive_batch=88 persistent_total=957\n"}
+,{"stream_name":"stdout","time":25011.523242454,"data":"  checked 30000/375997 alive_batch=96 persistent_total=964\n"}
+,{"stream_name":"stdout","time":25011.577878935,"data":"  checked 35000/375997 alive_batch=98 persistent_total=965\n"}
+,{"stream_name":"stdout","time":25011.618170614,"data":"  checked 40000/375997 alive_batch=100 persistent_total=967\n"}
+,{"stream_name":"stdout","time":25011.642037885,"data":"  checked 45000/375997 alive_batch=102 persistent_total=969\n"}
+,{"stream_name":"stdout","time":25011.671910782,"data":"  checked 50000/375997 alive_batch=104 persistent_total=970\n"}
+,{"stream_name":"stdout","time":25011.695096386,"data":"  checked 55000/375997 alive_batch=105 persistent_total=971\n"}
+,{"stream_name":"stdout","time":25011.73430359,"data":"  checked 60000/375997 alive_batch=113 persistent_total=976\n"}
+,{"stream_name":"stdout","time":25011.766254616,"data":"  checked 65000/375997 alive_batch=115 persistent_total=978\n"}
+,{"stream_name":"stdout","time":25011.786060136,"data":"  checked 70000/375997 alive_batch=115 persistent_total=978\n"}
+,{"stream_name":"stdout","time":25011.809507252,"data":"  checked 75000/375997 alive_batch=115 persistent_total=978\n"}
+,{"stream_name":"stdout","time":25011.825185032,"data":"  checked 80000/375997 alive_batch=115 persistent_total=978\n"}
+,{"stream_name":"stdout","time":25011.848366019,"data":"  checked 85000/375997 alive_batch=121 persistent_total=983\n"}
+,{"stream_name":"stdout","time":25011.869163205,"data":"  checked 90000/375997 alive_batch=129 persistent_total=990\n"}
+,{"stream_name":"stdout","time":25011.885047698,"data":"  checked 95000/375997 alive_batch=129 persistent_total=990\n"}
+,{"stream_name":"stdout","time":25011.901767023,"data":"  checked 100000/375997 alive_batch=129 persistent_total=990\n"}
+,{"stream_name":"stdout","time":25011.922249492,"data":"  checked 105000/375997 alive_batch=131 persistent_total=991\n"}
+,{"stream_name":"stdout","time":25011.937851946,"data":"  checked 110000/375997 alive_batch=139 persistent_total=995\n"}
+,{"stream_name":"stdout","time":25011.955034186,"data":"  checked 115000/375997 alive_batch=141 persistent_total=997\n"}
+,{"stream_name":"stdout","time":25011.97132418,"data":"  checked 120000/375997 alive_batch=142 persistent_total=998\n"}
+,{"stream_name":"stdout","time":25011.990566368,"data":"  checked 125000/375997 alive_batch=143 persistent_total=999\n"}
+,{"stream_name":"stdout","time":25012.022196674,"data":"  checked 130000/375997 alive_batch=149 persistent_total=1005\n"}
+,{"stream_name":"stdout","time":25012.042462484,"data":"  checked 135000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.060736718,"data":"  checked 140000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.079893569,"data":"  checked 145000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.11083319,"data":"  checked 150000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.128640639,"data":"  checked 155000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.145052225,"data":"  checked 160000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.168584743,"data":"  checked 165000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.194989381,"data":"  checked 170000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.215427598,"data":"  checked 175000/375997 alive_batch=150 persistent_total=1006\n"}
+,{"stream_name":"stdout","time":25012.229726945,"data":"  checked 180000/375997 alive_batch=151 persistent_total=1007\n"}
+,{"stream_name":"stdout","time":25012.248840885,"data":"  checked 185000/375997 alive_batch=152 persistent_total=1008\n"}
+,{"stream_name":"stdout","time":25012.264680647,"data":"  checked 190000/375997 alive_batch=152 persistent_total=1008\n"}
+,{"stream_name":"stdout","time":25012.279484901,"data":"  checked 195000/375997 alive_batch=154 persistent_total=1010\n"}
+,{"stream_name":"stdout","time":25012.296830068,"data":"  checked 200000/375997 alive_batch=154 persistent_total=1010\n"}
+,{"stream_name":"stdout","time":25012.316602316,"data":"  checked 205000/375997 alive_batch=157 persistent_total=1013\n"}
+,{"stream_name":"stdout","time":25012.332698404,"data":"  checked 210000/375997 alive_batch=161 persistent_total=1017\n"}
+,{"stream_name":"stdout","time":25012.353005718,"data":"  checked 215000/375997 alive_batch=162 persistent_total=1018\n"}
+,{"stream_name":"stdout","time":25012.369950396,"data":"  checked 220000/375997 alive_batch=165 persistent_total=1019\n"}
+,{"stream_name":"stdout","time":25012.38985406,"data":"  checked 225000/375997 alive_batch=172 persistent_total=1024\n"}
+,{"stream_name":"stdout","time":25012.410683077,"data":"  checked 230000/375997 alive_batch=177 persistent_total=1028\n"}
+,{"stream_name":"stdout","time":25012.430240207,"data":"  checked 235000/375997 alive_batch=182 persistent_total=1030\n"}
+,{"stream_name":"stdout","time":25012.446744426,"data":"  checked 240000/375997 alive_batch=188 persistent_total=1035\n"}
+,{"stream_name":"stdout","time":25012.466273597,"data":"  checked 245000/375997 alive_batch=188 persistent_total=1035\n"}
+,{"stream_name":"stdout","time":25012.481467625,"data":"  checked 250000/375997 alive_batch=192 persistent_total=1038\n"}
+,{"stream_name":"stdout","time":25012.513799723,"data":"  checked 255000/375997 alive_batch=209 persistent_total=1051\n"}
+,{"stream_name":"stdout","time":25012.535073602,"data":"  checked 260000/375997 alive_batch=235 persistent_total=1069\n"}
+,{"stream_name":"stdout","time":25012.555421955,"data":"  checked 265000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.578004736,"data":"  checked 270000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.615949876,"data":"  checked 275000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.633554677,"data":"  checked 280000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.662999638,"data":"  checked 285000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.689293049,"data":"  checked 290000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.715051416,"data":"  checked 295000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.731846425,"data":"  checked 300000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.748816268,"data":"  checked 305000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.766078037,"data":"  checked 310000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.784977141,"data":"  checked 315000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.805392146,"data":"  checked 320000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.824139439,"data":"  checked 325000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.845525087,"data":"  checked 330000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.864746677,"data":"  checked 335000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.891654869,"data":"  checked 340000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.917706261,"data":"  checked 345000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.935985737,"data":"  checked 350000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.959156441,"data":"  checked 355000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25012.982440097,"data":"  checked 360000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25013.02285706,"data":"  checked 365000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25013.049979283,"data":"  checked 370000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25016.588624712,"data":"  checked 375000/375997 alive_batch=251 persistent_total=1076\n"}
+,{"stream_name":"stdout","time":25018.052607705,"data":"CYCLE_SUMMARY: batch_checked=375997 batch_survived=251 persistent_before_prune=1076 in 3898.1s\n"}
+,{"stream_name":"stdout","time":25018.055629773,"data":"PRUNING: dropped=128 remaining=948 (retention window: 1 pass, last_seen \u003e= 6)\n"}
+,{"stream_name":"stdout","time":25022.831350525,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":25022.831409203,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":25322.831696304,"data":"\n"}
+,{"stream_name":"stdout","time":25322.831789913,"data":"--- VERIFICATION CYCLE 8 ---\n"}
+,{"stream_name":"stderr","time":25323.104089303,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":25323.10416512,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":25323.132917233,"data":"HEAD is now at 3579670 cl_verify: cycle 7 PASS_SURVIVORS=251 pool_after_prune=948 candidates=375997\n"}
+,{"stream_name":"stdout","time":25323.137538563,"data":"PERSISTENT_ALIVE_POOL=948\n"}
+,{"stream_name":"stdout","time":25323.865270577,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":25323.86806054,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":25323.882974575,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":25323.885071971,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":25323.887474943,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":25323.902382335,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=5662\n"}
+,{"stream_name":"stdout","time":25323.904153073,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":25323.906175107,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":25323.92908839,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8574\n"}
+,{"stream_name":"stdout","time":25323.929143669,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":25323.944940134,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=5403\n"}
+,{"stream_name":"stdout","time":25323.944981992,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":25323.952399646,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2692\n"}
+,{"stream_name":"stdout","time":25323.960728529,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2902\n"}
+,{"stream_name":"stdout","time":25323.965923295,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":25323.983219851,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6559\n"}
+,{"stream_name":"stdout","time":25323.983273726,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":25323.997498745,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=5421\n"}
+,{"stream_name":"stdout","time":25323.997535805,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.00609007,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3252\n"}
+,{"stream_name":"stdout","time":25324.014899978,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":25324.014940483,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.018381258,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":25324.036182477,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4444\n"}
+,{"stream_name":"stdout","time":25324.036223428,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.046180602,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3794\n"}
+,{"stream_name":"stdout","time":25324.047051468,"data":"LOADED ip/harvest/shodan_shard_00.txt new=281\n"}
+,{"stream_name":"stdout","time":25324.065763014,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=7263\n"}
+,{"stream_name":"stdout","time":25324.091859703,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10052\n"}
+,{"stream_name":"stdout","time":25324.091901502,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.09233307,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.092357676,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.09505315,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":25324.099848654,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=1687\n"}
+,{"stream_name":"stdout","time":25324.099899235,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":25324.102345765,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=819\n"}
+,{"stream_name":"stdout","time":25324.122013035,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=7041\n"}
+,{"stream_name":"stdout","time":25324.124148039,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":25324.130916297,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":25324.150164478,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7024\n"}
+,{"stream_name":"stdout","time":25324.164156516,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=5263\n"}
+,{"stream_name":"stdout","time":25324.176489281,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=4702\n"}
+,{"stream_name":"stdout","time":25324.186957063,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3912\n"}
+,{"stream_name":"stdout","time":25324.192740174,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2059\n"}
+,{"stream_name":"stdout","time":25324.192780686,"data":"TOTAL_CANDIDATES=375903\n"}
+,{"stream_name":"stdout","time":25324.192785526,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":25352.579574777,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":25352.579624652,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":26837.602044244,"data":"  checked 5000/375903 alive_batch=29 persistent_total=952\n"}
+,{"stream_name":"stdout","time":26837.627496998,"data":"  checked 10000/375903 alive_batch=30 persistent_total=952\n"}
+,{"stream_name":"stdout","time":26837.649991873,"data":"  checked 15000/375903 alive_batch=30 persistent_total=952\n"}
+,{"stream_name":"stdout","time":26837.695806644,"data":"  checked 20000/375903 alive_batch=30 persistent_total=952\n"}
+,{"stream_name":"stdout","time":26837.731838928,"data":"  checked 25000/375903 alive_batch=30 persistent_total=952\n"}
+,{"stream_name":"stdout","time":26837.748230008,"data":"  checked 30000/375903 alive_batch=30 persistent_total=952\n"}
+,{"stream_name":"stdout","time":26837.767120339,"data":"  checked 35000/375903 alive_batch=31 persistent_total=953\n"}
+,{"stream_name":"stdout","time":26837.786684604,"data":"  checked 40000/375903 alive_batch=42 persistent_total=963\n"}
+,{"stream_name":"stdout","time":26837.810221517,"data":"  checked 45000/375903 alive_batch=44 persistent_total=965\n"}
+,{"stream_name":"stdout","time":26837.834040562,"data":"  checked 50000/375903 alive_batch=58 persistent_total=975\n"}
+,{"stream_name":"stdout","time":26837.857045852,"data":"  checked 55000/375903 alive_batch=73 persistent_total=988\n"}
+,{"stream_name":"stdout","time":26837.930661993,"data":"  checked 60000/375903 alive_batch=199 persistent_total=1079\n"}
+,{"stream_name":"stdout","time":26837.955226719,"data":"  checked 65000/375903 alive_batch=239 persistent_total=1114\n"}
+,{"stream_name":"stdout","time":26837.991145079,"data":"  checked 70000/375903 alive_batch=239 persistent_total=1114\n"}
+,{"stream_name":"stdout","time":26838.016579616,"data":"  checked 75000/375903 alive_batch=240 persistent_total=1115\n"}
+,{"stream_name":"stdout","time":26838.04289038,"data":"  checked 80000/375903 alive_batch=240 persistent_total=1115\n"}
+,{"stream_name":"stdout","time":26838.065529043,"data":"  checked 85000/375903 alive_batch=247 persistent_total=1122\n"}
+,{"stream_name":"stdout","time":26838.09009854,"data":"  checked 90000/375903 alive_batch=251 persistent_total=1124\n"}
+,{"stream_name":"stdout","time":26838.139066251,"data":"  checked 95000/375903 alive_batch=251 persistent_total=1124\n"}
+,{"stream_name":"stdout","time":26838.158372879,"data":"  checked 100000/375903 alive_batch=254 persistent_total=1125\n"}
+,{"stream_name":"stdout","time":26838.173712708,"data":"  checked 105000/375903 alive_batch=260 persistent_total=1131\n"}
+,{"stream_name":"stdout","time":26838.188526351,"data":"  checked 110000/375903 alive_batch=264 persistent_total=1134\n"}
+,{"stream_name":"stdout","time":26838.207442003,"data":"  checked 115000/375903 alive_batch=272 persistent_total=1141\n"}
+,{"stream_name":"stdout","time":26838.223296977,"data":"  checked 120000/375903 alive_batch=273 persistent_total=1142\n"}
+,{"stream_name":"stdout","time":26838.236681102,"data":"  checked 125000/375903 alive_batch=276 persistent_total=1144\n"}
+,{"stream_name":"stdout","time":26838.254427021,"data":"  checked 130000/375903 alive_batch=276 persistent_total=1144\n"}
+,{"stream_name":"stdout","time":26838.270760066,"data":"  checked 135000/375903 alive_batch=284 persistent_total=1152\n"}
+,{"stream_name":"stdout","time":26838.287066047,"data":"  checked 140000/375903 alive_batch=284 persistent_total=1152\n"}
+,{"stream_name":"stdout","time":26838.306269197,"data":"  checked 145000/375903 alive_batch=289 persistent_total=1157\n"}
+,{"stream_name":"stdout","time":26838.323291262,"data":"  checked 150000/375903 alive_batch=289 persistent_total=1157\n"}
+,{"stream_name":"stdout","time":26838.3419879,"data":"  checked 155000/375903 alive_batch=289 persistent_total=1157\n"}
+,{"stream_name":"stdout","time":26839.986194497,"data":"  checked 160000/375903 alive_batch=289 persistent_total=1157\n"}
+,{"stream_name":"stdout","time":26848.841174037,"data":"  checked 165000/375903 alive_batch=289 persistent_total=1157\n"}
+,{"stream_name":"stdout","time":26959.708856989,"data":"  checked 170000/375903 alive_batch=302 persistent_total=1170\n"}
+,{"stream_name":"stdout","time":27019.147660611,"data":"  checked 175000/375903 alive_batch=302 persistent_total=1170\n"}
+,{"stream_name":"stdout","time":27090.546571578,"data":"  checked 180000/375903 alive_batch=304 persistent_total=1172\n"}
+,{"stream_name":"stdout","time":27132.35523228,"data":"  checked 185000/375903 alive_batch=304 persistent_total=1172\n"}
+,{"stream_name":"stdout","time":27238.799362535,"data":"  checked 190000/375903 alive_batch=304 persistent_total=1172\n"}
+,{"stream_name":"stdout","time":27302.273851155,"data":"  checked 195000/375903 alive_batch=304 persistent_total=1172\n"}
+,{"stream_name":"stdout","time":27376.988076921,"data":"  checked 200000/375903 alive_batch=305 persistent_total=1173\n"}
+,{"stream_name":"stdout","time":27425.817376192,"data":"  checked 205000/375903 alive_batch=305 persistent_total=1173\n"}
+,{"stream_name":"stdout","time":27474.006988029,"data":"  checked 210000/375903 alive_batch=306 persistent_total=1174\n"}
+,{"stream_name":"stdout","time":27533.700325468,"data":"  checked 215000/375903 alive_batch=306 persistent_total=1174\n"}
+,{"stream_name":"stdout","time":27614.799086235,"data":"  checked 220000/375903 alive_batch=308 persistent_total=1176\n"}
+,{"stream_name":"stdout","time":27695.648269935,"data":"  checked 225000/375903 alive_batch=314 persistent_total=1181\n"}
+,{"stream_name":"stdout","time":27793.974860816,"data":"  checked 230000/375903 alive_batch=321 persistent_total=1185\n"}
+,{"stream_name":"stdout","time":27856.021904502,"data":"  checked 235000/375903 alive_batch=326 persistent_total=1188\n"}
+,{"stream_name":"stdout","time":27926.406401591,"data":"  checked 240000/375903 alive_batch=330 persistent_total=1190\n"}
+,{"stream_name":"stdout","time":27995.282757083,"data":"  checked 245000/375903 alive_batch=330 persistent_total=1190\n"}
+,{"stream_name":"stdout","time":28029.560467085,"data":"  checked 250000/375903 alive_batch=331 persistent_total=1191\n"}
+,{"stream_name":"stdout","time":28078.020727889,"data":"  checked 255000/375903 alive_batch=343 persistent_total=1197\n"}
+,{"stream_name":"stdout","time":28149.210613404,"data":"  checked 260000/375903 alive_batch=359 persistent_total=1210\n"}
+,{"stream_name":"stdout","time":28200.08946369,"data":"  checked 265000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28242.062778776,"data":"  checked 270000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28294.934162971,"data":"  checked 275000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28364.012599088,"data":"  checked 280000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28434.149683555,"data":"  checked 285000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28543.608698719,"data":"  checked 290000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28675.974011732,"data":"  checked 295000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28765.481553313,"data":"  checked 300000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28828.504684871,"data":"  checked 305000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28864.529767962,"data":"  checked 310000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28938.36753023,"data":"  checked 315000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":28974.930714062,"data":"  checked 320000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29017.821169412,"data":"  checked 325000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29063.166476352,"data":"  checked 330000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29129.567266449,"data":"  checked 335000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29137.35826038,"data":"  checked 340000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29137.397249834,"data":"  checked 345000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29137.426193089,"data":"  checked 350000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29137.464167261,"data":"  checked 355000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29137.507320314,"data":"  checked 360000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29137.529460784,"data":"  checked 365000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29140.021345843,"data":"  checked 370000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29142.733930854,"data":"  checked 375000/375903 alive_batch=374 persistent_total=1223\n"}
+,{"stream_name":"stdout","time":29143.730382501,"data":"CYCLE_SUMMARY: batch_checked=375903 batch_survived=374 persistent_before_prune=1223 in 3791.2s\n"}
+,{"stream_name":"stdout","time":29143.734265592,"data":"PRUNING: dropped=267 remaining=956 (retention window: 1 pass, last_seen \u003e= 7)\n"}
+,{"stream_name":"stdout","time":29146.375900305,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":29146.375961426,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":29446.376196254,"data":"\n"}
+,{"stream_name":"stdout","time":29446.376277182,"data":"--- VERIFICATION CYCLE 9 ---\n"}
+,{"stream_name":"stderr","time":29446.826487772,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":29446.826525433,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stderr","time":29446.827579595,"data":"   f56624c..83ec8a8  main       -\u003e origin/main\n"}
+,{"stream_name":"stdout","time":29446.885032976,"data":"HEAD is now at 83ec8a8 Merge remote-tracking branch 'origin/main'\n"}
+,{"stream_name":"stdout","time":29446.889720338,"data":"PERSISTENT_ALIVE_POOL=956\n"}
+,{"stream_name":"stdout","time":29447.777499258,"data":"LOADED ip/harvest/feeds_raw.txt new=250370\n"}
+,{"stream_name":"stdout","time":29447.780828231,"data":"LOADED ip/harvest/leakix.txt new=925\n"}
+,{"stream_name":"stdout","time":29447.800271809,"data":"LOADED ip/harvest/hits_new_exits.txt new=13400\n"}
+,{"stream_name":"stdout","time":29447.802813903,"data":"LOADED ip/harvest/net_new.txt new=45\n"}
+,{"stream_name":"stdout","time":29447.805365055,"data":"LOADED ip/harvest/shodan_shard_10.txt new=764\n"}
+,{"stream_name":"stdout","time":29447.825842876,"data":"LOADED ip/harvest/shodan_shard_v98_05.txt new=6447\n"}
+,{"stream_name":"stdout","time":29447.827501497,"data":"LOADED ip/harvest/shodan_shard_06.txt new=534\n"}
+,{"stream_name":"stdout","time":29447.830229883,"data":"LOADED ip/harvest/shodan_shard_11.txt new=680\n"}
+,{"stream_name":"stdout","time":29447.859536051,"data":"LOADED ip/harvest/shodan_shard_v98_10.txt new=8904\n"}
+,{"stream_name":"stdout","time":29447.859583921,"data":"LOADED ip/harvest/shodan_shard_16.txt new=0\n"}
+,{"stream_name":"stdout","time":29447.877150025,"data":"LOADED ip/harvest/shodan_shard_v98_19.txt new=5622\n"}
+,{"stream_name":"stdout","time":29447.877229731,"data":"LOADED ip/harvest/shodan_shard_17.txt new=0\n"}
+,{"stream_name":"stdout","time":29447.8849498,"data":"LOADED ip/harvest/shodan_shard_v98_02.txt new=2709\n"}
+,{"stream_name":"stdout","time":29447.893455462,"data":"LOADED ip/harvest/shodan_shard_v98_11.txt new=2913\n"}
+,{"stream_name":"stdout","time":29447.898953416,"data":"LOADED ip/harvest/shodan_shard_01.txt new=1710\n"}
+,{"stream_name":"stdout","time":29447.918283131,"data":"LOADED ip/harvest/shodan_shard_v98_07.txt new=6584\n"}
+,{"stream_name":"stdout","time":29447.918362421,"data":"LOADED ip/harvest/shodan_shard_12.txt new=0\n"}
+,{"stream_name":"stdout","time":29447.936759964,"data":"LOADED ip/harvest/shodan_shard_v98_01.txt new=6455\n"}
+,{"stream_name":"stdout","time":29447.93683535,"data":"LOADED ip/harvest/shodan_shard_03.txt new=0\n"}
+,{"stream_name":"stdout","time":29447.946042431,"data":"LOADED ip/harvest/shodan_shard_v98_13.txt new=3266\n"}
+,{"stream_name":"stdout","time":29447.955340098,"data":"LOADED ip/harvest/shodan_shard_02.txt new=3240\n"}
+,{"stream_name":"stdout","time":29447.955392614,"data":"LOADED ip/harvest/shodan_shard_18.txt new=0\n"}
+,{"stream_name":"stdout","time":29447.968163496,"data":"LOADED ip/harvest/shodan_shard_13.txt new=1190\n"}
+,{"stream_name":"stdout","time":29447.980793651,"data":"LOADED ip/harvest/shodan_shard_v98_06.txt new=4460\n"}
+,{"stream_name":"stdout","time":29447.9808415,"data":"LOADED ip/harvest/shodan_shard_07.txt new=0\n"}
+,{"stream_name":"stdout","time":29447.992228011,"data":"LOADED ip/harvest/shodan_shard_v98_16.txt new=3810\n"}
+,{"stream_name":"stdout","time":29447.99347783,"data":"LOADED ip/harvest/shodan_shard_00.txt new=281\n"}
+,{"stream_name":"stdout","time":29448.017211497,"data":"LOADED ip/harvest/shodan_shard_v98_04.txt new=8235\n"}
+,{"stream_name":"stdout","time":29448.045266535,"data":"LOADED ip/harvest/shodan_shard_v98_03.txt new=10065\n"}
+,{"stream_name":"stdout","time":29448.045318343,"data":"LOADED ip/harvest/shodan_shard_19.txt new=0\n"}
+,{"stream_name":"stdout","time":29448.045329353,"data":"LOADED ip/harvest/shodan_shard_08.txt new=0\n"}
+,{"stream_name":"stdout","time":29448.045400909,"data":"LOADED ip/harvest/shodan_shard_04.txt new=0\n"}
+,{"stream_name":"stdout","time":29448.048572608,"data":"LOADED ip/harvest/shodan_shard_14.txt new=992\n"}
+,{"stream_name":"stdout","time":29448.056256284,"data":"LOADED ip/harvest/shodan_shard_v98_00.txt new=2607\n"}
+,{"stream_name":"stdout","time":29448.056314911,"data":"LOADED ip/harvest/shodan_shard_05.txt new=0\n"}
+,{"stream_name":"stdout","time":29448.059280621,"data":"LOADED ip/harvest/shodan_shard_v98_14.txt new=833\n"}
+,{"stream_name":"stdout","time":29448.081655394,"data":"LOADED ip/harvest/shodan_shard_v98_12.txt new=7055\n"}
+,{"stream_name":"stdout","time":29448.084201786,"data":"LOADED ip/harvest/shodan_shard_15.txt new=733\n"}
+,{"stream_name":"stdout","time":29448.092162709,"data":"LOADED ip/harvest/shodan_shard_09.txt new=2514\n"}
+,{"stream_name":"stdout","time":29448.113422224,"data":"LOADED ip/harvest/shodan_shard_v98_08.txt new=7040\n"}
+,{"stream_name":"stdout","time":29448.133861214,"data":"LOADED ip/harvest/shodan_shard_v98_17.txt new=6115\n"}
+,{"stream_name":"stdout","time":29448.149444198,"data":"LOADED ip/harvest/shodan_shard_v98_09.txt new=5333\n"}
+,{"stream_name":"stdout","time":29448.161498166,"data":"LOADED ip/harvest/shodan_shard_v98_15.txt new=3925\n"}
+,{"stream_name":"stdout","time":29448.168974404,"data":"LOADED ip/harvest/shodan_shard_v98_18.txt new=2516\n"}
+,{"stream_name":"stdout","time":29448.169017385,"data":"TOTAL_CANDIDATES=382272\n"}
+,{"stream_name":"stdout","time":29448.169024781,"data":"STEP: warm-up pass\n"}
+,{"stream_name":"stdout","time":29478.903023646,"data":"WARMUP_DONE\n"}
+,{"stream_name":"stdout","time":29478.903075244,"data":"STEP: verify with 4000 workers, timeout=3s\n"}
+,{"stream_name":"stdout","time":32533.760985475,"data":"HARD_STOP during verification\n"}
+,{"stream_name":"stdout","time":32540.054290313,"data":"CYCLE_SUMMARY: batch_checked=382272 batch_survived=0 persistent_before_prune=956 in 3061.2s\n"}
+,{"stream_name":"stdout","time":32540.057187503,"data":"PRUNING: dropped=216 remaining=740 (retention window: 1 pass, last_seen \u003e= 8)\n"}
+,{"stream_name":"stdout","time":32542.817600432,"data":"GIT_PUSH_OK\n"}
+,{"stream_name":"stdout","time":32542.817671078,"data":"Sleeping 300s (5 minutes) before next verification pass...\n"}
+,{"stream_name":"stdout","time":32842.817754468,"data":"\n"}
+,{"stream_name":"stdout","time":32842.817822446,"data":"--- VERIFICATION CYCLE 10 ---\n"}
+,{"stream_name":"stdout","time":32842.817829471,"data":"HARD_STOP reached (32842s). Exiting.\n"}
+,{"stream_name":"stdout","time":32842.817839317,"data":"ALL_DONE\n"}
+,{"stream_name":"stderr","time":32847.453343192,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":32847.453388704,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":32848.250338571,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":32848.250383606,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":32851.319851012,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":32853.285202479,"data":"[NbConvertApp] Writing 349344 bytes to __results__.html\n"}
+]
