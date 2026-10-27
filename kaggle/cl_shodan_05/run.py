@@ -43,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.152"
+ENGINE_VER = "v98.153"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -449,88 +449,122 @@ def load_candidates():
     return out
 
 async def build_pool(items):
-    pool = []
+    high_pri_pool = []  # 200, 404
+    low_pri_pool = []   # 429, 403, other
     fail_counts = {"connect_error": 0, "timeout": 0, "bad_status": 0, "other": 0}
     status_counts = {"200": 0, "404": 0, "429": 0, "403": 0, "407": 0, "other": 0}
+    other_types = {}
     sem = asyncio.Semaphore(600)
+
+    def record_other(proto_tag, e):
+        name = type(e).__name__
+        count = other_types.get(name, 0)
+        other_types[name] = count + 1
+        if count < 10:
+            print(f"[build_pool_other] {proto_tag} {name}: {e}", flush=True)
+
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
+        async def try_http(addr):
+            try:
+                async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=8) as r:
+                    st_k = str(r.status)
+                    status_counts[st_k if st_k in status_counts else "other"] += 1
+                    if r.status < 500 and r.status != 407:
+                        return r.status
+                    return "bad_status"
+            except asyncio.TimeoutError:
+                return "timeout"
+            except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                    aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                return "connect_error"
+            except Exception as e:
+                record_other("http", e)
+                return "other"
+
+        async def try_socks5(addr):
+            if not HAVE_SOCKS:
+                record_other("socks5", RuntimeError("aiohttp_socks not available"))
+                return "other"
+            try:
+                conn = ProxyConnector.from_url(f"socks5://{addr}")
+                async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
+                    async with s.get(BASE + rand_ip(), timeout=8) as r:
+                        st_k = str(r.status)
+                        status_counts[st_k if st_k in status_counts else "other"] += 1
+                        if r.status < 500 and r.status != 407:
+                            return r.status
+                        return "bad_status"
+            except asyncio.TimeoutError:
+                return "timeout"
+            except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                    aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                return "connect_error"
+            except Exception as e:
+                record_other("socks5", e)
+                return "other"
+
         async def v(item):
             addr, proto = item
             last_err = None
             async with sem:
                 if proto == "socks5":
-                    if not HAVE_SOCKS:
-                        fail_counts["other"] += 1
+                    # STEP 1: Try socks5, if it fails retry once as http before rejecting
+                    res = await try_socks5(addr)
+                    if isinstance(res, int):
+                        if res in (200, 404):
+                            high_pri_pool.append((addr, "socks5"))
+                        else:
+                            low_pri_pool.append((addr, "socks5"))
                         return
-                    for _ in range(2):
-                        try:
-                            conn = ProxyConnector.from_url(f"socks5://{addr}")
-                            async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=8) as r:
-                                    st_k = str(r.status)
-                                    status_counts[st_k if st_k in status_counts else "other"] += 1
-                                    if r.status < 500 and r.status != 407:
-                                        pool.append((addr, "socks5"))
-                                        return
-                                    else:
-                                        last_err = "bad_status"
-                        except asyncio.TimeoutError:
-                            last_err = "timeout"
-                        except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
-                                aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
-                            last_err = "connect_error"
-                        except Exception:
-                            last_err = "other"
+                    last_err = res
+                    # Retry once as http
+                    res_http = await try_http(addr)
+                    if isinstance(res_http, int):
+                        if res_http in (200, 404):
+                            high_pri_pool.append((addr, "http"))
+                        else:
+                            low_pri_pool.append((addr, "http"))
+                        return
+                    last_err = res_http
                 else:
-                    # proto == "http"
-                    http_ok = False
-                    for _ in range(2):
-                        try:
-                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=8) as r:
-                                st_k = str(r.status)
-                                status_counts[st_k if st_k in status_counts else "other"] += 1
-                                if r.status < 500 and r.status != 407:
-                                    pool.append((addr, "http"))
-                                    http_ok = True
-                                    return
-                                else:
-                                    last_err = "bad_status"
-                        except asyncio.TimeoutError:
-                            last_err = "timeout"
-                        except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
-                                aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
-                            last_err = "connect_error"
-                        except Exception:
-                            last_err = "other"
-                    # If http failed, try one socks5 attempt before discarding
-                    if not http_ok and HAVE_SOCKS:
-                        try:
-                            conn = ProxyConnector.from_url(f"socks5://{addr}")
-                            async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=8) as r:
-                                    st_k = str(r.status)
-                                    status_counts[st_k if st_k in status_counts else "other"] += 1
-                                    if r.status < 500 and r.status != 407:
-                                        pool.append((addr, "socks5"))
-                                        return
-                                    else:
-                                        last_err = "bad_status"
-                        except asyncio.TimeoutError:
-                            last_err = "timeout"
-                        except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
-                                aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
-                            last_err = "connect_error"
-                        except Exception:
-                            last_err = "other"
-            if last_err:
+                    # proto == "http": Try http, if it fails retry once as socks5 before rejecting
+                    res = await try_http(addr)
+                    if isinstance(res, int):
+                        if res in (200, 404):
+                            high_pri_pool.append((addr, "http"))
+                        else:
+                            low_pri_pool.append((addr, "http"))
+                        return
+                    last_err = res
+                    # Retry once as socks5
+                    if HAVE_SOCKS:
+                        res_s5 = await try_socks5(addr)
+                        if isinstance(res_s5, int):
+                            if res_s5 in (200, 404):
+                                high_pri_pool.append((addr, "socks5"))
+                            else:
+                                low_pri_pool.append((addr, "socks5"))
+                            return
+                        last_err = res_s5
+
+            if last_err and last_err in fail_counts:
                 fail_counts[last_err] += 1
 
         await asyncio.gather(*[v(i) for i in items], return_exceptions=True)
+
+    # STEP 3: Prioritise real responses: 200/404 at front, 429/403 at back
+    pool = high_pri_pool + low_pri_pool
     log(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}")
+    print(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}", flush=True)
     log(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}")
     print(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}", flush=True)
+    if other_types:
+        log(f"[build_pool_other_types] {other_types}")
+        print(f"[build_pool_other_types] {other_types}", flush=True)
+    else:
+        log(f"[build_pool_other_types] none (other=0)")
+        print(f"[build_pool_other_types] none (other=0)", flush=True)
     return pool
-
 
 class HttpStatus(int):
     def __new__(cls, val, ports=None):
