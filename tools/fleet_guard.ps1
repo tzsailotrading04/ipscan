@@ -99,4 +99,39 @@ foreach ($acct in $map.Keys) {
     }
 }
 
+# Check and revive cl_verify (under acct5 / remruata)
+$verifyTok = "$root\kaggle\acct5\access_token"
+if (Test-Path $verifyTok) {
+    $env:KAGGLE_API_TOKEN = (Get-Content $verifyTok -Raw).Trim()
+    $vMetaPath = "$root\kaggle\cl_verify\kernel-metadata.json"
+    if (Test-Path $vMetaPath) {
+        $vMeta = Get-Content $vMetaPath -Raw | ConvertFrom-Json
+        $vkid = $vMeta.id
+        $vStatusOut = (kaggle kernels status $vkid 2>&1 | Out-String).Trim()
+        $vkStatus = "UNKNOWN"
+        foreach ($line in $vStatusOut -split "`n") {
+            if ($line -match 'status "([^"]+)"') { $vkStatus = $matches[1] }
+            elseif ($line -match 'status ([a-zA-Z0-9_\.]+)') { $vkStatus = $matches[1] }
+        }
+        if (-not $STOPPED -and ($vkStatus -match "COMPLETE|ERROR|CANCELLED")) {
+            Log-Msg "Kernel cl_verify ($vkid) is $vkStatus, reviving..."
+            $pushed = $false
+            for ($t = 1; $t -le 3; $t++) {
+                $pushOut = (kaggle kernels push -p "$root\kaggle\cl_verify" 2>&1 | Out-String).Trim()
+                if ($pushOut -match "409|Conflict") { Start-Sleep 5; continue }
+                $pushed = $true
+                break
+            }
+            if ($pushed) {
+                Log-Msg "Re-pushed cl_verify successfully."
+                $restartedCount++
+            } else {
+                Log-Msg "Failed to re-push cl_verify: $pushOut"
+            }
+        } else {
+            Log-Msg "Kernel cl_verify: status=$vkStatus"
+        }
+    }
+}
+
 Log-Msg "=== Guard check complete. Healthy: $healthyCount/20, Restarted: $restartedCount ==="
