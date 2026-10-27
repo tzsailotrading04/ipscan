@@ -14,7 +14,7 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-PER_PROXY_CAP = 8.0
+PER_PROXY_CAP = 4.0
 PROXY_POOL = []          # list of (addr, proto)
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
@@ -36,7 +36,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.125"
+ENGINE_VER = "v98.126"
 OUT_PREFIX = "v98_"
 OUT_HANDLE = None
 
@@ -406,7 +406,7 @@ async def fetch_ip(session, ip, pacer):
                         except (ValueError, TypeError):
                             ra_val = 60.0
                         if use_proxy:
-                            BANNED[addr] = time.monotonic() + min(ra_val, 3600.0)
+                            BANNED[addr] = time.monotonic() + min(ra_val, 600.0)
                             STATS_BANNED_TOTAL += 1
                 pacer.on_result(r.status, ra)
                 ports = []
@@ -625,10 +625,25 @@ async def async_main():
             if STOPPING:
                 break
             try:
-                if not mine:
+                sample_batch = random.sample(mine, min(400, len(mine))) if mine else []
+                shard_cands = []
+                if os.path.exists(out_shard_file):
+                    try:
+                        if OUT_HANDLE:
+                            OUT_HANDLE.flush()
+                        with open(out_shard_file, "r", encoding="utf-8", errors="ignore") as sf:
+                            lines = sf.readlines()
+                            for l in lines[-500:]:
+                                l = l.strip()
+                                if l and ":" in l and not l.startswith(("<", "=", ">")):
+                                    addr = l.split()[0].split("\t")[0]
+                                    shard_cands.append((addr, "http"))
+                    except Exception:
+                        pass
+                combined = sample_batch + [item for item in shard_cands if item not in sample_batch]
+                if not combined:
                     continue
-                sample_batch = random.sample(mine, min(400, len(mine)))
-                fresh = await build_pool(sample_batch)
+                fresh = await build_pool(combined)
                 curr_set = set(PROXY_POOL)
                 added = 0
                 for item in fresh:
@@ -643,7 +658,7 @@ async def async_main():
                     pacer.hi = PACER_HI
                     pacer.lo = max(200.0, PACER_HI * 0.1)
                     pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
-                log(f"[refill] tested={len(sample_batch)} live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
+                log(f"[refill] tested={len(combined)} (mine={len(sample_batch)} shard={len(shard_cands)}) live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
             except Exception as e:
                 log(f"[refill] error: {e}")
 
