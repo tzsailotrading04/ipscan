@@ -28,7 +28,7 @@ def should_process_file(filepath, verify_idx, num_verify=9):
     # Non-shard files (feeds_raw, leakix, etc.) processed by instance 0
     return verify_idx == 0
 
-CANDIDATES = ["ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
+CANDIDATES = ["ip/harvest/bulk_all.txt", "ip/harvest/lists_all.txt", "ip/harvest/feeds_raw.txt", "ip/harvest/leakix.txt",
               "ip/harvest/hits_new_exits.txt", "ip/harvest/net_new.txt"]
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*_c*.txt"))
 CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_v98_*.txt"))
@@ -36,8 +36,8 @@ CANDIDATES += sorted(glob.glob("ip/harvest/shodan_shard_*.txt"))
 FALLBACK_PORTS = ["8080", "3128", "1080", "8000", "8888"]
 ASN_REL = "data/ip2asn-v4-u32.tsv"
 WORKERS = 2000
-TIMEOUT = 2
-HOST = "api.ipify.org"
+TIMEOUT = 5
+HOST = "internetdb.shodan.io"
 HARD_STOP = 9 * 3600
 START = time.time()
 
@@ -152,13 +152,14 @@ def try_http(ip, port):
             if not c:
                 break
             resp += c
-        if not (resp.startswith(b"HTTP/") and (b" 200" in resp.split(b"\r\n")[0] or b" 2" in resp.split(b"\r\n")[0])):
+        first_line = resp.split(b"\r\n")[0]
+        if not (resp.startswith(b"HTTP/") and (b" 200" in first_line or b" 2" in first_line)):
             s.close()
             return False
 
         tls_s = SSL_CTX.wrap_socket(s, server_hostname=HOST)
         tls_s.settimeout(TIMEOUT)
-        tls_s.sendall(f"GET / HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
+        tls_s.sendall(f"GET /1.1.1.1 HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
         body = b""
         while True:
             c = tls_s.recv(256)
@@ -167,9 +168,9 @@ def try_http(ip, port):
             body += c
         tls_s.close()
         if b"\r\n\r\n" in body:
-            _, cnt = body.split(b"\r\n\r\n", 1)
-            egress = cnt.strip().decode("utf-8", errors="ignore").split()[0]
-            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", egress):
+            header, _ = body.split(b"\r\n\r\n", 1)
+            status_line = header.split(b"\r\n")[0]
+            if status_line.startswith(b"HTTP/") and not any(status_line.startswith(p) for p in (b"HTTP/1.1 5", b"HTTP/1.0 5", b"HTTP/1.1 407", b"HTTP/1.0 407")):
                 return True
         return False
     except Exception:
@@ -201,7 +202,7 @@ def try_socks5(ip, port):
 
         tls_s = SSL_CTX.wrap_socket(s, server_hostname=HOST)
         tls_s.settimeout(TIMEOUT)
-        tls_s.sendall(f"GET / HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
+        tls_s.sendall(f"GET /1.1.1.1 HTTP/1.1\r\nHost: {HOST}\r\nConnection: close\r\n\r\n".encode())
         body = b""
         while True:
             c = tls_s.recv(256)
@@ -210,9 +211,9 @@ def try_socks5(ip, port):
             body += c
         tls_s.close()
         if b"\r\n\r\n" in body:
-            _, cnt = body.split(b"\r\n\r\n", 1)
-            egress = cnt.strip().decode("utf-8", errors="ignore").split()[0]
-            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", egress):
+            header, _ = body.split(b"\r\n\r\n", 1)
+            status_line = header.split(b"\r\n")[0]
+            if status_line.startswith(b"HTTP/") and not any(status_line.startswith(p) for p in (b"HTTP/1.1 5", b"HTTP/1.0 5", b"HTTP/1.1 407", b"HTTP/1.0 407")):
                 return True
         return False
     except Exception:
@@ -249,7 +250,7 @@ def check(k):
             proto = "socks5"
         if proto:
             ms = int((time.time() - t0) * 1000)
-            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else "SLOW")
+            cls = "FAST" if ms < 1000 else ("MED" if ms < 3000 else ("OK" if ms < 8000 else "SLOW"))
             a, c, o = asn_of(ip)
             return ip + ":" + str(port) + "\t" + proto + "\t" + c + "\t" + a + "\t" + o + "\t" + str(ms) + "\t" + cls
     return None
@@ -279,7 +280,8 @@ while True:
             persistent_alive[k] = (prefix, remote_seen)
     log(f"PERSISTENT_ALIVE_POOL={len(persistent_alive)}")
 
-    # 2. Gather candidates (prioritise new high-yield chunks first)
+    # 2. Gather candidates (lists_all.txt FIRST, then new high-yield chunks)
+    list_files = [os.path.join(REPO, "ip", "harvest", "bulk_all.txt"), os.path.join(REPO, "ip", "harvest", "lists_all.txt")]
     chunk_files = sorted(glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*_c*.txt")))
     feed_files = [
         os.path.join(REPO, "ip", "harvest", "feeds_raw.txt"),
@@ -289,7 +291,7 @@ while True:
     ]
     old_v98_files = sorted([f for f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_v98_*.txt")) if "_c" not in os.path.basename(f)])
     legacy_files = sorted([f for f in glob.glob(os.path.join(REPO, "ip", "harvest", "shodan_shard_*.txt")) if "v98" not in os.path.basename(f)])
-    all_candidate_files = chunk_files + [f for f in feed_files if os.path.exists(f)] + old_v98_files + legacy_files
+    all_candidate_files = [f for f in list_files if os.path.exists(f)] + chunk_files + [f for f in feed_files if os.path.exists(f)] + old_v98_files + legacy_files
 
     combined_cands = []
     seen = set()

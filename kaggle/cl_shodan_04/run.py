@@ -17,8 +17,12 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-PER_PROXY_CAP = 3.0
+PER_PROXY_CAP = 2.0
+SKIP_REVERIFY = True  # skip re-verifying active pool proxies in refill
 PROXY_POOL = []          # list of (addr, proto)
+PROXY_CLASS = {}
+TOTAL_VERIFIED_PARSED = 0
+FETCH_TIMEOUTS = {"FAST": 15, "MED": 20, "OK": 25}
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
 FAILS_UNTIL = {}         # addr -> monotonic expiry time
@@ -39,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.142"
+ENGINE_VER = "v98.157"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -262,6 +266,7 @@ def load_strided_subnets():
 
 PROXY_PORTS = {80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
                8118, 8888, 9000, 4145, 10808}
+KEEP_PORTS = PROXY_PORTS | {443, 8443}
 
 def load_pe_ports():
     path = os.path.join(REPO, "ip", "pe_ports.txt")
@@ -320,15 +325,19 @@ class AdaptivePacer:
 
 
 def load_candidates():
-    """ALL pre-verified entries, latency-filtered:
-    Keep only FAST (ms < 1000) and MED (ms < 3000).
-    If fewer than 200, fill remainder with lowest-ms SLOW entries.
-    Total entries capped at 20,000.
+    """Newest-first verified entries, cycle-filtered and latency-filtered:
+    1. Read cycle field (last column).
+    2. Discard entries more than 20 cycles behind the highest seen (relaxed cutoff).
+    3. Sort candidates descending by cycle (newest first).
+    4. Apply FAST (<1000ms), MED (<3000ms), OK (<8000ms) latency filter.
+    5. Log pool_pass_rate as kept/parsed.
     """
     def parse_verified(path):
         res = []
         if not os.path.exists(path):
             return res
+        is_list = ("lists_all" in os.path.basename(path)) or ("bulk_all" in os.path.basename(path))
+        is_legacy = "part_" not in os.path.basename(path)
         try:
             with open(path, "r", encoding="utf-8", errors="ignore") as f:
                 for line in f:
@@ -336,50 +345,91 @@ def load_candidates():
                     if not line:
                         continue
                     p = line.split("\t")
-                    if len(p) < 2:
-                        continue
                     addr = p[0].strip()
                     if ":" not in addr:
                         continue
-                    proto = p[1].strip().lower()
-                    if proto not in ("http", "socks5"):
-                        proto = "http"
-                    ms = 99999
-                    cls = "SLOW"
-                    if len(p) >= 6:
-                        try:
-                            ms = int(p[5].strip())
-                        except Exception:
-                            ms = 99999
-                    if len(p) >= 7:
-                        cls = p[6].strip().upper()
-                    res.append((addr, proto, ms, cls))
+                    if is_list:
+                        res.append((addr, "http", 2000, "OK", 1))
+                    else:
+                        proto = p[1].strip().lower() if len(p) >= 2 else "http"
+                        if proto not in ("http", "socks5"):
+                            proto = "http"
+                        ms = 99999
+                        cls = "SLOW"
+                        if len(p) >= 6:
+                            try:
+                                ms = int(p[5].strip())
+                            except Exception:
+                                ms = 99999
+                        if len(p) >= 7:
+                            cls = p[6].strip().upper()
+                        raw_cycle = 1
+                        if len(p) >= 8:
+                            try:
+                                raw_cycle = int(p[7].strip())
+                            except Exception:
+                                raw_cycle = 1
+                        cycle = 1 if is_legacy else raw_cycle
+                        res.append((addr, proto, ms, cls, cycle))
         except Exception:
             pass
         return res
 
-    seen_addrs = set()
-    fast_entries = []
-    med_entries = []
-    slow_entries = []
-
-    v_files = [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
-    v_files += sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
+    v_files = sorted(glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt")))
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.txt")]
     v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive.bak.txt")]
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "lists_all.txt")]
+    v_files += [os.path.join(REPO_ROOT, "ip", "harvest", "bulk_all.txt")]
+
+    all_parsed = []
+    total_parsed = 0
+    max_cycle = 0
 
     for vf in v_files:
-        for addr, proto, ms, cls in parse_verified(vf):
-            if addr in seen_addrs:
-                continue
-            seen_addrs.add(addr)
-            if cls == "FAST" or ms < 1000:
-                fast_entries.append((addr, proto, ms, "FAST"))
-            elif cls == "MED" or ms < 3000:
-                med_entries.append((addr, proto, ms, "MED"))
-            else:
-                slow_entries.append((addr, proto, ms, "SLOW"))
+        if not os.path.exists(vf):
+            continue
+        is_legacy = "part_" not in os.path.basename(vf)
+        entries = parse_verified(vf)
+        total_parsed += len(entries)
+        for addr, proto, ms, cls, raw_cycle in entries:
+            # Legacy files (verified_alive.txt / .bak) were pre-partition, default to cycle 1
+            cycle = 1 if is_legacy else raw_cycle
+            if cycle > max_cycle:
+                max_cycle = cycle
+            all_parsed.append((addr, proto, ms, cls, cycle))
 
-    pool_cands = fast_entries + med_entries
+    # Cutoff: discard entries whose cycle is more than 20 cycles behind highest seen
+    cutoff = max(0, max_cycle - 20)
+    log(f"[cycle_filter] max_cycle={max_cycle} cutoff={cutoff}")
+
+    # Deduplicate by addr, keeping highest cycle
+    best_by_addr = {}
+    for addr, proto, ms, cls, cycle in all_parsed:
+        if cycle < cutoff:
+            continue
+        if addr not in best_by_addr or cycle > best_by_addr[addr][4]:
+            best_by_addr[addr] = (addr, proto, ms, cls, cycle)
+
+    # Sort candidates by cycle descending (newest verified come first)
+    candidates = list(best_by_addr.values())
+    candidates.sort(key=lambda x: x[4], reverse=True)
+
+    # Filter FAST (<1000ms), MED (<3000ms), OK (<8000ms)
+    fast_entries = []
+    med_entries = []
+    ok_entries = []
+    slow_entries = []
+    for addr, proto, ms, cls, cycle in candidates:
+        if cls == "FAST" or ms < 1000:
+            fast_entries.append((addr, proto, ms, "FAST", cycle))
+        elif cls == "MED" or ms < 3000:
+            med_entries.append((addr, proto, ms, "MED", cycle))
+        elif cls == "OK" or ms < 8000:
+            ok_entries.append((addr, proto, ms, "OK", cycle))
+        else:
+            slow_entries.append((addr, proto, ms, "SLOW", cycle))
+
+    pool_cands = fast_entries + med_entries + ok_entries
     slow_used = 0
     if len(pool_cands) < 200 and slow_entries:
         slow_entries.sort(key=lambda x: x[2])
@@ -388,56 +438,161 @@ def load_candidates():
         pool_cands += fill_slow
         slow_used = len(fill_slow)
 
-    log(f"[pool_quality] FAST={len(fast_entries)} MED={len(med_entries)} SLOW={slow_used} total={len(pool_cands)}")
+    global PROXY_CLASS, TOTAL_VERIFIED_PARSED
+    PROXY_CLASS = {x[0]: x[3] for x in pool_cands}
+    TOTAL_VERIFIED_PARSED = total_parsed
+
+    # STEP 4: Log pool_pass_rate as kept/parsed
+    pass_rate_str = f"{len(pool_cands)}/{total_parsed} ({100.0 * len(pool_cands) / max(1, total_parsed):.1f}%)"
+    log(f"pool_pass_rate={pass_rate_str} | FAST={len(fast_entries)} MED={len(med_entries)} OK={len(ok_entries)} SLOW={slow_used}")
 
     out = [(x[0], x[1]) for x in pool_cands]
-    random.Random(12345).shuffle(out)
     return out
+
 async def build_pool(items):
-    pool = []
-    sem = asyncio.Semaphore(600)
+    high_pri_pool = []  # 200, 404
+    low_pri_pool = []   # 429, 403, other
+    fail_counts = {"connect_error": 0, "timeout": 0, "bad_status": 0, "other": 0}
+    status_counts = {"200": 0, "404": 0, "429": 0, "403": 0, "407": 0, "other": 0}
+    lat_hist = {"<1s": 0, "1-3s": 0, "3-8s": 0, "8-15s": 0, "15-25s": 0, ">25s": 0}
+    after_8s_count = 0
+    other_types = {}
+    sem = asyncio.Semaphore(1200)
+
+    def record_other(proto_tag, e):
+        name = type(e).__name__
+        count = other_types.get(name, 0)
+        other_types[name] = count + 1
+        if count < 10:
+            print(f"[build_pool_other] {proto_tag} {name}: {e}", flush=True)
+
+    def record_latency(dur):
+        nonlocal after_8s_count
+        if dur < 1.0:
+            lat_hist["<1s"] += 1
+        elif dur < 3.0:
+            lat_hist["1-3s"] += 1
+        elif dur < 8.0:
+            lat_hist["3-8s"] += 1
+        elif dur < 15.0:
+            lat_hist["8-15s"] += 1
+        elif dur < 25.0:
+            lat_hist["15-25s"] += 1
+        else:
+            lat_hist[">25s"] += 1
+        if dur >= 8.0:
+            after_8s_count += 1
+
     async with aiohttp.ClientSession(headers=HEADERS) as shared:
+        async def try_http(addr):
+            t0 = time.monotonic()
+            try:
+                async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=12) as r:
+                    dur = time.monotonic() - t0
+                    st_k = str(r.status)
+                    status_counts[st_k if st_k in status_counts else "other"] += 1
+                    if r.status < 500 and r.status != 407:
+                        record_latency(dur)
+                        return r.status
+                    return "bad_status"
+            except asyncio.TimeoutError:
+                return "timeout"
+            except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                    aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                return "connect_error"
+            except Exception as e:
+                record_other("http", e)
+                return "other"
+
+        async def try_socks5(addr):
+            if not HAVE_SOCKS:
+                record_other("socks5", RuntimeError("aiohttp_socks not available"))
+                return "other"
+            t0 = time.monotonic()
+            try:
+                conn = ProxyConnector.from_url(f"socks5://{addr}")
+                async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
+                    async with s.get(BASE + rand_ip(), timeout=12) as r:
+                        dur = time.monotonic() - t0
+                        st_k = str(r.status)
+                        status_counts[st_k if st_k in status_counts else "other"] += 1
+                        if r.status < 500 and r.status != 407:
+                            record_latency(dur)
+                            return r.status
+                        return "bad_status"
+            except asyncio.TimeoutError:
+                return "timeout"
+            except (aiohttp.ClientConnectorError, aiohttp.ServerDisconnectedError,
+                    aiohttp.ClientProxyConnectionError, ConnectionError, OSError):
+                return "connect_error"
+            except Exception as e:
+                record_other("socks5", e)
+                return "other"
+
         async def v(item):
             addr, proto = item
+            last_err = None
             async with sem:
                 if proto == "socks5":
-                    if not HAVE_SOCKS: return
-                    for _ in range(2):
-                        try:
-                            conn = ProxyConnector.from_url(f"socks5://{addr}")
-                            async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=5) as r:
-                                    if r.status < 500 and r.status != 407:
-                                        pool.append((addr, "socks5"))
-                                        return
-                        except Exception:
-                            pass
+                    # STEP 1: Try socks5, if it fails retry once as http before rejecting
+                    res = await try_socks5(addr)
+                    if isinstance(res, int):
+                        if res in (200, 404):
+                            high_pri_pool.append((addr, "socks5"))
+                        else:
+                            low_pri_pool.append((addr, "socks5"))
+                        return
+                    last_err = res
+                    # Retry once as http
+                    res_http = await try_http(addr)
+                    if isinstance(res_http, int):
+                        if res_http in (200, 404):
+                            high_pri_pool.append((addr, "http"))
+                        else:
+                            low_pri_pool.append((addr, "http"))
+                        return
+                    last_err = res_http
                 else:
-                    # proto == "http"
-                    http_ok = False
-                    for _ in range(2):
-                        try:
-                            async with shared.get(BASE + rand_ip(), proxy=f"http://{addr}", timeout=5) as r:
-                                if r.status < 500 and r.status != 407:
-                                    pool.append((addr, "http"))
-                                    http_ok = True
-                                    return
-                        except Exception:
-                            pass
-                    # If http failed, try one socks5 attempt before discarding
-                    if not http_ok and HAVE_SOCKS:
-                        try:
-                            conn = ProxyConnector.from_url(f"socks5://{addr}")
-                            async with aiohttp.ClientSession(headers=HEADERS, connector=conn) as s:
-                                async with s.get(BASE + rand_ip(), timeout=5) as r:
-                                    if r.status < 500 and r.status != 407:
-                                        pool.append((addr, "socks5"))
-                                        return
-                        except Exception:
-                            pass
-        await asyncio.gather(*[v(i) for i in items], return_exceptions=True)
-    return pool
+                    # proto == "http": Try http, if it fails retry once as socks5 before rejecting
+                    res = await try_http(addr)
+                    if isinstance(res, int):
+                        if res in (200, 404):
+                            high_pri_pool.append((addr, "http"))
+                        else:
+                            low_pri_pool.append((addr, "http"))
+                        return
+                    last_err = res
+                    # Retry once as socks5
+                    if HAVE_SOCKS:
+                        res_s5 = await try_socks5(addr)
+                        if isinstance(res_s5, int):
+                            if res_s5 in (200, 404):
+                                high_pri_pool.append((addr, "socks5"))
+                            else:
+                                low_pri_pool.append((addr, "socks5"))
+                            return
+                        last_err = res_s5
 
+            if last_err and last_err in fail_counts:
+                fail_counts[last_err] += 1
+
+        await asyncio.gather(*[v(i) for i in items], return_exceptions=True)
+
+    # STEP 3: Prioritise real responses: 200/404 at front, 429/403 at back
+    pool = high_pri_pool + low_pri_pool
+    log(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}")
+    print(f"[build_pool_fails] tested={len(items)} passed={len(pool)} connect_error={fail_counts['connect_error']} timeout={fail_counts['timeout']} bad_status={fail_counts['bad_status']} other={fail_counts['other']}", flush=True)
+    log(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}")
+    print(f"[build_pool_status] 200={status_counts['200']} 404={status_counts['404']} 429={status_counts['429']} 403={status_counts['403']} 407={status_counts['407']} other={status_counts['other']}", flush=True)
+    log(f"[build_pool_latency] <1s={lat_hist['<1s']} 1-3s={lat_hist['1-3s']} 3-8s={lat_hist['3-8s']} 8-15s={lat_hist['8-15s']} 15-25s={lat_hist['15-25s']} >25s={lat_hist['>25s']} after_8s={after_8s_count}")
+    print(f"[build_pool_latency] <1s={lat_hist['<1s']} 1-3s={lat_hist['1-3s']} 3-8s={lat_hist['3-8s']} 8-15s={lat_hist['8-15s']} 15-25s={lat_hist['15-25s']} >25s={lat_hist['>25s']} after_8s={after_8s_count}", flush=True)
+    if other_types:
+        log(f"[build_pool_other_types] {other_types}")
+        print(f"[build_pool_other_types] {other_types}", flush=True)
+    else:
+        log(f"[build_pool_other_types] none (other=0)")
+        print(f"[build_pool_other_types] none (other=0)", flush=True)
+    return pool
 
 class HttpStatus(int):
     def __new__(cls, val, ports=None):
@@ -448,20 +603,23 @@ class HttpStatus(int):
 
 async def fetch_ip(session, ip, pacer):
     global STATS_PROXY_OK, STATS_PROXY_FAIL, STATS_DIRECT_USED, STATS_BANNED_TOTAL
-    for attempt in range(3):
+    for attempt in range(2):
         if PROXY_POOL:
             now = time.monotonic()
             usable = [p for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now and FAILS_UNTIL.get(p[0], 0.0) <= now]
             if usable:
-                addr, proto = random.choice(usable)
+                weights = [3 if PROXY_CLASS.get(p[0]) == "FAST" else (2 if PROXY_CLASS.get(p[0]) == "MED" else 1) for p in usable]
+                addr, proto = random.choices(usable, weights=weights, k=1)[0]
             else:
                 addr, proto = min(PROXY_POOL, key=lambda p: max(BANNED.get(p[0], 0.0), FAILS_UNTIL.get(p[0], 0.0)))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
+            to = FETCH_TIMEOUTS.get(PROXY_CLASS.get(addr, "MED"), 25)
             await proxy_gate(addr)
         else:
             use_proxy = None
+            to = 10
         try:
-            async with session.get(BASE + ip, proxy=use_proxy, timeout=12) as r:
+            async with session.get(BASE + ip, proxy=use_proxy, timeout=to) as r:
                 if use_proxy:
                     FAILS[(addr, proto)] = 0
                     FAILS_UNTIL.pop(addr, None)
@@ -476,7 +634,7 @@ async def fetch_ip(session, ip, pacer):
                         except (ValueError, TypeError):
                             ra_val = 60.0
                         if use_proxy:
-                            BANNED[addr] = time.monotonic() + min(ra_val, 600.0)
+                            BANNED[addr] = time.monotonic() + min(ra_val, 180.0)
                             STATS_BANNED_TOTAL += 1
                 pacer.on_result(r.status, ra)
                 ports = []
@@ -492,7 +650,8 @@ async def fetch_ip(session, ip, pacer):
                 STATS_PROXY_FAIL += 1
                 key = (addr, proto)
                 FAILS[key] = FAILS.get(key, 0) + 1
-                FAILS_UNTIL[addr] = time.monotonic() + min(60.0, 5.0 * FAILS[key])
+                if FAILS[key] >= 2:
+                    FAILS_UNTIL[addr] = time.monotonic() + min(20.0, 5.0 * FAILS[key])
             continue
         except Exception:
             continue
@@ -567,7 +726,10 @@ async def async_main():
     try:
         allc = load_candidates()
         mine = allc[SHARD_IDX::NUM_SHARDS]          # DISJOINT slice
-        mine = random.Random(777).sample(mine, min(20000, len(mine)))
+        mine = mine[:20000]
+        pass_rate_str = f"{len(allc)}/{max(1, TOTAL_VERIFIED_PARSED)} ({100.0 * len(allc) / max(1, TOTAL_VERIFIED_PARSED):.1f}%)"
+        log(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}")
+        print(f"[ceiling] total_candidates={len(allc)} slice_size={len(mine)} pool_pass_rate={pass_rate_str}", flush=True)
         async with aiohttp.ClientSession(headers=HEADERS) as tmp:
             PROXY_POOL = await build_pool(mine)
     except Exception as e:
@@ -580,7 +742,7 @@ async def async_main():
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(4000, max(200, 3 * len(PROXY_POOL)))
+    CONC = min(4000, max(120, int(1.5 * len(PROXY_POOL))))
     PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
@@ -632,9 +794,11 @@ async def async_main():
                     stats["ok"] += 1
                     if ports:
                         stats["ok_with_ports"] += 1
-                        keep = [p for p in ports if int(p) in PROXY_PORTS]
-                        if keep:
-                            lines = [f"{ip}:{p}\n" for p in keep]
+                        first_match = next((p for p in ports if int(p) in PROXY_PORTS), None)
+                        if first_match is None:
+                            first_match = next((p for p in ports if int(p) in {443, 8443}), None)
+                        if first_match is not None:
+                            lines = [f"{ip}:{first_match}\n"]
                             if chunk_lines >= CHUNK_MAX:
                                 if chunk_handle:
                                     chunk_handle.flush()
@@ -700,6 +864,11 @@ async def async_main():
                 stats["429_shodan"] = pacer.c429_shodan
                 stats["429_proxy"] = pacer.c429_proxy
                 stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
+                now_m = time.monotonic()
+                b_under30 = sum(1 for exp in BANNED.values() if 0 < (exp - now_m) < 30)
+                b_30_120 = sum(1 for exp in BANNED.values() if 30 <= (exp - now_m) < 120)
+                b_120_600 = sum(1 for exp in BANNED.values() if 120 <= (exp - now_m) <= 600)
+                log(f"[ban_histogram] <30s={b_under30} 30-120s={b_30_120} 120-600s={b_120_600}")
                 stats["banned_total"] = STATS_BANNED_TOTAL
                 now_m = time.monotonic()
                 stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
@@ -719,11 +888,21 @@ async def async_main():
         nonlocal pacer
         global PROXY_POOL, POOL_MIN, current_chunk, chunk_handle
         while not STOPPING and (time.time() - START_TIME < HARD_STOP):
-            await asyncio.sleep(600)
+            await asyncio.sleep(300)
             if STOPPING:
                 break
             try:
-                sample_batch = random.sample(mine, min(800, len(mine))) if mine else []
+                # Sync latest verified files from remote
+                try:
+                    await asyncio.to_thread(subprocess.run, ["git", "-C", REPO, "pull", "--quiet", "origin", "main"], capture_output=True)
+                except Exception:
+                    pass
+
+                # Step 1: Re-read pool files fresh each cycle & sample 400
+                fresh_cands = load_candidates()
+                mine_fresh = fresh_cands[SHARD_IDX::NUM_SHARDS][:20000]
+                sample_batch = random.sample(mine_fresh, min(400, len(mine_fresh))) if mine_fresh else []
+
                 shard_cands = []
                 cur_chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
                 if os.path.exists(cur_chunk_file):
@@ -735,29 +914,38 @@ async def async_main():
                             for l in lines[-500:]:
                                 l = l.strip()
                                 if l and ":" in l and not l.startswith(("<", "=", ">")):
-                                    addr = l.split()[0].split("\t")[0]
+                                    addr = l.split()[0].split("	")[0]
                                     shard_cands.append((addr, "http"))
                     except Exception:
                         pass
+
                 combined = sample_batch + [item for item in shard_cands if item not in sample_batch]
                 if not combined:
                     continue
+                if SKIP_REVERIFY:
+                    combined = [p for p in combined if p not in PROXY_POOL]
+                if not combined:
+                    continue
+
                 fresh = await build_pool(combined)
                 curr_set = set(PROXY_POOL)
                 added = 0
                 for item in fresh:
+                    # Step 3: Re-add recovered proxies & reset fails/cooldowns
                     FAILS[item] = 0
                     FAILS_UNTIL.pop(item[0], None)
+                    BANNED.pop(item[0], None)
                     if item not in curr_set:
                         PROXY_POOL.append(item)
                         curr_set.add(item)
                         added += 1
+
                 if PROXY_POOL:
                     PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
                     pacer.hi = PACER_HI
                     pacer.lo = max(200.0, PACER_HI * 0.1)
                     pacer.rate = max(pacer.lo, min(pacer.hi, pacer.rate))
-                log(f"[refill] tested={len(combined)} (mine={len(sample_batch)} shard={len(shard_cands)}) live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
+                log(f"[refill] tested={len(combined)} (fresh_pool={len(sample_batch)} shard={len(shard_cands)}) live={len(fresh)} added={added} pool={len(PROXY_POOL)} pacer.hi={pacer.hi:.1f}")
             except Exception as e:
                 log(f"[refill] error: {e}")
 
@@ -790,6 +978,11 @@ async def async_main():
             stats["429_shodan"] = pacer.c429_shodan
             stats["429_proxy"] = pacer.c429_proxy
             stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
+            now_m = time.monotonic()
+            b_under30 = sum(1 for exp in BANNED.values() if 0 < (exp - now_m) < 30)
+            b_30_120 = sum(1 for exp in BANNED.values() if 30 <= (exp - now_m) < 120)
+            b_120_600 = sum(1 for exp in BANNED.values() if 120 <= (exp - now_m) <= 600)
+            log(f"[ban_histogram] <30s={b_under30} 30-120s={b_30_120} 120-600s={b_120_600}")
             stats["banned_total"] = STATS_BANNED_TOTAL
             now_m = time.monotonic()
             stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
