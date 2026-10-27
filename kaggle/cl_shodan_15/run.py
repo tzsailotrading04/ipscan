@@ -17,7 +17,8 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-PER_PROXY_CAP = 3.0
+PER_PROXY_CAP = 2.0
+SKIP_REVERIFY = True  # skip re-verifying active pool proxies in refill
 PROXY_POOL = []          # list of (addr, proto)
 PROXY_CLASS = {}
 TOTAL_VERIFIED_PARSED = 0
@@ -42,7 +43,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.149"
+ENGINE_VER = "v98.151"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -265,6 +266,7 @@ def load_strided_subnets():
 
 PROXY_PORTS = {80, 1080, 1081, 3127, 3128, 3129, 8000, 8001, 8080, 8081,
                8118, 8888, 9000, 4145, 10808}
+KEEP_PORTS = PROXY_PORTS | {443, 8443}
 
 def load_pe_ports():
     path = os.path.join(REPO, "ip", "pe_ports.txt")
@@ -555,7 +557,7 @@ async def fetch_ip(session, ip, pacer):
                         except (ValueError, TypeError):
                             ra_val = 60.0
                         if use_proxy:
-                            BANNED[addr] = time.monotonic() + min(ra_val, 600.0)
+                            BANNED[addr] = time.monotonic() + min(ra_val, 180.0)
                             STATS_BANNED_TOTAL += 1
                 pacer.on_result(r.status, ra)
                 ports = []
@@ -714,9 +716,11 @@ async def async_main():
                     stats["ok"] += 1
                     if ports:
                         stats["ok_with_ports"] += 1
-                        keep = [p for p in ports if int(p) in PROXY_PORTS]
-                        if keep:
-                            lines = [f"{ip}:{p}\n" for p in keep]
+                        first_match = next((p for p in ports if int(p) in PROXY_PORTS), None)
+                        if first_match is None:
+                            first_match = next((p for p in ports if int(p) in {443, 8443}), None)
+                        if first_match is not None:
+                            lines = [f"{ip}:{first_match}\n"]
                             if chunk_lines >= CHUNK_MAX:
                                 if chunk_handle:
                                     chunk_handle.flush()
@@ -782,6 +786,11 @@ async def async_main():
                 stats["429_shodan"] = pacer.c429_shodan
                 stats["429_proxy"] = pacer.c429_proxy
                 stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
+                now_m = time.monotonic()
+                b_under30 = sum(1 for exp in BANNED.values() if 0 < (exp - now_m) < 30)
+                b_30_120 = sum(1 for exp in BANNED.values() if 30 <= (exp - now_m) < 120)
+                b_120_600 = sum(1 for exp in BANNED.values() if 120 <= (exp - now_m) <= 600)
+                log(f"[ban_histogram] <30s={b_under30} 30-120s={b_30_120} 120-600s={b_120_600}")
                 stats["banned_total"] = STATS_BANNED_TOTAL
                 now_m = time.monotonic()
                 stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
@@ -833,6 +842,10 @@ async def async_main():
                         pass
 
                 combined = sample_batch + [item for item in shard_cands if item not in sample_batch]
+                if not combined:
+                    continue
+                if SKIP_REVERIFY:
+                    combined = [p for p in combined if p not in PROXY_POOL]
                 if not combined:
                     continue
 
@@ -887,6 +900,11 @@ async def async_main():
             stats["429_shodan"] = pacer.c429_shodan
             stats["429_proxy"] = pacer.c429_proxy
             stats["banned_now"] = sum(1 for exp in BANNED.values() if exp > time.monotonic())
+            now_m = time.monotonic()
+            b_under30 = sum(1 for exp in BANNED.values() if 0 < (exp - now_m) < 30)
+            b_30_120 = sum(1 for exp in BANNED.values() if 30 <= (exp - now_m) < 120)
+            b_120_600 = sum(1 for exp in BANNED.values() if 120 <= (exp - now_m) <= 600)
+            log(f"[ban_histogram] <30s={b_under30} 30-120s={b_30_120} 120-600s={b_120_600}")
             stats["banned_total"] = STATS_BANNED_TOTAL
             now_m = time.monotonic()
             stats["usable_now"] = sum(1 for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now_m and FAILS_UNTIL.get(p[0], 0.0) <= now_m)
