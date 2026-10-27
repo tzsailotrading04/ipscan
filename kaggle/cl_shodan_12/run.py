@@ -19,6 +19,7 @@ except Exception:
 
 PER_PROXY_CAP = 3.0
 PROXY_POOL = []          # list of (addr, proto)
+PROXY_CLASS = {}
 BANNED = {}              # addr -> monotonic expiry time
 FAILS = {}               # (addr, proto) -> consecutive failure count
 FAILS_UNTIL = {}         # addr -> monotonic expiry time
@@ -39,7 +40,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.142"
+ENGINE_VER = "v98.143"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -388,6 +389,9 @@ def load_candidates():
         pool_cands += fill_slow
         slow_used = len(fill_slow)
 
+    global PROXY_CLASS
+    PROXY_CLASS = {x[0]: x[3] for x in pool_cands}
+
     log(f"[pool_quality] FAST={len(fast_entries)} MED={len(med_entries)} SLOW={slow_used} total={len(pool_cands)}")
 
     out = [(x[0], x[1]) for x in pool_cands]
@@ -448,7 +452,7 @@ class HttpStatus(int):
 
 async def fetch_ip(session, ip, pacer):
     global STATS_PROXY_OK, STATS_PROXY_FAIL, STATS_DIRECT_USED, STATS_BANNED_TOTAL
-    for attempt in range(3):
+    for attempt in range(2):
         if PROXY_POOL:
             now = time.monotonic()
             usable = [p for p in PROXY_POOL if BANNED.get(p[0], 0.0) <= now and FAILS_UNTIL.get(p[0], 0.0) <= now]
@@ -457,11 +461,13 @@ async def fetch_ip(session, ip, pacer):
             else:
                 addr, proto = min(PROXY_POOL, key=lambda p: max(BANNED.get(p[0], 0.0), FAILS_UNTIL.get(p[0], 0.0)))
             use_proxy = f"socks5://{addr}" if proto == "socks5" else f"http://{addr}"
+            to = 6 if PROXY_CLASS.get(addr, "MED") == "FAST" else 10
             await proxy_gate(addr)
         else:
             use_proxy = None
+            to = 10
         try:
-            async with session.get(BASE + ip, proxy=use_proxy, timeout=12) as r:
+            async with session.get(BASE + ip, proxy=use_proxy, timeout=to) as r:
                 if use_proxy:
                     FAILS[(addr, proto)] = 0
                     FAILS_UNTIL.pop(addr, None)
@@ -580,7 +586,7 @@ async def async_main():
     global POOL_MIN
     POOL_MIN = len(PROXY_POOL)
 
-    CONC = min(4000, max(200, 3 * len(PROXY_POOL)))
+    CONC = min(2000, max(120, 2 * len(PROXY_POOL)))
     PACER_HI = min(30000.0, max(3000.0, 15.0 * len(PROXY_POOL)))
     lo = max(200.0, PACER_HI * 0.1)
     start = min(PACER_HI, 500.0)
