@@ -9,6 +9,8 @@ import subprocess
 import random
 import glob
 import shutil
+import socket
+import ssl
 
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "aiohttp-socks"], capture_output=True)
 try:
@@ -43,13 +45,13 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.161"
+ENGINE_VER = "v98.162"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
 
 SCAN_MODE = "direct"  # "direct" or "shodan"
-DIRECT_PORTS = [80, 443, 8080, 3128, 1080, 1081, 8000, 8118, 8123, 8888, 8889, 9000, 3129, 6588, 4145]
+DIRECT_PORTS = [80, 443]
 DIRECT_SEM = None
 STAT_ERRNO99 = 0
 STAT_TIMEOUT = 0
@@ -57,6 +59,30 @@ STAT_REFUSED = 0
 STAT_GAIERROR = 0
 STAT_OTHER = 0
 OTHER_EXC_REPR = {}
+
+HOST = "internetdb.shodan.io"
+SSL_CTX = ssl.create_default_context()
+SSL_CTX.check_hostname = False
+SSL_CTX.verify_mode = ssl.CERT_NONE
+
+async def inline_probe_socket(s, host=HOST, timeout=2.0):
+    try:
+        loop = asyncio.get_running_loop()
+        req = f"CONNECT {host}:443 HTTP/1.1\r\nHost: {host}:443\r\n\r\n".encode()
+        await loop.sock_sendall(s, req)
+        resp = b""
+        t_end = time.monotonic() + timeout
+        while b"\r\n\r\n" not in resp:
+            if time.monotonic() > t_end:
+                return False
+            c = await asyncio.wait_for(loop.sock_recv(s, 256), timeout=timeout)
+            if not c:
+                break
+            resp += c
+        first = resp.split(b"\r\n")[0]
+        return bool(resp.startswith(b"HTTP/") and (b" 200" in first or b" 2" in first))
+    except Exception:
+        return False
 
 async def check_direct_port(ip, port):
     global STAT_ERRNO99, STAT_TIMEOUT, STAT_REFUSED, STAT_GAIERROR, STAT_OTHER, DIRECT_SEM
@@ -68,7 +94,10 @@ async def check_direct_port(ip, port):
         try:
             loop = asyncio.get_running_loop()
             await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=1.0)
-            return port
+            is_proxy = await inline_probe_socket(s, HOST, timeout=2.0)
+            if is_proxy:
+                return port
+            return None
         except asyncio.TimeoutError:
             STAT_TIMEOUT += 1
             return None
