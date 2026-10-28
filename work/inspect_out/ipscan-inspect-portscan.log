@@ -1,0 +1,17 @@
+[{"stream_name":"stdout","time":0.889115089,"data":"=== INSPECTING signalspikes/internet-port-scan-1 ===\n"}
+,{"stream_name":"stdout","time":0.889963871,"data":"Files in input dir: ['signalspikes']\n"}
+,{"stream_name":"stdout","time":0.890060356,"data":"Target file: /kaggle/input/datasets/signalspikes (size: 4,096 bytes)\n"}
+,{"stream_name":"stdout","time":0.890069842,"data":"\n"}
+,{"stream_name":"stdout","time":0.890073533,"data":"--- FIRST 5 SAMPLE LINES ---\n"}
+,{"stream_name":"stderr","time":0.892132607,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":0.895527555,"data":"  File \"/kaggle/src/script.py\", line 19, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":0.895559986,"data":"    with open(target_file, \"r\", encoding=\"utf-8\", errors=\"ignore\") as f:\n"}
+,{"stream_name":"stderr","time":0.895566446,"data":"         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":0.89557077,"data":"IsADirectoryError: [Errno 21] Is a directory: '/kaggle/input/datasets/signalspikes'\n"}
+,{"stream_name":"stderr","time":3.9704197,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3.97046329,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4.521737204,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4.521769117,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6.578063391,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":8.059901044,"data":"[NbConvertApp] Writing 281998 bytes to __results__.html\n"}
+]
