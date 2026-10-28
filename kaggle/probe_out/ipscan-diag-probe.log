@@ -1,0 +1,22 @@
+[{"stream_name":"stdout","time":1.253151916,"data":"=== STEP 1 - PROVE THE CONTAINER CAN CONNECT ===\n"}
+,{"stream_name":"stdout","time":1.263927702,"data":"connect 104.16.0.1:8080 -\u003e SUCCESS (10.6ms)\n"}
+,{"stream_name":"stdout","time":1.274794263,"data":"connect 1.1.1.1:443 -\u003e SUCCESS (9.2ms)\n"}
+,{"stream_name":"stdout","time":1.279656058,"data":"connect 8.8.8.8:53 -\u003e SUCCESS (6.3ms)\n"}
+,{"stream_name":"stdout","time":4.284416869,"data":"connect 1.10.248.237:80 -\u003e FAILURE (3003.3ms) [TimeoutError: timed out]\n"}
+,{"stream_name":"stdout","time":4.284467794,"data":"\n"}
+,{"stream_name":"stdout","time":4.284473204,"data":"=== STEP 4 - PORT EXHAUSTION \u0026 NETWORK CHECK ===\n"}
+,{"stream_name":"stdout","time":4.36727471,"data":"ss state distribution:\n"}
+,{"stream_name":"stdout","time":4.367329309,"data":"3 TIME-WAIT\n"}
+,{"stream_name":"stdout","time":4.367333552,"data":"      1 SYN-SENT\n"}
+,{"stream_name":"stdout","time":4.367336406,"data":"      1 State\n"}
+,{"stream_name":"stdout","time":4.367339043,"data":"      1 LISTEN\n"}
+,{"stream_name":"stdout","time":4.380109833,"data":"TIME-WAIT count: 3\n"}
+,{"stream_name":"stdout","time":4.380175462,"data":"ip_local_port_range: 32768\t60999\n"}
+,{"stream_name":"stdout","time":4.380187116,"data":"=== PROBE COMPLETE ===\n"}
+,{"stream_name":"stderr","time":7.764804177,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7.764856382,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":8.434077385,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":8.434130287,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":11.0169837,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":12.801893819,"data":"[NbConvertApp] Writing 285767 bytes to __results__.html\n"}
+]
