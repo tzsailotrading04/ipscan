@@ -1,7 +1,7 @@
-offset=15000
+offset=30000
 total=292096
 cands=0
 errno99=0
-timeout=63625
-refused=7095
-req_s=544.8
+timeout=125480
+refused=16302
+req_s=509.2
