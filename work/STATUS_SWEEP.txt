@@ -1,12 +1,11 @@
-=== 10H SWEEP HEARTBEAT (2026-10-28 06:47:54) ===
-Uptime: 7538s (2.09h)
-IPs Scanned: 344,164,352 / 2,000,000,000
-Space Remaining: 1,655,835,648
-Direct Verified (This Run): 18,827
-Direct Yield per 1000 IPs: 0.0547
-Master Pool Total (Unique ip:port): 70,611
-Rate (IPs/s): 45652.7
+=== 10H SWEEP HEARTBEAT (2026-10-28 06:50:52) ===
+Uptime: 7725s (2.15h)
+IPs Scanned: 344,734,005
+Verified Total: 70,632
+Rate per 1000 IPs: 0.205
+Rate (IPs/s): 44624.9
 Errno99: 0
-Other Exceptions: 0
+Other Exceptions: 0 {}
+Peak RSS (MB): 24.5
 Free Disk (GB): 85.96
-Shards Status: 20/20 Shards Running (100% Uniform Random Space)
+Shards Status: 20/20 Shards Running DIRECT_PORTS=[80, 443]
