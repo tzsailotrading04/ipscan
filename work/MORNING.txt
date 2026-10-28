@@ -1,15 +1,15 @@
 ================================================================================
                 DePIN FARM v98.162 10H SWEEP MORNING REPORT                     
 ================================================================================
-ts:                 2026-10-28 07:32:33
-ips_scanned:        432,279,564
-verified_total:     81,459
-rate_per_1000:      0.188
-ips_per_sec:        42275.6
+ts:                 2026-10-28 07:36:57
+ips_scanned:        447,851,775
+verified_total:     82,995
+rate_per_1000:      0.185
+ips_per_sec:        42695.3
 errno99:            0
 other:              0 {}
 peak_rss_mb:        24.5
-disk_free_gb:       85.92
+disk_free_gb:       85.91
 per-shard status:   20/20 Shards Running DIRECT_PORTS=[80, 443]
 checkpoint intact:  yes
 exact resume cmd:   python tools/sweep_daemon.py --resume
