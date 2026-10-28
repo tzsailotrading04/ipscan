@@ -1,8 +1,8 @@
-offset=63000
+offset=96000
 total=100000000
 cands=1
 errno99=0
-timeout=872733
-refused=51229
-req_s=806.5
+timeout=163700
+refused=569
+req_s=3399.5
 stage=residential
