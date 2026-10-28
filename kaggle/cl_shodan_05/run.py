@@ -144,7 +144,7 @@ STOP_FILE = "work/STOP_SHODAN"
 STOPPING = False
 EGRESS_IP = "unknown"
 
-shard_str = os.environ.get("SHARD_INDEX", os.environ.get("SLICE_IDX", ""))
+shard_str = "5"
 if not shard_str and len(sys.argv) > 1:
     for arg in sys.argv[1:]:
         if arg.isdigit():
@@ -153,8 +153,8 @@ if not shard_str and len(sys.argv) > 1:
 if not shard_str:
     shard_str = "5"
 
-SHARD_IDX = 5
-SHARD_TAG = "05"
+SHARD_IDX = int(shard_str)
+SHARD_TAG = f"{SHARD_IDX:02d}"
 
 CONC = 10
 MAX_SHARD_IPS = 200_000_000
@@ -276,8 +276,9 @@ def push_progress(offset, total, cand_count, stats):
     if not os.path.exists("/kaggle/working"):
         return
     prog_rel = f"ip/harvest/shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt"
-    chunk_rel = f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt"
+    chunk_rel = f"ip/harvest/verified_alive_part_{SHARD_TAG}.txt" if SCAN_MODE == "direct" else f"ip/harvest/shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt"
     stats_rel = f"ip/harvest/shodan_stats_{OUT_PREFIX}{SHARD_TAG}.txt"
+    verified_rel = f"ip/harvest/verified_alive_part_{SHARD_TAG}.txt"
 
     stats_content = f"engine={ENGINE_VER}\nshard={SHARD_TAG}\negress_ip={EGRESS_IP}\noffset={offset}\ntotal={total}\nchunk={current_chunk}\n"
     for k in sorted(stats):
@@ -288,19 +289,35 @@ def push_progress(offset, total, cand_count, stats):
 
     global chunk_handle
     if chunk_handle:
-        chunk_handle.flush()
-        chunk_handle.close()
+        try:
+            chunk_handle.flush()
+            chunk_handle.close()
+        except Exception:
+            pass
         chunk_handle = None
 
-    subprocess.run(["git", "-C", REPO, "add", prog_rel, stats_rel, chunk_rel], check=False)
-    subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True)
+    subprocess.run(["git", "-C", REPO, "add", prog_rel, stats_rel, chunk_rel, verified_rel], check=False)
+    r_commit = subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True, text=True)
 
-    for attempt in range(3):
-        subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
-        r = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
-        if r.returncode == 0:
+    pushed = False
+    for attempt in range(1, 4):
+        jitter = random.uniform(1.5, 6.0)
+        time.sleep(jitter)
+        r_rebase = subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], capture_output=True, text=True)
+        if r_rebase.returncode != 0:
+            print(f"[{ENGINE_VER} SHARD {SHARD_TAG}] [PUSH WARN] git pull --rebase attempt {attempt} failed:\n{r_rebase.stderr.strip()}", flush=True)
+            subprocess.run(["git", "-C", REPO, "rebase", "--abort"], capture_output=True)
+            continue
+
+        r_push = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
+        if r_push.returncode == 0:
+            pushed = True
             break
-        subprocess.run(["git", "-C", REPO, "merge", "origin/main", "-X", "ours", "--no-edit"], capture_output=True)
+        else:
+            print(f"[{ENGINE_VER} SHARD {SHARD_TAG}] [PUSH ERR] git push attempt {attempt} failed:\n{r_push.stderr.strip()}", flush=True)
+
+    if not pushed:
+        print(f"[{ENGINE_VER} SHARD {SHARD_TAG}] [PUSH FAILED] Could not push after 3 attempts. Continuing scan...", flush=True)
 
     chunk_handle = open(os.path.join(REPO, chunk_rel), "a", encoding="utf-8")
 
@@ -783,12 +800,15 @@ async def async_main():
             if c_num >= current_chunk:
                 current_chunk = c_num
 
-    chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
+    if SCAN_MODE == "direct":
+        chunk_file = os.path.join(REPO, "ip", "harvest", f"verified_alive_part_{SHARD_TAG}.txt")
+    else:
+        chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
     chunk_lines = 0
     if os.path.exists(chunk_file):
         with open(chunk_file, "r", encoding="utf-8", errors="ignore") as f:
             chunk_lines = sum(1 for _ in f)
-        if chunk_lines >= CHUNK_MAX:
+        if chunk_lines >= CHUNK_MAX and SCAN_MODE != "direct":
             current_chunk += 1
             chunk_file = os.path.join(REPO, "ip", "harvest", f"shodan_shard_{OUT_PREFIX}{SHARD_TAG}_c{current_chunk:03d}.txt")
             chunk_lines = 0
@@ -912,8 +932,8 @@ async def async_main():
                     if hits:
                         stats["ok"] += 1
                         stats["ok_with_ports"] += 1
-                        lines = [f"{ip}:{p}\n" for p in hits]
-                        if chunk_lines + len(lines) >= CHUNK_MAX:
+                        lines = [f"{ip}:{p}\thttp\tUS\t0\tDIRECT\t500\tFAST\t1\n" for p in hits]
+                        if chunk_lines + len(lines) >= CHUNK_MAX and SCAN_MODE != "direct":
                             if chunk_handle:
                                 chunk_handle.flush()
                                 chunk_handle.close()
