@@ -2,3 +2,4 @@
 [2026-10-28 06:25:25] [ALERT LOUD] other > 0 (got 223043)
 [2026-10-28 06:31:32] [ALERT LOUD] other > 0 (got 223043) | shards_running < 20 (got 19/20)
 [2026-10-28 10:01:47] [ALERT LOUD] ips_per_sec < 30,000 (got 29620.3)
+[2026-10-28 10:06:59] [ALERT LOUD] ips_per_sec < 30,000 (got 29146.6)
