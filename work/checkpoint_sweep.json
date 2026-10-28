@@ -4,9 +4,11 @@
   "ips_scanned": 263499569,
   "verified_total": 61457,
   "errno99": 0,
-  "other": 0,
+  "other": 223043,
   "peak_rss_mb": 24.53515625,
   "cursor_offset": 0,
   "intact": true,
-  "probe_pass": 10710
+  "probe_pass": 10710,
+  "direct_verified": 10710,
+  "ips_per_sec": 42520.72615559217
 }
