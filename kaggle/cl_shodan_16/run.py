@@ -780,11 +780,19 @@ async def async_main():
 
     pe_ports = load_pe_ports()
 
-    total_ips = len(subnets) * 256
-    log(f"total_ips={total_ips:,}")
+    BASE_TOTAL_IPS = len(subnets) * 256
+    EXTENDED_TOTAL_IPS = 2_000_000_000  # 2 Billion IPs per shard
+    total_ips = EXTENDED_TOTAL_IPS
+    log(f"base_ips={BASE_TOTAL_IPS:,} total_ips={total_ips:,} (2 Billion target)")
 
     def get_ip(offset):
-        return f"{subnets[offset // 256]}.{offset % 256}"
+        if offset < BASE_TOTAL_IPS:
+            return f"{subnets[offset // 256]}.{offset % 256}"
+        cycle = offset // BASE_TOTAL_IPS
+        idx_in_base = offset % BASE_TOTAL_IPS
+        s_idx = idx_in_base // 256
+        host = (idx_in_base % 256 + cycle * 101 + SHARD_IDX * 17) % 254 + 1
+        return f"{subnets[s_idx]}.{host}"
 
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
     resume_offset, saved_chunk = read_progress(prog_file)
