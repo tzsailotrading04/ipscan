@@ -8,5 +8,7 @@
   "peak_rss_mb": 24.53515625,
   "cursor_offset": 0,
   "intact": true,
-  "probe_pass": 49664
+  "probe_pass": 17979,
+  "direct_verified": 49664,
+  "ips_per_sec": 35154.79120398033
 }
