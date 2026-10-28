@@ -60,49 +60,62 @@ STAT_GAIERROR = 0
 STAT_OTHER = 0
 OTHER_EXC_REPR = {}
 
-HOST = "internetdb.shodan.io"
-SSL_CTX = ssl.create_default_context()
-SSL_CTX.check_hostname = False
-SSL_CTX.verify_mode = ssl.CERT_NONE
-
-def _make_client_hello(hostname=HOST):
-    ctx = ssl.create_default_context()
-    bio_in, bio_out = ssl.MemoryBIO(), ssl.MemoryBIO()
-    sslobj = ctx.wrap_bio(bio_in, bio_out, server_hostname=hostname)
+TARGETS = ["speed.cloudflare.com", "www.google.com", "one.one.one.one"]
+CLIENT_HELLOS = {}
+for _t in TARGETS:
+    _ctx = ssl.create_default_context()
+    _bio_in, _bio_out = ssl.MemoryBIO(), ssl.MemoryBIO()
+    _sslobj = _ctx.wrap_bio(_bio_in, _bio_out, server_hostname=_t)
     try:
-        sslobj.do_handshake()
+        _sslobj.do_handshake()
     except ssl.SSLWantReadError:
         pass
-    return bio_out.read()
+    CLIENT_HELLOS[_t] = _bio_out.read()
 
-CLIENT_HELLO = _make_client_hello(HOST)
-
-async def inline_probe_socket(s, host=HOST, timeout=2.0):
+async def inline_probe_connected(s, target, timeout=5.0):
     try:
         loop = asyncio.get_running_loop()
-        req = f"CONNECT {host}:443 HTTP/1.1\r\nHost: {host}:443\r\n\r\n".encode()
+        req = f"CONNECT {target}:443 HTTP/1.1\r\nHost: {target}:443\r\n\r\n".encode()
         await loop.sock_sendall(s, req)
         resp = b""
         t_end = time.monotonic() + timeout
         while b"\r\n\r\n" not in resp:
             if time.monotonic() > t_end:
                 return False
-            c = await asyncio.wait_for(loop.sock_recv(s, 256), timeout=timeout)
+            c = await asyncio.wait_for(loop.sock_recv(s, 512), timeout=timeout)
             if not c:
-                break
+                return False
             resp += c
-        first = resp.split(b"\r\n")[0]
-        if not (resp.startswith(b"HTTP/") and (b" 200" in first or b" 2" in first)):
+        first_line = resp.split(b"\r\n")[0]
+        if not (resp.startswith(b"HTTP/") and (b" 200" in first_line or b" 2" in first_line)):
             return False
-            
         parts = resp.split(b"\r\n\r\n", 1)
-        if len(parts) > 1 and parts[1]:
-            return parts[1][:1] == b"\x16"
-            
-        await loop.sock_sendall(s, CLIENT_HELLO)
+        trailing = parts[1] if len(parts) > 1 else b""
+        if trailing:
+            return trailing[:1] == b"\x16"
+        await loop.sock_sendall(s, CLIENT_HELLOS[target])
         b1 = await asyncio.wait_for(loop.sock_recv(s, 1), timeout=timeout)
         return b1 == b"\x16"
     except Exception:
+        return False
+    finally:
+        try:
+            s.close()
+        except Exception:
+            pass
+
+async def probe_single_target(ip, port, target, timeout=5.0):
+    loop = asyncio.get_running_loop()
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setblocking(False)
+    try:
+        await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=timeout)
+        return await inline_probe_connected(s, target, timeout=timeout)
+    except Exception:
+        try:
+            s.close()
+        except Exception:
+            pass
         return False
 
 async def check_direct_port(ip, port):
@@ -110,42 +123,42 @@ async def check_direct_port(ip, port):
     if DIRECT_SEM is None:
         DIRECT_SEM = asyncio.Semaphore(12000)
     async with DIRECT_SEM:
+        loop = asyncio.get_running_loop()
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.setblocking(False)
         try:
-            loop = asyncio.get_running_loop()
-            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=0.8)
-            is_proxy = await inline_probe_socket(s, HOST, timeout=2.0)
-            if is_proxy:
-                return port
-            return None
+            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=2.0)
         except asyncio.TimeoutError:
             STAT_TIMEOUT += 1
+            try: s.close()
+            except Exception: pass
             return None
         except ConnectionRefusedError:
             STAT_REFUSED += 1
-            return None
-        except socket.gaierror:
-            STAT_GAIERROR += 1
+            try: s.close()
+            except Exception: pass
             return None
         except OSError as e:
             if getattr(e, "errno", None) == 99 or "cannot assign requested address" in str(e).lower():
                 STAT_ERRNO99 += 1
             else:
                 STAT_OTHER += 1
-                r = type(e).__name__ + f"({getattr(e, 'errno', '?')})"
-                OTHER_EXC_REPR[r] = OTHER_EXC_REPR.get(r, 0) + 1
+            try: s.close()
+            except Exception: pass
             return None
-        except Exception as e:
+        except Exception:
             STAT_OTHER += 1
-            r = type(e).__name__
-            OTHER_EXC_REPR[r] = OTHER_EXC_REPR.get(r, 0) + 1
+            try: s.close()
+            except Exception: pass
             return None
-        finally:
-            try:
-                s.close()
-            except Exception:
-                pass
+
+        if await inline_probe_connected(s, "speed.cloudflare.com", timeout=5.0):
+            return port
+
+        for t in ["www.google.com", "one.one.one.one"]:
+            if await probe_single_target(ip, port, t, timeout=5.0):
+                return port
+        return None
 
 async def scan_direct(ip):
     res = await asyncio.gather(*[check_direct_port(ip, p) for p in DIRECT_PORTS], return_exceptions=True)
@@ -786,7 +799,7 @@ async def async_main():
         host = offset & 0xFF
         return f"{subnets[subnet_idx]}.{host}"
 
-        prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
+    prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
     resume_offset, saved_chunk = read_progress(prog_file)
     current_chunk = saved_chunk
 
