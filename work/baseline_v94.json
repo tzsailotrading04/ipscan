@@ -1,0 +1,86 @@
+{
+  "timestamp": 1792924784.5892415,
+  "time_str": "2026-10-25 16:09:44",
+  "shards": {
+    "00": {
+      "offset": 55500,
+      "candidates": 298
+    },
+    "01": {
+      "offset": 55500,
+      "candidates": 1551
+    },
+    "02": {
+      "offset": 47500,
+      "candidates": 2868
+    },
+    "03": {
+      "offset": 48000,
+      "candidates": 0
+    },
+    "04": {
+      "offset": 48000,
+      "candidates": 0
+    },
+    "05": {
+      "offset": 48000,
+      "candidates": 0
+    },
+    "06": {
+      "offset": 48000,
+      "candidates": 344
+    },
+    "07": {
+      "offset": 48000,
+      "candidates": 0
+    },
+    "08": {
+      "offset": 48000,
+      "candidates": 0
+    },
+    "09": {
+      "offset": 48000,
+      "candidates": 2514
+    },
+    "10": {
+      "offset": 48000,
+      "candidates": 531
+    },
+    "11": {
+      "offset": 48000,
+      "candidates": 506
+    },
+    "12": {
+      "offset": 48000,
+      "candidates": 0
+    },
+    "13": {
+      "offset": 48000,
+      "candidates": 1190
+    },
+    "14": {
+      "offset": 48000,
+      "candidates": 484
+    },
+    "15": {
+      "offset": 48000,
+      "candidates": 513
+    },
+    "16": {
+      "offset": 35000,
+      "candidates": 0
+    },
+    "17": {
+      "offset": 35000,
+      "candidates": 0
+    },
+    "18": {
+      "offset": 35000,
+      "candidates": 0
+    },
+    "19": {
+      "offset": 35000,
+      "candidates": 0
+    }
+  }
+}
