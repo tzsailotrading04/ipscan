@@ -1,1 +1,8 @@
-engine=v98.164\nshard=16\noffset=0\ntotal=1753088\ncands=0\nerrno99=0\nreq_s=0.0\nworkers=6\n
+engine=v98.164
+shard=16
+offset=81000
+total=1753088
+cands=13392
+errno99=0
+req_s=2951.1
+workers=6
