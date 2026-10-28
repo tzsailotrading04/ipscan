@@ -9,8 +9,8 @@ SHARDS = [
     ("acct1", ["cl_shodan_02", "cl_shodan_03", "cl_shodan_04", "cl_shodan_05"]),
     ("acct2", ["cl_shodan_06", "cl_shodan_07", "cl_shodan_08", "cl_shodan_09"]),
     ("acct3", ["cl_shodan_10", "cl_shodan_11", "cl_shodan_12", "cl_shodan_13"]),
-    ("acct4", ["cl_shodan_14", "cl_shodan_15", "cl_shodan_16", "cl_shodan_17"]),
-    ("acct6", ["cl_shodan_18", "cl_shodan_19"]),
+    ("acct4", ["cl_shodan_15", "cl_shodan_16", "cl_shodan_17"]),
+    ("acct6", ["cl_shodan_14", "cl_shodan_18", "cl_shodan_19"]),
 ]
 
 def check_one(item):
