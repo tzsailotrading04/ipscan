@@ -1,0 +1,7002 @@
+[
+  {
+    "proxy": "51.159.104.134:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "194.67.101.59:3128",
+    "asn": "197695",
+    "cc": "RU",
+    "org": "AS-REG",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "114.29.240.117:80",
+    "asn": "131602",
+    "cc": "TW",
+    "org": "HYA Hsin Yeong An Cable TV Co., Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.12.114.110:80",
+    "asn": "37684",
+    "cc": "KE",
+    "org": "ANGANI-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.250.32:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.236.64:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.212.162:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "213.184.24.34:80",
+    "asn": "15798",
+    "cc": "PL",
+    "org": "OLMAN-EDU-AS OLMAN, Metropolitan Area Network educational AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.82.29.18:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "190.122.238.63:80",
+    "asn": "28068",
+    "cc": "AR",
+    "org": "Universidad Nacional de San Luis",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.4.193.119:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.113.108.148:80",
+    "asn": "198610",
+    "cc": "RU",
+    "org": "BEGET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "75.8.39.68:80",
+    "asn": "7018",
+    "cc": "US",
+    "org": "ATT-INTERNET4",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.67.213.176:80",
+    "asn": "48614",
+    "cc": "RU",
+    "org": "ITSOFT-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "175.126.20.15:80",
+    "asn": "9318",
+    "cc": "KR",
+    "org": "SKB-AS SK Broadband Co Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.29.238.201:80",
+    "asn": "215540",
+    "cc": "GB",
+    "org": "GCS-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.80.214:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "120.101.60.1:80",
+    "asn": "1659",
+    "cc": "TW",
+    "org": "ERX-TANET-ASN1 Taiwan Academic Network TANet Information Center",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "119.66.22.137:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "182.253.154.26:8080",
+    "asn": "17451",
+    "cc": "ID",
+    "org": "BIZNET-AS-AP BIZNET NETWORKS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.206.9:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.217.34:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.130.42.254:80",
+    "asn": "198610",
+    "cc": "RU",
+    "org": "BEGET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "47.207.92.226:80",
+    "asn": "5650",
+    "cc": "US",
+    "org": "FRONTIER-FRTR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "116.106.210.79:80",
+    "asn": "24086",
+    "cc": "VN",
+    "org": "VIETTEL-AS-VN Viettel Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.90.86.30:80",
+    "asn": "10010",
+    "cc": "JP",
+    "org": "TOKAI TOKAI Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.209.32:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.135.12.104:443",
+    "asn": "4808",
+    "cc": "CN",
+    "org": "CHINA169-BJ China Unicom Beijing Province Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.229.185.198:443",
+    "asn": "9318",
+    "cc": "KR",
+    "org": "SKB-AS SK Broadband Co Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.1.123.109:80",
+    "asn": "9829",
+    "cc": "IN",
+    "org": "BSNL-NIB National Internet Backbone",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.66.131.236:80",
+    "asn": "3258",
+    "cc": "JP",
+    "org": "XTOM-JAPAN xTom Japan Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.96.252.210:80",
+    "asn": "398946",
+    "cc": "US",
+    "org": "CONTENTKEEPER-AS-ARIN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.211.227:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "42.96.50.24:80",
+    "asn": "45903",
+    "cc": "VN",
+    "org": "CMCTELECOM-VN CMC Telecom Infrastructure Company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.29.157.26:443",
+    "asn": "51437",
+    "cc": "RU",
+    "org": "GLAVNIVZ",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.251.21:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.216.7.240:80",
+    "asn": "19151",
+    "cc": "US",
+    "org": "BBO-1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "72.36.32.222:80",
+    "asn": "30110",
+    "cc": "US",
+    "org": "ADVANCED-COMMUNICATIONS-TECHNOLOGY",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "103.157.96.102:443",
+    "asn": "55688",
+    "cc": "ID",
+    "org": "BEON-AS-ID PT. Beon Intermedia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.60.235.116:80",
+    "asn": "203273",
+    "cc": "EE",
+    "org": "NETCRAFTERSOUE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "66.154.118.2:80",
+    "asn": "7393",
+    "cc": "US",
+    "org": "CYBERCON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.229.236.3:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.43.219.85:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.80.255:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.205.12.249:80",
+    "asn": "24971",
+    "cc": "CZ",
+    "org": "MASTER-AS Czech Republic  www.master.cz",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.251.200:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.183.81.94:80",
+    "asn": "53667",
+    "cc": "US",
+    "org": "PONYNET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.206.122:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "63.141.245.139:80",
+    "asn": "33387",
+    "cc": "US",
+    "org": "NOCIX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "37.148.0.71:80",
+    "asn": "34369",
+    "cc": "IR",
+    "org": "AS-NAMAVA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "189.50.110.81:80",
+    "asn": "28668",
+    "cc": "BR",
+    "org": "Desktop Sigmanet Comunicacao Multimidia SA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "181.177.140.138:80",
+    "asn": "27839",
+    "cc": "BO",
+    "org": "Comteco Ltda",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.175.180.125:80",
+    "asn": "397142",
+    "cc": "US",
+    "org": "FORT-COLLINS-CONNEXION",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "185.19.184.142:80",
+    "asn": "60975",
+    "cc": "IT",
+    "org": "PARVATI Rimini RN Italy",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.12.75.232:80",
+    "asn": "54600",
+    "cc": "US",
+    "org": "PEG-SV",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.39.230.223:80",
+    "asn": "32181",
+    "cc": "US",
+    "org": "ASN-GIGENET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "37.252.191.68:80",
+    "asn": "44133",
+    "cc": "AT",
+    "org": "IPAX-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "47.51.6.186:80",
+    "asn": "20115",
+    "cc": "US",
+    "org": "CHARTER-20115",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.248.100:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.17.39.129:443",
+    "asn": "394161",
+    "cc": "US",
+    "org": "TESLA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.118.128.68:80",
+    "asn": "4134",
+    "cc": "CN",
+    "org": "CHINANET-BACKBONE No.31,Jin-rong Street",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.66.228.38:80",
+    "asn": "9919",
+    "cc": "TW",
+    "org": "NCIC-TW New Century InfoComm Tech Co., Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.242.194.135:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.230.96.44:80",
+    "asn": "267160",
+    "cc": "BR",
+    "org": "JARDIMNET SERVICOS DE INFORMATICA E REDES",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "205.209.66.176:80",
+    "asn": "214707",
+    "cc": "SY",
+    "org": "RCELL",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "89.208.35.227:80",
+    "asn": "12695",
+    "cc": "RU",
+    "org": "DINET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.174.149.174:80",
+    "asn": "399195",
+    "cc": "US",
+    "org": "PEG-KR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "161.235.226.152:80",
+    "asn": "13695",
+    "cc": "US",
+    "org": "AEP",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.74.31.42:8510",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.201.62.155:80",
+    "asn": "50266",
+    "cc": "NL",
+    "org": "ODIDO",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "67.211.73.243:80",
+    "asn": "59371",
+    "cc": "HK",
+    "org": "DNC-AS Dimension Network & Communication Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.49.80.133:80",
+    "asn": "5650",
+    "cc": "US",
+    "org": "FRONTIER-FRTR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.109.181.223:80",
+    "asn": "5650",
+    "cc": "US",
+    "org": "FRONTIER-FRTR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.50.65.99:443",
+    "asn": "19318",
+    "cc": "US",
+    "org": "IS-AS-1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "71.19.149.188:80",
+    "asn": "47066",
+    "cc": "US",
+    "org": "PRGMR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.127.35.247:443",
+    "asn": "18978",
+    "cc": "US",
+    "org": "ENZUINC-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.21.228.3:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.101.151.22:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.125.29.168:80",
+    "asn": "9595",
+    "cc": "JP",
+    "org": "XEPHION NTT-ME Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "154.198.4.49:8080",
+    "asn": "137184",
+    "cc": "PH",
+    "org": "SUNIWAYTELECOM-AS-AP Suniway Group of Companies Inc.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.195.143.18:80",
+    "asn": "45820",
+    "cc": "IN",
+    "org": "TTSL-MEISISP Tata Teleservices ISP AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.120.41.194:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.216.214:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.204.27.32:80",
+    "asn": "46783",
+    "cc": "US",
+    "org": "EL-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.170.186.108:80",
+    "asn": "25880",
+    "cc": "RU",
+    "org": "YURGATELEKOM-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "162.254.35.175:443",
+    "asn": "22612",
+    "cc": "US",
+    "org": "NAMECHEAP-NET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.67.151.155:80",
+    "asn": "396356",
+    "cc": "US",
+    "org": "LATITUDE-SH",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.217.42:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.167.85.145:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "188.214.61.183:80",
+    "asn": "213705",
+    "cc": "MD",
+    "org": "SF-SERVICES",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.175.20.53:80",
+    "asn": "150161",
+    "cc": "PH",
+    "org": "HMO-AS-AP HYPERSONIC MANAGEMENT OPC",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.251.207:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.228.86.150:80",
+    "asn": "56309",
+    "cc": "TH",
+    "org": "SIAMDATA-TH Siamdata Communication Co.,Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "51.15.211.8:443",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "68.144.2.237:80",
+    "asn": "6327",
+    "cc": "CA",
+    "org": "SHAW",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.14.164.102:80",
+    "asn": "54600",
+    "cc": "US",
+    "org": "PEG-SV",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.231.64.79:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.150.117.27:80",
+    "asn": "26042",
+    "cc": "US",
+    "org": "FIBERSTATE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.11.150.54:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.118.25.100:443",
+    "asn": "55313",
+    "cc": "VN",
+    "org": "HANELCOM-AS-VN Hanel Communication JSC",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.19.51.15:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.248.246:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.102.53.253:80",
+    "asn": "17839",
+    "cc": "KR",
+    "org": "DREAMPLUS-AS-KR LG HelloVision Corp.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.199.176.82:80",
+    "asn": "9924",
+    "cc": "TW",
+    "org": "TFN-TW Taiwan Fixed Network, Telco and Network Service Provider.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.22.54.138:80",
+    "asn": "4837",
+    "cc": "CN",
+    "org": "CHINA169-BACKBONE CHINA UNICOM China169 Backbone",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "156.234.129.210:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.213.95.87:443",
+    "asn": "38244",
+    "cc": "VN",
+    "org": "VINAGAME-AS-VN VNG Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "51.15.178.130:443",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.248.228.45:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.227.162.124:443",
+    "asn": "266660",
+    "cc": "AR",
+    "org": "Allytech S.A.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.61.96.151:80",
+    "asn": "9919",
+    "cc": "TW",
+    "org": "NCIC-TW New Century InfoComm Tech Co., Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.236.59:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.231.76.76:80",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.242.194.40:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.174.152.171:80",
+    "asn": "399195",
+    "cc": "US",
+    "org": "PEG-KR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.249.191:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "91.221.210.10:80",
+    "asn": "197490",
+    "cc": "UA",
+    "org": "SIRIUSVP-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "51.159.22.129:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.248.121.88:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.80.9.156:80",
+    "asn": "199636",
+    "cc": "FR",
+    "org": "FREEBOXPRO",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.211.179:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.199.212.91:80",
+    "asn": "9924",
+    "cc": "TW",
+    "org": "TFN-TW Taiwan Fixed Network, Telco and Network Service Provider.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "35.211.238.235:80",
+    "asn": "43515",
+    "cc": "IE",
+    "org": "YOUTUBE YOUTUBE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.197.139.195:80",
+    "asn": "32097",
+    "cc": "US",
+    "org": "WII",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.135.54.123:80",
+    "asn": "19151",
+    "cc": "US",
+    "org": "BBO-1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.251.14.139:80",
+    "asn": "15083",
+    "cc": "US",
+    "org": "INFOLINK-MIA-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.54.132.44:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.216.51:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.92.233.35:80",
+    "asn": "7459",
+    "cc": "US",
+    "org": "GRANDECOM-AS1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "120.155.15.178:80",
+    "asn": "1221",
+    "cc": "AU",
+    "org": "ASN-TELSTRA Telstra Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.114.41.114:80",
+    "asn": "13831",
+    "cc": "US",
+    "org": "POGOZONE-OA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.76.28.122:80",
+    "asn": "215439",
+    "cc": "GB",
+    "org": "PLAY2GO-NET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.52.200.221:80",
+    "asn": "274087",
+    "cc": "PE",
+    "org": "FIBERLINK E.I.R.L.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.248.60:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "149.86.225.209:80",
+    "asn": "201814",
+    "cc": "PL",
+    "org": "MEVSPACE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.200.111:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "81.209.177.99:80",
+    "asn": "13237",
+    "cc": "DE",
+    "org": "LAMBDANET-AS European Backbone of AS13237",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.142.36.109:80",
+    "asn": "8881",
+    "cc": "DE",
+    "org": "VERSATEL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.131.108:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.19.69.205:80",
+    "asn": "9931",
+    "cc": "TH",
+    "org": "CAT-AP The Communication Authoity of Thailand, CAT",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.76.253.57:80",
+    "asn": "43260",
+    "cc": "TR",
+    "org": "AS43260 - DGN TEKNOLOJI A.S.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.20:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.80.191.178:80",
+    "asn": "17506",
+    "cc": "JP",
+    "org": "UCOM ARTERIA Networks Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.117.83.88:80",
+    "asn": "131353",
+    "cc": "VN",
+    "org": "NHANHOA-AS-VN NhanHoa Software company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.38.241.20:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.204.221.8:80",
+    "asn": "17088",
+    "cc": "US",
+    "org": "CURRENEX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "82.177.57.38:80",
+    "asn": "20804",
+    "cc": "PL",
+    "org": "ASN-TELENERGO ul. PERKUNA 47, WARSZAWA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "52.144.72.6:80",
+    "asn": "5602",
+    "cc": "IT",
+    "org": "AS-IRIDEOS-KP",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.242.194.109:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "216.197.53.163:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.248.122:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "213.207.110.106:80",
+    "asn": "9150",
+    "cc": "NL",
+    "org": "INTERCONNECT Interconnect Services B.V.",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.237.166:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.149.182.27:80",
+    "asn": "31034",
+    "cc": "IT",
+    "org": "ARUBA-ASN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.90.99.122:80",
+    "asn": "58087",
+    "cc": "DE",
+    "org": "FLORIANKOLB",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.248.27.66:80",
+    "asn": "133676",
+    "cc": "IN",
+    "org": "PNPL-AS Precious netcom pvt ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.246.227:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.165.22.149:80",
+    "asn": "12389",
+    "cc": "RU",
+    "org": "ROSTELECOM-AS PJSC Rostelecom. Technical Team",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.235.192.170:80",
+    "asn": "33814",
+    "cc": "DE",
+    "org": "TOGNUM-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.88.137:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "77.90.56.22:80",
+    "asn": "214339",
+    "cc": "DE",
+    "org": "SRV-RENT",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.235.13.160:443",
+    "asn": "215625",
+    "cc": "TR",
+    "org": "TE-BILISIM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.38.246.53:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.127.37.209:443",
+    "asn": "18978",
+    "cc": "US",
+    "org": "ENZUINC-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.211.159:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "212.95.71.176:80",
+    "asn": "8839",
+    "cc": "FR",
+    "org": "SDV-AS SdV Plurimedia",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.139.226.225:443",
+    "asn": "142594",
+    "cc": "AU",
+    "org": "SPEEDYPAGELTD-AS-AP SpeedyPage Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.42.81:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "179.51.151.136:80",
+    "asn": "271179",
+    "cc": "BR",
+    "org": "OLIVEIRA & CARVALHO COMUNICACAO E MULTIMIDIA LTDA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.26.12.122:80",
+    "asn": "12312",
+    "cc": "DE",
+    "org": "ECOTEL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.225.198.119:443",
+    "asn": "135905",
+    "cc": "VN",
+    "org": "VNPT-AS-VN VIETNAM POSTS AND TELECOMMUNICATIONS GROUP",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "71.12.73.94:80",
+    "asn": "20115",
+    "cc": "US",
+    "org": "CHARTER-20115",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "193.57.141.47:80",
+    "asn": "47136",
+    "cc": "IT",
+    "org": "GGNET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.144.4.6:80",
+    "asn": "979",
+    "cc": "US",
+    "org": "NETLAB-SDN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.31.0.238:80",
+    "asn": "29802",
+    "cc": "US",
+    "org": "HVC-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.231.110.167:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.81.235.235:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.108.194.246:80",
+    "asn": "17676",
+    "cc": "JP",
+    "org": "GIGAINFRA SoftBank Corp.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.80.228:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.77.66.183:80",
+    "asn": "8374",
+    "cc": "PL",
+    "org": "PLUSNET Plus network operator in Poland",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "146.112.42.197:443",
+    "asn": "36692",
+    "cc": "US",
+    "org": "CISCO-UMBRELLA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.224.184.161:80",
+    "asn": "329429",
+    "cc": "ZA",
+    "org": "DSCP1",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.178.42.24:80",
+    "asn": "35986",
+    "cc": "US",
+    "org": "VYVE-BROADBAND",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.63.104.141:80",
+    "asn": "51784",
+    "cc": "UA",
+    "org": "X-CITY-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.254.49.105:80",
+    "asn": "45117",
+    "cc": "IN",
+    "org": "INPL-IN-AP Ishans Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.201.212.169:80",
+    "asn": "38901",
+    "cc": "KH",
+    "org": "EZECOM-AS-AP EZECOM CO., LTD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.239.219:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.74.31.46:5844",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "70.91.145.67:80",
+    "asn": "33489",
+    "cc": "US",
+    "org": "COMCAST-33489",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "103.238.234.204:8080",
+    "asn": "140810",
+    "cc": "VN",
+    "org": "MEGACORE-AS-VN Megacore Technology Company Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.10.148.217:80",
+    "asn": "4837",
+    "cc": "CN",
+    "org": "CHINA169-BACKBONE CHINA UNICOM China169 Backbone",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.219.169.111:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "197.136.134.44:80",
+    "asn": "36914",
+    "cc": "KE",
+    "org": "KENET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.138.6.204:80",
+    "asn": "17676",
+    "cc": "JP",
+    "org": "GIGAINFRA SoftBank Corp.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.204.221.9:80",
+    "asn": "17088",
+    "cc": "US",
+    "org": "CURRENEX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.232.30.150:80",
+    "asn": "267241",
+    "cc": "BR",
+    "org": "GMAES TELECOM LTDA ME",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.204.239.14:80",
+    "asn": "34040",
+    "cc": "CZ",
+    "org": "CZTTNET-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.248.237:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.139.227.231:80",
+    "asn": "19108",
+    "cc": "US",
+    "org": "SUDDENLINK-COMMUNICATIONS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "51.159.78.119:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "37.204.231.54:80",
+    "asn": "42610",
+    "cc": "RU",
+    "org": "NCNET-AS OJSC National Cable Networks",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "194.87.238.251:80",
+    "asn": "48347",
+    "cc": "RU",
+    "org": "MTW-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.207.186.64:80",
+    "asn": "8369",
+    "cc": "RU",
+    "org": "INTERSVYAZ-AS 38-B, Komsomolsky prospekt",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.111.146.70:80",
+    "asn": "36947",
+    "cc": "DZ",
+    "org": "ALGTEL-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.229.145.97:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.229.113.85:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.10.204.217:80",
+    "asn": "45599",
+    "cc": "TW",
+    "org": "EQUANTECH-TW-AP 141 Yang Guan Jie",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.221.104.175:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.136.168.37:80",
+    "asn": "10796",
+    "cc": "US",
+    "org": "TWC-10796-MIDWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.216.166.226:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.246.34:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.119.81.220:80",
+    "asn": "131386",
+    "cc": "VN",
+    "org": "LVSS-AS-VN Long Van System Solution JSC",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "63.141.231.251:443",
+    "asn": "33387",
+    "cc": "US",
+    "org": "NOCIX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.94.145.159:80",
+    "asn": "207043",
+    "cc": "GB",
+    "org": "DEDIK-IO",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.134.174.189:80",
+    "asn": "43641",
+    "cc": "PL",
+    "org": "SOLLUTIUM-NL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "81.19.208.90:80",
+    "asn": "25369",
+    "cc": "GB",
+    "org": "BANDWIDTH-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "192.162.86.114:80",
+    "asn": "8648",
+    "cc": "DE",
+    "org": "ONE-NETWORK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "72.45.215.30:80",
+    "asn": "11351",
+    "cc": "US",
+    "org": "TWC-11351-NORTHEAST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.233.26.142:80",
+    "asn": "7922",
+    "cc": "US",
+    "org": "COMCAST-7922",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.33.84.177:80",
+    "asn": "5410",
+    "cc": "FR",
+    "org": "BOUYGTEL-ISP",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.164.240.131:443",
+    "asn": "19318",
+    "cc": "US",
+    "org": "IS-AS-1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "51.158.24.45:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.134.174.187:80",
+    "asn": "43641",
+    "cc": "PL",
+    "org": "SOLLUTIUM-NL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "49.213.95.80:443",
+    "asn": "38244",
+    "cc": "VN",
+    "org": "VINAGAME-AS-VN VNG Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.209.36:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.173.22.107:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "63.141.235.15:80",
+    "asn": "33387",
+    "cc": "US",
+    "org": "NOCIX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.231.31.6:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.250.101.152:80",
+    "asn": "45715",
+    "cc": "ID",
+    "org": "IDNIC-KEMHAN-AS-ID PUSDATIN KEMHAN RI",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.44.121.146:80",
+    "asn": "20278",
+    "cc": "US",
+    "org": "NEXEON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "89.21.85.77:80",
+    "asn": "141892",
+    "cc": "ID",
+    "org": "IDNIC-SENGKED-AS-ID CV Andhika Pratama Sanggoro",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.201.212.41:80",
+    "asn": "38901",
+    "cc": "KH",
+    "org": "EZECOM-AS-AP EZECOM CO., LTD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "85.216.216.125:80",
+    "asn": "6830",
+    "cc": "NL",
+    "org": "LIBERTYGLOBAL Liberty Global formerly UPC Broadband Holding, aka AORTA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "1.215.180.190:80",
+    "asn": "3786",
+    "cc": "KR",
+    "org": "LGDACOM LG DACOM Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "47.177.130.242:80",
+    "asn": "5650",
+    "cc": "US",
+    "org": "FRONTIER-FRTR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "35.211.211.2:80",
+    "asn": "43515",
+    "cc": "IE",
+    "org": "YOUTUBE YOUTUBE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.116.41.206:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "109.195.17.196:80",
+    "asn": "50543",
+    "cc": "RU",
+    "org": "SARATOV-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "195.123.221.16:80",
+    "asn": "21100",
+    "cc": "US",
+    "org": "ITLDC-EU",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "94.199.179.78:80",
+    "asn": "206892",
+    "cc": "HU",
+    "org": "Rendszerinformatika Zrt.",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.128.252.41:80",
+    "asn": "399486",
+    "cc": "CA",
+    "org": "VIRTUO",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.2.132.147:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "67.230.186.145:80",
+    "asn": "25820",
+    "cc": "CA",
+    "org": "IT7NET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.159.38.46:80",
+    "asn": "30236",
+    "cc": "CA",
+    "org": "CRONOMAGIC-1",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.59.179.59:80",
+    "asn": "219064",
+    "cc": "GB",
+    "org": "Akenai-Products-AS - Akenai Products LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.234.206:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.63.172.133:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.234.60:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.2.131.59:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.146.208.178:80",
+    "asn": "12768",
+    "cc": "RU",
+    "org": "ER-TELECOM-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "161.225.68.93:80",
+    "asn": "17052",
+    "cc": "US",
+    "org": "TARGET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "173.242.53.205:80",
+    "asn": "200000",
+    "cc": "UA",
+    "org": "UKRAINE-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.74.144.119:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.40.35:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.39.25.27:80",
+    "asn": "7859",
+    "cc": "US",
+    "org": "PAIR-NETWORKS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "153.56.248.168:8080",
+    "asn": "216472",
+    "cc": "SY",
+    "org": "-Reserved AS-",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.81.208.134:80",
+    "asn": "6739",
+    "cc": "ES",
+    "org": "ONO-AS Cableuropa - ONO",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.224.130.154:80",
+    "asn": "266400",
+    "cc": "BR",
+    "org": "Ferenz Networks",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "63.208.140.168:443",
+    "asn": "3356",
+    "cc": "US",
+    "org": "LEVEL3",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "207.177.122.144:8080",
+    "asn": "5056",
+    "cc": "US",
+    "org": "AUREON-5056",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "207.192.166.100:80",
+    "asn": "63005",
+    "cc": "US",
+    "org": "NEXUS-22-63005",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.11.82.158:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.255.61.35:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.74.31.41:7174",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.235.170.79:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.248.132:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.197.144.19:80",
+    "asn": "134365",
+    "cc": "HK",
+    "org": "ANSHENG-AS-AP Ansheng Network Technology Co., Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.56.79.28:80",
+    "asn": "210976",
+    "cc": "KZ",
+    "org": "TWC-EU",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.171.15.51:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.80.55:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.160:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "94.183.169.189:80",
+    "asn": "197256",
+    "cc": "CZ",
+    "org": "RENEWINKLER-AS - Rene Winkler",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.249.91.230:443",
+    "asn": "137552",
+    "cc": "MY",
+    "org": "TTSB-AS-AP Terabix",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.244.88.32:80",
+    "asn": "34177",
+    "cc": "FR",
+    "org": "CELESTE-AS CELESTE - Internet services provider",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.66.228.59:80",
+    "asn": "9919",
+    "cc": "TW",
+    "org": "NCIC-TW New Century InfoComm Tech Co., Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.249.243.159:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.210.169:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.13.134.153:80",
+    "asn": "134078",
+    "cc": "SG",
+    "org": "NETPLUZ-AS-AP NETPLUZ HOLDINGS PRIVATE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.76.109.174:80",
+    "asn": "216039",
+    "cc": "GB",
+    "org": "EDGESEC-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.38.245.5:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.23.124.74:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.173.21.105:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "41.203.63.166:80",
+    "asn": "36968",
+    "cc": "ZA",
+    "org": "ECN-AS1",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "78.142.141.52:80",
+    "asn": "8437",
+    "cc": "AT",
+    "org": "UTA-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.154.25.100:443",
+    "asn": "56309",
+    "cc": "TH",
+    "org": "SIAMDATA-TH Siamdata Communication Co.,Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.225.41.17:80",
+    "asn": "55547",
+    "cc": "PH",
+    "org": "WOODSNET-PH Unit D,E,F,G 28th Floor",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "202.91.78.113:80",
+    "asn": "9830",
+    "cc": "IN",
+    "org": "SWIFTONLINE-AS-AP SWIFT ONLINE BORDER AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.237.242:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.212.24:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "146.112.51.40:443",
+    "asn": "36692",
+    "cc": "US",
+    "org": "CISCO-UMBRELLA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "37.157.221.29:80",
+    "asn": "44395",
+    "cc": "AM",
+    "org": "ORG-UL31-RIPE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "111.192.60.240:8888",
+    "asn": "4808",
+    "cc": "CN",
+    "org": "CHINA169-BJ China Unicom Beijing Province Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.254.25.40:80",
+    "asn": "38972",
+    "cc": "RU",
+    "org": "INTERSAT-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.74.31.46:7561",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.217.114:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.255.80.110:80",
+    "asn": "31638",
+    "cc": "IT",
+    "org": "ASN-LEPIDA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.211.214:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.166.158.193:1080",
+    "asn": "141955",
+    "cc": "ID",
+    "org": "IDNIC-TIMORLINTAS-AS-ID PT Timor Lintas Nusantara",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "156.234.10.159:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.13.132.195:80",
+    "asn": "134078",
+    "cc": "SG",
+    "org": "NETPLUZ-AS-AP NETPLUZ HOLDINGS PRIVATE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.63.132.0:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.7.68.174:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.216.45:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "151.186.1.137:443",
+    "asn": "36692",
+    "cc": "US",
+    "org": "CISCO-UMBRELLA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "79.238.49.121:80",
+    "asn": "3320",
+    "cc": "DE",
+    "org": "DTAG Internet service provider operations",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "120.101.56.145:80",
+    "asn": "1659",
+    "cc": "TW",
+    "org": "ERX-TANET-ASN1 Taiwan Academic Network TANet Information Center",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "70.39.144.104:80",
+    "asn": "54641",
+    "cc": "US",
+    "org": "IMH-IAD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "36.78.121.66:443",
+    "asn": "7713",
+    "cc": "ID",
+    "org": "TELKOMNET-AS-AP PT Telekomunikasi Indonesia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "155.212.210.231:80",
+    "asn": "198610",
+    "cc": "RU",
+    "org": "BEGET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.146.91.225:80",
+    "asn": "203273",
+    "cc": "EE",
+    "org": "NETCRAFTERSOUE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.234.120:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.251.237:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.17.65.158:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.40.221:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.76:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.249.70.181:80",
+    "asn": "23860",
+    "cc": "IN",
+    "org": "ALLIANCE-GATEWAY-AS-AP Alliance Broadband Services Pvt. Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "210.16.173.5:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.222.81.198:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.2.148.41:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.173.211.54:80",
+    "asn": "47196",
+    "cc": "RU",
+    "org": "GARANT-PARK-INTERNET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.21.226.115:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.255.61.110:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.236.182:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.51.4.42:80",
+    "asn": "7459",
+    "cc": "US",
+    "org": "GRANDECOM-AS1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.255.61.129:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.172.47.53:80",
+    "asn": "4213",
+    "cc": "US",
+    "org": "EVOCATIVE-GLOBAL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.6.84.150:80",
+    "asn": "398823",
+    "cc": "US",
+    "org": "PEG-LA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.101.151.117:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "183.179.54.216:80",
+    "asn": "9269",
+    "cc": "HK",
+    "org": "HKBN-AS-AP Hong Kong Broadband Network Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "185.200.37.238:8080",
+    "asn": "202561",
+    "cc": "TR",
+    "org": "HIGHSPEED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.102.128.91:80",
+    "asn": "131596",
+    "cc": "TW",
+    "org": "TBCOM-NET TBC",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.88.61:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.11.144.181:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.80.81:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.60.191.245:443",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.251.205.19:80",
+    "asn": "134100",
+    "cc": "TH",
+    "org": "EXPRESSDATA-AS Express Data Co.,Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "71.90.219.31:80",
+    "asn": "20115",
+    "cc": "US",
+    "org": "CHARTER-20115",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.61.30.144:80",
+    "asn": "18049",
+    "cc": "TW",
+    "org": "TINP-TW Taiwan Infrastructure Network Technologie",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.49.36.244:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.25.236.125:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.56.63.82:80",
+    "asn": "4134",
+    "cc": "CN",
+    "org": "CHINANET-BACKBONE No.31,Jin-rong Street",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.153.220.107:80",
+    "asn": "4760",
+    "cc": "HK",
+    "org": "HKTIMS-AP HKT Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "185.62.56.191:80",
+    "asn": "62370",
+    "cc": "NL",
+    "org": "SNEL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "142.248.137.108:3128",
+    "asn": "137535",
+    "cc": "SG",
+    "org": "JTIP-AS-AP JT TELECOM INTERNATIONAL PTE.LTD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.54.33.63:443",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.43.95.100:80",
+    "asn": "3786",
+    "cc": "KR",
+    "org": "LGDACOM LG DACOM Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.19.1.68:80",
+    "asn": "198354",
+    "cc": "RU",
+    "org": "SISTELECOM-AS Moscow, Russia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.95.10.107:443",
+    "asn": "399629",
+    "cc": "US",
+    "org": "BLNWX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "71.187.33.190:80",
+    "asn": "701",
+    "cc": "US",
+    "org": "UUNET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "193.49.52.219:80",
+    "asn": "2200",
+    "cc": "FR",
+    "org": "FR-RENATER Reseau National de telecommunications pour la Technologie",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.237.56:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.101.151.189:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.101.151.105:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.231.253.21:80",
+    "asn": "267237",
+    "cc": "BR",
+    "org": "Elevalink Telecomunicacoes LTDA - ME",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "42.96.50.214:80",
+    "asn": "45903",
+    "cc": "VN",
+    "org": "CMCTELECOM-VN CMC Telecom Infrastructure Company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "213.83.51.83:80",
+    "asn": "12306",
+    "cc": "DE",
+    "org": "PLUSLINE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.80.211:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "24.199.0.238:80",
+    "asn": "20001",
+    "cc": "US",
+    "org": "TWC-20001-PACWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.251.240:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.242.194.69:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.239.122:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "73.30.120.92:80",
+    "asn": "7922",
+    "cc": "US",
+    "org": "COMCAST-7922",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "89.39.68.148:80",
+    "asn": "5606",
+    "cc": "RO",
+    "org": "GTS-BACKBONE GTS Telecom",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "157.66.47.169:443",
+    "asn": "151917",
+    "cc": "VN",
+    "org": "JUPITERMEDIA-VN Jupiter Media Joint Stock Company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.90.106.105:80",
+    "asn": "37061",
+    "cc": "KE",
+    "org": "Safaricom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.180.231.72:80",
+    "asn": "18671",
+    "cc": "US",
+    "org": "PRTC-SC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "71.168.156.121:80",
+    "asn": "701",
+    "cc": "US",
+    "org": "UUNET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.85.70.38:80",
+    "asn": "27569",
+    "cc": "US",
+    "org": "GVII",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.74.31.42:11372",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "185.29.120.70:443",
+    "asn": "43260",
+    "cc": "TR",
+    "org": "AS43260 - DGN TEKNOLOJI A.S.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.34.91.17:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.247.154.29:80",
+    "asn": "17621",
+    "cc": "CN",
+    "org": "CNCGROUP-SH China Unicom Shanghai network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.39.210.192:443",
+    "asn": "268624",
+    "cc": "BR",
+    "org": "Gamers Club Ltda",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "68.178.192.171:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "103.90.73.52:80",
+    "asn": "216154",
+    "cc": "AE",
+    "org": "CLODO",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "181.94.197.37:8080",
+    "asn": "27895",
+    "cc": "PY",
+    "org": "Nucleo S.A.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "91.92.155.207:3128",
+    "asn": "61098",
+    "cc": "CH",
+    "org": "EXOSCALE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.217.120.195:80",
+    "asn": "5408",
+    "cc": "GR",
+    "org": "GR-NET www.grnet.gr",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.5.175.107:80",
+    "asn": "25369",
+    "cc": "GB",
+    "org": "BANDWIDTH-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.233.254:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.235.187.219:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.6.80.232:80",
+    "asn": "398823",
+    "cc": "US",
+    "org": "PEG-LA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.116.40.235:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.112.64.43:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.46:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.167.105.141:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.51.207.104:8080",
+    "asn": "269730",
+    "cc": "VE",
+    "org": "TECNOVEN SERVICES CA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "78.40.241.201:80",
+    "asn": "33920",
+    "cc": "GB",
+    "org": "AQL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.64.175.71:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.235.170.47:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.174.152.140:80",
+    "asn": "399195",
+    "cc": "US",
+    "org": "PEG-KR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "102.164.39.42:1080",
+    "asn": "37125",
+    "cc": "NG",
+    "org": "Layer3-",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.33.191.227:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.248.141:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "92.100.57.190:80",
+    "asn": "12389",
+    "cc": "RU",
+    "org": "ROSTELECOM-AS PJSC Rostelecom. Technical Team",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.51.4.11:80",
+    "asn": "7459",
+    "cc": "US",
+    "org": "GRANDECOM-AS1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.51.5.28:80",
+    "asn": "7459",
+    "cc": "US",
+    "org": "GRANDECOM-AS1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.231.10.110:80",
+    "asn": "136209",
+    "cc": "AP",
+    "org": "CYBERFORESTLLC-AS-AP CyberForest LLC.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.129.87.245:443",
+    "asn": "51069",
+    "cc": "UA",
+    "org": "ASDNEPRONET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.80.48:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.43.200.71:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.67.77.132:80",
+    "asn": "4782",
+    "cc": "TW",
+    "org": "GSNET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.44.16.6:80",
+    "asn": "20278",
+    "cc": "US",
+    "org": "NEXEON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.78.73.179:80",
+    "asn": "25820",
+    "cc": "CA",
+    "org": "IT7NET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.124.146.70:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.20.222.133:80",
+    "asn": "9674",
+    "cc": "TW",
+    "org": "FET-TW Far EastTone Telecommunication Co., Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.40.80:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.17.141.138:80",
+    "asn": "852",
+    "cc": "CA",
+    "org": "TELUS Communications",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.100.135.142:80",
+    "asn": "9946",
+    "cc": "KR",
+    "org": "CABLENET-AS-KR KCTV JEJU BROADCASTING",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.28.101.244:80",
+    "asn": "48524",
+    "cc": "RU",
+    "org": "INTERRA-AS at Pervouralsk Bilimbay, Severka, Sredneuralsk, Revda Degtyarsk, Kachkanar, Lesnoy N.Tura, Polevskoy, Krasnoufimsk, Asbest cities of Sverdlovsk reg",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.206.34:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.63.227.235:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.21.237.97:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.81.130.167:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.45.239.102:80",
+    "asn": "400529",
+    "cc": "US",
+    "org": "INFRALY-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "143.20.0.119:80",
+    "asn": "213920",
+    "cc": "BR",
+    "org": "FONSECA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.176.226.17:80",
+    "asn": "9136",
+    "cc": "DE",
+    "org": "WOBCOM",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.76.253.158:80",
+    "asn": "43260",
+    "cc": "TR",
+    "org": "AS43260 - DGN TEKNOLOJI A.S.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.6.42.113:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.33.66.109:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.235.13.66:443",
+    "asn": "215625",
+    "cc": "TR",
+    "org": "TE-BILISIM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "44.27.33.77:80",
+    "asn": "56508",
+    "cc": "US",
+    "org": "ARDC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.124.84.254:443",
+    "asn": "135967",
+    "cc": "VN",
+    "org": "BKNS-AS-VN Bach Kim Network solutions Join stock company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "86.125.120.176:80",
+    "asn": "8708",
+    "cc": "RO",
+    "org": "RCS-RDS 73-75 Dr. Staicovici",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.57.104.36:80",
+    "asn": "1640",
+    "cc": "US",
+    "org": "TGTEL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.202.11.176:80",
+    "asn": "54801",
+    "cc": "US",
+    "org": "ZILLION-NETWORK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.227.169.117:80",
+    "asn": "29802",
+    "cc": "US",
+    "org": "HVC-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.58.148.58:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.134.61.5:80",
+    "asn": "203714",
+    "cc": "RU",
+    "org": "LLCFLEX-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "163.116.253.81:8080",
+    "asn": "55256",
+    "cc": "US",
+    "org": "NETSKOPE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.5.175.34:80",
+    "asn": "25369",
+    "cc": "GB",
+    "org": "BANDWIDTH-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "24.245.213.30:80",
+    "asn": "11492",
+    "cc": "US",
+    "org": "CABLEONE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "151.253.146.146:8080",
+    "asn": "5384",
+    "cc": "AE",
+    "org": "EMIRATES-INTERNET Emirates Internet",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.54.227.254:80",
+    "asn": "51615",
+    "cc": "SI",
+    "org": "KATENG-ASN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "151.241.166.140:80",
+    "asn": "213915",
+    "cc": "GB",
+    "org": "PHILIPP-MORIS-TRETTIN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.29.233.181:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "71.193.97.19:80",
+    "asn": "22909",
+    "cc": "US",
+    "org": "COMCAST-22909",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.233.185:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.55.146.249:80",
+    "asn": "400619",
+    "cc": "US",
+    "org": "AROSS-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "202.26.158.109:80",
+    "asn": "2907",
+    "cc": "JP",
+    "org": "SINET-AS Research Organization of Information and Systems, National Institute of Informatics",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.81.48.7:443",
+    "asn": "22439",
+    "cc": "US",
+    "org": "PERFECT-INTERNATIONAL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.165.1.90:80",
+    "asn": "49218",
+    "cc": "RU",
+    "org": "NTKS-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.237.141:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.21.237.58:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.44.219.219:80",
+    "asn": "21056",
+    "cc": "IT",
+    "org": "ASN-WELCOMEITALIA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "13.143.64.186:80",
+    "asn": "215590",
+    "cc": "GB",
+    "org": "DPKGSOFT-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.125.220.251:80",
+    "asn": "20055",
+    "cc": "US",
+    "org": "AS-WHOLESAIL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "164.163.74.97:999",
+    "asn": "265767",
+    "cc": "HN",
+    "org": "GRUPO INMA S.A",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.93.203.185:443",
+    "asn": "214483",
+    "cc": "US",
+    "org": "FIBERPOWER-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "58.99.97.7:80",
+    "asn": "18049",
+    "cc": "TW",
+    "org": "TINP-TW Taiwan Infrastructure Network Technologie",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.235.13.185:443",
+    "asn": "215625",
+    "cc": "TR",
+    "org": "TE-BILISIM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.102.156.41:443",
+    "asn": "40994",
+    "cc": "AT",
+    "org": "ALWYZON Alwyzon, a trading name of Hohl IT e.U.",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.171.148.78:80",
+    "asn": "52892",
+    "cc": "BR",
+    "org": "COPREL TELECOM LTDA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.76.87.231:80",
+    "asn": "202226",
+    "cc": "IL",
+    "org": "GREATFLOWER",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.246.109:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.213.116:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.19.100.201:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.135.12.19:80",
+    "asn": "4808",
+    "cc": "CN",
+    "org": "CHINA169-BJ China Unicom Beijing Province Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.76.253.28:80",
+    "asn": "43260",
+    "cc": "TR",
+    "org": "AS43260 - DGN TEKNOLOJI A.S.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.234.161:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.248.166:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.38.241.2:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "209.147.112.113:80",
+    "asn": "30170",
+    "cc": "US",
+    "org": "OPTICFUSION",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "58.148.106.54:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.46.177.6:80",
+    "asn": "5483",
+    "cc": "HU",
+    "org": "MAGYAR-TELEKOM-MAIN-AS Magyar Telekom Nyrt.",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.240.237.140:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.76.8.58:80",
+    "asn": "215439",
+    "cc": "GB",
+    "org": "PLAY2GO-NET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "94.183.198.101:80",
+    "asn": "212743",
+    "cc": "GB",
+    "org": "ETERNITY-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.210.217.93:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "156.234.228.9:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.19.59.186:8080",
+    "asn": "132637",
+    "cc": "ID",
+    "org": "BITSNET-AS-ID PT BINA INFORMATIKA SOLUSI",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.240.237.85:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.2.13.14:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.92.216.54:443",
+    "asn": "48314",
+    "cc": "DE",
+    "org": "IP-PROJECTS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "187.73.185.72:80",
+    "asn": "270517",
+    "cc": "BR",
+    "org": "tryideas ltda",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "156.234.78.206:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.235.96.100:80",
+    "asn": "266775",
+    "cc": "AR",
+    "org": "BANCO CENTRAL DE LA REPUBLICA ARGENTINA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.241:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.130.55.17:80",
+    "asn": "216459",
+    "cc": "DE",
+    "org": "MARKETINGMINDONLINEGMBH",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "210.178.150.64:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.97.157.104:80",
+    "asn": "20857",
+    "cc": "NL",
+    "org": "TRANSIP-AS Amsterdam, the Netherlands",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.146.25:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "152.86.78.16:1080",
+    "asn": "22987",
+    "cc": "US",
+    "org": "BRIGHTRIDGE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.139.69:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.236.28:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.150.116.48:80",
+    "asn": "26042",
+    "cc": "US",
+    "org": "FIBERSTATE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.129.204.158:80",
+    "asn": "47286",
+    "cc": "RU",
+    "org": "OTS-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.227.169.91:443",
+    "asn": "29802",
+    "cc": "US",
+    "org": "HVC-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "41.205.142.29:80",
+    "asn": "36996",
+    "cc": "NA",
+    "org": "TELECOM-NAMIBIA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "68.128.239.132:80",
+    "asn": "1387",
+    "cc": "US",
+    "org": "ANSBB-ASNNET-2",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.59.101.178:443",
+    "asn": "203380",
+    "cc": "BG",
+    "org": "DAINTERNATIONALGROUP",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.112.20.8:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.56.53.47:80",
+    "asn": "218986",
+    "cc": "US",
+    "org": "SnowcoreInc - Snowcore Inc",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "49.238.63.30:80",
+    "asn": "147285",
+    "cc": "IN",
+    "org": "SPEEDLINK-AS-IN SPEED LINK COMMUNICATIONS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.17.37.1:80",
+    "asn": "394161",
+    "cc": "US",
+    "org": "TESLA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "58.69.24.228:80",
+    "asn": "9299",
+    "cc": "PH",
+    "org": "IPG-AS-AP Philippine Long Distance Telephone Company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.201.212.156:80",
+    "asn": "38901",
+    "cc": "KH",
+    "org": "EZECOM-AS-AP EZECOM CO., LTD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.172.42.235:8080",
+    "asn": "142393",
+    "cc": "ID",
+    "org": "IDNIC-MEDIASOLUSISUKSES-AS-ID PT Media Solusi Sukses",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.15.4.1:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.39.58.14:80",
+    "asn": "7859",
+    "cc": "US",
+    "org": "PAIR-NETWORKS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.74.31.47:14401",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.42.32.22:80",
+    "asn": "8242",
+    "cc": "RU",
+    "org": "INTELWAY-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "98.168.103.47:80",
+    "asn": "22773",
+    "cc": "US",
+    "org": "ASN-CXA-ALL-CCI-22773-RDC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.125.237.53:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "192.102.108.221:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.131.65:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "211.172.241.115:80",
+    "asn": "3786",
+    "cc": "KR",
+    "org": "LGDACOM LG DACOM Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.246.99:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "199.119.137.180:443",
+    "asn": "53724",
+    "cc": "US",
+    "org": "EXTRAVM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.62.231.222:80",
+    "asn": "20001",
+    "cc": "US",
+    "org": "TWC-20001-PACWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "192.93.172.15:80",
+    "asn": "1715",
+    "cc": "FR",
+    "org": "FR-REMIP2000 REMIP 2000 Autonomous System",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.129.6.210:80",
+    "asn": "8309",
+    "cc": "FR",
+    "org": "SIPARTECH",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.182.16.18:80",
+    "asn": "399419",
+    "cc": "US",
+    "org": "PSI-CORE-OH1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.250.103:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.35.95.31:80",
+    "asn": "9319",
+    "cc": "KR",
+    "org": "HCNCHUNGJU-AS-KR HCN CHUNGBUK CABLE TV SYSTEMS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.158.137.82:80",
+    "asn": "24164",
+    "cc": "TW",
+    "org": "UBBNET-AS-TW UNION BROADBAND NETWORK",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.123.248.202:80",
+    "asn": "133278",
+    "cc": "IN",
+    "org": "ENETSOLS-AS-IN Dehradun Enet Solutions Private Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.19.254.14:80",
+    "asn": "9931",
+    "cc": "TH",
+    "org": "CAT-AP The Communication Authoity of Thailand, CAT",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.233.98.46:80",
+    "asn": "198717",
+    "cc": "PL",
+    "org": "TECHSTORAGE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.105.210.82:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.242.209.226:80",
+    "asn": "2764",
+    "cc": "AU",
+    "org": "AAPT AAPT Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "51.15.122.245:443",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.57.6.12:80",
+    "asn": "29883",
+    "cc": "CA",
+    "org": "AS-IHS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.246.6:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.130.54.131:80",
+    "asn": "216459",
+    "cc": "DE",
+    "org": "MARKETINGMINDONLINEGMBH",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.116.41.201:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.239.201:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "79.232.200.128:80",
+    "asn": "3320",
+    "cc": "DE",
+    "org": "DTAG Internet service provider operations",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "80.211.148.112:80",
+    "asn": "31034",
+    "cc": "IT",
+    "org": "ARUBA-ASN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.30.204.95:80",
+    "asn": "32097",
+    "cc": "US",
+    "org": "WII",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "14.36.0.155:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "180.74.117.47:80",
+    "asn": "4788",
+    "cc": "MY",
+    "org": "TTSSB-MY TM TECHNOLOGY SERVICES SDN. BHD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "51.15.123.4:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "67.211.73.240:80",
+    "asn": "59371",
+    "cc": "HK",
+    "org": "DNC-AS Dimension Network & Communication Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.251.12:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.139.209.22:443",
+    "asn": "55824",
+    "cc": "IN",
+    "org": "NKN-CORE-NW NKN Core Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.103.8.222:8080",
+    "asn": "136708",
+    "cc": "IN",
+    "org": "KSSTAR-AS F2h Networks Pvt Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.10.169.65:80",
+    "asn": "3352",
+    "cc": "ES",
+    "org": "TELEFONICA_DE_ESPANA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.188.64.120:80",
+    "asn": "215439",
+    "cc": "GB",
+    "org": "PLAY2GO-NET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "209.126.73.90:1080",
+    "asn": "46502",
+    "cc": "US",
+    "org": "SYNCWAVE-499",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "51.15.81.58:443",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.246.180:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.231.31.8:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.116.176.253:80",
+    "asn": "15456",
+    "cc": "DE",
+    "org": "INTERNETX-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "41.76.109.227:80",
+    "asn": "327979",
+    "cc": "ZA",
+    "org": "DIAMATRIX",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.74.31.42:6412",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.126.48.174:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.84.93:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.90.85.10:80",
+    "asn": "10010",
+    "cc": "JP",
+    "org": "TOKAI TOKAI Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.203.76.79:1080",
+    "asn": "134620",
+    "cc": "ID",
+    "org": "IDNIC-MABESTNI-AS-ID Pusinfolahta TNI",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "157.254.223.72:80",
+    "asn": "213186",
+    "cc": "IN",
+    "org": "AYSTOR",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.2.158.83:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.250.62.15:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "79.135.51.46:80",
+    "asn": "21056",
+    "cc": "IT",
+    "org": "ASN-WELCOMEITALIA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "222.122.49.135:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.7.12.116:80",
+    "asn": "61678",
+    "cc": "BR",
+    "org": "NETWAY INFORMATICA LTDA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "123.212.158.79:80",
+    "asn": "9318",
+    "cc": "KR",
+    "org": "SKB-AS SK Broadband Co Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "68.168.124.36:443",
+    "asn": "36666",
+    "cc": "CA",
+    "org": "GTCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.150.116.29:80",
+    "asn": "26042",
+    "cc": "US",
+    "org": "FIBERSTATE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.235.12.173:443",
+    "asn": "215625",
+    "cc": "TR",
+    "org": "TE-BILISIM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.74.31.46:14643",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "221.150.239.121:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.88.217:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "207.192.145.239:80",
+    "asn": "63005",
+    "cc": "US",
+    "org": "NEXUS-22-63005",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "136.144.145.52:80",
+    "asn": "20857",
+    "cc": "NL",
+    "org": "TRANSIP-AS Amsterdam, the Netherlands",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.59.181.145:80",
+    "asn": "213915",
+    "cc": "GB",
+    "org": "PHILIPP-MORIS-TRETTIN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.14.15.5:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "78.129.136.230:80",
+    "asn": "20860",
+    "cc": "GB",
+    "org": "IOMART-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.81.239.70:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "70.88.51.105:80",
+    "asn": "20214",
+    "cc": "US",
+    "org": "COMCAST-20214",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "130.180.194.106:80",
+    "asn": "29414",
+    "cc": "PL",
+    "org": "ASN-BIAMAN-COM MSK BIAMAN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "78.128.52.52:80",
+    "asn": "197897",
+    "cc": "BG",
+    "org": "PETKOM",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.12.64.151:80",
+    "asn": "54600",
+    "cc": "US",
+    "org": "PEG-SV",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.123.245.133:80",
+    "asn": "48314",
+    "cc": "DE",
+    "org": "IP-PROJECTS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.190.99.182:80",
+    "asn": "4134",
+    "cc": "CN",
+    "org": "CHINANET-BACKBONE No.31,Jin-rong Street",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.239.105:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.14.73.11:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "190.210.9.23:80",
+    "asn": "16814",
+    "cc": "AR",
+    "org": "NSS S.A.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.11.144.140:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.44.121.234:80",
+    "asn": "20278",
+    "cc": "US",
+    "org": "NEXEON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.9.41.226:80",
+    "asn": "198610",
+    "cc": "RU",
+    "org": "BEGET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.204.221.28:80",
+    "asn": "17088",
+    "cc": "US",
+    "org": "CURRENEX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "73.54.136.244:80",
+    "asn": "7922",
+    "cc": "US",
+    "org": "COMCAST-7922",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.6.80.230:80",
+    "asn": "398823",
+    "cc": "US",
+    "org": "PEG-LA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.192.247.142:80",
+    "asn": "33659",
+    "cc": "US",
+    "org": "CMCS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.182.63.43:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.160.56.54:80",
+    "asn": "26042",
+    "cc": "US",
+    "org": "FIBERSTATE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "91.231.67.219:1080",
+    "asn": "200590",
+    "cc": "KZ",
+    "org": "ASNLS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "95.154.242.100:443",
+    "asn": "20860",
+    "cc": "GB",
+    "org": "IOMART-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.233.44:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.167.104.242:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.231.64.126:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.9.152.216:80",
+    "asn": "23005",
+    "cc": "US",
+    "org": "SWITCH-LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "66.226.77.66:80",
+    "asn": "18501",
+    "cc": "US",
+    "org": "JOESD-18501",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.90.33.46:80",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.146.58:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.60.197.191:80",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "114.207.113.211:80",
+    "asn": "9318",
+    "cc": "KR",
+    "org": "SKB-AS SK Broadband Co Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "24.106.147.247:80",
+    "asn": "10796",
+    "cc": "US",
+    "org": "TWC-10796-MIDWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.82.9.186:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "91.123.171.47:80",
+    "asn": "56391",
+    "cc": "PL",
+    "org": "VTELECOM",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "36.93.124.84:80",
+    "asn": "7713",
+    "cc": "ID",
+    "org": "TELKOMNET-AS-AP PT Telekomunikasi Indonesia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.44.16.204:80",
+    "asn": "20278",
+    "cc": "US",
+    "org": "NEXEON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "95.68.247.18:80",
+    "asn": "12389",
+    "cc": "RU",
+    "org": "ROSTELECOM-AS PJSC Rostelecom. Technical Team",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.60.193.182:443",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "65.181.72.76:80",
+    "asn": "4760",
+    "cc": "HK",
+    "org": "HKTIMS-AP HKT Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.19.192.103:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.10.48.105:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.79.209.114:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.226.77.66:443",
+    "asn": "18501",
+    "cc": "US",
+    "org": "JOESD-18501",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.237.27:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.248.236:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.229.216.196:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.81.225.18:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.99.158.18:80",
+    "asn": "17676",
+    "cc": "JP",
+    "org": "GIGAINFRA SoftBank Corp.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "193.205.134.85:80",
+    "asn": "137",
+    "cc": "IT",
+    "org": "ASGARR Consortium GARR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.180.146.133:80",
+    "asn": "58061",
+    "cc": "LV",
+    "org": "SCALAXY-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "72.56.52.142:80",
+    "asn": "39900",
+    "cc": "LV",
+    "org": "GOODTEC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "128.196.13.4:80",
+    "asn": "1706",
+    "cc": "US",
+    "org": "UNIV-ARIZ",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "70.184.83.106:80",
+    "asn": "22773",
+    "cc": "US",
+    "org": "ASN-CXA-ALL-CCI-22773-RDC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.254.49.30:80",
+    "asn": "45117",
+    "cc": "IN",
+    "org": "INPL-IN-AP Ishans Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.212.116:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.209.76:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.39.41.49:80",
+    "asn": "7859",
+    "cc": "US",
+    "org": "PAIR-NETWORKS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "85.214.252.212:80",
+    "asn": "6724",
+    "cc": "DE",
+    "org": "STRATO STRATO AG",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.242.194.168:443",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.97.234.37:80",
+    "asn": "20857",
+    "cc": "NL",
+    "org": "TRANSIP-AS Amsterdam, the Netherlands",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.58.210.92:80",
+    "asn": "213737",
+    "cc": "GB",
+    "org": "DEXDC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "66.85.129.196:80",
+    "asn": "20454",
+    "cc": "US",
+    "org": "SSASN2",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.81.239.24:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "72.56.121.245:80",
+    "asn": "210976",
+    "cc": "KZ",
+    "org": "TWC-EU",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.216.197:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.212.145:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "113.21.208.186:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.12.218.72:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.101.151.4:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.38.245.28:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "36.50.27.14:443",
+    "asn": "150895",
+    "cc": "VN",
+    "org": "EZTECH-VN EZ TECHNOLOGY COMPANY LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.251.244:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.135.230.230:80",
+    "asn": "10796",
+    "cc": "US",
+    "org": "TWC-10796-MIDWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "154.126.213.152:1080",
+    "asn": "327750",
+    "cc": "ZA",
+    "org": "JENNY-INTERNET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.22.233.109:443",
+    "asn": "21737",
+    "cc": "US",
+    "org": "SPRINGNET2-NET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.251.44:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.11.130.67:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "51.174.81.48:80",
+    "asn": "29695",
+    "cc": "NO",
+    "org": "ALTIBOX_AS Norway",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.139.104.221:443",
+    "asn": "399979",
+    "cc": "US",
+    "org": "AS-493NETWORKING",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.43.104.202:80",
+    "asn": "61884",
+    "cc": "BR",
+    "org": "OLLA COMUNICACAO LTDA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.9.180.148:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "69.197.162.54:80",
+    "asn": "32097",
+    "cc": "US",
+    "org": "WII",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.230.82.1:80",
+    "asn": "266703",
+    "cc": "AR",
+    "org": "ALEJO TV SRL",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "36.89.69.229:80",
+    "asn": "7713",
+    "cc": "ID",
+    "org": "TELKOMNET-AS-AP PT Telekomunikasi Indonesia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "117.0.77.231:1080",
+    "asn": "7552",
+    "cc": "VN",
+    "org": "VIETEL-AS-AP Viettel Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "199.103.95.140:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.131.148:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.246.136:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.93.139.198:80",
+    "asn": "46375",
+    "cc": "US",
+    "org": "AS-SONICTELECOM",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.226.113.99:80",
+    "asn": "43503",
+    "cc": "DE",
+    "org": "HERBST-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.248.157:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "125.253.106.201:443",
+    "asn": "38195",
+    "cc": "AU",
+    "org": "SUPERLOOP-AS-AP Superloop",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "193.233.199.53:80",
+    "asn": "215540",
+    "cc": "GB",
+    "org": "GCS-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.8.113.189:80",
+    "asn": "215305",
+    "cc": "MD",
+    "org": "RETZOR-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.0.5.216:80",
+    "asn": "36994",
+    "cc": "ZA",
+    "org": "Vodacom-VB",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.46.210.215:80",
+    "asn": "34222",
+    "cc": "CZ",
+    "org": "ZONER-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.56.136.34:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.64.254.208:80",
+    "asn": "25820",
+    "cc": "CA",
+    "org": "IT7NET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.76.253.165:80",
+    "asn": "43260",
+    "cc": "TR",
+    "org": "AS43260 - DGN TEKNOLOJI A.S.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.169.19.197:80",
+    "asn": "36937",
+    "cc": "ZA",
+    "org": "Neotel-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.168.107.35:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.142.115.22:80",
+    "asn": "44486",
+    "cc": "DE",
+    "org": "SYNLINQ synlinq.de",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "199.233.217.212:80",
+    "asn": "23310",
+    "cc": "US",
+    "org": "TASTYLIME",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.229.177.110:80",
+    "asn": "8948",
+    "cc": "IL",
+    "org": "PRIMO-099",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "78.140.240.26:80",
+    "asn": "209974",
+    "cc": "RU",
+    "org": "AS-ITGLOBALCOM-RU ITGLOBAL.COM Russia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.21.226.32:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.101.11.71:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.240.193:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.139.251.92:80",
+    "asn": "55824",
+    "cc": "IN",
+    "org": "NKN-CORE-NW NKN Core Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.13.132.250:80",
+    "asn": "134078",
+    "cc": "SG",
+    "org": "NETPLUZ-AS-AP NETPLUZ HOLDINGS PRIVATE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.145.3.144:80",
+    "asn": "37457",
+    "cc": "ZA",
+    "org": "Telkom-Internet",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "101.255.136.42:80",
+    "asn": "38511",
+    "cc": "ID",
+    "org": "TACHYON-AS-ID PT Remala Abadi",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.162.28.7:80",
+    "asn": "268526",
+    "cc": "BR",
+    "org": "Conect Virtua Provedor de Internet Banda Larga",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "91.226.161.21:80",
+    "asn": "51054",
+    "cc": "RU",
+    "org": "TRANSCOM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.154.75.243:80",
+    "asn": "22653",
+    "cc": "US",
+    "org": "GLOBALCOMPASS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.237.93.41:80",
+    "asn": "268267",
+    "cc": "BR",
+    "org": "INFONET TELECOMUNICACOES LTDA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.212.190.83:80",
+    "asn": "4837",
+    "cc": "CN",
+    "org": "CHINA169-BACKBONE CHINA UNICOM China169 Backbone",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.216.137.213:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.121.141.91:80",
+    "asn": "15541",
+    "cc": "PL",
+    "org": "CETI-AS CETI ISP, Poland",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.84.117.80:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.2.46.111:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.209.156:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.14.15.34:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.88.77:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "154.38.233.108:80",
+    "asn": "18186",
+    "cc": "US",
+    "org": "NEBULA-GLOBAL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.126.176.101:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "88.151.197.229:80",
+    "asn": "208226",
+    "cc": "FR",
+    "org": "OUIHEBERG",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "36.71.26.142:80",
+    "asn": "7713",
+    "cc": "ID",
+    "org": "TELKOMNET-AS-AP PT Telekomunikasi Indonesia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.2.144.55:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.76.253.184:80",
+    "asn": "43260",
+    "cc": "TR",
+    "org": "AS43260 - DGN TEKNOLOJI A.S.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "69.42.222.155:80",
+    "asn": "32097",
+    "cc": "US",
+    "org": "WII",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "205.164.46.6:3128",
+    "asn": "23511",
+    "cc": "VG",
+    "org": "GRASS-DATA-24",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.216.172.1:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "78.155.66.90:8080",
+    "asn": "29256",
+    "cc": "SY",
+    "org": "INT-PDN-STE-AS STE PDN Internal AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.52.153.132:80",
+    "asn": "2856",
+    "cc": "GB",
+    "org": "BT-UK-AS BTnet UK Regional network",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.133.16.167:80",
+    "asn": "208951",
+    "cc": "NL",
+    "org": "AS-ITGLOBALCOM ITGLOBAL.COM",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.59.217.95:80",
+    "asn": "209693",
+    "cc": "GB",
+    "org": "OC-NETWORK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.14.47.23:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.60.171.156:443",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "36.2.241.79:80",
+    "asn": "2519",
+    "cc": "JP",
+    "org": "VECTANT ARTERIA Networks Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.54.27.169:443",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.43.210.155:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.222.56.126:80",
+    "asn": "21110",
+    "cc": "GI",
+    "org": "LADBROKES-UK Imperial Drive",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.74.31.47:13682",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "207.192.144.176:80",
+    "asn": "63005",
+    "cc": "US",
+    "org": "NEXUS-22-63005",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.101.151.203:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.80.127:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.127.149.220:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.174.152.151:80",
+    "asn": "399195",
+    "cc": "US",
+    "org": "PEG-KR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.6.121.170:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.177.0.52:80",
+    "asn": "12874",
+    "cc": "IT",
+    "org": "FASTWEB",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "78.83.225.120:80",
+    "asn": "8717",
+    "cc": "BG",
+    "org": "A1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.25.230.22:80",
+    "asn": "7922",
+    "cc": "US",
+    "org": "COMCAST-7922",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "49.254.0.177:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.16.216.9:80",
+    "asn": "200567",
+    "cc": "DE",
+    "org": "MDEX",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.56.189.212:80",
+    "asn": "197574",
+    "cc": "GB",
+    "org": "TKM-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.6.115.2:80",
+    "asn": "398823",
+    "cc": "US",
+    "org": "PEG-LA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.74.31.40:4946",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "68.128.239.130:80",
+    "asn": "1387",
+    "cc": "US",
+    "org": "ANSBB-ASNNET-2",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "1.20.101.33:8080",
+    "asn": "23969",
+    "cc": "TH",
+    "org": "TOT-NET TOT Public Company Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.57.19.20:80",
+    "asn": "213915",
+    "cc": "GB",
+    "org": "PHILIPP-MORIS-TRETTIN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.135.73.55:80",
+    "asn": "43865",
+    "cc": "RU",
+    "org": "INTEK-M-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.123.245.151:80",
+    "asn": "48314",
+    "cc": "DE",
+    "org": "IP-PROJECTS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.88.223:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.52.108.226:80",
+    "asn": "399334",
+    "cc": "US",
+    "org": "SKYSILK-02",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.22.213.116:80",
+    "asn": "34702",
+    "cc": "EE",
+    "org": "WAVECOM-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "49.171.245.121:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.72.215.12:80",
+    "asn": "3786",
+    "cc": "KR",
+    "org": "LGDACOM LG DACOM Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "34.0.53.114:80",
+    "asn": "43515",
+    "cc": "IE",
+    "org": "YOUTUBE YOUTUBE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.245.131.90:8080",
+    "asn": "132165",
+    "cc": "PK",
+    "org": "CONNECT-AS-AP Connect Communications",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.76.108.109:80",
+    "asn": "327979",
+    "cc": "ZA",
+    "org": "DIAMATRIX",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.77.114.32:443",
+    "asn": "36666",
+    "cc": "CA",
+    "org": "GTCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.3.53.121:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.43:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.141.79.125:80",
+    "asn": "198610",
+    "cc": "RU",
+    "org": "BEGET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.255.61.141:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.81.236.129:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "78.189.29.70:80",
+    "asn": "9121",
+    "cc": "TR",
+    "org": "TTNET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.81.239.65:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.81.210.178:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.248.219.67:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.10.5.125:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "172.93.49.178:80",
+    "asn": "29802",
+    "cc": "US",
+    "org": "HVC-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.96.54.19:80",
+    "asn": "2519",
+    "cc": "JP",
+    "org": "VECTANT ARTERIA Networks Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.150.109.103:80",
+    "asn": "62005",
+    "cc": "EE",
+    "org": "BV-EU-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.126.105.47:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.79.161.157:443",
+    "asn": "7922",
+    "cc": "US",
+    "org": "COMCAST-7922",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.122.110.181:80",
+    "asn": "5650",
+    "cc": "US",
+    "org": "FRONTIER-FRTR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "37.128.249.220:80",
+    "asn": "61436",
+    "cc": "RU",
+    "org": "ASMAP-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "182.162.73.100:80",
+    "asn": "3786",
+    "cc": "KR",
+    "org": "LGDACOM LG DACOM Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.39.96.105:80",
+    "asn": "7859",
+    "cc": "US",
+    "org": "PAIR-NETWORKS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.210.12.207:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.233.165:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.24.50.155:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.7.0.123:80",
+    "asn": "20847",
+    "cc": "NL",
+    "org": "PREVIDER-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.212.247:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.154.79.160:80",
+    "asn": "22653",
+    "cc": "US",
+    "org": "GLOBALCOMPASS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.105.209.4:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "220.229.67.167:80",
+    "asn": "131602",
+    "cc": "TW",
+    "org": "HYA Hsin Yeong An Cable TV Co., Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "113.53.29.68:8080",
+    "asn": "23969",
+    "cc": "TH",
+    "org": "TOT-NET TOT Public Company Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.201.117.162:80",
+    "asn": "7545",
+    "cc": "AU",
+    "org": "TPG-INTERNET-AP TPG Telecom Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.236.61:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.255.61.26:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.238.228.79:80",
+    "asn": "38424",
+    "cc": "KR",
+    "org": "KCT-AS-KR KOREA CABLE TELECOM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "69.5.175.169:80",
+    "asn": "25369",
+    "cc": "GB",
+    "org": "BANDWIDTH-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.136.45.66:80",
+    "asn": "13446",
+    "cc": "US",
+    "org": "AS-NETZERO",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "156.234.37.202:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.231.8.175:80",
+    "asn": "136209",
+    "cc": "AP",
+    "org": "CYBERFORESTLLC-AS-AP CyberForest LLC.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.7.140.225:80",
+    "asn": "62658",
+    "cc": "US",
+    "org": "WYAN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.52.5.11:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.62.148.49:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.21.225.217:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.101.157.145:80",
+    "asn": "17841",
+    "cc": "KR",
+    "org": "NCIA-AS-KR NATIONAL INFORMATION RESOURCES SERVICE",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.2.214.199:80",
+    "asn": "9829",
+    "cc": "IN",
+    "org": "BSNL-NIB National Internet Backbone",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.43.199.184:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.194.7.1:80",
+    "asn": "18615",
+    "cc": "US",
+    "org": "MAINSTREAM-FIBER",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.116.43.136:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.41.73.130:80",
+    "asn": "26223",
+    "cc": "US",
+    "org": "SILVERSTAR-TELEPHONE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.236.23:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "220.76.244.21:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.97.145.153:80",
+    "asn": "55547",
+    "cc": "PH",
+    "org": "WOODSNET-PH Unit D,E,F,G 28th Floor",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.244.152.20:80",
+    "asn": "18049",
+    "cc": "TW",
+    "org": "TINP-TW Taiwan Infrastructure Network Technologie",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "103.145.50.33:80",
+    "asn": "141004",
+    "cc": "IN",
+    "org": "QTIME-AS-AP QTIME BUSINESSES PRIVATE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "76.141.88.32:80",
+    "asn": "33491",
+    "cc": "US",
+    "org": "COMCAST-33491",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.205.242.250:80",
+    "asn": "20910",
+    "cc": "LV",
+    "org": "BALTKOM-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "70.65.109.244:80",
+    "asn": "6327",
+    "cc": "CA",
+    "org": "SHAW",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.180.115.98:80",
+    "asn": "852",
+    "cc": "CA",
+    "org": "TELUS Communications",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "74.50.84.102:443",
+    "asn": "19318",
+    "cc": "US",
+    "org": "IS-AS-1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "192.220.23.62:80",
+    "asn": "2914",
+    "cc": "US",
+    "org": "NTT-DATA-2914",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.44.121.133:80",
+    "asn": "20278",
+    "cc": "US",
+    "org": "NEXEON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.84.174:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.211.113:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.90.11.201:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "66.109.142.28:80",
+    "asn": "21947",
+    "cc": "US",
+    "org": "BCI",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.43.196.107:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.155.159.122:443",
+    "asn": "219139",
+    "cc": "TR",
+    "org": "BUYUKWEB - BUYUKWEB INTERNET BILISIM YAZILIM HIZ. LTD.STI.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.243.189.235:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.34.116.62:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.81.52.70:80",
+    "asn": "208418",
+    "cc": "NL",
+    "org": "SONEXUS-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.237.90:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "85.132.108.42:3128",
+    "asn": "200446",
+    "cc": "AZ",
+    "org": "SELNET ISP",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "69.48.186.74:80",
+    "asn": "209341",
+    "cc": "GB",
+    "org": "WHG-FRA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "202.91.89.124:80",
+    "asn": "9830",
+    "cc": "IN",
+    "org": "SWIFTONLINE-AS-AP SWIFT ONLINE BORDER AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.240.236.87:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "210.94.161.158:80",
+    "asn": "9323",
+    "cc": "KR",
+    "org": "DGUNET-AS DONGGUK University",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "65.128.200.76:80",
+    "asn": "209",
+    "cc": "US",
+    "org": "CENTURYLINK-US-LEGACY-QWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.243.189.241:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.15.134.38:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.202.255.173:80",
+    "asn": "213169",
+    "cc": "GB",
+    "org": "AS-CATIXS-AKA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.86.63.44:80",
+    "asn": "212171",
+    "cc": "GB",
+    "org": "LOCAL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.59.69.172:80",
+    "asn": "8473",
+    "cc": "SE",
+    "org": "BAHNHOF",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.77.128.164:80",
+    "asn": "215439",
+    "cc": "GB",
+    "org": "PLAY2GO-NET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.244.88.20:80",
+    "asn": "34177",
+    "cc": "FR",
+    "org": "CELESTE-AS CELESTE - Internet services provider",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "75.164.18.5:80",
+    "asn": "209",
+    "cc": "US",
+    "org": "CENTURYLINK-US-LEGACY-QWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "41.84.235.45:80",
+    "asn": "19711",
+    "cc": "SZ",
+    "org": "SWAZINET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.247.193.46:443",
+    "asn": "38700",
+    "cc": "KR",
+    "org": "SMILESERV-AS-KR SMILESERV",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "66.39.154.14:80",
+    "asn": "7859",
+    "cc": "US",
+    "org": "PAIR-NETWORKS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.216.117.226:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "75.75.227.244:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.13.227.163:443",
+    "asn": "49581",
+    "cc": "DE",
+    "org": "FERDINANDZINK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.84.37:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "67.222.11.197:443",
+    "asn": "63410",
+    "cc": "US",
+    "org": "PRIVATESYSTEMS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "79.99.0.227:80",
+    "asn": "42708",
+    "cc": "SE",
+    "org": "GLESYS glesys.com",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.74.31.40:4755",
+    "asn": "219326",
+    "cc": "GB",
+    "org": "SULAVIL - SULAVI LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "42.96.12.26:443",
+    "asn": "135967",
+    "cc": "VN",
+    "org": "BKNS-AS-VN Bach Kim Network solutions Join stock company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "77.79.233.33:80",
+    "asn": "15694",
+    "cc": "PL",
+    "org": "ATMAN-ISP-AS ATM S.A.",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.229.209.229:80",
+    "asn": "398101",
+    "cc": "US",
+    "org": "GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.141.32.136:443",
+    "asn": "24961",
+    "cc": "DE",
+    "org": "MYLOC-AS IP Backbone of WIIT AG formerly myLoc managed IT AG",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "71.174.68.2:80",
+    "asn": "701",
+    "cc": "US",
+    "org": "UUNET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.255.61.22:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "42.96.50.6:80",
+    "asn": "45903",
+    "cc": "VN",
+    "org": "CMCTELECOM-VN CMC Telecom Infrastructure Company",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.241.252:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.210.207.75:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.237.202:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "68.70.14.26:80",
+    "asn": "14928",
+    "cc": "US",
+    "org": "ADAMS-CATV",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "51.158.123.152:443",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.251.168:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "63.153.152.110:80",
+    "asn": "209",
+    "cc": "US",
+    "org": "CENTURYLINK-US-LEGACY-QWEST",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.40.12.118:80",
+    "asn": "395512",
+    "cc": "US",
+    "org": "GLOBAL2016",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.165.82.133:80",
+    "asn": "61595",
+    "cc": "BR",
+    "org": "TELIC TECHNOLOGIES",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.40.166:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.251.58.18:80",
+    "asn": "33287",
+    "cc": "US",
+    "org": "COMCAST-33287",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.234.195:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.250.238:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.226.62.2:80",
+    "asn": "37705",
+    "cc": "TN",
+    "org": "TOPNET",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "160.202.253.180:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.13.134.189:80",
+    "asn": "134078",
+    "cc": "SG",
+    "org": "NETPLUZ-AS-AP NETPLUZ HOLDINGS PRIVATE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "31.130.161.27:80",
+    "asn": "35328",
+    "cc": "SK",
+    "org": "DSIDATA DSI DATA  flexi",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.233.142:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.249.67:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.139.141.122:80",
+    "asn": "57866",
+    "cc": "NL",
+    "org": "FUSIX-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.77.217.227:80",
+    "asn": "9304",
+    "cc": "HK",
+    "org": "HUTCHISON-AS-AP HGC Global Communications Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "76.72.1.98:80",
+    "asn": "25921",
+    "cc": "US",
+    "org": "LUS-FIBER-LCG",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.36.252.161:80",
+    "asn": "11426",
+    "cc": "US",
+    "org": "TWC-11426-CAROLINAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "163.152.6.168:80",
+    "asn": "9452",
+    "cc": "KR",
+    "org": "KUNET-AS Korea University",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "213.10.135.253:80",
+    "asn": "1136",
+    "cc": "NL",
+    "org": "KPN KPN National",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.111.181.222:80",
+    "asn": "29802",
+    "cc": "US",
+    "org": "HVC-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.217.182:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.180.34.153:80",
+    "asn": "200088",
+    "cc": "PL",
+    "org": "ARTNET2",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "60.43.149.96:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.144.188.94:443",
+    "asn": "26187",
+    "cc": "US",
+    "org": "-Reserved AS-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.13.132.107:80",
+    "asn": "134078",
+    "cc": "SG",
+    "org": "NETPLUZ-AS-AP NETPLUZ HOLDINGS PRIVATE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.59:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "146.112.9.166:443",
+    "asn": "36692",
+    "cc": "US",
+    "org": "CISCO-UMBRELLA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.71.18.107:80",
+    "asn": "46783",
+    "cc": "US",
+    "org": "EL-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.6.92.252:80",
+    "asn": "398823",
+    "cc": "US",
+    "org": "PEG-LA",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "36.88.61.124:443",
+    "asn": "7713",
+    "cc": "ID",
+    "org": "TELKOMNET-AS-AP PT Telekomunikasi Indonesia",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.5.236.84:80",
+    "asn": "266109",
+    "cc": "BR",
+    "org": "JereNET Provedor de Internet & Cons em TI LTDA ME.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.248.2.80:443",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.71.18.6:80",
+    "asn": "46783",
+    "cc": "US",
+    "org": "EL-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "145.220.227.164:8080",
+    "asn": "1101",
+    "cc": "NL",
+    "org": "IP-EEND-AS IP-EEND BV",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.105.213.39:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "67.61.200.65:80",
+    "asn": "11492",
+    "cc": "US",
+    "org": "CABLEONE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.80.109:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.33.178.194:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "79.174.13.114:80",
+    "asn": "29182",
+    "cc": "RU",
+    "org": "RU-JSCIOT",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.150.240.133:80",
+    "asn": "15146",
+    "cc": "BS",
+    "org": "CABLEBAHAMAS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "46.235.13.53:443",
+    "asn": "215625",
+    "cc": "TR",
+    "org": "TE-BILISIM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.43.193.103:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "109.197.160.138:80",
+    "asn": "199543",
+    "cc": "SE",
+    "org": "TICMATE-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "70.123.6.251:80",
+    "asn": "11427",
+    "cc": "US",
+    "org": "TWC-11427-TEXAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.146.14:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "63.143.48.122:80",
+    "asn": "46475",
+    "cc": "US",
+    "org": "LIMESTONENETWORKS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.21.225.218:80",
+    "asn": "34762",
+    "cc": "BE",
+    "org": "COMBELL-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.177.161.73:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "44.31.102.152:80",
+    "asn": "34019",
+    "cc": "FR",
+    "org": "HIVANE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "103.151.35.141:8080",
+    "asn": "140413",
+    "cc": "ID",
+    "org": "GAYUHNET-AS-ID PT. GAYUH MEDIA INFORMATIKA",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.11.135.107:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "31.36.26.61:80",
+    "asn": "5410",
+    "cc": "FR",
+    "org": "BOUYGTEL-ISP",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.216.176.226:80",
+    "asn": "25560",
+    "cc": "DE",
+    "org": "RHTEC-AS www.rh-tec.de",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.33.178.228:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "69.60.111.12:80",
+    "asn": "15083",
+    "cc": "US",
+    "org": "INFOLINK-MIA-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "75.50.62.188:80",
+    "asn": "7018",
+    "cc": "US",
+    "org": "ATT-INTERNET4",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "68.178.166.22:80",
+    "asn": "26496",
+    "cc": "US",
+    "org": "AS-26496-GO-DADDY-COM-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.92.25.85:80",
+    "asn": "26042",
+    "cc": "US",
+    "org": "FIBERSTATE",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.237.166.81:80",
+    "asn": "268314",
+    "cc": "BR",
+    "org": "EWERTON DA SILVA LOPES TELECOMUNICACOES",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.173.139.197:80",
+    "asn": "34300",
+    "cc": "RU",
+    "org": "SPACENET-AS Internet Service Provider",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "61.78.80.87:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.7.233.8:80",
+    "asn": "266602",
+    "cc": "BR",
+    "org": "ODATA S.A.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.9.152.215:80",
+    "asn": "23005",
+    "cc": "US",
+    "org": "SWITCH-LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "47.46.168.10:80",
+    "asn": "20115",
+    "cc": "US",
+    "org": "CHARTER-20115",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "77.90.29.245:80",
+    "asn": "209824",
+    "cc": "DE",
+    "org": "GS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.211.233:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.41.181:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.211.168:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.250.13:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "41.141.250.53:80",
+    "asn": "6713",
+    "cc": "MA",
+    "org": "IAM-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.116.40.236:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "118.56.239.18:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.33.162.218:443",
+    "asn": "398478",
+    "cc": "US",
+    "org": "PEG-HK",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "37.140.68.203:80",
+    "asn": "8369",
+    "cc": "RU",
+    "org": "INTERSVYAZ-AS 38-B, Komsomolsky prospekt",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.17.192.112:80",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.84.17.75:80",
+    "asn": "10010",
+    "cc": "JP",
+    "org": "TOKAI TOKAI Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "64.9.148.200:80",
+    "asn": "23005",
+    "cc": "US",
+    "org": "SWITCH-LTD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.57.235.132:80",
+    "asn": "46783",
+    "cc": "US",
+    "org": "EL-",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.244.20.179:80",
+    "asn": "10103",
+    "cc": "HK",
+    "org": "HKBN-AS-AP HK Broadband Network Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "23.235.170.74:443",
+    "asn": "138415",
+    "cc": "HK",
+    "org": "YANCYLIMITED-AS-HK Yancy Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "69.120.58.130:80",
+    "asn": "6128",
+    "cc": "US",
+    "org": "CABLE-NET-1",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.252.167.52:80",
+    "asn": "38277",
+    "cc": "HK",
+    "org": "CLINK-AS-AP CommuniLink Internet Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "86.57.174.87:80",
+    "asn": "6697",
+    "cc": "BY",
+    "org": "BELPAK-AS BELPAK",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "207.192.152.20:80",
+    "asn": "63005",
+    "cc": "US",
+    "org": "NEXUS-22-63005",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "50.2.144.181:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.227.162.112:443",
+    "asn": "266660",
+    "cc": "AR",
+    "org": "Allytech S.A.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "116.206.110.102:80",
+    "asn": "45559",
+    "cc": "PH",
+    "org": "QUZATECH-PH MCPO Box 1755",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "79.99.201.152:80",
+    "asn": "44312",
+    "cc": "BE",
+    "org": "MAS-ALL2ALL",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.38.229.234:443",
+    "asn": "394432",
+    "cc": "US",
+    "org": "PEG-SG",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "46.33.96.146:80",
+    "asn": "29208",
+    "cc": "CZ",
+    "org": "QUANTCOM-AS Quantcom a.s.",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.95.184.185:80",
+    "asn": "3170",
+    "cc": "GB",
+    "org": "VELOXSERV",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "59.125.161.176:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "116.212.185.190:80",
+    "asn": "45905",
+    "cc": "BD",
+    "org": "STARGATE-AS-AP Stargate Communications Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "170.83.41.11:80",
+    "asn": "266462",
+    "cc": "BR",
+    "org": "SW Telecomunicacoes e Informatica Itu Ltda. - ME",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "52.128.244.178:80",
+    "asn": "963",
+    "cc": "SG",
+    "org": "N963-AS-AP N963 PTE. LTD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "39.1.88.148:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "211.251.222.61:80",
+    "asn": "17584",
+    "cc": "KR",
+    "org": "ICE-AS-KR Inchon Metropolitan Office Of Education",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "72.191.60.131:80",
+    "asn": "11427",
+    "cc": "US",
+    "org": "TWC-11427-TEXAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.242.194.22:80",
+    "asn": "146817",
+    "cc": "CN",
+    "org": "FXNET Hubei Feixun Network Co., Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "24.152.40.163:80",
+    "asn": "269976",
+    "cc": "PY",
+    "org": "TV MAX CABLE S.A.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.34.14.25:80",
+    "asn": "9578",
+    "cc": "KR",
+    "org": "CJNET-AS Cheiljedang.Co.Inc.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.241.7:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "38.174.152.148:80",
+    "asn": "399195",
+    "cc": "US",
+    "org": "PEG-KR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "36.37.161.44:80",
+    "asn": "38623",
+    "cc": "KH",
+    "org": "VIETTELCAMBODIA-AS-AP ISPIXP IN CAMBODIA WITH THE BEST VERVICE IN THERE.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.200.152:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.230.131.199:443",
+    "asn": "23679",
+    "cc": "ID",
+    "org": "NUSANET-AS-ID PT. Media Antar Nusa",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "36.237.8.48:80",
+    "asn": "3462",
+    "cc": "TW",
+    "org": "HINET Data Communication Business Group",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.156.27.177:80",
+    "asn": "50810",
+    "cc": "IR",
+    "org": "MOBINNET-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.96.137.149:80",
+    "asn": "8220",
+    "cc": "GB",
+    "org": "COLT COLT Technology Services Group Limited",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "74.2.143.155:80",
+    "asn": "6079",
+    "cc": "US",
+    "org": "RCN-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.174.152.150:80",
+    "asn": "399195",
+    "cc": "US",
+    "org": "PEG-KR",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.251.223:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.210.228.162:80",
+    "asn": "12876",
+    "cc": "FR",
+    "org": "Online SAS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "67.245.188.82:80",
+    "asn": "12271",
+    "cc": "US",
+    "org": "TWC-12271-NYC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "39.1.80.193:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.239.40:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "68.169.175.234:80",
+    "asn": "26827",
+    "cc": "US",
+    "org": "EPBTELECOM",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "163.7.22.9:80",
+    "asn": "150436",
+    "cc": "SG",
+    "org": "BYTEPLUS-AS-AP Byteplus Pte. Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.254.49.239:80",
+    "asn": "45117",
+    "cc": "IN",
+    "org": "INPL-IN-AP Ishans Network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "109.172.9.105:80",
+    "asn": "62212",
+    "cc": "EE",
+    "org": "EE - SmartApe OU",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "62.182.197.14:80",
+    "asn": "42532",
+    "cc": "LV",
+    "org": "VEESP-LV-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "45.250.101.163:80",
+    "asn": "45715",
+    "cc": "ID",
+    "org": "IDNIC-KEMHAN-AS-ID PUSDATIN KEMHAN RI",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "14.41.44.211:443",
+    "asn": "4766",
+    "cc": "KR",
+    "org": "KIXS-AS-KR Korea Telecom",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "37.98.108.188:80",
+    "asn": "197207",
+    "cc": "IR",
+    "org": "MCCI-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.212.221:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "58.229.208.152:80",
+    "asn": "9318",
+    "cc": "KR",
+    "org": "SKB-AS SK Broadband Co Ltd",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "151.60.11.152:80",
+    "asn": "1267",
+    "cc": "IT",
+    "org": "ASN-WINDTRE IUNET",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "64.44.121.72:80",
+    "asn": "20278",
+    "cc": "US",
+    "org": "NEXEON",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "58.246.196.114:80",
+    "asn": "17621",
+    "cc": "CN",
+    "org": "CNCGROUP-SH China Unicom Shanghai network",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "130.94.57.249:443",
+    "asn": "154177",
+    "cc": "HK",
+    "org": "LIGHT4-AS-AP LIGHT NODE LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.228.159.143:80",
+    "asn": "6866",
+    "cc": "CY",
+    "org": "CYTA-NETWORK Internet Services",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "120.101.50.250:80",
+    "asn": "1659",
+    "cc": "TW",
+    "org": "ERX-TANET-ASN1 Taiwan Academic Network TANet Information Center",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.237.204:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.105.209.63:80",
+    "asn": "18182",
+    "cc": "TW",
+    "org": "SONET-TW Sony Network Taiwan Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "68.56.251.96:80",
+    "asn": "33668",
+    "cc": "US",
+    "org": "CMCS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "110.159.229.161:80",
+    "asn": "4788",
+    "cc": "MY",
+    "org": "TTSSB-MY TM TECHNOLOGY SERVICES SDN. BHD.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "50.2.13.25:443",
+    "asn": "62904",
+    "cc": "US",
+    "org": "AS62904 - Eonix Corporation",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.137.255.200:80",
+    "asn": "40663",
+    "cc": "US",
+    "org": "INTERNET-SPEECH-AND-PRIVACY-LLC",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.234.153:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "207.192.133.203:80",
+    "asn": "63005",
+    "cc": "US",
+    "org": "NEXUS-22-63005",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "43.255.61.164:80",
+    "asn": "23884",
+    "cc": "TH",
+    "org": "PROENNET-AS Proen Corp Public Company Limited.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "59.188.126.121:80",
+    "asn": "9269",
+    "cc": "HK",
+    "org": "HKBN-AS-AP Hong Kong Broadband Network Ltd.",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "196.219.0.149:443",
+    "asn": "8452",
+    "cc": "EG",
+    "org": "TE-AS TE-AS",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "45.94.125.51:80",
+    "asn": "29075",
+    "cc": "FR",
+    "org": "IELO IELO Main Network",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "27.126.206.4:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "43.245.52.126:80",
+    "asn": "38719",
+    "cc": "AU",
+    "org": "DREAMSCAPE-AS-AP Dreamscape Networks Limited",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "60.43.233.113:80",
+    "asn": "4713",
+    "cc": "JP",
+    "org": "OCN NTT Communications Corporation",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "27.126.240.76:80",
+    "asn": "45474",
+    "cc": "SG",
+    "org": "NEXUSGUARD-AS-AP NEXUSGUARD LIMITED",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "63.75.167.155:80",
+    "asn": "20472",
+    "cc": "US",
+    "org": "SYNN",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "38.148.85.149:80",
+    "asn": "4226",
+    "cc": "US",
+    "org": "SUMOFIBER",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "23.235.192.153:80",
+    "asn": "54641",
+    "cc": "US",
+    "org": "IMH-IAD",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "49.166.104.213:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "49.175.200.56:80",
+    "asn": "17858",
+    "cc": "KR",
+    "org": "POWERVIS-AS-KR LG POWERCOMM",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "62.176.171.66:80",
+    "asn": "12905",
+    "cc": "SK",
+    "org": "ACS-SK-AS",
+    "is_us_eu": true
+  },
+  {
+    "proxy": "61.2.46.107:80",
+    "asn": "9829",
+    "cc": "IN",
+    "org": "BSNL-NIB National Internet Backbone",
+    "is_us_eu": false
+  },
+  {
+    "proxy": "197.112.10.37:80",
+    "asn": "36947",
+    "cc": "DZ",
+    "org": "ALGTEL-AS",
+    "is_us_eu": false
+  }
+]

@@ -1,0 +1,118 @@
+[{"stream_name":"stdout","time":1.984100521,"data":"=== KAGGLE NON-CDN RAW THROUGHPUT \u0026 STAGE BENCHMARK (V3) ===\n"}
+,{"stream_name":"stdout","time":1.984213413,"data":"Tested Proxies: 300 (150 Global Residential + 150 US/EU Residential)\n"}
+,{"stream_name":"stdout","time":1.984219284,"data":"Target 1 (64KB):   httpbin.org:80/bytes/65536 (inside CONNECT, no TLS)\n"}
+,{"stream_name":"stdout","time":1.984222803,"data":"Target 2 (Bulk):   ash.speedtest.clouvider.net:80/backend/garbage.php?ckSize=2 (2MB, inside CONNECT, no TLS)\n"}
+,{"stream_name":"stdout","time":1.984226058,"data":"Concurrency: 25 | Per-proxy cap: 30.0s\n"}
+,{"stream_name":"stdout","time":1.98422908,"data":"\n"}
+,{"stream_name":"stdout","time":1.9842319430000002,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":1.984235076,"data":" MEASURING CONTAINER HOST DIRECT NON-CDN THROUGHPUT\n"}
+,{"stream_name":"stdout","time":1.9842381,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":2.787616282,"data":"Container Direct Downlink (Clouvider Non-CDN): 2.49 MB/s (19.92 Mbps) [2,097,720 bytes in 0.80s]\n"}
+,{"stream_name":"stdout","time":2.787669825,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":2.787674473,"data":"\n"}
+,{"stream_name":"stdout","time":26.014944336,"data":"Benchmarked all 300 proxies across 64KB \u0026 Bulk in 23.23s!\n"}
+,{"stream_name":"stdout","time":26.014989369,"data":"\n"}
+,{"stream_name":"stdout","time":26.015007811,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.015013029,"data":" STAGE FAILURE BREAKDOWN: 64KB NON-CDN TEST (N=300)\n"}
+,{"stream_name":"stdout","time":26.015017817,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.015317389,"data":"Pipeline Stage       | Drop Count   | % of Population    | Stage Status\n"}
+,{"stream_name":"stdout","time":26.015334888,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.015417581,"data":"1. connect           |         14 |             4.67% | FAILED\n"}
+,{"stream_name":"stdout","time":26.015430091,"data":"1. connect_reply     |        261 |            87.00% | FAILED\n"}
+,{"stream_name":"stdout","time":26.015436123,"data":"1. tls               |          0 |             0.00% | FAILED\n"}
+,{"stream_name":"stdout","time":26.015441663,"data":"1. first_byte        |          8 |             2.67% | FAILED\n"}
+,{"stream_name":"stdout","time":26.015446609,"data":"1. full_body         |         16 |             5.33% | FAILED\n"}
+,{"stream_name":"stdout","time":26.015451765,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.015456511,"data":"PASSED (Completed)   |          1 |             0.33% | SUCCESS\n"}
+,{"stream_name":"stdout","time":26.015461097,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.015465283,"data":"Top 8 Failure Reasons (64KB Non-CDN Test):\n"}
+,{"stream_name":"stdout","time":26.015469931,"data":"  * connect_reply: Fake_200_Webserver_HTML       :  235 (78.3%)\n"}
+,{"stream_name":"stdout","time":26.015475106,"data":"  * full_body: Incomplete_109_of_65536           :   13 (4.3%)\n"}
+,{"stream_name":"stdout","time":26.015479654,"data":"  * connect_reply: Proxy_HTTP/1.1_204_No_Content :   10 (3.3%)\n"}
+,{"stream_name":"stdout","time":26.015531971,"data":"  * connect: connect_Timeout                     :    8 (2.7%)\n"}
+,{"stream_name":"stdout","time":26.015544246,"data":"  * connect: ConnectionRefused                   :    6 (2.0%)\n"}
+,{"stream_name":"stdout","time":26.015548555,"data":"  * connect_reply: Proxy_HTTP/1.1_403_Forbidden\n"}
+,{"stream_name":"stdout","time":26.015552604,"data":"Co:    4 (1.3%)\n"}
+,{"stream_name":"stdout","time":26.015556492,"data":"  * first_byte: Empty_Response_From_Origin       :    3 (1.0%)\n"}
+,{"stream_name":"stdout","time":26.015560479,"data":"  * connect_reply: Proxy_HTTP/1.1_501_Not_implemen:    3 (1.0%)\n"}
+,{"stream_name":"stdout","time":26.015564402,"data":"\n"}
+,{"stream_name":"stdout","time":26.015568502,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.015577145,"data":" STAGE FAILURE BREAKDOWN: BULK 2MB NON-CDN TEST (N=300)\n"}
+,{"stream_name":"stdout","time":26.015581168,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.015975519,"data":"Pipeline Stage       | Drop Count   | % of Population    | Stage Status\n"}
+,{"stream_name":"stdout","time":26.015994866,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.016001376,"data":"1. connect           |         14 |             4.67% | FAILED\n"}
+,{"stream_name":"stdout","time":26.016006721,"data":"1. connect_reply     |        262 |            87.33% | FAILED\n"}
+,{"stream_name":"stdout","time":26.016011204,"data":"1. tls               |          0 |             0.00% | FAILED\n"}
+,{"stream_name":"stdout","time":26.016015642,"data":"1. first_byte        |          8 |             2.67% | FAILED\n"}
+,{"stream_name":"stdout","time":26.016020096,"data":"1. full_body         |         16 |             5.33% | FAILED\n"}
+,{"stream_name":"stdout","time":26.016024693,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.016029468,"data":"PASSED (Completed)   |          0 |             0.00% | SUCCESS\n"}
+,{"stream_name":"stdout","time":26.016034004,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016038577,"data":"Top 8 Failure Reasons (Bulk 2MB Non-CDN Test):\n"}
+,{"stream_name":"stdout","time":26.016042997,"data":"  * connect_reply: Fake_200_Webserver_HTML       :  237 (79.0%)\n"}
+,{"stream_name":"stdout","time":26.016047342,"data":"  * full_body: Incomplete_109_of_2097152         :   13 (4.3%)\n"}
+,{"stream_name":"stdout","time":26.016057367,"data":"  * connect: connect_Timeout                     :   10 (3.3%)\n"}
+,{"stream_name":"stdout","time":26.016060788,"data":"  * connect_reply: Proxy_HTTP/1.1_204_No_Content :   10 (3.3%)\n"}
+,{"stream_name":"stdout","time":26.016063729,"data":"  * connect: ConnectionRefused                   :    4 (1.3%)\n"}
+,{"stream_name":"stdout","time":26.016066642,"data":"  * connect_reply: Proxy_HTTP/1.1_403_Forbidden\n"}
+,{"stream_name":"stdout","time":26.016070821,"data":"Co:    3 (1.0%)\n"}
+,{"stream_name":"stdout","time":26.01607539,"data":"  * first_byte: Empty_Response_From_Origin       :    3 (1.0%)\n"}
+,{"stream_name":"stdout","time":26.01607876,"data":"  * connect_reply: Proxy_HTTP/1.1_501_Not_implemen:    3 (1.0%)\n"}
+,{"stream_name":"stdout","time":26.01608173,"data":"\n"}
+,{"stream_name":"stdout","time":26.016204487,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016234631,"data":" THROUGHPUT BUCKETS: 64KB NON-CDN THROUGHPUT (N=300)\n"}
+,{"stream_name":"stdout","time":26.016239875,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016243882,"data":"Throughput Bucket  | Count   | % Total    | Median MB/s    | p90 MB/s\n"}
+,{"stream_name":"stdout","time":26.016248061,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.01634401,"data":"\u003c0.05              |      17 |      5.67% |         0.0003 | 0.0012\n"}
+,{"stream_name":"stdout","time":26.016353295,"data":"0.05-0.2           |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016357922,"data":"0.2-0.5            |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016362481,"data":"0.5-2              |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016371859,"data":"\u003e2                 |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016455753,"data":"fail               |     283 |     94.33% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016463277,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.016468409,"data":"Active Subtotal    |      17 |      5.67% |         0.0003 | 0.0012\n"}
+,{"stream_name":"stdout","time":26.016472793,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016624234,"data":"Summary: Active Median = 0.0003 MB/s (0.00 Mbps) | p90 = 0.0012 MB/s (0.01 Mbps)\n"}
+,{"stream_name":"stdout","time":26.016632207,"data":"\n"}
+,{"stream_name":"stdout","time":26.016659515,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016665046,"data":" THROUGHPUT BUCKETS: BULK 2MB NON-CDN THROUGHPUT (N=300)\n"}
+,{"stream_name":"stdout","time":26.016669694,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016674261,"data":"Throughput Bucket  | Count   | % Total    | Median MB/s    | p90 MB/s\n"}
+,{"stream_name":"stdout","time":26.016678818,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.01683571,"data":"\u003c0.05              |      16 |      5.33% |         0.0003 | 0.0010\n"}
+,{"stream_name":"stdout","time":26.016844976,"data":"0.05-0.2           |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016850508,"data":"0.2-0.5            |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016855665,"data":"0.5-2              |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016861086,"data":"\u003e2                 |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016866506,"data":"fail               |     284 |     94.67% |              - | -\n"}
+,{"stream_name":"stdout","time":26.016886696,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.016933549,"data":"Active Subtotal    |      16 |      5.33% |         0.0003 | 0.0010\n"}
+,{"stream_name":"stdout","time":26.016945757,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.016960127,"data":"Summary: Active Median = 0.0003 MB/s (0.00 Mbps) | p90 = 0.0010 MB/s (0.01 Mbps)\n"}
+,{"stream_name":"stdout","time":26.01696446,"data":"\n"}
+,{"stream_name":"stdout","time":26.017098999,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.017107635,"data":" THROUGHPUT BUCKETS: BULK 2MB - US \u0026 EU RESIDENTIAL SUBSET (N=216)\n"}
+,{"stream_name":"stdout","time":26.017112538,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.017117055,"data":"Throughput Bucket  | Count   | % Total    | Median MB/s    | p90 MB/s\n"}
+,{"stream_name":"stdout","time":26.017121527,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.017253957,"data":"\u003c0.05              |      14 |      6.48% |         0.0003 | 0.0010\n"}
+,{"stream_name":"stdout","time":26.01726617,"data":"0.05-0.2           |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.017270902,"data":"0.2-0.5            |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.017275382,"data":"0.5-2              |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.017279832,"data":"\u003e2                 |       0 |      0.00% |              - | -\n"}
+,{"stream_name":"stdout","time":26.017284456,"data":"fail               |     202 |     93.52% |              - | -\n"}
+,{"stream_name":"stdout","time":26.017288864,"data":"-------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":26.017293429,"data":"Active Subtotal    |      14 |      6.48% |         0.0003 | 0.0010\n"}
+,{"stream_name":"stdout","time":26.017297865,"data":"=====================================================================================\n"}
+,{"stream_name":"stdout","time":26.017302696,"data":"Summary: Active Median = 0.0003 MB/s (0.00 Mbps) | p90 = 0.0010 MB/s (0.01 Mbps)\n"}
+,{"stream_name":"stdout","time":26.01730778,"data":"\n"}
+,{"stream_name":"stdout","time":26.027214413,"data":"Saved benchmark_results_v3.json\n"}
+,{"stream_name":"stderr","time":31.040337857,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":31.040385305,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":32.042372019,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":32.04241473,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":35.938325985,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":38.653687096,"data":"[NbConvertApp] Writing 559650 bytes to __results__.html\n"}
+]

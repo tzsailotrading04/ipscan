@@ -45,7 +45,7 @@ async def proxy_gate(addr):
         await asyncio.sleep(nxt - now)
 NUM_SHARDS = 20
 
-ENGINE_VER = "v98.162"
+ENGINE_VER = "v98.163"
 OUT_PREFIX = "v98_"
 
 CHUNK_MAX = 100_000
@@ -65,6 +65,18 @@ SSL_CTX = ssl.create_default_context()
 SSL_CTX.check_hostname = False
 SSL_CTX.verify_mode = ssl.CERT_NONE
 
+def _make_client_hello(hostname=HOST):
+    ctx = ssl.create_default_context()
+    bio_in, bio_out = ssl.MemoryBIO(), ssl.MemoryBIO()
+    sslobj = ctx.wrap_bio(bio_in, bio_out, server_hostname=hostname)
+    try:
+        sslobj.do_handshake()
+    except ssl.SSLWantReadError:
+        pass
+    return bio_out.read()
+
+CLIENT_HELLO = _make_client_hello(HOST)
+
 async def inline_probe_socket(s, host=HOST, timeout=2.0):
     try:
         loop = asyncio.get_running_loop()
@@ -80,7 +92,16 @@ async def inline_probe_socket(s, host=HOST, timeout=2.0):
                 break
             resp += c
         first = resp.split(b"\r\n")[0]
-        return bool(resp.startswith(b"HTTP/") and (b" 200" in first or b" 2" in first))
+        if not (resp.startswith(b"HTTP/") and (b" 200" in first or b" 2" in first)):
+            return False
+            
+        parts = resp.split(b"\r\n\r\n", 1)
+        if len(parts) > 1 and parts[1]:
+            return parts[1][:1] == b"\x16"
+            
+        await loop.sock_sendall(s, CLIENT_HELLO)
+        b1 = await asyncio.wait_for(loop.sock_recv(s, 1), timeout=timeout)
+        return b1 == b"\x16"
     except Exception:
         return False
 
@@ -93,7 +114,7 @@ async def check_direct_port(ip, port):
         s.setblocking(False)
         try:
             loop = asyncio.get_running_loop()
-            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=1.0)
+            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=0.8)
             is_proxy = await inline_probe_socket(s, HOST, timeout=2.0)
             if is_proxy:
                 return port
@@ -323,43 +344,18 @@ def push_progress(offset, total, cand_count, stats):
 
 
 def load_strided_subnets():
-    log(f"Generating full IPv4 public subnets for shard {SHARD_TAG}...")
+    log(f"Loading hosting ASN subnets for shard {SHARD_TAG}...")
     t0 = time.time()
+    subnets_file = os.path.join(REPO, "data", "hosting_subnets.txt")
+    if not os.path.exists(subnets_file):
+        subnets_file = os.path.join(os.path.dirname(__file__), "..", "..", "data", "hosting_subnets.txt")
     subnets = []
-    count = 0
-    for a in range(1, 224):
-        if a == 10 or a == 127:
-            continue
-        for b in range(256):
-            if a == 169 and b == 254:
-                continue
-            if a == 172 and 16 <= b <= 31:
-                continue
-            if a == 192 and b == 168:
-                continue
-            if a == 100 and 64 <= b <= 127:
-                continue
-            if a == 198 and (b == 18 or b == 19):
-                continue
-
-            if a == 192 and b == 0:
-                c_iter = (c for c in range(256) if c not in (0, 2))
-            elif a == 192 and b == 88:
-                c_iter = (c for c in range(256) if c != 99)
-            elif a == 198 and b == 51:
-                c_iter = (c for c in range(256) if c != 100)
-            elif a == 203 and b == 0:
-                c_iter = (c for c in range(256) if c != 113)
-            else:
-                c_iter = range(256)
-
-            prefix = f"{a}.{b}."
-            for c in c_iter:
-                if count % NUM_SHARDS == SHARD_IDX:
-                    subnets.append(f"{prefix}{c}")
-                count += 1
+    with open(subnets_file, "r", encoding="utf-8") as f:
+        for idx, line in enumerate(f):
+            if idx % NUM_SHARDS == SHARD_IDX:
+                subnets.append(line.strip())
     t1 = time.time()
-    log(f"Generated {len(subnets):,} subnets ({len(subnets)*256:,} IPs) for shard {SHARD_TAG} in {t1-t0:.2f}s (global public subnets: {count:,})")
+    log(f"Loaded {len(subnets):,} hosting subnets ({len(subnets)*256:,} IPs) for shard {SHARD_TAG} in {t1-t0:.2f}s")
     log(f"STRIDE_CHECK first={subnets[0] if subnets else 'NONE'} last={subnets[-1] if subnets else 'NONE'}")
     return subnets
 
