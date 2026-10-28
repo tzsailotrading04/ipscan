@@ -1,11 +1,13 @@
 {
   "start_time": 1793142727.7722094,
   "last_resume": 1793142727.77221,
-  "ips_scanned": 0,
-  "verified_total": 55707,
+  "ips_scanned": 237880495,
+  "verified_total": 58203,
   "errno99": 0,
-  "other": 0,
+  "other": 154799,
   "peak_rss_mb": 18.00390625,
   "cursor_offset": 0,
-  "intact": true
+  "intact": true,
+  "probe_pass": 7567,
+  "ips_per_sec": 51458.734068319325
 }
