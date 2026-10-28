@@ -1,11 +1,11 @@
-=== 10H SWEEP HEARTBEAT (2026-10-28 05:59:10) ===
-Uptime: 4622s (1.28h)
-IPs Scanned: 237,880,495
-Verified Total: 58,203
-Rate per 1000 IPs: 0.245
-Rate (IPs/s): 51458.7
+=== 10H SWEEP HEARTBEAT (2026-10-28 06:03:52) ===
+Uptime: 4904s (1.36h)
+IPs Scanned: 0
+Verified Total: 57,704
+Rate per 1000 IPs: 57704000.000
+Rate (IPs/s): 0.0
 Errno99: 0
-Other Exceptions: 154799
-Peak RSS (MB): 15.9
-Free Disk (GB): 85.98
-Shards Status: 20/20 Shards RUNNING (2 Billion Space: 50% Systematic / 50% Uniform Random IPv4)
+Other Exceptions: 0 {}
+Peak RSS (MB): 18.0
+Free Disk (GB): 85.97
+Shards Status: 19/20 Shards Running DIRECT_PORTS=[80, 443]
