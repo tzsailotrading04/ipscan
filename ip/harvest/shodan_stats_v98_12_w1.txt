@@ -1,7 +1,8 @@
-offset=123000
+offset=136500
 total=292352
-cands=1
+cands=0
 errno99=0
-timeout=512394
-refused=54793
-req_s=502.4
+timeout=52051
+refused=13784
+req_s=5297.5
+stage=hosting
