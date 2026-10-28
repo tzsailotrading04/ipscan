@@ -1,0 +1,28 @@
+{
+  "total_tested": 273988,
+  "final_unique_survivors": 3420,
+  "overall_pass_rate_pct": 1.25,
+  "by_class": {
+    "RESIDENTIAL": {
+      "tested": 28573,
+      "passed": 304,
+      "rate_pct": 1.06
+    },
+    "DATACENTER": {
+      "tested": 161450,
+      "passed": 2384,
+      "rate_pct": 1.48
+    },
+    "MOBILE": {
+      "tested": 2322,
+      "passed": 10,
+      "rate_pct": 0.43
+    },
+    "UNKNOWN": {
+      "tested": 81643,
+      "passed": 656,
+      "rate_pct": 0.8
+    }
+  },
+  "real_pool_path": "D:\\DEpinFarm\\ip\\harvest\\real_pool.txt"
+}
