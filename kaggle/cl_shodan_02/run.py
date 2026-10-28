@@ -786,13 +786,29 @@ async def async_main():
     log(f"base_ips={BASE_TOTAL_IPS:,} total_ips={total_ips:,} (2 Billion target)")
 
     def get_ip(offset):
-        if offset < BASE_TOTAL_IPS:
-            return f"{subnets[offset // 256]}.{offset % 256}"
-        cycle = offset // BASE_TOTAL_IPS
-        idx_in_base = offset % BASE_TOTAL_IPS
-        s_idx = idx_in_base // 256
-        host = (idx_in_base % 256 + cycle * 101 + SHARD_IDX * 17) % 254 + 1
-        return f"{subnets[s_idx]}.{host}"
+        if offset % 2 == 0:
+            # Systematic strided subnets across public IPv4
+            idx = (offset // 2) % BASE_TOTAL_IPS
+            s_idx = idx // 256
+            return f"{subnets[s_idx]}.{idx % 256}"
+        else:
+            # Genuinely uniform random IPv4 (1-223, /16, host)
+            rnd_offset = offset // 2
+            x = (rnd_offset * 0xbf58476d1ce4e5b9 + 0x9e3779b97f4a7c15 + (SHARD_IDX * 0x517cc1b727220a95)) & 0xFFFFFFFFFFFFFFFF
+            x = (x ^ (x >> 30)) * 0x94d049bb133111eb & 0xFFFFFFFFFFFFFFFF
+            x = x ^ (x >> 31)
+            a = 1 + (x % 223)
+            if a in (10, 127):
+                a = 11
+            b = (x >> 8) & 0xFF
+            c = (x >> 16) & 0xFF
+            if a == 169 and b == 254: b = 253
+            if a == 172 and (16 <= b <= 31): b = 32
+            if a == 192 and b == 168: b = 167
+            if a == 100 and (64 <= b <= 127): b = 128
+            if a == 198 and (b in (18, 19)): b = 20
+            d = 1 + ((x >> 24) % 254)
+            return f"{a}.{b}.{c}.{d}"
 
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_{OUT_PREFIX}{SHARD_TAG}.txt")
     resume_offset, saved_chunk = read_progress(prog_file)
