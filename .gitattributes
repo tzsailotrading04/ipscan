@@ -1,0 +1,9 @@
+ip/**/*.txt   merge=union
+ip/*.txt   merge=union
+ip/harvest/*.txt   merge=union
+cache/*.txt   merge=union
+cache/**/*.txt   merge=union
+ip/harvest/real_pool.txt   merge=union
+cache/harvest_seen_set.txt   merge=union
+ip/verified_alive.txt   merge=union
+ip/harvest/verified_alive_part_*.txt   merge=union

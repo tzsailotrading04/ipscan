@@ -242,6 +242,36 @@ async def run_worker(shard_idx, worker_id, total_workers):
 # ==============================================================================
 # FLEET MASTER SUPERVISOR
 # ==============================================================================
+def git_sync_and_push(msg):
+    try:
+        subprocess.run(["git", "-C", REPO, "add", "-A"], check=False)
+        st = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True, text=True)
+        if not st.stdout.strip():
+            return True
+        c_res = subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True, text=True)
+        if c_res.returncode != 0 and ("nothing to commit" in c_res.stdout or "nothing to commit" in c_res.stderr):
+            return True
+
+        for attempt in range(1, 16):
+            subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], check=False)
+            m_res = subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "origin/main"], capture_output=True, text=True)
+            if m_res.returncode != 0:
+                subprocess.run(["git", "-C", REPO, "merge", "--abort"], capture_output=True)
+                backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
+                time.sleep(backoff)
+                continue
+
+            p_res = subprocess.run(["git", "-C", REPO, "push", "origin", "HEAD:main"], capture_output=True, text=True)
+            if p_res.returncode == 0:
+                return True
+            print(f"[GIT ERROR] push failed attempt {attempt}/15: {p_res.stderr.strip()}", file=sys.stderr, flush=True)
+            backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
+            time.sleep(backoff)
+        return False
+    except Exception as e:
+        print(f"[GIT EXCEPTION] {e}", file=sys.stderr, flush=True)
+        return False
+
 def run_master():
     def log(msg):
         t = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -281,6 +311,8 @@ def run_master():
 
     log(f"Spawned {len(procs)} parallel worker processes.")
 
+    shard_part = os.path.join(REPO, "ip", "harvest", f"verified_alive_part_{SHARD_TAG}.txt")
+    last_shard_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
     last_push_t = time.time()
 
     while True:
@@ -334,22 +366,15 @@ def run_master():
                 for it in new_items: f.write(it + "\n")
             log(f"Aggregated +{len(new_items)} fresh proxies from workers into part_{SHARD_TAG}.txt (Total: {len(seen_proxies)})")
 
-        # Push to git every 30s
+        # Push to git only when this shard's own output file changed, at most once per 10 minutes
         now = time.time()
-        if now - last_push_t >= 30:
-            last_push_t = now
-            try:
-                subprocess.run(["git", "-C", REPO, "add", "ip/harvest/"], check=False)
-                res = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True, text=True)
-                if res.stdout.strip():
-                    subprocess.run(["git", "-C", REPO, "commit", "-m", f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"], check=False)
-                    for _ in range(5):
-                        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], check=False)
-                        p_res = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], check=False)
-                        if p_res.returncode == 0:
-                            break
-                        time.sleep(2)
-            except Exception: pass
+        if now - last_push_t >= 600:
+            cur_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
+            if cur_sig is not None and cur_sig != last_shard_sig:
+                last_push_t = now
+                commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"
+                if git_sync_and_push(commit_msg):
+                    last_shard_sig = cur_sig
 
         # Supervise workers
         dead = []

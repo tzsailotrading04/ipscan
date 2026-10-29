@@ -3,7 +3,7 @@ kaggle/cl_harvest/run.py
 Novelty Harvest Kernel for Kaggle.
 
 1. Session lifecycle & clean exit before 12h cap (11.5h limit).
-2. Git helper with pull --rebase / add / commit / push with 3 retries, jitter, stderr printing, exit-code checks.
+2. Git helper with fetch / merge / add / commit / push with 15 retries, backoff, stderr printing, exit-code checks.
 3. Source A: Reads every changed file under ip/ (verified_alive.txt, shard result files).
    If Source A yields novel candidates, skips Source B that cycle.
 4. Source B: Only when Source A is empty. Rotates through fresh endpoint terms,
@@ -82,56 +82,48 @@ def setup_environment():
         pass
 
 # ------------------------------------------------------------------------------
-# GIT HELPER (PULL, ADD, COMMIT, PUSH WITH 3 RETRIES & JITTER)
+# GIT HELPER (FETCH, MERGE, COMMIT, PUSH WITH 15 RETRIES & BACKOFF)
 # ------------------------------------------------------------------------------
 def git_pull_repo():
     log("Pulling latest repo updates from origin/main...")
-    r = subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], capture_output=True, text=True)
+    subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], check=False)
+    r = subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "origin/main"], capture_output=True, text=True)
     if r.returncode != 0:
-        subprocess.run(["git", "-C", REPO, "rebase", "--abort"], capture_output=True)
-        subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
-        subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "-X", "ours", "origin/main"], capture_output=True)
-        log("Pulled via merge fallback.")
+        subprocess.run(["git", "-C", REPO, "merge", "--abort"], capture_output=True)
+        log(f"Pull merge failed: {r.stderr.strip()}")
     else:
-        log("Pulled successfully via rebase.")
+        log("Pulled successfully via merge.")
 
 def git_sync_and_push(msg):
     try:
         subprocess.run(["git", "-C", REPO, "add", "-A"], check=False)
         st = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True, text=True)
-        has_changes = any(l.strip() and not l.startswith("??") for l in st.stdout.splitlines())
-        if not has_changes:
+        if not st.stdout.strip():
+            return True
+        c_res = subprocess.run(["git", "-C", REPO, "commit", "-m", msg], check=False)
+        if c_res.returncode != 0 and ("nothing to commit" in c_res.stdout or "nothing to commit" in c_res.stderr):
             return True
 
-        subprocess.run(["git", "-C", REPO, "commit", "-m", msg], check=False)
+        for attempt in range(1, 16):
+            subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], check=False)
+            m_res = subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "origin/main"], capture_output=True, text=True)
+            if m_res.returncode != 0:
+                subprocess.run(["git", "-C", REPO, "merge", "--abort"], capture_output=True)
+                backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
+                time.sleep(backoff)
+                continue
 
-        for attempt in range(1, 4):
-            jitter = random.uniform(1.5, 3.5)
-            time.sleep(jitter)
-            r_pull = subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], capture_output=True, text=True)
-            if r_pull.returncode == 0:
-                r_push = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
-                if r_push.returncode == 0:
-                    log(f"Successfully pushed update to origin/main on attempt {attempt}.")
-                    return True
-                else:
-                    print(f"[GIT ERROR] Push failed attempt {attempt}/3 (code {r_push.returncode}): {r_push.stderr.strip()}", file=sys.stderr, flush=True)
-                    subprocess.run(["git", "-C", REPO, "rebase", "--abort"], capture_output=True)
-            else:
-                print(f"[GIT ERROR] Pull rebase failed attempt {attempt}/3 (code {r_pull.returncode}): {r_pull.stderr.strip()}", file=sys.stderr, flush=True)
-                subprocess.run(["git", "-C", REPO, "rebase", "--abort"], capture_output=True)
-                # Fallback fetch and merge
-                subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], capture_output=True)
-                subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "-X", "ours", "origin/main"], capture_output=True)
-                r_push = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
-                if r_push.returncode == 0:
-                    log(f"Successfully pushed update to origin/main on attempt {attempt} (via merge fallback).")
-                    return True
-                else:
-                    print(f"[GIT ERROR] Push attempt {attempt}/3 failed after merge: {r_push.stderr.strip()}", file=sys.stderr, flush=True)
+            p_res = subprocess.run(["git", "-C", REPO, "push", "origin", "HEAD:main"], capture_output=True, text=True)
+            if p_res.returncode == 0:
+                log(f"Successfully pushed update to origin/main on attempt {attempt}.")
+                return True
+            print(f"[GIT ERROR] Push failed attempt {attempt}/15: {p_res.stderr.strip()}", file=sys.stderr, flush=True)
+            backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
+            time.sleep(backoff)
+        return False
     except Exception as e:
         print(f"[GIT EXCEPTION] {e}", file=sys.stderr, flush=True)
-    return False
+        return False
 
 # ------------------------------------------------------------------------------
 # LOCKFILE MANAGEMENT (STALE AFTER 20 MINUTES)
@@ -529,6 +521,9 @@ def main():
     signal.signal(signal.SIGINT, handle_sig)
     signal.signal(signal.SIGTERM, handle_sig)
 
+    last_push_t = 0
+    last_pool_sig = (os.path.getmtime(POOL_FILE), os.path.getsize(POOL_FILE)) if os.path.exists(POOL_FILE) else None
+
     while running:
         cycle += 1
         t_cycle_start = time.time()
@@ -639,9 +634,14 @@ def main():
         except Exception as e:
             log(f"Failed to write status json: {e}")
 
-        # 10. Commit & Push with 3 retries and jitter
-        commit_msg = f"harvest: cycle #{cycle} +{added_to_pool} (pool: {pool_total:,})"
-        git_sync_and_push(commit_msg)
+        # 10. Commit & Push only when harvest's own output file changed, at most once per 10 minutes
+        now = time.time()
+        cur_pool_sig = (os.path.getmtime(POOL_FILE), os.path.getsize(POOL_FILE)) if os.path.exists(POOL_FILE) else None
+        if cur_pool_sig is not None and cur_pool_sig != last_pool_sig and (now - last_push_t >= 600):
+            last_push_t = now
+            commit_msg = f"harvest: cycle #{cycle} +{added_to_pool} (pool: {pool_total:,})"
+            if git_sync_and_push(commit_msg):
+                last_pool_sig = cur_pool_sig
 
         # 11. Hard 15-minute wall clock: sleep remainder
         elapsed = time.time() - t_cycle_start
