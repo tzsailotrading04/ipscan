@@ -1,8 +1,8 @@
-engine=v98.165
+engine=v98.166
 shard=07
-offset=25410948
-total=601753088
-cands=11
+offset=25424948
+total=602921472
+cands=12
 errno99=0
-req_s=18447.8
-workers=6
+req_s=41487.4
+workers=2
