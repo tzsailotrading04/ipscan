@@ -1,12 +1,12 @@
 {
-  "cycle_number": 6,
-  "timestamp": 1793297050.1981108,
-  "time_str": "2026-10-29 23:34:10",
-  "source_used": "cache_endpoints",
-  "candidates_found": 66554,
-  "candidates_new_after_dedup": 5,
-  "new_after_dedup_ratio": 0.0001,
-  "survivors": 2,
+  "cycle_number": 7,
+  "timestamp": 1793297125.5116267,
+  "time_str": "2026-10-29 23:35:25",
+  "source_used": "known_repos",
+  "candidates_found": 2206,
+  "candidates_new_after_dedup": 0,
+  "new_after_dedup_ratio": 0.0,
+  "survivors": 0,
   "pool_total": 1705,
   "new_to_pool_this_hour": 8,
   "new_to_pool_last_24h": 8,
@@ -20,7 +20,7 @@
       "deprioritized": false
     },
     "known_repos": {
-      "consecutive_low": 1,
+      "consecutive_low": 2,
       "deprioritized": false
     },
     "fresh_lists": {
