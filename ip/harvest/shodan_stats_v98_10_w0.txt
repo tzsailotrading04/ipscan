@@ -1,8 +1,8 @@
-offset=819396
+offset=819896
 total=4294967296
 cands=4
 errno99=0
-timeout=1104520
-refused=27271
-req_s=269.7
+timeout=1106920
+refused=27316
+req_s=269.3
 stage=random_ipv4_loop
