@@ -22,10 +22,10 @@ except Exception:
     HAVE_SOCKS = False
 
 NUM_SHARDS = 20
-DEFAULT_WORKERS = 6
-BACKOFF_WORKERS = 4
+DEFAULT_WORKERS = 2
+BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.165"
+ENGINE_VER = "v98.166"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -110,7 +110,6 @@ def load_residential_indexer():
                     except ValueError:
                         pass
     else:
-        # Fallback to TSV exclusion
         tsv_path = ASN_FILE if os.path.exists(ASN_FILE) else os.path.join(os.path.dirname(__file__), "..", "..", "data", "ip2asn-v4-u32.tsv")
         kw = ("amazon", "aws", "google", "microsoft", "azure", "oracle", "alibaba", "hosting", "cloud", "ovh", "hetzner")
         if os.path.exists(tsv_path):
@@ -188,7 +187,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
     tag = f"{shard_idx:02d}"
     w_tag = f"{tag}_w{worker_id}"
     log_pfx = f"[{ENGINE_VER} SHARD {tag} W{worker_id}]"
-    print(f"{log_pfx} Worker {worker_id}/{total_workers} initializing...", flush=True)
+    print(f"{log_pfx} Worker {worker_id}/{total_workers} initializing (Trial 2W/B500)...", flush=True)
 
     load_asn_table()
     load_residential_indexer()
@@ -240,7 +239,8 @@ async def run_worker(shard_idx, worker_id, total_workers):
                     return port, t
             return None
 
-    BATCH_SIZE = 1500
+    # TRIAL SPEC: BATCH_SIZE = 500
+    BATCH_SIZE = 500
 
     # --------------------------------------------------------------------------
     # STAGE 1: HOSTING PASS (Only for Shards 00-13)
@@ -318,7 +318,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 os.replace(stats_file + ".tmp", stats_file)
 
         part_fp.close()
-        print(f"{log_pfx} Stage 1 (Hosting) COMPLETED! Found {cands_found:,} genuine proxies. Transitioning to Residential...", flush=True)
+        print(f"{log_pfx} Stage 1 (Hosting) COMPLETED! Transitioning to Residential...", flush=True)
 
     # --------------------------------------------------------------------------
     # STAGE 2: RESIDENTIAL PASS (Shards 14-19 start here; Shards 00-13 enter after Stage 1)
@@ -330,15 +330,12 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     # Stride calculation for residential:
     if IS_RES_ONLY:
-        # Shards 14-19 (6 shards, 6 workers = 36 total workers)
         rel_shard = shard_idx - 14
-        stride_workers = 36
+        stride_workers = 6 * total_workers
         global_worker_idx = rel_shard * total_workers + worker_id
-        # First 2M density measurement: 2,000,000 IPs / 36 workers = 55,555 IPs
         density_target_ips = 55555
     else:
-        # Shards 00-13 (14 shards, 6 workers = 84 total workers)
-        stride_workers = 84
+        stride_workers = 14 * total_workers
         global_worker_idx = shard_idx * total_workers + worker_id
         density_target_ips = 0
 
@@ -360,17 +357,15 @@ async def run_worker(shard_idx, worker_id, total_workers):
     density_measured = os.path.exists(density_file)
 
     def get_res_ip(off):
-        # Each offset maps to a subnet step + host
         sub_step = (off >> 8)
         host = off & 0xFF
-        # Map step to global residential subnet
         global_sub_idx = global_worker_idx + (sub_step * stride_workers)
         sub_prefix = get_residential_subnet(global_sub_idx)
         return f"{sub_prefix}.{host}"
 
     res_start_t = time.time()
     last_res_stats_t = time.time()
-    MAX_RES_IPS = 100_000_000 # 100M IPs per worker (continuous 12h run)
+    MAX_RES_IPS = 100_000_000
 
     while res_offset < MAX_RES_IPS:
         batch_ips = [get_res_ip(res_offset + i) for i in range(min(BATCH_SIZE, MAX_RES_IPS - res_offset))]
@@ -394,11 +389,10 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
         res_offset += len(batch_ips)
 
-        # First 2M Density Milestone check for Shards 14-19
         if IS_RES_ONLY and not density_measured and res_offset >= density_target_ips:
             density_measured = True
             rate_1000 = (density_cands / max(1, res_offset)) * 1000.0
-            print(f"{log_pfx} *** FIRST 2M DENSITY MEASUREMENT COMPLETE *** Scanned: {res_offset:,} IPs | Found: {density_cands} proxies | Rate: {rate_1000:.4f}/1,000 IPs", flush=True)
+            print(f"{log_pfx} *** DENSITY MEASUREMENT COMPLETE *** Scanned: {res_offset:,} IPs | Found: {density_cands} proxies | Rate: {rate_1000:.4f}/1,000 IPs", flush=True)
             with open(density_file, "w", encoding="utf-8") as df:
                 df.write(f"shard={shard_idx}\nworker={worker_id}\nips_scanned={res_offset}\ncands={density_cands}\nrate_per_1000={rate_1000:.4f}\n")
 
@@ -412,19 +406,22 @@ async def run_worker(shard_idx, worker_id, total_workers):
             os.replace(res_prog_file + ".tmp", res_prog_file)
             with open(res_stats_file + ".tmp", "w") as f:
                 f.write(f"offset={res_offset}\ntotal={MAX_RES_IPS}\ncands={res_cands}\nerrno99={STAT_ERRNO99}\ntimeout={STAT_TIMEOUT}\nrefused={STAT_REFUSED}\nreq_s={req_s:.1f}\nstage=residential\n")
-            os.replace(res_stats_file + ".tmp", res_stats_file)
+            os.replace(res_stats_file + ".tmp", stats_file)
 
     res_part_fp.close()
 
 # ==============================================================================
-# MASTER CONTAINER SUPERVISOR
+# FLEET MASTER SUPERVISOR
 # ==============================================================================
 def run_master():
-    log = lambda msg: print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [{ENGINE_VER} MASTER {SHARD_TAG}] {msg}", flush=True)
+    def log(msg):
+        t = time.strftime("%Y-%m-%d %H:%M:%S")
+        print(f"[{t}] {msg}", flush=True)
+
     log("=" * 70)
-    log(f"Fleet Master Supervisor Starting for Shard {SHARD_TAG} (12-Hour Offline Run)")
+    log(f"Fleet Master Supervisor Starting for Shard {SHARD_TAG} (1-Hour Production Trial)")
     log(f"Mode: {'RESIDENTIAL ONLY' if IS_RES_ONLY else 'HOSTING THEN RESIDENTIAL'}")
-    log(f"Ports: {DIRECT_PORTS} | Workers: {DEFAULT_WORKERS} parallel processes")
+    log(f"Ports: {DIRECT_PORTS} | Workers: {DEFAULT_WORKERS} processes | Batch: 500")
     log("=" * 70)
 
     if os.path.exists("/kaggle/working"):
@@ -466,7 +463,8 @@ def run_master():
         total_errno99 = 0
         total_req_s = 0.0
 
-        for w in range(len(procs)):
+        # Read across all possible worker stats (up to 6) to keep cumulative history
+        for w in range(6):
             w_tag = f"{SHARD_TAG}_w{w}"
             for pfx in ["shodan_stats_v98_", "shodan_stats_res_"]:
                 stats_p = os.path.join(REPO, "ip", "harvest", f"{pfx}{w_tag}.txt")
@@ -480,15 +478,6 @@ def run_master():
                             elif line.startswith("req_s="): total_req_s += float(line.split("=")[1])
                     except Exception: pass
 
-        # DYNAMIC BACKOFF CHECK
-        if total_errno99 > 50 and not backed_off and active_workers > BACKOFF_WORKERS:
-            log(f"[BACKOFF ALERT] errno99={total_errno99} detected! Scaling down from {active_workers} to {BACKOFF_WORKERS} processes...")
-            backed_off = True
-            while len(procs) > BACKOFF_WORKERS:
-                p_to_kill = procs.pop()
-                p_to_kill.terminate()
-            log(f"Scaled down to {len(procs)} active worker processes to eliminate port exhaustion.")
-
         # Restart dead workers if needed
         for i, p in enumerate(procs):
             if p.poll() is not None:
@@ -497,7 +486,7 @@ def run_master():
 
         # Merge verified files and push to origin/main
         now = time.time()
-        if now - last_push_t >= 150:
+        if now - last_push_t >= 120:
             last_push_t = now
 
             for pfx in ["verified_alive_part_", "verified_alive_part_res_"]:
@@ -507,7 +496,7 @@ def run_master():
                     for l in open(shard_part_file, errors="ignore"):
                         if l.strip(): seen_lines.add(l.strip())
 
-                for w in range(len(procs)):
+                for w in range(6):
                     w_tag = f"{SHARD_TAG}_w{w}"
                     w_part = os.path.join(REPO, "ip", "harvest", f"{pfx}{w_tag}.txt")
                     if os.path.exists(w_part):
