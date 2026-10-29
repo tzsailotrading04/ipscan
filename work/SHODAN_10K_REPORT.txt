@@ -1,0 +1,28 @@
+================================================================================
+STRICT VERIFICATION REPORT: 10,000 SHODAN INTERNETDB CANDIDATES
+================================================================================
+Target Mode          : DATACENTER ONLY (No Residential)
+Probe Specification  : Strict Multi-Target TLS 0x16 (speed.cloudflare.com, google, 1.1.1.1)
+Total Candidates     : 10,000
+Strict Pass Count    : 0
+Strict Pass Rate     : 0.0000% (0/10,000)
+Elapsed Time         : 114.90 seconds (87.0 proxies/s)
+--------------------------------------------------------------------------------
+PORT BREAKDOWN (Passed Survivors):
+--------------------------------------------------------------------------------
+TOP PROVIDER BREAKDOWN (Pass Rate):
+  Provider               Tested     Passed     Pass Rate   
+  AMAZON-02              5,985      0           0.00%
+  GOOGLE-CLOUD-PLATFORM  1,971      0           0.00%
+  AMAZON-AES             1,494      0           0.00%
+  HETZNER-AS             207        0           0.00%
+  OVH                    99         0           0.00%
+  HETZNER-CLOUD2-AS      71         0           0.00%
+  AWS-GOVCLOUD           60         0           0.00%
+  HETZNER-CLOUD3-AS      54         0           0.00%
+  HETZNER-CLOUD4-AS      23         0           0.00%
+  CONTABO                21         0           0.00%
+  M247                   7          0           0.00%
+  LEASEWEB-NL-AMS-01     7          0           0.00%
+  AS-HOSTINGER           1          0           0.00%
+================================================================================

@@ -1,0 +1,21 @@
+# Datacenter Looping: Providers Yielding < 0.02 per 1,000 IPs
+# Timestamp: 2026-10-29 12:45:21 | Total Scanned: 6,424,500 IPs
+# Format: PROVIDER | YIELD_PER_1K | EST_IPS_SCANNED | GENUINE_FOUND
+---------------------------------------------------------------------------
+COGENT-174           | 0.000000/1k | 2,350,380 IPs | 0 genuine
+OVH                  | 0.006762/1k | 443,651 IPs | 3 genuine
+HETZNER-AS           | 0.006474/1k | 308,935 IPs | 2 genuine
+COLOMBIA             | 0.000000/1k | 298,137 IPs | 0 genuine
+TELMEX               | 0.000000/1k | 237,205 IPs | 0 genuine
+HWCSNET              | 0.000000/1k | 153,283 IPs | 0 genuine
+M247                 | 0.006549/1k | 152,696 IPs | 1 genuine
+EQUINIX              | 0.000000/1k | 142,020 IPs | 0 genuine
+AKAMAI-LINODE-AP     | 0.007664/1k | 130,488 IPs | 1 genuine
+AS-HOSTINGER         | 0.000000/1k | 125,675 IPs | 0 genuine
+AS-COLOCROSSING      | 0.000000/1k | 94,818 IPs | 0 genuine
+ETB                  | 0.000000/1k | 83,238 IPs | 0 genuine
+RACKSPACE            | 0.000000/1k | 77,032 IPs | 0 genuine
+IONOS-AS             | 0.000000/1k | 73,758 IPs | 0 genuine
+NETCOLOGNE           | 0.000000/1k | 54,628 IPs | 0 genuine
+LEASEWEB-USA-LAX     | 0.000000/1k | 52,698 IPs | 0 genuine
+POWERLINE-AS-AP      | 0.000000/1k | 50,793 IPs | 0 genuine

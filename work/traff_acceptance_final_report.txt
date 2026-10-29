@@ -1,0 +1,12 @@
+======================================================================
+TRAFFMONETIZER 200-PROXY ACCEPTANCE TEST REPORT
+======================================================================
+Duration: 7200.2 seconds (2.00 hours)
+Total Configured Nodes: 200
+One Proxy per IP: YES (200 unique datacenter proxy IPs)
+Routing Mechanism: Transparent network namespaces with redsocks
+
+RESULTS:
+- Clients that connected: 147 / 200 (73.5%)
+- Clients currently up: 0 / 200 (0.0%)
+======================================================================

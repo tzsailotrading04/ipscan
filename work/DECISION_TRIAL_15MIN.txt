@@ -1,0 +1,17 @@
+================================================================================
+15-MINUTE DECISION TRIAL RESULTS (2026-10-29 13:26:48)
+================================================================================
+Trial Start Time         : 2026-10-29 13:11:23
+Trial End Time           : 2026-10-29 13:26:48
+Duration                 : 15.40 minutes (0.2567 hrs)
+Total Datacenter IPs     : 2,434,000 IPs
+Fleet Scan Rate          : 2,634 IPs/s
+Raw Candidates Emitted   : 1 proxies
+Genuine Proxies Found    : 1 proxies
+Master Real Pool Total   : 3,622 proxies
+--------------------------------------------------------------------------------
+GENUINE / HOUR (TRIAL)   : 3.90 / hr
+TARGET 29.5 BASELINE     : 29.50 / hr
+PERFORMANCE VS BASELINE  : -86.8% (BELOW BASELINE)
+CONVERSION YIELD PER 1K  : 0.000411 genuine / 1k IPs
+================================================================================

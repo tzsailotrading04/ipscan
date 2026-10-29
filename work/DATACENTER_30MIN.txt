@@ -1,0 +1,39 @@
+================================================================================
+FLEET STATUS REPORT: DATACENTER-ONLY LOOPING (2026-10-29 12:45:21)
+================================================================================
+Elapsed Time Since Start : 0.51 hrs (30.5 mins)
+Total Datacenter IPs     : 6,424,500 IPs
+Fleet Scan Rate          : 3,507 IPs/s
+Raw Candidates Emitted   : 45 proxies
+Genuine Proxies in Run   : 34 proxies
+Master Real Pool Total   : 3,621 proxies
+--------------------------------------------------------------------------------
+Genuine / Hour (Actual)  : 66.81 / hr
+Target Trial Benchmark   : 29.50 / hr
+Performance vs Benchmark : +126.5%
+Overall Yield per 1,000  : 0.005292 / 1k
+--------------------------------------------------------------------------------
+PER-PROVIDER YIELD BREAKDOWN (Top 20 Providers by Subnet Share):
+Provider             Subnets    Est. Scanned     Genuine    Yield / 1k     Status      
+--------------------------------------------------------------------------------
+COGENT-174           96,203     2,350,380        0          0.000000       PRUNE (<0.02)
+OVH                  18,159     443,651          3          0.006762       PRUNE (<0.02)
+HETZNER-AS           12,645     308,935          2          0.006474       PRUNE (<0.02)
+DIGITALOCEAN-ASN     12,276     299,920          19         0.063350       KEEP        
+COLOMBIA             12,203     298,137          0          0.000000       PRUNE (<0.02)
+TELMEX               9,709      237,205          0          0.000000       PRUNE (<0.02)
+HWCSNET              6,274      153,283          0          0.000000       PRUNE (<0.02)
+M247                 6,250      152,696          1          0.006549       PRUNE (<0.02)
+EQUINIX              5,813      142,020          0          0.000000       PRUNE (<0.02)
+AS-VULTR             5,760      140,725          3          0.021318       KEEP        
+AKAMAI-LINODE-AP     5,341      130,488          1          0.007664       PRUNE (<0.02)
+AS-HOSTINGER         5,144      125,675          0          0.000000       PRUNE (<0.02)
+AS-COLOCROSSING      3,881      94,818           0          0.000000       PRUNE (<0.02)
+ETB                  3,407      83,238           0          0.000000       PRUNE (<0.02)
+RACKSPACE            3,153      77,032           0          0.000000       PRUNE (<0.02)
+IONOS-AS             3,019      73,758           0          0.000000       PRUNE (<0.02)
+NETCOLOGNE           2,236      54,628           0          0.000000       PRUNE (<0.02)
+LEASEWEB-USA-LAX     2,157      52,698           0          0.000000       PRUNE (<0.02)
+CONTABO              2,120      51,794           4          0.077228       KEEP        
+POWERLINE-AS-AP      2,079      50,793           0          0.000000       PRUNE (<0.02)
+================================================================================

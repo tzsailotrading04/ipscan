@@ -1,0 +1,36 @@
+================================================================================
+           DePIN FARM 12-HOUR OFFLINE SWEEP REPORT (2026-10-28 21:45:13)
+================================================================================
+Elapsed Time       : 0.00 hours (0s)
+Total IPs Scanned  : 12,856,500
+Total Genuine Found: 189,990 (Rate: 14.7777 per 1,000 IPs)
+  - Hosting Proxies: 189,990 (100.0%)
+  - Residential    : 0 (0.0%)
+
+Yield by Port:
+  Port 80    : 138,341 candidates
+  Port 443   : 39,007 candidates
+  Port 8080  : 4,408 candidates
+  Port 3128  : 1,642 candidates
+  Port 1080  : 1,466 candidates
+  Port 8000  : 650 candidates
+  Port 8888  : 582 candidates
+  Port 81    : 457 candidates
+
+Yield by Provider / ASN:
+  AMAZON-02                 : 27,083 candidates
+  OVH                       : 9,455 candidates
+  AMAZON-AES                : 6,832 candidates
+  ALIBABA-CN-NET            : 6,199 candidates
+  NEXUSGUARD-AS-AP          : 6,193 candidates
+  DIGITALOCEAN-ASN          : 6,105 candidates
+  MICROSOFT-CORP-MSN-AS-BLOCK : 5,442 candidates
+  GOOGLE-CLOUD-PLATFORM     : 4,588 candidates
+  HETZNER-AS                : 3,990 candidates
+  AS-VULTR                  : 3,796 candidates
+  KIXS-AS-KR                : 3,542 candidates
+  RCN-AS                    : 2,495 candidates
+  AKAMAI-LINODE-AP          : 2,307 candidates
+  AS-HOSTINGER              : 2,238 candidates
+  COGENT-174                : 2,156 candidates
+================================================================================

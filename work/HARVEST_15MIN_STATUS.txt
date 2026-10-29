@@ -1,0 +1,33 @@
+=====================================================================================
+ENDPOINT HARVEST TELEMETRY REPORT — CYCLE #1 (2026-10-29 15:44:17)
+=====================================================================================
+Elapsed Time Since Start : 0.6 minutes (0.01 hrs)
+Active Endpoints Cached  : 3,456 / 3,456 (Pruned: 0)
+Batch Evaluated (Slice)  : 600 endpoints (Next offset: 600)
+New Candidates (Cycle)   : 71,508 tested | Pass Rate: 1.08%
+Promoted (This Cycle)    : +773 genuine proxies
+-------------------------------------------------------------------------------------
+TOP PERFORMING ENDPOINTS (Pass Rate & Verified Yield):
+Passed   Fetched    Pass Rate    Endpoint URL
+-------------------------------------------------------------------------------------
+520      64946        0.80%      https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/prox
+87       10000        0.87%      https://raw.githubusercontent.com/Denisyoya/Proxy-List-Gamt/main/
+35       1442         2.43%      https://raw.githubusercontent.com/Denisyoya/Proxy-List-Gamt/main/
+19       99882        0.02%      https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/prox
+17       3195         0.53%      https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/prox
+16       3082         0.52%      https://raw.githubusercontent.com/Ch4120N/Ch4120N-Proxy-List/mast
+10       7192         0.14%      https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/
+9        441          2.04%      https://raw.githubusercontent.com/BlacKSnowDot0/Proxy-Pulse/main/
+8        22131        0.04%      https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/prox
+6        1992         0.30%      https://raw.githubusercontent.com/CB-X2-Jun/proxy-lists/main/prox
+6        495          1.21%      https://raw.githubusercontent.com/MrMarble/proxy-list/main/all.tx
+5        277          1.81%      https://raw.githubusercontent.com/Ch4120N/Ch4120N-Proxy-List/mast
+-------------------------------------------------------------------------------------
+CUMULATIVE FLEET PROGRESS:
+  Total Candidates Tested: 71,508
+  Total Genuine Promoted : 773
+  Genuine / Hour (Rate)  : 77300.00 / hr
+  Master Real Pool Size  : 9,805 / 30,000 proxies
+  Progress Toward 30k    : 32.68% (20,195 remaining)
+  Parallel Shard Fleet   : 20 Shards Running (Random IPv4 Looping)
+=====================================================================================

@@ -1,0 +1,26 @@
+{
+  "tested": 259500,
+  "total": 273988,
+  "pct": 94.71,
+  "passed": 3420,
+  "pass_rate_pct": 1.32,
+  "speed_proxies_per_sec": 41.5,
+  "by_class": {
+    "DATACENTER": {
+      "tested": 155732,
+      "passed": 2444
+    },
+    "RESIDENTIAL": {
+      "tested": 26811,
+      "passed": 305
+    },
+    "MOBILE": {
+      "tested": 2053,
+      "passed": 11
+    },
+    "UNKNOWN": {
+      "tested": 74904,
+      "passed": 660
+    }
+  }
+}

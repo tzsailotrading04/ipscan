@@ -1,0 +1,31 @@
+{
+  "cycle_number": 21,
+  "timestamp": 1793295950.5752187,
+  "time_str": "2026-10-29 23:15:50",
+  "source_used": "country_matrix",
+  "candidates_found": 2598,
+  "candidates_new_after_dedup": 2,
+  "new_after_dedup_ratio": 0.0008,
+  "survivors": 1,
+  "pool_total": 1697,
+  "new_to_pool_this_hour": 39,
+  "new_to_pool_last_24h": 39,
+  "source_health": {
+    "country_matrix": {
+      "consecutive_low": 2,
+      "deprioritized": false
+    },
+    "cache_endpoints": {
+      "consecutive_low": 1,
+      "deprioritized": false
+    },
+    "known_repos": {
+      "consecutive_low": 2,
+      "deprioritized": false
+    },
+    "fresh_lists": {
+      "consecutive_low": 2,
+      "deprioritized": false
+    }
+  }
+}
