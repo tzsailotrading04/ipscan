@@ -52,3 +52,8 @@
 74.214.175.21:8080	speed.cloudflare.com	DATACENTER	0	SERVEROPTIMA
 74.214.175.4:8080	speed.cloudflare.com	DATACENTER	0	SERVEROPTIMA
 89.231.3.229:80	http	US	0	DIRECT	500	FAST	1
+51.48.55.68:443	speed.cloudflare.com	RANDOM	0	AMAZON-02
+51.48.55.68:3128	speed.cloudflare.com	RANDOM	0	AMAZON-02
+51.48.55.68:8080	speed.cloudflare.com	RANDOM	0	AMAZON-02
+51.48.55.68:80	speed.cloudflare.com	RANDOM	0	AMAZON-02
+51.48.55.68:8888	speed.cloudflare.com	RANDOM	0	AMAZON-02
