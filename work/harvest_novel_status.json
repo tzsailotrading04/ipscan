@@ -1,9 +1,9 @@
 {
-  "cycle_number": 11,
-  "timestamp": 1793297430.5963197,
-  "time_str": "2026-10-29 23:40:30",
-  "source_used": "known_repos",
-  "candidates_found": 2206,
+  "cycle_number": 12,
+  "timestamp": 1793297497.043655,
+  "time_str": "2026-10-29 23:41:37",
+  "source_used": "fresh_lists",
+  "candidates_found": 222376,
   "candidates_new_after_dedup": 0,
   "new_after_dedup_ratio": 0.0,
   "survivors": 0,
@@ -24,8 +24,8 @@
       "deprioritized": true
     },
     "fresh_lists": {
-      "consecutive_low": 2,
-      "deprioritized": false
+      "consecutive_low": 3,
+      "deprioritized": true
     }
   }
 }
