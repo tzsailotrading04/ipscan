@@ -1,8 +1,8 @@
-offset=871852
-total=876544
-cands=5
+offset=8126500
+total=100000000
+cands=0
 errno99=0
-timeout=2517731
-refused=241674
-req_s=626.4
-stage=hosting
+timeout=2554038
+refused=244771
+req_s=2509252.3
+stage=residential
