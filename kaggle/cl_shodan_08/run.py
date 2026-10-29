@@ -25,7 +25,7 @@ NUM_SHARDS = 20
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.170"
+ENGINE_VER = "v98.172"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -83,70 +83,80 @@ def lookup_prov(ip_str):
         pass
     return "UNKNOWN"
 
-async def inline_probe_connected(s, target, timeout=5.0):
-    try:
-        loop = asyncio.get_running_loop()
-        req = f"CONNECT {target}:443 HTTP/1.1\r\nHost: {target}:443\r\n\r\n".encode()
-        await loop.sock_sendall(s, req)
-        resp = b""
-        t_end = time.monotonic() + timeout
-        while b"\r\n\r\n" not in resp:
-            if time.monotonic() > t_end:
-                return False
-            c = await asyncio.wait_for(loop.sock_recv(s, 512), timeout=timeout)
-            if not c:
-                return False
-            resp += c
-        first_line = resp.split(b"\r\n")[0]
-        if not (resp.startswith(b"HTTP/") and (b" 200" in first_line or b" 2" in first_line)):
-            return False
-        parts = resp.split(b"\r\n\r\n", 1)
-        trailing = parts[1] if len(parts) > 1 else b""
-        if trailing:
-            return trailing[:1] == b"\x16"
-        await loop.sock_sendall(s, CLIENT_HELLOS[target])
-        b1 = await asyncio.wait_for(loop.sock_recv(s, 1), timeout=timeout)
-        return b1 == b"\x16"
-    except Exception:
-        return False
-    finally:
-        try: s.close()
-        except Exception: pass
-
-async def probe_single_target(ip, port, target, timeout=5.0):
-    loop = asyncio.get_running_loop()
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.setblocking(False)
-    try:
-        await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=timeout)
-        return await inline_probe_connected(s, target, timeout=timeout)
-    except Exception:
-        try: s.close()
-        except Exception: pass
-        return False
+# Routable Random IPv4 Generator (filters private, loopback, link-local, multicast, reserved)
+def rand_ipv4():
+    while True:
+        b0 = random.randint(1, 223)
+        if b0 in (10, 127): continue
+        b1 = random.randint(0, 255)
+        if b0 == 100 and 64 <= b1 <= 127: continue
+        if b0 == 169 and b1 == 254: continue
+        if b0 == 172 and 16 <= b1 <= 31: continue
+        if b0 == 192 and b1 == 168: continue
+        if b0 == 198 and (b1 == 18 or b1 == 19): continue
+        b2 = random.randint(0, 255)
+        b3 = random.randint(1, 254)
+        return f"{b0}.{b1}.{b2}.{b3}"
 
 # ==============================================================================
-# WORKER PROCESS FUNCTION (DATACENTER ONLY, LOOPING)
+# WORKER PROCESS
 # ==============================================================================
 async def run_worker(shard_idx, worker_id, total_workers):
-    tag = f"{shard_idx:02d}"
-    w_tag = f"{tag}_w{worker_id}"
-    log_pfx = f"[{ENGINE_VER} SHARD {tag} W{worker_id}]"
-    print(f"{log_pfx} Worker {worker_id}/{total_workers} starting (Datacenter Looping)...", flush=True)
+    w_tag = f"{shard_idx:02d}_w{worker_id}"
+    log_pfx = f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [{ENGINE_VER} W{w_tag}]"
+    print(f"{log_pfx} Initializing Worker {worker_id}/{total_workers} (Random IPv4 Looping)", flush=True)
 
     load_asn_table()
 
-    # Semaphore for socket concurrency
-    DIRECT_SEM = asyncio.Semaphore(2500)
+    sem = asyncio.Semaphore(150)
+    loop = asyncio.get_running_loop()
+
     STAT_ERRNO99 = 0
     STAT_TIMEOUT = 0
     STAT_REFUSED = 0
     STAT_OTHER = 0
 
+    async def inline_probe_connected(s, target, timeout=5.0):
+        try:
+            req = f"CONNECT {target}:443 HTTP/1.1\r\nHost: {target}:443\r\n\r\n".encode()
+            await loop.sock_sendall(s, req)
+            resp = b""
+            t_end = time.monotonic() + timeout
+            while b"\r\n\r\n" not in resp:
+                if time.monotonic() > t_end: return False
+                c = await asyncio.wait_for(loop.sock_recv(s, 512), timeout=timeout)
+                if not c: return False
+                resp += c
+            first_line = resp.split(b"\r\n")[0]
+            if not (resp.startswith(b"HTTP/") and (b" 200" in first_line or b" 2" in first_line)):
+                return False
+            parts = resp.split(b"\r\n\r\n", 1)
+            trailing = parts[1] if len(parts) > 1 else b""
+            if trailing:
+                return trailing[:1] == b"\x16"
+            await loop.sock_sendall(s, CLIENT_HELLOS[target])
+            b1 = await asyncio.wait_for(loop.sock_recv(s, 1), timeout=timeout)
+            return b1 == b"\x16"
+        except Exception:
+            return False
+        finally:
+            try: s.close()
+            except Exception: pass
+
+    async def probe_single_target(ip, port, target, timeout=5.0):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setblocking(False)
+        try:
+            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=timeout)
+            return await inline_probe_connected(s, target, timeout=timeout)
+        except Exception:
+            try: s.close()
+            except Exception: pass
+            return False
+
     async def check_port(ip, port):
         nonlocal STAT_ERRNO99, STAT_TIMEOUT, STAT_REFUSED, STAT_OTHER
-        async with DIRECT_SEM:
-            loop = asyncio.get_running_loop()
+        async with sem:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.setblocking(False)
             try:
@@ -185,21 +195,6 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     BATCH_SIZE = 500
 
-    # Load Broadened Hosting Subnets
-    subnets_file = os.path.join(REPO, "data", "hosting_subnets.txt")
-    if not os.path.exists(subnets_file):
-        subnets_file = os.path.join(os.path.dirname(__file__), "..", "..", "data", "hosting_subnets.txt")
-
-    all_host_subnets = []
-    with open(subnets_file, "r", encoding="utf-8") as f:
-        for idx, line in enumerate(f):
-            if idx % NUM_SHARDS == shard_idx:
-                all_host_subnets.append(line.strip())
-
-    worker_host_subnets = all_host_subnets[worker_id::total_workers]
-    total_host_ips = len(worker_host_subnets) * 256
-    print(f"{log_pfx} Datacenter Subnets: {len(worker_host_subnets):,} subnets ({total_host_ips:,} IPs per pass)", flush=True)
-
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{w_tag}.txt")
     stats_file = os.path.join(REPO, "ip", "harvest", f"shodan_stats_v98_{w_tag}.txt")
     part_file = os.path.join(REPO, "ip", "harvest", f"verified_alive_part_{w_tag}.txt")
@@ -208,62 +203,50 @@ async def run_worker(shard_idx, worker_id, total_workers):
     if os.path.exists(prog_file):
         try:
             line = open(prog_file).readline().strip()
-            if line.isdigit(): offset = int(line) % max(1, total_host_ips)
+            if line.isdigit(): offset = int(line)
         except Exception: pass
 
     cands_found = 0
     if os.path.exists(part_file):
         cands_found = sum(1 for _ in open(part_file, errors="ignore"))
 
-    print(f"{log_pfx} Resume offset={offset:,}/{total_host_ips:,} cands={cands_found:,}", flush=True)
+    print(f"{log_pfx} Random IPv4 Looping: Resume offset={offset:,} cands={cands_found:,}", flush=True)
     part_fp = open(part_file, "a", encoding="utf-8")
-
-    def get_host_ip(off):
-        sub_i = (off >> 8) % len(worker_host_subnets)
-        h = off & 0xFF
-        return f"{worker_host_subnets[sub_i]}.{h}"
 
     start_t = time.time()
     last_stats_t = time.time()
-    epoch = 1
 
-    # ENDLESS DATACENTER LOOP
+    # ENDLESS RANDOM IPv4 LOOP (Never Idle)
     while True:
-        while offset < total_host_ips:
-            batch_ips = [get_host_ip(offset + i) for i in range(min(BATCH_SIZE, total_host_ips - offset))]
-            tasks = []
-            for ip in batch_ips:
-                for p in DIRECT_PORTS:
-                    tasks.append((ip, p, check_port(ip, p)))
+        batch_ips = [rand_ipv4() for _ in range(BATCH_SIZE)]
+        tasks = []
+        for ip in batch_ips:
+            for p in DIRECT_PORTS:
+                tasks.append((ip, p, check_port(ip, p)))
 
-            results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
+        results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
 
-            for (ip, port, _), res in zip(tasks, results):
-                if isinstance(res, tuple) and res[0] is not None:
-                    passed_port, target = res
-                    prov = lookup_prov(ip)
-                    part_fp.write(f"{ip}:{passed_port}\t{target}\tDATACENTER\t0\t{prov}\n")
-                    part_fp.flush()
-                    cands_found += 1
-                    print(f"{log_pfx} [FOUND DC] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
+        for (ip, port, _), res in zip(tasks, results):
+            if isinstance(res, tuple) and res[0] is not None:
+                passed_port, target = res
+                prov = lookup_prov(ip)
+                part_fp.write(f"{ip}:{passed_port}\t{target}\tRANDOM\t0\t{prov}\n")
+                part_fp.flush()
+                cands_found += 1
+                print(f"{log_pfx} [FOUND RANDOM] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
 
-            offset += len(batch_ips)
-            now = time.time()
-            if now - last_stats_t >= 15:
-                last_stats_t = now
-                dt = max(0.1, now - start_t)
-                req_s = (offset * len(DIRECT_PORTS)) / dt
-                with open(prog_file + ".tmp", "w") as f:
-                    f.write(f"{offset}\nchunk=1\n")
-                os.replace(prog_file + ".tmp", prog_file)
-                with open(stats_file + ".tmp", "w") as f:
-                    f.write(f"offset={offset}\ntotal={total_host_ips}\ncands={cands_found}\nerrno99={STAT_ERRNO99}\ntimeout={STAT_TIMEOUT}\nrefused={STAT_REFUSED}\nreq_s={req_s:.1f}\nstage=datacenter_loop\nepoch={epoch}\n")
-                os.replace(stats_file + ".tmp", stats_file)
-
-        # Finished pass: loop back to offset 0 (never enter residential)
-        epoch += 1
-        print(f"{log_pfx} Finished pass #{epoch-1} over {total_host_ips:,} IPs. Looping back to offset 0 (DC Only)...", flush=True)
-        offset = 0
+        offset += len(batch_ips)
+        now = time.time()
+        if now - last_stats_t >= 15:
+            last_stats_t = now
+            dt = max(0.1, now - start_t)
+            req_s = (offset * len(DIRECT_PORTS)) / dt
+            with open(prog_file + ".tmp", "w") as f:
+                f.write(f"{offset}\nchunk=1\n")
+            os.replace(prog_file + ".tmp", prog_file)
+            with open(stats_file + ".tmp", "w") as f:
+                f.write(f"offset={offset}\ntotal=4294967296\ncands={cands_found}\nerrno99={STAT_ERRNO99}\ntimeout={STAT_TIMEOUT}\nrefused={STAT_REFUSED}\nreq_s={req_s:.1f}\nstage=random_ipv4_loop\n")
+            os.replace(stats_file + ".tmp", stats_file)
 
 # ==============================================================================
 # FLEET MASTER SUPERVISOR
@@ -274,8 +257,8 @@ def run_master():
         print(f"[{t}] {msg}", flush=True)
 
     log("=" * 70)
-    log(f"Fleet Master Supervisor Starting for Shard {SHARD_TAG} (Datacenter Looping)")
-    log(f"Mode: DATACENTER ONLY (LOOPING) | No Residential")
+    log(f"Fleet Master Supervisor Starting for Shard {SHARD_TAG} (Random IPv4 Looping)")
+    log(f"Mode: RANDOM IPv4 LOOPING (Endless Continuous)")
     log(f"Ports: {DIRECT_PORTS} | Workers: {DEFAULT_WORKERS} processes | Batch: 500")
     log("=" * 70)
 
@@ -312,88 +295,85 @@ def run_master():
     while True:
         time.sleep(10)
         total_offset = 0
-        total_total = 0
+        total_total = 4294967296
         total_cands = 0
         total_errno99 = 0
         total_req_s = 0.0
 
         for w in range(6):
             w_tag = f"{SHARD_TAG}_w{w}"
-            for pfx in ["shodan_stats_v98_", "shodan_stats_res_"]:
-                stats_p = os.path.join(REPO, "ip", "harvest", f"{pfx}{w_tag}.txt")
-                if os.path.exists(stats_p):
-                    try:
-                        for line in open(stats_p):
-                            if line.startswith("offset="): total_offset += int(line.split("=")[1])
-                            elif line.startswith("total="): total_total += int(line.split("=")[1])
-                            elif line.startswith("cands="): total_cands += int(line.split("=")[1])
-                            elif line.startswith("errno99="): total_errno99 += int(line.split("=")[1])
-                            elif line.startswith("req_s="): total_req_s += float(line.split("=")[1])
-                    except Exception: pass
+            sf = os.path.join(REPO, "ip", "harvest", f"shodan_stats_v98_{w_tag}.txt")
+            if os.path.exists(sf):
+                try:
+                    for line in open(sf):
+                        if line.startswith("offset="): total_offset += int(line.split("=")[1])
+                        elif line.startswith("cands="): total_cands += int(line.split("=")[1])
+                        elif line.startswith("errno99="): total_errno99 += int(line.split("=")[1])
+                        elif line.startswith("req_s="): total_req_s += float(line.split("=")[1])
+                except Exception: pass
 
-        # Restart dead workers if needed
-        for i, p in enumerate(procs):
-            if p.poll() is not None:
-                log(f"Worker {i} exited (rc={p.returncode}), restarting...")
-                procs[i] = start_worker(i)
+        # Aggregate stats
+        shard_stat = os.path.join(REPO, "ip", "harvest", f"shodan_stats_v98_{SHARD_TAG}.txt")
+        shard_prog = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{SHARD_TAG}.txt")
+        with open(shard_stat + ".tmp", "w") as f:
+            f.write(f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={total_offset}\ntotal={total_total}\ncands={total_cands}\nerrno99={total_errno99}\nreq_s={total_req_s:.1f}\nworkers={active_workers}\nstage=random_ipv4_loop\n")
+        os.replace(shard_stat + ".tmp", shard_stat)
 
-        # Merge verified files and push to origin/main
+        with open(shard_prog + ".tmp", "w") as f:
+            f.write(f"{total_offset}\nchunk=1\n")
+        os.replace(shard_prog + ".tmp", shard_prog)
+
+        # Merge worker parts into master shard file
+        shard_part = os.path.join(REPO, "ip", "harvest", f"verified_alive_part_{SHARD_TAG}.txt")
+        seen_proxies = set()
+        if os.path.exists(shard_part):
+            for l in open(shard_part, errors="ignore"):
+                if l.strip(): seen_proxies.add(l.strip())
+        new_items = []
+        for w in range(6):
+            wp = os.path.join(REPO, "ip", "harvest", f"verified_alive_part_{SHARD_TAG}_w{w}.txt")
+            if os.path.exists(wp):
+                for l in open(wp, errors="ignore"):
+                    ls = l.strip()
+                    if ls and ls not in seen_proxies:
+                        seen_proxies.add(ls)
+                        new_items.append(ls)
+        if new_items:
+            with open(shard_part, "a", encoding="utf-8") as f:
+                for it in new_items: f.write(it + "\n")
+            log(f"Aggregated +{len(new_items)} fresh proxies from workers into part_{SHARD_TAG}.txt (Total: {len(seen_proxies)})")
+
+        # Push to git every 30s
         now = time.time()
-        if now - last_push_t >= 120:
+        if now - last_push_t >= 30:
             last_push_t = now
-
-            for pfx in ["verified_alive_part_", "verified_alive_part_res_"]:
-                shard_part_file = os.path.join(REPO, "ip", "harvest", f"{pfx}{SHARD_TAG}.txt")
-                seen_lines = set()
-                if os.path.exists(shard_part_file):
-                    for l in open(shard_part_file, errors="ignore"):
-                        if l.strip(): seen_lines.add(l.strip())
-
-                for w in range(6):
-                    w_tag = f"{SHARD_TAG}_w{w}"
-                    w_part = os.path.join(REPO, "ip", "harvest", f"{pfx}{w_tag}.txt")
-                    if os.path.exists(w_part):
-                        for l in open(w_part, errors="ignore"):
-                            l = l.strip()
-                            if l and l not in seen_lines:
-                                seen_lines.add(l)
-
-                with open(shard_part_file, "w", encoding="utf-8") as out_fp:
-                    for l in sorted(seen_lines):
-                        out_fp.write(l + "\n")
-
-            # Write master progress and stats
-            master_prog = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{SHARD_TAG}.txt")
-            with open(master_prog, "w") as f:
-                f.write(f"{total_offset}\nchunk=1\n")
-
-            master_stats = os.path.join(REPO, "ip", "harvest", f"shodan_stats_v98_{SHARD_TAG}.txt")
-            with open(master_stats, "w") as f:
-                f.write(f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={total_offset}\ntotal={total_total}\ncands={total_cands}\nerrno99={total_errno99}\nreq_s={total_req_s:.1f}\nworkers={len(procs)}\n")
-
-            log(f"FLEET STATUS: offset={total_offset:,} | cands={total_cands:,} | rate={total_req_s:.1f} req/s | workers={len(procs)}")
-
-            # Git commit and push with jitter
-            if os.path.exists("/kaggle/working"):
-                msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} chunk=1"
-                subprocess.run(["git", "-C", REPO, "add", f"ip/harvest/*{SHARD_TAG}*"], check=False)
-                subprocess.run(["git", "-C", REPO, "commit", "-m", msg], check=False)
-                for _ in range(3):
-                    time.sleep(random.uniform(2.0, 5.0))
-                    r_pull = subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], capture_output=True, text=True)
-                    if r_pull.returncode == 0:
-                        r_push = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], capture_output=True, text=True)
-                        if r_push.returncode == 0:
-                            log(f"Successfully pushed shard {SHARD_TAG} update to origin/main.")
+            try:
+                subprocess.run(["git", "-C", REPO, "add", "ip/harvest/"], check=False)
+                res = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True, text=True)
+                if res.stdout.strip():
+                    subprocess.run(["git", "-C", REPO, "commit", "-m", f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"], check=False)
+                    for _ in range(5):
+                        subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], check=False)
+                        p_res = subprocess.run(["git", "-C", REPO, "push", "origin", "main"], check=False)
+                        if p_res.returncode == 0:
                             break
-                        else:
-                            subprocess.run(["git", "-C", REPO, "rebase", "--abort"], capture_output=True)
+                        time.sleep(2)
+            except Exception: pass
+
+        # Supervise workers
+        dead = []
+        for idx, p in enumerate(procs):
+            if p.poll() is not None:
+                dead.append(idx)
+        for idx in dead:
+            log(f"Worker {idx} died. Restarting...")
+            procs[idx] = start_worker(idx)
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 4 and sys.argv[2].isdigit() and sys.argv[3].isdigit():
+    if len(sys.argv) >= 4:
         s_idx = int(sys.argv[1])
         w_id = int(sys.argv[2])
-        w_tot = int(sys.argv[3])
-        asyncio.run(run_worker(s_idx, w_id, w_tot))
+        tot = int(sys.argv[3])
+        asyncio.run(run_worker(s_idx, w_id, tot))
     else:
         run_master()
