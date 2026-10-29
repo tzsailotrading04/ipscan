@@ -1,16 +1,107 @@
 ================================================================================
-                DePIN FARM v98.162 10H SWEEP MORNING REPORT                     
+               DEPIN FARM MORNING STATUS REPORT - 2026-10-30 03:06:01
 ================================================================================
-ts:                 2026-10-28 12:45:56
-ips_scanned:        567,956,347
-verified_total:     101,614
-rate_per_1000:      0.179
-ips_per_sec:        19565.5
-errno99:            0
-other:              1 {'TimeoutExpired': 1}
-peak_rss_mb:        24.5
-disk_free_gb:       85.87
-per-shard status:   20/20 Shards Running DIRECT_PORTS=[80, 443]
-checkpoint intact:  yes
-exact resume cmd:   python tools/sweep_daemon.py --resume
-================================================================================
+
+--- 1. FULL STATUS TABLE (ALL 35 KERNELS) ---
+Kernel       | Account            | Status
+---------------------------------------------
+00           | remruata           | RUNNING
+01           | remruata           | RUNNING
+20           | remruata           | RUNNING
+21           | remruata           | RUNNING
+harvest      | remruata           | RUNNING
+02           | lalthazualasailo   | RUNNING
+03           | lalthazualasailo   | RUNNING
+04           | lalthazualasailo   | RUNNING
+05           | lalthazualasailo   | RUNNING
+22           | lalthazualasailo   | RUNNING
+06           | zomuanpuia         | RUNNING
+07           | zomuanpuia         | RUNNING
+08           | zomuanpuia         | RUNNING
+09           | zomuanpuia         | RUNNING
+23           | zomuanpuia         | RUNNING
+10           | laldinthari        | RUNNING
+11           | laldinthari        | RUNNING
+12           | laldinthari        | RUNNING
+13           | laldinthari        | RUNNING
+24           | laldinthari        | RUNNING
+15           | lalsangkima        | RUNNING
+16           | lalsangkima        | RUNNING
+17           | lalsangkima        | RUNNING
+25           | lalsangkima        | RUNNING
+26           | lalsangkima        | RUNNING
+14           | spectatorlone      | RUNNING
+18           | spectatorlone      | RUNNING
+19           | spectatorlone      | RUNNING
+27           | spectatorlone      | RUNNING
+28           | spectatorlone      | RUNNING
+29           | stephen34          | RUNNING
+30           | stephen34          | RUNNING
+31           | stephen34          | RUNNING
+32           | stephen34          | RUNNING
+33           | stephen34          | RUNNING
+
+--- 2. KERNELS NOT RUNNING ---
+  None (All 35 kernels are RUNNING)
+
+--- 3. RUNNING COUNT PER ACCOUNT (CAP: 5) ---
+  remruata          : 5 RUNNING  [OK (<= 5)]
+  lalthazualasailo  : 5 RUNNING  [OK (<= 5)]
+  zomuanpuia        : 5 RUNNING  [OK (<= 5)]
+  laldinthari       : 5 RUNNING  [OK (<= 5)]
+  lalsangkima       : 5 RUNNING  [OK (<= 5)]
+  spectatorlone     : 5 RUNNING  [OK (<= 5)]
+  stephen34         : 5 RUNNING  [OK (<= 5)]
+
+--- 4. OFFSET PER SHARD WITH RESUME MARKERS ---
+Shard    | Offset          | Status
+----------------------------------------
+cl_00    | 2524688         | OK
+cl_01    | 2708092         | OK
+cl_02    | 2638496         | OK
+cl_03    | 2606240         | OK
+cl_04    | 2435784         | OK
+cl_05    | 3496240         | OK
+cl_06    | 2133288         | OK
+cl_07    | 1509596         | OK
+cl_08    | 3170496         | OK
+cl_09    | 2333784         | OK
+cl_10    | 3457996         | OK
+cl_11    | 3109700         | OK
+cl_12    | 2718400         | OK
+cl_13    | 2705604         | OK
+cl_14    | 1800556         | OK
+cl_15    | 1651556         | OK
+cl_16    | 2017056         | OK
+cl_17    | 1116000         | OK
+cl_18    | 2435004         | OK
+cl_19    | 2509792         | OK
+cl_20    | MISSING         | RESUME_BROKEN shard 20
+cl_21    | MISSING         | RESUME_BROKEN shard 21
+cl_22    | MISSING         | RESUME_BROKEN shard 22
+cl_23    | MISSING         | RESUME_BROKEN shard 23
+cl_24    | MISSING         | RESUME_BROKEN shard 24
+cl_25    | MISSING         | RESUME_BROKEN shard 25
+cl_26    | MISSING         | RESUME_BROKEN shard 26
+cl_27    | MISSING         | RESUME_BROKEN shard 27
+cl_28    | MISSING         | RESUME_BROKEN shard 28
+cl_29    | MISSING         | RESUME_BROKEN shard 29
+cl_30    | MISSING         | RESUME_BROKEN shard 30
+cl_31    | 57000           | OK
+cl_32    | MISSING         | RESUME_BROKEN shard 32
+cl_33    | 78000           | OK
+
+--- 5. POOL SIZE (STRICTLY VERIFIED) ---
+  real_pool.txt: 2842 lines
+
+--- 6. DEAD FILE SIZE ---
+  cache/pool_dead.txt: 4105 lines
+
+--- 7. CYCLE LOG TAIL (LAST 10 ENTRIES) ---
+  [2026-10-30 02:23:54] cycle=1 dead=0 repushed=0 new_pool=2686 pool_total=6946
+  [2026-10-30 02:26:06] cycle=1 dead=0 repushed=0 new_pool=1 pool_total=6947
+  [2026-10-30 02:42:43] cycle=2 dead=0 repushed=0 new_pool=0 pool_total=6947
+  [2026-10-30 02:59:47] cycle=3 dead=0 repushed=0 new_pool=0 pool_total=6947
+
+--- 8. DISK SPACE ON D: ---
+  Free Space: 111.70 GB | Used: 54.32 GB | Total: 166.02 GB
