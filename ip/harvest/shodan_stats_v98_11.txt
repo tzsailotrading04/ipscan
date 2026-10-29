@@ -1,9 +1,9 @@
 engine=v98.173
 shard=11
-offset=2448200
+offset=2449700
 total=4294967296
 cands=15
 errno99=0
-req_s=66495.5
+req_s=64470.6
 workers=2
 stage=random_ipv4_loop
