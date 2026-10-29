@@ -59,3 +59,6 @@
 2026-10-28 12:55:17 | fleet_ips_sec= 38114.1 | verified_total=216,155 | direct_verified=140,880 | verified_per_1000=0.1249 | errno99=0 | other=0 | shards_running=20/20 | disk_free_gb= 85.26 | space_remaining=872,280,870
 2026-10-28 12:56:46 | fleet_ips_sec= 38365.7 | verified_total=217,000 | direct_verified=141,794 | verified_per_1000=0.1249 | errno99=0 | other=0 | shards_running=20/20 | disk_free_gb= 85.26 | space_remaining=864,498,304
 2026-10-28 13:01:38 | fleet_ips_sec= 38331.9 | verified_total=218,742 | direct_verified=143,603 | verified_per_1000=0.1251 | errno99=0 | other=0 | shards_running=20/20 | disk_free_gb= 85.24 | space_remaining=852,109,708
+2026-10-28 21:43:08 | fleet_ips_sec= 56370.6 | verified_total=189,990 | direct_verified=189,990 | verified_per_1000=14.7777 | errno99=0 | other=0 | shards_running=14/20 | disk_free_gb= 105.60 | space_remaining=22,204,492
+2026-10-28 21:48:04 | fleet_ips_sec= 56370.6 | verified_total=189,990 | direct_verified=189,990 | verified_per_1000=14.7777 | errno99=0 | other=0 | shards_running=18/20 | disk_free_gb= 105.60 | space_remaining=22,204,492
+2026-10-28 21:53:07 | fleet_ips_sec= 56370.6 | verified_total=189,990 | direct_verified=189,990 | verified_per_1000=14.7777 | errno99=0 | other=0 | shards_running=14/20 | disk_free_gb= 105.60 | space_remaining=22,204,492
