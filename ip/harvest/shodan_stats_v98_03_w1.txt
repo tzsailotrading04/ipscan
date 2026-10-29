@@ -1,8 +1,9 @@
-offset=8715500
-total=100000000
-cands=0
+offset=891000
+total=1682944
+cands=2
 errno99=0
-timeout=5589814
-refused=237235
-req_s=17248.5
-stage=residential
+timeout=70132
+refused=1109
+req_s=44850.1
+stage=datacenter_loop
+epoch=1
