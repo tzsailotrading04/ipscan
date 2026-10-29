@@ -21,11 +21,11 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-NUM_SHARDS = 20
+NUM_SHARDS = 34
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.173"
+ENGINE_VER = "v98.176"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -337,7 +337,7 @@ def run_master():
 
         # Aggregate stats
         shard_stat = os.path.join(REPO, "ip", "harvest", f"shodan_stats_v98_{SHARD_TAG}.txt")
-        shard_prog = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{SHARD_TAG}.txt")
+        shard_prog = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{SHARD_IDX:02d}.txt")
         with open(shard_stat + ".tmp", "w") as f:
             f.write(f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={total_offset}\ntotal={total_total}\ncands={total_cands}\nerrno99={total_errno99}\nreq_s={total_req_s:.1f}\nworkers={active_workers}\nstage=random_ipv4_loop\n")
         os.replace(shard_stat + ".tmp", shard_stat)
@@ -366,15 +366,17 @@ def run_master():
                 for it in new_items: f.write(it + "\n")
             log(f"Aggregated +{len(new_items)} fresh proxies from workers into part_{SHARD_TAG}.txt (Total: {len(seen_proxies)})")
 
-        # Push to git only when this shard's own output file changed, at most once per 10 minutes
+        # Push to git when part file changed OR 300 seconds have passed since last push
         now = time.time()
-        if now - last_push_t >= 600:
-            cur_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
-            if cur_sig is not None and cur_sig != last_shard_sig:
-                last_push_t = now
-                commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"
-                if git_sync_and_push(commit_msg):
-                    last_shard_sig = cur_sig
+        cur_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
+        part_changed = (cur_sig is not None and cur_sig != last_shard_sig)
+        time_elapsed = (now - last_push_t >= 300)
+
+        if part_changed or time_elapsed:
+            last_push_t = now
+            commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"
+            if git_sync_and_push(commit_msg):
+                last_shard_sig = cur_sig
 
         # Supervise workers
         dead = []
