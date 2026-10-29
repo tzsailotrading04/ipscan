@@ -1,9 +1,8 @@
-offset=191000
-total=521472
-cands=10
+offset=191500
+total=4294967296
+cands=7
 errno99=0
-timeout=807282
-refused=124344
-req_s=241.3
-stage=datacenter_loop
-epoch=2
+timeout=2384
+refused=57
+req_s=28879.4
+stage=random_ipv4_loop
