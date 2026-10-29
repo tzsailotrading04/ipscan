@@ -25,7 +25,7 @@ NUM_SHARDS = 34
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.173"
+ENGINE_VER = "v98.180"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -73,6 +73,26 @@ def lookup_prov(ip_str):
     except Exception:
         pass
     return "UNKNOWN"
+
+# ==============================================================================
+# CANDIDATE PIPELINE (v98.180 QUEUE-FIRST STRIDED ORDER)
+# 1) ip/harvest/queue/ (oldest first, delete file once all shards consumed it)
+# 2) data/res_subnets.txt
+# 3) data/mob_subnets.txt
+# 4) data/dc_subnets.txt
+# 5) random IPv4 as fallback
+# ==============================================================================
+def load_subnet_list(filename):
+    paths = [
+        os.path.join(REPO, "data", filename),
+        os.path.join(os.path.dirname(__file__), "..", "..", "data", filename),
+        os.path.join("/kaggle/working/ipscan/data", filename)
+    ]
+    for p in paths:
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8", errors="ignore") as f:
+                return [line.strip() for line in f if line.strip() and not line.startswith("#")]
+    return []
 
 # Routable Random IPv4 Generator (filters private, loopback, link-local, multicast, reserved)
 def rand_ipv4():
@@ -207,37 +227,122 @@ async def run_worker(shard_idx, worker_id, total_workers):
     start_t = time.time()
     last_stats_t = time.time()
 
-    # ENDLESS RANDOM IPv4 LOOP (Never Idle)
-    while True:
+    res_subnets_all = load_subnet_list("res_subnets.txt")
+    mob_subnets_all = load_subnet_list("mob_subnets.txt")
+    dc_subnets_all = load_subnet_list("dc_subnets.txt")
+
+    # Stride across shards and workers
+    res_subnets = [s for idx, s in enumerate(res_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
+    mob_subnets = [s for idx, s in enumerate(mob_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
+    dc_subnets = [s for idx, s in enumerate(dc_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
+
+    queue_dir = os.path.join(REPO, "ip", "harvest", "queue")
+    os.makedirs(queue_dir, exist_ok=True)
+
+    cur_res_idx = 0
+    cur_mob_idx = 0
+    cur_dc_idx = 0
+
+    print(f"{log_pfx} Candidate Pipeline Loaded: res={len(res_subnets):,} mob={len(mob_subnets):,} dc={len(dc_subnets):,} subnets for Shard {SHARD_TAG} W{worker_id}", flush=True)
+
+    def get_candidate_batch():
+        nonlocal cur_res_idx, cur_mob_idx, cur_dc_idx
+        # Tier 1: Check queue files (oldest first)
+        if os.path.exists(queue_dir):
+            q_files = sorted([f for f in os.listdir(queue_dir) if f.startswith("q_") and f.endswith(".txt")])
+            for qf_name in q_files:
+                qf_path = os.path.join(queue_dir, qf_name)
+                ack_marker = qf_path + f".ack_{shard_idx}"
+                if not os.path.exists(ack_marker):
+                    # Read lines and stride
+                    lines = []
+                    try:
+                        with open(qf_path, "r", encoding="utf-8", errors="ignore") as qf:
+                            lines = [l.strip() for l in qf if l.strip()]
+                    except Exception:
+                        pass
+                    shard_lines = [l for idx, l in enumerate(lines) if idx % NUM_SHARDS == shard_idx]
+                    # Mark acknowledged by this shard
+                    try:
+                        with open(ack_marker, "w", encoding="utf-8") as af:
+                            af.write("1\n")
+                    except Exception:
+                        pass
+                    # Check if all shards consumed it
+                    all_acks = [f for f in os.listdir(queue_dir) if f.startswith(qf_name + ".ack_")]
+                    if len(all_acks) >= NUM_SHARDS:
+                        try:
+                            os.remove(qf_path)
+                            for a in all_acks:
+                                os.remove(os.path.join(queue_dir, a))
+                        except Exception:
+                            pass
+                    if shard_lines:
+                        batch = []
+                        for item in shard_lines:
+                            parts = item.split()[0].split(":")
+                            if len(parts) == 2 and parts[1].isdigit():
+                                batch.append((parts[0], int(parts[1]), "QUEUE"))
+                        if batch:
+                            return batch, "QUEUE"
+
+        # Tier 2: Consumer Residential Subnets
+        if cur_res_idx < len(res_subnets):
+            sub = res_subnets[cur_res_idx]
+            cur_res_idx += 1
+            batch = [(f"{sub}.{h}", p, "RES") for h in range(1, 255) for p in DIRECT_PORTS]
+            return batch, "RES"
+
+        # Tier 3: Mobile Carrier Subnets
+        if cur_mob_idx < len(mob_subnets):
+            sub = mob_subnets[cur_mob_idx]
+            cur_mob_idx += 1
+            batch = [(f"{sub}.{h}", p, "MOB") for h in range(1, 255) for p in DIRECT_PORTS]
+            return batch, "MOB"
+
+        # Tier 4: Datacenter Subnets
+        if cur_dc_idx < len(dc_subnets):
+            sub = dc_subnets[cur_dc_idx]
+            cur_dc_idx += 1
+            batch = [(f"{sub}.{h}", p, "DC") for h in range(1, 255) for p in DIRECT_PORTS]
+            return batch, "DC"
+
+        # Tier 5: Random IPv4 Fallback
         batch_ips = [rand_ipv4() for _ in range(BATCH_SIZE)]
+        batch = [(ip, p, "RANDOM") for ip in batch_ips for p in DIRECT_PORTS]
+        return batch, "RANDOM"
+
+    # MAIN WORKER EXECUTION LOOP
+    while True:
+        task_items, current_tier = get_candidate_batch()
         tasks = []
-        for ip in batch_ips:
-            for p in DIRECT_PORTS:
-                tasks.append((ip, p, check_port(ip, p)))
+        for ip, p, tier in task_items:
+            tasks.append((ip, p, tier, check_port(ip, p)))
 
-        results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
+        results = await asyncio.gather(*[t[3] for t in tasks], return_exceptions=True)
 
-        for (ip, port, _), res in zip(tasks, results):
+        for (ip, port, tier, _), res in zip(tasks, results):
             if isinstance(res, tuple) and res[0] is not None:
                 passed_port, target = res
                 prov = lookup_prov(ip)
-                part_fp.write(f"{ip}:{passed_port}\t{target}\tRANDOM\t0\t{prov}\n")
+                part_fp.write(f"{ip}:{passed_port}\t{target}\t{tier}\t0\t{prov}\n")
                 part_fp.flush()
                 cands_found += 1
-                print(f"{log_pfx} [FOUND RANDOM] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
+                print(f"{log_pfx} [FOUND {tier}] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
 
-        offset += len(batch_ips)
+        offset += len(task_items)
         now = time.time()
         if now - last_stats_t >= 15:
             last_stats_t = now
             dt = max(0.1, now - start_t)
-            req_s = (offset * len(DIRECT_PORTS)) / dt
+            req_s = (offset) / dt
             with open(prog_file + ".tmp", "w") as f:
                 f.write(f"{offset}\nchunk=1\n")
             os.replace(prog_file + ".tmp", prog_file)
             with open(stats_file + ".tmp", "w") as f:
-                f.write(f"offset={offset}\ntotal=4294967296\ncands={cands_found}\nerrno99={STAT_ERRNO99}\ntimeout={STAT_TIMEOUT}\nrefused={STAT_REFUSED}\nreq_s={req_s:.1f}\nstage=random_ipv4_loop\n")
+                f.write(f"offset={offset}\ntotal=4294967296\ncands={cands_found}\nerrno99={STAT_ERRNO99}\ntimeout={STAT_TIMEOUT}\nrefused={STAT_REFUSED}\nreq_s={req_s:.1f}\nstage={current_tier.lower()}_loop\n")
             os.replace(stats_file + ".tmp", stats_file)
+
 
 # ==============================================================================
 # FLEET MASTER SUPERVISOR
@@ -337,7 +442,7 @@ def run_master():
 
         # Aggregate stats
         shard_stat = os.path.join(REPO, "ip", "harvest", f"shodan_stats_v98_{SHARD_TAG}.txt")
-        shard_prog = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{SHARD_TAG}.txt")
+        shard_prog = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{SHARD_IDX:02d}.txt")
         with open(shard_stat + ".tmp", "w") as f:
             f.write(f"engine={ENGINE_VER}\nshard={SHARD_TAG}\noffset={total_offset}\ntotal={total_total}\ncands={total_cands}\nerrno99={total_errno99}\nreq_s={total_req_s:.1f}\nworkers={active_workers}\nstage=random_ipv4_loop\n")
         os.replace(shard_stat + ".tmp", shard_stat)
@@ -366,15 +471,17 @@ def run_master():
                 for it in new_items: f.write(it + "\n")
             log(f"Aggregated +{len(new_items)} fresh proxies from workers into part_{SHARD_TAG}.txt (Total: {len(seen_proxies)})")
 
-        # Push to git only when this shard's own output file changed, at most once per 10 minutes
+        # Push to git when part file changed OR 300 seconds have passed since last push
         now = time.time()
-        if now - last_push_t >= 600:
-            cur_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
-            if cur_sig is not None and cur_sig != last_shard_sig:
-                last_push_t = now
-                commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"
-                if git_sync_and_push(commit_msg):
-                    last_shard_sig = cur_sig
+        cur_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
+        part_changed = (cur_sig is not None and cur_sig != last_shard_sig)
+        time_elapsed = (now - last_push_t >= 300)
+
+        if part_changed or time_elapsed:
+            last_push_t = now
+            commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"
+            if git_sync_and_push(commit_msg):
+                last_shard_sig = cur_sig
 
         # Supervise workers
         dead = []

@@ -105,3 +105,40 @@ cl_33    | 78000           | OK
 
 --- 8. DISK SPACE ON D: ---
   Free Space: 111.70 GB | Used: 54.32 GB | Total: 166.02 GB
+
+================================================================================
+       BRIEF v98.176 VERIFICATION & PROOF REPORT - 2026-10-30 04:05:11
+================================================================================
+
+--- 1. POOL LINE COUNTS ---
+  real_pool.txt:          3214
+  cache/pool_suspect.txt: 373
+  cache/pool_dead.txt:    3733
+
+--- 2. OFFSET FILES (SHARDS 21, 25, 32) ---
+  [shodan_progress_v98_21.txt]:
+    208000
+    chunk=1
+  [shodan_progress_v98_25.txt]:
+    100000
+    chunk=1
+  [shodan_progress_v98_32.txt]:
+    100000
+    chunk=1
+
+--- 3. REQ_S TELEMETRY (SHARDS 00, 20, 31) ---
+  shard_00: req_s = 10545.9
+  shard_20: req_s = 1147.9
+  shard_31: req_s = 1107.2
+
+--- 4. RUNNING COUNT PER ACCOUNT (7 ACCOUNTS) ---
+  remruata          : 6 RUNNING (max: 5)
+  lalthazualasailo  : 10 RUNNING (max: 5)
+  zomuanpuia        : 9 RUNNING (max: 5)
+  laldinthari       : 6 RUNNING (max: 5)
+  lalsangkima       : 5 RUNNING (max: 5)
+  spectatorlone     : 5 RUNNING (max: 5)
+  stephen34         : 5 RUNNING (max: 5)
+  Total Active Kernels across 7 accounts: 46
+================================================================================
+

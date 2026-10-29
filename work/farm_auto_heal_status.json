@@ -1,10 +1,10 @@
 {
-  "timestamp": 1793309723.6764932,
-  "time_str": "2026-10-29 21:35:23",
+  "timestamp": 1793314536.142601,
+  "time_str": "2026-10-29 22:55:36",
   "total_nodes": 200,
-  "connected": 199,
+  "connected": 198,
   "connecting": 0,
-  "dead": 1,
-  "replaced_this_cycle": 1,
-  "pool_buffer_remaining": 294
+  "dead": 2,
+  "replaced_this_cycle": 2,
+  "pool_buffer_remaining": 94
 }
