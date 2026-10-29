@@ -29,7 +29,7 @@ ENGINE_VER = "v98.173"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
-DIRECT_PORTS = [443, 3128, 8080, 80, 8888]
+DIRECT_PORTS = [443, 3128, 8080, 80, 8888, 4145, 6588, 3129, 8001, 8081, 1081, 8889, 8119, 8123, 8008, 8128, 9999, 10000, 7000, 7001]
 
 TARGETS = ["speed.cloudflare.com", "www.google.com", "one.one.one.one"]
 SSL_CTX = ssl.create_default_context()
@@ -99,7 +99,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     load_asn_table()
 
-    sem = asyncio.Semaphore(150)
+    sem = asyncio.Semaphore(6000)
     loop = asyncio.get_running_loop()
 
     STAT_ERRNO99 = 0
