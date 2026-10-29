@@ -21,7 +21,7 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-NUM_SHARDS = 20
+NUM_SHARDS = 34
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
