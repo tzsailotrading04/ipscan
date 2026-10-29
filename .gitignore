@@ -24,3 +24,6 @@ kaggle/snowball/
 kaggle/out*/
 kaggle/acct*out*/
 kaggle/acct*/access_token
+
+config/traffmonetizer.token
+config/*.token
