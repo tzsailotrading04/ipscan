@@ -1,9 +1,9 @@
-offset=510000
+offset=519500
 total=1682944
 cands=6
 errno99=0
-timeout=1746749
-refused=106910
-req_s=603.8
+timeout=1790580
+refused=108440
+req_s=596.0
 stage=datacenter_loop
 epoch=1
