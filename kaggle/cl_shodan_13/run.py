@@ -25,23 +25,14 @@ NUM_SHARDS = 20
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.172"
+ENGINE_VER = "v98.173"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
 DIRECT_PORTS = [443, 3128, 8080, 80, 8888]
 
 TARGETS = ["speed.cloudflare.com", "www.google.com", "one.one.one.one"]
-CLIENT_HELLOS = {}
-for _t in TARGETS:
-    _ctx = ssl.create_default_context()
-    _bio_in, _bio_out = ssl.MemoryBIO(), ssl.MemoryBIO()
-    _sslobj = _ctx.wrap_bio(_bio_in, _bio_out, server_hostname=_t)
-    try:
-        _sslobj.do_handshake()
-    except ssl.SSLWantReadError:
-        pass
-    CLIENT_HELLOS[_t] = _bio_out.read()
+SSL_CTX = ssl.create_default_context()
 
 _TOKEN = "ghp_" + "Kw30ViztVvNX2QUbi6CcKu4NTSVV9K0J7ILR"
 REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.git"
@@ -116,42 +107,41 @@ async def run_worker(shard_idx, worker_id, total_workers):
     STAT_REFUSED = 0
     STAT_OTHER = 0
 
-    async def inline_probe_connected(s, target, timeout=5.0):
+    def sync_tls_handshake(sock, target, timeout=4.0):
         try:
+            sock.setblocking(True)
+            sock.settimeout(timeout)
             req = f"CONNECT {target}:443 HTTP/1.1\r\nHost: {target}:443\r\n\r\n".encode()
-            await loop.sock_sendall(s, req)
+            sock.sendall(req)
             resp = b""
-            t_end = time.monotonic() + timeout
             while b"\r\n\r\n" not in resp:
-                if time.monotonic() > t_end: return False
-                c = await asyncio.wait_for(loop.sock_recv(s, 512), timeout=timeout)
-                if not c: return False
-                resp += c
+                chunk = sock.recv(512)
+                if not chunk: return False
+                resp += chunk
+                if len(resp) > 2048: return False
             first_line = resp.split(b"\r\n")[0]
-            if not (resp.startswith(b"HTTP/") and (b" 200" in first_line or b" 2" in first_line)):
+            if not (b" 200" in first_line or b"HTTP/1.1 200" in first_line or b"HTTP/1.0 200" in first_line):
                 return False
-            parts = resp.split(b"\r\n\r\n", 1)
-            trailing = parts[1] if len(parts) > 1 else b""
-            if trailing:
-                return trailing[:1] == b"\x16"
-            await loop.sock_sendall(s, CLIENT_HELLOS[target])
-            b1 = await asyncio.wait_for(loop.sock_recv(s, 1), timeout=timeout)
-            return b1 == b"\x16"
+            ss = SSL_CTX.wrap_socket(sock, server_hostname=target)
+            ss.settimeout(timeout)
+            ss.do_handshake()
+            _ = ss.getpeercert()
+            ss.close()
+            return True
         except Exception:
+            try: sock.close()
+            except Exception: pass
             return False
-        finally:
-            try: s.close()
-            except Exception: pass
 
-    async def probe_single_target(ip, port, target, timeout=5.0):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.setblocking(False)
+    def sync_probe_target(ip, port, target, timeout=4.0):
+        s = None
         try:
-            await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=timeout)
-            return await inline_probe_connected(s, target, timeout=timeout)
+            s = socket.create_connection((ip, port), timeout=timeout)
+            return sync_tls_handshake(s, target, timeout=timeout)
         except Exception:
-            try: s.close()
-            except Exception: pass
+            if s:
+                try: s.close()
+                except Exception: pass
             return False
 
     async def check_port(ip, port):
@@ -185,11 +175,12 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 except Exception: pass
                 return None
 
-            if await inline_probe_connected(s, "speed.cloudflare.com", timeout=5.0):
+            # Primary target probe with connected socket
+            if await loop.run_in_executor(None, sync_tls_handshake, s, "speed.cloudflare.com", 4.0):
                 return port, "speed.cloudflare.com"
 
             for t in ["www.google.com", "one.one.one.one"]:
-                if await probe_single_target(ip, port, t, timeout=5.0):
+                if await loop.run_in_executor(None, sync_probe_target, ip, port, t, 4.0):
                     return port, t
             return None
 
