@@ -1,7 +1,6 @@
 stage=res_loop
-ts=1793372152
-offset=63619702
+ts=1793372462
+offset=63713174
 --- LAST 5 LOG LINES ---
-[2026-10-30 13:20:32] [SHARD 00 W0] Random IPv4 Looping: Resume offset=62,508,198 cands=1
-[2026-10-30 13:20:33] [SHARD 00 W0] [QUEUE STAGE] Found 2 queue files to consume before IP scanning
-[2026-10-30 14:05:12] [SHARD 00 W0] [FOUND RES] 103.125.154.1:8080 (LIVEFIBR-AS-IN) via speed.cloudflare.com | cands=2
+[2026-10-30 13:20:09] [SHARD 00 W0] Random IPv4 Looping: Resume offset=62,508,198 cands=1
+[2026-10-30 13:20:09] [SHARD 00 W0] [QUEUE STAGE] Found 2 queue files to consume before IP scanning
