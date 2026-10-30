@@ -206,19 +206,78 @@ def run_single_cycle(cycle_num, seen):
 
     return log_line
 
+last_merge_ts = 0
+
+def merge_out_branches():
+    """Every 300s, fetch all out/sh* branches and merge their files into main, then push once."""
+    global last_merge_ts
+    now = time.time()
+    if (now - last_merge_ts) < 300:
+        return False
+
+    print(f"\n[{time.strftime('%Y-%m-%d %H:%M:%S')}] [MERGE] Fetching all out/sh* branches...")
+    run_cmd(f'git -C "{REPO_ROOT}" fetch origin "+refs/heads/out/sh*:refs/remotes/origin/out/sh*" --prune --quiet')
+
+    out, err, code = run_cmd(f'git -C "{REPO_ROOT}" branch -r --list "origin/out/sh*"')
+    remote_branches = [b.strip() for b in out.splitlines() if b.strip()]
+
+    if not remote_branches:
+        print("[MERGE] No out/sh* branches found on remote.")
+        last_merge_ts = now
+        return False
+
+    print(f"[MERGE] Found {len(remote_branches)} remote shard branches to merge.")
+    merged_count = 0
+    for rb in remote_branches:
+        branch_name = rb.split("/")[-1]
+        tag = branch_name.replace("sh", "")
+        c_out, c_err, c_code = run_cmd(
+            f'git -C "{REPO_ROOT}" checkout {rb} -- '
+            f'"ip/harvest/verified_alive_part_{tag}*.txt" '
+            f'"ip/harvest/shodan_stats_v98_{tag}*.txt" '
+            f'"ip/harvest/shodan_progress_v98_{tag}*.txt" '
+            f'"ip/harvest/stage_{tag}.txt"'
+        )
+        if c_code == 0:
+            merged_count += 1
+
+    new_pool, pool_total = harvest_and_dedupe()
+
+    run_cmd(f'git -C "{REPO_ROOT}" add ip/harvest/ real_pool.txt cache/ work/FLEET_CYCLE.txt')
+    st_out, _, _ = run_cmd(f'git -C "{REPO_ROOT}" status --porcelain')
+    if st_out:
+        msg = f"v98.188 merge {merged_count} shard branches, pool={pool_total} (+{new_pool})"
+        run_cmd(f'git -C "{REPO_ROOT}" commit -m "{msg}"')
+        p_out, p_err, p_code = run_cmd(f'git -C "{REPO_ROOT}" push origin main')
+        if p_code == 0:
+            print(f"[MERGE] Pushed merged shard files to main (pool={pool_total}, +{new_pool}).")
+        else:
+            print(f"[MERGE] Push to main failed: {p_err or p_out}")
+    else:
+        print("[MERGE] No file changes after merging shard branches.")
+
+    last_merge_ts = now
+    return True
+
 def main():
     seen = load_seen_set()
     cycle = 1
+    last_cycle_t = 0
 
     if len(sys.argv) > 1 and sys.argv[1] == "--once":
+        merge_out_branches()
         run_single_cycle(cycle, seen)
         return
 
     while True:
         try:
-            run_single_cycle(cycle, seen)
-            cycle += 1
-            time.sleep(900)
+            merge_out_branches()
+            now = time.time()
+            if (now - last_cycle_t) >= 900:
+                run_single_cycle(cycle, seen)
+                cycle += 1
+                last_cycle_t = now
+            time.sleep(30)
         except KeyboardInterrupt:
             print("Stopping fleet cycle.")
             break
