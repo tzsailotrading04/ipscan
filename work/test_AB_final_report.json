@@ -1,0 +1,24 @@
+{
+  "timestamp": 1793350462.1287708,
+  "final_stats": {
+    "strict": {
+      "assigned": 50,
+      "connected": 45,
+      "currently_up": 17,
+      "sold_traffic": 45,
+      "total_bytes": 215681736,
+      "total_mb": 205.69
+    },
+    "skirt": {
+      "assigned": 50,
+      "connected": 0,
+      "currently_up": 0,
+      "sold_traffic": 0,
+      "total_bytes": 0,
+      "total_mb": 0.0
+    }
+  },
+  "ratio_conn": 0.0,
+  "ratio_bytes": 0.0,
+  "verdict": "SKIRT_DEAD"
+}
