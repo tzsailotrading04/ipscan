@@ -1,0 +1,9 @@
+stage=res_loop
+ts=1793397516
+offset=58538001
+--- LAST 5 LOG LINES ---
+[2026-10-30 21:58:36] [SHARD 33 W0] [FOUND QUEUE] 54.255.249.161:8080 (AMAZON-02) via one.one.one.one | cands=24
+[2026-10-30 21:58:36] [SHARD 33 W0] [FOUND QUEUE] 56.69.197.16:80 (AMAZON-02) via speed.cloudflare.com | cands=25
+[2026-10-30 21:58:36] [SHARD 33 W0] [FOUND QUEUE] 62.56.214.1:80 (DTAG) via speed.cloudflare.com | cands=26
+[2026-10-30 21:58:36] [SHARD 33 W0] [FOUND QUEUE] 8.153.75.221:1080 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=27
+[2026-10-30 21:58:36] [SHARD 33 W0] [FOUND QUEUE] 89.117.55.26:3128 (CONTABO) via speed.cloudflare.com | cands=28
