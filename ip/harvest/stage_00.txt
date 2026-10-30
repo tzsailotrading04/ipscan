@@ -1,6 +1,9 @@
 stage=res_loop
-ts=1793391993
-offset=67823910
+ts=1793396118
+offset=68015570
 --- LAST 5 LOG LINES ---
-[2026-10-30 13:17:38] [SHARD 00 W0] Random IPv4 Looping: Resume offset=62,508,198 cands=1
-[2026-10-30 13:17:39] [SHARD 00 W0] [QUEUE STAGE] Found 2 queue files to consume before IP scanning
+[2026-10-30 21:18:18] [SHARD 00 W0] [FOUND QUEUE] 45.194.3.119:8080 (CTRLS-AS-IN) via www.google.com | cands=11
+[2026-10-30 21:18:52] [SHARD 00 W0] [FOUND QUEUE] 72.61.147.18:3128 (AS-HOSTINGER) via speed.cloudflare.com | cands=12
+[2026-10-30 21:18:52] [SHARD 00 W0] [FOUND QUEUE] 77.246.110.129:3128 (VDSINA) via speed.cloudflare.com | cands=13
+[2026-10-30 21:18:52] [SHARD 00 W0] [FOUND QUEUE] 86.98.152.245:8080 (EMIRATES-INTERNET) via speed.cloudflare.com | cands=14
+[2026-10-30 21:18:52] [SHARD 00 W0] [FOUND QUEUE] 94.60.14.97:3128 (VODAFONE-PT) via speed.cloudflare.com | cands=15

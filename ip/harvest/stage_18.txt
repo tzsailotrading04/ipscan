@@ -1,0 +1,9 @@
+stage=queue_slice_q_region_1793369584.txt_500
+ts=1793397413
+offset=59422947
+--- LAST 5 LOG LINES ---
+[2026-10-30 21:56:53] [SHARD 18 W0] [FOUND QUEUE] 35.90.161.115:1088 (AMAZON-02) via speed.cloudflare.com | cands=51
+[2026-10-30 21:56:53] [SHARD 18 W0] [FOUND QUEUE] 41.216.186.161:8080 (AS_PERWIRA_MEDIA) via one.one.one.one | cands=52
+[2026-10-30 21:56:53] [SHARD 18 W0] [FOUND QUEUE] 43.213.32.70:81 (AMAZON-02) via www.google.com | cands=53
+[2026-10-30 21:56:53] [SHARD 18 W0] [FOUND QUEUE] 45.176.235.10:8080 (CABLE) via www.google.com | cands=54
+[2026-10-30 21:56:53] [SHARD 18 W0] [FOUND QUEUE] 47.128.220.7:80 (AMAZON-02) via www.google.com | cands=55

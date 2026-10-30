@@ -1,0 +1,9 @@
+stage=res_loop
+ts=1793397415
+offset=58818598
+--- LAST 5 LOG LINES ---
+[2026-10-30 21:56:55] [SHARD 14 W0] [FOUND QUEUE] 52.59.42.97:1086 (AMAZON-02) via speed.cloudflare.com | cands=62
+[2026-10-30 21:56:55] [SHARD 14 W0] [FOUND QUEUE] 54.152.60.36:8000 (AMAZON-AES) via one.one.one.one | cands=63
+[2026-10-30 21:56:55] [SHARD 14 W0] [FOUND QUEUE] 54.219.243.232:8000 (AMAZON-02) via speed.cloudflare.com | cands=64
+[2026-10-30 21:56:55] [SHARD 14 W0] [FOUND QUEUE] 54.238.70.144:80 (AMAZON-02) via one.one.one.one | cands=65
+[2026-10-30 21:56:55] [SHARD 14 W0] [FOUND QUEUE] 54.255.139.160:81 (AMAZON-02) via speed.cloudflare.com | cands=66

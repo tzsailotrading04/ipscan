@@ -1,0 +1,9 @@
+stage=queue_slice_q_region_1793369584.txt_500
+ts=1793397399
+offset=60573941
+--- LAST 5 LOG LINES ---
+[2026-10-30 21:56:39] [SHARD 25 W0] [FOUND QUEUE] 40.192.8.157:8888 (AMAZON-02) via speed.cloudflare.com | cands=58
+[2026-10-30 21:56:39] [SHARD 25 W0] [FOUND QUEUE] 43.198.233.227:80 (AMAZON-02) via www.google.com | cands=59
+[2026-10-30 21:56:39] [SHARD 25 W0] [FOUND QUEUE] 43.210.37.86:8118 (AMAZON-02) via one.one.one.one | cands=60
+[2026-10-30 21:56:39] [SHARD 25 W0] [FOUND QUEUE] 43.213.53.73:81 (AMAZON-02) via speed.cloudflare.com | cands=61
+[2026-10-30 21:56:39] [SHARD 25 W0] [FOUND QUEUE] 44.200.234.67:81 (AMAZON-AES) via speed.cloudflare.com | cands=62
