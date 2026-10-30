@@ -1,7 +1,15 @@
+offset=53429215
+offset=53360615
 offset=53179279
 total=4294967296
-cands=36
+cands=7
 errno99=0
+timeout=6272425
+refused=137249
+req_s=5313.3
+timeout=50946068
+refused=1172477
+req_s=1362.3
 timeout=6026118
 refused=135246
 req_s=5449.6
