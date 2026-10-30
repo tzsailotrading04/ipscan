@@ -1,0 +1,111 @@
+[{"stream_name":"stdout","time":1.43547387,"data":"[2026-10-29 22:57:43] ================================================================================\n"}
+,{"stream_name":"stdout","time":1.43553261,"data":"[2026-10-29 22:57:43]   DEpin Farm 100-Source Feeder Kernel (cl_feed) Initializing\n"}
+,{"stream_name":"stdout","time":1.435539267,"data":"[2026-10-29 22:57:43]   Concurrency: 40 | Timeout: 20.0s | Cycle: 900s\n"}
+,{"stream_name":"stdout","time":1.435543763,"data":"[2026-10-29 22:57:43] ================================================================================\n"}
+,{"stream_name":"stderr","time":1.496641408,"data":"Cloning into '/kaggle/working/ipscan'...\n"}
+,{"stream_name":"stderr","time":42.877843272,"data":"Updating files:   2% (56/1904)\rUpdating files:   3% (58/1904)\rUpdating files:   4% (77/1904)\rUpdating files:   5% (96/1904)\rUpdating files:   6% (115/1904)\rUpdating files:   7% (134/1904)\rUpdating files:   8% (153/1904)\rUpdating files:   9% (172/1904)\rUpdating files:  10% (191/1904)\rUpdating files:  11% (210/1904)\rUpdating files:  12% (229/1904)\rUpdating files:  13% (248/1904)\rUpdating files:  14% (267/1904)\rUpdating files:  15% (286/1904)\rUpdating files:  16% (305/1904)\rUpdating files:  17% (324/1904)\rUpdating files:  18% (343/1904)\rUpdating files:  19% (362/1904)\rUpdating files:  20% (381/1904)\rUpdating files:  21% (400/1904)\rUpdating files:  22% (419/1904)\rUpdating files:  23% (438/1904)\rUpdating files:  24% (457/1904)\rUpdating files:  25% (476/1904)\rUpdating files:  26% (496/1904)\rUpdating files:  27% (515/1904)\rUpdating files:  28% (534/1904)\rUpdating files:  29% (553/1904)\rUpdating files:  29% (560/1904)\rUpdating files:  30% (572/1904)\rUpdating files:  31% (591/1904)\rUpdating files:  32% (610/1904)\rUpdating files:  33% (629/1904)\rUpdating files:  34% (648/1904)\rUpdating files:  35% (667/1904)\rUpdating files:  36% (686/1904)\rUpdating files:  37% (705/1904)\rUpdating files:  38% (724/1904)\rUpdating files:  39% (743/1904)\rUpdating files:  40% (762/1904)\rUpdating files:  41% (781/1904)\rUpdating files:  42% (800/1904)\rUpdating files:  43% (819/1904)\rUpdating files:  44% (838/1904)\rUpdating files:  45% (857/1904)\rUpdating files:  46% (876/1904)\rUpdating files:  47% (895/1904)\rUpdating files:  48% (914/1904)\rUpdating files:  49% (933/1904)\rUpdating files:  50% (952/1904)\rUpdating files:  51% (972/1904)\rUpdating files:  52% (991/1904)\rUpdating files:  53% (1010/1904)\rUpdating files:  54% (1029/1904)\rUpdating files:  55% (1048/1904)\rUpdating files:  56% (1067/1904)\rUpdating files:  57% (1086/1904)\rUpdating files:  58% (1105/1904)\rUpdating files:  59% (1124/1904)\rUpdating files:  60% (1143/1904)\rUpdating files:  61% (1162/1904)\rUpdating files:  62% (1181/1904)\rUpdating files:  63% (1200/1904)\rUpdating files:  64% (1219/1904)\rUpdating files:  65% (1238/1904)\rUpdating files:  66% (1257/1904)\rUpdating files:  67% (1276/1904)\rUpdating files:  68% (1295/1904)\rUpdating files:  69% (1314/1904)\rUpdating files:  70% (1333/1904)\rUpdating files:  71% (1352/1904)\rUpdating files:  71% (1357/1904)\rUpdating files:  71% (1367/1904)\rUpdating files:  72% (1371/1904)\rUpdating files:  73% (1390/1904)\rUpdating files:  73% (1395/1904)\rUpdating files:  74% (1409/1904)\rUpdating files:  75% (1428/1904)\rUpdating files:  76% (1448/1904)\rUpdating files:  76% (1461/1904)\rUpdating files:  77% (1467/1904)\rUpdating files:  78% (1486/1904)\rUpdating files:  79% (1505/1904)\rUpdating files:  80% (1524/1904)\rUpdating files:  81% (1543/1904)\rUpdating files:  82% (1562/1904)\rUpdating files:  83% (1581/1904)\rUpdating files:  84% (1600/1904)\rUpdating files:  85% (1619/1904)\rUpdating files:  86% (1638/1904)\rUpdating files:  87% (1657/1904)\rUpdating files:  88% (1676/1904)\rUpdating files:  89% (1695/1904)\rUpdating files:  90% (1714/1904)\rUpdating files:  91% (1733/1904)\rUpdating files:  92% (1752/1904)\rUpdating files:  93% (1771/1904)\rUpdating files:  94% (1790/1904)\rUpdating files:  95% (1809/1904)\rUpdating files:  96% (1828/1904)\rUpdating files:  97% (1847/1904)\rUpdating files:  98% (1866/1904)\rUpdating files:  99% (1885/1904)\rUpdating files: 100% (1904/1904)\rUpdating files: 100% (1904/1904), done.\n"}
+,{"stream_name":"stdout","time":43.92506993,"data":"[2026-10-29 22:58:26] Loaded existing seen set: 1,439,199 entries\n"}
+,{"stream_name":"stdout","time":44.494424785,"data":"[2026-10-29 22:58:26] --- STARTING CYCLE 1 (100 sources) ---\n"}
+,{"stream_name":"stdout","time":45.384115923,"data":"  [source] OK (   21 proxies, att 1) https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/socks\n"}
+,{"stream_name":"stdout","time":45.456079487,"data":"  [source] OK (  440 proxies, att 1) https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt\n"}
+,{"stream_name":"stdout","time":45.520383388,"data":"  [source] OK (  361 proxies, att 1) https://raw.githubusercontent.com/zloi-user/hideip.me/main/socks4.txt\n"}
+,{"stream_name":"stdout","time":45.695712116,"data":"  [source] OK (  279 proxies, att 1) https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.tx\n"}
+,{"stream_name":"stdout","time":45.698394756,"data":"  [source] OK (  661 proxies, att 1) https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.tx\n"}
+,{"stream_name":"stdout","time":45.800566188,"data":"  [source] OK (  150 proxies, att 1) https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS4\n"}
+,{"stream_name":"stdout","time":45.849188385,"data":"  [source] OK (   40 proxies, att 1) https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt\n"}
+,{"stream_name":"stdout","time":45.887325004,"data":"  [source] OK (   87 proxies, att 1) https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_\n"}
+,{"stream_name":"stdout","time":45.903015905,"data":"  [source] OK (  524 proxies, att 1) https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/http.\n"}
+,{"stream_name":"stdout","time":45.906159111,"data":"  [source] OK (  165 proxies, att 1) https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/socks\n"}
+,{"stream_name":"stdout","time":45.906654344,"data":"  [source] OK (    6 proxies, att 1) https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/https\n"}
+,{"stream_name":"stdout","time":45.951581677,"data":"  [source] OK (  159 proxies, att 1) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/soc\n"}
+,{"stream_name":"stdout","time":45.96632835,"data":"  [source] OK (  400 proxies, att 1) https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-lis\n"}
+,{"stream_name":"stdout","time":45.993227087,"data":"  [source] OK (  200 proxies, att 1) https://raw.githubusercontent.com/zloi-user/hideip.me/main/http.txt\n"}
+,{"stream_name":"stdout","time":45.993379916,"data":"  [source] OK (  762 proxies, att 1) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/htt\n"}
+,{"stream_name":"stdout","time":46.003375246,"data":"  [source] OK (  279 proxies, att 1) https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks5.txt\n"}
+,{"stream_name":"stdout","time":46.003414741,"data":"  [source] OK (  405 proxies, att 1) https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxie\n"}
+,{"stream_name":"stdout","time":46.037805994,"data":"  [source] OK (    6 proxies, att 1) https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS5\n"}
+,{"stream_name":"stdout","time":46.149169558,"data":"  [source] OK (   58 proxies, att 1) https://raw.githubusercontent.com/prxchk/proxy-list/main/http.txt\n"}
+,{"stream_name":"stdout","time":46.153814096,"data":"  [source] OK ( 1088 proxies, att 1) https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt\n"}
+,{"stream_name":"stdout","time":46.17903976,"data":"  [source] OK (   13 proxies, att 1) https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt\n"}
+,{"stream_name":"stdout","time":46.179108091,"data":"  [source] OK (   10 proxies, att 1) https://raw.githubusercontent.com/prxchk/proxy-list/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":46.187102739,"data":"  [source] OK ( 1801 proxies, att 1) https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxie\n"}
+,{"stream_name":"stdout","time":46.521391284,"data":"  [source] OK (  724 proxies, att 1) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/soc\n"}
+,{"stream_name":"stdout","time":46.575964418,"data":"  [source] OK ( 3135 proxies, att 1) https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.t\n"}
+,{"stream_name":"stdout","time":46.587969604,"data":"  [source] OK (  661 proxies, att 1) https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks4.txt\n"}
+,{"stream_name":"stdout","time":46.58800902,"data":"  [source] OK (  403 proxies, att 1) https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxie\n"}
+,{"stream_name":"stdout","time":46.58904638,"data":"  [source] OK ( 5479 proxies, att 1) https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxie\n"}
+,{"stream_name":"stdout","time":46.592109783,"data":"  [source] OK (  951 proxies, att 1) https://raw.githubusercontent.com/zloi-user/hideip.me/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":46.613160179,"data":"  [source] OK ( 2242 proxies, att 1) https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.t\n"}
+,{"stream_name":"stdout","time":46.683873377,"data":"  [source] OK (  925 proxies, att 1) https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxie\n"}
+,{"stream_name":"stdout","time":46.69294784,"data":"  [source] OK ( 2757 proxies, att 1) https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt\n"}
+,{"stream_name":"stdout","time":46.831870002,"data":"  [source] OK (  257 proxies, att 1) https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/SOCKS5.tx\n"}
+,{"stream_name":"stdout","time":46.876369175,"data":"  [source] OK ( 2178 proxies, att 1) https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":47.022138669,"data":"  [source] OK ( 1375 proxies, att 1) https://api.proxyscrape.com/v2/?request=getproxies\u0026protocol=http\u0026timeo\n"}
+,{"stream_name":"stdout","time":47.030189253,"data":"  [source] OK ( 3184 proxies, att 1) https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/HTTP.txt\n"}
+,{"stream_name":"stdout","time":47.048926115,"data":"  [source] OK (  224 proxies, att 1) https://api.proxyscrape.com/v2/?request=getproxies\u0026protocol=socks4\u0026tim\n"}
+,{"stream_name":"stdout","time":47.224197948,"data":"  [source] OK ( 7118 proxies, att 1) https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/\n"}
+,{"stream_name":"stdout","time":47.224235009,"data":"  [source] OK ( 1671 proxies, att 1) https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_pro\n"}
+,{"stream_name":"stdout","time":47.282022611,"data":"  [source] OK ( 2000 proxies, att 1) https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_pro\n"}
+,{"stream_name":"stdout","time":47.601744005,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=10\u0026sort_by\n"}
+,{"stream_name":"stdout","time":47.607664057,"data":"  [source] OK ( 2312 proxies, att 1) https://api.proxyscrape.com/v2/?request=getproxies\u0026protocol=socks5\u0026tim\n"}
+,{"stream_name":"stdout","time":47.694919472,"data":"  [source] OK (80161 proxies, att 1) https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxie\n"}
+,{"stream_name":"stdout","time":47.751333754,"data":"  [source] OK (80161 proxies, att 1) https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt\n"}
+,{"stream_name":"stdout","time":47.760082066,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=1\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.345567132,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=2\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.346782,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=3\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.537478724,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=9\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.561879268,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=5\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.791192737,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=7\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.823070756999996,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=4\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":48.966941115,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=6\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":49.073988703,"data":"  [source] OK ( 5608 proxies, att 1) https://openproxylist.xyz/socks5.txt\n"}
+,{"stream_name":"stdout","time":49.15619989,"data":"  [source] OK ( 4095 proxies, att 1) https://proxyspace.pro/http.txt\n"}
+,{"stream_name":"stdout","time":49.156836713,"data":"  [source] OK ( 3721 proxies, att 1) https://proxyspace.pro/socks5.txt\n"}
+,{"stream_name":"stdout","time":49.156860142,"data":"  [source] OK (    0 proxies, att 1) https://proxylist.geonode.com/api/proxy-list?limit=500\u0026page=8\u0026sort_by=\n"}
+,{"stream_name":"stdout","time":49.588562769,"data":"  [source] OK ( 6529 proxies, att 1) https://openproxylist.xyz/http.txt\n"}
+,{"stream_name":"stdout","time":49.603067589,"data":"  [source] OK ( 3754 proxies, att 1) https://proxyspace.pro/socks4.txt\n"}
+,{"stream_name":"stdout","time":49.843140388,"data":"  [source] OK (100645 proxies, att 1) https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/socks5.t\n"}
+,{"stream_name":"stdout","time":49.848045096999996,"data":"  [source] OK ( 3852 proxies, att 1) https://openproxylist.xyz/socks4.txt\n"}
+,{"stream_name":"stdout","time":49.939521488,"data":"  [source] OK (101602 proxies, att 1) https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/http.txt\n"}
+,{"stream_name":"stdout","time":49.986126628,"data":"  [source] OK (    0 proxies, att 1) https://proxydb.net/?protocol=socks5\n"}
+,{"stream_name":"stdout","time":49.986165063,"data":"  [source] OK (    1 proxies, att 1) https://proxydb.net/?protocol=http\n"}
+,{"stream_name":"stdout","time":49.99852578,"data":"  [source] OK (  300 proxies, att 1) https://free-proxy-list.net/\n"}
+,{"stream_name":"stdout","time":50.075235403,"data":"  [source] OK (79326 proxies, att 1) https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/\n"}
+,{"stream_name":"stdout","time":50.100219835,"data":"  [source] OK (86171 proxies, att 1) https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxie\n"}
+,{"stream_name":"stdout","time":50.106006003,"data":"  [source] OK (  100 proxies, att 1) https://www.sslproxies.org/\n"}
+,{"stream_name":"stdout","time":50.148594609,"data":"  [source] OK (    0 proxies, att 1) https://www.freeproxy.world/?type=\u0026anonymity=\u0026country=\u0026speed=\u0026port=\u0026pa\n"}
+,{"stream_name":"stdout","time":50.161132078,"data":"  [source] OK (    0 proxies, att 1) https://www.freeproxy.world/?type=\u0026anonymity=\u0026country=\u0026speed=\u0026port=\u0026pa\n"}
+,{"stream_name":"stdout","time":50.175419147,"data":"  [source] OK (  200 proxies, att 1) https://www.us-proxy.org/\n"}
+,{"stream_name":"stdout","time":50.190614212,"data":"  [source] OK ( 1635 proxies, att 1) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/all\n"}
+,{"stream_name":"stdout","time":50.239600092,"data":"  [source] OK (    0 proxies, att 1) https://www.freeproxy.world/?type=\u0026anonymity=\u0026country=\u0026speed=\u0026port=\u0026pa\n"}
+,{"stream_name":"stdout","time":50.252650287,"data":"  [source] OK (    0 proxies, att 1) https://www.freeproxy.world/?type=\u0026anonymity=\u0026country=\u0026speed=\u0026port=\u0026pa\n"}
+,{"stream_name":"stdout","time":50.313080809,"data":"  [source] OK (    0 proxies, att 1) https://www.freeproxy.world/?type=\u0026anonymity=\u0026country=\u0026speed=\u0026port=\u0026pa\n"}
+,{"stream_name":"stdout","time":50.448547778,"data":"  [source] OK (    0 proxies, att 1) https://advanced.name/freeproxy\n"}
+,{"stream_name":"stdout","time":51.265974399,"data":"  [source] OK (    0 proxies, att 1) https://hidemy.name/en/proxy-list/\n"}
+,{"stream_name":"stdout","time":51.56388751,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/socks5.tx\n"}
+,{"stream_name":"stdout","time":51.606696415,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/Kiasgore/proxy-list/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":51.682500735,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/sunuazima/proxy-list/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":51.72395569,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/http.txt\n"}
+,{"stream_name":"stdout","time":51.814117423,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/Kiasgore/proxy-list/main/http.txt\n"}
+,{"stream_name":"stdout","time":51.848604618,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/rxwired/proxy-list/main/http.txt\n"}
+,{"stream_name":"stdout","time":51.915976322,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/Tsprnay/proxy-list/main/http.txt\n"}
+,{"stream_name":"stdout","time":51.955680053,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_ano\n"}
+,{"stream_name":"stdout","time":52.100105073,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/rxwired/proxy-list/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":52.20678237,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_geo\n"}
+,{"stream_name":"stdout","time":52.221601422,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/sunuazima/proxy-list/main/http.txt\n"}
+,{"stream_name":"stdout","time":52.330115223,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_ano\n"}
+,{"stream_name":"stdout","time":52.477508268,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://proxifly.github.io/free-proxy-list/proxies.json\n"}
+,{"stream_name":"stdout","time":52.587940407,"data":"  [source] FAIL (HTTP Error 404: Not Found) https://raw.githubusercontent.com/Tsprnay/proxy-list/main/socks5.txt\n"}
+,{"stream_name":"stdout","time":52.686766244,"data":"  [source] FAIL (HTTP Error 429: Too Many Requests) https://proxy-list.download/api/v1/get?type=http\n"}
+,{"stream_name":"stdout","time":52.940720046,"data":"  [source] FAIL (HTTP Error 429: Too Many Requests) https://proxy-list.download/api/v1/get?type=socks5\n"}
+,{"stream_name":"stdout","time":53.243748793,"data":"  [source] FAIL (HTTP Error 429: Too Many Requests) https://proxy-list.download/api/v1/get?type=https\n"}
+,{"stream_name":"stdout","time":53.304607255,"data":"  [source] FAIL (HTTP Error 403: Forbidden) https://spys.one/en/socks-proxy-list/\n"}
+,{"stream_name":"stdout","time":53.332075994,"data":"  [source] FAIL (HTTP Error 429: Too Many Requests) https://proxy-list.download/api/v1/get?type=socks4\n"}
+,{"stream_name":"stdout","time":53.454387729,"data":"  [source] FAIL (HTTP Error 521: \u003cnone\u003e) https://openproxy.space/list/http\n"}
+,{"stream_name":"stdout","time":53.540725707,"data":"  [source] FAIL (HTTP Error 521: \u003cnone\u003e) https://openproxy.space/list/socks4\n"}
+,{"stream_name":"stdout","time":53.909053896,"data":"  [source] FAIL (HTTP Error 403: Forbidden) https://spys.one/en/http-proxy-list/\n"}
+,{"stream_name":"stdout","time":53.956020468,"data":"  [source] FAIL (HTTP Error 521: \u003cnone\u003e) https://openproxy.space/list/socks5\n"}
+,{"stream_name":"stdout","time":54.951038273,"data":"  [source] FAIL (\u003curlopen error [Errno -2] Name or s) https://alexa-proxies.com/api/v1/proxies?protocol=http\n"}
+,{"stream_name":"stderr","time":57.203330434,"data":"From https://github.com/tzsailotrading04/ipscan\n"}
+,{"stream_name":"stderr","time":57.203376081,"data":" * branch            main       -\u003e FETCH_HEAD\n"}
+]
