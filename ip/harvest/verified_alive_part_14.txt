@@ -2781,3 +2781,6 @@
 61.149.184.93:8888	speed.cloudflare.com	RANDOM	0	CHINA169-BJ
 122.164.125.24:80	speed.cloudflare.com	RES	0	AIRTELBROADBAND-AS-AP
 76.150.125.142:3128	speed.cloudflare.com	RES	0	COMCAST-33491
+144.124.251.24:10084	one.one.one.one	QUEUE	0	VDSINA
+43.199.29.225:24737	speed.cloudflare.com	QUEUE	0	AMAZON-02
+85.105.250.156:8080	speed.cloudflare.com	QUEUE	0	TTNET
