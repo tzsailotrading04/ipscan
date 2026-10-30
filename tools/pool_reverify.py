@@ -71,10 +71,17 @@ def sync_tls_handshake(sock, target, timeout=TIMEOUT):
         first_line = resp.split(b"\r\n")[0]
         if not (b" 200" in first_line or b"HTTP/1.1 200" in first_line or b"HTTP/1.0 200" in first_line):
             return False
+        parts = resp.split(b"\r\n\r\n", 1)
+        trailing = parts[1] if len(parts) > 1 else b""
+        if trailing and trailing[:1] != b"\x16":
+            return False
         ss = SSL_CTX.wrap_socket(sock, server_hostname=target)
         ss.settimeout(timeout)
         ss.do_handshake()
-        _ = ss.getpeercert()
+        cert = ss.getpeercert()
+        if not cert:
+            ss.close()
+            return False
         ss.close()
         return True
     except Exception:
