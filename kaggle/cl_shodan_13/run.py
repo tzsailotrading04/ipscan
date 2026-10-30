@@ -39,7 +39,7 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 
-SHARD_IDX = 0
+SHARD_IDX = 13
 SHARD_TAG = f"{SHARD_IDX:02d}"
 OUT_BRANCH = f"out/sh{SHARD_TAG}"
 
