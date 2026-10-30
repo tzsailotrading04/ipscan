@@ -270,3 +270,18 @@ STEP 4 - 5-Minute Proof & Climb Verification:
     [2026-10-30 13:08:39] cycle=1 dead=0 repushed=0 new_pool=1 pool_total=42690
     [2026-10-30 13:12:35] cycle=5min_check dead=0 repushed=0 new_pool=1 pool_total=42949
 ================================================================================
+
+================================================================================
+SPLIT_LOCKED - APP POOL & REAL POOL SEPARATION - 2026-10-30 13:30:59
+================================================================================
+STEP 1: Copied real_pool.txt -> app_pool.txt (42,853 lines matched)
+STEP 2: Copied cache/pool_suspect.txt -> cache/app_suspect_keep.txt (40,281 lines matched)
+STEP 3: Pushed app_pool.txt to git: a4f22664a4779b754c7246e5023b23b6564eb00d
+STEP 4: Confirmed tools/pool_reverify.py only touches real_pool.txt
+STEP 5: Current Counts:
+  app_pool.txt:               42,853 (Frozen Application Pool)
+  cache/app_suspect_keep.txt: 40,281 (Preserved Candidate Pool)
+  ip/harvest/real_pool.txt:   2,720  (Strict Verified Live Pool)
+  cache/pool_suspect.txt:     169    (Active Suspect Set)
+STATE: SPLIT_LOCKED
+================================================================================
