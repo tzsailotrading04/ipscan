@@ -1,15 +1,15 @@
 {
-  "timestamp": 1793350318.9678776,
-  "elapsed_sec": 2557.1,
-  "remaining_sec": 142.9,
+  "timestamp": 1793350446.0904894,
+  "elapsed_sec": 2684.2,
+  "remaining_sec": 15.8,
   "stats": {
     "strict": {
       "assigned": 50,
       "connected": 45,
-      "currently_up": 18,
+      "currently_up": 17,
       "sold_traffic": 45,
-      "total_bytes": 208151236,
-      "total_mb": 198.51
+      "total_bytes": 215681736,
+      "total_mb": 205.69
     },
     "skirt": {
       "assigned": 50,
