@@ -1,8 +1,13 @@
+offset=55621215
 offset=54520399
 offset=55245295
 total=4294967296
-cands=7
+cands=8
 errno99=0
+timeout=53122036
+refused=1244669
+req_s=1357.3
+stage=mob_loop
 timeout=52754727
 refused=1239448
 req_s=1358.3
