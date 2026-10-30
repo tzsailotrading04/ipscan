@@ -89,7 +89,12 @@ def load_pool_endpoints():
 def harvest_and_dedupe(seen=None):
     pool_endpoints = load_pool_endpoints()
     new_entries = []
-    part_files = glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt"))
+    # Only read part files whose mtime is within the last 2 hours (7200s)
+    now_ts = time.time()
+    part_files = [
+        pf for pf in glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt"))
+        if (now_ts - os.path.getmtime(pf)) <= 7200
+    ]
     
     for pf in part_files:
         try:
