@@ -25,7 +25,7 @@ NUM_SHARDS = 34
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.187"
+ENGINE_VER = "v98.188"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -230,7 +230,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     recent_logs = collections.deque(maxlen=10)
 
-    def shard_log(msg):
+    def shard_log(msg, *args, **kwargs):
         ts_str = time.strftime('%Y-%m-%d %H:%M:%S')
         formatted = f"[{ts_str}] [SHARD {SHARD_TAG} W{worker_id}] {msg}"
         recent_logs.append(formatted)
@@ -260,20 +260,24 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     shard_log(f"Random IPv4 Looping: Resume offset={offset:,} cands={cands_found:,}")
     write_stage_file("init", offset)
+    write_stage_file("init:open_part_fp", offset)
     part_fp = open(part_file, "a", encoding="utf-8")
 
     start_t = time.time()
     last_stats_t = time.time()
 
+    write_stage_file("init:load_subnets", offset)
     res_subnets_all = load_subnet_list("res_subnets.txt")
     mob_subnets_all = load_subnet_list("mob_subnets.txt")
     dc_subnets_all = load_subnet_list("dc_subnets.txt")
 
+    write_stage_file("init:stride_subnets", offset)
     # Stride across shards and workers
     res_subnets = [s for idx, s in enumerate(res_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
     mob_subnets = [s for idx, s in enumerate(mob_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
     dc_subnets = [s for idx, s in enumerate(dc_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
 
+    write_stage_file("init:setup_dirs", offset)
     queue_dir = os.path.join(REPO, "ip", "harvest", "queue")
     acks_dir = os.path.join(REPO, "ip", "harvest", "acks")
     os.makedirs(queue_dir, exist_ok=True)
@@ -283,6 +287,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
     cur_mob_idx = 0
     cur_dc_idx = 0
 
+    write_stage_file("init:pipeline_loaded", offset)
     print(f"{log_pfx} Candidate Pipeline Loaded: res={len(res_subnets):,} mob={len(mob_subnets):,} dc={len(dc_subnets):,} subnets for Shard {SHARD_TAG} W{worker_id}", flush=True)
 
     def get_candidate_batch():
@@ -358,11 +363,16 @@ async def run_worker(shard_idx, worker_id, total_workers):
     # ==============================================================================
     async def consume_queue_stage():
         nonlocal cands_found, offset
+        write_stage_file("queue:check_dir", offset)
         if not os.path.exists(queue_dir):
+            write_stage_file("queue:no_dir_skip", offset)
             return
+        write_stage_file("queue:list_files", offset)
         q_files = sorted([f for f in os.listdir(queue_dir) if f.startswith("q_") and f.endswith(".txt")])
         if not q_files:
+            write_stage_file("queue:no_files_skip", offset)
             return
+        write_stage_file(f"queue:found_{len(q_files)}_files", offset)
         shard_log(f"[QUEUE STAGE] Found {len(q_files)} queue files to consume before IP scanning", flush=True)
 
         write_stage_file("queue_consuming", offset)
@@ -447,6 +457,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
             if timed_out:
                 break
 
+    write_stage_file("init:enter_consume_queue_stage", offset)
     await consume_queue_stage()
     write_stage_file("queue_done", offset)
 
