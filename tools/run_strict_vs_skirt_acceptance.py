@@ -193,7 +193,7 @@ def monitor_sets(set_a_nodes, set_b_nodes, duration_sec):
     print(f"\n[4/5] Monitoring 100 Nodes (50 Strict vs 50 Skirt) for {duration_sec//60} minutes...")
     print("=" * 80)
 
-    while time.time() < end_time:
+    while True:  # Removed 45-minute stop so set A keeps running indefinitely
         now = time.time()
         elapsed = now - start_time
         remaining = end_time - now
