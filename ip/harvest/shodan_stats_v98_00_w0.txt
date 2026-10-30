@@ -1,3 +1,4 @@
+offset=49195015
 offset=47206700
 total=4294967296
 cands=1
@@ -9,7 +10,7 @@ offset=48747975
 total=4294967296
 cands=7
 errno99=0
-timeout=46836120
-refused=723322
-req_s=1622.6
+timeout=47241435
+refused=733145
+req_s=1621.0
 stage=res_loop
