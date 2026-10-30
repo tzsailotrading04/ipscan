@@ -1,5 +1,5 @@
 stage=init
-ts=1793361700
-offset=59309830
+ts=1793362003
+offset=59608534
 --- LAST 5 LOG LINES ---
-[2026-10-30 12:01:40] [SHARD 00 W0] Random IPv4 Looping: Resume offset=59,309,830 cands=1
+[2026-10-30 12:06:43] [SHARD 00 W0] Random IPv4 Looping: Resume offset=59,608,534 cands=1
