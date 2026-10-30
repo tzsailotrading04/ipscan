@@ -35,3 +35,36 @@ BASELINE (T=0m):
   part files modified (last 5m):    0
   total lines in part files (5m):   0
 [2026-10-30 15:46:17] Waiting 5 minutes for Reading 5/6...
+
+--- READING 5/6 at T=25m (2026-10-30 15:51:22) ---
+  wc -l on ip/harvest/real_pool.txt: 2718
+  wc -l on cache/pool_dead.txt:     86493
+  part files modified (last 5m):    0
+  total lines in part files (5m):   0
+[2026-10-30 15:51:22] Waiting 5 minutes for Reading 6/6...
+
+--- READING 6/6 at T=30m (2026-10-30 15:56:25) ---
+  wc -l on ip/harvest/real_pool.txt: 2718
+  wc -l on cache/pool_dead.txt:     86493
+  part files modified (last 5m):    0
+  total lines in part files (5m):   0
+
+======================================================================
+30-MINUTE RATE PROOF FINAL REPORT
+======================================================================
+Reading  | Elapsed  | real_pool.txt  | pool_dead.txt  | Part Lines (5m)  | Part Files (5m)
+------------------------------------------------------------------------------------------
+1        | 5m       | 2536           | 86407          | 0                | 0              
+2        | 10m      | 2752           | 86407          | 0                | 0              
+3        | 15m      | 2752           | 86407          | 0                | 0              
+4        | 20m      | 2666           | 86493          | 0                | 0              
+5        | 25m      | 2718           | 86493          | 0                | 0              
+6        | 30m      | 2718           | 86493          | 0                | 0              
+------------------------------------------------------------------------------------------
+
+Pool Initial (T=0m): 2536
+Pool Final   (T=30m): 2718
+Net Pool Gain       : +182
+
+VERDICT: RATE_FALSE
+======================================================================
