@@ -1,6 +1,12 @@
-engine=v98.180
+engine=v98.173
 shard=01
 offset=22377792
+offset=3377092
+total=4294967296
+cands=31
+errno99=0
+req_s=6801.6
+offset=21671672
 total=4294967296
 cands=28
 errno99=0
