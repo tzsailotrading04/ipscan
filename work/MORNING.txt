@@ -240,3 +240,33 @@ Sample Recent Proxies:
   1.243.197.120:80	http	US	0	DIRECT	500	FAST	1
   100.20.23.102:80	http	US	0	DIRECT	500	FAST	1
 ================================================================================
+
+================================================================================
+BRIEF v98.183 PROOF - SEEN-SET UNBLOCK & HARVEST PROMOTION - 2026-10-30 13:12:49
+================================================================================
+STEP 1 - Confirm Fault:
+  Dedupe Condition in fleet_cycle.py previously checked: 'if endpoint not in seen:'
+  Total endpoints in harvest_seen_set.txt: 1,439,216
+  Unique endpoints in part-files:           40,213
+  Blocked Set (in seen_set, not in pool):   40,025
+  Total Unpromoted in part files:           40,061
+
+STEP 2 - Fix Applied:
+  Promote any part-file line not already in real_pool.txt straight to the pool.
+  Seen set bypassed for pool entry.
+
+STEP 3 - Drain Blocked Set:
+  Initial pool size:                        2,886
+  Immediate new_pool promoted:              +40,061
+  Pool size after initial drain:            42,947
+
+STEP 4 - 5-Minute Proof & Climb Verification:
+  Pool Size at 0m (13:06:14):               42,947
+  Pool Size at 5m (13:12:35):               42,949 (CLIMBING)
+  Dead Size:                                5,591
+  Part Files:                               91 files, 40,831 total lines
+  Fleet Cycle Log Tail:
+    [2026-10-30 13:06:14] cycle=manual_drain dead=0 repushed=0 new_pool=40061 pool_total=42689
+    [2026-10-30 13:08:39] cycle=1 dead=0 repushed=0 new_pool=1 pool_total=42690
+    [2026-10-30 13:12:35] cycle=5min_check dead=0 repushed=0 new_pool=1 pool_total=42949
+================================================================================
