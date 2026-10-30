@@ -33,3 +33,5 @@
 35.43.246.3:80	www.google.com	QUEUE	0	AMAZON-02
 35.182.48.138:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 20.33.10.79:80	speed.cloudflare.com	QUEUE	0	MICROSOFT-CORP-MSN-AS-BLOCK
+3.21.247.154:30935	one.one.one.one	QUEUE	0	AMAZON-02
+47.129.130.0:9362	one.one.one.one	QUEUE	0	AMAZON-02
