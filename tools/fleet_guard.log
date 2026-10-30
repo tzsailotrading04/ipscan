@@ -70,3 +70,147 @@ Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4)
 [2026-10-30 14:33:44] [GUARD] pool_reverify.py running (PID: 18880 19404).
 [2026-10-30 14:33:44] [GUARD] dead_recycle.py interval not reached (runs every 6h).
 [2026-10-30 14:33:44] [GUARD] === Guard check complete. Healthy: 0/20, Restarted: 19 ===
+[2026-10-30 14:46:53] [GUARD] === Fleet Guard check started (expected: v98.176) ===
+[2026-10-30 14:47:00] [GUARD] Shard shodan_00 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:47:00] [GUARD] Restarting shodan_00 as acct5...
+[2026-10-30 14:47:04] [GUARD] Re-pushed cl_shodan_00 successfully.
+[2026-10-30 14:47:09] [GUARD] Shard shodan_01 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:47:09] [GUARD] Restarting shodan_01 as acct5...
+[2026-10-30 14:47:12] [GUARD] Re-pushed cl_shodan_01 successfully.
+[2026-10-30 14:47:18] [GUARD] Shard shodan_02 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:47:18] [GUARD] Restarting shodan_02 as acct1...
+[2026-10-30 14:47:21] [GUARD] Re-pushed cl_shodan_02 successfully.
+[2026-10-30 14:47:28] [GUARD] Shard shodan_03 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:47:28] [GUARD] Restarting shodan_03 as acct1...
+[2026-10-30 14:47:32] [GUARD] Re-pushed cl_shodan_03 successfully.
+[2026-10-30 14:47:39] [GUARD] Shard shodan_04 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:47:39] [GUARD] Restarting shodan_04 as acct1...
+[2026-10-30 14:47:45] [GUARD] Re-pushed cl_shodan_04 successfully.
+[2026-10-30 14:47:51] [GUARD] Shard shodan_05 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:47:51] [GUARD] Restarting shodan_05 as acct1...
+[2026-10-30 14:47:55] [GUARD] Re-pushed cl_shodan_05 successfully.
+[2026-10-30 14:48:01] [GUARD] Shard shodan_06 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:48:01] [GUARD] Restarting shodan_06 as acct2...
+[2026-10-30 14:48:06] [GUARD] Re-pushed cl_shodan_06 successfully.
+[2026-10-30 14:48:12] [GUARD] Shard shodan_07 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:48:12] [GUARD] Restarting shodan_07 as acct2...
+[2026-10-30 14:48:16] [GUARD] Re-pushed cl_shodan_07 successfully.
+[2026-10-30 14:48:22] [GUARD] Shard shodan_08 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:48:22] [GUARD] Restarting shodan_08 as acct2...
+[2026-10-30 14:48:25] [GUARD] Re-pushed cl_shodan_08 successfully.
+[2026-10-30 14:48:32] [GUARD] Shard shodan_09 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:48:32] [GUARD] Restarting shodan_09 as acct2...
+[2026-10-30 14:48:35] [GUARD] Re-pushed cl_shodan_09 successfully.
+[2026-10-30 14:48:41] [GUARD] Shard shodan_10 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:48:41] [GUARD] Restarting shodan_10 as acct3...
+[2026-10-30 14:48:46] [GUARD] Re-pushed cl_shodan_10 successfully.
+[2026-10-30 14:48:53] [GUARD] Shard shodan_11 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:48:53] [GUARD] Restarting shodan_11 as acct3...
+[2026-10-30 14:48:57] [GUARD] Re-pushed cl_shodan_11 successfully.
+[2026-10-30 14:49:05] [GUARD] Shard shodan_12 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:49:05] [GUARD] Restarting shodan_12 as acct3...
+[2026-10-30 14:49:09] [GUARD] Re-pushed cl_shodan_12 successfully.
+[2026-10-30 14:49:14] [GUARD] Shard shodan_13 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:49:14] [GUARD] Restarting shodan_13 as acct3...
+[2026-10-30 14:49:17] [GUARD] Re-pushed cl_shodan_13 successfully.
+[2026-10-30 14:49:23] [GUARD] Shard shodan_14 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:49:23] [GUARD] Restarting shodan_14 as acct4...
+[2026-10-30 14:49:48] [GUARD] Failed to re-push cl_shodan_14: kaggle : 409 Client Error: Conflict for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel
+At D:\DEpinFarm\tools\fleet_guard.ps1:83 char:29
++ ...  $pushOut = (kaggle kernels push -p "$root\kaggle\cl_$s" 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (409 Client Erro...vice/SaveKernel:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+[2026-10-30 14:49:55] [GUARD] Shard shodan_15 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:49:55] [GUARD] Restarting shodan_15 as acct4...
+[2026-10-30 14:49:59] [GUARD] Re-pushed cl_shodan_15 successfully.
+[2026-10-30 14:50:06] [GUARD] Shard shodan_16 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:50:06] [GUARD] Restarting shodan_16 as acct4...
+[2026-10-30 14:50:09] [GUARD] Re-pushed cl_shodan_16 successfully.
+[2026-10-30 14:50:17] [GUARD] Shard shodan_17 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:50:17] [GUARD] Restarting shodan_17 as acct4...
+[2026-10-30 14:50:22] [GUARD] Re-pushed cl_shodan_17 successfully.
+[2026-10-30 14:50:29] [GUARD] Shard shodan_18 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:50:29] [GUARD] Restarting shodan_18 as acct6...
+[2026-10-30 14:50:33] [GUARD] Re-pushed cl_shodan_18 successfully.
+[2026-10-30 14:50:39] [GUARD] Shard shodan_19 has engine=v98.182 (expected v98.176)
+[2026-10-30 14:50:39] [GUARD] Restarting shodan_19 as acct6...
+[2026-10-30 14:50:42] [GUARD] Re-pushed cl_shodan_19 successfully.
+[2026-10-30 14:50:46] [GUARD] fleet_cycle.py running (PID: 14600 7280).
+[2026-10-30 14:50:46] [GUARD] pool_reverify.py running (PID: 18880 19404).
+[2026-10-30 14:50:46] [GUARD] dead_recycle.py interval not reached (runs every 6h).
+[2026-10-30 14:50:46] [GUARD] === Guard check complete. Healthy: 0/20, Restarted: 19 ===
+[2026-10-30 15:06:01] [GUARD] === Fleet Guard check started (expected: v98.176) ===
+[2026-10-30 15:06:12] [GUARD] Shard shodan_00 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:06:12] [GUARD] Restarting shodan_00 as acct5...
+[2026-10-30 15:06:19] [GUARD] Re-pushed cl_shodan_00 successfully.
+[2026-10-30 15:06:26] [GUARD] Shard shodan_01 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:06:26] [GUARD] Restarting shodan_01 as acct5...
+[2026-10-30 15:06:30] [GUARD] Re-pushed cl_shodan_01 successfully.
+[2026-10-30 15:06:38] [GUARD] Shard shodan_02 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:06:38] [GUARD] Restarting shodan_02 as acct1...
+[2026-10-30 15:06:42] [GUARD] Re-pushed cl_shodan_02 successfully.
+[2026-10-30 15:06:48] [GUARD] Shard shodan_03 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:06:48] [GUARD] Restarting shodan_03 as acct1...
+[2026-10-30 15:06:52] [GUARD] Re-pushed cl_shodan_03 successfully.
+[2026-10-30 15:06:58] [GUARD] Shard shodan_04 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:06:58] [GUARD] Restarting shodan_04 as acct1...
+[2026-10-30 15:07:02] [GUARD] Re-pushed cl_shodan_04 successfully.
+[2026-10-30 15:07:09] [GUARD] Shard shodan_05 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:07:09] [GUARD] Restarting shodan_05 as acct1...
+[2026-10-30 15:07:14] [GUARD] Re-pushed cl_shodan_05 successfully.
+[2026-10-30 15:07:22] [GUARD] Shard shodan_06 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:07:22] [GUARD] Restarting shodan_06 as acct2...
+[2026-10-30 15:07:27] [GUARD] Re-pushed cl_shodan_06 successfully.
+[2026-10-30 15:07:35] [GUARD] Shard shodan_07 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:07:35] [GUARD] Restarting shodan_07 as acct2...
+[2026-10-30 15:07:39] [GUARD] Re-pushed cl_shodan_07 successfully.
+[2026-10-30 15:07:46] [GUARD] Shard shodan_08 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:07:46] [GUARD] Restarting shodan_08 as acct2...
+[2026-10-30 15:07:50] [GUARD] Re-pushed cl_shodan_08 successfully.
+[2026-10-30 15:07:58] [GUARD] Shard shodan_09 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:07:58] [GUARD] Restarting shodan_09 as acct2...
+[2026-10-30 15:08:03] [GUARD] Re-pushed cl_shodan_09 successfully.
+[2026-10-30 15:08:11] [GUARD] Shard shodan_10 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:08:11] [GUARD] Restarting shodan_10 as acct3...
+[2026-10-30 15:08:15] [GUARD] Re-pushed cl_shodan_10 successfully.
+[2026-10-30 15:08:21] [GUARD] Shard shodan_11 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:08:21] [GUARD] Restarting shodan_11 as acct3...
+[2026-10-30 15:08:24] [GUARD] Re-pushed cl_shodan_11 successfully.
+[2026-10-30 15:08:29] [GUARD] Shard shodan_12 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:08:29] [GUARD] Restarting shodan_12 as acct3...
+[2026-10-30 15:08:34] [GUARD] Re-pushed cl_shodan_12 successfully.
+[2026-10-30 15:08:40] [GUARD] Shard shodan_13 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:08:40] [GUARD] Restarting shodan_13 as acct3...
+[2026-10-30 15:08:45] [GUARD] Re-pushed cl_shodan_13 successfully.
+[2026-10-30 15:08:51] [GUARD] Shard shodan_14 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:08:51] [GUARD] Restarting shodan_14 as acct4...
+[2026-10-30 15:09:15] [GUARD] Failed to re-push cl_shodan_14: kaggle : 409 Client Error: Conflict for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel
+At D:\DEpinFarm\tools\fleet_guard.ps1:83 char:29
++ ...  $pushOut = (kaggle kernels push -p "$root\kaggle\cl_$s" 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (409 Client Erro...vice/SaveKernel:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+[2026-10-30 15:09:21] [GUARD] Shard shodan_15 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:09:21] [GUARD] Restarting shodan_15 as acct4...
+[2026-10-30 15:09:24] [GUARD] Re-pushed cl_shodan_15 successfully.
+[2026-10-30 15:09:30] [GUARD] Shard shodan_16 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:09:30] [GUARD] Restarting shodan_16 as acct4...
+[2026-10-30 15:09:34] [GUARD] Re-pushed cl_shodan_16 successfully.
+[2026-10-30 15:09:40] [GUARD] Shard shodan_17 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:09:40] [GUARD] Restarting shodan_17 as acct4...
+[2026-10-30 15:09:44] [GUARD] Re-pushed cl_shodan_17 successfully.
+[2026-10-30 15:09:50] [GUARD] Shard shodan_18 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:09:50] [GUARD] Restarting shodan_18 as acct6...
+[2026-10-30 15:09:56] [GUARD] Re-pushed cl_shodan_18 successfully.
+[2026-10-30 15:10:02] [GUARD] Shard shodan_19 has engine=v98.182 (expected v98.176)
+[2026-10-30 15:10:03] [GUARD] Restarting shodan_19 as acct6...
+[2026-10-30 15:10:06] [GUARD] Re-pushed cl_shodan_19 successfully.
+[2026-10-30 15:10:10] [GUARD] fleet_cycle.py running (PID: 14600 7280).
+[2026-10-30 15:10:10] [GUARD] pool_reverify.py running (PID: 18880 19404).
+[2026-10-30 15:10:10] [GUARD] dead_recycle.py interval not reached (runs every 6h).
+[2026-10-30 15:10:10] [GUARD] === Guard check complete. Healthy: 0/20, Restarted: 19 ===
