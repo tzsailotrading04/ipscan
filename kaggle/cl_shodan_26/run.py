@@ -25,7 +25,7 @@ NUM_SHARDS = 34
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.184"
+ENGINE_VER = "v98.185"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -332,6 +332,9 @@ async def run_worker(shard_idx, worker_id, total_workers):
             return
         print(f"{log_pfx} [QUEUE STAGE] Found {len(q_files)} queue files to consume before IP scanning", flush=True)
 
+        queue_start_t = time.time()
+        QUEUE_WALLCLOCK_LIMIT = 120.0  # Wall-clock limit of 120 seconds per cycle
+
         for qf_name in q_files:
             qf_path = os.path.join(queue_dir, qf_name)
             ack_file = os.path.join(queue_dir, f"{qf_name}.ack_{shard_idx}")
@@ -351,7 +354,14 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
             print(f"{log_pfx} [QUEUE STAGE] Consuming {qf_name}: total={len(lines)} shard_slice={len(shard_slice)} worker_slice={len(worker_slice)}", flush=True)
 
+            timed_out = False
             for i in range(0, len(worker_slice), 500):
+                # Wall-clock limit check
+                if (time.time() - queue_start_t) >= QUEUE_WALLCLOCK_LIMIT:
+                    print(f"{log_pfx} [QUEUE TIMEOUT] Wall-clock limit ({QUEUE_WALLCLOCK_LIMIT}s) expired ({time.time() - queue_start_t:.1f}s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.", flush=True)
+                    timed_out = True
+                    break
+
                 chunk = worker_slice[i:i + 500]
                 tasks = []
                 for item in chunk:
@@ -373,7 +383,13 @@ async def run_worker(shard_idx, worker_id, total_workers):
                             print(f"{log_pfx} [FOUND QUEUE] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
                     offset += len(tasks)
 
-            # Mark acknowledged by this shard
+                # Check limit after batch completion
+                if (time.time() - queue_start_t) >= QUEUE_WALLCLOCK_LIMIT:
+                    print(f"{log_pfx} [QUEUE TIMEOUT] Wall-clock limit ({QUEUE_WALLCLOCK_LIMIT}s) expired ({time.time() - queue_start_t:.1f}s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.", flush=True)
+                    timed_out = True
+                    break
+
+            # Mark acknowledged by this shard (always written, including on expiry)
             try:
                 with open(ack_file, "w", encoding="utf-8") as af:
                     af.write("1\n")
@@ -390,6 +406,10 @@ async def run_worker(shard_idx, worker_id, total_workers):
                     print(f"{log_pfx} [QUEUE STAGE] {qf_name} consumed by all {NUM_SHARDS} shards and removed.", flush=True)
                 except Exception:
                     pass
+
+            # If timed out, break out of queue files loop and fall through to scanning
+            if timed_out:
+                break
 
     await consume_queue_stage()
 
