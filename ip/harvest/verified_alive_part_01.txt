@@ -53,3 +53,6 @@
 56.155.73.159:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 18.191.250.90:30938	speed.cloudflare.com	QUEUE	0	AMAZON-02
 54.198.140.56:38556	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+63.35.201.229:8080	www.google.com	QUEUE	0	AMAZON-02
+45.114.145.53:8080	speed.cloudflare.com	QUEUE	0	TEJAYS-AS
+16.28.101.55:80	www.google.com	QUEUE	0	AMAZON-02
