@@ -39,7 +39,7 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 
-SHARD_IDX = 10
+SHARD_IDX = 0
 SHARD_TAG = f"{SHARD_IDX:02d}"
 
 # ASN Lookup for provider logging
@@ -244,7 +244,9 @@ async def run_worker(shard_idx, worker_id, total_workers):
     dc_subnets = [s for idx, s in enumerate(dc_subnets_all) if idx % NUM_SHARDS == shard_idx][worker_id::total_workers]
 
     queue_dir = os.path.join(REPO, "ip", "harvest", "queue")
+    acks_dir = os.path.join(REPO, "ip", "harvest", "acks")
     os.makedirs(queue_dir, exist_ok=True)
+    os.makedirs(acks_dir, exist_ok=True)
 
     cur_res_idx = 0
     cur_mob_idx = 0
@@ -259,7 +261,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
             q_files = sorted([f for f in os.listdir(queue_dir) if f.startswith("q_") and f.endswith(".txt")])
             for qf_name in q_files:
                 qf_path = os.path.join(queue_dir, qf_name)
-                ack_marker = qf_path + f".ack_{shard_idx}"
+                ack_marker = os.path.join(acks_dir, f"{qf_name}.ack_{shard_idx}")
                 if not os.path.exists(ack_marker):
                     # Read lines and stride
                     lines = []
@@ -276,12 +278,12 @@ async def run_worker(shard_idx, worker_id, total_workers):
                     except Exception:
                         pass
                     # Check if all shards consumed it
-                    all_acks = [f for f in os.listdir(queue_dir) if f.startswith(qf_name + ".ack_")]
+                    all_acks = [f for f in os.listdir(acks_dir) if f.startswith(qf_name + ".ack_")]
                     if len(all_acks) >= NUM_SHARDS:
                         try:
                             os.remove(qf_path)
                             for a in all_acks:
-                                os.remove(os.path.join(queue_dir, a))
+                                os.remove(os.path.join(acks_dir, a))
                         except Exception:
                             pass
                     if shard_lines:
@@ -337,7 +339,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
         for qf_name in q_files:
             qf_path = os.path.join(queue_dir, qf_name)
-            ack_file = os.path.join(queue_dir, f"{qf_name}.ack_{shard_idx}")
+            ack_file = os.path.join(acks_dir, f"{qf_name}.ack_{shard_idx}")
             if os.path.exists(ack_file):
                 continue
 
@@ -397,12 +399,12 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 pass
 
             # Check if all 34 shards have passed it, then delete
-            acks = [f for f in os.listdir(queue_dir) if f.startswith(f"{qf_name}.ack_") and not f.endswith(".tmp")]
+            acks = [f for f in os.listdir(acks_dir) if f.startswith(f"{qf_name}.ack_") and not f.endswith(".tmp")]
             if len(acks) >= NUM_SHARDS:
                 try:
                     os.remove(qf_path)
                     for a in acks:
-                        os.remove(os.path.join(queue_dir, a))
+                        os.remove(os.path.join(acks_dir, a))
                     print(f"{log_pfx} [QUEUE STAGE] {qf_name} consumed by all {NUM_SHARDS} shards and removed.", flush=True)
                 except Exception:
                     pass
