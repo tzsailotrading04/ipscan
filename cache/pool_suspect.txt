@@ -1,353 +1,308 @@
-13.233.172.115:8000	http	US	16509	AMAZON-02	1165	MED	1
 13.203.202.168:80	http	US	0	DIRECT	500	FAST	1
-18.61.2.35:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-56.228.3.35:8080	speed.cloudflare.com	DATACENTER	0	AMAZON-02
-18.60.239.183:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-18.194.53.100:3118	speed.cloudflare.com	US	16509	AMAZON-02	30071	SLOW	7
-16.78.105.232:80	http	US	0	DIRECT	500	FAST	1
-172.232.155.226:8118	speed.cloudflare.com	DATACENTER	63949	AKAMAI-LINODE-AP Akamai Connected Cloud
-18.163.33.7:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-43.213.67.30:8118	speed.cloudflare.com	US	16509	AMAZON-02	63204	SLOW	6
-154.201.127.230:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
-54.216.243.162:1080	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-16.78.105.232:8888	www.google.com	DATACENTER	16509	AMAZON-02
-16.78.72.40:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+65.0.20.188:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
 13.126.183.60:10233	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.78.72.40:81	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+16.112.76.19:8000	socks5	US	16509	AMAZON-02	42059	SLOW	6
 15.160.235.180:1080	speed.cloudflare.com	US	16509	AMAZON-02	83348	SLOW	5
-15.152.165.108:8080	speed.cloudflare.com	US	16509	AMAZON-02	3082	SLOW	2
-34.245.141.188:3129	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-43.212.128.196:81	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-3.34.51.134:8001	speed.cloudflare.com	US	16509	AMAZON-02	2240	MED	1
-15.165.59.213:8888	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-15.224.203.224:8000	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-161.248.188.218:3128	speed.cloudflare.com	DATACENTER	0	UHB-AS-AP
-54.193.129.194:8118	one.one.one.one	DATACENTER	16509	AMAZON-02
-43.210.45.74:80	one.one.one.one	QUEUE	0	AMAZON-02
-209.97.150.167:3128	speed.cloudflare.com	DATACENTER	14061	DIGITALOCEAN-ASN
-13.204.143.22:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.200.9.220:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
-98.130.119.128:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.74.146.67:8118	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
 18.61.2.35:80	one.one.one.one	QUEUE	0	AMAZON-02
-15.165.59.213:8084	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-16.113.162.99:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.43.85.195:3128	one.one.one.one	QUEUE	0	AMAZON-02
-40.177.180.197:8010	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-18.217.248.118:83	speed.cloudflare.com	US	16509	AMAZON-02	103758	SLOW	4
-40.177.229.218:80	speed.cloudflare.com	US	0	DIRECT	500	FAST	1
-18.145.132.187:8000	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-13.200.9.220:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.203.202.168:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.57.184.130:8000	www.google.com	DATACENTER	16509	AMAZON-02
-15.160.201.169:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.232.184.66:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-78.12.93.242:8888	one.one.one.one	DATACENTER	16509	AMAZON-02
-15.160.201.169:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.188.117.88:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-3.34.51.134:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-52.59.42.97:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.53.172.83:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.160.135.252:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-40.192.8.157:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.43.85.195:80	www.google.com	QUEUE	0	AMAZON-02
-16.162.44.166:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.89.57.161:443	www.google.com	US	0	DIRECT	500	FAST	1
+43.213.35.37:81	speed.cloudflare.com	DATACENTER	0	AMAZON-02
+52.59.42.97:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.114.49.126:1082	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+13.39.85.231:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+15.168.254.188:8081	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
 95.40.98.38:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.212.226.239:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-161.248.188.38:3128	speed.cloudflare.com	DATACENTER	0	UHB-AS-AP
-16.79.60.249:80	one.one.one.one	QUEUE	0	AMAZON-02
+35.178.168.31:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+52.59.42.97:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.203.243.43:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.112.76.19:3128	http	US	16509	AMAZON-02	2663	MED	1
+65.0.54.254:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.162.44.166:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+163.52.150.22:8080	http	ID	154901	IDNIC-GARUDAAKSES-ID - PT GARUDA AKSES NUSANTARA	1121	MED	1
+13.53.172.83:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.61.2.126:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 35.178.168.31:8888	www.google.com	QUEUE	0	AMAZON-02
-78.13.112.106:8080	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-167.71.209.85:443	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-18.194.53.100:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-108.136.203.124:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.164.92.197:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.63.202.181:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.160.48.229:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-35.180.64.58:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.231.83.121:443	speed.cloudflare.com	DATACENTER	0	AMAZON-02
-18.117.241.1:8086	one.one.one.one	US	16509	AMAZON-02	38918	SLOW	7
-15.160.247.58:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.199.29.225:16005	speed.cloudflare.com	US	16509	AMAZON-02	8959	SLOW	7
+16.112.76.19:443	http	US	16509	AMAZON-02	15017	SLOW	5
 51.20.185.149:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.152.69.168:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.208.148.190:8000	speed.cloudflare.com	DATACENTER	0	AMAZON-02
-103.66.168.5:84	http	BD	152479	DSACL-AS-AP DELTA SOFTWARE AND COMMUNICATION LIMITED	39393	SLOW	5
-89.60.125.111:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-34.245.141.188:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.213.53.73:443	speed.cloudflare.com	US	0	DIRECT	500	FAST	1
-100.56.227.155:1080	speed.cloudflare.com	DATACENTER	14618	AMAZON-AES
-45.114.145.15:8080	speed.cloudflare.com	UNKNOWN	55507	TEJAYS-AS Tejays Dynamic Limited
-202.174.103.98:3128	speed.cloudflare.com	DATACENTER	4851	HOSTNETWORKS-AS-AU-AP Host Networks
-89.60.37.24:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-45.5.153.103:8080	www.google.com	UNKNOWN	265676	INTERSAT S.A.
-3.69.47.61:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-13.62.229.60:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.112.208.193:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-56.228.3.35:3128	one.one.one.one	QUEUE	0	AMAZON-02
-52.43.5.67:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.152.165.108:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.245.7.26:80	one.one.one.one	QUEUE	0	AMAZON-02
-51.48.166.196:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-98.86.106.48:80	speed.cloudflare.com	QUEUE	0	AMAZON-AES
-15.152.165.108:443	speed.cloudflare.com	US	16509	AMAZON-02	85227	SLOW	5
-78.12.93.242:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-89.60.125.111:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-102.222.240.10:9999	speed.cloudflare.com	RANDOM	0	TCS-WI-FI
-186.158.210.133:999	speed.cloudflare.com	RESIDENTIAL	11664	Techtel LMDS Comunicaciones Interactivas S.A.
-103.227.24.35:8080	http	ID	56246	SDI-AS-ID PT Sumber Data Indonesia	1607	MED	1
-13.57.184.130:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-54.193.129.194:80	www.google.com	QUEUE	0	AMAZON-02
-54.152.60.36:80	speed.cloudflare.com	QUEUE	0	AMAZON-AES
-56.125.107.172:80	one.one.one.one	QUEUE	0	AMAZON-02
-3.103.225.31:80	www.google.com	QUEUE	0	AMAZON-02
-78.14.33.189:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.175.187.75:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.210.69.163:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.184.73.48:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.113.22.148:8888	www.google.com	QUEUE	0	AMAZON-02
-223.123.37.138:8080	speed.cloudflare.com	UNKNOWN	138423	CMPAKLIMITED-AS-ENTCORP CMPak Limited
-77.113.104.127:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.60.239.183:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-181.174.126.218:999	speed.cloudflare.com	UNKNOWN	23243	COMCEL GUATEMALA S.A.
+16.18.147.222:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.164.92.197:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+57.129.88.206:8080	speed.cloudflare.com	DATACENTER	0	OVH
+43.208.175.145:80	www.google.com	QUEUE	0	AMAZON-02
+18.145.132.187:1080	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+35.152.64.241:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.160.48.229:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.142.114.238:8000	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+13.42.14.120:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.161.107.220:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.39.85.231:8888	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+65.0.54.254:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.89.57.161:3128	speed.cloudflare.com	DATACENTER	0	AMAZON-02
+35.180.133.99:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.117.241.1:8086	one.one.one.one	US	16509	AMAZON-02	38918	SLOW	7
+78.12.93.242:8118	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+15.232.45.244:8080	speed.cloudflare.com	US	16509	AMAZON-02	1351	MED	1
+52.53.173.174:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.224.101.10:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+24.5.246.43:8080	www.google.com	QUEUE	0	CMCS
+35.180.55.241:80	www.google.com	QUEUE	0	AMAZON-02
+51.85.72.134:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+32.236.37.146:9050	speed.cloudflare.com	DATACENTER	0	AMAZON-02
+113.53.29.143:80	one.one.one.one	RESIDENTIAL	23969	TOT-NET TOT Public Company Limited
+54.74.146.67:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+32.236.37.146:8080	speed.cloudflare.com	DATACENTER	0	AMAZON-02
+13.39.85.231:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+13.212.55.164:1080	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+144.124.251.24:10084	one.one.one.one	QUEUE	0	VDSINA
+51.84.242.253:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.160.48.229:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+40.177.180.197:80	speed.cloudflare.com	DATACENTER	0	AMAZON-02
+56.112.8.169:443	speed.cloudflare.com	US	0	DIRECT	500	FAST	1
+78.14.192.200:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.175.115.138:443	speed.cloudflare.com	DATACENTER	0	AMAZON-02
+13.212.55.164:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
 16.54.233.212:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-36.64.44.51:8080	speed.cloudflare.com	ID	7713	TELKOMNET-AS-AP PT Telekomunikasi Indonesia	6443	OK	1
-49.146.239.80:8080	speed.cloudflare.com	RESIDENTIAL	9299	IPG-AS-AP Philippine Long Distance Telephone Company
+81.34.115.5:3128	speed.cloudflare.com	RESIDENTIAL	3352	TELEFONICA_DE_ESPANA
+51.49.63.31:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.152.64.241:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+44.242.223.151:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.168.254.188:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.66.168.5:84	speed.cloudflare.com	RESIDENTIAL	152479	DSACL-AS-AP DELTA SOFTWARE AND COMMUNICATION LIMITED
+15.160.235.180:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.63.102.206:80	one.one.one.one	QUEUE	0	AMAZON-02
+16.51.92.128:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+16.162.44.166:1080	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+16.50.48.232:80	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+18.201.38.171:8000	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+16.50.107.168:443	one.one.one.one	DATACENTER	16509	AMAZON-02
+15.232.45.244:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+41.33.60.42:8081	www.google.com	UNKNOWN	8452	TE-AS TE-AS
+13.196.162.77:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+144.124.251.24:10800	http	AE	216071	VDSINA	33921	SLOW	6
+16.27.102.166:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.224.101.10:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.212.55.164:80	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+3.25.66.167:80	one.one.one.one	QUEUE	0	AMAZON-02
+78.12.127.28:80	one.one.one.one	QUEUE	0	AMAZON-02
+65.0.20.188:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.110.100.10:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.142.114.238:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.208.35.252:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+3.125.38.117:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.113.22.148:8888	www.google.com	QUEUE	0	AMAZON-02
+78.14.121.12:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.66.168.5:84	http	BD	152479	DSACL-AS-AP DELTA SOFTWARE AND COMMUNICATION LIMITED	39393	SLOW	5
+16.174.163.168:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.188.173.45:8181	speed.cloudflare.com	RESIDENTIAL	149736	IDNIC-SATRIANET-AS-ID PT Satria Digital Media
 56.155.73.159:21024	speed.cloudflare.com	QUEUE	0	AMAZON-02
-56.124.69.80:80	one.one.one.one	QUEUE	0	AMAZON-02
-56.155.73.159:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.244.61.242:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-51.85.36.60:80	one.one.one.one	QUEUE	0	AMAZON-02
-177.234.217.235:999	one.one.one.one	RESIDENTIAL	52468	UFINET PANAMA S.A.
-13.233.172.115:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-196.41.105.2:8080	speed.cloudflare.com	UNKNOWN	36874	Cybersmart
-56.69.42.189:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
 108.136.234.225:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.188.117.88:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.27.108.115:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-103.13.221.149:20000	www.google.com	UNKNOWN	138195	MOACKCOLTD-AS-AP MOACK.Co.LTD
+56.69.202.107:443	www.google.com	QUEUE	0	AMAZON-02
 56.69.202.107:3128	www.google.com	QUEUE	0	AMAZON-02
-51.48.55.68:8080	speed.cloudflare.com	RANDOM	0	AMAZON-02
-54.20.247.236:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.69.42.189:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.216.243.162:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.78.253.93:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.242.105.31:8080	speed.cloudflare.com	ID	58821	IDNIC-LJN-AS-ID PT Lintas Jaringan Nusantara	24760	SLOW	6
+1.4.167.156:8080	speed.cloudflare.com	RESIDENTIAL	0	TOT-NET
 51.48.55.68:3128	speed.cloudflare.com	RANDOM	0	AMAZON-02
-15.217.109.234:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.200.249.196:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.48.55.68:443	speed.cloudflare.com	RANDOM	0	AMAZON-02
+94.251.4.170:3128	speed.cloudflare.com	DATACENTER	0	ZSTTKAS
 51.48.55.68:80	speed.cloudflare.com	RANDOM	0	AMAZON-02
 51.48.55.68:8888	speed.cloudflare.com	RANDOM	0	AMAZON-02
-51.48.55.68:443	speed.cloudflare.com	RANDOM	0	AMAZON-02
-110.78.22.150:80	speed.cloudflare.com	RANDOM	0	CAT-AP
-56.69.202.107:443	www.google.com	QUEUE	0	AMAZON-02
-167.71.209.85:80	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
+51.48.55.68:8080	speed.cloudflare.com	RANDOM	0	AMAZON-02
+13.232.184.66:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 51.20.6.94:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-51.20.6.94:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.69.47.61:80	one.one.one.one	QUEUE	0	AMAZON-02
-43.213.32.70:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-2.26.138.141:3128	speed.cloudflare.com	US	216475	NKTELECOM	201	FAST	2
-15.160.48.229:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-59.153.82.211:8080	speed.cloudflare.com	UNKNOWN	56233	ATSINDO-AS-ID PT Asia Teknologi Solusi
-51.48.166.196:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-51.85.72.134:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-65.0.54.254:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-51.96.156.251:80	one.one.one.one	QUEUE	0	AMAZON-02
-115.77.169.40:8080	speed.cloudflare.com	RESIDENTIAL	7552	VIETEL-AS-AP Viettel Group
-43.208.148.190:80	one.one.one.one	QUEUE	0	AMAZON-02
+103.188.173.45:8181	http	ID	149736	IDNIC-SATRIANET-AS-ID PT Satria Digital Media	14005	SLOW	5
 43.216.145.226:8118	www.google.com	QUEUE	0	AMAZON-02
-15.161.107.220:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-134.122.27.92:443	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-134.122.27.92:8888	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-132.243.190.107:1080	www.google.com	None	0	Not routed	594	FAST	1
+18.201.38.171:8080	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+15.160.135.252:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.152.69.168:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.43.85.195:80	www.google.com	QUEUE	0	AMAZON-02
+56.155.73.159:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.38.100.128:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.38.100.128:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.161.107.220:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.210.45.74:80	one.one.one.one	QUEUE	0	AMAZON-02
+16.18.22.211:7940	speed.cloudflare.com	QUEUE	0	AMAZON-02
+32.236.37.146:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
 134.122.27.92:80	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-3.231.160.150:8080	one.one.one.one	US	14618	AMAZON-AES	1609	MED	1
+85.137.245.60:8888	www.google.com	DATACENTER	0	COGNETCLOUD-2
+35.180.127.195:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+85.137.245.60:8888	www.google.com	DATACENTER	0	COGNETCLOUD-2
 134.122.27.92:3128	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
 134.122.27.92:8080	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-3.69.47.61:3128	speed.cloudflare.com	DATACENTER	0	AMAZON-02
-15.232.45.244:8080	speed.cloudflare.com	US	16509	AMAZON-02	1351	MED	1
-15.161.107.220:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.204.143.22:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-157.245.88.228:8888	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-52.43.5.67:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.39.235.250:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.232.45.244:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.180.127.195:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.152.69.168:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.38.100.128:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.254.54.197:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+110.78.22.150:80	speed.cloudflare.com	RANDOM	0	CAT-AP
+134.122.27.92:8888	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
 35.180.127.195:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.38.100.128:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.180.133.99:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.61.2.35:8118	one.one.one.one	QUEUE	0	AMAZON-02
-13.208.185.47:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.204.143.22:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.152.64.241:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-38.80.11.201:8080	speed.cloudflare.com	ID	142238	IDNIC-JOSU-AS-ID PT Josu Global Teknologi	1260	MED	1
-15.160.135.252:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.208.148.190:443	www.google.com	QUEUE	0	AMAZON-02
+13.204.143.22:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+144.124.251.24:10412	speed.cloudflare.com	QUEUE	0	VDSINA
+13.63.69.254:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.201.38.171:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+52.43.5.67:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.152.69.168:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.134.245.77:80	speed.cloudflare.com	US	16509	AMAZON-02	5375	OK	1
+157.245.88.228:8888	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
 43.217.150.170:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.112.76.19:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.254.54.197:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.208.148.190:8118	one.one.one.one	QUEUE	0	AMAZON-02
-43.212.103.108:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-65.0.116.17:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.216.94.117:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-34.245.141.188:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.223.187.219:3128	one.one.one.one	QUEUE	0	AMAZON-02
-35.180.55.241:80	www.google.com	QUEUE	0	AMAZON-02
-51.48.166.196:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.123.36.234:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-154.59.56.74:999	one.one.one.one	UNKNOWN	264778	TotalCom Venezuela C.A.
 3.254.54.197:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.34.51.134:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-51.20.6.94:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.61.2.35:8118	one.one.one.one	QUEUE	0	AMAZON-02
+52.43.5.67:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.203.202.168:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.208.148.190:443	www.google.com	QUEUE	0	AMAZON-02
+56.112.8.169:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.247.194.244:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.204.143.22:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 15.223.187.219:8080	one.one.one.one	QUEUE	0	AMAZON-02
-15.160.48.229:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.63.176.228:80	one.one.one.one	QUEUE	0	AMAZON-02
-103.176.96.228:8082	speed.cloudflare.com	RESIDENTIAL	147131	IDNIC-GFIBER-AS-ID PT Global Sarana Elektronika
-114.249.219.180:8888	speed.cloudflare.com	CN	4808	CHINA169-BJ China Unicom Beijing Province Network	3078	OK	1
-16.164.200.78:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.161.107.220:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-54.219.243.232:80	www.google.com	QUEUE	0	AMAZON-02
-18.194.53.100:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.224.203.224:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-108.130.7.147:443	www.google.com	QUEUE	0	AMAZON-02
-18.194.53.100:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.165.59.213:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.69.47.61:1080	speed.cloudflare.com	DATACENTER	0	AMAZON-02
-16.79.56.209:80	www.google.com	QUEUE	0	AMAZON-02
-56.69.197.16:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-35.180.42.71:8888	one.one.one.one	QUEUE	0	AMAZON-02
-56.68.113.189:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.160.201.169:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-54.74.146.67:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.198.250.71:80	www.google.com	QUEUE	0	AMAZON-02
+34.245.141.188:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.208.148.190:8118	one.one.one.one	QUEUE	0	AMAZON-02
+38.63.117.66:999	speed.cloudflare.com	UNKNOWN	271907	COLNETWORK C.A.
+65.0.116.17:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.112.76.19:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+134.122.27.92:443	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
+51.20.6.94:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.48.166.196:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.130.61.60:8081	http	ID	138079	FASTAMA-AS-ID PT. Fiqran Solusindo Mediatama	2178	MED	1
 16.26.87.131:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.25.66.167:80	one.one.one.one	QUEUE	0	AMAZON-02
-107.170.235.180:8080	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-15.160.134.5:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.224.101.10:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-108.130.7.147:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.123.36.234:80	one.one.one.one	QUEUE	0	AMAZON-02
-16.146.110.59:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-56.228.25.110:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.224.203.224:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-51.84.242.253:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
-56.228.25.110:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.164.200.78:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.123.36.234:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.247.194.244:8080	www.google.com	DATACENTER	16509	AMAZON-02
+3.34.51.134:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.180.64.58:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.194.53.100:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.194.53.100:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.216.94.117:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+108.130.7.147:443	www.google.com	QUEUE	0	AMAZON-02
+15.160.134.5:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.194.53.100:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.224.203.224:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.161.107.220:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.79.56.209:80	www.google.com	QUEUE	0	AMAZON-02
 54.253.58.108:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 35.153.102.231:80	speed.cloudflare.com	QUEUE	0	AMAZON-AES
-15.168.240.202:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.160.134.5:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-32.236.37.146:443	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
-163.128.137.235:8080	speed.cloudflare.com	RESIDENTIAL	154583	IDNIC-MYFREND-ID PT DIGITAL MYFREND SOLUSINDO
-34.221.27.234:80	www.google.com	QUEUE	0	AMAZON-02
-51.84.11.126:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.175.114.40:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-45.56.67.106:80	speed.cloudflare.com	DATACENTER	0	AKAMAI-LINODE-AP
-13.57.222.68:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.63.102.206:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
-43.199.29.225:24737	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.60.190.117:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-177.177.58.183:8080	speed.cloudflare.com	QUEUE	0	V
-51.21.131.197:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.102.135.94:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.18.99.128:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.224.94.46:45342	one.one.one.one	QUEUE	0	AMAZON-02
-81.213.205.107:8080	speed.cloudflare.com	UNKNOWN	9121	TTNET
-54.189.141.187:3128	www.google.com	QUEUE	0	AMAZON-02
-13.209.65.136:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-78.14.121.12:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-54.189.141.187:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
-13.239.135.61:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.228.203.63:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.145.132.187:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.176.232.186:8000	one.one.one.one	US	16509	AMAZON-02	796	FAST	1
-56.112.78.190:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-54.159.175.63:80	speed.cloudflare.com	QUEUE	0	AMAZON-AES
-18.144.86.139:3128	www.google.com	DATACENTER	16509	AMAZON-02
-16.51.93.34:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-54.252.150.170:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-223.25.110.77:8090	one.one.one.one	RESIDENTIAL	136873	MEGADATA-AS-ID MEGADATA-ISP
-3.102.14.75:80	www.google.com	QUEUE	0	AMAZON-02
-41.33.173.84:8080	speed.cloudflare.com	QUEUE	0	TE-AS
-35.182.240.200:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.26.157.9:8118	one.one.one.one	QUEUE	0	AMAZON-02
-184.22.130.49:8080	www.google.com	RESIDENTIAL	133481	AIS-FIBRE-AS-AP AIS Fibre
+56.69.197.16:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.125.107.172:80	one.one.one.one	QUEUE	0	AMAZON-02
+103.102.13.119:8080	speed.cloudflare.com	UNKNOWN	136865	FISNET-AS-ID PT Foura Inti Sinergi
+56.68.113.189:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 159.203.216.138:443	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-100.56.227.155:80	speed.cloudflare.com	QUEUE	0	AMAZON-AES
-103.176.211.140:8080	speed.cloudflare.com	RES	0	AIRNETNETWORKS-AS-IN
-18.231.83.121:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-89.211.124.247:8080	speed.cloudflare.com	QA	8781	QA-ISP	43038	SLOW	5
-56.228.13.15:80	one.one.one.one	QUEUE	0	AMAZON-02
-156.155.7.123:8080	speed.cloudflare.com	DATACENTER	0	AFRIHOST-SP
-43.199.29.225:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-15.228.250.12:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-202.93.247.10:8080	speed.cloudflare.com	UNKNOWN	38778	DWPNET-AS-ID PT. Dutakom Wibawa Putra
-13.236.6.215:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-163.52.229.5:8080	speed.cloudflare.com	QUEUE	0	IDNIC-CDP-ID
-43.202.114.177:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-113.53.29.115:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
-108.131.152.118:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.103.31.149:80	www.google.com	QUEUE	0	AMAZON-02
-49.48.69.60:8080	speed.cloudflare.com	RESIDENTIAL	45758	TTBP-AS-AP Triple T Broadband Public Company Limited
-43.202.114.177:443	www.google.com	QUEUE	0	AMAZON-02
-145.220.227.24:8080	one.one.one.one	NL	1101	IP-EEND-AS IP-EEND BV	717	FAST	1
-13.38.27.183:3128	one.one.one.one	US	16509	AMAZON-02	520	FAST	1
-18.222.231.188:8080	one.one.one.one	US	16509	AMAZON-02	1586	MED	1
+78.12.93.242:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+45.56.67.106:80	speed.cloudflare.com	DATACENTER	0	AKAMAI-LINODE-AP
+103.122.32.62:8080	speed.cloudflare.com	QUEUE	0	CEPATNET-AS-ID
+56.228.25.110:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+107.170.235.180:8080	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
+103.65.212.184:8080	one.one.one.one	RESIDENTIAL	135449	BIPNET-AS-ID PT. Broadband Indonesia Pratama
+108.131.152.118:443	one.one.one.one	QUEUE	0	AMAZON-02
+108.130.7.147:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+107.170.235.28:8080	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
+13.239.135.61:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.166.124.227:8080	speed.cloudflare.com	DATACENTER	0	IDNIC-LHOST-AS-ID
+108.131.152.118:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.224.203.224:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.228.25.110:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+34.221.27.234:80	www.google.com	QUEUE	0	AMAZON-02
+103.68.140.6:8080	speed.cloudflare.com	RES	0	ANI89-AS-IN
+3.123.36.234:80	one.one.one.one	QUEUE	0	AMAZON-02
+51.84.11.126:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.18.99.128:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+89.60.125.111:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+89.60.37.24:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.223.187.219:3128	one.one.one.one	QUEUE	0	AMAZON-02
+15.160.201.169:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.171.82.29:8080	speed.cloudflare.com	ID	142373	IDNIC-MULTINET-AS-ID PT Multi Network Indonesia	1593	MED	1
+3.112.208.193:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+144.124.251.24:10526	speed.cloudflare.com	QUEUE	0	VDSINA
+51.17.99.135:13766	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.175.114.40:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.209.65.136:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+89.60.125.111:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.21.131.197:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.68.116.64:52083	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+16.51.93.34:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.189.141.187:3128	www.google.com	QUEUE	0	AMAZON-02
+3.102.14.75:80	www.google.com	QUEUE	0	AMAZON-02
+168.205.125.106:8080	speed.cloudflare.com	BR	263661	BRASIL DIGITAL SERVICOS DE INFORMATICA E COMERCIO	6132	SLOW	6
+18.145.132.187:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.189.141.187:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.144.86.139:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.198.140.56:38556	one.one.one.one	QUEUE	0	AMAZON-AES
+198.46.249.70:1080	speed.cloudflare.com	DATACENTER	36352	AS-COLOCROSSING
+16.51.5.77:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+54.193.129.194:80	www.google.com	QUEUE	0	AMAZON-02
+157.66.16.38:8070	speed.cloudflare.com	QUEUE	0	IDNIC-MMNET-AS-ID
+78.14.33.189:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.102.135.94:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.159.175.63:80	speed.cloudflare.com	QUEUE	0	AMAZON-AES
 159.65.73.45:443	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-186.108.254.212:8080	speed.cloudflare.com	QUEUE	0	TELECOM
+34.229.190.39:3563	speed.cloudflare.com	US	14618	AMAZON-AES	56959	SLOW	4
+3.103.225.31:80	www.google.com	QUEUE	0	AMAZON-02
+16.26.157.9:8118	one.one.one.one	QUEUE	0	AMAZON-02
+78.12.136.220:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+122.163.179.80:80	www.google.com	RES	0	AIRTELBROADBAND-AS-AP
+122.2.48.121:8080	speed.cloudflare.com	RESIDENTIAL	9299	IPG-AS-AP Philippine Long Distance Telephone Company
+78.12.136.220:80	one.one.one.one	QUEUE	0	AMAZON-02
+125.27.241.98:8080	speed.cloudflare.com	TH	23974	MOE-AS-AP Ministry of education	1365	MED	1
+112.201.184.44:8080	speed.cloudflare.com	RESIDENTIAL	9299	IPG-AS-AP Philippine Long Distance Telephone Company
+13.236.6.215:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+165.154.20.187:10808	speed.cloudflare.com	DATACENTER	135377	UCLOUD-HK-AS-AP UCLOUD INFORMATION TECHNOLOGY HK LIMITED
+223.25.110.77:8090	one.one.one.one	RESIDENTIAL	136873	MEGADATA-AS-ID MEGADATA-ISP
 103.120.40.114:8080	www.google.com	QUEUE	0	IDNIC-ADF-AS-ID
-105.233.236.112:8080	one.one.one.one	QUEUE	0	CYBERSMART
+108.131.152.118:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+49.206.197.31:80	speed.cloudflare.com	RES	0	CABLELITE-AS-AP
+45.195.249.146:8080	one.one.one.one	QUEUE	0	JEO-AS-AP
+18.175.170.244:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.228.13.15:80	one.one.one.one	QUEUE	0	AMAZON-02
 153.72.227.168:8080	speed.cloudflare.com	RANDOM	0	GOOGLE-CLOUD-PLATFORM
-35.78.252.142:8888	speed.cloudflare.com	US	16509	AMAZON-02	750	FAST	1
-161.33.153.142:3128	www.google.com	DATACENTER	31898	ORACLE-BMC-31898
+125.33.195.27:8888	speed.cloudflare.com	CN	4808	CHINA169-BJ China Unicom Beijing Province Network	1401	MED	1
+54.255.249.161:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+154.59.56.74:999	one.one.one.one	UNKNOWN	264778	TotalCom Venezuela C.A.
+40.192.70.191:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.198.78.37:18934	one.one.one.one	QUEUE	0	AMAZON-02
+35.183.78.223:30970	speed.cloudflare.com	QUEUE	0	AMAZON-02
 47.179.51.75:8080	www.google.com	RES	0	FRONTIER-FRTR
 47.179.51.78:8080	www.google.com	RES	0	FRONTIER-FRTR
-62.56.215.28:80	speed.cloudflare.com	RANDOM	0	DTAG
-157.90.93.240:3128	speed.cloudflare.com	DATACENTER	0	HETZNER-AS
+14.225.240.23:8562	speed.cloudflare.com	QUEUE	0	VNPT-AS-VN
 85.29.175.110:8080	speed.cloudflare.com	RANDOM	0	KAR-TEL-AS
-145.79.7.242:3128	speed.cloudflare.com	RANDOM	0	AS-HOSTINGER
+62.56.215.28:80	speed.cloudflare.com	RANDOM	0	DTAG
+109.248.231.22:443	speed.cloudflare.com	DATACENTER	0	GOHOST-KZ
+157.90.93.240:3128	speed.cloudflare.com	DATACENTER	0	HETZNER-AS
 69.62.92.35:3128	speed.cloudflare.com	DATACENTER	0	AS-HOSTINGER
-122.163.179.80:80	www.google.com	RES	0	AIRTELBROADBAND-AS-AP
-16.220.153.65:3128	speed.cloudflare.com	RES	0	EXO-BROADBAND
-15.217.214.40:443	one.one.one.one	QUEUE	0	AMAZON-02
-61.3.35.45:6588	speed.cloudflare.com	RES	0	BSNL-NIB
-45.195.249.146:8080	one.one.one.one	QUEUE	0	JEO-AS-AP
-49.206.197.31:80	speed.cloudflare.com	RES	0	CABLELITE-AS-AP
-103.156.217.101:1111	speed.cloudflare.com	QUEUE	0	FIBERNET-AS-ID
-103.68.140.6:8080	speed.cloudflare.com	RES	0	ANI89-AS-IN
-108.131.152.118:443	one.one.one.one	QUEUE	0	AMAZON-02
-108.131.152.118:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-18.144.86.139:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
 157.245.174.228:443	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-118.172.43.253:8080	one.one.one.one	QUEUE	0	TOT-NET
+145.79.7.242:3128	speed.cloudflare.com	RANDOM	0	AS-HOSTINGER
+18.231.214.206:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+167.71.209.85:443	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+16.220.153.65:3128	speed.cloudflare.com	RES	0	EXO-BROADBAND
+61.3.35.45:6588	speed.cloudflare.com	RES	0	BSNL-NIB
+119.159.146.165:8080	speed.cloudflare.com	QUEUE	0	PKTELECOM-AS-PK
+103.122.1.188:8181	speed.cloudflare.com	QUEUE	0	JAVADIGITAL-AS-ID
+167.71.209.85:80	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+151.242.173.217:8080	www.google.com	QUEUE	0	IDNIC-DNS-NET-AS-ID
+15.217.214.40:443	one.one.one.one	QUEUE	0	AMAZON-02
+108.131.152.118:24604	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.17.99.135:11962	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.28.101.55:8118	one.one.one.one	QUEUE	0	AMAZON-02
 76.13.215.228:8888	speed.cloudflare.com	DATACENTER	0	AS-HOSTINGER
 176.241.89.163:8080	speed.cloudflare.com	RANDOM	0	HAYAT-ISP-ASN
 85.105.250.156:8080	speed.cloudflare.com	QUEUE	0	TTNET
+103.174.236.88:8080	speed.cloudflare.com	QUEUE	0	IDNIC-GESITNET-AS-ID
+161.248.188.218:3128	speed.cloudflare.com	QUEUE	0	UHB-AS-AP
+103.176.97.74:8082	speed.cloudflare.com	QUEUE	0	IDNIC-GFIBER-AS-ID
 46.202.143.53:8080	speed.cloudflare.com	DATACENTER	0	AS-HOSTINGER
-191.97.8.101:3128	www.google.com	QUEUE	0	TV
-13.245.183.150:14537	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.28.101.55:3128	one.one.one.one	QUEUE	0	AMAZON-02
-122.176.99.218:80	www.google.com	RES	0	AIRTELBROADBAND-AS-AP
-16.28.32.67:8932	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.51.5.77:3128	speed.cloudflare.com	DATACENTER	16509	AMAZON-02
+56.112.93.245:443	speed.cloudflare.com	US	16509	AMAZON-02	1035	MED	6
+186.108.254.212:8080	speed.cloudflare.com	QUEUE	0	TELECOM
 116.204.166.153:8080	speed.cloudflare.com	QUEUE	0	RESERVED
-18.191.250.90:1080	one.one.one.one	US	16509	AMAZON-02	496	FAST	1
-107.170.235.28:8080	speed.cloudflare.com	DATACENTER	0	DIGITALOCEAN-ASN
-16.50.213.137:80	http	US	0	DIRECT	500	FAST	1
-188.165.48.48:3128	www.google.com	US	0	DIRECT	500	FAST	1
-78.12.136.220:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
-16.28.29.244:80	one.one.one.one	QUEUE	0	AMAZON-02
-139.59.150.139:3128	speed.cloudflare.com	DATACENTER	14061	DIGITALOCEAN-ASN
-62.57.28.158:8888	speed.cloudflare.com	RESIDENTIAL	6739	ONO-AS Cableuropa - ONO
-45.174.241.224:999	speed.cloudflare.com	UNKNOWN	265583	SISTEMAS Y SOLUCIONES DE CAMPECHE SAS DE CV
+56.228.13.15:39322	one.one.one.one	QUEUE	0	AMAZON-02
+123.119.179.161:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+35.78.252.142:80	one.one.one.one	QUEUE	0	AMAZON-02
+18.191.250.90:30938	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.222.231.188:28804	one.one.one.one	QUEUE	0	AMAZON-02
+20.75.181.232:3128	speed.cloudflare.com	DATACENTER	8075	MICROSOFT-CORP-MSN-AS-BLOCK
+16.52.81.236:4057	one.one.one.one	QUEUE	0	AMAZON-02
+18.191.250.90:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.28.32.67:8080	one.one.one.one	QUEUE	0	AMAZON-02
+3.21.129.156:12532	speed.cloudflare.com	QUEUE	0	AMAZON-02
 103.86.44.77:30115	speed.cloudflare.com	QUEUE	0	MOACKCOLTD-AS-AP
-112.201.184.44:8080	speed.cloudflare.com	RESIDENTIAL	9299	IPG-AS-AP Philippine Long Distance Telephone Company
-109.248.231.22:443	speed.cloudflare.com	DATACENTER	0	GOHOST-KZ
-125.33.195.27:8888	speed.cloudflare.com	CN	4808	CHINA169-BJ China Unicom Beijing Province Network	1401	MED	1
-1.53.148.79:8080	www.google.com	QUEUE	0	FPT-AS-AP
-46.225.70.214:3128	speed.cloudflare.com	DATACENTER	24940	HETZNER-AS
-103.122.1.188:8181	speed.cloudflare.com	QUEUE	0	JAVADIGITAL-AS-ID
-182.188.44.220:8080	www.google.com	RESIDENTIAL	17557	PKTELECOM-AS-PK Pakistan Telecommunication Company Limited
-119.159.146.165:8080	speed.cloudflare.com	QUEUE	0	PKTELECOM-AS-PK
-46.101.178.18:3128	one.one.one.one	DATACENTER	0	DIGITALOCEAN-ASN
-185.191.239.248:3128	speed.cloudflare.com	DATACENTER	0	GRUPO
+103.138.223.233:8080	speed.cloudflare.com	QUEUE	0	WELLNETWORKS-AS-AP
 172.239.127.163:3128	http	US	0	DIRECT	500	FAST	1
-79.98.34.36:8080	www.google.com	QUEUE	0	RESERVED
+8.163.24.236:8080	speed.cloudflare.com	DATACENTER	0	ALIBABA-CN-NET
+212.232.50.119:8080	www.google.com	RU	197078	YARNET-AS	3694	SLOW	1
+45.174.241.224:999	speed.cloudflare.com	UNKNOWN	265583	SISTEMAS Y SOLUCIONES DE CAMPECHE SAS DE CV
 93.55.126.184:8080	one.one.one.one	RANDOM	0	FASTWEB
+46.101.178.18:3128	one.one.one.one	DATACENTER	0	DIGITALOCEAN-ASN
+221.0.164.58:1081	speed.cloudflare.com	RANDOM	0	CHINA169-BACKBONE
+122.176.99.218:80	www.google.com	RES	0	AIRTELBROADBAND-AS-AP
