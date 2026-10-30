@@ -144,7 +144,86 @@ foreach ($vk in $vmap.Keys) {
         }
         Start-Sleep 3
     } else {
-        Log-Msg "Verifier cl_verify_$vk: status=$vkStatus"
+        Log-Msg "Verifier cl_verify_${vk}: status=$vkStatus"
+    }
+}
+
+# -------------------------------------------------------------
+# Local Daemons & Tasks Supervision: fleet_cycle, pool_reverify, dead_recycle
+# -------------------------------------------------------------
+$cooldownSec = 120  # Two-minute cooldown check
+
+function Test-Cooldown($lockFile) {
+    if (Test-Path $lockFile) {
+        $last = (Get-Item $lockFile).LastWriteTime
+        if ((Get-Date) - $last -lt (New-TimeSpan -Seconds $cooldownSec)) {
+            return $false
+        }
+    }
+    return $true
+}
+
+# 1. fleet_cycle.py
+$fcProc = Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*fleet_cycle.py*" }
+if (-not $fcProc) {
+    $fcLock = "$root\work\fleet_cycle_guard.lck"
+    if (Test-Cooldown $fcLock) {
+        Log-Msg "fleet_cycle.py not running. Starting in background..."
+        Set-Content -Path $fcLock -Value (Get-Date).ToString()
+        Start-Process -FilePath "python" -ArgumentList "tools\fleet_cycle.py" -WorkingDirectory $root -WindowStyle Hidden
+    } else {
+        Log-Msg "fleet_cycle.py in cooldown; skipping restart."
+    }
+} else {
+    Log-Msg "fleet_cycle.py running (PID: $($fcProc.ProcessId))."
+}
+
+# 2. pool_reverify.py
+$prProc = Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*pool_reverify.py*" }
+if (-not $prProc) {
+    $prLock = "$root\work\pool_reverify_guard.lck"
+    if (Test-Cooldown $prLock) {
+        Log-Msg "pool_reverify.py not running. Starting in background..."
+        Set-Content -Path $prLock -Value (Get-Date).ToString()
+        Start-Process -FilePath "python" -ArgumentList "tools\pool_reverify.py" -WorkingDirectory $root -WindowStyle Hidden
+    } else {
+        Log-Msg "pool_reverify.py in cooldown; skipping restart."
+    }
+} else {
+    Log-Msg "pool_reverify.py running (PID: $($prProc.ProcessId))."
+}
+
+# 3. dead_recycle.py (every 6 hours)
+$drLastRunFile = "$root\work\dead_recycle_last_run.txt"
+$drLock = "$root\work\dead_recycle_guard.lck"
+$drProc = Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*dead_recycle.py*" }
+$sixHoursSec = 6 * 3600
+
+$shouldRunDeadRecycle = $false
+if (-not $drProc) {
+    if (-not (Test-Path $drLastRunFile)) {
+        $shouldRunDeadRecycle = $true
+    } else {
+        $lastRunTime = (Get-Item $drLastRunFile).LastWriteTime
+        if ((Get-Date) - $lastRunTime -ge (New-TimeSpan -Seconds $sixHoursSec)) {
+            $shouldRunDeadRecycle = $true
+        }
+    }
+}
+
+if ($shouldRunDeadRecycle) {
+    if (Test-Cooldown $drLock) {
+        Log-Msg "dead_recycle.py due (6-hour interval reached). Starting pass..."
+        Set-Content -Path $drLock -Value (Get-Date).ToString()
+        Start-Process -FilePath "python" -ArgumentList "tools\dead_recycle.py --once" -WorkingDirectory $root -WindowStyle Hidden
+    } else {
+        Log-Msg "dead_recycle.py in cooldown; skipping run."
+    }
+} else {
+    if ($drProc) {
+        Log-Msg "dead_recycle.py currently running (PID: $($drProc.ProcessId))."
+    } else {
+        Log-Msg "dead_recycle.py interval not reached (runs every 6h)."
     }
 }
 
