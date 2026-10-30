@@ -25,7 +25,7 @@ NUM_SHARDS = 34
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 1
 
-ENGINE_VER = "v98.185"
+ENGINE_VER = "v98.187"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -228,7 +228,38 @@ async def run_worker(shard_idx, worker_id, total_workers):
     if os.path.exists(part_file):
         cands_found = sum(1 for _ in open(part_file, errors="ignore"))
 
-    print(f"{log_pfx} Random IPv4 Looping: Resume offset={offset:,} cands={cands_found:,}", flush=True)
+    recent_logs = collections.deque(maxlen=10)
+
+    def shard_log(msg):
+        ts_str = time.strftime('%Y-%m-%d %H:%M:%S')
+        formatted = f"[{ts_str}] [SHARD {SHARD_TAG} W{worker_id}] {msg}"
+        recent_logs.append(formatted)
+        print(formatted, flush=True)
+
+    def write_stage_file(stage, cur_offset):
+        if worker_id != 0:
+            return
+        stage_file = os.path.join(REPO, "ip", "harvest", f"stage_{SHARD_TAG}.txt")
+        now_ts = int(time.time())
+        last_5 = list(recent_logs)[-5:]
+        lines = [
+            f"stage={stage}",
+            f"ts={now_ts}",
+            f"offset={cur_offset}",
+            "--- LAST 5 LOG LINES ---"
+        ]
+        for l in last_5:
+            lines.append(l)
+        content = "\n".join(lines) + "\n"
+        try:
+            with open(stage_file + ".tmp", "w", encoding="utf-8") as sf:
+                sf.write(content)
+            os.replace(stage_file + ".tmp", stage_file)
+        except Exception:
+            pass
+
+    shard_log(f"Random IPv4 Looping: Resume offset={offset:,} cands={cands_found:,}")
+    write_stage_file("init", offset)
     part_fp = open(part_file, "a", encoding="utf-8")
 
     start_t = time.time()
@@ -332,8 +363,9 @@ async def run_worker(shard_idx, worker_id, total_workers):
         q_files = sorted([f for f in os.listdir(queue_dir) if f.startswith("q_") and f.endswith(".txt")])
         if not q_files:
             return
-        print(f"{log_pfx} [QUEUE STAGE] Found {len(q_files)} queue files to consume before IP scanning", flush=True)
+        shard_log(f"[QUEUE STAGE] Found {len(q_files)} queue files to consume before IP scanning", flush=True)
 
+        write_stage_file("queue_consuming", offset)
         queue_start_t = time.time()
         QUEUE_WALLCLOCK_LIMIT = 120.0  # Wall-clock limit of 120 seconds per cycle
 
@@ -354,13 +386,15 @@ async def run_worker(shard_idx, worker_id, total_workers):
             shard_slice = [l for idx, l in enumerate(lines) if idx % NUM_SHARDS == shard_idx]
             worker_slice = shard_slice[worker_id::total_workers]
 
-            print(f"{log_pfx} [QUEUE STAGE] Consuming {qf_name}: total={len(lines)} shard_slice={len(shard_slice)} worker_slice={len(worker_slice)}", flush=True)
+            shard_log(f"[QUEUE STAGE] Consuming {qf_name}: total={len(lines)} shard_slice={len(shard_slice)} worker_slice={len(worker_slice)}", flush=True)
 
             timed_out = False
+            write_stage_file(f"queue_file_{qf_name}", offset)
             for i in range(0, len(worker_slice), 500):
+                write_stage_file(f"queue_slice_{qf_name}_{i}", offset)
                 # Wall-clock limit check
                 if (time.time() - queue_start_t) >= QUEUE_WALLCLOCK_LIMIT:
-                    print(f"{log_pfx} [QUEUE TIMEOUT] Wall-clock limit ({QUEUE_WALLCLOCK_LIMIT}s) expired ({time.time() - queue_start_t:.1f}s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.", flush=True)
+                    shard_log(f"[QUEUE TIMEOUT] Wall-clock limit ({QUEUE_WALLCLOCK_LIMIT}s) expired ({time.time() - queue_start_t:.1f}s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.", flush=True)
                     timed_out = True
                     break
 
@@ -382,12 +416,12 @@ async def run_worker(shard_idx, worker_id, total_workers):
                             part_fp.write(f"{ip}:{passed_port}\t{target}\tQUEUE\t0\t{prov}\n")
                             part_fp.flush()
                             cands_found += 1
-                            print(f"{log_pfx} [FOUND QUEUE] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
+                            shard_log(f"[FOUND QUEUE] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
                     offset += len(tasks)
 
                 # Check limit after batch completion
                 if (time.time() - queue_start_t) >= QUEUE_WALLCLOCK_LIMIT:
-                    print(f"{log_pfx} [QUEUE TIMEOUT] Wall-clock limit ({QUEUE_WALLCLOCK_LIMIT}s) expired ({time.time() - queue_start_t:.1f}s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.", flush=True)
+                    shard_log(f"[QUEUE TIMEOUT] Wall-clock limit ({QUEUE_WALLCLOCK_LIMIT}s) expired ({time.time() - queue_start_t:.1f}s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.", flush=True)
                     timed_out = True
                     break
 
@@ -414,10 +448,13 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 break
 
     await consume_queue_stage()
+    write_stage_file("queue_done", offset)
 
     # MAIN WORKER EXECUTION LOOP
+    write_stage_file("scanning_start", offset)
     while True:
         task_items, current_tier = get_candidate_batch()
+        write_stage_file(f"{current_tier.lower()}_loop", offset)
         tasks = []
         for ip, p, tier in task_items:
             tasks.append((ip, p, tier, check_port(ip, p)))
@@ -431,9 +468,10 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 part_fp.write(f"{ip}:{passed_port}\t{target}\t{tier}\t0\t{prov}\n")
                 part_fp.flush()
                 cands_found += 1
-                print(f"{log_pfx} [FOUND {tier}] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
+                shard_log(f"[FOUND {tier}] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
 
         offset += len(task_items)
+        write_stage_file(f"{current_tier.lower()}_loop", offset)
         now = time.time()
         if now - last_stats_t >= 15:
             last_stats_t = now
@@ -582,7 +620,7 @@ def run_master():
 
         if part_changed or time_elapsed:
             last_push_t = now
-            commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} random_loop"
+            commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: offset={total_offset} cands={total_cands} stage_heartbeat"
             if git_sync_and_push(commit_msg):
                 last_shard_sig = cur_sig
 
