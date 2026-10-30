@@ -1,0 +1,37 @@
+======================================================================
+[2026-10-30 15:25:56] STARTING 30-MINUTE RATE PROOF MONITOR
+======================================================================
+BASELINE (T=0m):
+  real_pool.txt : 2536
+  pool_dead.txt : 86407
+  part files (last 5m) : 0 files, 0 lines
+
+[2026-10-30 15:26:00] Waiting 5 minutes for Reading 1/6...
+
+--- READING 1/6 at T=5m (2026-10-30 15:31:06) ---
+  wc -l on ip/harvest/real_pool.txt: 2536
+  wc -l on cache/pool_dead.txt:     86407
+  part files modified (last 5m):    0
+  total lines in part files (5m):   0
+[2026-10-30 15:31:06] Waiting 5 minutes for Reading 2/6...
+
+--- READING 2/6 at T=10m (2026-10-30 15:36:10) ---
+  wc -l on ip/harvest/real_pool.txt: 2752
+  wc -l on cache/pool_dead.txt:     86407
+  part files modified (last 5m):    0
+  total lines in part files (5m):   0
+[2026-10-30 15:36:10] Waiting 5 minutes for Reading 3/6...
+
+--- READING 3/6 at T=15m (2026-10-30 15:41:14) ---
+  wc -l on ip/harvest/real_pool.txt: 2752
+  wc -l on cache/pool_dead.txt:     86407
+  part files modified (last 5m):    0
+  total lines in part files (5m):   0
+[2026-10-30 15:41:14] Waiting 5 minutes for Reading 4/6...
+
+--- READING 4/6 at T=20m (2026-10-30 15:46:17) ---
+  wc -l on ip/harvest/real_pool.txt: 2666
+  wc -l on cache/pool_dead.txt:     86493
+  part files modified (last 5m):    0
+  total lines in part files (5m):   0
+[2026-10-30 15:46:17] Waiting 5 minutes for Reading 5/6...
