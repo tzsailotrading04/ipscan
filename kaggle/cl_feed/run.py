@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 r"""
-DEpin Farm 100-Source Feeder Kernel (v98.180)
+DEpin Farm 100-Source Feeder Kernel (v98.182)
 - Runs autonomously as a Kaggle batch CPU kernel (remruata/ipscan-cl-feed)
 - Universal regex parser (\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}\b)
 - Validates octets 0-255, ports 1-65535, drops private/bogon IPs
 - Concurrent fetcher: 40 workers, 20s timeout, 3 retries with backoff
 - Skips failing source for 30 min after 3 consecutive failures
 - 900s cycle loop, one slow source never stalls cycle
-- Dedupes against cache/harvest_seen_set.txt, writing new entries to ip/harvest/queue/q_<ts>.txt
-- Verbatim git push helper, 3 retries with jitter, clean exit before 12h
+- Writes novel entries directly to ip/harvest/queue/q_<ts>.txt
+- Keeps seen_set in memory so git push only stages queue files (zero merge conflicts)
+- Verbatim git push helper, retries with backoff, clean exit before 12h
 """
 import os
 import re
@@ -26,6 +27,7 @@ REPO_URL = f"https://x-access-token:{_TOKEN}@github.com/tzsailotrading04/ipscan.
 WORK = "/kaggle/working" if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"D:\DEpinFarm"
 
+LOCAL_SOURCES = os.path.join(os.path.dirname(__file__), "sources.txt")
 SOURCES_FILE = os.path.join(REPO, "tools", "sources.txt")
 SEEN_FILE = os.path.join(REPO, "cache", "harvest_seen_set.txt")
 QUEUE_DIR = os.path.join(REPO, "ip", "harvest", "queue")
@@ -93,7 +95,6 @@ def parse_proxies_from_raw(raw_text):
             continue
     return results
 
-# Failure tracker: {url: {"consecutive": int, "cooldown_until": float}}
 source_state = {}
 
 def fetch_source(url):
@@ -139,7 +140,7 @@ def fetch_source(url):
 
 def git_sync_and_push(msg):
     try:
-        subprocess.run(["git", "-C", REPO, "add", "-A"], check=False)
+        subprocess.run(["git", "-C", REPO, "add", "ip/harvest/queue/"], check=False)
         st = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True, text=True)
         if not st.stdout.strip():
             return True
@@ -147,21 +148,19 @@ def git_sync_and_push(msg):
         if c_res.returncode != 0 and ("nothing to commit" in c_res.stdout or "nothing to commit" in c_res.stderr):
             return True
 
-        for attempt in range(1, 16):
+        for attempt in range(1, 20):
             subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], check=False)
             m_res = subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "origin/main"], capture_output=True, text=True)
             if m_res.returncode != 0:
                 subprocess.run(["git", "-C", REPO, "merge", "--abort"], capture_output=True)
-                backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
-                time.sleep(backoff)
+                time.sleep(random.uniform(0.5, 2.0))
                 continue
 
             p_res = subprocess.run(["git", "-C", REPO, "push", "origin", "HEAD:main"], capture_output=True, text=True)
             if p_res.returncode == 0:
                 return True
-            print(f"[GIT ERROR] push failed attempt {attempt}/16: {p_res.stderr.strip()}", file=sys.stderr, flush=True)
-            backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
-            time.sleep(backoff)
+            print(f"[GIT ERROR] push failed attempt {attempt}/20: {p_res.stderr.strip()}", file=sys.stderr, flush=True)
+            time.sleep(random.uniform(0.5, 2.0))
         return False
     except Exception as e:
         print(f"[GIT EXCEPTION] {e}", file=sys.stderr, flush=True)
@@ -169,7 +168,7 @@ def git_sync_and_push(msg):
 
 def main():
     log("=" * 80)
-    log("  DEpin Farm 100-Source Feeder Kernel (cl_feed) Initializing")
+    log("  DEpin Farm Feeder Kernel (cl_feed v98.182) Initializing")
     log(f"  Concurrency: {CONCURRENCY} | Timeout: {TIMEOUT}s | Cycle: {CYCLE_INTERVAL}s")
     log("=" * 80)
 
@@ -182,7 +181,6 @@ def main():
         subprocess.run(["git", "-C", REPO, "config", "user.email", "cl_feed@depinfarm.org"], check=False)
 
     os.makedirs(QUEUE_DIR, exist_ok=True)
-    os.makedirs(os.path.dirname(SEEN_FILE), exist_ok=True)
 
     # Load seen set
     seen_set = set()
@@ -210,13 +208,14 @@ def main():
         # Pull latest changes from git
         subprocess.run(["git", "-C", REPO, "pull", "--rebase", "origin", "main"], capture_output=True, check=False)
 
-        # Load sources
-        if not os.path.exists(SOURCES_FILE):
-            log(f"ERROR: {SOURCES_FILE} not found!")
+        # Load sources from repo or fallback
+        src_path = SOURCES_FILE if os.path.exists(SOURCES_FILE) else LOCAL_SOURCES
+        if not os.path.exists(src_path):
+            log(f"ERROR: Sources file not found at {src_path}!")
             time.sleep(30)
             continue
 
-        with open(SOURCES_FILE, "r", encoding="utf-8") as f:
+        with open(src_path, "r", encoding="utf-8") as f:
             sources = [line.strip() for line in f if line.strip() and not line.strip().startswith("#")]
 
         log(f"--- STARTING CYCLE {cycle} ({len(sources)} sources) ---")
@@ -242,7 +241,7 @@ def main():
                     src_err += 1
                     print(f"  [source] EXC {exc} {url[:70]}", flush=True)
 
-        # Dedupe against seen set
+        # Dedupe against in-memory seen set
         novel_entries = []
         dup_count = 0
         for cand in cycle_candidates:
@@ -252,7 +251,8 @@ def main():
                 novel_entries.append(cand)
                 seen_set.add(cand)
 
-        # Count current queue files
+        # Ensure queue directory exists
+        os.makedirs(QUEUE_DIR, exist_ok=True)
         queue_files = [f for f in os.listdir(QUEUE_DIR) if f.startswith("q_") and f.endswith(".txt")]
         files_count = len(queue_files)
 
@@ -264,13 +264,9 @@ def main():
                     qf.write(f"{entry}\n")
             files_count += 1
 
-            # Append to seen set immediately
-            with open(SEEN_FILE, "a", encoding="utf-8") as sf:
-                for entry in sorted(novel_entries):
-                    sf.write(f"{entry}\n")
-
             commit_msg = f"[feed] cycle={cycle} new={len(novel_entries)} total_seen={len(seen_set)}"
-            git_sync_and_push(commit_msg)
+            pushed = git_sync_and_push(commit_msg)
+            log(f"Wrote {len(novel_entries)} novel candidates to {q_file} (pushed={pushed})")
         else:
             print("FEEDER_DRY", flush=True)
 
