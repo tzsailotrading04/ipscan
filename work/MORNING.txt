@@ -298,3 +298,24 @@ HONEST POOL 10-MINUTE HOLD VERIFICATION - 2026-10-30 13:35:25
   Part Files Count:                       94 files (40,853 lines)
 STATUS: COMPLETE & STABLE
 ================================================================================
+
+================================================================================
+APP ACCEPTANCE TEST REPORT (45 MINUTES) - 2026-10-30 08:54:22
+================================================================================
+SET A (STRICT):
+  Assigned:          50
+  Connected:         45 / 50 (90.0%)
+  Sold Any Traffic:  45 / 50
+  Total MB Sold:     205.69 MB
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+SET B (SKIRT):
+  Assigned:          50
+  Connected:         0 / 50 (0.0%)
+  Sold Any Traffic:  0 / 50
+  Total MB Sold:     0.0 MB
+================================================================================
+COMPARATIVE RATIOS (B / A):
+  Connection Rate Ratio: 0.00 (0 / 45)
+  Bytes Sold Ratio:      0.00 (0.0 MB / 205.69 MB)
+DECISION: SKIRT_DEAD
+================================================================================
