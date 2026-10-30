@@ -1,7 +1,11 @@
+offset=46851803
 offset=48401200
 total=4294967296
-cands=15
+cands=16
 errno99=0
+timeout=451468
+refused=21997
+req_s=47715.4
 timeout=46483735
 refused=722277
 req_s=1611.1
