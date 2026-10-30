@@ -398,11 +398,11 @@ def fetch_all_source_b(urls):
 # ------------------------------------------------------------------------------
 # STRICT CERT-VALID VERIFICATION PROBE (CONCURRENCY 600, MULTI-TARGET)
 # ------------------------------------------------------------------------------
-def sync_tls_handshake(sock, target, timeout=6.0):
+def sync_tls_handshake(sock, target, timeout=8.0):
     try:
         sock.setblocking(True)
         sock.settimeout(timeout)
-        req = f"CONNECT {target}:443 HTTP/1.1\r\nHost: {target}:443\r\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\nProxy-Connection: Keep-Alive\r\n\r\n".encode()
+        req = f"CONNECT {target}:443 HTTP/1.1\r\nHost: {target}:443\r\n\r\n".encode()
         sock.sendall(req)
 
         resp = b""
@@ -411,16 +411,16 @@ def sync_tls_handshake(sock, target, timeout=6.0):
             if not chunk:
                 return False
             resp += chunk
-            if len(resp) > 4096:
+            if len(resp) > 2048:
                 return False
 
         first_line = resp.split(b"\r\n")[0]
         if not (b" 200" in first_line or b"HTTP/1.1 200" in first_line or b"HTTP/1.0 200" in first_line):
             return False
 
-        # Peek TLS record header: MUST be 0x16 (TLS Handshake record type)
-        peek_hdr = sock.recv(5, socket.MSG_PEEK)
-        if len(peek_hdr) < 5 or peek_hdr[0] != 0x16:
+        parts = resp.split(b"\r\n\r\n", 1)
+        trailing = parts[1] if len(parts) > 1 else b""
+        if trailing and trailing[:1] != b"\x16":
             return False
 
         # Full TLS handshake validated against system CA chain
@@ -440,7 +440,7 @@ def sync_tls_handshake(sock, target, timeout=6.0):
             pass
         return False
 
-def sync_probe_candidate(ip, port, timeout=6.0):
+def sync_probe_candidate(ip, port, timeout=8.0):
     for target in TARGETS:
         s = None
         try:
