@@ -198,3 +198,45 @@ FLEET_CYCLE.txt Tail:
   [2026-10-30 04:33:06] cycle=6 dead=1 repushed=1 new_pool=2 pool_total=3048
   [2026-10-30 12:02:48] cycle=1 dead=0 repushed=0 new_pool=15 pool_total=3776
 ================================================================================
+================================================================================
+BRIEF v98.182 PROOF AT 12 MINUTES - 2026-10-30 13:02:25
+================================================================================
+Queue Files:           1
+Queue Lines:           225
+Feed Log Tail:
+  * branch                  main       -> FETCH_HEAD
+  5c5358f12d..f2a908bb3e  main       -> origin/main
+  [2026-10-30 07:02:44] Wrote 225 novel candidates to /kaggle/working/ipscan/ip/harvest/queue/q_1793343761.txt (pushed=True)
+  [feed] cycle=1 src_ok=76 src_err=24 new=225 dup=191798 files=1
+  [2026-10-30 07:02:44] Cycle 1 complete in 135.2s. Sleeping 764.8s...
+Feed Summary (ok/err): [feed] cycle=1 src_ok=76 src_err=24 new=225 dup=191798 files=1
+--------------------------------------------------------------------------------
+Shard 00: req_s=7076.1 | cands=36
+Shard 20: req_s=101435.9 | cands=3
+--------------------------------------------------------------------------------
+Verified Pool Size:    2981
+Dead Size:             5496
+Suspect Size:          255
+--------------------------------------------------------------------------------
+RUNNING Sessions Per Account:
+  remruata          : 4/5 [OK]
+  lalthazualasailo  : 5/5 [OK]
+  zomuanpuia        : 5/5 [OK]
+  laldinthari       : 5/5 [OK]
+  lalsangkima       : 5/5 [OK]
+  spectatorlone     : 5/5 [OK]
+  stephen34         : 5/5 [OK]
+--------------------------------------------------------------------------------
+New Proxies Found in Last 12 Minutes: 29800
+Sample Recent Proxies:
+  1.13.10.148:80	http	US	0	DIRECT	500	FAST	1
+  1.170.33.62:80	http	US	0	DIRECT	500	FAST	1
+  1.201.17.243:80	http	US	0	DIRECT	500	FAST	1
+  1.202.224.60:80	http	US	0	DIRECT	500	FAST	1
+  1.212.220.194:80	http	US	0	DIRECT	500	FAST	1
+  1.222.53.6:80	http	US	0	DIRECT	500	FAST	1
+  1.234.2.40:80	http	US	0	DIRECT	500	FAST	1
+  1.243.154.177:80	http	US	0	DIRECT	500	FAST	1
+  1.243.197.120:80	http	US	0	DIRECT	500	FAST	1
+  100.20.23.102:80	http	US	0	DIRECT	500	FAST	1
+================================================================================
