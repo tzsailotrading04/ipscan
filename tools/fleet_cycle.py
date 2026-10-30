@@ -53,6 +53,33 @@ FLEET_MAP = {
 }
 
 pushed_timestamps = {}
+last_git_push_ts = 0
+GIT_PUSH_THROTTLE = 600  # Throttle git push to at most once per 600 seconds
+
+def throttled_git_push(msg="harvester pool cycle"):
+    """Throttles git push to at most once per 600 seconds."""
+    global last_git_push_ts
+    now = time.time()
+    if (now - last_git_push_ts) < GIT_PUSH_THROTTLE:
+        print(f"[GIT PUSH GUARD] Throttled: last push {(now - last_git_push_ts):.1f}s ago (< {GIT_PUSH_THROTTLE}s). Skipping git push.")
+        return False
+
+    try:
+        run_cmd(f'git -C "{REPO_ROOT}" fetch origin main --quiet')
+        run_cmd(f'git -C "{REPO_ROOT}" merge --no-edit origin/main --quiet')
+        run_cmd(f'git -C "{REPO_ROOT}" add ip/harvest/real_pool.txt work/FLEET_CYCLE.txt')
+        c_out, c_err, c_code = run_cmd(f'git -C "{REPO_ROOT}" commit -m "{msg}"')
+        if c_code == 0 or "nothing to commit" in c_out:
+            p_out, p_err, p_code = run_cmd(f'git -C "{REPO_ROOT}" push origin main')
+            if p_code == 0:
+                last_git_push_ts = time.time()
+                print(f"[GIT PUSH GUARD] Git push succeeded ({msg}). Next allowed in {GIT_PUSH_THROTTLE}s.")
+                return True
+            else:
+                print(f"[GIT PUSH GUARD] Git push failed: {p_err or p_out}")
+    except Exception as e:
+        print(f"[GIT PUSH GUARD] Git push exception: {e}")
+    return False
 
 def set_kaggle_creds(username, token):
     os.makedirs(os.path.dirname(KAGGLE_JSON), exist_ok=True)
@@ -173,6 +200,9 @@ def run_single_cycle(cycle_num, seen):
     os.makedirs(os.path.dirname(CYCLE_LOG), exist_ok=True)
     with open(CYCLE_LOG, "a", encoding="utf-8") as lf:
         lf.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {log_line}\n")
+
+    # Throttle git push to at most once per 600 seconds
+    throttled_git_push(f"v98.185 harvest pool update (+{new_pool}, total={pool_total})")
 
     return log_line
 
