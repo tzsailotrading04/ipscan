@@ -41,6 +41,7 @@ REPO = os.path.join(WORK, "ipscan") if os.path.exists("/kaggle/working") else r"
 
 SHARD_IDX = 0
 SHARD_TAG = f"{SHARD_IDX:02d}"
+OUT_BRANCH = f"out/sh{SHARD_TAG}"
 
 # ASN Lookup for provider logging
 ASN_FILE = os.path.join(REPO, "data", "ip2asn-v4-u32.tsv")
@@ -501,30 +502,34 @@ async def run_worker(shard_idx, worker_id, total_workers):
 # ==============================================================================
 def git_sync_and_push(msg):
     try:
-        subprocess.run(["git", "-C", REPO, "add", "-A"], check=False)
+        # Fetch only its own branch
+        subprocess.run(["git", "-C", REPO, "fetch", "origin", f"{OUT_BRANCH}:{OUT_BRANCH}"], capture_output=True, check=False)
+
+        # Stage its part, stats, progress, and stage files
+        patterns = [
+            f"ip/harvest/verified_alive_part_{SHARD_TAG}*.txt",
+            f"ip/harvest/shodan_stats_v98_{SHARD_TAG}*.txt",
+            f"ip/harvest/shodan_progress_v98_{SHARD_TAG}*.txt",
+            f"ip/harvest/stage_{SHARD_TAG}.txt",
+        ]
+        for pat in patterns:
+            subprocess.run(["git", "-C", REPO, "add", pat], capture_output=True, check=False)
+
         st = subprocess.run(["git", "-C", REPO, "status", "--porcelain"], capture_output=True, text=True)
         if not st.stdout.strip():
             return True
+
         c_res = subprocess.run(["git", "-C", REPO, "commit", "-m", msg], capture_output=True, text=True)
         if c_res.returncode != 0 and ("nothing to commit" in c_res.stdout or "nothing to commit" in c_res.stderr):
             return True
 
-        for attempt in range(1, 16):
-            subprocess.run(["git", "-C", REPO, "fetch", "origin", "main"], check=False)
-            m_res = subprocess.run(["git", "-C", REPO, "merge", "--no-edit", "origin/main"], capture_output=True, text=True)
-            if m_res.returncode != 0:
-                subprocess.run(["git", "-C", REPO, "merge", "--abort"], capture_output=True)
-                backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
-                time.sleep(backoff)
-                continue
-
-            p_res = subprocess.run(["git", "-C", REPO, "push", "origin", "HEAD:main"], capture_output=True, text=True)
-            if p_res.returncode == 0:
-                return True
-            print(f"[GIT ERROR] push failed attempt {attempt}/15: {p_res.stderr.strip()}", file=sys.stderr, flush=True)
-            backoff = min(60, 2 ** attempt) * random.uniform(0.5, 1.5)
-            time.sleep(backoff)
-        return False
+        # Push directly to out/sh<SHARD_TAG> - no rebase, no retry loop needed
+        p_res = subprocess.run(["git", "-C", REPO, "push", "origin", f"HEAD:refs/heads/{OUT_BRANCH}"], capture_output=True, text=True)
+        if p_res.returncode == 0:
+            return True
+        # If remote exists and diverged, force push to own isolated branch
+        p_res = subprocess.run(["git", "-C", REPO, "push", "-f", "origin", f"HEAD:refs/heads/{OUT_BRANCH}"], capture_output=True, text=True)
+        return p_res.returncode == 0
     except Exception as e:
         print(f"[GIT EXCEPTION] {e}", file=sys.stderr, flush=True)
         return False
