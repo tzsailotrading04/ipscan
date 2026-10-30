@@ -76,7 +76,18 @@ def load_seen_set():
                     seen.add(line.split("\t")[0].split()[0])
     return seen
 
-def harvest_and_dedupe(seen):
+def load_pool_endpoints():
+    pool_eps = set()
+    if os.path.exists(POOL_FILE):
+        with open(POOL_FILE, "r", encoding="utf-8", errors="ignore") as pf:
+            for line in pf:
+                l = line.strip()
+                if l:
+                    pool_eps.add(l.split("\t")[0].split()[0])
+    return pool_eps
+
+def harvest_and_dedupe(seen=None):
+    pool_endpoints = load_pool_endpoints()
     new_entries = []
     part_files = glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "verified_alive_part_*.txt"))
     
@@ -88,33 +99,20 @@ def harvest_and_dedupe(seen):
                     if not raw:
                         continue
                     endpoint = raw.split("\t")[0].split()[0]
-                    if endpoint not in seen:
-                        seen.add(endpoint)
+                    if endpoint not in pool_endpoints:
+                        pool_endpoints.add(endpoint)
                         new_entries.append(raw)
         except Exception:
             pass
 
     if new_entries:
-        # Append new part-file lines to cache/candidate_queue.txt instead of real_pool.txt
-        os.makedirs(os.path.dirname(QUEUE_FILE), exist_ok=True)
-        with open(QUEUE_FILE, "a", encoding="utf-8") as qf:
+        # Promote part-file lines directly to real_pool.txt with no second pass
+        os.makedirs(os.path.dirname(POOL_FILE), exist_ok=True)
+        with open(POOL_FILE, "a", encoding="utf-8") as pf:
             for entry in new_entries:
-                qf.write(entry + "\n")
+                pf.write(entry + "\n")
 
-        # Keep the seen-set dedupe: append to cache/harvest_seen_set.txt
-        os.makedirs(os.path.dirname(SEEN_FILE), exist_ok=True)
-        with open(SEEN_FILE, "a", encoding="utf-8") as sf:
-            for entry in new_entries:
-                endpoint = entry.split("\t")[0].split()[0]
-                sf.write(endpoint + "\n")
-
-    # Get total lines in pool
-    pool_total = 0
-    if os.path.exists(POOL_FILE):
-        with open(POOL_FILE, "r", encoding="utf-8", errors="ignore") as pf:
-            pool_total = sum(1 for line in pf if line.strip())
-
-    return len(new_entries), pool_total
+    return len(new_entries), len(pool_endpoints)
 
 def run_single_cycle(cycle_num, seen):
     now = time.time()
