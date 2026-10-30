@@ -48,7 +48,7 @@ FLEET_MAP = {
     },
     "stephen34": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "stephen34", "access_token"),
-        "shards": [29, 30, 31, 32, 33]
+        "shards": [29, 30, 31]
     }
 }
 

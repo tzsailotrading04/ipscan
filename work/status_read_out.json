@@ -1,0 +1,198 @@
+{
+  "1_real_pool_lines": 1810,
+  "2_pool_dead_lines": 89609,
+  "3_alive_buffer_lines": 500,
+  "4_queue_count": 3,
+  "4_queue_total_lines": 62555,
+  "4_queue_details": [
+    "q_1793343761.txt: 225 lines",
+    "q_1793351634.txt: 18050 lines",
+    "q_region_1793369584.txt: 44280 lines"
+  ],
+  "5_part_total_lines": 3607,
+  "5_part_modified_10m": 0,
+  "6_newest_part_file": "verified_alive_part_00_w0.txt",
+  "6_newest_part_age_sec": 11189.7,
+  "7_shards": [
+    [
+      0,
+      "remruata",
+      "RUNNING"
+    ],
+    [
+      1,
+      "remruata",
+      "RUNNING"
+    ],
+    [
+      2,
+      "lalthazualasailo",
+      "RUNNING"
+    ],
+    [
+      3,
+      "lalthazualasailo",
+      "RUNNING"
+    ],
+    [
+      4,
+      "lalthazualasailo",
+      "RUNNING"
+    ],
+    [
+      5,
+      "lalthazualasailo",
+      "RUNNING"
+    ],
+    [
+      6,
+      "zomuanpuia",
+      "RUNNING"
+    ],
+    [
+      7,
+      "zomuanpuia",
+      "RUNNING"
+    ],
+    [
+      8,
+      "zomuanpuia",
+      "RUNNING"
+    ],
+    [
+      9,
+      "zomuanpuia",
+      "RUNNING"
+    ],
+    [
+      10,
+      "laldinthari",
+      "RUNNING"
+    ],
+    [
+      11,
+      "laldinthari",
+      "RUNNING"
+    ],
+    [
+      12,
+      "laldinthari",
+      "RUNNING"
+    ],
+    [
+      13,
+      "laldinthari",
+      "RUNNING"
+    ],
+    [
+      14,
+      "spectatorlone",
+      "RUNNING"
+    ],
+    [
+      15,
+      "lalsangkima",
+      "RUNNING"
+    ],
+    [
+      16,
+      "lalsangkima",
+      "RUNNING"
+    ],
+    [
+      17,
+      "lalsangkima",
+      "RUNNING"
+    ],
+    [
+      18,
+      "spectatorlone",
+      "RUNNING"
+    ],
+    [
+      19,
+      "spectatorlone",
+      "RUNNING"
+    ],
+    [
+      20,
+      "remruata",
+      "RUNNING"
+    ],
+    [
+      21,
+      "remruata",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      22,
+      "lalthazualasailo",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      23,
+      "zomuanpuia",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      24,
+      "laldinthari",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      25,
+      "lalsangkima",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      26,
+      "lalsangkima",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      27,
+      "spectatorlone",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      28,
+      "spectatorlone",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      29,
+      "stephen34",
+      "RUNNING"
+    ],
+    [
+      30,
+      "stephen34",
+      "RUNNING"
+    ],
+    [
+      31,
+      "stephen34",
+      "RUNNING"
+    ],
+    [
+      32,
+      "stephen34",
+      "DELETED / NOT FOUND"
+    ],
+    [
+      33,
+      "stephen34",
+      "DELETED / NOT FOUND"
+    ]
+  ],
+  "8_stages": {
+    "00": "stage=res_loop\nts=1793389660\noffset=67350454\n--- LAST 5 LOG LINES ---\n[2026-10-30 13:18:02] [SHARD 00 W0] Random IPv4 Looping: Resume offset=62,508,198 cands=1\n[2026-10-30 13:18:03] [SHARD 00 W0] [QUEUE STAGE] Found 2 queue files to consume before IP scanning",
+    "17": "FILE_NOT_FOUND (not generated or shard deleted)",
+    "33": "FILE_NOT_FOUND (not generated or shard deleted)"
+  },
+  "9_rig_alive": 200,
+  "9_rig_dead": 0,
+  "9_rig_free_mem": "2880 MB free (3054 MB available)",
+  "10_rig_bytes_10m": "5,571,679,155 bytes (5313.57 MB)",
+  "proxies_since_1900": 53
+}

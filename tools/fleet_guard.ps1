@@ -29,6 +29,8 @@ $map = [ordered]@{
     "acct3" = @("shodan_10","shodan_11","shodan_12","shodan_13")
     "acct4" = @("shodan_14","shodan_15","shodan_16","shodan_17")
     "acct6" = @("shodan_18","shodan_19")
+    # Shards 32 and 33 permanently removed from revive list to free 2 slots on stephen34
+    "stephen34" = @("shodan_29","shodan_30","shodan_31")
 }
 
 $healthyCount = 0
