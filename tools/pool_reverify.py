@@ -29,7 +29,7 @@ DEAD_FILE = os.path.join(REPO_ROOT, "cache", "pool_dead.txt")
 SUSPECT_FILE = os.path.join(REPO_ROOT, "cache", "pool_suspect.txt")
 
 TARGETS = ["speed.cloudflare.com", "www.google.com", "one.one.one.one"]
-CONCURRENCY = 150
+CONCURRENCY = 350
 TIMEOUT = 8.0
 
 SSL_CTX = ssl.create_default_context()
@@ -109,8 +109,19 @@ def verify_proxy_worker(entry):
     except Exception:
         return raw, False, "BAD_FORMAT"
 
-    # Test against targets exactly like shard probe
-    for target in TARGETS:
+    # Match shard probe: single TCP connect attempt to avoid 3x timeout on dead endpoints
+    s = None
+    try:
+        s = socket.create_connection((ip, port), timeout=TIMEOUT)
+    except Exception:
+        return raw, False, "CONNECT_FAIL"
+
+    # Primary target probe with connected socket
+    if sync_tls_handshake(s, "speed.cloudflare.com", timeout=TIMEOUT):
+        return raw, True, "speed.cloudflare.com"
+
+    # Fallback to secondary targets
+    for target in ["www.google.com", "one.one.one.one"]:
         if sync_probe_target(ip, port, target, timeout=TIMEOUT):
             return raw, True, target
 
@@ -133,12 +144,21 @@ def run_verification_pass():
     results = []
     with ThreadPoolExecutor(max_workers=CONCURRENCY) as executor:
         futures = {executor.submit(verify_proxy_worker, e): e for e in entries}
+        done_cnt = 0
+        passed_cnt = 0
         for future in as_completed(futures):
+            done_cnt += 1
             try:
-                results.append(future.result())
+                res = future.result()
+                results.append(res)
+                if res[1]:
+                    passed_cnt += 1
             except Exception as exc:
                 e = futures[future]
                 results.append((e, False, f"EXC:{exc}"))
+            if done_cnt % 2000 == 0 or done_cnt == tested:
+                pct = (passed_cnt / done_cnt * 100) if done_cnt > 0 else 0.0
+                print(f"[{time.strftime('%H:%M:%S')}] Progress: {done_cnt}/{tested} ({done_cnt/tested*100:.1f}%) | Passed: {passed_cnt} ({pct:.1f}%)", flush=True)
 
     survivors = []
     dead = []
