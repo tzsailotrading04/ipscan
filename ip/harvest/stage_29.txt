@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450207
-offset=65390724
+stage=queue_slice_q_a0_http_1793445000_03.txt_500
+ts=1793450262
+offset=65391224
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:38] [SHARD 29 W0] [FOUND QUEUE] 177.93.36.153:999 (TV) via speed.cloudflare.com | cands=276
-[2026-10-31 12:36:38] [SHARD 29 W0] [FOUND QUEUE] 178.165.42.166:3128 (CITYNET-AS) via speed.cloudflare.com | cands=277
-[2026-10-31 12:36:38] [SHARD 29 W0] [FOUND QUEUE] 181.78.198.7:8080 (UFINET) via speed.cloudflare.com | cands=278
-[2026-10-31 12:36:47] [SHARD 29 W0] [FOUND QUEUE] 186.33.7.227:999 (UFINET) via speed.cloudflare.com | cands=279
-[2026-10-31 12:36:47] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:37:40] [SHARD 29 W0] [FOUND QUEUE] 4.144.146.21:80 (MICROSOFT-CORP-MSN-AS-BLOCK) via speed.cloudflare.com | cands=286
+[2026-10-31 12:37:40] [SHARD 29 W0] [FOUND QUEUE] 43.216.197.62:44785 (AMAZON-02) via one.one.one.one | cands=287
+[2026-10-31 12:37:40] [SHARD 29 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (166.3s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:37:42] [SHARD 29 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:37:42] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
