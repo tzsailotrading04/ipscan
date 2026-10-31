@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793431298
-offset=61645222
+stage=queue_consuming
+ts=1793434097
+offset=61648162
 --- LAST 5 LOG LINES ---
-[2026-10-31 06:43:36] [SHARD 20 W0] [QUEUE STAGE] Consuming q_res_1793430000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 06:43:46] [SHARD 20 W0] [QUEUE STAGE] Consuming q_res_1793430000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 06:44:11] [SHARD 20 W0] [QUEUE STAGE] Consuming q_res_1793430000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 06:44:28] [SHARD 20 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 06:44:28] [SHARD 20 W0] [QUEUE STAGE] Consuming q_aa_asn_1793433000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 08:06:15] [SHARD 20 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 08:06:46] [SHARD 20 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 08:07:16] [SHARD 20 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 08:07:47] [SHARD 20 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 08:08:17] [SHARD 20 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
