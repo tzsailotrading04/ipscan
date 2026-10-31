@@ -420,3 +420,6 @@
 200.10.31.159:999	one.one.one.one	QUEUE	0	SUPER
 45.225.204.192:999	www.google.com	QUEUE	0	NETDELSUR
 45.71.114.150:999	speed.cloudflare.com	QUEUE	0	UFINET
+49.0.26.97:8080	speed.cloudflare.com	QUEUE	0	IDNIC-PDM-AS-ID
+58.33.109.114:2021	speed.cloudflare.com	QUEUE	0	CHINANET-SH-AP
+85.92.127.30:999	speed.cloudflare.com	QUEUE	0	ROGER
