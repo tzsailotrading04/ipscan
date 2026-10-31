@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450614
-offset=60894697
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450647
+offset=60895197
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:42:24] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:42:57] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
-[2026-10-31 12:43:34] [SHARD 33 W0] [FOUND QUEUE] 56.155.73.159:36185 (AMAZON-02) via speed.cloudflare.com | cands=285
-[2026-10-31 12:43:34] [SHARD 33 W0] [FOUND QUEUE] 94.19.221.224:9080 (AS-SKYNET-SPB) via speed.cloudflare.com | cands=286
-[2026-10-31 12:43:34] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:44:07] [SHARD 33 W0] [FOUND QUEUE] 103.166.158.41:1080 (IDNIC-TIMORLINTAS-AS-ID) via speed.cloudflare.com | cands=288
+[2026-10-31 12:44:07] [SHARD 33 W0] [FOUND QUEUE] 103.193.144.118:8082 (IDNIC-LJN-AS-ID) via www.google.com | cands=289
+[2026-10-31 12:44:07] [SHARD 33 W0] [FOUND QUEUE] 103.231.236.217:8182 (IDNIC-LIT-AS-ID) via speed.cloudflare.com | cands=290
+[2026-10-31 12:44:07] [SHARD 33 W0] [FOUND QUEUE] 104.218.199.152:16062 (FRONTIER-FRTR) via one.one.one.one | cands=291
+[2026-10-31 12:44:07] [SHARD 33 W0] [FOUND QUEUE] 116.101.54.121:8080 (VIETEL-AS-AP) via one.one.one.one | cands=292
