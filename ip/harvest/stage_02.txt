@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793458923
-offset=62845335
+ts=1793459251
+offset=62865655
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:54:41] [SHARD 02 W0] [FOUND QUEUE] 103.246.109.114:8080 (CONNECT-AS-AP) via www.google.com | cands=266
 [2026-10-31 12:54:41] [SHARD 02 W0] [FOUND QUEUE] 103.4.95.90:8080 (HECPERN-AS-PK) via www.google.com | cands=267
