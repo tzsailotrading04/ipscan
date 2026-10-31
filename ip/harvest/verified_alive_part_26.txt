@@ -441,3 +441,7 @@
 202.65.158.235:83	speed.cloudflare.com	QUEUE	0	PEL-AS-IN
 41.128.72.142:1981	www.google.com	QUEUE	0	LINKDOTNET-AS
 41.33.245.139:1981	www.google.com	QUEUE	0	TE-AS
+5.129.227.157:3128	speed.cloudflare.com	QUEUE	0	TWC-EU
+51.94.221.175:26592	speed.cloudflare.com	QUEUE	0	AMAZON-02
+63.180.203.233:8090	one.one.one.one	QUEUE	0	AMAZON-02
+98.94.14.234:43565	one.one.one.one	QUEUE	0	AMAZON-AES
