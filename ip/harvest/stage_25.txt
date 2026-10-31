@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_500
-ts=1793450674
-offset=63134890
+stage=queue_slice_q_a0_http_1793448000_03.txt_0
+ts=1793450682
+offset=63134978
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:05] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:44:34] [SHARD 25 W0] [FOUND QUEUE] 154.88.129.11:999 (DOMINICAN) via speed.cloudflare.com | cands=276
 [2026-10-31 12:44:34] [SHARD 25 W0] [FOUND QUEUE] 160.30.83.10:84 (VTLPVT-AS-IN) via speed.cloudflare.com | cands=277
 [2026-10-31 12:44:34] [SHARD 25 W0] [FOUND QUEUE] 179.136.111.46:8080 (CLARO) via speed.cloudflare.com | cands=278
 [2026-10-31 12:44:34] [SHARD 25 W0] [FOUND QUEUE] 181.78.73.117:8080 (UFINET) via speed.cloudflare.com | cands=279
+[2026-10-31 12:44:42] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
