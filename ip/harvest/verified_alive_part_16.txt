@@ -420,3 +420,9 @@
 78.155.66.87:8080	www.google.com	QUEUE	0	INT-PDN-STE-AS
 91.26.188.170:8080	www.google.com	QUEUE	0	DTAG
 92.63.83.23:3129	speed.cloudflare.com	QUEUE	0	MWTV-AS1
+46.148.234.53:8120	speed.cloudflare.com	QUEUE	0	SELECTEL
+51.94.221.175:26592	speed.cloudflare.com	QUEUE	0	AMAZON-02
+52.195.147.51:23637	speed.cloudflare.com	QUEUE	0	AMAZON-02
+60.53.92.90:8123	www.google.com	QUEUE	0	TTSSB-MY
+78.12.136.220:52990	one.one.one.one	QUEUE	0	AMAZON-02
+83.212.72.114:3128	speed.cloudflare.com	QUEUE	0	GR-NET

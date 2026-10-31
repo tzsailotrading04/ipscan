@@ -274,3 +274,7 @@
 43.249.227.186:83	www.google.com	QUEUE	0	PEL-AS-IN
 78.155.64.250:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
 95.140.18.238:22993	one.one.one.one	QUEUE	0	IRNET-AS
+51.17.99.135:22454	speed.cloudflare.com	QUEUE	0	AMAZON-02
+52.74.26.202:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.255.249.161:55107	speed.cloudflare.com	QUEUE	0	AMAZON-02
+58.69.175.135:8080	one.one.one.one	QUEUE	0	IPG-AS-AP
