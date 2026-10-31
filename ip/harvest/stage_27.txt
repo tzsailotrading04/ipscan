@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450117
-offset=60863712
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450145
+offset=60863800
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:17] [SHARD 27 W0] [FOUND QUEUE] 103.246.79.126:3125 (IDNIC-SAKAMEDIA-AS-ID) via one.one.one.one | cands=251
-[2026-10-31 12:35:17] [SHARD 27 W0] [FOUND QUEUE] 103.72.89.28:8097 (IDNIC-IJM-AS-ID) via www.google.com | cands=252
 [2026-10-31 12:35:17] [SHARD 27 W0] [FOUND QUEUE] 104.218.199.166:16062 (FRONTIER-FRTR) via speed.cloudflare.com | cands=253
 [2026-10-31 12:35:17] [SHARD 27 W0] [FOUND QUEUE] 128.199.113.85:9090 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=254
 [2026-10-31 12:35:17] [SHARD 27 W0] [FOUND QUEUE] 130.127.204.197:8080 (CLEMSONU) via speed.cloudflare.com | cands=255
+[2026-10-31 12:35:45] [SHARD 27 W0] [FOUND QUEUE] 144.124.251.24:10082 (VDSINA) via one.one.one.one | cands=256
+[2026-10-31 12:35:45] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
