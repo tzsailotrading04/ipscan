@@ -364,3 +364,9 @@
 35.183.29.62:38135	speed.cloudflare.com	QUEUE	0	AMAZON-02
 35.78.212.217:14185	speed.cloudflare.com	QUEUE	0	AMAZON-02
 38.19.43.184:999	speed.cloudflare.com	QUEUE	0	SUPER
+45.177.16.130:999	speed.cloudflare.com	QUEUE	0	MSW
+45.229.17.121:999	speed.cloudflare.com	QUEUE	0	TURBONET
+45.238.56.249:2010	speed.cloudflare.com	QUEUE	0	UFINET
+202.51.196.226:8080	speed.cloudflare.com	QUEUE	0	JLM-AS-ID
+209.97.150.167:8080	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+43.252.107.46:8080	www.google.com	QUEUE	0	LDP-AS-ID
