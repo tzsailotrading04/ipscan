@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793457565
-offset=62133063
+ts=1793457855
+offset=62155415
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:57:36] [SHARD 18 W0] [FOUND QUEUE] 181.119.84.80:999 (UFINET) via www.google.com | cands=313
 [2026-10-31 12:57:36] [SHARD 18 W0] [FOUND QUEUE] 181.48.234.214:8080 (TELMEX) via www.google.com | cands=314
