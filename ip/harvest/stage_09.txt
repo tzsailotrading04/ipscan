@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793437029
-offset=64831693
+ts=1793437193
+offset=64845917
 --- LAST 5 LOG LINES ---
-[2026-10-31 08:10:56] [SHARD 09 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
 [2026-10-31 08:11:27] [SHARD 09 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
 [2026-10-31 08:11:58] [SHARD 09 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
 [2026-10-31 08:12:28] [SHARD 09 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
 [2026-10-31 08:12:59] [SHARD 09 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 08:59:53] [SHARD 09 W0] [FOUND RES] 106.51.185.233:8080 (CABLELITE-AS-AP) via one.one.one.one | cands=125
