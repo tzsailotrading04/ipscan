@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793449966
-offset=65487623
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793449999
+offset=65488212
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:32:46] [SHARD 05 W0] [FOUND QUEUE] 144.124.251.24:10814 (VDSINA) via speed.cloudflare.com | cands=210
-[2026-10-31 12:32:46] [SHARD 05 W0] [FOUND QUEUE] 147.161.247.9:11211 (ZSCALER-EMEA) via www.google.com | cands=211
-[2026-10-31 12:32:46] [SHARD 05 W0] [FOUND QUEUE] 148.224.14.195:999 (JORGE) via speed.cloudflare.com | cands=212
-[2026-10-31 12:32:46] [SHARD 05 W0] [FOUND QUEUE] 149.2.82.131:999 (TELECABLE) via speed.cloudflare.com | cands=213
-[2026-10-31 12:32:46] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:33:09] [SHARD 05 W0] [FOUND QUEUE] 181.174.225.67:999 (CHARACKWAVES) via speed.cloudflare.com | cands=220
+[2026-10-31 12:33:09] [SHARD 05 W0] [FOUND QUEUE] 181.225.107.53:999 (TV) via speed.cloudflare.com | cands=221
+[2026-10-31 12:33:09] [SHARD 05 W0] [FOUND QUEUE] 181.57.171.254:8095 (TELMEX) via speed.cloudflare.com | cands=222
+[2026-10-31 12:33:19] [SHARD 05 W0] [FOUND QUEUE] 187.94.16.59:39665 (HOLISTICA) via speed.cloudflare.com | cands=223
+[2026-10-31 12:33:19] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
