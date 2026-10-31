@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450228
-offset=65489712
+stage=queue_slice_q_a0_http_1793446000_03.txt_500
+ts=1793450279
+offset=65490301
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:35] [SHARD 05 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:36:35] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 12:37:08] [SHARD 05 W0] [FOUND QUEUE] 157.20.35.39:9090 (IDNIC-ERA-AS-ID) via www.google.com | cands=228
-[2026-10-31 12:37:08] [SHARD 05 W0] [FOUND QUEUE] 179.48.10.1:8088 (CARNAUBANET) via speed.cloudflare.com | cands=229
-[2026-10-31 12:37:08] [SHARD 05 W0] [FOUND QUEUE] 181.119.185.194:999 (UFINET) via speed.cloudflare.com | cands=230
+[2026-10-31 12:37:16] [SHARD 05 W0] [FOUND QUEUE] 187.103.105.20:8085 (BR.DIGITAL) via speed.cloudflare.com | cands=231
+[2026-10-31 12:37:16] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:37:59] [SHARD 05 W0] [FOUND QUEUE] 222.127.53.72:8082 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=232
+[2026-10-31 12:37:59] [SHARD 05 W0] [FOUND QUEUE] 35.78.212.217:444 (AMAZON-02) via speed.cloudflare.com | cands=233
+[2026-10-31 12:37:59] [SHARD 05 W0] [FOUND QUEUE] 43.200.174.95:8081 (AMAZON-02) via one.one.one.one | cands=234
