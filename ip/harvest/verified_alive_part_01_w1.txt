@@ -309,3 +309,7 @@
 85.131.243.125:3128	speed.cloudflare.com	QUEUE	0	XSERVER
 85.207.11.133:3128	www.google.com	QUEUE	0	BLUETONE-AS
 90.161.186.147:3128	www.google.com	QUEUE	0	UNI2-AS
+51.85.44.149:21302	speed.cloudflare.com	QUEUE	0	AMAZON-02
+8.217.64.30:11080	www.google.com	QUEUE	0	ALIBABA-CN-NET
+89.175.174.212:8080	speed.cloudflare.com	QUEUE	0	MTS
+91.234.54.83:81	www.google.com	QUEUE	0	REDCOM-AS
