@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793450170
-offset=58849967
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793450201
+offset=58850467
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:31] [SHARD 31 W0] [FOUND QUEUE] 104.251.93.129:16062 (FRONTIER-FRTR) via speed.cloudflare.com | cands=250
-[2026-10-31 12:35:31] [SHARD 31 W0] [FOUND QUEUE] 119.73.110.51:8080 (TES-PL-AS-AP) via www.google.com | cands=251
-[2026-10-31 12:35:31] [SHARD 31 W0] [FOUND QUEUE] 128.199.116.219:9090 (DIGITALOCEAN-ASN) via www.google.com | cands=252
-[2026-10-31 12:36:10] [SHARD 31 W0] [FOUND QUEUE] 144.124.251.24:10091 (VDSINA) via speed.cloudflare.com | cands=253
-[2026-10-31 12:36:10] [SHARD 31 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:36:41] [SHARD 31 W0] [FOUND QUEUE] 154.18.196.153:8083 (DOUBLESQUARE-AS-AP) via speed.cloudflare.com | cands=254
+[2026-10-31 12:36:41] [SHARD 31 W0] [FOUND QUEUE] 163.223.137.254:8181 (IDNIC-QUEENQINANDATAMEDIAMANDIRI-ID) via www.google.com | cands=255
+[2026-10-31 12:36:41] [SHARD 31 W0] [FOUND QUEUE] 165.99.102.66:1452 (IDNIC-DOTNET-AS-ID) via speed.cloudflare.com | cands=256
+[2026-10-31 12:36:41] [SHARD 31 W0] [FOUND QUEUE] 18.217.248.118:8000 (AMAZON-02) via speed.cloudflare.com | cands=257
+[2026-10-31 12:36:41] [SHARD 31 W0] [FOUND QUEUE] 180.191.127.195:5050 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=258
