@@ -553,3 +553,6 @@
 201.4.65.100:8080	speed.cloudflare.com	QUEUE	0	RESERVED
 203.81.75.202:8080	www.google.com	QUEUE	0	MPT-AP
 45.234.101.122:8081	speed.cloudflare.com	QUEUE	0	FORTLINK
+51.17.99.135:29434	speed.cloudflare.com	QUEUE	0	AMAZON-02
+58.69.182.53:8085	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+95.60.60.204:3128	speed.cloudflare.com	QUEUE	0	VODAFONE_ES
