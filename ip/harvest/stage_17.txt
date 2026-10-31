@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_03.txt_0
-ts=1793450444
-offset=66849596
+stage=queue_slice_q_a0_http_1793448000_03.txt_500
+ts=1793450727
+offset=66852218
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:36] [SHARD 17 W0] [FOUND QUEUE] 165.101.231.152:8080 (IDNIC-CDNNET-AS-ID) via one.one.one.one | cands=237
-[2026-10-31 12:40:36] [SHARD 17 W0] [FOUND QUEUE] 170.245.132.85:999 (MACHADO) via www.google.com | cands=238
-[2026-10-31 12:40:36] [SHARD 17 W0] [FOUND QUEUE] 172.105.130.80:8888 (AKAMAI-LINODE-AP) via speed.cloudflare.com | cands=239
-[2026-10-31 12:40:44] [SHARD 17 W0] [FOUND QUEUE] 185.32.4.210:8070 (ASC-AS) via speed.cloudflare.com | cands=240
-[2026-10-31 12:40:44] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 203.175.103.25:3125 (IDNIC-MITRAKITA-ID) via speed.cloudflare.com | cands=261
+[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 24.152.40.49:8080 (TV) via speed.cloudflare.com | cands=262
+[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 3.231.160.150:34932 (AMAZON-AES) via speed.cloudflare.com | cands=263
+[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 31.15.169.77:808 (TELEMACH) via www.google.com | cands=264
+[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 45.164.148.16:999 (JORGE) via one.one.one.one | cands=265

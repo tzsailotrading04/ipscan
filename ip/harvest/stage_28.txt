@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450445
-offset=62410156
+stage=queue_slice_q_a0_http_1793448000_04.txt_0
+ts=1793450723
+offset=62412866
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:44] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:40:09] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:40:45] [SHARD 28 W0] [FOUND QUEUE] 154.236.179.229:1981 (ETISALAT-MISR) via www.google.com | cands=283
-[2026-10-31 12:40:45] [SHARD 28 W0] [FOUND QUEUE] 176.208.93.34:8989 (ROSTELECOM-AS) via speed.cloudflare.com | cands=284
-[2026-10-31 12:40:45] [SHARD 28 W0] [FOUND QUEUE] 18.191.250.90:55796 (AMAZON-02) via www.google.com | cands=285
+[2026-10-31 12:45:01] [SHARD 28 W0] [FOUND QUEUE] 206.135.47.106:999 (IENTC) via www.google.com | cands=305
+[2026-10-31 12:45:01] [SHARD 28 W0] [FOUND QUEUE] 38.19.43.184:999 (SUPER) via speed.cloudflare.com | cands=306
+[2026-10-31 12:45:01] [SHARD 28 W0] [FOUND QUEUE] 41.33.203.238:1975 (TE-AS) via www.google.com | cands=307
+[2026-10-31 12:45:01] [SHARD 28 W0] [FOUND QUEUE] 45.226.227.219:999 (CORTEZ) via speed.cloudflare.com | cands=308
+[2026-10-31 12:45:23] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0

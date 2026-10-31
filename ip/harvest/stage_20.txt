@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450447
-offset=63031783
+stage=queue_consuming
+ts=1793450774
+offset=63033906
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:47] [SHARD 20 W0] [FOUND QUEUE] 49.147.46.158:8082 (IPG-AS-AP) via www.google.com | cands=243
-[2026-10-31 12:40:47] [SHARD 20 W0] [FOUND QUEUE] 51.85.44.149:21992 (AMAZON-02) via speed.cloudflare.com | cands=244
-[2026-10-31 12:40:47] [SHARD 20 W0] [FOUND QUEUE] 62.241.133.227:1975 (LINKDOTNET-AS) via www.google.com | cands=245
-[2026-10-31 12:40:47] [SHARD 20 W0] [FOUND QUEUE] 81.8.59.178:8080 (BORUSANTELEKOM-AS) via speed.cloudflare.com | cands=246
-[2026-10-31 12:40:47] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:44:16] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:44:16] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 12:44:52] [SHARD 20 W0] [FOUND QUEUE] 45.232.0.2:8080 (SISTEMAS) via speed.cloudflare.com | cands=261
+[2026-10-31 12:44:52] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
+[2026-10-31 12:46:14] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
