@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447362
-offset=64141454
+stage=queue_slice_q_a0_http_1793445000_04.txt_0
+ts=1793450089
+offset=64127110
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:51:07] [SHARD 03 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:38] [SHARD 03 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:09] [SHARD 03 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:39] [SHARD 03 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:53:10] [SHARD 03 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 12:34:41] [SHARD 03 W0] [FOUND QUEUE] 202.69.38.82:8080 (GERRYS-AS-AP) via one.one.one.one | cands=262
+[2026-10-31 12:34:41] [SHARD 03 W0] [FOUND QUEUE] 35.78.212.217:100 (AMAZON-02) via speed.cloudflare.com | cands=263
+[2026-10-31 12:34:41] [SHARD 03 W0] [FOUND QUEUE] 43.207.141.180:59614 (AMAZON-02) via one.one.one.one | cands=264
+[2026-10-31 12:34:49] [SHARD 03 W0] [FOUND QUEUE] 45.184.103.161:999 (PRINTER-NET-SERVICE) via speed.cloudflare.com | cands=265
+[2026-10-31 12:34:49] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=822 worker_slice=411 resume=0

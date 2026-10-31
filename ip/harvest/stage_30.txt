@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447520
-offset=60401815
+stage=queue_slice_q_a0_http_1793445000_01.txt_0
+ts=1793450090
+offset=60383669
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:09:36] [SHARD 30 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:11:41] [SHARD 30 W0] [FOUND QUEUE] 49.144.29.108:8082 (IPG-AS-AP) via speed.cloudflare.com | cands=198
-[2026-10-31 11:11:41] [SHARD 30 W0] [FOUND QUEUE] 51.85.44.149:50908 (AMAZON-02) via one.one.one.one | cands=199
-[2026-10-31 11:11:41] [SHARD 30 W0] [FOUND QUEUE] 56.112.93.245:4443 (AMAZON-02) via speed.cloudflare.com | cands=200
-[2026-10-31 11:11:41] [SHARD 30 W0] [FOUND QUEUE] 58.27.207.253:8080 (WATEEN-IMS-PK-AS-AP) via www.google.com | cands=201
+[2026-10-31 12:33:40] [SHARD 30 W0] [FOUND QUEUE] 45.198.20.173:8080 (IMEDIANET-AS-ID) via speed.cloudflare.com | cands=218
+[2026-10-31 12:33:40] [SHARD 30 W0] [FOUND QUEUE] 45.231.220.67:999 (DISTROKOM) via speed.cloudflare.com | cands=219
+[2026-10-31 12:33:40] [SHARD 30 W0] [FOUND QUEUE] 45.65.226.169:999 (SOLUTION) via speed.cloudflare.com | cands=220
+[2026-10-31 12:33:40] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
+[2026-10-31 12:34:50] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0

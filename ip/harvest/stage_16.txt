@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447621
-offset=61717691
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450114
+offset=61700133
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:52:30] [SHARD 16 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:53:00] [SHARD 16 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:53:31] [SHARD 16 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:54:02] [SHARD 16 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:54:33] [SHARD 16 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 12:34:57] [SHARD 16 W0] [FOUND QUEUE] 114.69.225.6:82 (WORLDPHONE-IN) via www.google.com | cands=166
+[2026-10-31 12:34:57] [SHARD 16 W0] [FOUND QUEUE] 13.38.27.183:33033 (AMAZON-02) via speed.cloudflare.com | cands=167
+[2026-10-31 12:35:14] [SHARD 16 W0] [FOUND QUEUE] 147.161.247.9:10088 (ZSCALER-EMEA) via speed.cloudflare.com | cands=168
+[2026-10-31 12:35:14] [SHARD 16 W0] [FOUND QUEUE] 147.161.247.9:11679 (ZSCALER-EMEA) via speed.cloudflare.com | cands=169
+[2026-10-31 12:35:14] [SHARD 16 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0

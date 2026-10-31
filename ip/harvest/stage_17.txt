@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447428
-offset=66864391
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450100
+offset=66846833
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:06:23] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:06:53] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:07:24] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:07:54] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:08:25] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 12:34:30] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:34:30] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 12:35:00] [SHARD 17 W0] [FOUND QUEUE] 147.161.247.9:10101 (ZSCALER-EMEA) via one.one.one.one | cands=211
+[2026-10-31 12:35:00] [SHARD 17 W0] [FOUND QUEUE] 147.161.247.9:11704 (ZSCALER-EMEA) via one.one.one.one | cands=212
+[2026-10-31 12:35:00] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
