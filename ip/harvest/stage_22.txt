@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_500
-ts=1793450419
-offset=62601844
+stage=queue_slice_q_a0_http_1793448000_03.txt_500
+ts=1793450492
+offset=62602432
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:39] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:39:39] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
 [2026-10-31 12:39:47] [SHARD 22 W0] [FOUND QUEUE] 147.161.246.39:11484 (ZSCALER-EMEA) via speed.cloudflare.com | cands=266
 [2026-10-31 12:39:47] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:40:19] [SHARD 22 W0] [FOUND QUEUE] 180.190.24.49:8082 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=267
+[2026-10-31 12:40:31] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:41:32] [SHARD 22 W0] [FOUND QUEUE] 38.226.241.242:8080 (IDNIC-DINETKAN-AS-ID) via speed.cloudflare.com | cands=268
