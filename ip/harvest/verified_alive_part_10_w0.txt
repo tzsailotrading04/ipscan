@@ -216,3 +216,9 @@
 45.225.204.97:999	speed.cloudflare.com	QUEUE	0	NETDELSUR
 45.234.218.5:8080	speed.cloudflare.com	QUEUE	0	ACCESS
 45.64.11.193:8080	speed.cloudflare.com	QUEUE	0	PNPL-AS
+47.95.206.224:45003	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+49.156.44.115:8080	speed.cloudflare.com	QUEUE	0	IIT-WICAM-AS-AP
+69.171.214.160:999	www.google.com	QUEUE	0	ALEJANDRO
+78.12.136.220:15713	one.one.one.one	QUEUE	0	AMAZON-02
+86.125.19.21:8080	speed.cloudflare.com	QUEUE	0	RCS-RDS
+98.94.14.234:26183	speed.cloudflare.com	QUEUE	0	AMAZON-AES
