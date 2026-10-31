@@ -434,3 +434,10 @@
 59.145.185.162:8080	one.one.one.one	QUEUE	0	BBIL-AP
 65.108.203.36:18080	speed.cloudflare.com	QUEUE	0	HETZNER-AS
 82.29.72.145:30501	speed.cloudflare.com	QUEUE	0	HOSTEONS-AS-AP
+14.143.130.210:1111	speed.cloudflare.com	QUEUE	0	TATACOMM-AS
+146.196.108.81:8080	speed.cloudflare.com	QUEUE	0	MMS-AS-ID
+147.161.246.37:11827	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:10087	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:11677	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+148.224.14.254:999	speed.cloudflare.com	QUEUE	0	JORGE
+149.2.82.196:999	speed.cloudflare.com	QUEUE	0	TELECABLE
