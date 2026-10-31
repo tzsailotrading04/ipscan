@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793443973
-offset=63098753
+stage=queue_slice_q_a0_http_1793442000_03.txt_500
+ts=1793444294
+offset=63100431
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:50:50] [SHARD 15 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:21] [SHARD 15 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:52] [SHARD 15 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:23] [SHARD 15 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:53] [SHARD 15 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:57:08] [SHARD 15 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 10:58:14] [SHARD 15 W0] [FOUND QUEUE] 191.7.196.128:8080 (ONLINE) via speed.cloudflare.com | cands=193
+[2026-10-31 10:58:14] [SHARD 15 W0] [FOUND QUEUE] 200.35.34.134:999 (UNE) via speed.cloudflare.com | cands=194
+[2026-10-31 10:58:14] [SHARD 15 W0] [FOUND QUEUE] 203.175.127.240:8080 (IDNIC-CUBIESPOT-AS-ID) via speed.cloudflare.com | cands=195
+[2026-10-31 10:58:14] [SHARD 15 W0] [FOUND QUEUE] 38.210.179.4:999 (JAIR) via one.one.one.one | cands=196

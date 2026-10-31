@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793443712
-offset=65250269
+stage=queue_slice_q_a0_http_1793442000_03.txt_500
+ts=1793444287
+offset=65251945
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:46:31] [SHARD 29 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:47:01] [SHARD 29 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:47:32] [SHARD 29 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:48:02] [SHARD 29 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:48:32] [SHARD 29 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:57:16] [SHARD 29 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 10:57:16] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:58:07] [SHARD 29 W0] [FOUND QUEUE] 190.12.150.244:999 (SERVITELCONET) via www.google.com | cands=222
+[2026-10-31 10:58:07] [SHARD 29 W0] [FOUND QUEUE] 3.21.129.156:3444 (AMAZON-02) via speed.cloudflare.com | cands=223
+[2026-10-31 10:58:07] [SHARD 29 W0] [FOUND QUEUE] 35.78.212.217:50469 (AMAZON-02) via one.one.one.one | cands=224

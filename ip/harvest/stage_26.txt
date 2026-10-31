@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793443935
-offset=64016390
+stage=queue_slice_q_a0_http_1793442000_04.txt_0
+ts=1793444285
+offset=64017566
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:50:12] [SHARD 26 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:50:43] [SHARD 26 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:13] [SHARD 26 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:44] [SHARD 26 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:15] [SHARD 26 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:57:45] [SHARD 26 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 10:57:45] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 10:58:05] [SHARD 26 W0] [FOUND QUEUE] 45.167.124.252:999 (SEPCOM) via www.google.com | cands=187
+[2026-10-31 10:58:05] [SHARD 26 W0] [FOUND QUEUE] 45.65.138.48:999 (TELECOMUNICACIONES) via speed.cloudflare.com | cands=188
+[2026-10-31 10:58:05] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0

@@ -239,3 +239,5 @@
 88.222.65.45:3128	one.one.one.one	QUEUE	0	INIT
 91.122.216.160:8080	one.one.one.one	QUEUE	0	ROSTELECOM-AS
 89.169.36.146:3128	one.one.one.one	QUEUE	0	NLS-ASTANA
+47.88.14.212:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+88.222.65.45:3128	speed.cloudflare.com	QUEUE	0	INIT

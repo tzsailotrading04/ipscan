@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793443714
-offset=60721901
+stage=queue_slice_q_a0_http_1793442000_03.txt_500
+ts=1793444293
+offset=60723577
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:46:32] [SHARD 27 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:47:03] [SHARD 27 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:47:33] [SHARD 27 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:48:04] [SHARD 27 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:48:34] [SHARD 27 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:58:13] [SHARD 27 W0] [FOUND QUEUE] 218.100.23.130:8080 (VITAL-CT-AP) via speed.cloudflare.com | cands=200
+[2026-10-31 10:58:13] [SHARD 27 W0] [FOUND QUEUE] 38.137.234.98:999 (CORPORACION) via www.google.com | cands=201
+[2026-10-31 10:58:13] [SHARD 27 W0] [FOUND QUEUE] 39.98.86.246:8118 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=202
+[2026-10-31 10:58:13] [SHARD 27 W0] [FOUND QUEUE] 43.199.29.225:31166 (AMAZON-02) via one.one.one.one | cands=203
+[2026-10-31 10:58:13] [SHARD 27 W0] [FOUND QUEUE] 43.216.197.62:44785 (AMAZON-02) via speed.cloudflare.com | cands=204

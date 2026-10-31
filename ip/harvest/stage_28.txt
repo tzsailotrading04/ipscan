@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793443956
-offset=62264369
+stage=queue_slice_q_a0_http_1793442000_03.txt_500
+ts=1793444305
+offset=62266045
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:50:35] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:05] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:36] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:06] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:52:36] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:57:37] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:58:25] [SHARD 28 W0] [FOUND QUEUE] 204.9.208.153:8080 (CNSI-01) via speed.cloudflare.com | cands=198
+[2026-10-31 10:58:25] [SHARD 28 W0] [FOUND QUEUE] 210.76.192.133:7890 (CSTNET-AS-AP) via www.google.com | cands=199
+[2026-10-31 10:58:25] [SHARD 28 W0] [FOUND QUEUE] 3.21.129.156:2020 (AMAZON-02) via speed.cloudflare.com | cands=200
+[2026-10-31 10:58:25] [SHARD 28 W0] [FOUND QUEUE] 38.58.66.237:999 (VELOCOM) via speed.cloudflare.com | cands=201

@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793443891
-offset=65590683
+stage=res_loop
+ts=1793444056
+offset=65591860
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:49:28] [SHARD 09 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:49:59] [SHARD 09 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:50:30] [SHARD 09 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:00] [SHARD 09 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:51:31] [SHARD 09 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:54:16] [SHARD 09 W0] [FOUND QUEUE] 180.148.25.42:8181 (IDNIC-GIGANETWORKINDONESIA-AS-ID) via one.one.one.one | cands=159
+[2026-10-31 10:54:16] [SHARD 09 W0] [FOUND QUEUE] 180.190.238.62:8080 (GLOBE-MOBILE-5TH-GEN-AS) via www.google.com | cands=160
+[2026-10-31 10:54:16] [SHARD 09 W0] [FOUND QUEUE] 181.225.75.98:4040 (MEDIA) via www.google.com | cands=161
+[2026-10-31 10:54:16] [SHARD 09 W0] [FOUND QUEUE] 184.107.176.153:8080 (IWEB-AS) via speed.cloudflare.com | cands=162
+[2026-10-31 10:54:16] [SHARD 09 W0] [FOUND QUEUE] 185.213.20.105:3128 (ONEPROVIDER-AS) via speed.cloudflare.com | cands=163
