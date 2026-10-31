@@ -319,3 +319,10 @@
 179.63.6.249:999	speed.cloudflare.com	QUEUE	0	RED
 181.78.194.249:999	www.google.com	QUEUE	0	UFINET
 182.52.136.73:80	www.google.com	QUEUE	0	TOT-NET
+154.18.255.99:1111	speed.cloudflare.com	QUEUE	0	IDNIC-MEDIASOLUSISUKSES-AS-ID
+154.73.28.253:8080	speed.cloudflare.com	QUEUE	0	GPTC-AS
+160.187.174.34:8080	speed.cloudflare.com	QUEUE	0	IDNIC-NPN-AS-ID
+160.22.22.65:3125	speed.cloudflare.com	QUEUE	0	IDNIC-SDNET-AS-ID
+167.250.22.89:9090	www.google.com	QUEUE	0	ONNET
+18.144.86.139:9100	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.222.231.188:1088	speed.cloudflare.com	QUEUE	0	AMAZON-02
