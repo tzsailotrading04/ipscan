@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450072
-offset=59255358
+stage=queue_slice_q_a0_http_1793448000_01.txt_0
+ts=1793450431
+offset=59258483
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:54] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:34:23] [SHARD 12 W0] [FOUND QUEUE] 141.147.19.47:12345 (ORACLE-BMC-31898) via one.one.one.one | cands=244
-[2026-10-31 12:34:23] [SHARD 12 W0] [FOUND QUEUE] 144.124.251.24:11480 (VDSINA) via speed.cloudflare.com | cands=245
-[2026-10-31 12:34:23] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:34:32] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:39:34] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:39:34] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 12:39:51] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=716 worker_slice=358 resume=0
+[2026-10-31 12:40:31] [SHARD 12 W0] [FOUND QUEUE] 61.19.30.194:8188 (CAT-AP) via speed.cloudflare.com | cands=276
+[2026-10-31 12:40:31] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0

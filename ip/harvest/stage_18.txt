@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450126
-offset=61732847
+stage=queue_slice_q_a0_http_1793446000_03.txt_0
+ts=1793450425
+offset=61734610
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:26] [SHARD 18 W0] [FOUND QUEUE] 103.80.214.177:8080 (IDNIC-RDS-AS-ID) via speed.cloudflare.com | cands=252
-[2026-10-31 12:35:26] [SHARD 18 W0] [FOUND QUEUE] 114.249.221.24:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=253
-[2026-10-31 12:35:26] [SHARD 18 W0] [FOUND QUEUE] 114.69.225.6:84 (WORLDPHONE-IN) via speed.cloudflare.com | cands=254
-[2026-10-31 12:35:26] [SHARD 18 W0] [FOUND QUEUE] 122.52.110.142:5050 (IPG-AS-AP) via speed.cloudflare.com | cands=255
-[2026-10-31 12:35:26] [SHARD 18 W0] [FOUND QUEUE] 124.122.253.182:8080 (TRUEONLINE-AS-AP) via speed.cloudflare.com | cands=256
+[2026-10-31 12:40:17] [SHARD 18 W0] [FOUND QUEUE] 160.19.16.101:8181 (IDNIC-METAN-AS-ID) via one.one.one.one | cands=269
+[2026-10-31 12:40:17] [SHARD 18 W0] [FOUND QUEUE] 161.49.218.139:10101 (CONVERGE-AS) via www.google.com | cands=270
+[2026-10-31 12:40:17] [SHARD 18 W0] [FOUND QUEUE] 177.234.217.82:999 (UFINET) via speed.cloudflare.com | cands=271
+[2026-10-31 12:40:17] [SHARD 18 W0] [FOUND QUEUE] 181.119.84.115:8080 (UFINET) via www.google.com | cands=272
+[2026-10-31 12:40:25] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0

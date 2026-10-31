@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_500
-ts=1793450109
-offset=66815512
+stage=queue_slice_q_a0_http_1793448000_02.txt_0
+ts=1793450441
+offset=66818137
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:09] [SHARD 04 W0] [FOUND QUEUE] 217.64.149.146:8118 (OBEHOSTING) via www.google.com | cands=211
-[2026-10-31 12:35:09] [SHARD 04 W0] [FOUND QUEUE] 35.78.212.217:10442 (AMAZON-02) via one.one.one.one | cands=212
-[2026-10-31 12:35:09] [SHARD 04 W0] [FOUND QUEUE] 38.57.65.195:999 (FALCO) via one.one.one.one | cands=213
-[2026-10-31 12:35:09] [SHARD 04 W0] [FOUND QUEUE] 43.198.78.37:4982 (AMAZON-02) via speed.cloudflare.com | cands=214
-[2026-10-31 12:35:09] [SHARD 04 W0] [FOUND QUEUE] 43.248.254.130:82 (ABDURRAHMAN-AS-AP) via speed.cloudflare.com | cands=215
+[2026-10-31 12:40:22] [SHARD 04 W0] [FOUND QUEUE] 103.194.47.53:8082 (JABNET-AS-ID) via www.google.com | cands=231
+[2026-10-31 12:40:22] [SHARD 04 W0] [FOUND QUEUE] 103.23.98.13:3125 (IDNIC-SAKTINET-AS-ID) via one.one.one.one | cands=232
+[2026-10-31 12:40:22] [SHARD 04 W0] [FOUND QUEUE] 103.94.250.32:3125 (CENTRONETWORK-AS-ID) via speed.cloudflare.com | cands=233
+[2026-10-31 12:40:22] [SHARD 04 W0] [FOUND QUEUE] 14.29.168.215:1080 (CHINANET-BACKBONE) via speed.cloudflare.com | cands=234
+[2026-10-31 12:40:41] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0

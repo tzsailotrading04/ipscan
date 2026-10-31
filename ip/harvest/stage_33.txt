@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793442000_04.txt_0
-ts=1793450060
-offset=60890490
+stage=queue_slice_q_a0_http_1793446000_01.txt_500
+ts=1793450433
+offset=60893075
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 201.4.68.80:8080 (RESERVED) via www.google.com | cands=245
-[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 203.150.128.28:8080 (INET-TH-AS) via www.google.com | cands=246
-[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 222.211.216.201:7890 (CHINANET-SCIDC-AS-AP) via one.one.one.one | cands=247
-[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 44.200.234.67:10484 (AMAZON-AES) via one.one.one.one | cands=248
-[2026-10-31 12:34:20] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
+[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 103.122.0.171:8181 (JAVADIGITAL-AS-ID) via one.one.one.one | cands=270
+[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 103.164.235.131:3125 (IDNIC-BANTANI-NETWORK-AS-ID) via speed.cloudflare.com | cands=271
+[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 103.182.22.51:8000 (INTERDIGI-VN) via speed.cloudflare.com | cands=272
+[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 103.48.69.54:83 (COUNTRYONLINE-AS-IN) via speed.cloudflare.com | cands=273
+[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 109.224.2.58:8080 (HULUMTELE) via www.google.com | cands=274

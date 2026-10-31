@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_04.txt_0
-ts=1793450032
-offset=62598223
+stage=queue_slice_q_a0_http_1793448000_02.txt_500
+ts=1793450419
+offset=62601844
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:27] [SHARD 22 W0] [FOUND QUEUE] 36.213.79.159:1081 (CHINAMOBILE-CN) via speed.cloudflare.com | cands=223
-[2026-10-31 12:33:27] [SHARD 22 W0] [FOUND QUEUE] 38.137.236.54:999 (TELECOMUNICACIONES) via speed.cloudflare.com | cands=224
-[2026-10-31 12:33:27] [SHARD 22 W0] [FOUND QUEUE] 41.216.186.41:8080 (AS_PERWIRA_MEDIA) via speed.cloudflare.com | cands=225
-[2026-10-31 12:33:52] [SHARD 22 W0] [FOUND QUEUE] 45.184.111.71:999 (WIND) via speed.cloudflare.com | cands=226
-[2026-10-31 12:33:52] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0
+[2026-10-31 12:39:39] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:39:39] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 12:39:47] [SHARD 22 W0] [FOUND QUEUE] 147.161.246.39:11484 (ZSCALER-EMEA) via speed.cloudflare.com | cands=266
+[2026-10-31 12:39:47] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:40:19] [SHARD 22 W0] [FOUND QUEUE] 180.190.24.49:8082 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=267

@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_500
-ts=1793450112
-offset=62607580
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793450120
+offset=62607669
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:12] [SHARD 11 W0] [FOUND QUEUE] 160.19.19.227:8080 (IDNIC-INTELMEDIA-AS-ID) via speed.cloudflare.com | cands=264
-[2026-10-31 12:35:12] [SHARD 11 W0] [FOUND QUEUE] 170.80.202.224:999 (RUDDY) via one.one.one.one | cands=265
 [2026-10-31 12:35:12] [SHARD 11 W0] [FOUND QUEUE] 179.63.6.164:999 (RED) via speed.cloudflare.com | cands=266
 [2026-10-31 12:35:12] [SHARD 11 W0] [FOUND QUEUE] 180.191.0.205:8081 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=267
 [2026-10-31 12:35:12] [SHARD 11 W0] [FOUND QUEUE] 181.119.84.115:8080 (UFINET) via www.google.com | cands=268
+[2026-10-31 12:35:20] [SHARD 11 W0] [FOUND QUEUE] 187.249.92.247:999 (TRANSTELCO-INC) via speed.cloudflare.com | cands=269
+[2026-10-31 12:35:20] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
