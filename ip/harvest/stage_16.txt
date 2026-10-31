@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450178
-offset=61700721
+stage=queue_slice_q_a0_http_1793445000_04.txt_0
+ts=1793450236
+offset=61701309
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:55] [SHARD 16 W0] [FOUND QUEUE] 182.52.136.73:80 (TOT-NET) via www.google.com | cands=177
-[2026-10-31 12:36:18] [SHARD 16 W0] [FOUND QUEUE] 186.123.26.22:8080 (TECHTEL) via speed.cloudflare.com | cands=178
-[2026-10-31 12:36:18] [SHARD 16 W0] [FOUND QUEUE] 187.143.206.162:3128 (UNINET) via speed.cloudflare.com | cands=179
-[2026-10-31 12:36:18] [SHARD 16 W0] [FOUND QUEUE] 187.62.191.3:61456 (CONEXAO) via speed.cloudflare.com | cands=180
-[2026-10-31 12:36:18] [SHARD 16 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:37:16] [SHARD 16 W0] [FOUND QUEUE] 45.194.90.194:8080 (CTRLS-AS-IN) via www.google.com | cands=192
+[2026-10-31 12:37:16] [SHARD 16 W0] [FOUND QUEUE] 45.198.11.95:9191 (AZNET-ID) via speed.cloudflare.com | cands=193
+[2026-10-31 12:37:16] [SHARD 16 W0] [FOUND QUEUE] 45.229.17.164:999 (TURBONET) via speed.cloudflare.com | cands=194
+[2026-10-31 12:37:16] [SHARD 16 W0] [FOUND QUEUE] 45.230.170.30:999 (SOLUCIONES) via speed.cloudflare.com | cands=195
+[2026-10-31 12:37:16] [SHARD 16 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0
