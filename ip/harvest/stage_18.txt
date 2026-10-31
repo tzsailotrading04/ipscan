@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793424983
-offset=60072883
+ts=1793425132
+offset=60097267
 --- LAST 5 LOG LINES ---
-[2026-10-31 04:40:09] [SHARD 18 W0] [QUEUE STAGE] Consuming q_region_1793419556.txt: total=44577 shard_slice=1311 worker_slice=656 resume=500
 [2026-10-31 04:40:34] [SHARD 18 W0] [FOUND QUEUE] 54.252.150.170:3128 (AMAZON-02) via speed.cloudflare.com | cands=118
 [2026-10-31 04:40:34] [SHARD 18 W0] [FOUND QUEUE] 56.125.107.172:81 (AMAZON-02) via one.one.one.one | cands=119
 [2026-10-31 04:40:34] [SHARD 18 W0] [FOUND QUEUE] 56.68.113.189:80 (AMAZON-02) via one.one.one.one | cands=120
 [2026-10-31 04:40:34] [SHARD 18 W0] [FOUND QUEUE] 77.113.104.127:8080 (AMAZON-02) via one.one.one.one | cands=121
+[2026-10-31 05:38:52] [SHARD 18 W0] [FOUND RES] 116.68.115.74:8080 (ASIANET) via speed.cloudflare.com | cands=122
