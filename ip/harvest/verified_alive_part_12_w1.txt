@@ -243,3 +243,12 @@
 16.51.5.77:2775	speed.cloudflare.com	QUEUE	0	AMAZON-02
 168.228.176.30:3139	speed.cloudflare.com	QUEUE	0	BRASILINK
 18.231.214.206:53656	speed.cloudflare.com	QUEUE	0	AMAZON-02
+190.94.213.23:999	www.google.com	QUEUE	0	IFX
+193.33.157.118:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+200.71.111.222:999	www.google.com	QUEUE	0	DIGY
+210.213.204.76:9999	www.google.com	QUEUE	0	IPG-AS-AP
+221.221.154.122:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+24.152.53.68:999	speed.cloudflare.com	QUEUE	0	TV
+31.135.214.17:8026	speed.cloudflare.com	QUEUE	0	ISTV-AS
+43.200.174.95:21583	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.245.136.225:8080	www.google.com	QUEUE	0	MICROSENSE-AS-AP
