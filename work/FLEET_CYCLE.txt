@@ -86,3 +86,8 @@
 [2026-10-31 19:11:16] cycle=1 dead=34 repushed=0 new_pool=0 pool_total=10599
 [2026-10-31 19:26:03] cycle=1 dead=34 repushed=0 new_pool=738 pool_total=10598
 [2026-10-31 19:30:26] cycle=1 dead=0 repushed=0 new_pool=0 pool_total=10598
+[2026-10-31 19:41:09] cycle=2 dead=34 repushed=0 new_pool=0 pool_total=10598
+[2026-10-31 20:00:40] cycle=1 dead=34 repushed=0 new_pool=5070 pool_total=10594
+[2026-10-31 20:15:47] cycle=2 dead=34 repushed=0 new_pool=1409 pool_total=10591
+[2026-10-31 20:30:53] cycle=3 dead=34 repushed=0 new_pool=0 pool_total=10591
+[2026-10-31 21:27:26] cycle=1 dead=0 repushed=0 new_pool=0 pool_total=10604
