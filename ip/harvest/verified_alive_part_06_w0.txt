@@ -257,3 +257,5 @@
 179.63.6.239:999	one.one.one.one	QUEUE	0	RED
 185.200.37.66:8080	speed.cloudflare.com	QUEUE	0	HIGHSPEED
 209.14.119.90:999	speed.cloudflare.com	QUEUE	0	TV
+62.183.21.2:48080	www.google.com	QUEUE	0	STC-AS
+82.213.29.53:19000	one.one.one.one	QUEUE	0	PALTEL-AS
