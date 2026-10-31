@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793451109
+stage=res_loop
+ts=1793451416
 offset=65792507
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:49:46] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:17] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:48] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:18] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:49] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:54:53] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:55:24] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:55:55] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:56:26] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:56:56] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning

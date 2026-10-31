@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793450950
-offset=63758203
+stage=res_loop
+ts=1793451386
+offset=63760099
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:47:07] [SHARD 07 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:47:38] [SHARD 07 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:48:09] [SHARD 07 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:48:39] [SHARD 07 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:49:10] [SHARD 07 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:54:41] [SHARD 07 W0] [FOUND QUEUE] 189.203.181.34:8080 (TOTAL) via www.google.com | cands=317
+[2026-10-31 12:56:26] [SHARD 07 W0] [FOUND QUEUE] 62.171.154.102:3128 (CONTABO) via one.one.one.one | cands=318
+[2026-10-31 12:56:26] [SHARD 07 W0] [FOUND QUEUE] 88.247.171.120:8080 (TTNET) via speed.cloudflare.com | cands=319
+[2026-10-31 12:56:26] [SHARD 07 W0] [FOUND QUEUE] 89.135.59.77:8090 (ASN-VODAFONE) via www.google.com | cands=320
+[2026-10-31 12:56:26] [SHARD 07 W0] [FOUND QUEUE] 89.45.209.131:8080 (OPTICAL) via one.one.one.one | cands=321

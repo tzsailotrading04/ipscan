@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793451051
-offset=63033906
+stage=res_loop
+ts=1793451478
+offset=63034725
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:48:47] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:49:18] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:49:49] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:20] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:51] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 61.29.96.146:80 (AAPT) via speed.cloudflare.com | cands=266
+[2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 82.152.138.127:999 (WANTELCO) via www.google.com | cands=267
+[2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 85.131.243.125:3128 (XSERVER) via speed.cloudflare.com | cands=268
+[2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 91.211.212.6:32650 (INALAN) via www.google.com | cands=269
+[2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 95.3.92.2:8080 (TTNET) via one.one.one.one | cands=270

@@ -388,3 +388,8 @@
 51.85.44.149:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 56.68.116.64:10086	speed.cloudflare.com	QUEUE	0	AMAZON-02
 68.64.179.186:8080	www.google.com	QUEUE	0	LUCID-AS-AP
+51.16.4.39:27251	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.85.44.149:44650	one.one.one.one	QUEUE	0	AMAZON-02
+62.234.206.73:3128	speed.cloudflare.com	QUEUE	0	TENCENT-NET-AP
+67.206.213.202:3120	one.one.one.one	QUEUE	0	LIBERTY-MOB
+8.138.217.152:21001	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET

@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793451111
-offset=66852665
+stage=res_loop
+ts=1793451492
+offset=66853841
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:49:49] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:20] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:50] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:20] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:51] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 120.28.76.192:8082 (GLOBE-MOBILE-5TH-GEN-AS) via www.google.com | cands=275
+[2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 125.25.167.202:443 (TOT-NET) via one.one.one.one | cands=276
+[2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 143.208.152.62:3180 (FIBRA) via www.google.com | cands=277
+[2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 147.161.247.9:11720 (ZSCALER-EMEA) via www.google.com | cands=278
+[2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 148.230.27.77:999 (COMCEL) via one.one.one.one | cands=279
