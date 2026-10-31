@@ -242,3 +242,10 @@
 43.99.60.244:8089	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
 45.190.86.19:999	speed.cloudflare.com	QUEUE	0	NETWORK
 45.229.17.92:999	speed.cloudflare.com	QUEUE	0	TURBONET
+47.129.130.0:15030	one.one.one.one	QUEUE	0	AMAZON-02
+51.94.221.175:1857	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.155.73.159:38040	one.one.one.one	QUEUE	0	AMAZON-02
+58.69.61.25:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+63.180.203.233:51082	one.one.one.one	QUEUE	0	AMAZON-02
+78.12.136.220:15713	one.one.one.one	QUEUE	0	AMAZON-02
+98.94.14.234:26183	one.one.one.one	QUEUE	0	AMAZON-AES
