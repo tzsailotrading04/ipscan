@@ -277,6 +277,7 @@ def merge_out_branches():
         c_out, c_err, c_code = run_cmd(
             f'git -C "{REPO_ROOT}" checkout {rb} -- '
             f'"ip/harvest/verified_alive_part_{tag}*.txt" '
+            f'"ip/harvest/queue_failed_part_{tag}*.txt" '
             f'"ip/harvest/shodan_stats_v98_{tag}*.txt" '
             f'"ip/harvest/shodan_progress_v98_{tag}*.txt" '
             f'"ip/harvest/stage_{tag}.txt"'
