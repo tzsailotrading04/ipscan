@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793451421
-offset=62642862
+ts=1793451555
+offset=62643681
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:55:00] [SHARD 24 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:55:30] [SHARD 24 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:56:01] [SHARD 24 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:56:31] [SHARD 24 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:57:01] [SHARD 24 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 80.252.137.246:1194 (FLEX-AS) via speed.cloudflare.com | cands=223
+[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 85.117.62.70:8080 (CAUCASUS-CABLE-SYSTEM) via one.one.one.one | cands=224
+[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 85.187.224.21:8080 (TECHNOLUX-AS) via www.google.com | cands=225
+[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 85.92.127.42:999 (ROGER) via one.one.one.one | cands=226
+[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 94.70.148.177:8080 (OTENET-GR) via www.google.com | cands=227
