@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450545
-offset=66850542
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450599
+offset=66851042
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:41:31] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:41:31] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:41:49] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
-[2026-10-31 12:42:25] [SHARD 17 W0] [FOUND QUEUE] 93.184.72.130:8080 (VNET-AS) via speed.cloudflare.com | cands=247
 [2026-10-31 12:42:25] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:43:19] [SHARD 17 W0] [FOUND QUEUE] 103.101.193.170:1111 (IDNIC-BINTEKS-AS-ID) via one.one.one.one | cands=248
+[2026-10-31 12:43:19] [SHARD 17 W0] [FOUND QUEUE] 103.110.11.219:8080 (IDNIC-CIFO-AS-ID) via speed.cloudflare.com | cands=249
+[2026-10-31 12:43:19] [SHARD 17 W0] [FOUND QUEUE] 103.181.255.49:8080 (GIGANET-AS-ID) via speed.cloudflare.com | cands=250
+[2026-10-31 12:43:19] [SHARD 17 W0] [FOUND QUEUE] 103.98.116.209:8080 (TESOLCITYNET-AS-ID) via www.google.com | cands=251
