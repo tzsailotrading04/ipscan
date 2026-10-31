@@ -200,3 +200,6 @@
 38.19.238.36:999	speed.cloudflare.com	QUEUE	0	RED
 45.162.132.9:999	one.one.one.one	QUEUE	0	LARA
 45.178.68.250:999	speed.cloudflare.com	QUEUE	0	ISP
+45.80.151.33:3128	speed.cloudflare.com	QUEUE	0	ECOMPUTE
+46.166.167.60:8080	speed.cloudflare.com	QUEUE	0	CHERRYSERVERS1-AS
+61.143.126.202:10086	speed.cloudflare.com	QUEUE	0	CHINANET-BACKBONE
