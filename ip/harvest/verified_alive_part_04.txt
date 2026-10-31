@@ -313,3 +313,6 @@
 54.117.6.131:4284	www.google.com	QUEUE	0	AMAZON-02
 65.20.230.118:9090	one.one.one.one	QUEUE	0	HULUMTELE
 89.175.174.210:8080	speed.cloudflare.com	QUEUE	0	MTS
+103.130.70.253:84	speed.cloudflare.com	QUEUE	0	SMNSPLB-AS-IN
+103.168.44.15:3125	speed.cloudflare.com	QUEUE	0	CYB-AS-ID
+103.39.51.156:1080	speed.cloudflare.com	QUEUE	0	MEGAHUB-AS-ID
