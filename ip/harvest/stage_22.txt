@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_01.txt_500
-ts=1793450170
-offset=62599134
+stage=queue_slice_q_a0_http_1793446000_02.txt_0
+ts=1793450195
+offset=62599222
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:27] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:36:10] [SHARD 22 W0] [FOUND QUEUE] 103.155.168.165:8299 (IDNIC-ABYSNET-AS-ID) via speed.cloudflare.com | cands=229
-[2026-10-31 12:36:10] [SHARD 22 W0] [FOUND QUEUE] 103.48.71.6:83 (COUNTRYONLINE-AS-IN) via speed.cloudflare.com | cands=230
 [2026-10-31 12:36:10] [SHARD 22 W0] [FOUND QUEUE] 103.68.214.141:8080 (IDNIC-GRASI-AS-ID) via www.google.com | cands=231
 [2026-10-31 12:36:10] [SHARD 22 W0] [FOUND QUEUE] 113.11.37.81:2505 (BDCOM-BD) via speed.cloudflare.com | cands=232
+[2026-10-31 12:36:35] [SHARD 22 W0] [FOUND QUEUE] 146.196.108.81:8080 (MMS-AS-ID) via speed.cloudflare.com | cands=233
+[2026-10-31 12:36:35] [SHARD 22 W0] [FOUND QUEUE] 147.161.247.9:12124 (ZSCALER-EMEA) via speed.cloudflare.com | cands=234
+[2026-10-31 12:36:35] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
