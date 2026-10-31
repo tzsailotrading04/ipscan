@@ -241,3 +241,5 @@
 109.224.242.151:8080	speed.cloudflare.com	QUEUE	0	RESERVED
 115.147.56.101:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 13.209.65.136:39209	speed.cloudflare.com	QUEUE	0	AMAZON-02
+141.147.19.47:12345	one.one.one.one	QUEUE	0	ORACLE-BMC-31898
+144.124.251.24:11480	speed.cloudflare.com	QUEUE	0	VDSINA
