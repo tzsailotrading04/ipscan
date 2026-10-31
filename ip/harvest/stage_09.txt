@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793449992
-offset=65787077
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450035
+offset=65787166
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:11] [SHARD 09 W0] [FOUND QUEUE] 123.121.115.69:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=200
-[2026-10-31 12:33:11] [SHARD 09 W0] [FOUND QUEUE] 13.245.183.150:9133 (AMAZON-02) via one.one.one.one | cands=201
-[2026-10-31 12:33:11] [SHARD 09 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (140.1s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 12:33:12] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:33:12] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 12:33:55] [SHARD 09 W0] [FOUND QUEUE] 138.197.68.35:4857 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=202
+[2026-10-31 12:33:55] [SHARD 09 W0] [FOUND QUEUE] 144.124.251.24:10877 (VDSINA) via speed.cloudflare.com | cands=203
+[2026-10-31 12:33:55] [SHARD 09 W0] [FOUND QUEUE] 146.190.80.158:9090 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=204
+[2026-10-31 12:33:55] [SHARD 09 W0] [FOUND QUEUE] 147.161.247.9:10001 (ZSCALER-EMEA) via one.one.one.one | cands=205
+[2026-10-31 12:33:55] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
