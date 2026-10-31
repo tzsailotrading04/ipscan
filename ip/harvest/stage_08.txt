@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447138
-offset=65162143
+stage=queue_slice_q_a0_http_1793445000_01.txt_0
+ts=1793449935
+offset=65164320
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:55:25] [SHARD 08 W0] [FOUND QUEUE] 179.61.110.253:999 (SOC) via speed.cloudflare.com | cands=210
-[2026-10-31 10:55:25] [SHARD 08 W0] [FOUND QUEUE] 18.142.95.213:8254 (AMAZON-02) via speed.cloudflare.com | cands=211
-[2026-10-31 10:55:25] [SHARD 08 W0] [FOUND QUEUE] 18.222.231.188:14716 (AMAZON-02) via speed.cloudflare.com | cands=212
-[2026-10-31 10:55:25] [SHARD 08 W0] [FOUND QUEUE] 181.191.227.128:999 (MANGO) via speed.cloudflare.com | cands=213
-[2026-10-31 10:55:25] [SHARD 08 W0] [FOUND QUEUE] 182.253.69.95:8080 (BIZNET-AS-AP) via one.one.one.one | cands=214
+[2026-10-31 12:30:30] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
+[2026-10-31 12:32:15] [SHARD 08 W0] [FOUND QUEUE] 47.104.170.144:21056 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=238
+[2026-10-31 12:32:15] [SHARD 08 W0] [FOUND QUEUE] 47.95.193.186:8080 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=239
+[2026-10-31 12:32:15] [SHARD 08 W0] [FOUND QUEUE] 98.94.14.234:10946 (AMAZON-AES) via speed.cloudflare.com | cands=240
+[2026-10-31 12:32:15] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
