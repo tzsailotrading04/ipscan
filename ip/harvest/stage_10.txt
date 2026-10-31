@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447115
-offset=64930173
+stage=queue_slice_q_a0_http_1793442000_04.txt_0
+ts=1793449870
+offset=64931940
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 160.19.16.6:8182 (IDNIC-METAN-AS-ID) via one.one.one.one | cands=187
-[2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 163.223.119.4:8085 (IDNIC-DRANET-ID) via speed.cloudflare.com | cands=188
-[2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 175.107.30.126:8080 (NTC-AS-AP) via one.one.one.one | cands=189
-[2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 18.188.168.99:1012 (AMAZON-02) via speed.cloudflare.com | cands=190
-[2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 18.222.28.236:1238 (AMAZON-02) via speed.cloudflare.com | cands=191
+[2026-10-31 12:31:10] [SHARD 10 W0] [FOUND QUEUE] 45.194.90.194:8080 (CTRLS-AS-IN) via www.google.com | cands=215
+[2026-10-31 12:31:10] [SHARD 10 W0] [FOUND QUEUE] 45.225.204.97:999 (NETDELSUR) via speed.cloudflare.com | cands=216
+[2026-10-31 12:31:10] [SHARD 10 W0] [FOUND QUEUE] 45.234.218.5:8080 (ACCESS) via speed.cloudflare.com | cands=217
+[2026-10-31 12:31:10] [SHARD 10 W0] [FOUND QUEUE] 45.64.11.193:8080 (PNPL-AS) via speed.cloudflare.com | cands=218
+[2026-10-31 12:31:10] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
