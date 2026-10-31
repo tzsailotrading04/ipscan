@@ -331,3 +331,6 @@
 41.128.72.140:1976	speed.cloudflare.com	QUEUE	0	LINKDOTNET-AS
 43.156.227.68:80	www.google.com	QUEUE	0	TENCENT-NET-AP-CN
 45.126.250.34:8080	speed.cloudflare.com	QUEUE	0	IDNIC-WLD-ID
+45.189.252.245:999	speed.cloudflare.com	QUEUE	0	TRACERED
+45.232.211.1:999	speed.cloudflare.com	QUEUE	0	NANOTIK
+45.8.88.156:8095	speed.cloudflare.com	QUEUE	0	VORONEZHTELECOM-AS
