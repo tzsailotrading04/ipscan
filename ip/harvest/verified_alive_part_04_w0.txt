@@ -186,3 +186,7 @@
 45.177.16.130:999	speed.cloudflare.com	QUEUE	0	MSW
 45.188.125.235:9991	speed.cloudflare.com	QUEUE	0	DIGY
 45.4.2.24:999	speed.cloudflare.com	QUEUE	0	TLINK
+51.16.4.39:8989	one.one.one.one	QUEUE	0	AMAZON-02
+54.117.6.131:4284	www.google.com	QUEUE	0	AMAZON-02
+65.20.230.118:9090	one.one.one.one	QUEUE	0	HULUMTELE
+89.175.174.210:8080	speed.cloudflare.com	QUEUE	0	MTS
