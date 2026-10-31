@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793451555
-offset=62643681
+stage=res_loop
+ts=1793451663
+offset=62644857
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 80.252.137.246:1194 (FLEX-AS) via speed.cloudflare.com | cands=223
-[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 85.117.62.70:8080 (CAUCASUS-CABLE-SYSTEM) via one.one.one.one | cands=224
-[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 85.187.224.21:8080 (TECHNOLUX-AS) via www.google.com | cands=225
-[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 85.92.127.42:999 (ROGER) via one.one.one.one | cands=226
-[2026-10-31 12:59:15] [SHARD 24 W0] [FOUND QUEUE] 94.70.148.177:8080 (OTENET-GR) via www.google.com | cands=227
+[2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 222.252.14.70:8443 (VNPT-AS-VN) via speed.cloudflare.com | cands=235
+[2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 38.19.43.105:999 (SUPER) via one.one.one.one | cands=236
+[2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 38.191.161.189:999 (THREE) via speed.cloudflare.com | cands=237
+[2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 41.57.63.1:8103 (SCREAMER) via www.google.com | cands=238
+[2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 43.199.29.225:9734 (AMAZON-02) via one.one.one.one | cands=239
