@@ -274,3 +274,6 @@
 181.129.183.19:53281	speed.cloudflare.com	QUEUE	0	UNE
 182.253.40.25:8080	speed.cloudflare.com	QUEUE	0	BIZNET-AS-AP
 182.52.113.61:80	www.google.com	QUEUE	0	TOT-NET
+210.87.74.71:8080	one.one.one.one	QUEUE	0	GMDP-AS-ID
+221.221.157.102:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+43.207.113.167:8120	one.one.one.one	QUEUE	0	AMAZON-02
