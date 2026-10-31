@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793440696
-offset=63642116
+stage=queue_slice_q_a0_nbr_1793437000_01.txt_500
+ts=1793443315
+offset=63596270
 --- LAST 5 LOG LINES ---
-[2026-10-31 08:12:16] [SHARD 13 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:12:46] [SHARD 13 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:13:17] [SHARD 13 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:13:47] [SHARD 13 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:21:41] [SHARD 13 W0] [FOUND RES] 27.56.152.98:80 (AIRTELBROADBAND-AS-AP) via www.google.com | cands=239
+[2026-10-31 10:40:44] [SHARD 13 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:40:44] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 10:41:29] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=131 worker_slice=66 resume=0
+[2026-10-31 10:41:46] [SHARD 13 W0] [FOUND QUEUE] 89.251.21.22:8080 (RESERVED) via speed.cloudflare.com | cands=273
+[2026-10-31 10:41:46] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0

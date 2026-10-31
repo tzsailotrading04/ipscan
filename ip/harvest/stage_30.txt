@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793440781
-offset=60292044
+stage=queue_slice_q_a0_bulk_1793440000_04.txt_0
+ts=1793443294
+offset=60238944
 --- LAST 5 LOG LINES ---
-[2026-10-31 08:13:36] [SHARD 30 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:14:06] [SHARD 30 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:14:37] [SHARD 30 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:15:07] [SHARD 30 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:15:37] [SHARD 30 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 10:41:09] [SHARD 30 W0] [FOUND QUEUE] 209.97.149.157:80 (DIGITALOCEAN-ASN) via one.one.one.one | cands=150
+[2026-10-31 10:41:09] [SHARD 30 W0] [FOUND QUEUE] 38.253.240.80:8080 (AZNET-ID) via speed.cloudflare.com | cands=151
+[2026-10-31 10:41:09] [SHARD 30 W0] [FOUND QUEUE] 38.76.228.240:8088 (EWERTON) via www.google.com | cands=152
+[2026-10-31 10:41:34] [SHARD 30 W0] [FOUND QUEUE] 43.252.237.165:3125 (ASNET-AS-ID) via speed.cloudflare.com | cands=153
+[2026-10-31 10:41:34] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0

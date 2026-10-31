@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793440676
-offset=59102369
+stage=queue_slice_q_a0_nbr_1793437000_01.txt_0
+ts=1793443296
+offset=59045863
 --- LAST 5 LOG LINES ---
-[2026-10-31 08:11:31] [SHARD 12 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:12:01] [SHARD 12 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:12:32] [SHARD 12 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:13:03] [SHARD 12 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
-[2026-10-31 08:13:33] [SHARD 12 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
+[2026-10-31 10:41:11] [SHARD 12 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:41:11] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=131 worker_slice=66 resume=0
+[2026-10-31 10:41:36] [SHARD 12 W0] [FOUND QUEUE] 91.204.190.140:81 (HNET-AS) via speed.cloudflare.com | cands=209
+[2026-10-31 10:41:36] [SHARD 12 W0] [FOUND QUEUE] 98.94.14.234:43565 (AMAZON-AES) via one.one.one.one | cands=210
+[2026-10-31 10:41:36] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
