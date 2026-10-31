@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_500
-ts=1793450371
-offset=65491248
+stage=queue_slice_q_a0_http_1793448000_02.txt_0
+ts=1793450395
+offset=65491337
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:31] [SHARD 05 W0] [FOUND QUEUE] 103.76.151.52:8181 (JAVADIGITAL-AS-ID) via speed.cloudflare.com | cands=237
 [2026-10-31 12:39:31] [SHARD 05 W0] [FOUND QUEUE] 117.203.166.161:8080 (BSNL-NIB) via www.google.com | cands=238
 [2026-10-31 12:39:31] [SHARD 05 W0] [FOUND QUEUE] 119.93.36.139:8080 (IPG-AS-AP) via speed.cloudflare.com | cands=239
 [2026-10-31 12:39:31] [SHARD 05 W0] [FOUND QUEUE] 122.3.77.27:8082 (IPG-AS-AP) via speed.cloudflare.com | cands=240
 [2026-10-31 12:39:31] [SHARD 05 W0] [FOUND QUEUE] 123.121.118.107:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=241
+[2026-10-31 12:39:55] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
