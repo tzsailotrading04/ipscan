@@ -365,3 +365,7 @@
 56.112.93.245:50777	one.one.one.one	QUEUE	0	AMAZON-02
 80.66.72.20:443	speed.cloudflare.com	QUEUE	0	GCS-AS
 88.119.139.237:53281	speed.cloudflare.com	QUEUE	0	TELIA-LIETUVA
+103.175.237.232:8080	speed.cloudflare.com	QUEUE	0	IDNIC-MARVATEL-AS-ID
+103.247.22.88:4317	speed.cloudflare.com	QUEUE	0	WIFIAN-AS-ID
+103.48.69.98:83	one.one.one.one	QUEUE	0	COUNTRYONLINE-AS-IN
+119.93.178.99:8081	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
