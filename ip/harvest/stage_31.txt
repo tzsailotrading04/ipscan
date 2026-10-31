@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_03.txt_500
-ts=1793450799
-offset=58854852
+stage=queue_slice_q_a0_http_1793448000_04.txt_0
+ts=1793450833
+offset=58854940
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:45:49] [SHARD 31 W0] [FOUND QUEUE] 179.43.103.97:8080 (ADVANTUN) via speed.cloudflare.com | cands=289
-[2026-10-31 12:45:57] [SHARD 31 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:46:39] [SHARD 31 W0] [FOUND QUEUE] 201.7.31.44:8080 (RESERVED) via one.one.one.one | cands=290
-[2026-10-31 12:46:39] [SHARD 31 W0] [FOUND QUEUE] 217.117.246.154:8080 (ALFANETTELECOM-AS) via www.google.com | cands=291
 [2026-10-31 12:46:39] [SHARD 31 W0] [FOUND QUEUE] 36.88.111.250:8787 (TELKOMNET-AS-AP) via www.google.com | cands=292
+[2026-10-31 12:47:13] [SHARD 31 W0] [FOUND QUEUE] 45.236.44.94:8080 (WIN) via one.one.one.one | cands=293
+[2026-10-31 12:47:13] [SHARD 31 W0] [FOUND QUEUE] 47.104.170.144:21056 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=294
+[2026-10-31 12:47:13] [SHARD 31 W0] [FOUND QUEUE] 47.129.130.0:4335 (AMAZON-02) via www.google.com | cands=295
+[2026-10-31 12:47:13] [SHARD 31 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
