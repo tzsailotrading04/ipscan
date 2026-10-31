@@ -311,3 +311,9 @@
 38.172.130.241:999	speed.cloudflare.com	QUEUE	0	CONEX
 38.224.254.9:999	www.google.com	QUEUE	0	LUCIANO
 45.174.175.26:999	one.one.one.one	QUEUE	0	JAVIER
+103.112.212.57:83	one.one.one.one	QUEUE	0	ACNS-AS-IN
+103.125.117.126:3125	speed.cloudflare.com	QUEUE	0	IDNIC-BARAYA-AS-ID
+103.170.96.192:8181	speed.cloudflare.com	QUEUE	0	IDNIC-ARKO97-AS-ID
+103.72.89.22:8097	www.google.com	QUEUE	0	IDNIC-IJM-AS-ID
+13.245.161.189:8095	speed.cloudflare.com	QUEUE	0	AMAZON-02
+138.186.187.196:8080	speed.cloudflare.com	QUEUE	0	ALTANET
