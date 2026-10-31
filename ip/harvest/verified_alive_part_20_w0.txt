@@ -201,3 +201,10 @@
 38.210.201.144:999	speed.cloudflare.com	QUEUE	0	SOLUCIONES
 45.184.124.9:1985	speed.cloudflare.com	QUEUE	0	SERVICIOS
 45.71.114.147:999	speed.cloudflare.com	QUEUE	0	UFINET
+49.145.58.197:8082	www.google.com	QUEUE	0	IPG-AS-AP
+49.149.126.183:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+52.195.147.51:8082	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.155.73.159:53666	speed.cloudflare.com	QUEUE	0	AMAZON-02
+78.14.19.3:14270	speed.cloudflare.com	QUEUE	0	AMAZON-02
+8.138.16.247:8080	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+82.152.138.127:999	speed.cloudflare.com	QUEUE	0	WANTELCO
