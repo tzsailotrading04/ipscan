@@ -293,3 +293,8 @@
 185.82.99.190:8724	speed.cloudflare.com	QUEUE	0	NET360
 38.224.32.186:999	speed.cloudflare.com	QUEUE	0	SPEEDNET
 47.101.185.64:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+103.112.212.57:84	speed.cloudflare.com	QUEUE	0	ACNS-AS-IN
+103.166.33.56:8080	www.google.com	QUEUE	0	IDNIC-DCITY-AS-ID
+103.184.181.71:8080	www.google.com	QUEUE	0	LDP-AS-ID
+121.0.58.6:8080	speed.cloudflare.com	QUEUE	0	JISI-AS-AP
+126.209.107.170:8082	www.google.com	QUEUE	0	INFINIVAN-AS-AP
