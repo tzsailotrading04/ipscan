@@ -384,3 +384,12 @@
 42.116.10.198:443	www.google.com	QUEUE	0	FPT-AS-AP
 43.156.227.68:80	one.one.one.one	QUEUE	0	TENCENT-NET-AP-CN
 43.252.106.175:3125	speed.cloudflare.com	QUEUE	0	LDP-AS-ID
+47.129.105.10:8860	speed.cloudflare.com	QUEUE	0	AMAZON-02
+190.61.46.162:999	www.google.com	QUEUE	0	UFINET
+195.34.91.67:8080	www.google.com	QUEUE	0	MODUS-AS
+200.107.239.218:999	www.google.com	QUEUE	0	REDES
+202.152.142.99:8080	speed.cloudflare.com	QUEUE	0	CITRA-AS-ID
+34.220.80.147:34831	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.156.23.41:999	one.one.one.one	QUEUE	0	VISNETWORK
+38.211.76.97:999	www.google.com	QUEUE	0	FIBERNET
+41.33.89.100:1976	www.google.com	QUEUE	0	TE-AS
