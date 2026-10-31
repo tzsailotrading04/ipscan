@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793444427
+stage=queue_loop
+ts=1793444981
 offset=58708710
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:58:52] [SHARD 31 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
-[2026-10-31 10:59:54] [SHARD 31 W0] [FOUND QUEUE] 54.255.249.161:26553 (AMAZON-02) via one.one.one.one | cands=209
-[2026-10-31 10:59:54] [SHARD 31 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (174.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 10:59:56] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:00:27] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:07:38] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:08:08] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:08:39] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:09:10] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:09:41] [SHARD 31 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning

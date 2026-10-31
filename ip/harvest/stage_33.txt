@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793444402
-offset=60745310
+stage=res_loop
+ts=1793445043
+offset=60746486
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:00:00] [SHARD 33 W0] [FOUND QUEUE] 51.85.44.149:8013 (AMAZON-02) via one.one.one.one | cands=210
-[2026-10-31 11:00:00] [SHARD 33 W0] [FOUND QUEUE] 54.255.249.161:36013 (AMAZON-02) via www.google.com | cands=211
-[2026-10-31 11:00:00] [SHARD 33 W0] [FOUND QUEUE] 88.218.92.64:3128 (GNC-ALFA) via speed.cloudflare.com | cands=212
-[2026-10-31 11:00:00] [SHARD 33 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (147.3s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 11:00:02] [SHARD 33 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 18.170.45.5:4228 (AMAZON-02) via one.one.one.one | cands=223
+[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 18.188.168.99:47416 (AMAZON-02) via one.one.one.one | cands=224
+[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 18.224.94.46:4899 (AMAZON-02) via one.one.one.one | cands=225
+[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 182.52.136.41:8080 (TOT-NET) via www.google.com | cands=226
+[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 185.191.239.248:3128 (GRUPO) via speed.cloudflare.com | cands=227
