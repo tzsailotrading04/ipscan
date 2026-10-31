@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793426695
-offset=59339453
+ts=1793429552
+offset=59324961
 --- LAST 5 LOG LINES ---
-[2026-10-31 05:54:49] [SHARD 27 W0] Random IPv4 Looping: Resume offset=59,256,409 cands=138
-[2026-10-31 05:54:50] [SHARD 27 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 05:54:50] [SHARD 27 W0] [QUEUE STAGE] Consuming q_res_1793430000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 05:55:06] [SHARD 27 W0] [QUEUE STAGE] Consuming q_res_1793430000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 05:55:22] [SHARD 27 W0] [QUEUE STAGE] Consuming q_res_1793430000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 06:42:51] [SHARD 27 W0] [QUEUE STAGE] Consuming q_aa_asn_1793433000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 06:43:07] [SHARD 27 W0] [QUEUE STAGE] Consuming q_aa_asn_1793433000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 06:43:23] [SHARD 27 W0] [QUEUE STAGE] Consuming q_res_1793430000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 06:43:39] [SHARD 27 W0] [QUEUE STAGE] Consuming q_res_1793430000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 06:43:55] [SHARD 27 W0] [QUEUE STAGE] Consuming q_res_1793430000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
