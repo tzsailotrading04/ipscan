@@ -432,3 +432,6 @@
 8.243.163.58:999	one.one.one.one	QUEUE	0	LEVEL3
 92.42.96.84:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
 94.200.195.220:8080	www.google.com	QUEUE	0	DU-AS1
+51.85.44.149:80	one.one.one.one	QUEUE	0	AMAZON-02
+72.255.29.169:1975	one.one.one.one	QUEUE	0	CYBERNET-AP
+80.51.61.1:8080	speed.cloudflare.com	QUEUE	0	TPNET

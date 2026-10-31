@@ -313,3 +313,6 @@
 36.255.86.115:83	www.google.com	QUEUE	0	GATIK-AS-IN
 38.183.146.5:7777	www.google.com	QUEUE	0	IMEDIANET-AS-ID
 47.239.140.6:80	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+51.85.44.149:80	one.one.one.one	QUEUE	0	AMAZON-02
+72.255.29.169:1975	one.one.one.one	QUEUE	0	CYBERNET-AP
+80.51.61.1:8080	speed.cloudflare.com	QUEUE	0	TPNET
