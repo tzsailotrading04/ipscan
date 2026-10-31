@@ -286,3 +286,9 @@
 186.31.135.202:999	speed.cloudflare.com	QUEUE	0	ETB
 203.205.49.2:10109	speed.cloudflare.com	QUEUE	0	CMCTELECOM-VN
 38.19.43.184:999	one.one.one.one	QUEUE	0	SUPER
+1.20.101.35:80	www.google.com	QUEUE	0	TOT-NET
+103.109.212.85:8428	speed.cloudflare.com	QUEUE	0	BTS-AS-AP
+103.150.166.160:8090	speed.cloudflare.com	QUEUE	0	FIBERNET-AS-AP
+103.19.78.205:1080	speed.cloudflare.com	QUEUE	0	IDNIC-PDM-AS-ID
+103.48.71.58:83	speed.cloudflare.com	QUEUE	0	COUNTRYONLINE-AS-IN
+124.83.118.156:8081	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
