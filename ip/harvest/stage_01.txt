@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793443486
+ts=1793443792
 offset=61353103
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:43:14] [SHARD 01 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (120.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 10:43:15] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:43:46] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:44:16] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:44:46] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:47:50] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:48:20] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:48:51] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:49:21] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:49:52] [SHARD 01 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

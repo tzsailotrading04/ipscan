@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_nbr_1793437000_01.txt_0
-ts=1793443467
-offset=58702250
+stage=queue_consuming
+ts=1793443753
+offset=58706536
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:43:41] [SHARD 31 W0] [FOUND QUEUE] 45.188.124.108:999 (DIGY) via one.one.one.one | cands=181
-[2026-10-31 10:43:41] [SHARD 31 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (209.4s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 10:43:43] [SHARD 31 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:43:43] [SHARD 31 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 10:44:27] [SHARD 31 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:46:54] [SHARD 31 W0] [QUEUE STAGE] Consuming q_ac_asn_1793435000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:47:41] [SHARD 31 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:48:11] [SHARD 31 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:48:42] [SHARD 31 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:49:13] [SHARD 31 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

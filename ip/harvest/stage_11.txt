@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_nbr_1793437000_03.txt_0
-ts=1793443411
-offset=62453660
+stage=queue_consuming
+ts=1793443688
+offset=62457865
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:42:36] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=131 worker_slice=66 resume=0
-[2026-10-31 10:42:59] [SHARD 11 W0] [FOUND QUEUE] 98.94.14.234:37654 (AMAZON-AES) via one.one.one.one | cands=194
-[2026-10-31 10:42:59] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 10:43:15] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 10:43:31] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 10:46:05] [SHARD 11 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:46:35] [SHARD 11 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:47:06] [SHARD 11 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:47:37] [SHARD 11 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:48:08] [SHARD 11 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

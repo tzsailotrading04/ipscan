@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793443654
+ts=1793443956
 offset=62264369
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:45:00] [SHARD 28 W0] [QUEUE STAGE] Consuming q_ac_asn_1793435000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 10:46:03] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:46:33] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:47:03] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:47:34] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:50:35] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:51:05] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:51:36] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:52:06] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:52:36] [SHARD 28 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
