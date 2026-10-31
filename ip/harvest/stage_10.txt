@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450071
-offset=64933028
+stage=queue_slice_q_a0_http_1793445000_03.txt_500
+ts=1793450126
+offset=64933528
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 144.124.251.24:11108 (VDSINA) via one.one.one.one | cands=232
-[2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 147.161.247.9:10015 (ZSCALER-EMEA) via one.one.one.one | cands=233
-[2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 147.161.247.9:11368 (ZSCALER-EMEA) via one.one.one.one | cands=234
-[2026-10-31 12:34:23] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:34:31] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:35:24] [SHARD 10 W0] [FOUND QUEUE] 38.75.81.7:999 (ACOLME) via one.one.one.one | cands=243
+[2026-10-31 12:35:24] [SHARD 10 W0] [FOUND QUEUE] 41.38.209.16:8080 (TE-AS) via www.google.com | cands=244
+[2026-10-31 12:35:24] [SHARD 10 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (142.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:35:26] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:35:26] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
