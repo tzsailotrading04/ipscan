@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450643
-offset=60867509
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450688
+offset=60868009
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:43:09] [SHARD 27 W0] [FOUND QUEUE] 194.186.246.22:8888 (SOVAM-AS) via one.one.one.one | cands=284
-[2026-10-31 12:43:09] [SHARD 27 W0] [FOUND QUEUE] 204.77.11.13:999 (OSNET) via speed.cloudflare.com | cands=285
-[2026-10-31 12:43:26] [SHARD 27 W0] [FOUND QUEUE] 45.236.65.201:8520 (TCPNET) via speed.cloudflare.com | cands=286
-[2026-10-31 12:43:26] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
-[2026-10-31 12:44:03] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:44:47] [SHARD 27 W0] [FOUND QUEUE] 124.105.36.193:8082 (IPG-AS-AP) via speed.cloudflare.com | cands=297
+[2026-10-31 12:44:47] [SHARD 27 W0] [FOUND QUEUE] 129.226.81.110:7890 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=298
+[2026-10-31 12:44:47] [SHARD 27 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (153.3s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:44:48] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:44:48] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
