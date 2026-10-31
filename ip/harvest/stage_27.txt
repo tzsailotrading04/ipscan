@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_03.txt_500
-ts=1793450589
-offset=60867063
+stage=queue_slice_q_a0_http_1793446000_04.txt_0
+ts=1793450606
+offset=60867151
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:42:13] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:42:13] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:43:09] [SHARD 27 W0] [FOUND QUEUE] 190.97.226.89:999 (VIGINET) via one.one.one.one | cands=283
 [2026-10-31 12:43:09] [SHARD 27 W0] [FOUND QUEUE] 194.186.246.22:8888 (SOVAM-AS) via one.one.one.one | cands=284
 [2026-10-31 12:43:09] [SHARD 27 W0] [FOUND QUEUE] 204.77.11.13:999 (OSNET) via speed.cloudflare.com | cands=285
+[2026-10-31 12:43:26] [SHARD 27 W0] [FOUND QUEUE] 45.236.65.201:8520 (TCPNET) via speed.cloudflare.com | cands=286
+[2026-10-31 12:43:26] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
