@@ -365,3 +365,10 @@
 122.53.48.41:8080	www.google.com	QUEUE	0	IPG-AS-AP
 144.124.251.24:10440	speed.cloudflare.com	QUEUE	0	VDSINA
 144.202.78.114:1234	speed.cloudflare.com	QUEUE	0	AS-VULTR
+103.154.76.169:8080	speed.cloudflare.com	QUEUE	0	T2NET-AS-ID
+103.156.14.35:8080	speed.cloudflare.com	QUEUE	0	IDNIC-LJN-AS-ID
+103.160.12.159:8080	one.one.one.one	QUEUE	0	CEPATNET-AS-ID
+103.192.80.81:3129	www.google.com	QUEUE	0	HOST-AS-AP
+109.224.242.171:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+118.31.62.231:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+124.106.83.244:8083	speed.cloudflare.com	QUEUE	0	IPG-AS-AP

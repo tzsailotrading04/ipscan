@@ -295,3 +295,11 @@
 46.0.242.43:9999	speed.cloudflare.com	QUEUE	0	ESAMARA-AS
 46.105.35.193:8080	one.one.one.one	QUEUE	0	OVH
 63.180.203.233:51082	one.one.one.one	QUEUE	0	AMAZON-02
+103.124.137.189:3128	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
+103.154.76.169:8080	speed.cloudflare.com	QUEUE	0	T2NET-AS-ID
+103.156.14.35:8080	speed.cloudflare.com	QUEUE	0	IDNIC-LJN-AS-ID
+103.160.12.159:8080	one.one.one.one	QUEUE	0	CEPATNET-AS-ID
+103.192.80.81:3129	www.google.com	QUEUE	0	HOST-AS-AP
+109.224.242.171:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+118.31.62.231:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+124.106.83.244:8083	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
