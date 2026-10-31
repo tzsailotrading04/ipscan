@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793449980
-offset=66814334
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793449997
+offset=66814423
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:00] [SHARD 04 W0] [FOUND QUEUE] 103.178.21.104:3125 (IDNIC-TRIDATARAYA-AS-ID) via one.one.one.one | cands=196
-[2026-10-31 12:33:00] [SHARD 04 W0] [FOUND QUEUE] 103.188.50.86:3125 (PRIMACOM-AS-ID) via speed.cloudflare.com | cands=197
-[2026-10-31 12:33:00] [SHARD 04 W0] [FOUND QUEUE] 116.204.166.45:8080 (RESERVED) via one.one.one.one | cands=198
-[2026-10-31 12:33:00] [SHARD 04 W0] [FOUND QUEUE] 126.209.105.226:5050 (INFINIVAN-AS-AP) via www.google.com | cands=199
 [2026-10-31 12:33:00] [SHARD 04 W0] [FOUND QUEUE] 13.245.183.150:31346 (AMAZON-02) via speed.cloudflare.com | cands=200
+[2026-10-31 12:33:17] [SHARD 04 W0] [FOUND QUEUE] 144.124.251.24:10813 (VDSINA) via speed.cloudflare.com | cands=201
+[2026-10-31 12:33:17] [SHARD 04 W0] [FOUND QUEUE] 146.190.60.147:8015 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=202
+[2026-10-31 12:33:17] [SHARD 04 W0] [FOUND QUEUE] 147.161.247.9:11207 (ZSCALER-EMEA) via speed.cloudflare.com | cands=203
+[2026-10-31 12:33:17] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
