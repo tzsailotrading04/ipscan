@@ -452,3 +452,7 @@
 78.186.146.140:3310	speed.cloudflare.com	QUEUE	0	TTNET
 143.208.152.62:3180	speed.cloudflare.com	QUEUE	0	FIBRA
 147.161.247.9:11704	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+154.73.29.217:8080	www.google.com	QUEUE	0	GPTC-AS
+157.20.252.203:8080	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
+157.66.50.147:8080	speed.cloudflare.com	QUEUE	0	IDNIC-BTELIN-ID
+18.231.214.206:8180	speed.cloudflare.com	QUEUE	0	AMAZON-02
