@@ -259,3 +259,12 @@
 36.92.140.113:80	one.one.one.one	QUEUE	0	TELKOMNET-AS-AP
 45.164.151.150:999	speed.cloudflare.com	QUEUE	0	JORGE
 45.232.0.2:8080	speed.cloudflare.com	QUEUE	0	SISTEMAS
+49.145.58.197:8082	one.one.one.one	QUEUE	0	IPG-AS-AP
+51.85.44.149:12026	www.google.com	QUEUE	0	AMAZON-02
+52.195.147.51:8082	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.155.73.159:53666	one.one.one.one	QUEUE	0	AMAZON-02
+61.29.96.146:80	speed.cloudflare.com	QUEUE	0	AAPT
+82.152.138.127:999	www.google.com	QUEUE	0	WANTELCO
+85.131.243.125:3128	speed.cloudflare.com	QUEUE	0	XSERVER
+91.211.212.6:32650	www.google.com	QUEUE	0	INALAN
+95.3.92.2:8080	one.one.one.one	QUEUE	0	TTNET
