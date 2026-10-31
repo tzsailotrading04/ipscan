@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_04.txt_0
-ts=1793450515
-offset=62410744
+stage=queue_slice_q_a0_http_1793448000_01.txt_0
+ts=1793450553
+offset=62411102
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:41:54] [SHARD 28 W0] [FOUND QUEUE] 45.173.199.2:999 (360NET) via speed.cloudflare.com | cands=291
-[2026-10-31 12:41:54] [SHARD 28 W0] [FOUND QUEUE] 45.187.105.196:8080 (GPR) via www.google.com | cands=292
-[2026-10-31 12:41:54] [SHARD 28 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (130.2s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
 [2026-10-31 12:41:55] [SHARD 28 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
 [2026-10-31 12:41:55] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
+[2026-10-31 12:42:33] [SHARD 28 W0] [FOUND QUEUE] 79.133.66.110:81 (ROSTELECOM-AS) via one.one.one.one | cands=293
+[2026-10-31 12:42:33] [SHARD 28 W0] [FOUND QUEUE] 85.117.56.29:8080 (CAUCASUS-CABLE-SYSTEM) via www.google.com | cands=294
+[2026-10-31 12:42:33] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
