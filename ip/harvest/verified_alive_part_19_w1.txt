@@ -198,3 +198,7 @@
 87.76.138.32:8080	www.google.com	QUEUE	0	RESERVED
 89.104.102.209:58080	speed.cloudflare.com	QUEUE	0	BRM-AS
 89.43.133.102:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+16.28.101.55:58865	www.google.com	QUEUE	0	AMAZON-02
+162.4.96.221:8080	speed.cloudflare.com	QUEUE	0	IDNIC-AZNETLINK-ID
+177.244.44.78:3128	speed.cloudflare.com	QUEUE	0	MEGA
+18.224.94.46:49319	speed.cloudflare.com	QUEUE	0	AMAZON-02
