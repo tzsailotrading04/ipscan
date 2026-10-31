@@ -23,8 +23,9 @@ except Exception:
     HAVE_SOCKS = False
 
 NUM_SHARDS = 34
-DEFAULT_WORKERS = 2
-BACKOFF_WORKERS = 1
+DEFAULT_WORKERS = 1
+BACKOFF_WORKERS = 20
+PROBE_CONCURRENCY = 20
 
 ENGINE_VER = "v98.188"
 OUT_PREFIX = "v98_"
@@ -121,7 +122,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     load_asn_table()
 
-    sem = asyncio.Semaphore(6000)
+    sem = asyncio.Semaphore(PROBE_CONCURRENCY)  # Strictly bounds concurrency to 20 parallel probes
     loop = asyncio.get_running_loop()
 
     STAT_ERRNO99 = 0
