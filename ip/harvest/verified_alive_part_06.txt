@@ -414,3 +414,6 @@
 181.119.111.53:999	one.one.one.one	QUEUE	0	UFINET
 182.16.171.65:43188	speed.cloudflare.com	QUEUE	0	SOLUSINET-AS-ID
 185.8.148.81:8085	speed.cloudflare.com	QUEUE	0	DTS-AS
+203.128.69.230:8080	speed.cloudflare.com	QUEUE	0	NEUVIZ-AS-ID-AP
+31.58.57.74:1111	one.one.one.one	QUEUE	0	IDNIC-ATHARVA-AS-ID
+45.128.184.25:80	speed.cloudflare.com	QUEUE	0	MGNHOST-AS
