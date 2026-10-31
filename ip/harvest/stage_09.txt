@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_03.txt_0
-ts=1793450390
-offset=65789433
+stage=queue_slice_q_a0_http_1793446000_03.txt_500
+ts=1793450446
+offset=65789933
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:38:51] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:38:51] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:39:21] [SHARD 09 W0] [FOUND QUEUE] 144.79.130.18:8181 (IDNIC-CBT-ID) via speed.cloudflare.com | cands=226
-[2026-10-31 12:39:21] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:39:50] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:40:46] [SHARD 09 W0] [FOUND QUEUE] 201.139.115.38:8081 (KIWI) via speed.cloudflare.com | cands=227
+[2026-10-31 12:40:46] [SHARD 09 W0] [FOUND QUEUE] 27.123.222.193:8080 (FIBERNET-AS-ID) via one.one.one.one | cands=228
+[2026-10-31 12:40:46] [SHARD 09 W0] [FOUND QUEUE] 38.123.48.66:999 (BRAVIC) via one.one.one.one | cands=229
+[2026-10-31 12:40:46] [SHARD 09 W0] [FOUND QUEUE] 43.231.78.205:8080 (GOAL-BD) via www.google.com | cands=230
+[2026-10-31 12:40:46] [SHARD 09 W0] [FOUND QUEUE] 45.172.142.38:999 (TECHTRON) via one.one.one.one | cands=231
