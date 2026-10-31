@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_500
-ts=1793450499
-offset=65169712
+stage=queue_slice_q_a0_http_1793448000_03.txt_0
+ts=1793450524
+offset=65169801
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:41:07] [SHARD 08 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:41:07] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
 [2026-10-31 12:41:39] [SHARD 08 W0] [FOUND QUEUE] 177.73.155.246:999 (DOBLECLICK) via speed.cloudflare.com | cands=292
 [2026-10-31 12:41:39] [SHARD 08 W0] [FOUND QUEUE] 180.190.185.211:9999 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=293
 [2026-10-31 12:41:39] [SHARD 08 W0] [FOUND QUEUE] 182.53.202.228:8080 (TOT-NET) via www.google.com | cands=294
+[2026-10-31 12:42:04] [SHARD 08 W0] [FOUND QUEUE] 190.121.157.41:999 (MEDIA) via speed.cloudflare.com | cands=295
+[2026-10-31 12:42:04] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
