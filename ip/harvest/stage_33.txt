@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450197
-offset=60891400
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450227
+offset=60891488
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:37] [SHARD 33 W0] [FOUND QUEUE] 103.120.76.46:8080 (IDNIC-HCI-AS-ID) via one.one.one.one | cands=251
-[2026-10-31 12:36:37] [SHARD 33 W0] [FOUND QUEUE] 103.180.127.60:3125 (IDNIC-AMDNET-AS-ID) via speed.cloudflare.com | cands=252
-[2026-10-31 12:36:37] [SHARD 33 W0] [FOUND QUEUE] 103.182.22.200:8000 (INTERDIGI-VN) via speed.cloudflare.com | cands=253
-[2026-10-31 12:36:37] [SHARD 33 W0] [FOUND QUEUE] 103.191.196.71:3125 (IDNIC-PALINDONET-AS-ID) via speed.cloudflare.com | cands=254
 [2026-10-31 12:36:37] [SHARD 33 W0] [FOUND QUEUE] 123.121.134.141:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=255
+[2026-10-31 12:37:07] [SHARD 33 W0] [FOUND QUEUE] 144.124.251.24:10101 (VDSINA) via speed.cloudflare.com | cands=256
+[2026-10-31 12:37:07] [SHARD 33 W0] [FOUND QUEUE] 147.161.247.9:10361 (ZSCALER-EMEA) via www.google.com | cands=257
+[2026-10-31 12:37:07] [SHARD 33 W0] [FOUND QUEUE] 147.161.247.9:12124 (ZSCALER-EMEA) via www.google.com | cands=258
+[2026-10-31 12:37:07] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
