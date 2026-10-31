@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450051
-offset=63798902
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793450085
+offset=63798991
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:34:11] [SHARD 13 W0] [FOUND QUEUE] 103.160.12.159:8080 (CEPATNET-AS-ID) via one.one.one.one | cands=301
-[2026-10-31 12:34:11] [SHARD 13 W0] [FOUND QUEUE] 103.192.80.81:3129 (HOST-AS-AP) via www.google.com | cands=302
-[2026-10-31 12:34:11] [SHARD 13 W0] [FOUND QUEUE] 109.224.242.171:8080 (RESERVED) via speed.cloudflare.com | cands=303
 [2026-10-31 12:34:11] [SHARD 13 W0] [FOUND QUEUE] 118.31.62.231:3128 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=304
 [2026-10-31 12:34:11] [SHARD 13 W0] [FOUND QUEUE] 124.106.83.244:8083 (IPG-AS-AP) via speed.cloudflare.com | cands=305
+[2026-10-31 12:34:45] [SHARD 13 W0] [FOUND QUEUE] 147.161.247.9:10053 (ZSCALER-EMEA) via speed.cloudflare.com | cands=306
+[2026-10-31 12:34:45] [SHARD 13 W0] [FOUND QUEUE] 147.161.247.9:11617 (ZSCALER-EMEA) via speed.cloudflare.com | cands=307
+[2026-10-31 12:34:45] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
