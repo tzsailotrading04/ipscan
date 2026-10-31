@@ -339,3 +339,10 @@
 35.78.212.217:2490	speed.cloudflare.com	QUEUE	0	AMAZON-02
 54.255.249.161:8808	speed.cloudflare.com	QUEUE	0	AMAZON-02
 89.43.135.42:8080	one.one.one.one	QUEUE	0	RESERVED
+103.103.193.194:8080	www.google.com	QUEUE	0	RACKH-AS-AP
+103.139.98.177:3125	speed.cloudflare.com	QUEUE	0	DNS-AS-ID
+103.165.151.22:1111	speed.cloudflare.com	QUEUE	0	IDNIC-AGNPROVIDER-ID
+103.170.100.98:8080	speed.cloudflare.com	QUEUE	0	SDN-AS-ID
+103.208.102.1:8080	www.google.com	QUEUE	0	TIDAR-AS-ID
+103.210.16.10:8090	one.one.one.one	QUEUE	0	TALMURI-AS-AP
+125.26.45.69:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
