@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793446247
-offset=58371860
+ts=1793446567
+offset=58392180
 --- LAST 5 LOG LINES ---
 [2026-10-31 10:52:41] [SHARD 21 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
 [2026-10-31 10:55:54] [SHARD 21 W0] [FOUND QUEUE] 47.101.159.19:8899 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=195
