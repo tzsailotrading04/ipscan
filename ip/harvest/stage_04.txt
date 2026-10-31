@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_03.txt_500
-ts=1793450305
-offset=66817101
+stage=queue_slice_q_a0_http_1793446000_04.txt_0
+ts=1793450323
+offset=66817190
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:41] [SHARD 04 W0] [FOUND QUEUE] 186.33.7.227:999 (UFINET) via speed.cloudflare.com | cands=221
 [2026-10-31 12:37:41] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
 [2026-10-31 12:38:25] [SHARD 04 W0] [FOUND QUEUE] 191.102.76.34:999 (TV) via one.one.one.one | cands=222
 [2026-10-31 12:38:25] [SHARD 04 W0] [FOUND QUEUE] 38.210.106.17:999 (CONEXION) via www.google.com | cands=223
 [2026-10-31 12:38:25] [SHARD 04 W0] [FOUND QUEUE] 45.180.45.68:999 (BRAVO) via speed.cloudflare.com | cands=224
+[2026-10-31 12:38:43] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=716 worker_slice=358 resume=0
