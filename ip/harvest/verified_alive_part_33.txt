@@ -97,3 +97,5 @@
 56.112.8.169:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
 63.180.203.233:8000	one.one.one.one	QUEUE	0	AMAZON-02
 65.0.54.254:81	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.130.115.141:3128	speed.cloudflare.com	RES	0	CHARTER-20115
+35.130.115.142:8080	one.one.one.one	RES	0	CHARTER-20115

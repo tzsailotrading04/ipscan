@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793397725
-offset=61776282
+ts=1793418579
+offset=66226362
 --- LAST 5 LOG LINES ---
-[2026-10-30 21:56:41] [SHARD 26 W0] [FOUND QUEUE] 43.213.53.73:8888 (AMAZON-02) via speed.cloudflare.com | cands=62
 [2026-10-30 21:56:41] [SHARD 26 W0] [FOUND QUEUE] 45.198.11.162:9191 (AZNET-ID) via speed.cloudflare.com | cands=63
 [2026-10-30 21:57:00] [SHARD 26 W0] [FOUND QUEUE] 52.53.248.225:81 (AMAZON-02) via one.one.one.one | cands=64
 [2026-10-30 21:57:00] [SHARD 26 W0] [FOUND QUEUE] 57.130.88.206:80 (OVH) via speed.cloudflare.com | cands=65
 [2026-10-30 21:57:00] [SHARD 26 W0] [FOUND QUEUE] 95.40.98.38:1080 (AMAZON-02) via speed.cloudflare.com | cands=66
+[2026-10-30 22:39:24] [SHARD 26 W0] [FOUND RES] 103.176.211.140:8080 (AIRNETNETWORKS-AS-IN) via speed.cloudflare.com | cands=67
