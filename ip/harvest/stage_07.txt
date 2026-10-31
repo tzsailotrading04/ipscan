@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793455606
-offset=64028323
+ts=1793455921
+offset=64048643
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:54:41] [SHARD 07 W0] [FOUND QUEUE] 189.203.181.34:8080 (TOTAL) via www.google.com | cands=317
 [2026-10-31 12:56:26] [SHARD 07 W0] [FOUND QUEUE] 62.171.154.102:3128 (CONTABO) via one.one.one.one | cands=318
