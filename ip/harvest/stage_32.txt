@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793452796
-offset=62458686
+ts=1793453099
+offset=62479006
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 5.161.204.82:8888 (HETZNER-CLOUD2-AS) via www.google.com | cands=272
 [2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 51.17.99.116:10336 (AMAZON-02) via speed.cloudflare.com | cands=273
