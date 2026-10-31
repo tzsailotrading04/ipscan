@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793451114
-offset=62602879
+stage=res_loop
+ts=1793451221
+offset=62604055
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:49:52] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:22] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:53] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:23] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:54] [SHARD 22 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:53:41] [SHARD 22 W0] [FOUND QUEUE] 147.161.246.39:11273 (ZSCALER-EMEA) via speed.cloudflare.com | cands=295
+[2026-10-31 12:53:41] [SHARD 22 W0] [FOUND QUEUE] 147.161.247.9:10230 (ZSCALER-EMEA) via www.google.com | cands=296
+[2026-10-31 12:53:41] [SHARD 22 W0] [FOUND QUEUE] 147.161.247.9:10811 (ZSCALER-EMEA) via www.google.com | cands=297
+[2026-10-31 12:53:41] [SHARD 22 W0] [FOUND QUEUE] 147.161.247.9:11755 (ZSCALER-EMEA) via speed.cloudflare.com | cands=298
+[2026-10-31 12:53:41] [SHARD 22 W0] [FOUND QUEUE] 147.161.247.9:12581 (ZSCALER-EMEA) via speed.cloudflare.com | cands=299
