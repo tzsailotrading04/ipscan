@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_bulk_1793440000_04.txt_500
-ts=1793443350
-offset=62220583
+stage=queue_slice_q_a0_nbr_1793437000_02.txt_500
+ts=1793443421
+offset=62221825
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:41:20] [SHARD 32 W0] [FOUND QUEUE] 43.207.141.180:57591 (AMAZON-02) via www.google.com | cands=121
-[2026-10-31 10:41:28] [SHARD 32 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 10:42:30] [SHARD 32 W0] [FOUND QUEUE] 49.149.195.243:8081 (IPG-AS-AP) via speed.cloudflare.com | cands=122
-[2026-10-31 10:42:30] [SHARD 32 W0] [FOUND QUEUE] 51.17.99.116:31401 (AMAZON-02) via speed.cloudflare.com | cands=123
-[2026-10-31 10:42:30] [SHARD 32 W0] [FOUND QUEUE] 52.214.92.206:38562 (AMAZON-02) via speed.cloudflare.com | cands=124
+[2026-10-31 10:43:09] [SHARD 32 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=131 worker_slice=66 resume=0
+[2026-10-31 10:43:17] [SHARD 32 W0] [FOUND QUEUE] 89.43.132.250:8080 (RESERVED) via speed.cloudflare.com | cands=126
+[2026-10-31 10:43:17] [SHARD 32 W0] [FOUND QUEUE] 95.170.205.202:8080 (NEWROZ-TELECOM-ASN) via speed.cloudflare.com | cands=127
+[2026-10-31 10:43:17] [SHARD 32 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:43:33] [SHARD 32 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0

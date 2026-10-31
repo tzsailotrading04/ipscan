@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_bulk_1793440000_04.txt_0
-ts=1793443301
-offset=60737020
+stage=queue_slice_q_a0_bulk_1793440000_04.txt_500
+ts=1793443412
+offset=60737520
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:41:33] [SHARD 33 W0] [FOUND QUEUE] 34.220.80.147:29590 (AMAZON-02) via www.google.com | cands=168
-[2026-10-31 10:41:33] [SHARD 33 W0] [FOUND QUEUE] 38.76.9.1:999 (ACT) via speed.cloudflare.com | cands=169
-[2026-10-31 10:41:33] [SHARD 33 W0] [FOUND QUEUE] 43.207.141.180:57606 (AMAZON-02) via one.one.one.one | cands=170
-[2026-10-31 10:41:41] [SHARD 33 W0] [FOUND QUEUE] 45.149.24.137:8080 (RESERVED) via speed.cloudflare.com | cands=171
-[2026-10-31 10:41:41] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:43:31] [SHARD 33 W0] [FOUND QUEUE] 45.177.16.129:999 (MSW) via one.one.one.one | cands=172
+[2026-10-31 10:43:31] [SHARD 33 W0] [FOUND QUEUE] 52.214.92.206:42928 (AMAZON-02) via one.one.one.one | cands=173
+[2026-10-31 10:43:31] [SHARD 33 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (191.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 10:43:32] [SHARD 33 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:43:32] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500

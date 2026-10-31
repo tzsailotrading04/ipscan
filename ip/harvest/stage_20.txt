@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_nbr_1793437000_03.txt_0
-ts=1793443212
-offset=62823066
+stage=queue_consuming
+ts=1793443502
+offset=62826676
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:39:11] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 10:40:04] [SHARD 20 W0] [FOUND QUEUE] 79.175.107.227:6666 (ORIONTELEKOM-AS) via one.one.one.one | cands=184
-[2026-10-31 10:40:04] [SHARD 20 W0] [FOUND QUEUE] 87.126.65.11:1388 (VIVACOM-AS) via www.google.com | cands=185
-[2026-10-31 10:40:04] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 10:40:12] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:43:01] [SHARD 20 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:43:31] [SHARD 20 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:44:01] [SHARD 20 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:44:32] [SHARD 20 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:02] [SHARD 20 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

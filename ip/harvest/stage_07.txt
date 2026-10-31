@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_bulk_1793440000_05.txt_0
-ts=1793443250
-offset=63547036
+stage=queue_consuming
+ts=1793443559
+offset=63552403
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:40:11] [SHARD 07 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:40:11] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 10:40:50] [SHARD 07 W0] [FOUND QUEUE] 77.81.101.99:3128 (ASNET) via speed.cloudflare.com | cands=216
-[2026-10-31 10:40:50] [SHARD 07 W0] [FOUND QUEUE] 8.243.167.51:999 (LEVEL3) via speed.cloudflare.com | cands=217
-[2026-10-31 10:40:50] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=131 worker_slice=66 resume=0
+[2026-10-31 10:43:42] [SHARD 07 W0] [QUEUE STAGE] Consuming q_ac_asn_1793435000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 10:44:28] [SHARD 07 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:44:58] [SHARD 07 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:29] [SHARD 07 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:59] [SHARD 07 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

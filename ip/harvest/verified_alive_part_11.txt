@@ -242,3 +242,5 @@
 45.174.248.20:999	speed.cloudflare.com	QUEUE	0	WIFMAX
 45.174.249.9:999	speed.cloudflare.com	QUEUE	0	WIFMAX
 45.65.226.172:999	www.google.com	QUEUE	0	SOLUTION
+98.94.14.234:37654	one.one.one.one	QUEUE	0	AMAZON-AES
+91.126.244.112:8080	speed.cloudflare.com	QUEUE	0	ADAMOEU-AS

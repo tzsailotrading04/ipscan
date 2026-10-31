@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_bulk_1793440000_04.txt_0
-ts=1793443290
-offset=60717609
+stage=queue_slice_q_a0_nbr_1793437000_02.txt_0
+ts=1793443422
+offset=60718285
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:41:21] [SHARD 27 W0] [FOUND QUEUE] 203.171.115.116:8080 (ETISALATAFG-AS-AP) via www.google.com | cands=166
-[2026-10-31 10:41:21] [SHARD 27 W0] [FOUND QUEUE] 204.48.31.203:80 (DIGITALOCEAN-ASN) via one.one.one.one | cands=167
-[2026-10-31 10:41:21] [SHARD 27 W0] [FOUND QUEUE] 37.230.57.112:999 (STARTELECOM) via speed.cloudflare.com | cands=168
-[2026-10-31 10:41:21] [SHARD 27 W0] [FOUND QUEUE] 38.210.179.204:999 (JAIR) via speed.cloudflare.com | cands=169
-[2026-10-31 10:41:30] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 10:42:54] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_04.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 10:43:34] [SHARD 27 W0] [FOUND QUEUE] 78.12.136.220:52990 (AMAZON-02) via speed.cloudflare.com | cands=173
+[2026-10-31 10:43:34] [SHARD 27 W0] [FOUND QUEUE] 83.229.73.113:13554 (CLOUDWEBMANAGE) via speed.cloudflare.com | cands=174
+[2026-10-31 10:43:34] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 10:43:42] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0

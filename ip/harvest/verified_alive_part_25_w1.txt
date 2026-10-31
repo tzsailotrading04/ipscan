@@ -152,3 +152,5 @@
 193.43.149.73:8080	one.one.one.one	QUEUE	0	INT-PDN-STE-AS
 38.19.239.95:999	www.google.com	QUEUE	0	RED
 9.154.247.186:8080	speed.cloudflare.com	QUEUE	0	MYREPUBLIC-AS-ID
+163.47.25.70:3128	speed.cloudflare.com	QUEUE	0	IDNIC-STARHOME-AS-ID
+2.26.234.5:8080	speed.cloudflare.com	QUEUE	0	FIBERNET-AS-ID

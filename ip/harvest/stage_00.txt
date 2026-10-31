@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_nbr_1793437000_02.txt_0
-ts=1793443256
-offset=70282482
+stage=queue_consuming
+ts=1793443558
+offset=70286605
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:40:11] [SHARD 00 W0] [FOUND QUEUE] 77.73.68.24:8080 (VEESP-AS) via speed.cloudflare.com | cands=209
-[2026-10-31 10:40:11] [SHARD 00 W0] [FOUND QUEUE] 82.41.42.113:8080 (AS_PERWIRA_MEDIA) via www.google.com | cands=210
-[2026-10-31 10:40:11] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=132 worker_slice=66 resume=0
-[2026-10-31 10:40:40] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 10:40:56] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 10:43:47] [SHARD 00 W0] [QUEUE STAGE] Consuming q_ac_asn_1793435000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 10:44:26] [SHARD 00 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:44:56] [SHARD 00 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:27] [SHARD 00 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:58] [SHARD 00 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

@@ -167,3 +167,8 @@
 204.48.31.203:80	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN
 37.230.57.112:999	speed.cloudflare.com	QUEUE	0	STARTELECOM
 38.210.179.204:999	speed.cloudflare.com	QUEUE	0	JAIR
+45.179.200.89:999	www.google.com	QUEUE	0	NET&COM
+45.198.10.73:9191	www.google.com	QUEUE	0	AZNET-ID
+45.229.9.132:8403	speed.cloudflare.com	QUEUE	0	MEGANET
+78.12.136.220:52990	speed.cloudflare.com	QUEUE	0	AMAZON-02
+83.229.73.113:13554	speed.cloudflare.com	QUEUE	0	CLOUDWEBMANAGE

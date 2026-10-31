@@ -1,9 +1,9 @@
-stage=queue_slice_q_ab_asn_1793434000_01.txt_0
-ts=1793443337
-offset=65274059
+stage=queue_consuming
+ts=1793443619
+offset=65277593
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:41:29] [SHARD 05 W0] [FOUND QUEUE] 221.221.154.156:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=170
-[2026-10-31 10:41:37] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 10:41:53] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 10:42:09] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_04.txt: total=5580 shard_slice=164 worker_slice=82 resume=0
-[2026-10-31 10:42:17] [SHARD 05 W0] [QUEUE STAGE] Consuming q_ab_asn_1793434000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 10:44:57] [SHARD 05 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:27] [SHARD 05 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:58] [SHARD 05 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:46:28] [SHARD 05 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:46:59] [SHARD 05 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning

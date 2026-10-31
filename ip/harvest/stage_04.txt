@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_nbr_1793437000_02.txt_0
-ts=1793443223
-offset=66610431
+stage=queue_consuming
+ts=1793443521
+offset=66613376
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:39:47] [SHARD 04 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (135.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 10:39:48] [SHARD 04 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:39:48] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_bulk_1793440000_05.txt: total=4457 shard_slice=131 worker_slice=66 resume=0
-[2026-10-31 10:40:07] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 10:40:23] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_nbr_1793437000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 10:43:20] [SHARD 04 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:43:50] [SHARD 04 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:44:20] [SHARD 04 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:44:50] [SHARD 04 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 10:45:21] [SHARD 04 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
