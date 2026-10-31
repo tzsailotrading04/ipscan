@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450023
-offset=64932850
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793450063
+offset=64932939
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:43] [SHARD 10 W0] [FOUND QUEUE] 103.125.160.178:80 (CTRLS-AS-IN) via speed.cloudflare.com | cands=227
-[2026-10-31 12:33:43] [SHARD 10 W0] [FOUND QUEUE] 103.148.39.10:83 (BWAY-AS) via speed.cloudflare.com | cands=228
-[2026-10-31 12:33:43] [SHARD 10 W0] [FOUND QUEUE] 103.169.225.58:8080 (SUPERSPACE-AS-ID) via speed.cloudflare.com | cands=229
-[2026-10-31 12:33:43] [SHARD 10 W0] [FOUND QUEUE] 103.66.47.38:8080 (IDNIC-ICONMEDIANETWORK-AS-ID) via speed.cloudflare.com | cands=230
 [2026-10-31 12:33:43] [SHARD 10 W0] [FOUND QUEUE] 125.27.241.98:8080 (MOE-AS-AP) via speed.cloudflare.com | cands=231
+[2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 144.124.251.24:11108 (VDSINA) via one.one.one.one | cands=232
+[2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 147.161.247.9:10015 (ZSCALER-EMEA) via one.one.one.one | cands=233
+[2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 147.161.247.9:11368 (ZSCALER-EMEA) via one.one.one.one | cands=234
+[2026-10-31 12:34:23] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
