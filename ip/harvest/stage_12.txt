@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_03.txt_500
-ts=1793450596
-offset=59260250
+stage=queue_slice_q_a0_http_1793448000_04.txt_0
+ts=1793450625
+offset=59260339
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:42:01] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
 [2026-10-31 12:42:16] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
 [2026-10-31 12:42:24] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
 [2026-10-31 12:43:16] [SHARD 12 W0] [FOUND QUEUE] 38.191.203.228:999 (HOLA) via www.google.com | cands=283
 [2026-10-31 12:43:16] [SHARD 12 W0] [FOUND QUEUE] 38.65.175.70:3128 (WANTELCO) via speed.cloudflare.com | cands=284
+[2026-10-31 12:43:45] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
