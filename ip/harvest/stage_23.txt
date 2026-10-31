@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793454157
-offset=60686710
+ts=1793454446
+offset=60704998
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:55:34] [SHARD 23 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
 [2026-10-31 12:57:26] [SHARD 23 W0] [FOUND QUEUE] 61.29.96.146:80 (AAPT) via www.google.com | cands=333
