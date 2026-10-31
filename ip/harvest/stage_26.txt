@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793453240
-offset=64282209
+ts=1793453569
+offset=64304561
 --- LAST 5 LOG LINES ---
 [2026-10-31 13:01:33] [SHARD 26 W0] [FOUND QUEUE] 115.178.55.221:8080 (SIMAYA-AS-ID) via speed.cloudflare.com | cands=310
 [2026-10-31 13:01:33] [SHARD 26 W0] [FOUND QUEUE] 115.236.37.105:2411 (CHINANET-BACKBONE) via www.google.com | cands=311
