@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793457402
-offset=63000457
+ts=1793457691
+offset=63018745
 --- LAST 5 LOG LINES ---
 [2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 222.252.14.70:8443 (VNPT-AS-VN) via speed.cloudflare.com | cands=235
 [2026-10-31 13:01:03] [SHARD 24 W0] [FOUND QUEUE] 38.19.43.105:999 (SUPER) via one.one.one.one | cands=236
