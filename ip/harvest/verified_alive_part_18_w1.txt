@@ -225,3 +225,8 @@
 45.198.10.197:9191	speed.cloudflare.com	QUEUE	0	AZNET-ID
 45.198.32.235:8085	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
 45.228.233.78:999	speed.cloudflare.com	QUEUE	0	UFINET
+103.150.49.90:8090	one.one.one.one	QUEUE	0	UECL-AS-AP
+103.171.182.57:1111	speed.cloudflare.com	QUEUE	0	IDNIC-HTI-AS-ID
+103.53.79.178:8080	www.google.com	QUEUE	0	INTIDATA-AS-ID
+103.6.186.64:8080	speed.cloudflare.com	QUEUE	0	ZESSNPL-AS-IN
+103.68.215.115:8181	speed.cloudflare.com	QUEUE	0	IDNIC-GRASI-AS-ID
