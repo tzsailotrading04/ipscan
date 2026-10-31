@@ -186,3 +186,4 @@
 78.14.33.189:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
 87.192.243.177:8080	speed.cloudflare.com	QUEUE	0	BRM-AS
 103.74.144.34:80	www.google.com	RES	0	ABSPL-AS-IN
+103.74.144.34:80	speed.cloudflare.com	RES	0	ABSPL-AS-IN
