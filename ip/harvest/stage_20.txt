@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793451778
-offset=63044885
+ts=1793452086
+offset=63071301
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 61.29.96.146:80 (AAPT) via speed.cloudflare.com | cands=266
 [2026-10-31 12:57:58] [SHARD 20 W0] [FOUND QUEUE] 82.152.138.127:999 (WANTELCO) via www.google.com | cands=267
