@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_04.txt_0
-ts=1793450087
-offset=61558215
+stage=queue_slice_q_a0_http_1793446000_01.txt_0
+ts=1793450217
+offset=61558626
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:34:38] [SHARD 01 W0] [FOUND QUEUE] 43.248.213.236:8080 (MANGONET-AS-ID) via speed.cloudflare.com | cands=250
-[2026-10-31 12:34:47] [SHARD 01 W0] [FOUND QUEUE] 45.198.10.43:9191 (AZNET-ID) via speed.cloudflare.com | cands=251
-[2026-10-31 12:34:47] [SHARD 01 W0] [FOUND QUEUE] 45.198.8.110:8080 (PRIMA) via speed.cloudflare.com | cands=252
-[2026-10-31 12:34:47] [SHARD 01 W0] [FOUND QUEUE] 45.5.119.17:999 (UFINET) via speed.cloudflare.com | cands=253
 [2026-10-31 12:34:47] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=822 worker_slice=411 resume=0
+[2026-10-31 12:36:56] [SHARD 01 W0] [FOUND QUEUE] 58.147.185.3:3125 (TRANSHYBRID-AS-ID) via one.one.one.one | cands=254
+[2026-10-31 12:36:56] [SHARD 01 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (191.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:36:57] [SHARD 01 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:36:57] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
