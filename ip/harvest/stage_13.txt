@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793442000_04.txt_0
-ts=1793449904
-offset=63797992
+stage=queue_slice_q_a0_http_1793445000_01.txt_0
+ts=1793450009
+offset=63798402
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:31:19] [SHARD 13 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (151.4s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 12:31:20] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:31:20] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:31:44] [SHARD 13 W0] [FOUND QUEUE] 45.194.91.7:8080 (CTRLS-AS-IN) via www.google.com | cands=294
-[2026-10-31 12:31:44] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
+[2026-10-31 12:33:28] [SHARD 13 W0] [FOUND QUEUE] 46.105.35.193:8080 (OVH) via one.one.one.one | cands=296
+[2026-10-31 12:33:28] [SHARD 13 W0] [FOUND QUEUE] 63.180.203.233:51082 (AMAZON-02) via one.one.one.one | cands=297
+[2026-10-31 12:33:28] [SHARD 13 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (128.1s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:33:29] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:33:29] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0

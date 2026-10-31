@@ -292,3 +292,6 @@
 38.210.179.33:999	www.google.com	QUEUE	0	JAIR
 38.50.165.122:999	one.one.one.one	QUEUE	0	NEXTELECOM
 45.194.91.7:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
+46.0.242.43:9999	speed.cloudflare.com	QUEUE	0	ESAMARA-AS
+46.105.35.193:8080	one.one.one.one	QUEUE	0	OVH
+63.180.203.233:51082	one.one.one.one	QUEUE	0	AMAZON-02
