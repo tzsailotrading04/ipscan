@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793454908
-offset=62594830
+stage=queue_consuming
+ts=1793457261
+offset=62594840
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 5.161.204.82:8888 (HETZNER-CLOUD2-AS) via www.google.com | cands=272
-[2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 51.17.99.116:10336 (AMAZON-02) via speed.cloudflare.com | cands=273
-[2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 54.255.249.161:30562 (AMAZON-02) via one.one.one.one | cands=274
-[2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 56.112.93.245:50777 (AMAZON-02) via speed.cloudflare.com | cands=275
-[2026-10-31 12:59:46] [SHARD 32 W0] [FOUND QUEUE] 89.213.106.98:999 (WIFIMAX) via www.google.com | cands=276
+[2026-10-31 14:32:20] [SHARD 32 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 14:32:50] [SHARD 32 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 14:33:20] [SHARD 32 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 14:33:51] [SHARD 32 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 14:34:21] [SHARD 32 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
