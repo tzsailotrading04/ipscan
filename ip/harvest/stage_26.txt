@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450213
-offset=64165598
+stage=queue_slice_q_a0_http_1793445000_03.txt_500
+ts=1793450271
+offset=64166098
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:45] [SHARD 26 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:36:45] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:36:53] [SHARD 26 W0] [FOUND QUEUE] 185.225.43.248:8080 (INT-PDN-STE-AS) via speed.cloudflare.com | cands=245
-[2026-10-31 12:36:53] [SHARD 26 W0] [FOUND QUEUE] 185.238.238.169:58080 (RDNET-AS) via speed.cloudflare.com | cands=246
-[2026-10-31 12:36:53] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:37:51] [SHARD 26 W0] [FOUND QUEUE] 195.154.84.121:10801 (ONLINE) via www.google.com | cands=247
+[2026-10-31 12:37:51] [SHARD 26 W0] [FOUND QUEUE] 20.33.10.79:443 (MICROSOFT-CORP-MSN-AS-BLOCK) via speed.cloudflare.com | cands=248
+[2026-10-31 12:37:51] [SHARD 26 W0] [FOUND QUEUE] 202.125.155.121:8080 (PKTELECOM-AS-PK) via www.google.com | cands=249
+[2026-10-31 12:37:51] [SHARD 26 W0] [FOUND QUEUE] 3.134.245.77:22839 (AMAZON-02) via speed.cloudflare.com | cands=250
+[2026-10-31 12:37:51] [SHARD 26 W0] [FOUND QUEUE] 42.96.19.211:1314 (LVHN-AS-VN) via speed.cloudflare.com | cands=251
