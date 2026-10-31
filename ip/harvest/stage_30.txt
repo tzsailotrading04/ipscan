@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793450177
-offset=60384257
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793450211
+offset=60384757
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:17] [SHARD 30 W0] [FOUND QUEUE] 147.161.246.37:10001 (ZSCALER-EMEA) via speed.cloudflare.com | cands=232
-[2026-10-31 12:36:17] [SHARD 30 W0] [FOUND QUEUE] 147.161.246.37:8800 (ZSCALER-EMEA) via speed.cloudflare.com | cands=233
-[2026-10-31 12:36:17] [SHARD 30 W0] [FOUND QUEUE] 147.161.247.9:10319 (ZSCALER-EMEA) via speed.cloudflare.com | cands=234
-[2026-10-31 12:36:17] [SHARD 30 W0] [FOUND QUEUE] 147.161.247.9:12062 (ZSCALER-EMEA) via speed.cloudflare.com | cands=235
 [2026-10-31 12:36:17] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:36:51] [SHARD 30 W0] [FOUND QUEUE] 150.107.244.228:8080 (STARNET-AS-ID) via speed.cloudflare.com | cands=236
+[2026-10-31 12:36:51] [SHARD 30 W0] [FOUND QUEUE] 160.19.84.23:61943 (IDNIC-CRONNETWORK-ID) via www.google.com | cands=237
+[2026-10-31 12:36:51] [SHARD 30 W0] [FOUND QUEUE] 175.158.40.224:1616 (ASN-CBNBROADBAND) via speed.cloudflare.com | cands=238
+[2026-10-31 12:36:51] [SHARD 30 W0] [FOUND QUEUE] 181.225.96.137:999 (TV) via www.google.com | cands=239
