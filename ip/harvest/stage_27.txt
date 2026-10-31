@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_500
-ts=1793450732
-offset=60868597
+stage=queue_slice_q_a0_http_1793448000_03.txt_0
+ts=1793450743
+offset=60868685
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:48] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:45:01] [SHARD 27 W0] [FOUND QUEUE] 147.161.246.39:12345 (ZSCALER-EMEA) via speed.cloudflare.com | cands=299
 [2026-10-31 12:45:01] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:45:32] [SHARD 27 W0] [FOUND QUEUE] 161.22.33.121:999 (THUNDERNET) via speed.cloudflare.com | cands=300
 [2026-10-31 12:45:32] [SHARD 27 W0] [FOUND QUEUE] 176.114.203.165:10809 (ANNET) via speed.cloudflare.com | cands=301
+[2026-10-31 12:45:43] [SHARD 27 W0] [FOUND QUEUE] 188.228.168.202:8080 (ASDASD-AS) via speed.cloudflare.com | cands=302
+[2026-10-31 12:45:43] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
