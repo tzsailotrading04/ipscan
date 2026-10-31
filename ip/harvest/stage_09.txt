@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_0
-ts=1793450633
-offset=65790969
+stage=queue_slice_q_a0_http_1793448000_02.txt_500
+ts=1793450680
+offset=65791469
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:43:20] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:43:20] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:43:53] [SHARD 09 W0] [FOUND QUEUE] 149.86.203.217:8080 (SIRIUSTEC) via speed.cloudflare.com | cands=234
-[2026-10-31 12:43:53] [SHARD 09 W0] [FOUND QUEUE] 15.232.45.244:39905 (AMAZON-02) via one.one.one.one | cands=235
 [2026-10-31 12:43:53] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:44:40] [SHARD 09 W0] [FOUND QUEUE] 165.225.113.220:11589 (ZSCALER-INC) via speed.cloudflare.com | cands=236
+[2026-10-31 12:44:40] [SHARD 09 W0] [FOUND QUEUE] 167.234.251.155:8880 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=237
+[2026-10-31 12:44:40] [SHARD 09 W0] [FOUND QUEUE] 18.175.170.244:29343 (AMAZON-02) via speed.cloudflare.com | cands=238
+[2026-10-31 12:44:40] [SHARD 09 W0] [FOUND QUEUE] 181.204.81.178:999 (UNE) via one.one.one.one | cands=239

@@ -458,3 +458,7 @@
 157.20.42.1:8090	speed.cloudflare.com	QUEUE	0	NOT
 162.255.110.107:8080	speed.cloudflare.com	QUEUE	0	DWW-AS
 172.85.99.37:16062	www.google.com	QUEUE	0	FRONTIER-FRTR
+165.225.113.220:11589	speed.cloudflare.com	QUEUE	0	ZSCALER-INC
+167.234.251.155:8880	speed.cloudflare.com	QUEUE	0	ORACLE-BMC-31898
+18.175.170.244:29343	speed.cloudflare.com	QUEUE	0	AMAZON-02
+181.204.81.178:999	one.one.one.one	QUEUE	0	UNE
