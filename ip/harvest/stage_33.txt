@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447271
-offset=60888726
+stage=queue_slice_q_a0_http_1793442000_03.txt_500
+ts=1793450028
+offset=60890402
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 18.170.45.5:4228 (AMAZON-02) via one.one.one.one | cands=223
-[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 18.188.168.99:47416 (AMAZON-02) via one.one.one.one | cands=224
-[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 18.224.94.46:4899 (AMAZON-02) via one.one.one.one | cands=225
-[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 182.52.136.41:8080 (TOT-NET) via www.google.com | cands=226
-[2026-10-31 11:10:43] [SHARD 33 W0] [FOUND QUEUE] 185.191.239.248:3128 (GRUPO) via speed.cloudflare.com | cands=227
+[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 200.121.48.105:999 (TELEFONICA) via one.one.one.one | cands=244
+[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 201.4.68.80:8080 (RESERVED) via www.google.com | cands=245
+[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 203.150.128.28:8080 (INET-TH-AS) via www.google.com | cands=246
+[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 222.211.216.201:7890 (CHINANET-SCIDC-AS-AP) via one.one.one.one | cands=247
+[2026-10-31 12:33:48] [SHARD 33 W0] [FOUND QUEUE] 44.200.234.67:10484 (AMAZON-AES) via one.one.one.one | cands=248
