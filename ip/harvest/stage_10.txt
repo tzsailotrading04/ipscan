@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793446817
-offset=64911885
+ts=1793447115
+offset=64930173
 --- LAST 5 LOG LINES ---
 [2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 160.19.16.6:8182 (IDNIC-METAN-AS-ID) via one.one.one.one | cands=187
 [2026-10-31 10:54:58] [SHARD 10 W0] [FOUND QUEUE] 163.223.119.4:8085 (IDNIC-DRANET-ID) via speed.cloudflare.com | cands=188
