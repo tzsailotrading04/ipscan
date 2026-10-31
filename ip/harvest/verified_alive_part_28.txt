@@ -362,3 +362,7 @@
 119.94.183.78:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 13.245.161.189:8095	speed.cloudflare.com	QUEUE	0	AMAZON-02
 131.221.40.131:4040	speed.cloudflare.com	QUEUE	0	CABLE
+144.124.251.24:10084	speed.cloudflare.com	QUEUE	0	VDSINA
+144.31.111.155:8080	speed.cloudflare.com	QUEUE	0	HOSTOFF
+147.161.247.9:10300	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:11921	one.one.one.one	QUEUE	0	ZSCALER-EMEA
