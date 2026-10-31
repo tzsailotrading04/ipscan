@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450421
-offset=62639705
+stage=queue_slice_q_a0_http_1793446000_03.txt_0
+ts=1793450456
+offset=62639793
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:48] [SHARD 24 W0] [FOUND QUEUE] 45.173.203.50:999 (INVERSIONES) via speed.cloudflare.com | cands=190
-[2026-10-31 12:39:48] [SHARD 24 W0] [FOUND QUEUE] 45.180.45.68:999 (BRAVO) via speed.cloudflare.com | cands=191
 [2026-10-31 12:39:48] [SHARD 24 W0] [FOUND QUEUE] 45.71.114.150:999 (UFINET) via speed.cloudflare.com | cands=192
 [2026-10-31 12:39:48] [SHARD 24 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:40:21] [SHARD 24 W0] [FOUND QUEUE] 180.191.234.166:8080 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=193
+[2026-10-31 12:40:56] [SHARD 24 W0] [FOUND QUEUE] 185.238.238.21:58080 (RDNET-AS) via speed.cloudflare.com | cands=194
+[2026-10-31 12:40:56] [SHARD 24 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
