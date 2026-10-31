@@ -243,3 +243,8 @@
 38.58.117.135:8080	www.google.com	QUEUE	0	IDNIC-LJN-AS-ID
 45.238.220.1:8181	speed.cloudflare.com	QUEUE	0	CA
 45.249.77.145:83	speed.cloudflare.com	QUEUE	0	PEL-AS-IN
+49.144.29.108:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+51.16.4.39:310	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.112.93.245:50777	one.one.one.one	QUEUE	0	AMAZON-02
+80.66.72.20:443	speed.cloudflare.com	QUEUE	0	GCS-AS
+88.119.139.237:53281	speed.cloudflare.com	QUEUE	0	TELIA-LIETUVA
