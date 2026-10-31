@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_500
-ts=1793450699
-offset=62641827
+stage=queue_slice_q_a0_http_1793448000_03.txt_0
+ts=1793450708
+offset=62641915
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:28] [SHARD 24 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:44:59] [SHARD 24 W0] [FOUND QUEUE] 160.22.198.4:8082 (IDNIC-GOHOMENET-AS-ID) via speed.cloudflare.com | cands=208
-[2026-10-31 12:44:59] [SHARD 24 W0] [FOUND QUEUE] 179.125.61.201:8080 (WCONECT) via speed.cloudflare.com | cands=209
 [2026-10-31 12:44:59] [SHARD 24 W0] [FOUND QUEUE] 180.181.215.232:3128 (WIDEBAND-AS-AP) via speed.cloudflare.com | cands=210
 [2026-10-31 12:44:59] [SHARD 24 W0] [FOUND QUEUE] 181.191.227.166:999 (MANGO) via speed.cloudflare.com | cands=211
+[2026-10-31 12:45:07] [SHARD 24 W0] [FOUND QUEUE] 186.194.160.122:999 (TELENET) via speed.cloudflare.com | cands=212
+[2026-10-31 12:45:07] [SHARD 24 W0] [FOUND QUEUE] 186.33.41.48:999 (UFINET) via speed.cloudflare.com | cands=213
+[2026-10-31 12:45:07] [SHARD 24 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
