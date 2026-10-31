@@ -267,3 +267,8 @@
 205.234.123.116:8080	one.one.one.one	QUEUE	0	RESERVED
 38.41.0.62:11201	www.google.com	QUEUE	0	MDS
 86.125.19.21:8080	speed.cloudflare.com	QUEUE	0	RCS-RDS
+156.200.116.69:8080	www.google.com	QUEUE	0	TE-AS
+160.187.174.34:8080	speed.cloudflare.com	QUEUE	0	IDNIC-NPN-AS-ID
+170.238.38.15:8080	speed.cloudflare.com	QUEUE	0	HILINK
+175.29.125.242:8080	speed.cloudflare.com	QUEUE	0	ACCESSTEL-AS-AP
+181.209.78.78:999	one.one.one.one	QUEUE	0	ARSAT
