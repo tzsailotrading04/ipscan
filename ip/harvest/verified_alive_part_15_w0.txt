@@ -266,3 +266,9 @@
 38.19.43.42:999	speed.cloudflare.com	QUEUE	0	SUPER
 45.177.16.137:999	speed.cloudflare.com	QUEUE	0	MSW
 45.229.17.163:999	speed.cloudflare.com	QUEUE	0	TURBONET
+56.155.73.159:14171	speed.cloudflare.com	QUEUE	0	AMAZON-02
+65.109.87.121:18080	www.google.com	QUEUE	0	HETZNER-AS
+77.81.101.99:3128	speed.cloudflare.com	QUEUE	0	ASNET
+79.106.229.208:8989	www.google.com	QUEUE	0	ONEALBANIA-AS
+85.234.158.253:5002	www.google.com	QUEUE	0	SIMPLYTRANSIT
+88.135.210.179:8080	speed.cloudflare.com	QUEUE	0	UTEAM-AS

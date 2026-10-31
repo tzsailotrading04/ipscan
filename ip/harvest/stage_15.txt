@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_04.txt_0
-ts=1793450182
-offset=63254387
+stage=queue_slice_q_a0_http_1793446000_01.txt_0
+ts=1793450290
+offset=63254798
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:14] [SHARD 15 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:36:14] [SHARD 15 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:36:22] [SHARD 15 W0] [FOUND QUEUE] 45.177.16.137:999 (MSW) via speed.cloudflare.com | cands=267
-[2026-10-31 12:36:22] [SHARD 15 W0] [FOUND QUEUE] 45.229.17.163:999 (TURBONET) via speed.cloudflare.com | cands=268
-[2026-10-31 12:36:22] [SHARD 15 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=822 worker_slice=411 resume=0
+[2026-10-31 12:38:10] [SHARD 15 W0] [FOUND QUEUE] 77.81.101.99:3128 (ASNET) via speed.cloudflare.com | cands=271
+[2026-10-31 12:38:10] [SHARD 15 W0] [FOUND QUEUE] 79.106.229.208:8989 (ONEALBANIA-AS) via www.google.com | cands=272
+[2026-10-31 12:38:10] [SHARD 15 W0] [FOUND QUEUE] 85.234.158.253:5002 (SIMPLYTRANSIT) via www.google.com | cands=273
+[2026-10-31 12:38:10] [SHARD 15 W0] [FOUND QUEUE] 88.135.210.179:8080 (UTEAM-AS) via speed.cloudflare.com | cands=274
+[2026-10-31 12:38:10] [SHARD 15 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
