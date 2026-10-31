@@ -450,3 +450,7 @@
 160.30.83.10:82	one.one.one.one	QUEUE	0	VTLPVT-AS-IN
 170.39.31.113:8080	speed.cloudflare.com	QUEUE	0	FNL-33-19754
 177.234.194.172:999	speed.cloudflare.com	QUEUE	0	UFINET
+186.194.160.121:999	speed.cloudflare.com	QUEUE	0	TELENET
+186.33.40.241:999	speed.cloudflare.com	QUEUE	0	UFINET
+187.143.206.162:3128	one.one.one.one	QUEUE	0	UNINET
+202.70.156.250:8080	www.google.com	QUEUE	0	PKTELECOM-AS-PK
