@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793430189
-offset=60910339
+ts=1793430483
+offset=60983491
 --- LAST 5 LOG LINES ---
 [2026-10-31 06:47:37] [SHARD 32 W0] [QUEUE STAGE] Found 6 queue files to consume before IP scanning
 [2026-10-31 06:47:37] [SHARD 32 W0] [QUEUE STAGE] Consuming q_res_1793430000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
