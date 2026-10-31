@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793423530
-offset=60457651
+ts=1793423832
+offset=60528771
 --- LAST 5 LOG LINES ---
 [2026-10-31 04:40:46] [SHARD 32 W0] [QUEUE STAGE] Consuming q_region_1793419556.txt: total=44577 shard_slice=1311 worker_slice=656 resume=500
 [2026-10-31 04:40:59] [SHARD 32 W0] [FOUND QUEUE] 54.159.175.63:10000 (AMAZON-AES) via speed.cloudflare.com | cands=93
