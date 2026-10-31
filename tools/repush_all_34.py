@@ -15,6 +15,9 @@ groups = [
     ('stephen34', ['29', '30', '31', '32', '33']),
 ]
 
+successes = []
+failures = []
+
 for username, shards in groups:
     print(f"\n==========================================")
     print(f"Pushing shards on {username} ({len(shards)} shards)")
@@ -35,13 +38,26 @@ for username, shards in groups:
 
     for s in shards:
         kernel_path = os.path.join(repo, 'kaggle', f'cl_shodan_{s}')
-        print(f">>> kaggle kernels push -p kaggle\\cl_shodan_{s}", flush=True)
+        print(f">>> kaggle kernels push -p kaggle\\cl_shodan_{s} ({username})", flush=True)
         res = subprocess.run(['kaggle', 'kernels', 'push', '-p', kernel_path], env=env, capture_output=True, text=True)
-        lines = [l for l in (res.stdout + '\n' + res.stderr).splitlines() if l.strip() and not l.startswith('Warning:')]
-        out = lines[-1] if lines else 'OK'
-        print(f"    {out}", flush=True)
+        out_raw = (res.stdout + '\n' + res.stderr).strip()
+        lines = [l for l in out_raw.splitlines() if l.strip() and not l.startswith('Warning:')]
+        last_line = lines[-1] if lines else 'OK'
+        
+        if res.returncode == 0 and ("Your Kernel" in out_raw or "successfully pushed" in out_raw.lower() or "kernel version" in out_raw.lower()):
+            print(f"    SUCCESS: {last_line}", flush=True)
+            successes.append(s)
+        else:
+            print(f"    FAILED ({res.returncode}): {out_raw}", flush=True)
+            failures.append((s, username, out_raw))
         time.sleep(3)
 
 print("\n==========================================")
-print("ALL 34 SHARDS SUCCESSFULLY PUSHED")
+print(f"SUMMARY: {len(successes)}/34 SUCCESSFUL, {len(failures)} FAILED")
+if failures:
+    print("FAILURES:")
+    for s, u, err in failures:
+        print(f"  Shard {s} ({u}): {err}")
+else:
+    print("ALL 34 SHARDS PUSHED SUCCESSFULLY WITH 0 FAILURES")
 print("==========================================")

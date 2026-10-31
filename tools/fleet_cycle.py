@@ -23,6 +23,43 @@ QUEUE_FILE = os.path.join(REPO_ROOT, "cache", "candidate_queue.txt")
 POOL_FILE = os.path.join(REPO_ROOT, "ip", "harvest", "real_pool.txt")
 DEAD_FILE = os.path.join(REPO_ROOT, "cache", "pool_dead.txt")
 
+SUSPECT_FILE = os.path.join(REPO_ROOT, "cache", "pool_suspect.txt")
+
+def load_suspect_set():
+    suspects = set()
+    if os.path.exists(SUSPECT_FILE):
+        with open(SUSPECT_FILE, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                l = line.strip()
+                if l:
+                    suspects.add(l.split("\t")[0].split()[0])
+    return suspects
+
+def save_suspect_set(suspects):
+    os.makedirs(os.path.dirname(SUSPECT_FILE), exist_ok=True)
+    with open(SUSPECT_FILE, "w", encoding="utf-8") as f:
+        for ep in sorted(suspects):
+            f.write(ep + "\n")
+
+def load_pool_dict():
+    pool_dict = {}
+    if os.path.exists(POOL_FILE):
+        with open(POOL_FILE, "r", encoding="utf-8", errors="ignore") as pf:
+            for line in pf:
+                l = line.strip()
+                if l:
+                    ep = l.split("\t")[0].split()[0]
+                    pool_dict[ep] = l
+    return pool_dict
+
+def save_pool_dict(pool_dict):
+    os.makedirs(os.path.dirname(POOL_FILE), exist_ok=True)
+    tmp_path = POOL_FILE + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as pf:
+        for ep, line in pool_dict.items():
+            pf.write(line + "\n")
+    os.replace(tmp_path, POOL_FILE)
+
 # Account Shard Assignments (All 34 shards, max 5 per account)
 FLEET_MAP = {
     "remruata": {
@@ -94,8 +131,8 @@ def set_kaggle_creds(username, token):
     os.environ["KAGGLE_KEY"] = token
     os.environ["KAGGLE_API_TOKEN"] = token
 
-def run_cmd(cmd):
-    res = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+def run_cmd(cmd, env=None):
+    res = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, errors="replace", env=env or os.environ)
     return res.stdout.strip(), res.stderr.strip(), res.returncode
 
 def load_seen_set():
@@ -119,8 +156,12 @@ def load_pool_endpoints():
     return pool_eps
 
 def harvest_and_dedupe(seen=None):
-    pool_endpoints = load_pool_endpoints()
+    pool_dict = load_pool_dict()
+    suspects = load_suspect_set()
+    initial_suspect_count = len(suspects)
     new_entries = []
+    healed_entries = []
+
     # Only read part files whose mtime is within the last 2 hours (7200s)
     now_ts = time.time()
     part_files = [
@@ -136,20 +177,29 @@ def harvest_and_dedupe(seen=None):
                     if not raw:
                         continue
                     endpoint = raw.split("\t")[0].split()[0]
-                    if endpoint not in pool_endpoints:
-                        pool_endpoints.add(endpoint)
+                    
+                    if endpoint in suspects:
+                        suspects.remove(endpoint)
+                        healed_entries.append(endpoint)
+
+                    if endpoint not in pool_dict:
+                        pool_dict[endpoint] = raw
                         new_entries.append(raw)
+                    elif "\tQUEUE\t" in raw:
+                        pool_dict[endpoint] = raw
         except Exception:
             pass
 
-    if new_entries:
-        # Promote part-file lines directly to real_pool.txt with no second pass
-        os.makedirs(os.path.dirname(POOL_FILE), exist_ok=True)
-        with open(POOL_FILE, "a", encoding="utf-8") as pf:
-            for entry in new_entries:
-                pf.write(entry + "\n")
+    if new_entries or healed_entries or any("\tQUEUE\t" in e for e in pool_dict.values()):
+        save_pool_dict(pool_dict)
 
-    return len(new_entries), len(pool_endpoints)
+    if len(suspects) != initial_suspect_count:
+        save_suspect_set(suspects)
+
+    if healed_entries:
+        print(f"[HARVEST] Healed {len(healed_entries)} suspect endpoints after successful verification.")
+
+    return len(new_entries), len(pool_dict)
 
 def run_single_cycle(cycle_num, seen):
     now = time.time()
@@ -227,7 +277,11 @@ def process_queue_failed_files():
                 if m:
                     dead_eps.add(m.group(1))
 
+    suspects = load_suspect_set()
+    pool_dict = load_pool_dict()
     new_dead = []
+    new_suspects = []
+
     for ff in failed_files:
         try:
             with open(ff, "r", encoding="utf-8", errors="ignore") as f:
@@ -235,22 +289,38 @@ def process_queue_failed_files():
                     m = re.search(r"\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b", line)
                     if m:
                         ep = m.group(1)
-                        if ep not in dead_eps:
-                            dead_eps.add(ep)
-                            new_dead.append(ep)
+                        if ep in suspects:
+                            # Strike 2: Second consecutive failure -> Confirmed dead, purge from pool
+                            suspects.remove(ep)
+                            if ep not in dead_eps:
+                                dead_eps.add(ep)
+                                new_dead.append(ep)
+                            if ep in pool_dict:
+                                del pool_dict[ep]
+                        else:
+                            # Strike 1: First failure -> Mark suspect, keep in pool
+                            if ep not in dead_eps:
+                                suspects.add(ep)
+                                new_suspects.append(ep)
             # Clear the failed part file
             with open(ff, "w", encoding="utf-8") as f:
                 pass
         except Exception as e:
             print(f"[FAILED PART ERROR] {ff}: {e}")
 
+    now_str = time.strftime("%Y-%m-%d %H:%M:%S")
     if new_dead:
         os.makedirs(os.path.dirname(DEAD_FILE), exist_ok=True)
-        now_str = time.strftime("%Y-%m-%d %H:%M:%S")
         with open(DEAD_FILE, "a", encoding="utf-8") as df:
             for ep in new_dead:
-                df.write(f"[{now_str}] {ep}\tspeed.cloudflare.com\tQUEUE\tREASON:FAIL_CONNECT\tRETIRED\n")
-        print(f"[FAILED QUEUE] Appended {len(new_dead):,} new dead endpoints to cache/pool_dead.txt. Cleared {len(failed_files)} failed part files.")
+                df.write(f"[{now_str}] {ep}\tspeed.cloudflare.com\tQUEUE\tREASON:FAIL_CONNECT_KAGGLE\tCONSECUTIVE_FAIL:2\tRETIRED\n")
+        save_pool_dict(pool_dict)
+        print(f"[FAILED QUEUE] Appended {len(new_dead):,} Strike-2 dead endpoints to cache/pool_dead.txt and purged from real_pool.txt.")
+
+    if new_suspects or new_dead:
+        save_suspect_set(suspects)
+        if new_suspects:
+            print(f"[FAILED QUEUE] Added {len(new_suspects):,} Strike-1 endpoints to cache/pool_suspect.txt.")
 
     return len(new_dead)
 
@@ -264,8 +334,8 @@ def merge_out_branches():
     print(f"\n[{time.strftime('%Y-%m-%d %H:%M:%S')}] [MERGE] Fetching all out/sh* branches...")
     run_cmd(f'git -C "{REPO_ROOT}" fetch origin "+refs/heads/out/sh*:refs/remotes/origin/out/sh*" --prune --quiet')
 
-    out, err, code = run_cmd(f'git -C "{REPO_ROOT}" branch -r --list "origin/out/sh*"')
-    remote_branches = [b.strip() for b in out.splitlines() if b.strip()]
+    res = subprocess.run(["git", "-C", REPO_ROOT, "branch", "-r", "--list", "origin/out/sh*"], capture_output=True, text=True)
+    remote_branches = [b.strip() for b in res.stdout.splitlines() if b.strip()]
 
     if not remote_branches:
         print("[MERGE] No out/sh* branches found on remote.")
