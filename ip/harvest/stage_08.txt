@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793458567
-offset=65626380
+ts=1793458856
+offset=65646700
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:55:23] [SHARD 08 W0] [FOUND QUEUE] 77.110.107.229:8080 (GCS-AS) via speed.cloudflare.com | cands=305
 [2026-10-31 12:55:23] [SHARD 08 W0] [FOUND QUEUE] 78.101.198.138:8080 (QA-ISP) via one.one.one.one | cands=306
