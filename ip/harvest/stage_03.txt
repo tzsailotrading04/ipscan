@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793451181
-offset=64131773
+stage=res_loop
+ts=1793451329
+offset=64132592
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:50:59] [SHARD 03 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:30] [SHARD 03 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:00] [SHARD 03 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:30] [SHARD 03 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:53:01] [SHARD 03 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:55:29] [SHARD 03 W0] [FOUND QUEUE] 78.186.147.185:3310 (TTNET) via speed.cloudflare.com | cands=297
+[2026-10-31 12:55:29] [SHARD 03 W0] [FOUND QUEUE] 8.140.104.98:3128 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=298
+[2026-10-31 12:55:29] [SHARD 03 W0] [FOUND QUEUE] 82.213.29.53:19000 (PALTEL-AS) via one.one.one.one | cands=299
+[2026-10-31 12:55:29] [SHARD 03 W0] [FOUND QUEUE] 89.43.133.5:8080 (RESERVED) via one.one.one.one | cands=300
+[2026-10-31 12:55:29] [SHARD 03 W0] [FOUND QUEUE] 95.170.205.202:8080 (NEWROZ-TELECOM-ASN) via www.google.com | cands=301
