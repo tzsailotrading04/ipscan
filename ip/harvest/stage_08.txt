@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_01.txt_500
-ts=1793450228
-offset=65166998
+stage=queue_slice_q_a0_http_1793446000_02.txt_0
+ts=1793450240
+offset=65167087
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:08] [SHARD 08 W0] [FOUND QUEUE] 103.145.34.133:1111 (LINTASDATA-AS-ID) via speed.cloudflare.com | cands=270
-[2026-10-31 12:37:08] [SHARD 08 W0] [FOUND QUEUE] 103.176.97.62:8082 (IDNIC-GFIBER-AS-ID) via one.one.one.one | cands=271
 [2026-10-31 12:37:08] [SHARD 08 W0] [FOUND QUEUE] 103.48.68.67:83 (COUNTRYONLINE-AS-IN) via www.google.com | cands=272
 [2026-10-31 12:37:08] [SHARD 08 W0] [FOUND QUEUE] 104.218.199.116:16062 (FRONTIER-FRTR) via speed.cloudflare.com | cands=273
 [2026-10-31 12:37:08] [SHARD 08 W0] [FOUND QUEUE] 136.243.154.104:18080 (HETZNER-AS) via speed.cloudflare.com | cands=274
+[2026-10-31 12:37:20] [SHARD 08 W0] [FOUND QUEUE] 147.161.247.9:10087 (ZSCALER-EMEA) via speed.cloudflare.com | cands=275
+[2026-10-31 12:37:20] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
