@@ -453,3 +453,6 @@
 181.114.62.1:8085	speed.cloudflare.com	QUEUE	0	INTERAIR
 182.52.136.73:8080	www.google.com	QUEUE	0	TOT-NET
 185.196.61.251:8081	one.one.one.one	QUEUE	0	ONEPROVIDER-AS
+210.79.146.82:8085	speed.cloudflare.com	QUEUE	0	IDNIC-PNT-AS-ID
+38.183.146.163:8080	www.google.com	QUEUE	0	IMEDIANET-AS-ID
+38.19.238.5:999	speed.cloudflare.com	QUEUE	0	RED
