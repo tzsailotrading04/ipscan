@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447090
-offset=61074760
+stage=queue_slice_q_a0_http_1793442000_04.txt_0
+ts=1793449958
+offset=61076527
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:07:30] [SHARD 14 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:08:00] [SHARD 14 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:08:30] [SHARD 14 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:09:01] [SHARD 14 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:09:31] [SHARD 14 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 12:32:38] [SHARD 14 W0] [FOUND QUEUE] 45.166.72.11:999 (FICOM) via one.one.one.one | cands=265
+[2026-10-31 12:32:38] [SHARD 14 W0] [FOUND QUEUE] 45.168.244.255:9090 (MAXIMA) via speed.cloudflare.com | cands=266
+[2026-10-31 12:32:38] [SHARD 14 W0] [FOUND QUEUE] 45.198.152.230:8000 (MYREPUBLIC-AS-ID) via speed.cloudflare.com | cands=267
+[2026-10-31 12:32:38] [SHARD 14 W0] [FOUND QUEUE] 45.4.202.147:999 (ELIANA) via speed.cloudflare.com | cands=268
+[2026-10-31 12:32:38] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
