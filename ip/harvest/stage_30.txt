@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_0
-ts=1793450441
-offset=60386432
+stage=queue_slice_q_a0_http_1793446000_02.txt_500
+ts=1793450469
+offset=60386932
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:33] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:40:33] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:40:41] [SHARD 30 W0] [FOUND QUEUE] 147.161.246.36:11860 (ZSCALER-EMEA) via speed.cloudflare.com | cands=261
-[2026-10-31 12:40:41] [SHARD 30 W0] [FOUND QUEUE] 147.161.246.37:9443 (ZSCALER-EMEA) via speed.cloudflare.com | cands=262
-[2026-10-31 12:40:41] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:41:09] [SHARD 30 W0] [FOUND QUEUE] 161.82.141.219:8080 (SYMPHONY-AP-TH) via speed.cloudflare.com | cands=264
+[2026-10-31 12:41:09] [SHARD 30 W0] [FOUND QUEUE] 165.99.194.184:8080 (IDNIC-NBS-ID) via www.google.com | cands=265
+[2026-10-31 12:41:09] [SHARD 30 W0] [FOUND QUEUE] 18.170.45.5:41122 (AMAZON-02) via one.one.one.one | cands=266
+[2026-10-31 12:41:09] [SHARD 30 W0] [FOUND QUEUE] 180.180.156.68:8080 (TOT-NET) via one.one.one.one | cands=267
+[2026-10-31 12:41:09] [SHARD 30 W0] [FOUND QUEUE] 180.191.235.152:8082 (GLOBE-TELECOM-AS) via www.google.com | cands=268
