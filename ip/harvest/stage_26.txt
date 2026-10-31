@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450137
-offset=64164922
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450173
+offset=64165010
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:37] [SHARD 26 W0] [FOUND QUEUE] 103.36.10.125:3125 (IDNIC-AWINET-AS-ID) via www.google.com | cands=232
-[2026-10-31 12:35:37] [SHARD 26 W0] [FOUND QUEUE] 103.44.19.220:3127 (IDNIC-SARANAINTIMEDIA-AS-ID) via www.google.com | cands=233
-[2026-10-31 12:35:37] [SHARD 26 W0] [FOUND QUEUE] 103.48.68.18:83 (COUNTRYONLINE-AS-IN) via www.google.com | cands=234
-[2026-10-31 12:35:37] [SHARD 26 W0] [FOUND QUEUE] 103.97.140.121:3125 (JEMBATANDATA-AS-ID) via one.one.one.one | cands=235
-[2026-10-31 12:35:37] [SHARD 26 W0] [FOUND QUEUE] 104.218.199.159:16062 (FRONTIER-FRTR) via speed.cloudflare.com | cands=236
+[2026-10-31 12:36:13] [SHARD 26 W0] [FOUND QUEUE] 143.208.59.2:999 (CABLECOLOR) via www.google.com | cands=237
+[2026-10-31 12:36:13] [SHARD 26 W0] [FOUND QUEUE] 144.124.251.24:10023 (VDSINA) via speed.cloudflare.com | cands=238
+[2026-10-31 12:36:13] [SHARD 26 W0] [FOUND QUEUE] 147.161.247.9:10269 (ZSCALER-EMEA) via one.one.one.one | cands=239
+[2026-10-31 12:36:13] [SHARD 26 W0] [FOUND QUEUE] 147.161.247.9:11901 (ZSCALER-EMEA) via speed.cloudflare.com | cands=240
+[2026-10-31 12:36:13] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
