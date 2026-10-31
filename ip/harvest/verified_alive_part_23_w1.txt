@@ -223,3 +223,7 @@
 38.127.179.219:41923	speed.cloudflare.com	QUEUE	0	COGENT-174
 38.156.23.53:999	speed.cloudflare.com	QUEUE	0	VISNETWORK
 43.199.29.225:52561	speed.cloudflare.com	QUEUE	0	AMAZON-02
+49.146.231.205:8081	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+8.243.163.58:999	one.one.one.one	QUEUE	0	LEVEL3
+92.42.96.84:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
+94.200.195.220:8080	www.google.com	QUEUE	0	DU-AS1
