@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_03.txt_500
-ts=1793450758
-offset=60896373
+stage=queue_slice_q_a0_http_1793448000_04.txt_0
+ts=1793450781
+offset=60896461
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:45:05] [SHARD 33 W0] [FOUND QUEUE] 180.191.1.195:8081 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=294
-[2026-10-31 12:45:15] [SHARD 33 W0] [FOUND QUEUE] 185.78.113.230:81 (AS-MAYAK-NETWORK) via speed.cloudflare.com | cands=295
 [2026-10-31 12:45:15] [SHARD 33 W0] [FOUND QUEUE] 188.190.177.47:8989 (AS-MASTER) via speed.cloudflare.com | cands=296
 [2026-10-31 12:45:15] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:45:58] [SHARD 33 W0] [FOUND QUEUE] 38.49.142.174:999 (IENTC) via www.google.com | cands=297
+[2026-10-31 12:46:21] [SHARD 33 W0] [FOUND QUEUE] 45.236.66.163:8520 (TCPNET) via speed.cloudflare.com | cands=298
+[2026-10-31 12:46:21] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
