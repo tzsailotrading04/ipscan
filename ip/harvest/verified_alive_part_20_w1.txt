@@ -246,3 +246,6 @@
 38.211.76.97:999	www.google.com	QUEUE	0	FIBERNET
 41.33.89.100:1976	www.google.com	QUEUE	0	TE-AS
 45.71.186.210:999	www.google.com	QUEUE	0	UFINET
+49.151.120.81:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+68.64.179.186:8080	speed.cloudflare.com	QUEUE	0	LUCID-AS-AP
+95.60.60.204:3128	www.google.com	QUEUE	0	VODAFONE_ES
