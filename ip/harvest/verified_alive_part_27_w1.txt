@@ -211,3 +211,10 @@
 147.161.246.39:11716	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:10948	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:12762	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+192.6.154.179:3128	speed.cloudflare.com	QUEUE	0	RELIABLESITE
+201.182.249.14:999	speed.cloudflare.com	QUEUE	0	SP
+201.79.50.139:10000	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN
+202.4.127.89:81	speed.cloudflare.com	QUEUE	0	AMBERIT-BD-AS
+38.121.212.134:999	www.google.com	QUEUE	0	GALANET
+45.183.11.194:8080	speed.cloudflare.com	QUEUE	0	V1
+45.189.57.114:3129	speed.cloudflare.com	QUEUE	0	CBVISION

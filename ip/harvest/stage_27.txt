@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_500
-ts=1793450262
-offset=60864888
+stage=queue_slice_q_a0_http_1793445000_04.txt_0
+ts=1793450285
+offset=60864976
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:42] [SHARD 27 W0] [FOUND QUEUE] 20.33.10.79:80 (MICROSOFT-CORP-MSN-AS-BLOCK) via www.google.com | cands=263
 [2026-10-31 12:37:42] [SHARD 27 W0] [FOUND QUEUE] 3.21.247.154:26449 (AMAZON-02) via one.one.one.one | cands=264
 [2026-10-31 12:37:42] [SHARD 27 W0] [FOUND QUEUE] 38.172.129.168:999 (CONEX) via speed.cloudflare.com | cands=265
 [2026-10-31 12:37:42] [SHARD 27 W0] [FOUND QUEUE] 43.242.241.47:8080 (UNIVISION-AS-AP) via one.one.one.one | cands=266
 [2026-10-31 12:37:42] [SHARD 27 W0] [FOUND QUEUE] 45.119.113.81:84 (NETRUN-AS-IN) via one.one.one.one | cands=267
+[2026-10-31 12:38:05] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0
