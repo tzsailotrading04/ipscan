@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793462882
-offset=64358184
+stage=queue_slice_q_a0_http_1793463090_01.txt_0
+ts=1793463116
+offset=64360311
 --- LAST 5 LOG LINES ---
-[2026-10-31 16:07:19] [SHARD 03 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 16:07:19] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=716 worker_slice=358 resume=0
-[2026-10-31 16:08:02] [SHARD 03 W0] [FOUND QUEUE] 51.16.4.39:6703 (AMAZON-02) via one.one.one.one | cands=470
-[2026-10-31 16:08:02] [SHARD 03 W0] [FOUND QUEUE] 87.192.231.122:3128 (BRM-AS) via one.one.one.one | cands=471
-[2026-10-31 16:08:02] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 16:10:12] [SHARD 03 W0] [FOUND QUEUE] 45.174.168.4:999 (TELECOMUNICACIONES) via www.google.com | cands=484
+[2026-10-31 16:10:37] [SHARD 03 W0] [FOUND QUEUE] 45.68.63.201:999 (PIT) via www.google.com | cands=485
+[2026-10-31 16:10:37] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=719 worker_slice=360 resume=0
+[2026-10-31 16:11:56] [SHARD 03 W0] [QUEUE STAGE] Found 20 queue files to consume before IP scanning
+[2026-10-31 16:11:56] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793463090_01.txt: total=467 shard_slice=14 worker_slice=7 resume=0
