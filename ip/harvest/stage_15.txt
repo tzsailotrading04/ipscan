@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793429510
-offset=61524872
+ts=1793429805
+offset=61589896
 --- LAST 5 LOG LINES ---
 [2026-10-31 06:41:58] [SHARD 15 W0] [QUEUE STAGE] Consuming q_aa_asn_1793433000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
 [2026-10-31 06:42:14] [SHARD 15 W0] [QUEUE STAGE] Consuming q_aa_asn_1793433000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
