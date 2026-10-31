@@ -16,6 +16,7 @@ import re
 
 REPO_ROOT = r"D:\DEpinFarm"
 KAGGLE_JSON = os.path.expanduser("~/.kaggle/kaggle.json")
+KAGGLE_TOKEN = os.path.expanduser("~/.kaggle/access_token")
 CYCLE_LOG = os.path.join(REPO_ROOT, "work", "FLEET_CYCLE.txt")
 SEEN_FILE = os.path.join(REPO_ROOT, "cache", "harvest_seen_set.txt")
 QUEUE_FILE = os.path.join(REPO_ROOT, "cache", "candidate_queue.txt")
@@ -87,6 +88,8 @@ def set_kaggle_creds(username, token):
     os.makedirs(os.path.dirname(KAGGLE_JSON), exist_ok=True)
     with open(KAGGLE_JSON, "w", encoding="utf-8") as f:
         json.dump({"username": username, "key": token}, f, indent=2)
+    with open(KAGGLE_TOKEN, "w", encoding="utf-8") as f:
+        f.write(token)
     os.environ["KAGGLE_USERNAME"] = username
     os.environ["KAGGLE_KEY"] = token
     os.environ["KAGGLE_API_TOKEN"] = token
