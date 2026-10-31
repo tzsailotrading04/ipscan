@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793449974
-offset=63028074
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793450006
+offset=63028574
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:32:13] [SHARD 20 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (196.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 12:32:15] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:32:15] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
 [2026-10-31 12:32:54] [SHARD 20 W0] [FOUND QUEUE] 147.161.247.9:10160 (ZSCALER-EMEA) via one.one.one.one | cands=211
 [2026-10-31 12:32:54] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:33:26] [SHARD 20 W0] [FOUND QUEUE] 157.15.0.152:7778 (IDNIC-GOPALNET-AS-ID) via www.google.com | cands=212
+[2026-10-31 12:33:26] [SHARD 20 W0] [FOUND QUEUE] 163.227.252.5:8080 (IDNIC-DASAINFRAINDONESIA-AS-ID) via speed.cloudflare.com | cands=213
+[2026-10-31 12:33:26] [SHARD 20 W0] [FOUND QUEUE] 18.230.23.72:8087 (AMAZON-02) via speed.cloudflare.com | cands=214
