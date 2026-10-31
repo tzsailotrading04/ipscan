@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447178
-offset=65387374
+stage=queue_slice_q_a0_http_1793442000_04.txt_0
+ts=1793449993
+offset=65389138
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:08:51] [SHARD 29 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:09:21] [SHARD 29 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:11:24] [SHARD 29 W0] [FOUND QUEUE] 51.85.44.149:44650 (AMAZON-02) via one.one.one.one | cands=227
-[2026-10-31 11:11:24] [SHARD 29 W0] [FOUND QUEUE] 56.112.92.32:11900 (AMAZON-02) via www.google.com | cands=228
-[2026-10-31 11:11:24] [SHARD 29 W0] [FOUND QUEUE] 81.213.205.107:8080 (TTNET) via www.google.com | cands=229
+[2026-10-31 12:32:50] [SHARD 29 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (168.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:32:51] [SHARD 29 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:32:51] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 12:33:13] [SHARD 29 W0] [FOUND QUEUE] 45.65.225.17:999 (SOLUTION) via www.google.com | cands=254
+[2026-10-31 12:33:13] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
