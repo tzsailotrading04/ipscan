@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793450165
-offset=65390136
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793450207
+offset=65390724
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:30] [SHARD 29 W0] [FOUND QUEUE] 126.209.17.226:8080 (INFINIVAN-AS-AP) via one.one.one.one | cands=271
-[2026-10-31 12:36:05] [SHARD 29 W0] [FOUND QUEUE] 144.124.251.24:10086 (VDSINA) via speed.cloudflare.com | cands=272
-[2026-10-31 12:36:05] [SHARD 29 W0] [FOUND QUEUE] 147.161.247.9:10305 (ZSCALER-EMEA) via speed.cloudflare.com | cands=273
-[2026-10-31 12:36:05] [SHARD 29 W0] [FOUND QUEUE] 147.161.247.9:11973 (ZSCALER-EMEA) via speed.cloudflare.com | cands=274
-[2026-10-31 12:36:05] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:36:38] [SHARD 29 W0] [FOUND QUEUE] 177.93.36.153:999 (TV) via speed.cloudflare.com | cands=276
+[2026-10-31 12:36:38] [SHARD 29 W0] [FOUND QUEUE] 178.165.42.166:3128 (CITYNET-AS) via speed.cloudflare.com | cands=277
+[2026-10-31 12:36:38] [SHARD 29 W0] [FOUND QUEUE] 181.78.198.7:8080 (UFINET) via speed.cloudflare.com | cands=278
+[2026-10-31 12:36:47] [SHARD 29 W0] [FOUND QUEUE] 186.33.7.227:999 (UFINET) via speed.cloudflare.com | cands=279
+[2026-10-31 12:36:47] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
