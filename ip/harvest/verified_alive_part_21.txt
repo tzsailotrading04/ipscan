@@ -365,3 +365,8 @@
 205.234.123.116:8080	one.one.one.one	QUEUE	0	RESERVED
 38.41.0.62:11201	www.google.com	QUEUE	0	MDS
 89.43.133.131:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+86.125.19.21:8080	speed.cloudflare.com	QUEUE	0	RCS-RDS
+1.20.178.221:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+103.154.178.106:8080	one.one.one.one	QUEUE	0	ANEKANET-AS-ID
+103.39.70.5:8181	speed.cloudflare.com	QUEUE	0	IDNIC-ZAFIRA-AS-ID
+103.82.126.243:8080	one.one.one.one	QUEUE	0	IDNIC-BEENET-AS-ID
