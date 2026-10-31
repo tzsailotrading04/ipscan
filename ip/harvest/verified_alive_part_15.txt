@@ -520,3 +520,9 @@
 170.80.202.217:999	one.one.one.one	QUEUE	0	RUDDY
 177.234.217.43:999	speed.cloudflare.com	QUEUE	0	UFINET
 182.253.10.21:8080	www.google.com	QUEUE	0	BIZNET-AS-AP
+185.82.99.190:8724	speed.cloudflare.com	QUEUE	0	NET360
+193.43.140.101:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+34.220.80.147:115	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.19.43.73:999	speed.cloudflare.com	QUEUE	0	SUPER
+38.211.76.145:999	speed.cloudflare.com	QUEUE	0	FIBERNET
+45.230.169.5:999	www.google.com	QUEUE	0	SOLUCIONES
