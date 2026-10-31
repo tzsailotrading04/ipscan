@@ -283,3 +283,6 @@
 116.204.166.203:8080	speed.cloudflare.com	QUEUE	0	RESERVED
 122.54.141.104:5050	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 128.199.202.122:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+144.124.251.24:10800	speed.cloudflare.com	QUEUE	0	VDSINA
+147.161.247.9:11111	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:18000	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
