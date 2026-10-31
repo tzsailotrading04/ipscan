@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793442000_03.txt_500
-ts=1793462530
-offset=61960143
+stage=queue_slice_q_a0_http_1793445000_04.txt_0
+ts=1793462776
+offset=61961729
 --- LAST 5 LOG LINES ---
-[2026-10-31 16:02:10] [SHARD 18 W0] [FOUND QUEUE] 201.7.31.58:8080 (RESERVED) via speed.cloudflare.com | cands=421
-[2026-10-31 16:02:10] [SHARD 18 W0] [FOUND QUEUE] 202.59.201.175:8080 (MYREPUBLIC-AS-ID) via www.google.com | cands=422
-[2026-10-31 16:02:10] [SHARD 18 W0] [FOUND QUEUE] 202.69.38.146:8080 (GERRYS-AS-AP) via one.one.one.one | cands=423
-[2026-10-31 16:02:10] [SHARD 18 W0] [FOUND QUEUE] 35.183.29.62:38135 (AMAZON-02) via speed.cloudflare.com | cands=424
-[2026-10-31 16:02:10] [SHARD 18 W0] [FOUND QUEUE] 35.78.212.217:18265 (AMAZON-02) via one.one.one.one | cands=425
+[2026-10-31 16:05:49] [SHARD 18 W0] [FOUND QUEUE] 35.183.78.223:54131 (AMAZON-02) via www.google.com | cands=440
+[2026-10-31 16:05:49] [SHARD 18 W0] [FOUND QUEUE] 36.152.150.242:8081 (CMNET-JIANGSU-AP) via speed.cloudflare.com | cands=441
+[2026-10-31 16:06:16] [SHARD 18 W0] [FOUND QUEUE] 45.168.244.255:9090 (MAXIMA) via speed.cloudflare.com | cands=442
+[2026-10-31 16:06:16] [SHARD 18 W0] [FOUND QUEUE] 45.188.76.100:999 (ONT) via speed.cloudflare.com | cands=443
+[2026-10-31 16:06:16] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0

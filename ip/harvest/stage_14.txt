@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793462277
-offset=61318646
+stage=res_loop
+ts=1793462817
+offset=61320678
 --- LAST 5 LOG LINES ---
-[2026-10-31 15:55:56] [SHARD 14 W0] [FOUND QUEUE] 103.98.117.26:8080 (TESOLCITYNET-AS-ID) via speed.cloudflare.com | cands=411
-[2026-10-31 15:56:26] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:56:57] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:57:27] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:57:57] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:03:31] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:04:01] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:04:31] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:05:02] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:05:32] [SHARD 14 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning

@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793462276
-offset=64400221
+stage=res_loop
+ts=1793462877
+offset=64404285
 --- LAST 5 LOG LINES ---
-[2026-10-31 15:55:55] [SHARD 26 W0] [FOUND QUEUE] 103.184.98.33:8082 (IDNIC-CIFO-AS-ID) via speed.cloudflare.com | cands=396
-[2026-10-31 15:56:25] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:56:55] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:57:26] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:57:56] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:03:32] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:04:02] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:04:32] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:05:03] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:05:33] [SHARD 26 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
