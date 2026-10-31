@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450317
-offset=63030749
+stage=queue_slice_q_a0_http_1793446000_03.txt_0
+ts=1793450325
+offset=63030837
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:45] [SHARD 20 W0] [FOUND QUEUE] 113.23.200.85:8081 (EXTREMEBB-AS-MY) via speed.cloudflare.com | cands=228
 [2026-10-31 12:37:45] [SHARD 20 W0] [FOUND QUEUE] 115.127.105.163:6699 (BRAC-BDMAIL-AS-BD) via www.google.com | cands=229
 [2026-10-31 12:37:53] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
 [2026-10-31 12:38:37] [SHARD 20 W0] [FOUND QUEUE] 16.28.101.55:16574 (AMAZON-02) via one.one.one.one | cands=230
 [2026-10-31 12:38:37] [SHARD 20 W0] [FOUND QUEUE] 182.253.221.147:8080 (BIZNET2-AS-ID) via speed.cloudflare.com | cands=231
+[2026-10-31 12:38:45] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
