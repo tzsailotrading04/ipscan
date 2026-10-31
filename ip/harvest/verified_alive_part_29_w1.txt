@@ -260,3 +260,6 @@
 79.98.32.97:8080	www.google.com	QUEUE	0	RESERVED
 84.255.40.228:8998	one.one.one.one	QUEUE	0	MELITACABLE
 85.112.65.130:8080	speed.cloudflare.com	QUEUE	0	TERRANET-AS
+103.130.104.62:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
+103.139.98.118:8080	one.one.one.one	QUEUE	0	DNS-AS-ID
+115.187.29.25:89	speed.cloudflare.com	QUEUE	0	IDNIC-LJM-AS-ID
