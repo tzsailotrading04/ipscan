@@ -170,3 +170,11 @@
 185.238.238.49:58080	speed.cloudflare.com	QUEUE	0	RDNET-AS
 202.58.73.6:1111	speed.cloudflare.com	QUEUE	0	DBN-AS-ID
 213.169.33.3:8001	www.google.com	QUEUE	0	A1
+45.198.10.43:9191	speed.cloudflare.com	QUEUE	0	AZNET-ID
+56.112.92.32:11900	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.68.116.64:5555	one.one.one.one	QUEUE	0	AMAZON-02
+63.151.67.7:8080	speed.cloudflare.com	QUEUE	0	VISIONARY
+67.207.92.87:3129	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN
+81.213.205.107:8080	one.one.one.one	QUEUE	0	TTNET
+82.138.122.43:80	www.google.com	QUEUE	0	VEGANET-TELEKOM
+89.43.133.165:8080	speed.cloudflare.com	QUEUE	0	RESERVED

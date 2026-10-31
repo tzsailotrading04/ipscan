@@ -262,3 +262,12 @@
 38.156.238.32:999	speed.cloudflare.com	QUEUE	0	BITNET
 38.172.160.16:999	speed.cloudflare.com	QUEUE	0	RED
 38.76.9.1:999	www.google.com	QUEUE	0	ACT
+45.158.126.105:8080	www.google.com	QUEUE	0	IDNIC-IKADA-AS-ID
+45.174.249.3:999	speed.cloudflare.com	QUEUE	0	WIFMAX
+45.178.68.249:999	speed.cloudflare.com	QUEUE	0	ISP
+45.198.10.189:9191	speed.cloudflare.com	QUEUE	0	AZNET-ID
+45.198.32.137:8080	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
+47.121.139.13:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+47.80.60.84:3128	one.one.one.one	QUEUE	0	ALIBABA-CN-NET
+56.68.116.64:17892	speed.cloudflare.com	QUEUE	0	AMAZON-02
+59.145.185.162:8080	speed.cloudflare.com	QUEUE	0	BBIL-AP

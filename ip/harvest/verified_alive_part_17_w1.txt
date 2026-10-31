@@ -229,3 +229,7 @@
 38.211.76.17:999	speed.cloudflare.com	QUEUE	0	FIBERNET
 43.200.174.95:49978	one.one.one.one	QUEUE	0	AMAZON-02
 45.126.250.34:8080	www.google.com	QUEUE	0	IDNIC-WLD-ID
+45.178.68.251:999	speed.cloudflare.com	QUEUE	0	ISP
+45.198.32.207:8080	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
+5.189.138.17:3128	one.one.one.one	QUEUE	0	CONTABO
+64.227.174.131:9090	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN

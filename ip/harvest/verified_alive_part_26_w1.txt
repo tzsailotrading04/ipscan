@@ -201,3 +201,10 @@
 43.247.33.182:8080	www.google.com	QUEUE	0	MLD-ID
 45.183.236.181:8085	speed.cloudflare.com	QUEUE	0	WLAN
 45.198.8.10:8080	speed.cloudflare.com	QUEUE	0	PRIMA
+49.0.2.104:8989	speed.cloudflare.com	QUEUE	0	ASNET-AS-ID
+49.144.20.20:8082	www.google.com	QUEUE	0	IPG-AS-AP
+51.16.4.39:1452	speed.cloudflare.com	QUEUE	0	AMAZON-02
+56.68.116.64:52083	speed.cloudflare.com	QUEUE	0	AMAZON-02
+64.76.33.108:999	www.google.com	QUEUE	0	LVLT-3549
+79.98.32.126:8080	www.google.com	QUEUE	0	RESERVED
+80.66.72.20:443	speed.cloudflare.com	QUEUE	0	GCS-AS

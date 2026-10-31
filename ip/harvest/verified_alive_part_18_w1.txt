@@ -192,3 +192,12 @@
 180.211.179.126:8080	speed.cloudflare.com	QUEUE	0	BTCL-ISP-AS
 181.78.195.136:999	one.one.one.one	QUEUE	0	UFINET
 187.190.58.152:80	speed.cloudflare.com	QUEUE	0	TOTAL
+20.33.10.79:80	speed.cloudflare.com	QUEUE	0	MICROSOFT-CORP-MSN-AS-BLOCK
+200.10.31.42:8081	www.google.com	QUEUE	0	SUPER
+36.50.56.17:8818	www.google.com	QUEUE	0	IDNIC-ANDROMEGA-AS-ID
+43.245.95.178:53805	www.google.com	QUEUE	0	BROADLINK-AS-AP
+45.174.249.9:999	speed.cloudflare.com	QUEUE	0	WIFMAX
+45.175.39.64:8080	speed.cloudflare.com	QUEUE	0	TCA
+45.178.68.254:999	speed.cloudflare.com	QUEUE	0	ISP
+45.228.233.78:999	speed.cloudflare.com	QUEUE	0	UFINET
+89.43.132.197:8080	speed.cloudflare.com	QUEUE	0	RESERVED
