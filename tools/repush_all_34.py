@@ -6,7 +6,7 @@ kaggle_dir = os.path.join(userprofile, '.kaggle')
 os.makedirs(kaggle_dir, exist_ok=True)
 
 groups = [
-    ('remruata', ['00', '01', '20']),
+    ('remruata', ['00', '01', '20', '21']),
     ('lalthazualasailo', ['02', '03', '04', '05', '22']),
     ('zomuanpuia', ['06', '07', '08', '09', '23']),
     ('laldinthari', ['10', '11', '12', '13', '24']),
@@ -25,6 +25,8 @@ for username, shards in groups:
         creds = json.load(f)
     with open(os.path.join(kaggle_dir, 'kaggle.json'), 'w') as f:
         json.dump(creds, f, indent=2)
+    with open(os.path.join(kaggle_dir, 'access_token'), 'w') as f:
+        f.write(creds['key'])
 
     env = os.environ.copy()
     env['KAGGLE_USERNAME'] = creds['username']
@@ -33,10 +35,11 @@ for username, shards in groups:
 
     for s in shards:
         kernel_path = os.path.join(repo, 'kaggle', f'cl_shodan_{s}')
-        print(f">>> kaggle kernels push -p kaggle\\cl_shodan_{s}")
+        print(f">>> kaggle kernels push -p kaggle\\cl_shodan_{s}", flush=True)
         res = subprocess.run(['kaggle', 'kernels', 'push', '-p', kernel_path], env=env, capture_output=True, text=True)
-        out = (res.stdout + '\n' + res.stderr).strip().splitlines()[-1]
-        print(f"    {out}")
+        lines = [l for l in (res.stdout + '\n' + res.stderr).splitlines() if l.strip() and not l.startswith('Warning:')]
+        out = lines[-1] if lines else 'OK'
+        print(f"    {out}", flush=True)
         time.sleep(3)
 
 print("\n==========================================")

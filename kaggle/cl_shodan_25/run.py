@@ -496,16 +496,22 @@ async def run_worker(shard_idx, worker_id, total_workers):
         return _rem
 
     write_stage_file("init:enter_consume_queue_stage", offset)
-    for _pass in range(60):
+    _empty = 0
+    for _pass in range(600):
         try:
             subprocess.run(["git", "fetch", "--depth", "1", "origin", "main"], cwd=REPO, capture_output=True, timeout=90)
             subprocess.run(["git", "checkout", "FETCH_HEAD", "--", "ip/harvest/queue"], cwd=REPO, capture_output=True, timeout=90)
         except Exception:
             pass
         _left = await consume_queue_stage()
-        if not _left:
+        if _left:
+            _empty = 0
+            await asyncio.sleep(1)
+            continue
+        _empty += 1
+        if _empty >= 20:
             break
-        await asyncio.sleep(1)
+        await asyncio.sleep(30)
     write_stage_file("queue_done", offset)
 
     # MAIN WORKER EXECUTION LOOP
