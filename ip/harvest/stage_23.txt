@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_01.txt_500
-ts=1793450295
-offset=60513591
+stage=queue_slice_q_a0_http_1793446000_02.txt_0
+ts=1793450321
+offset=60513679
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:43] [SHARD 23 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:37:43] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:38:15] [SHARD 23 W0] [FOUND QUEUE] 103.101.216.70:8080 (IDNIC-DTTRANS-AS-ID) via speed.cloudflare.com | cands=301
 [2026-10-31 12:38:15] [SHARD 23 W0] [FOUND QUEUE] 103.172.42.105:1111 (IDNIC-MEDIASOLUSISUKSES-AS-ID) via speed.cloudflare.com | cands=302
 [2026-10-31 12:38:15] [SHARD 23 W0] [FOUND QUEUE] 103.175.202.165:8090 (IDNIC-AMEERA-AS-ID) via speed.cloudflare.com | cands=303
+[2026-10-31 12:38:41] [SHARD 23 W0] [FOUND QUEUE] 147.161.246.36:11703 (ZSCALER-EMEA) via speed.cloudflare.com | cands=304
+[2026-10-31 12:38:41] [SHARD 23 W0] [FOUND QUEUE] 147.161.247.9:12309 (ZSCALER-EMEA) via speed.cloudflare.com | cands=305
+[2026-10-31 12:38:41] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
