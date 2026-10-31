@@ -256,3 +256,5 @@
 45.183.236.181:8085	speed.cloudflare.com	QUEUE	0	WLAN
 45.229.9.137:8403	www.google.com	QUEUE	0	MEGANET
 45.4.0.12:999	speed.cloudflare.com	QUEUE	0	TLINK
+51.16.4.39:1452	speed.cloudflare.com	QUEUE	0	AMAZON-02
+80.66.72.20:443	www.google.com	QUEUE	0	GCS-AS
