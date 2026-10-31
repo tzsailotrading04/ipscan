@@ -417,3 +417,8 @@
 51.85.44.149:41625	one.one.one.one	QUEUE	0	AMAZON-02
 58.84.16.214:1231	www.google.com	QUEUE	0	EXTREMEBB-AS-MY
 80.74.30.136:31286	speed.cloudflare.com	QUEUE	0	CLODO
+103.139.99.238:8080	speed.cloudflare.com	QUEUE	0	DNS-AS-ID
+103.171.255.178:8080	speed.cloudflare.com	QUEUE	0	IDNIC-ZKI-AS-ID
+103.19.56.68:8080	speed.cloudflare.com	QUEUE	0	BITSNET-AS-ID
+103.251.8.255:8282	speed.cloudflare.com	QUEUE	0	IDNIC-TRIKANET-AS-ID
+123.112.214.167:9000	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
