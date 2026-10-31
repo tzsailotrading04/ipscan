@@ -294,3 +294,16 @@
 182.53.202.228:8080	www.google.com	QUEUE	0	TOT-NET
 190.121.157.41:999	speed.cloudflare.com	QUEUE	0	MEDIA
 194.124.36.199:8080	speed.cloudflare.com	QUEUE	0	HIGHSPEED
+49.146.231.205:8081	one.one.one.one	QUEUE	0	IPG-AS-AP
+51.17.99.116:10336	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.85.44.149:80	one.one.one.one	QUEUE	0	AMAZON-02
+54.37.74.255:3128	speed.cloudflare.com	QUEUE	0	OVH
+57.128.159.156:21	speed.cloudflare.com	QUEUE	0	OVH
+64.76.73.131:999	www.google.com	QUEUE	0	FIBERLINK
+74.103.66.15:80	speed.cloudflare.com	QUEUE	0	UUNET
+74.242.169.16:3128	speed.cloudflare.com	QUEUE	0	MICROSOFT-CORP-MSN-AS-BLOCK
+77.110.107.229:8080	speed.cloudflare.com	QUEUE	0	GCS-AS
+78.101.198.138:8080	one.one.one.one	QUEUE	0	QA-ISP
+83.118.60.147:8213	speed.cloudflare.com	QUEUE	0	SYMPHONY-AP-TH
+85.189.13.157:8080	www.google.com	QUEUE	0	RESERVED
+96.30.70.8:8081	www.google.com	QUEUE	0	SYMPHONY-AS-AP
