@@ -359,3 +359,10 @@
 161.22.32.31:8080	speed.cloudflare.com	QUEUE	0	TOP
 163.128.149.200:3128	speed.cloudflare.com	QUEUE	0	IDNIC-METROMATIKA-ID
 181.209.125.189:999	speed.cloudflare.com	QUEUE	0	ARSAT
+150.107.141.242:8080	speed.cloudflare.com	QUEUE	0	JLM-AS-ID
+157.15.112.14:8082	speed.cloudflare.com	QUEUE	0	IDNIC-HEBIT-ID
+159.203.61.169:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+160.22.92.2:8080	speed.cloudflare.com	QUEUE	0	IDNIC-3MEDIASOLUSI-AS-ID
+170.233.192.225:999	speed.cloudflare.com	QUEUE	0	MI
+18.231.126.121:18871	one.one.one.one	QUEUE	0	AMAZON-02
+182.52.149.67:443	one.one.one.one	QUEUE	0	TOT-NET
