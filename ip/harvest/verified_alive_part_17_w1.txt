@@ -277,3 +277,7 @@
 210.87.74.71:8080	one.one.one.one	QUEUE	0	GMDP-AS-ID
 221.221.157.102:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
 43.207.113.167:8120	one.one.one.one	QUEUE	0	AMAZON-02
+45.167.125.62:999	speed.cloudflare.com	QUEUE	0	SEPCOM
+45.198.10.131:9191	speed.cloudflare.com	QUEUE	0	AZNET-ID
+45.227.195.121:8082	speed.cloudflare.com	QUEUE	0	MHNET
+45.232.210.177:999	speed.cloudflare.com	QUEUE	0	NANOTIK
