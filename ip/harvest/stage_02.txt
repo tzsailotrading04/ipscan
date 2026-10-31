@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450250
-offset=62358692
+stage=queue_slice_q_a0_http_1793446000_03.txt_0
+ts=1793450275
+offset=62358781
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:06] [SHARD 02 W0] [FOUND QUEUE] 103.227.243.73:8080 (VNTNET-AS-ID) via www.google.com | cands=240
 [2026-10-31 12:37:06] [SHARD 02 W0] [FOUND QUEUE] 103.90.27.98:8080 (IDNIC-ARANANETWORK-AS-ID) via www.google.com | cands=241
 [2026-10-31 12:37:06] [SHARD 02 W0] [FOUND QUEUE] 118.69.183.149:8080 (FPT-AS-AP) via one.one.one.one | cands=242
 [2026-10-31 12:37:06] [SHARD 02 W0] [FOUND QUEUE] 124.158.186.254:8080 (JLM-AS-ID) via speed.cloudflare.com | cands=243
 [2026-10-31 12:37:30] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 12:37:55] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
