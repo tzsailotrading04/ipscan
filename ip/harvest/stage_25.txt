@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793451596
-offset=63137920
+ts=1793451881
+offset=63146048
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:59:56] [SHARD 25 W0] [FOUND QUEUE] 1.20.101.17:8080 (TOT-NET) via www.google.com | cands=293
 [2026-10-31 12:59:56] [SHARD 25 W0] [FOUND QUEUE] 1.32.48.243:8081 (TTSSB-MY) via www.google.com | cands=294
