@@ -256,3 +256,6 @@
 103.171.55.34:82	www.google.com	QUEUE	0	GIGALINE-AS
 103.41.97.225:83	www.google.com	QUEUE	0	PEL-AS-IN
 114.69.225.6:84	www.google.com	QUEUE	0	WORLDPHONE-IN
+16.28.101.55:28500	one.one.one.one	QUEUE	0	AMAZON-02
+170.80.203.40:999	speed.cloudflare.com	QUEUE	0	RUDDY
+177.130.104.106:33333	speed.cloudflare.com	QUEUE	0	AMERICA-NET
