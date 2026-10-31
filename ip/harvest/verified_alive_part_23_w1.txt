@@ -227,3 +227,7 @@
 8.243.163.58:999	one.one.one.one	QUEUE	0	LEVEL3
 92.42.96.84:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
 94.200.195.220:8080	www.google.com	QUEUE	0	DU-AS1
+103.152.148.15:8080	speed.cloudflare.com	QUEUE	0	IDNIC-DINETKAN-AS-ID
+103.17.215.9:8089	www.google.com	QUEUE	0	IIT-WICAM-AS-AP
+103.39.72.221:8990	speed.cloudflare.com	QUEUE	0	IDNIC-TGIF-AS-ID
+112.210.155.150:8082	www.google.com	QUEUE	0	IPG-AS-AP
