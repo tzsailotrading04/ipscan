@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450633
-offset=65393845
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450660
+offset=65394345
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:42:33] [SHARD 29 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (134.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 12:42:34] [SHARD 29 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:42:34] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:42:51] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
-[2026-10-31 12:43:53] [SHARD 29 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:44:20] [SHARD 29 W0] [FOUND QUEUE] 103.169.154.4:84 (SPEEDP-AS-IN) via speed.cloudflare.com | cands=309
+[2026-10-31 12:44:20] [SHARD 29 W0] [FOUND QUEUE] 103.172.70.195:1111 (AZNET-ID) via speed.cloudflare.com | cands=310
+[2026-10-31 12:44:20] [SHARD 29 W0] [FOUND QUEUE] 103.209.88.72:8080 (TRANSMEDIA-AS-IN) via speed.cloudflare.com | cands=311
+[2026-10-31 12:44:20] [SHARD 29 W0] [FOUND QUEUE] 115.127.69.169:11211 (BRAC-BDMAIL-AS-BD) via speed.cloudflare.com | cands=312
+[2026-10-31 12:44:20] [SHARD 29 W0] [FOUND QUEUE] 13.38.27.183:35577 (AMAZON-02) via one.one.one.one | cands=313
