@@ -3,10 +3,10 @@ import os, random, ipaddress, collections
 TSV = "data/ip2asn-v4-u32.tsv"
 POOL = "ip/harvest/real_pool.txt"
 OUTDIR = "ip/harvest/queue"
-LIMIT = 120000
-PORTS = (443, 3128)
+ADDRS = 15000
+PORTS = (8080, 3128, 8888, 1080, 81, 8000, 999, 8118)
 CHUNK = 40000
-STAMP = "1793433000"
+STAMP = "1793434000"
 TOPN = 60
 
 org2asn = {}
@@ -27,40 +27,33 @@ with open(TSV, encoding="utf-8", errors="ignore") as f:
         ranges[a].append((s, e))
 
 cnt = collections.Counter()
+pool = set()
 with open(POOL, encoding="utf-8", errors="ignore") as f:
     for line in f:
         p = line.strip().split("\t")
+        if p and p[0]:
+            pool.add(p[0].split()[0])
         if len(p) >= 5:
             cnt[p[4].strip().upper()] += 1
 
 top = [o for o, _ in cnt.most_common(TOPN) if o in org2asn]
-print("live orgs:", len(cnt), "targeting:", len(top))
-for o in top[:12]:
-    print("  ", o, cnt[o], "nodes")
+print("targeting:", len(top))
 
 picked = []
 for o in top:
     for s, e in ranges.get(org2asn[o], []):
-        if len(picked) >= LIMIT:
+        if len(picked) >= ADDRS:
             break
         n = e - s + 1
         if n <= 256:
             picked.append(s + random.randint(0, n - 1))
         else:
             for base in range(s, e + 1, 256):
-                if len(picked) >= LIMIT:
+                if len(picked) >= ADDRS:
                     break
-                hi = min(base + 255, e)
-                picked.append(random.randint(base, hi))
+                picked.append(random.randint(base, min(base + 255, e)))
 
-pool = set()
-with open(POOL, encoding="utf-8", errors="ignore") as f:
-    for l in f:
-        q = l.strip().split("\t")[0].split()[0] if l.strip() else ""
-        if q:
-            pool.add(q)
-
-random.seed(5)
+random.seed(9)
 random.shuffle(picked)
 
 os.makedirs(OUTDIR, exist_ok=True)
@@ -70,7 +63,7 @@ def flush():
     global buf, nfile
     if not buf:
         return
-    path = os.path.join(OUTDIR, f"q_aa_asn_{STAMP}_{nfile:02d}.txt")
+    path = os.path.join(OUTDIR, f"q_ab_asn_{STAMP}_{nfile:02d}.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(buf) + "\n")
     print("wrote", path, len(buf))
@@ -78,8 +71,6 @@ def flush():
     buf = []
 
 for ipi in picked:
-    if written >= LIMIT:
-        break
     try:
         ip = str(ipaddress.ip_address(ipi))
     except Exception:
