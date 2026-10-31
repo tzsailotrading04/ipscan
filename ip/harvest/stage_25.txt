@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450077
-offset=63130093
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450102
+offset=63130181
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:34:37] [SHARD 25 W0] [FOUND QUEUE] 110.44.115.83:8080 (VIANET-NP) via one.one.one.one | cands=211
-[2026-10-31 12:34:37] [SHARD 25 W0] [FOUND QUEUE] 111.192.26.109:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=212
-[2026-10-31 12:34:37] [SHARD 25 W0] [FOUND QUEUE] 119.93.151.254:8081 (IPG-AS-AP) via speed.cloudflare.com | cands=213
-[2026-10-31 12:34:37] [SHARD 25 W0] [FOUND QUEUE] 13.126.183.60:6374 (AMAZON-02) via one.one.one.one | cands=214
-[2026-10-31 12:34:37] [SHARD 25 W0] [FOUND QUEUE] 130.110.103.245:3128 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=215
+[2026-10-31 12:35:02] [SHARD 25 W0] [FOUND QUEUE] 138.0.143.119:8080 (F) via www.google.com | cands=216
+[2026-10-31 12:35:02] [SHARD 25 W0] [FOUND QUEUE] 144.124.251.24:10009 (VDSINA) via speed.cloudflare.com | cands=217
+[2026-10-31 12:35:02] [SHARD 25 W0] [FOUND QUEUE] 147.161.247.9:10268 (ZSCALER-EMEA) via speed.cloudflare.com | cands=218
+[2026-10-31 12:35:02] [SHARD 25 W0] [FOUND QUEUE] 147.161.247.9:11870 (ZSCALER-EMEA) via speed.cloudflare.com | cands=219
+[2026-10-31 12:35:02] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
