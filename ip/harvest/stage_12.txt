@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793451237
-offset=59260698
+stage=res_loop
+ts=1793451343
+offset=59261416
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:51:56] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:26] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:57] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:53:27] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:53:57] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:55:43] [SHARD 12 W0] [FOUND QUEUE] 51.68.10.90:80 (OVH) via speed.cloudflare.com | cands=289
+[2026-10-31 12:55:43] [SHARD 12 W0] [FOUND QUEUE] 56.155.73.159:26612 (AMAZON-02) via one.one.one.one | cands=290
+[2026-10-31 12:55:43] [SHARD 12 W0] [FOUND QUEUE] 63.180.203.233:51082 (AMAZON-02) via one.one.one.one | cands=291
+[2026-10-31 12:55:43] [SHARD 12 W0] [FOUND QUEUE] 71.14.23.121:8080 (CHARTER-20115) via www.google.com | cands=292
+[2026-10-31 12:55:43] [SHARD 12 W0] [FOUND QUEUE] 85.17.236.32:3127 (LEASEWEB-NL-AMS-01) via speed.cloudflare.com | cands=293
