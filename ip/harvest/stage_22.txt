@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_04.txt_0
-ts=1793450309
-offset=62600398
+stage=queue_slice_q_a0_http_1793448000_01.txt_0
+ts=1793450339
+offset=62600756
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:30] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:38:11] [SHARD 22 W0] [FOUND QUEUE] 201.77.108.72:999 (RAUL) via speed.cloudflare.com | cands=243
-[2026-10-31 12:38:11] [SHARD 22 W0] [FOUND QUEUE] 203.205.49.2:10022 (CMCTELECOM-VN) via www.google.com | cands=244
 [2026-10-31 12:38:11] [SHARD 22 W0] [FOUND QUEUE] 38.210.179.33:999 (JAIR) via www.google.com | cands=245
 [2026-10-31 12:38:29] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=715 worker_slice=358 resume=0
+[2026-10-31 12:38:59] [SHARD 22 W0] [FOUND QUEUE] 51.85.44.149:55322 (AMAZON-02) via one.one.one.one | cands=246
+[2026-10-31 12:38:59] [SHARD 22 W0] [FOUND QUEUE] 56.112.92.32:56617 (AMAZON-02) via www.google.com | cands=247
+[2026-10-31 12:38:59] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
