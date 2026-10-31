@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450431
-offset=59258483
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450473
+offset=59258983
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:34] [SHARD 12 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:39:34] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:39:51] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=716 worker_slice=358 resume=0
-[2026-10-31 12:40:31] [SHARD 12 W0] [FOUND QUEUE] 61.19.30.194:8188 (CAT-AP) via speed.cloudflare.com | cands=276
-[2026-10-31 12:40:31] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:41:13] [SHARD 12 W0] [FOUND QUEUE] 103.162.252.49:3125 (IDNIC-NUANSAACEH-ID) via one.one.one.one | cands=277
+[2026-10-31 12:41:13] [SHARD 12 W0] [FOUND QUEUE] 103.199.117.92:8080 (HEPRA-AS-ID) via www.google.com | cands=278
+[2026-10-31 12:41:13] [SHARD 12 W0] [FOUND QUEUE] 119.93.83.106:8082 (IPG-AS-AP) via one.one.one.one | cands=279
+[2026-10-31 12:41:13] [SHARD 12 W0] [FOUND QUEUE] 123.0.18.42:10000 (ICON-INFOTECH-BD) via speed.cloudflare.com | cands=280
+[2026-10-31 12:41:13] [SHARD 12 W0] [FOUND QUEUE] 125.27.192.162:8081 (MOE-AS-AP) via one.one.one.one | cands=281
