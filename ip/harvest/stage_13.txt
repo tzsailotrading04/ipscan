@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793452215
-offset=63827763
+ts=1793452514
+offset=63850115
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:59:23] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
 [2026-10-31 12:59:53] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
 [2026-10-31 13:00:23] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
 [2026-10-31 13:00:54] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
 [2026-10-31 13:01:24] [SHARD 13 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 13:13:06] [SHARD 13 W0] [FOUND RES] 27.56.152.98:80 (AIRTELBROADBAND-AS-AP) via speed.cloudflare.com | cands=336
