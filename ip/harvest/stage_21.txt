@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793449959
-offset=58433550
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793450003
+offset=58434138
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:32:39] [SHARD 21 W0] [FOUND QUEUE] 14.143.222.113:57748 (TATACOMM-AS) via speed.cloudflare.com | cands=227
-[2026-10-31 12:32:39] [SHARD 21 W0] [FOUND QUEUE] 143.105.208.94:8080 (SPACEX-STARLINK) via speed.cloudflare.com | cands=228
-[2026-10-31 12:32:39] [SHARD 21 W0] [FOUND QUEUE] 147.161.247.9:10198 (ZSCALER-EMEA) via www.google.com | cands=229
-[2026-10-31 12:32:39] [SHARD 21 W0] [FOUND QUEUE] 147.161.247.9:11725 (ZSCALER-EMEA) via www.google.com | cands=230
-[2026-10-31 12:32:39] [SHARD 21 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:33:15] [SHARD 21 W0] [FOUND QUEUE] 180.191.122.190:8181 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=235
+[2026-10-31 12:33:15] [SHARD 21 W0] [FOUND QUEUE] 182.52.149.42:443 (TOT-NET) via www.google.com | cands=236
+[2026-10-31 12:33:23] [SHARD 21 W0] [FOUND QUEUE] 186.167.114.146:999 (CORPORACION) via speed.cloudflare.com | cands=237
+[2026-10-31 12:33:23] [SHARD 21 W0] [FOUND QUEUE] 187.102.211.202:3128 (INTEL) via speed.cloudflare.com | cands=238
+[2026-10-31 12:33:23] [SHARD 21 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
