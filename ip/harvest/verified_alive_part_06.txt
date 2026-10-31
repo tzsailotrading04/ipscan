@@ -357,3 +357,6 @@
 38.58.117.135:8080	www.google.com	QUEUE	0	IDNIC-LJN-AS-ID
 45.238.220.1:8181	speed.cloudflare.com	QUEUE	0	CA
 45.249.77.145:83	speed.cloudflare.com	QUEUE	0	PEL-AS-IN
+78.12.246.160:12145	speed.cloudflare.com	QUEUE	0	AMAZON-02
+89.45.209.141:8080	speed.cloudflare.com	QUEUE	0	OPTICAL
+91.214.141.224:10808	speed.cloudflare.com	QUEUE	0	ASDYATLOV
