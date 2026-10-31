@@ -302,3 +302,9 @@
 185.225.43.57:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
 186.5.94.207:999	speed.cloudflare.com	QUEUE	0	TELCONET
 189.176.85.120:8080	speed.cloudflare.com	QUEUE	0	UNINET
+190.97.226.89:999	one.one.one.one	QUEUE	0	VIGINET
+195.178.56.32:8080	www.google.com	QUEUE	0	TELEKOM-AS
+36.93.56.58:8080	speed.cloudflare.com	QUEUE	0	TELKOMNET-AS-AP
+38.158.202.78:999	one.one.one.one	QUEUE	0	ONFIBER
+38.172.130.249:999	speed.cloudflare.com	QUEUE	0	CONEX
+43.200.174.95:9927	one.one.one.one	QUEUE	0	AMAZON-02
