@@ -287,3 +287,6 @@
 147.161.247.9:10669	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 190.110.36.197:999	speed.cloudflare.com	QUEUE	0	CENTRIC
 209.14.113.2:999	speed.cloudflare.com	QUEUE	0	TV
+49.148.17.137:9999	www.google.com	QUEUE	0	IPG-AS-AP
+49.157.158.178:8084	speed.cloudflare.com	QUEUE	0	ETPI-IDS-AS-AP
+71.14.23.121:8080	one.one.one.one	QUEUE	0	CHARTER-20115
