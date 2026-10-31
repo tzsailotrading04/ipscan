@@ -285,3 +285,9 @@
 138.122.251.1:8080	one.one.one.one	QUEUE	0	NET
 145.220.227.164:1080	one.one.one.one	QUEUE	0	IP-EEND-AS
 147.161.246.37:11211	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+16.51.53.116:21784	one.one.one.one	QUEUE	0	AMAZON-02
+161.22.33.152:999	speed.cloudflare.com	QUEUE	0	THUNDERNET
+177.234.210.47:999	speed.cloudflare.com	QUEUE	0	UFINET
+177.93.48.137:999	speed.cloudflare.com	QUEUE	0	TV
+18.188.168.99:39811	one.one.one.one	QUEUE	0	AMAZON-02
+180.191.23.21:8081	speed.cloudflare.com	QUEUE	0	GLOBE-MOBILE-5TH-GEN-AS

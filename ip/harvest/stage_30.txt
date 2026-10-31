@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_0
-ts=1793450660
-offset=60388554
+stage=queue_slice_q_a0_http_1793448000_02.txt_500
+ts=1793450687
+offset=60389054
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:01] [SHARD 30 W0] [FOUND QUEUE] 120.28.117.92:8081 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=284
-[2026-10-31 12:44:01] [SHARD 30 W0] [FOUND QUEUE] 138.122.251.1:8080 (NET) via one.one.one.one | cands=285
-[2026-10-31 12:44:20] [SHARD 30 W0] [FOUND QUEUE] 145.220.227.164:1080 (IP-EEND-AS) via one.one.one.one | cands=286
-[2026-10-31 12:44:20] [SHARD 30 W0] [FOUND QUEUE] 147.161.246.37:11211 (ZSCALER-EMEA) via speed.cloudflare.com | cands=287
-[2026-10-31 12:44:20] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:44:47] [SHARD 30 W0] [FOUND QUEUE] 161.22.33.152:999 (THUNDERNET) via speed.cloudflare.com | cands=289
+[2026-10-31 12:44:47] [SHARD 30 W0] [FOUND QUEUE] 177.234.210.47:999 (UFINET) via speed.cloudflare.com | cands=290
+[2026-10-31 12:44:47] [SHARD 30 W0] [FOUND QUEUE] 177.93.48.137:999 (TV) via speed.cloudflare.com | cands=291
+[2026-10-31 12:44:47] [SHARD 30 W0] [FOUND QUEUE] 18.188.168.99:39811 (AMAZON-02) via one.one.one.one | cands=292
+[2026-10-31 12:44:47] [SHARD 30 W0] [FOUND QUEUE] 180.191.23.21:8081 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=293
