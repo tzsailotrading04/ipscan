@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_500
-ts=1793450063
-offset=64932939
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793450071
+offset=64933028
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:43] [SHARD 10 W0] [FOUND QUEUE] 125.27.241.98:8080 (MOE-AS-AP) via speed.cloudflare.com | cands=231
 [2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 144.124.251.24:11108 (VDSINA) via one.one.one.one | cands=232
 [2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 147.161.247.9:10015 (ZSCALER-EMEA) via one.one.one.one | cands=233
 [2026-10-31 12:34:23] [SHARD 10 W0] [FOUND QUEUE] 147.161.247.9:11368 (ZSCALER-EMEA) via one.one.one.one | cands=234
 [2026-10-31 12:34:23] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 12:34:31] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
