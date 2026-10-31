@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793451201
-offset=60869632
+stage=queue_loop
+ts=1793451507
+offset=60870808
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:51:19] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:50] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:20] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:51] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:53:21] [SHARD 27 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:58:27] [SHARD 27 W0] [FOUND QUEUE] 181.209.39.90:999 (ARSAT) via www.google.com | cands=323
+[2026-10-31 12:58:27] [SHARD 27 W0] [FOUND QUEUE] 181.78.169.130:999 (UFINET) via speed.cloudflare.com | cands=324
+[2026-10-31 12:58:27] [SHARD 27 W0] [FOUND QUEUE] 185.238.238.29:58080 (RDNET-AS) via one.one.one.one | cands=325
+[2026-10-31 12:58:27] [SHARD 27 W0] [FOUND QUEUE] 186.101.49.211:8080 (TELCONET) via speed.cloudflare.com | cands=326
+[2026-10-31 12:58:27] [SHARD 27 W0] [FOUND QUEUE] 187.251.222.69:8080 (TOTAL) via www.google.com | cands=327
