@@ -169,3 +169,7 @@
 45.174.251.11:999	speed.cloudflare.com	QUEUE	0	WIFMAX
 45.182.21.210:999	speed.cloudflare.com	QUEUE	0	MULTICABLE
 47.100.43.14:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+102.244.78.61:8081	speed.cloudflare.com	QUEUE	0	ORANGE
+103.177.153.42:8080	www.google.com	QUEUE	0	IDNIC-BEIBI-AS-ID
+103.48.71.166:84	speed.cloudflare.com	QUEUE	0	COUNTRYONLINE-AS-IN
+103.76.108.165:3125	speed.cloudflare.com	QUEUE	0	IDNIC-DNS-NET-AS-ID
