@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793449962
-offset=64125932
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793449993
+offset=64126432
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:32:12] [SHARD 03 W0] [FOUND QUEUE] 114.246.203.194:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=248
-[2026-10-31 12:32:42] [SHARD 03 W0] [FOUND QUEUE] 144.124.251.24:10811 (VDSINA) via speed.cloudflare.com | cands=249
-[2026-10-31 12:32:42] [SHARD 03 W0] [FOUND QUEUE] 146.190.60.147:8013 (DIGITALOCEAN-ASN) via www.google.com | cands=250
-[2026-10-31 12:32:42] [SHARD 03 W0] [FOUND QUEUE] 147.161.247.9:80 (ZSCALER-EMEA) via speed.cloudflare.com | cands=251
-[2026-10-31 12:32:42] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:33:13] [SHARD 03 W0] [FOUND QUEUE] 177.234.217.92:999 (UFINET) via www.google.com | cands=255
+[2026-10-31 12:33:13] [SHARD 03 W0] [FOUND QUEUE] 18.191.250.90:45053 (AMAZON-02) via www.google.com | cands=256
+[2026-10-31 12:33:13] [SHARD 03 W0] [FOUND QUEUE] 180.191.235.152:8082 (GLOBE-TELECOM-AS) via www.google.com | cands=257
+[2026-10-31 12:33:13] [SHARD 03 W0] [FOUND QUEUE] 181.37.240.89:999 (ALTICE) via speed.cloudflare.com | cands=258
+[2026-10-31 12:33:13] [SHARD 03 W0] [FOUND QUEUE] 185.138.114.111:8080 (ENET-AS) via www.google.com | cands=259
