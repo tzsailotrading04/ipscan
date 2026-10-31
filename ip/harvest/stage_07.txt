@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_0
-ts=1793450451
-offset=63756576
+stage=queue_slice_q_a0_http_1793448000_02.txt_500
+ts=1793450479
+offset=63757076
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:43] [SHARD 07 W0] [FOUND QUEUE] 103.178.14.98:3125 (JARTEL-AS-ID) via speed.cloudflare.com | cands=294
-[2026-10-31 12:40:43] [SHARD 07 W0] [FOUND QUEUE] 103.48.71.130:84 (COUNTRYONLINE-AS-IN) via www.google.com | cands=295
-[2026-10-31 12:40:43] [SHARD 07 W0] [FOUND QUEUE] 103.54.169.14:3125 (IDNIC-KNA-AS-ID) via speed.cloudflare.com | cands=296
-[2026-10-31 12:40:43] [SHARD 07 W0] [FOUND QUEUE] 122.165.97.254:3128 (AIRTELBROADBAND-AS-AP) via speed.cloudflare.com | cands=297
-[2026-10-31 12:40:51] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:41:19] [SHARD 07 W0] [FOUND QUEUE] 160.30.104.170:1256 (SBLINKNETWORK-AS-AP) via speed.cloudflare.com | cands=298
+[2026-10-31 12:41:19] [SHARD 07 W0] [FOUND QUEUE] 177.37.167.172:3900 (BRISANET) via one.one.one.one | cands=299
+[2026-10-31 12:41:19] [SHARD 07 W0] [FOUND QUEUE] 178.207.11.148:3129 (TATTELECOM-AS) via www.google.com | cands=300
+[2026-10-31 12:41:19] [SHARD 07 W0] [FOUND QUEUE] 180.211.161.26:8080 (BTCL-ISP-AS) via www.google.com | cands=301
+[2026-10-31 12:41:19] [SHARD 07 W0] [FOUND QUEUE] 185.225.43.57:8080 (INT-PDN-STE-AS) via speed.cloudflare.com | cands=302
