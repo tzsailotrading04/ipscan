@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450395
-offset=64129646
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450425
+offset=64130146
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:05] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:39:22] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=716 worker_slice=358 resume=0
-[2026-10-31 12:39:55] [SHARD 03 W0] [FOUND QUEUE] 57.128.183.212:21 (OVH) via speed.cloudflare.com | cands=280
-[2026-10-31 12:39:55] [SHARD 03 W0] [FOUND QUEUE] 81.177.6.63:3128 (RTCOMM-AS) via speed.cloudflare.com | cands=281
 [2026-10-31 12:39:55] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:40:25] [SHARD 03 W0] [FOUND QUEUE] 102.222.231.1:2333 (ORIONCOM) via www.google.com | cands=282
+[2026-10-31 12:40:25] [SHARD 03 W0] [FOUND QUEUE] 103.157.79.58:8080 (EASTMEDIA-AS-ID) via speed.cloudflare.com | cands=283
+[2026-10-31 12:40:25] [SHARD 03 W0] [FOUND QUEUE] 103.167.156.22:8085 (IDNIC-JTIG-AS-ID) via one.one.one.one | cands=284
+[2026-10-31 12:40:25] [SHARD 03 W0] [FOUND QUEUE] 116.50.169.3:8088 (ETPI-IDS-AS-AP) via speed.cloudflare.com | cands=285
