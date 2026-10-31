@@ -779,3 +779,7 @@
 206.135.12.151:999	www.google.com	QUEUE	0	IENTC
 38.252.213.233:999	www.google.com	QUEUE	0	TELCOM
 45.234.218.5:8080	speed.cloudflare.com	QUEUE	0	ACCESS
+47.95.206.224:45162	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+94.154.32.78:8080	speed.cloudflare.com	QUEUE	0	STELLARGROUPSAS
+51.16.4.39:6703	speed.cloudflare.com	QUEUE	0	AMAZON-02
+8.215.25.3:2080	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
