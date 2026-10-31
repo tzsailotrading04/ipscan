@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793442000_04.txt_409
-ts=1793444436
-offset=63886027
+stage=res_loop
+ts=1793444992
+offset=63886028
 --- LAST 5 LOG LINES ---
-[2026-10-31 11:00:04] [SHARD 19 W0] [FOUND QUEUE] 80.208.225.245:7001 (INTERNETO-VIZIJA) via speed.cloudflare.com | cands=241
-[2026-10-31 11:00:04] [SHARD 19 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (156.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 11:00:06] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:00:36] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 11:00:36] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=409
+[2026-10-31 11:07:50] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:08:21] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:08:51] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:09:22] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:09:52] [SHARD 19 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning

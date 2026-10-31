@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793444389
-offset=66705895
+stage=res_loop
+ts=1793444989
+offset=66707927
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:58:48] [SHARD 17 W0] [FOUND QUEUE] 51.94.221.175:34547 (AMAZON-02) via one.one.one.one | cands=167
-[2026-10-31 10:58:48] [SHARD 17 W0] [FOUND QUEUE] 52.195.147.51:3128 (AMAZON-02) via one.one.one.one | cands=168
-[2026-10-31 10:58:48] [SHARD 17 W0] [FOUND QUEUE] 56.155.73.159:38040 (AMAZON-02) via one.one.one.one | cands=169
-[2026-10-31 10:59:19] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
-[2026-10-31 10:59:49] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:06:23] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:06:53] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:07:24] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:07:54] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
+[2026-10-31 11:08:25] [SHARD 17 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
