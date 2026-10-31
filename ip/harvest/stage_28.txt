@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450155
-offset=62408069
+stage=queue_slice_q_a0_http_1793445000_03.txt_500
+ts=1793450215
+offset=62408569
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:41] [SHARD 28 W0] [FOUND QUEUE] 18.188.168.99:47416 (AMAZON-02) via speed.cloudflare.com | cands=255
-[2026-10-31 12:35:41] [SHARD 28 W0] [FOUND QUEUE] 180.148.210.77:8080 (STARGATE-AS-AP) via www.google.com | cands=256
-[2026-10-31 12:35:41] [SHARD 28 W0] [FOUND QUEUE] 181.94.197.37:8080 (NUCLEO) via one.one.one.one | cands=257
-[2026-10-31 12:35:55] [SHARD 28 W0] [FOUND QUEUE] 186.96.111.214:999 (TV) via speed.cloudflare.com | cands=258
-[2026-10-31 12:35:55] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:36:55] [SHARD 28 W0] [FOUND QUEUE] 200.10.31.42:8081 (SUPER) via speed.cloudflare.com | cands=262
+[2026-10-31 12:36:55] [SHARD 28 W0] [FOUND QUEUE] 207.246.102.111:8888 (AS-VULTR) via speed.cloudflare.com | cands=263
+[2026-10-31 12:36:55] [SHARD 28 W0] [FOUND QUEUE] 3.134.245.77:50768 (AMAZON-02) via speed.cloudflare.com | cands=264
+[2026-10-31 12:36:55] [SHARD 28 W0] [FOUND QUEUE] 3.21.247.154:28899 (AMAZON-02) via speed.cloudflare.com | cands=265
+[2026-10-31 12:36:55] [SHARD 28 W0] [FOUND QUEUE] 43.216.197.62:34340 (AMAZON-02) via speed.cloudflare.com | cands=266

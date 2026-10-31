@@ -256,3 +256,11 @@
 180.148.210.77:8080	www.google.com	QUEUE	0	STARGATE-AS-AP
 181.94.197.37:8080	one.one.one.one	QUEUE	0	NUCLEO
 186.96.111.214:999	speed.cloudflare.com	QUEUE	0	TV
+189.196.45.158:999	www.google.com	QUEUE	0	MEGA
+193.43.149.85:8080	www.google.com	QUEUE	0	INT-PDN-STE-AS
+20.33.10.79:9443	speed.cloudflare.com	QUEUE	0	MICROSOFT-CORP-MSN-AS-BLOCK
+200.10.31.42:8081	speed.cloudflare.com	QUEUE	0	SUPER
+207.246.102.111:8888	speed.cloudflare.com	QUEUE	0	AS-VULTR
+3.134.245.77:50768	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.21.247.154:28899	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.216.197.62:34340	speed.cloudflare.com	QUEUE	0	AMAZON-02
