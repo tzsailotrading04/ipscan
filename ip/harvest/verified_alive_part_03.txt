@@ -413,3 +413,7 @@
 58.69.124.137:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 64.204.90.177:999	www.google.com	QUEUE	0	U2RED
 89.43.132.239:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+51.195.115.14:8080	speed.cloudflare.com	QUEUE	0	OVH
+51.85.44.149:41625	one.one.one.one	QUEUE	0	AMAZON-02
+58.84.16.214:1231	www.google.com	QUEUE	0	EXTREMEBB-AS-MY
+80.74.30.136:31286	speed.cloudflare.com	QUEUE	0	CLODO
