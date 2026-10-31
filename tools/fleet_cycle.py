@@ -48,7 +48,7 @@ FLEET_MAP = {
     },
     "stephen34": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "stephen34", "access_token"),
-        "shards": [29, 30, 31]
+        "shards": [29, 30, 31, 32, 33]
     }
 }
 
@@ -230,7 +230,7 @@ def merge_out_branches():
     merged_count = 0
     for rb in remote_branches:
         branch_name = rb.split("/")[-1]
-        tag = branch_name.replace("sh", "")
+        tag = branch_name.rsplit("sh", 1)[-1]
         c_out, c_err, c_code = run_cmd(
             f'git -C "{REPO_ROOT}" checkout {rb} -- '
             f'"ip/harvest/verified_alive_part_{tag}*.txt" '
