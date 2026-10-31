@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793426379
-offset=60566699
+ts=1793426517
+offset=60591083
 --- LAST 5 LOG LINES ---
 [2026-10-31 05:52:02] [SHARD 02 W0] Random IPv4 Looping: Resume offset=60,508,036 cands=159
 [2026-10-31 05:52:03] [SHARD 02 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning

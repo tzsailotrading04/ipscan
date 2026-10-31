@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793425071
-offset=60974867
+ts=1793426607
+offset=61027431
 --- LAST 5 LOG LINES ---
-[2026-10-31 04:39:17] [SHARD 24 W0] [FOUND QUEUE] 47.107.107.24:80 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=147
-[2026-10-31 04:39:17] [SHARD 24 W0] [FOUND QUEUE] 51.17.250.44:81 (AMAZON-02) via one.one.one.one | cands=148
-[2026-10-31 04:39:31] [SHARD 24 W0] [FOUND QUEUE] 54.216.243.162:81 (AMAZON-02) via speed.cloudflare.com | cands=149
-[2026-10-31 04:39:31] [SHARD 24 W0] [FOUND QUEUE] 78.13.112.106:8118 (AMAZON-02) via www.google.com | cands=150
-[2026-10-31 04:39:31] [SHARD 24 W0] [FOUND QUEUE] 85.29.175.110:8080 (KAR-TEL-AS) via speed.cloudflare.com | cands=151
+[2026-10-31 05:53:35] [SHARD 24 W0] Random IPv4 Looping: Resume offset=60,972,835 cands=151
+[2026-10-31 05:53:36] [SHARD 24 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 05:53:36] [SHARD 24 W0] [QUEUE STAGE] Consuming q_res_1793430000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 05:53:53] [SHARD 24 W0] [QUEUE STAGE] Consuming q_res_1793430000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 05:54:09] [SHARD 24 W0] [QUEUE STAGE] Consuming q_res_1793430000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
