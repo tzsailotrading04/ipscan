@@ -340,3 +340,12 @@
 35.78.212.217:50469	speed.cloudflare.com	QUEUE	0	AMAZON-02
 38.188.186.47:999	speed.cloudflare.com	QUEUE	0	MULTICABLE
 41.65.67.167:1976	one.one.one.one	QUEUE	0	ETISALAT-MISR
+45.229.17.59:999	speed.cloudflare.com	QUEUE	0	TURBONET
+201.7.31.163:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+212.86.45.80:8080	www.google.com	QUEUE	0	DNSNET
+213.169.33.8:8001	speed.cloudflare.com	QUEUE	0	A1
+213.199.53.16:8889	speed.cloudflare.com	QUEUE	0	CONTABO
+221.221.159.97:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+34.207.102.197:11665	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+41.220.138.55:8080	speed.cloudflare.com	QUEUE	0	HABARI-CO-TZ-AS
+43.200.174.95:53667	one.one.one.one	QUEUE	0	AMAZON-02
