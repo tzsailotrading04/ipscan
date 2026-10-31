@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793442000_04.txt_0
-ts=1793449813
-offset=62137621
+stage=queue_slice_q_a0_http_1793445000_01.txt_0
+ts=1793449892
+offset=62138031
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:30:05] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
-[2026-10-31 12:30:13] [SHARD 06 W0] [FOUND QUEUE] 45.198.11.183:9191 (AZNET-ID) via speed.cloudflare.com | cands=220
 [2026-10-31 12:30:13] [SHARD 06 W0] [FOUND QUEUE] 45.225.204.13:999 (NETDELSUR) via speed.cloudflare.com | cands=221
 [2026-10-31 12:30:13] [SHARD 06 W0] [FOUND QUEUE] 45.229.17.162:999 (TURBONET) via speed.cloudflare.com | cands=222
 [2026-10-31 12:30:13] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
+[2026-10-31 12:31:32] [SHARD 06 W0] [FOUND QUEUE] 98.153.152.141:7070 (TWC-20001-PACWEST) via www.google.com | cands=223
+[2026-10-31 12:31:32] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
