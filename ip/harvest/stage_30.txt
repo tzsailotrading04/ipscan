@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793446622
-offset=60344919
+ts=1793446910
+offset=60363207
 --- LAST 5 LOG LINES ---
 [2026-10-31 11:09:36] [SHARD 30 W0] [QUEUE STAGE] Found 19 queue files to consume before IP scanning
 [2026-10-31 11:11:41] [SHARD 30 W0] [FOUND QUEUE] 49.144.29.108:8082 (IPG-AS-AP) via speed.cloudflare.com | cands=198
