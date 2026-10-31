@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_500
-ts=1793450012
-offset=62139120
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793450046
+offset=62139209
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:32:50] [SHARD 06 W0] [FOUND QUEUE] 147.161.247.9:11298 (ZSCALER-EMEA) via www.google.com | cands=234
 [2026-10-31 12:32:50] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
 [2026-10-31 12:33:32] [SHARD 06 W0] [FOUND QUEUE] 160.191.56.1:8082 (IDNIC-RPNET-AS-ID) via speed.cloudflare.com | cands=235
 [2026-10-31 12:33:32] [SHARD 06 W0] [FOUND QUEUE] 160.22.45.114:8080 (IDNIC-CELEBESMULTINET-AS-ID) via speed.cloudflare.com | cands=236
 [2026-10-31 12:33:32] [SHARD 06 W0] [FOUND QUEUE] 163.223.112.35:8080 (IDNIC-TIJ-AS-ID) via speed.cloudflare.com | cands=237
+[2026-10-31 12:34:06] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
