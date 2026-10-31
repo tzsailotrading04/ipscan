@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793450062
-offset=63253209
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793450109
+offset=63253709
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:34:22] [SHARD 15 W0] [FOUND QUEUE] 147.161.247.9:10087 (ZSCALER-EMEA) via one.one.one.one | cands=249
-[2026-10-31 12:34:22] [SHARD 15 W0] [FOUND QUEUE] 147.161.247.9:11677 (ZSCALER-EMEA) via one.one.one.one | cands=250
-[2026-10-31 12:34:22] [SHARD 15 W0] [FOUND QUEUE] 148.224.14.254:999 (JORGE) via speed.cloudflare.com | cands=251
-[2026-10-31 12:34:22] [SHARD 15 W0] [FOUND QUEUE] 149.2.82.196:999 (TELECABLE) via speed.cloudflare.com | cands=252
-[2026-10-31 12:34:22] [SHARD 15 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:35:09] [SHARD 15 W0] [FOUND QUEUE] 167.99.3.26:13629 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=256
+[2026-10-31 12:35:09] [SHARD 15 W0] [FOUND QUEUE] 179.48.80.9:8085 (FBNET) via speed.cloudflare.com | cands=257
+[2026-10-31 12:35:09] [SHARD 15 W0] [FOUND QUEUE] 18.142.95.213:1029 (AMAZON-02) via one.one.one.one | cands=258
+[2026-10-31 12:35:09] [SHARD 15 W0] [FOUND QUEUE] 18.230.23.72:18107 (AMAZON-02) via speed.cloudflare.com | cands=259
+[2026-10-31 12:35:09] [SHARD 15 W0] [FOUND QUEUE] 182.253.109.171:8080 (BIZNET-AS-AP) via www.google.com | cands=260
