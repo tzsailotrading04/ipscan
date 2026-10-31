@@ -8,6 +8,7 @@ import aiohttp
 import subprocess
 import random
 import glob
+import subprocess
 import shutil
 import socket
 import ssl
@@ -368,23 +369,34 @@ async def run_worker(shard_idx, worker_id, total_workers):
         write_stage_file("queue:check_dir", offset)
         if not os.path.exists(queue_dir):
             write_stage_file("queue:no_dir_skip", offset)
-            return
+            return 0
         write_stage_file("queue:list_files", offset)
         q_files = sorted([f for f in os.listdir(queue_dir) if f.startswith("q_") and f.endswith(".txt")])
         if not q_files:
             write_stage_file("queue:no_files_skip", offset)
-            return
+            return 0
         write_stage_file(f"queue:found_{len(q_files)}_files", offset)
         shard_log(f"[QUEUE STAGE] Found {len(q_files)} queue files to consume before IP scanning", flush=True)
 
         write_stage_file("queue_consuming", offset)
         queue_start_t = time.time()
         QUEUE_WALLCLOCK_LIMIT = 120.0  # Wall-clock limit of 120 seconds per cycle
+        failed_file = os.path.join(REPO, "ip", "harvest", f"queue_failed_part_{SHARD_TAG}.txt")
 
         for qf_name in q_files:
             qf_path = os.path.join(queue_dir, qf_name)
             ack_file = os.path.join(acks_dir, f"{qf_name}.ack_{shard_idx}")
-            if os.path.exists(ack_file):
+            qcur_dir = os.path.join(REPO, "cache", "qcursor")
+            os.makedirs(qcur_dir, exist_ok=True)
+            qcur_file = os.path.join(qcur_dir, f"{qf_name}.cur_{shard_idx}")
+            _qc = "0"
+            try:
+                if os.path.exists(qcur_file):
+                    with open(qcur_file, "r", encoding="utf-8") as _qcf:
+                        _qc = _qcf.read().strip() or "0"
+            except Exception:
+                _qc = "0"
+            if _qc == "DONE":
                 continue
 
             lines = []
@@ -397,12 +409,21 @@ async def run_worker(shard_idx, worker_id, total_workers):
             # Each shard takes its stride slice across NUM_SHARDS (34)
             shard_slice = [l for idx, l in enumerate(lines) if idx % NUM_SHARDS == shard_idx]
             worker_slice = shard_slice[worker_id::total_workers]
-
-            shard_log(f"[QUEUE STAGE] Consuming {qf_name}: total={len(lines)} shard_slice={len(shard_slice)} worker_slice={len(worker_slice)}", flush=True)
-
+            try:
+                _start = int(_qc)
+            except Exception:
+                _start = 0
+            if _start >= len(worker_slice):
+                try:
+                    with open(qcur_file, "w", encoding="utf-8") as _qcw:
+                        _qcw.write("DONE\n")
+                except Exception:
+                    pass
+                continue
+            shard_log(f"[QUEUE STAGE] Consuming {qf_name}: total={len(lines)} shard_slice={len(shard_slice)} worker_slice={len(worker_slice)} resume={_start}", flush=True)
             timed_out = False
             write_stage_file(f"queue_file_{qf_name}", offset)
-            for i in range(0, len(worker_slice), 500):
+            for i in range(_start, len(worker_slice), 500):
                 write_stage_file(f"queue_slice_{qf_name}_{i}", offset)
                 # Wall-clock limit check
                 if (time.time() - queue_start_t) >= QUEUE_WALLCLOCK_LIMIT:
@@ -421,6 +442,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
                 if tasks:
                     results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
+                    failed_items = []
                     for (ip, port, _), res in zip(tasks, results):
                         if isinstance(res, tuple) and res[0] is not None:
                             passed_port, target = res
@@ -429,7 +451,20 @@ async def run_worker(shard_idx, worker_id, total_workers):
                             part_fp.flush()
                             cands_found += 1
                             shard_log(f"[FOUND QUEUE] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
+                        else:
+                            failed_items.append(f"{ip}:{port}\n")
+                    if failed_items:
+                        try:
+                            with open(failed_file, "a", encoding="utf-8") as ffp:
+                                ffp.writelines(failed_items)
+                        except Exception:
+                            pass
                     offset += len(tasks)
+                try:
+                    with open(qcur_file, "w", encoding="utf-8") as _qcw2:
+                        _qcw2.write(f"{min(i + 500, len(worker_slice))}\n")
+                except Exception:
+                    pass
 
                 # Check limit after batch completion
                 if (time.time() - queue_start_t) >= QUEUE_WALLCLOCK_LIMIT:
@@ -437,10 +472,13 @@ async def run_worker(shard_idx, worker_id, total_workers):
                     timed_out = True
                     break
 
-            # Mark acknowledged by this shard (always written, including on expiry)
+            # Mark acknowledged only when this shard's whole slice is finished
             try:
-                with open(ack_file, "w", encoding="utf-8") as af:
-                    af.write("1\n")
+                if (not timed_out) and ((i + 500) >= len(worker_slice)):
+                    with open(qcur_file, "w", encoding="utf-8") as _qcw3:
+                        _qcw3.write("DONE\n")
+                    with open(ack_file, "w", encoding="utf-8") as af:
+                        af.write("1\n")
             except Exception:
                 pass
 
@@ -458,9 +496,33 @@ async def run_worker(shard_idx, worker_id, total_workers):
             # If timed out, break out of queue files loop and fall through to scanning
             if timed_out:
                 break
+        _rem = 0
+        for _f in q_files:
+            _p = os.path.join(REPO, "cache", "qcursor", f"{_f}.cur_{shard_idx}")
+            try:
+                if not (os.path.exists(_p) and open(_p, "r", encoding="utf-8").read().strip() == "DONE"):
+                    _rem += 1
+            except Exception:
+                _rem += 1
+        return _rem
 
     write_stage_file("init:enter_consume_queue_stage", offset)
-    await consume_queue_stage()
+    _empty = 0
+    for _pass in range(600):
+        try:
+            subprocess.run(["git", "fetch", "--depth", "1", "origin", "main"], cwd=REPO, capture_output=True, timeout=90)
+            subprocess.run(["git", "checkout", "FETCH_HEAD", "--", "ip/harvest/queue"], cwd=REPO, capture_output=True, timeout=90)
+        except Exception:
+            pass
+        _left = await consume_queue_stage()
+        if _left:
+            _empty = 0
+            await asyncio.sleep(1)
+            continue
+        _empty += 1
+        if _empty >= 20:
+            break
+        await asyncio.sleep(30)
     write_stage_file("queue_done", offset)
 
     # MAIN WORKER EXECUTION LOOP
@@ -512,6 +574,7 @@ def git_sync_and_push(msg):
             f"ip/harvest/shodan_stats_v98_{SHARD_TAG}*.txt",
             f"ip/harvest/shodan_progress_v98_{SHARD_TAG}*.txt",
             f"ip/harvest/stage_{SHARD_TAG}.txt",
+            f"ip/harvest/queue_failed_part_{SHARD_TAG}*.txt",
         ]
         for pat in patterns:
             subprocess.run(["git", "-C", REPO, "add", pat], capture_output=True, check=False)

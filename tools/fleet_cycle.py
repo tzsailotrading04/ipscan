@@ -12,6 +12,7 @@ import glob
 import json
 import time
 import subprocess
+import re
 
 REPO_ROOT = r"D:\DEpinFarm"
 KAGGLE_JSON = os.path.expanduser("~/.kaggle/kaggle.json")
@@ -19,6 +20,7 @@ CYCLE_LOG = os.path.join(REPO_ROOT, "work", "FLEET_CYCLE.txt")
 SEEN_FILE = os.path.join(REPO_ROOT, "cache", "harvest_seen_set.txt")
 QUEUE_FILE = os.path.join(REPO_ROOT, "cache", "candidate_queue.txt")
 POOL_FILE = os.path.join(REPO_ROOT, "ip", "harvest", "real_pool.txt")
+DEAD_FILE = os.path.join(REPO_ROOT, "cache", "pool_dead.txt")
 
 # Account Shard Assignments (All 34 shards, max 5 per account)
 FLEET_MAP = {
@@ -208,6 +210,47 @@ def run_single_cycle(cycle_num, seen):
 
 last_merge_ts = 0
 
+
+def process_queue_failed_files():
+    failed_files = glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "queue_failed_part_*.txt"))
+    if not failed_files:
+        return 0
+
+    dead_eps = set()
+    if os.path.exists(DEAD_FILE):
+        with open(DEAD_FILE, "r", encoding="utf-8", errors="ignore") as df:
+            for line in df:
+                m = re.search(r"\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b", line)
+                if m:
+                    dead_eps.add(m.group(1))
+
+    new_dead = []
+    for ff in failed_files:
+        try:
+            with open(ff, "r", encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    m = re.search(r"\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b", line)
+                    if m:
+                        ep = m.group(1)
+                        if ep not in dead_eps:
+                            dead_eps.add(ep)
+                            new_dead.append(ep)
+            # Clear the failed part file
+            with open(ff, "w", encoding="utf-8") as f:
+                pass
+        except Exception as e:
+            print(f"[FAILED PART ERROR] {ff}: {e}")
+
+    if new_dead:
+        os.makedirs(os.path.dirname(DEAD_FILE), exist_ok=True)
+        now_str = time.strftime("%Y-%m-%d %H:%M:%S")
+        with open(DEAD_FILE, "a", encoding="utf-8") as df:
+            for ep in new_dead:
+                df.write(f"[{now_str}] {ep}\tspeed.cloudflare.com\tQUEUE\tREASON:FAIL_CONNECT\tRETIRED\n")
+        print(f"[FAILED QUEUE] Appended {len(new_dead):,} new dead endpoints to cache/pool_dead.txt. Cleared {len(failed_files)} failed part files.")
+
+    return len(new_dead)
+
 def merge_out_branches():
     """Every 300s, fetch all out/sh* branches and merge their files into main, then push once."""
     global last_merge_ts
@@ -242,6 +285,7 @@ def merge_out_branches():
             merged_count += 1
 
     new_pool, pool_total = harvest_and_dedupe()
+    process_queue_failed_files()
 
     run_cmd(f'git -C "{REPO_ROOT}" add ip/harvest/ real_pool.txt cache/ work/FLEET_CYCLE.txt')
     st_out, _, _ = run_cmd(f'git -C "{REPO_ROOT}" status --porcelain')

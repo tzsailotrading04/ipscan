@@ -381,6 +381,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
         write_stage_file("queue_consuming", offset)
         queue_start_t = time.time()
         QUEUE_WALLCLOCK_LIMIT = 120.0  # Wall-clock limit of 120 seconds per cycle
+        failed_file = os.path.join(REPO, "ip", "harvest", f"queue_failed_part_{SHARD_TAG}.txt")
 
         for qf_name in q_files:
             qf_path = os.path.join(queue_dir, qf_name)
@@ -441,6 +442,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
                 if tasks:
                     results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
+                    failed_items = []
                     for (ip, port, _), res in zip(tasks, results):
                         if isinstance(res, tuple) and res[0] is not None:
                             passed_port, target = res
@@ -449,6 +451,14 @@ async def run_worker(shard_idx, worker_id, total_workers):
                             part_fp.flush()
                             cands_found += 1
                             shard_log(f"[FOUND QUEUE] {ip}:{passed_port} ({prov}) via {target} | cands={cands_found}", flush=True)
+                        else:
+                            failed_items.append(f"{ip}:{port}\n")
+                    if failed_items:
+                        try:
+                            with open(failed_file, "a", encoding="utf-8") as ffp:
+                                ffp.writelines(failed_items)
+                        except Exception:
+                            pass
                     offset += len(tasks)
                 try:
                     with open(qcur_file, "w", encoding="utf-8") as _qcw2:
@@ -564,6 +574,7 @@ def git_sync_and_push(msg):
             f"ip/harvest/shodan_stats_v98_{SHARD_TAG}*.txt",
             f"ip/harvest/shodan_progress_v98_{SHARD_TAG}*.txt",
             f"ip/harvest/stage_{SHARD_TAG}.txt",
+            f"ip/harvest/queue_failed_part_{SHARD_TAG}*.txt",
         ]
         for pat in patterns:
             subprocess.run(["git", "-C", REPO, "add", pat], capture_output=True, check=False)
