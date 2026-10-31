@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793423705
-offset=59673607
+ts=1793424310
+offset=59769111
 --- LAST 5 LOG LINES ---
 [2026-10-31 04:39:30] [SHARD 16 W0] [FOUND QUEUE] 38.188.63.115:8081 (IDNIC-NIMNET-AS-ID) via www.google.com | cands=94
 [2026-10-31 04:39:30] [SHARD 16 W0] [FOUND QUEUE] 43.209.175.24:8888 (AMAZON-02) via one.one.one.one | cands=95
