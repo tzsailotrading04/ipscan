@@ -328,3 +328,7 @@
 15.161.107.220:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 16.26.87.131:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
 116.204.166.48:8080	one.one.one.one	QUEUE	0	RESERVED
+103.191.218.51:9090	speed.cloudflare.com	QUEUE	0	IDNIC-REPLAY-AS-ID
+160.19.41.37:80	speed.cloudflare.com	QUEUE	0	ATCINFO-AS-IN
+43.252.106.134:3125	www.google.com	QUEUE	0	LDP-AS-ID
+47.95.206.224:45241	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
