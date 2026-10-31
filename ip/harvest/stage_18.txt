@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_500
-ts=1793450591
-offset=61736056
+stage=queue_slice_q_a0_http_1793448000_02.txt_0
+ts=1793450605
+offset=61736144
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:43:11] [SHARD 18 W0] [FOUND QUEUE] 103.154.230.46:8090 (DIGITNET-AS-ID) via speed.cloudflare.com | cands=284
-[2026-10-31 12:43:11] [SHARD 18 W0] [FOUND QUEUE] 103.155.196.83:8082 (JEMBATANDATA-AS-ID) via speed.cloudflare.com | cands=285
 [2026-10-31 12:43:11] [SHARD 18 W0] [FOUND QUEUE] 103.166.33.88:8088 (IDNIC-DCITY-AS-ID) via www.google.com | cands=286
 [2026-10-31 12:43:11] [SHARD 18 W0] [FOUND QUEUE] 103.176.97.62:8082 (IDNIC-GFIBER-AS-ID) via speed.cloudflare.com | cands=287
 [2026-10-31 12:43:11] [SHARD 18 W0] [FOUND QUEUE] 103.19.58.139:8080 (BITSNET-AS-ID) via www.google.com | cands=288
+[2026-10-31 12:43:25] [SHARD 18 W0] [FOUND QUEUE] 141.148.65.110:1081 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=289
+[2026-10-31 12:43:25] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
