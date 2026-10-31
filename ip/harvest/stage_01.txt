@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_500
-ts=1793450450
-offset=61561251
+stage=queue_slice_q_a0_http_1793448000_02.txt_0
+ts=1793450467
+offset=61561340
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:50] [SHARD 01 W0] [FOUND QUEUE] 103.114.43.99:8888 (MHOST-AS) via speed.cloudflare.com | cands=269
 [2026-10-31 12:40:50] [SHARD 01 W0] [FOUND QUEUE] 103.148.28.140:3125 (DEWATA-AS-ID) via speed.cloudflare.com | cands=270
 [2026-10-31 12:40:50] [SHARD 01 W0] [FOUND QUEUE] 103.151.226.11:8080 (URBANACCESS-AS-ID) via speed.cloudflare.com | cands=271
 [2026-10-31 12:40:50] [SHARD 01 W0] [FOUND QUEUE] 103.247.23.242:1111 (WIFIAN-AS-ID) via one.one.one.one | cands=272
 [2026-10-31 12:40:50] [SHARD 01 W0] [FOUND QUEUE] 115.127.186.174:8080 (BRAC-BDMAIL-AS-BD) via one.one.one.one | cands=273
+[2026-10-31 12:41:07] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
