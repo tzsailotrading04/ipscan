@@ -229,3 +229,13 @@
 115.127.105.163:6699	www.google.com	QUEUE	0	BRAC-BDMAIL-AS-BD
 16.28.101.55:16574	one.one.one.one	QUEUE	0	AMAZON-02
 182.253.221.147:8080	speed.cloudflare.com	QUEUE	0	BIZNET2-AS-ID
+190.60.61.42:8080	speed.cloudflare.com	QUEUE	0	UFINET
+193.33.157.2:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+200.52.148.212:999	speed.cloudflare.com	QUEUE	0	REDES
+213.169.52.101:8185	www.google.com	QUEUE	0	RO-NI
+27.72.98.89:8443	www.google.com	QUEUE	0	VIETEL-AS-AP
+38.41.0.60:11201	one.one.one.one	QUEUE	0	MDS
+38.9.213.86:999	speed.cloudflare.com	QUEUE	0	OMIX
+42.116.10.198:443	www.google.com	QUEUE	0	FPT-AS-AP
+43.156.227.68:80	one.one.one.one	QUEUE	0	TENCENT-NET-AP-CN
+43.252.106.175:3125	speed.cloudflare.com	QUEUE	0	LDP-AS-ID
