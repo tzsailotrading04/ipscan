@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793459490_01.txt_0
-ts=1793459506
-offset=70754384
+stage=res_loop
+ts=1793459820
+offset=70754392
 --- LAST 5 LOG LINES ---
-[2026-10-31 15:10:14] [SHARD 00 W0] [QUEUE STAGE] Found 4 queue files to consume before IP scanning
-[2026-10-31 15:10:44] [SHARD 00 W0] [QUEUE STAGE] Found 4 queue files to consume before IP scanning
-[2026-10-31 15:11:15] [SHARD 00 W0] [QUEUE STAGE] Found 4 queue files to consume before IP scanning
-[2026-10-31 15:11:46] [SHARD 00 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-10-31 15:11:46] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793459490_01.txt: total=514 shard_slice=16 worker_slice=8 resume=0
+[2026-10-31 15:14:57] [SHARD 00 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-10-31 15:15:28] [SHARD 00 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-10-31 15:15:59] [SHARD 00 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-10-31 15:16:29] [SHARD 00 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-10-31 15:17:00] [SHARD 00 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
