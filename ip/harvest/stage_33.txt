@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_0
-ts=1793450462
-offset=60893163
+stage=queue_slice_q_a0_http_1793446000_02.txt_500
+ts=1793450488
+offset=60893663
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 103.182.22.51:8000 (INTERDIGI-VN) via speed.cloudflare.com | cands=272
-[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 103.48.69.54:83 (COUNTRYONLINE-AS-IN) via speed.cloudflare.com | cands=273
-[2026-10-31 12:40:33] [SHARD 33 W0] [FOUND QUEUE] 109.224.2.58:8080 (HULUMTELE) via www.google.com | cands=274
-[2026-10-31 12:41:02] [SHARD 33 W0] [FOUND QUEUE] 148.224.57.58:999 (RAFAEL) via speed.cloudflare.com | cands=275
 [2026-10-31 12:41:02] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:41:28] [SHARD 33 W0] [FOUND QUEUE] 177.234.222.110:999 (UFINET) via speed.cloudflare.com | cands=276
+[2026-10-31 12:41:28] [SHARD 33 W0] [FOUND QUEUE] 18.230.23.72:40381 (AMAZON-02) via speed.cloudflare.com | cands=277
+[2026-10-31 12:41:28] [SHARD 33 W0] [FOUND QUEUE] 182.53.202.228:8080 (TOT-NET) via www.google.com | cands=278
+[2026-10-31 12:41:28] [SHARD 33 W0] [FOUND QUEUE] 185.226.194.8:999 () via one.one.one.one | cands=279
