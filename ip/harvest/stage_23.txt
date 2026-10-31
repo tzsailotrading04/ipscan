@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_01.txt_500
-ts=1793450012
-offset=60511416
+stage=queue_slice_q_a0_http_1793445000_02.txt_0
+ts=1793450040
+offset=60511504
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:32] [SHARD 23 W0] [FOUND QUEUE] 103.172.42.177:1111 (IDNIC-MEDIASOLUSISUKSES-AS-ID) via speed.cloudflare.com | cands=272
-[2026-10-31 12:33:32] [SHARD 23 W0] [FOUND QUEUE] 103.182.22.179:8000 (INTERDIGI-VN) via speed.cloudflare.com | cands=273
-[2026-10-31 12:33:32] [SHARD 23 W0] [FOUND QUEUE] 118.179.152.122:81 (AMBERIT-BD-AS) via www.google.com | cands=274
-[2026-10-31 12:33:32] [SHARD 23 W0] [FOUND QUEUE] 119.93.139.196:8082 (IPG-AS-AP) via www.google.com | cands=275
 [2026-10-31 12:33:32] [SHARD 23 W0] [FOUND QUEUE] 13.126.183.60:53603 (AMAZON-02) via speed.cloudflare.com | cands=276
+[2026-10-31 12:34:00] [SHARD 23 W0] [FOUND QUEUE] 143.208.152.62:3180 (FIBRA) via speed.cloudflare.com | cands=277
+[2026-10-31 12:34:00] [SHARD 23 W0] [FOUND QUEUE] 147.161.246.36:11746 (ZSCALER-EMEA) via speed.cloudflare.com | cands=278
+[2026-10-31 12:34:00] [SHARD 23 W0] [FOUND QUEUE] 147.161.247.9:10238 (ZSCALER-EMEA) via one.one.one.one | cands=279
+[2026-10-31 12:34:00] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
