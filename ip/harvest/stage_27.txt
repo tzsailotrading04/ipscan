@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793459781
-offset=61367792
+stage=queue_consuming
+ts=1793462345
+offset=61081436
 --- LAST 5 LOG LINES ---
-[2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 38.63.117.69:999 (COLNETWORK) via www.google.com | cands=336
-[2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 45.165.216.25:9191 (OLHAR) via www.google.com | cands=337
-[2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 45.178.246.7:999 (ROMANO) via www.google.com | cands=338
-[2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 45.179.246.65:999 (GENIONET) via one.one.one.one | cands=339
-[2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 45.198.8.110:8080 (PRIMA) via www.google.com | cands=340
+[2026-10-31 15:57:02] [SHARD 27 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:57:32] [SHARD 27 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:58:03] [SHARD 27 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:58:34] [SHARD 27 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:59:05] [SHARD 27 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning

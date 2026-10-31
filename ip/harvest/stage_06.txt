@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793462164
+ts=1793462467
 offset=62383893
 --- LAST 5 LOG LINES ---
-[2026-10-31 15:54:33] [SHARD 06 W0] [FOUND QUEUE] 103.208.103.30:8080 (TIDAR-AS-ID) via speed.cloudflare.com | cands=367
-[2026-10-31 15:54:33] [SHARD 06 W0] [FOUND QUEUE] 80.72.176.101:8080 (KTNET) via one.one.one.one | cands=368
-[2026-10-31 15:55:04] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:55:34] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:56:04] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:59:06] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:59:36] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:00:06] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:00:36] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:01:07] [SHARD 06 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning

@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793442000_02.txt_500
-ts=1793462237
-offset=64353293
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793462507
+offset=64355059
 --- LAST 5 LOG LINES ---
-[2026-10-31 15:57:17] [SHARD 03 W0] [FOUND QUEUE] 150.107.104.125:1111 (IDNIC-MEDIASOLUSISUKSES-AS-ID) via speed.cloudflare.com | cands=400
-[2026-10-31 15:57:17] [SHARD 03 W0] [FOUND QUEUE] 154.27.196.80:999 (JOSE) via speed.cloudflare.com | cands=401
-[2026-10-31 15:57:17] [SHARD 03 W0] [FOUND QUEUE] 160.19.146.89:2022 (IDNIC-TASKANET-AS-ID) via www.google.com | cands=402
-[2026-10-31 15:57:17] [SHARD 03 W0] [FOUND QUEUE] 177.125.208.126:8080 (GIGA) via speed.cloudflare.com | cands=403
-[2026-10-31 15:57:17] [SHARD 03 W0] [FOUND QUEUE] 185.166.27.208:2020 (ONLINE-COMPANY-LTD) via speed.cloudflare.com | cands=404
+[2026-10-31 16:01:23] [SHARD 03 W0] [FOUND QUEUE] 144.124.251.24:10811 (VDSINA) via speed.cloudflare.com | cands=434
+[2026-10-31 16:01:23] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
+[2026-10-31 16:01:47] [SHARD 03 W0] [FOUND QUEUE] 186.33.42.171:999 (UFINET) via speed.cloudflare.com | cands=435
+[2026-10-31 16:01:47] [SHARD 03 W0] [FOUND QUEUE] 187.249.158.197:999 (TRANSTELCO-INC) via speed.cloudflare.com | cands=436
+[2026-10-31 16:01:47] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0

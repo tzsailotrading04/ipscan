@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793462209
+ts=1793462513
 offset=62831173
 --- LAST 5 LOG LINES ---
-[2026-10-31 15:54:48] [SHARD 11 W0] [FOUND QUEUE] 190.14.249.111:8080 (MEDIA) via speed.cloudflare.com | cands=375
-[2026-10-31 15:55:18] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:55:49] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:56:19] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 15:56:49] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:59:51] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:00:22] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:00:52] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:01:22] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 16:01:53] [SHARD 11 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
