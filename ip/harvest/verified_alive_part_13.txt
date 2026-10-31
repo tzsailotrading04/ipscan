@@ -403,3 +403,7 @@
 56.155.73.159:1025	speed.cloudflare.com	QUEUE	0	AMAZON-02
 65.109.65.239:28080	speed.cloudflare.com	QUEUE	0	HETZNER-AS
 85.66.19.69:18080	www.google.com	QUEUE	0	DIGICABLE
+103.6.251.240:8080	www.google.com	QUEUE	0	BREEZE-AS-AP
+116.50.169.5:8088	speed.cloudflare.com	QUEUE	0	ETPI-IDS-AS-AP
+117.203.166.161:8080	speed.cloudflare.com	QUEUE	0	BSNL-NIB
+138.252.160.3:8082	speed.cloudflare.com	QUEUE	0	IDNIC-BTN13-AS-ID
