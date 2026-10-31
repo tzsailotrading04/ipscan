@@ -556,3 +556,6 @@
 41.180.70.2:8080	speed.cloudflare.com	QUEUE	0	X-DSL-NET1
 81.31.234.70:80	speed.cloudflare.com	QUEUE	0	YUT-AS-AP
 82.86.112.48:999	www.google.com	QUEUE	0	360NET
+54.198.140.56:39593	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+78.12.246.160:12145	one.one.one.one	QUEUE	0	AMAZON-02
+85.117.56.85:8080	www.google.com	QUEUE	0	CAUCASUS-CABLE-SYSTEM
