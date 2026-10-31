@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_04.txt_0
-ts=1793450212
-offset=64026110
+stage=queue_slice_q_a0_http_1793446000_01.txt_0
+ts=1793450311
+offset=64026521
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:51] [SHARD 19 W0] [FOUND QUEUE] 45.172.226.48:999 (WAYCOM) via speed.cloudflare.com | cands=287
-[2026-10-31 12:36:51] [SHARD 19 W0] [FOUND QUEUE] 45.4.202.144:999 (ELIANA) via speed.cloudflare.com | cands=288
-[2026-10-31 12:36:51] [SHARD 19 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (123.3s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 12:36:52] [SHARD 19 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:36:52] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0
+[2026-10-31 12:38:31] [SHARD 19 W0] [FOUND QUEUE] 49.156.44.115:8080 (IIT-WICAM-AS-AP) via www.google.com | cands=290
+[2026-10-31 12:38:31] [SHARD 19 W0] [FOUND QUEUE] 77.238.79.111:8080 (FIBER1) via speed.cloudflare.com | cands=291
+[2026-10-31 12:38:31] [SHARD 19 W0] [FOUND QUEUE] 78.186.147.185:3310 (TTNET) via speed.cloudflare.com | cands=292
+[2026-10-31 12:38:31] [SHARD 19 W0] [FOUND QUEUE] 98.147.60.146:48678 (TWC-20001-PACWEST) via speed.cloudflare.com | cands=293
+[2026-10-31 12:38:31] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
