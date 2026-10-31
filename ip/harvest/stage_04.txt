@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793457730
-offset=67234662
+ts=1793458019
+offset=67252950
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 59.36.172.219:5004 (CHINANET-BACKBONE) via speed.cloudflare.com | cands=250
 [2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 64.31.49.174:3128 (LIMESTONENETWORKS) via speed.cloudflare.com | cands=251
