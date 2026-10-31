@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450322
-offset=59257447
+stage=queue_slice_q_a0_http_1793446000_03.txt_0
+ts=1793450334
+offset=59257536
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:38:42] [SHARD 12 W0] [FOUND QUEUE] 154.27.196.5:999 (JOSE) via speed.cloudflare.com | cands=264
-[2026-10-31 12:38:42] [SHARD 12 W0] [FOUND QUEUE] 16.52.81.236:30001 (AMAZON-02) via speed.cloudflare.com | cands=265
-[2026-10-31 12:38:42] [SHARD 12 W0] [FOUND QUEUE] 166.114.65.242:8080 (EMPRESA) via speed.cloudflare.com | cands=266
-[2026-10-31 12:38:42] [SHARD 12 W0] [FOUND QUEUE] 18.142.95.213:59226 (AMAZON-02) via speed.cloudflare.com | cands=267
 [2026-10-31 12:38:42] [SHARD 12 W0] [FOUND QUEUE] 18.224.94.46:49319 (AMAZON-02) via one.one.one.one | cands=268
+[2026-10-31 12:38:54] [SHARD 12 W0] [FOUND QUEUE] 186.167.113.103:999 (CORPORACION) via speed.cloudflare.com | cands=269
+[2026-10-31 12:38:54] [SHARD 12 W0] [FOUND QUEUE] 187.108.238.122:8080 (UFINET) via speed.cloudflare.com | cands=270
+[2026-10-31 12:38:54] [SHARD 12 W0] [FOUND QUEUE] 190.111.218.139:999 (CPS) via speed.cloudflare.com | cands=271
+[2026-10-31 12:38:54] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
