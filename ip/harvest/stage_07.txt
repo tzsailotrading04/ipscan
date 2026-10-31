@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450273
-offset=63754951
+stage=queue_slice_q_a0_http_1793446000_03.txt_0
+ts=1793450305
+offset=63755040
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:37:33] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 12:37:53] [SHARD 07 W0] [FOUND QUEUE] 162.255.110.107:8080 (DWW-AS) via speed.cloudflare.com | cands=277
 [2026-10-31 12:37:53] [SHARD 07 W0] [FOUND QUEUE] 179.48.25.1:8095 (VIANA) via speed.cloudflare.com | cands=278
 [2026-10-31 12:37:53] [SHARD 07 W0] [FOUND QUEUE] 180.191.127.7:8082 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=279
 [2026-10-31 12:37:53] [SHARD 07 W0] [FOUND QUEUE] 182.160.127.29:12331 (AAMRA-NETWORKS-AS-AP) via speed.cloudflare.com | cands=280
+[2026-10-31 12:38:25] [SHARD 07 W0] [FOUND QUEUE] 188.132.249.157:8080 (RESERVED) via speed.cloudflare.com | cands=281
+[2026-10-31 12:38:25] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
