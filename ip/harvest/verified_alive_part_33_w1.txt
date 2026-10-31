@@ -346,3 +346,6 @@
 103.208.102.1:8080	www.google.com	QUEUE	0	TIDAR-AS-ID
 103.210.16.10:8090	one.one.one.one	QUEUE	0	TALMURI-AS-AP
 125.26.45.69:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+210.79.141.88:8080	speed.cloudflare.com	QUEUE	0	IDNIC-RIDHONET-AS-ID
+40.177.104.199:57891	one.one.one.one	QUEUE	0	AMAZON-02
+45.177.16.134:999	speed.cloudflare.com	QUEUE	0	MSW
