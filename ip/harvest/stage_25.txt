@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_01.txt_500
-ts=1793450392
-offset=63132268
+stage=queue_slice_q_a0_http_1793446000_02.txt_500
+ts=1793450446
+offset=63132856
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:52] [SHARD 25 W0] [FOUND QUEUE] 103.175.202.182:8090 (IDNIC-AMEERA-AS-ID) via www.google.com | cands=257
-[2026-10-31 12:39:52] [SHARD 25 W0] [FOUND QUEUE] 103.177.199.111:1111 (IDNIC-NETEKSA-AS-ID) via speed.cloudflare.com | cands=258
-[2026-10-31 12:39:52] [SHARD 25 W0] [FOUND QUEUE] 103.248.8.47:8080 (IDNIC-FLASHNETID-AS-ID) via speed.cloudflare.com | cands=259
-[2026-10-31 12:39:52] [SHARD 25 W0] [FOUND QUEUE] 103.87.149.133:8080 (LDP-AS-ID) via speed.cloudflare.com | cands=260
-[2026-10-31 12:39:52] [SHARD 25 W0] [FOUND QUEUE] 124.128.149.84:8090 (CHINA169-BACKBONE) via speed.cloudflare.com | cands=261
+[2026-10-31 12:40:18] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:40:46] [SHARD 25 W0] [FOUND QUEUE] 16.28.29.244:1755 (AMAZON-02) via speed.cloudflare.com | cands=262
+[2026-10-31 12:40:46] [SHARD 25 W0] [FOUND QUEUE] 177.130.104.149:7171 (AMERICA-NET) via speed.cloudflare.com | cands=263
+[2026-10-31 12:40:46] [SHARD 25 W0] [FOUND QUEUE] 180.191.234.194:5050 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=264
+[2026-10-31 12:40:46] [SHARD 25 W0] [FOUND QUEUE] 181.209.118.250:999 (ARSAT) via speed.cloudflare.com | cands=265
