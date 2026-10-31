@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793454038
-offset=61022352
+ts=1793454359
+offset=61042672
 --- LAST 5 LOG LINES ---
 [2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 38.63.117.69:999 (COLNETWORK) via www.google.com | cands=336
 [2026-10-31 13:00:47] [SHARD 27 W0] [FOUND QUEUE] 45.165.216.25:9191 (OLHAR) via www.google.com | cands=337
