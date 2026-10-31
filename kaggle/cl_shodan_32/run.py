@@ -454,7 +454,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
                     if len(parts) == 2 and parts[1].isdigit():
                         ip = parts[0]
                         port = int(parts[1])
-                        proto = fields[2].strip().lower() if len(fields) >= 3 else ""
+                        proto = fields[2].strip().lower() if len(fields) >= 3 else (fields[1].strip().lower() if len(fields) >= 2 else "")
                         if proto == "socks5":
                             tasks.append((ip, port, check_port_socks(ip, port)))
                         else:
