@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_500
-ts=1793450147
-offset=60512592
+stage=queue_slice_q_a0_http_1793445000_04.txt_0
+ts=1793450155
+offset=60512680
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:47] [SHARD 23 W0] [FOUND QUEUE] 202.73.27.116:1080 (ASNET-AS-ID) via www.google.com | cands=290
-[2026-10-31 12:35:47] [SHARD 23 W0] [FOUND QUEUE] 203.1.91.131:3125 (IDNIC-AZWARNETWORKS-ID) via www.google.com | cands=291
 [2026-10-31 12:35:47] [SHARD 23 W0] [FOUND QUEUE] 203.2.151.21:8080 (IDNIC-MYBSSNET-ID) via speed.cloudflare.com | cands=292
 [2026-10-31 12:35:47] [SHARD 23 W0] [FOUND QUEUE] 206.135.11.170:8080 (IENTC) via speed.cloudflare.com | cands=293
 [2026-10-31 12:35:47] [SHARD 23 W0] [FOUND QUEUE] 39.96.71.208:3128 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=294
+[2026-10-31 12:35:55] [SHARD 23 W0] [FOUND QUEUE] 45.190.85.4:999 (TELECOM.CORPORATIVAS) via speed.cloudflare.com | cands=295
+[2026-10-31 12:35:55] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0
