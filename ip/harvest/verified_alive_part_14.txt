@@ -430,3 +430,7 @@
 180.180.156.96:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
 181.119.103.237:999	speed.cloudflare.com	QUEUE	0	UFINET
 182.52.113.54:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+16.26.208.68:40001	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.28.32.67:43571	one.one.one.one	QUEUE	0	AMAZON-02
+165.101.230.155:8080	speed.cloudflare.com	QUEUE	0	IDNIC-CDNNET-AS-ID
+181.62.249.189:8081	www.google.com	QUEUE	0	TELMEX
