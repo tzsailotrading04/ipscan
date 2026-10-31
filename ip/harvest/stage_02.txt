@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_500
-ts=1793449991
-offset=62357014
+stage=queue_slice_q_a0_http_1793445000_03.txt_0
+ts=1793449999
+offset=62357103
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:11] [SHARD 02 W0] [FOUND QUEUE] 160.19.146.117:2022 (IDNIC-TASKANET-AS-ID) via one.one.one.one | cands=223
 [2026-10-31 12:33:11] [SHARD 02 W0] [FOUND QUEUE] 160.19.19.127:8080 (IDNIC-INTELMEDIA-AS-ID) via speed.cloudflare.com | cands=224
 [2026-10-31 12:33:11] [SHARD 02 W0] [FOUND QUEUE] 161.22.33.89:999 (THUNDERNET) via speed.cloudflare.com | cands=225
 [2026-10-31 12:33:11] [SHARD 02 W0] [FOUND QUEUE] 163.227.149.135:8080 (IDNIC-ASNETWORK-AS-ID) via www.google.com | cands=226
 [2026-10-31 12:33:11] [SHARD 02 W0] [FOUND QUEUE] 170.244.91.65:999 (WELLCOMM) via one.one.one.one | cands=227
+[2026-10-31 12:33:19] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
