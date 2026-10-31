@@ -300,3 +300,10 @@
 185.27.144.53:999	www.google.com	QUEUE	0	AIRTIME
 187.188.169.140:999	one.one.one.one	QUEUE	0	TOTAL
 190.110.36.25:999	speed.cloudflare.com	QUEUE	0	CENTRIC
+193.43.149.85:8080	www.google.com	QUEUE	0	INT-PDN-STE-AS
+201.4.64.239:8080	one.one.one.one	QUEUE	0	RESERVED
+202.58.77.31:8080	www.google.com	QUEUE	0	DBN-AS-ID
+203.150.128.233:8080	www.google.com	QUEUE	0	INET-TH-AS
+36.50.112.174:8070	speed.cloudflare.com	QUEUE	0	MYREPUBLIC-AS-ID
+38.156.23.53:999	speed.cloudflare.com	QUEUE	0	VISNETWORK
+38.45.249.30:999	speed.cloudflare.com	QUEUE	0	JESUS

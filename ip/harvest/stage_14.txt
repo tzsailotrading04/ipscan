@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_03.txt_0
-ts=1793450667
-offset=61081830
+stage=queue_slice_q_a0_http_1793448000_03.txt_500
+ts=1793450713
+offset=61082330
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:02] [SHARD 14 W0] [FOUND QUEUE] 154.73.29.217:8080 (GPTC-AS) via speed.cloudflare.com | cands=320
-[2026-10-31 12:44:02] [SHARD 14 W0] [FOUND QUEUE] 157.20.252.203:8080 (GMDP-AS-ID) via speed.cloudflare.com | cands=321
-[2026-10-31 12:44:02] [SHARD 14 W0] [FOUND QUEUE] 160.30.141.131:8088 (EDMONDBSORIANO-AS-AP) via speed.cloudflare.com | cands=322
-[2026-10-31 12:44:27] [SHARD 14 W0] [FOUND QUEUE] 190.109.6.113:999 (LIBERTY) via speed.cloudflare.com | cands=323
-[2026-10-31 12:44:27] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:45:13] [SHARD 14 W0] [FOUND QUEUE] 190.210.62.131:8080 (NSS) via speed.cloudflare.com | cands=324
+[2026-10-31 12:45:13] [SHARD 14 W0] [FOUND QUEUE] 38.210.179.30:999 (JAIR) via www.google.com | cands=325
+[2026-10-31 12:45:13] [SHARD 14 W0] [FOUND QUEUE] 43.240.83.70:8080 (ICONPLN-ID-AP-ISP) via www.google.com | cands=326
+[2026-10-31 12:45:13] [SHARD 14 W0] [FOUND QUEUE] 45.198.11.164:9191 (AZNET-ID) via speed.cloudflare.com | cands=327
+[2026-10-31 12:45:13] [SHARD 14 W0] [FOUND QUEUE] 45.222.101.111:8080 (ZETA-WEB-NIGERIA-AS) via www.google.com | cands=328
