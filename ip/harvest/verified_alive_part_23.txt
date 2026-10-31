@@ -423,3 +423,7 @@
 38.127.179.219:41923	speed.cloudflare.com	QUEUE	0	COGENT-174
 38.156.23.53:999	speed.cloudflare.com	QUEUE	0	VISNETWORK
 43.199.29.225:52561	speed.cloudflare.com	QUEUE	0	AMAZON-02
+190.26.209.122:999	www.google.com	QUEUE	0	ETB
+212.86.45.80:8080	www.google.com	QUEUE	0	DNSNET
+36.255.86.115:83	www.google.com	QUEUE	0	GATIK-AS-IN
+38.183.146.5:7777	www.google.com	QUEUE	0	IMEDIANET-AS-ID
