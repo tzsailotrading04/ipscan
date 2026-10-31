@@ -305,3 +305,9 @@
 18.191.250.90:18254	speed.cloudflare.com	QUEUE	0	AMAZON-02
 181.78.174.14:8080	speed.cloudflare.com	QUEUE	0	UFINET
 187.19.200.217:8090	speed.cloudflare.com	QUEUE	0	BRISANET
+202.59.201.175:8080	one.one.one.one	QUEUE	0	MYREPUBLIC-AS-ID
+203.150.128.195:8080	speed.cloudflare.com	QUEUE	0	INET-TH-AS
+38.52.223.107:999	speed.cloudflare.com	QUEUE	0	TELECABLE
+40.177.104.199:22203	speed.cloudflare.com	QUEUE	0	AMAZON-02
+45.190.184.105:8080	speed.cloudflare.com	QUEUE	0	UFINET
+45.236.66.163:8520	speed.cloudflare.com	QUEUE	0	TCPNET

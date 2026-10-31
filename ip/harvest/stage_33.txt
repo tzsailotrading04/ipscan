@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793450227
-offset=60891488
+stage=queue_slice_q_a0_http_1793445000_04.txt_0
+ts=1793450305
+offset=60892164
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:36:37] [SHARD 33 W0] [FOUND QUEUE] 123.121.134.141:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=255
-[2026-10-31 12:37:07] [SHARD 33 W0] [FOUND QUEUE] 144.124.251.24:10101 (VDSINA) via speed.cloudflare.com | cands=256
-[2026-10-31 12:37:07] [SHARD 33 W0] [FOUND QUEUE] 147.161.247.9:10361 (ZSCALER-EMEA) via www.google.com | cands=257
-[2026-10-31 12:37:07] [SHARD 33 W0] [FOUND QUEUE] 147.161.247.9:12124 (ZSCALER-EMEA) via www.google.com | cands=258
-[2026-10-31 12:37:07] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:38:16] [SHARD 33 W0] [FOUND QUEUE] 187.102.219.42:999 (CRETTON) via speed.cloudflare.com | cands=264
+[2026-10-31 12:38:16] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
+[2026-10-31 12:38:25] [SHARD 33 W0] [FOUND QUEUE] 45.174.243.160:999 (SISTEMAS) via speed.cloudflare.com | cands=265
+[2026-10-31 12:38:25] [SHARD 33 W0] [FOUND QUEUE] 45.65.137.218:999 (TELECOMUNICACIONES) via speed.cloudflare.com | cands=266
+[2026-10-31 12:38:25] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=821 worker_slice=411 resume=0
