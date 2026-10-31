@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793423150
-offset=61804852
+ts=1793423455
+offset=61871908
 --- LAST 5 LOG LINES ---
 [2026-10-31 04:37:45] [SHARD 03 W0] [FOUND QUEUE] 56.228.25.110:81 (AMAZON-02) via one.one.one.one | cands=181
 [2026-10-31 04:37:45] [SHARD 03 W0] [FOUND QUEUE] 63.180.203.233:8080 (AMAZON-02) via www.google.com | cands=182
