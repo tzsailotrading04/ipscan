@@ -263,3 +263,5 @@
 103.130.104.62:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
 103.139.98.118:8080	one.one.one.one	QUEUE	0	DNS-AS-ID
 115.187.29.25:89	speed.cloudflare.com	QUEUE	0	IDNIC-LJM-AS-ID
+157.66.3.34:1111	speed.cloudflare.com	QUEUE	0	IDNIC-ASHYLANET-AS-ID
+165.99.151.254:10001	speed.cloudflare.com	QUEUE	0	IDNIC-FINET-AS-ID
