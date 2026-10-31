@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450397
-offset=62142334
+stage=queue_slice_q_a0_http_1793448000_02.txt_500
+ts=1793450451
+offset=62142923
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:16] [SHARD 06 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:39:16] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_04.txt: total=24326 shard_slice=716 worker_slice=358 resume=0
-[2026-10-31 12:39:57] [SHARD 06 W0] [FOUND QUEUE] 62.183.21.2:48080 (STC-AS) via www.google.com | cands=260
-[2026-10-31 12:39:57] [SHARD 06 W0] [FOUND QUEUE] 82.213.29.53:19000 (PALTEL-AS) via one.one.one.one | cands=261
-[2026-10-31 12:39:57] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:40:43] [SHARD 06 W0] [FOUND QUEUE] 103.188.168.225:8080 (IDNIC-LJN-AS-ID) via www.google.com | cands=264
+[2026-10-31 12:40:43] [SHARD 06 W0] [FOUND QUEUE] 103.48.71.130:83 (COUNTRYONLINE-AS-IN) via speed.cloudflare.com | cands=265
+[2026-10-31 12:40:43] [SHARD 06 W0] [FOUND QUEUE] 103.50.25.40:8080 (MERAHPUTIH-AS-ID) via www.google.com | cands=266
+[2026-10-31 12:40:43] [SHARD 06 W0] [FOUND QUEUE] 139.135.182.132:8081 (CONVERGE-AS) via speed.cloudflare.com | cands=267
+[2026-10-31 12:40:51] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
