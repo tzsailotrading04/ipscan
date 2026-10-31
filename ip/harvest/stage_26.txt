@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_01.txt_0
-ts=1793450602
-offset=64168361
+stage=queue_slice_q_a0_http_1793448000_01.txt_500
+ts=1793450646
+offset=64168861
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:42:10] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:42:56] [SHARD 26 W0] [FOUND QUEUE] 203.175.103.169:8080 (IDNIC-MITRAKITA-ID) via speed.cloudflare.com | cands=267
-[2026-10-31 12:42:56] [SHARD 26 W0] [FOUND QUEUE] 31.25.236.95:3128 (MASSIVEGRID) via one.one.one.one | cands=268
-[2026-10-31 12:42:56] [SHARD 26 W0] [FOUND QUEUE] 45.229.32.147:999 (AS-GOLD) via speed.cloudflare.com | cands=269
 [2026-10-31 12:43:22] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:44:06] [SHARD 26 W0] [FOUND QUEUE] 1.20.101.18:8080 (TOT-NET) via speed.cloudflare.com | cands=270
+[2026-10-31 12:44:06] [SHARD 26 W0] [FOUND QUEUE] 103.145.45.237:8090 (BIC-AS-AP) via speed.cloudflare.com | cands=271
+[2026-10-31 12:44:06] [SHARD 26 W0] [FOUND QUEUE] 110.76.147.26:1111 (T2NET-AS-ID) via www.google.com | cands=272
+[2026-10-31 12:44:06] [SHARD 26 W0] [FOUND QUEUE] 115.236.37.105:2411 (CHINANET-BACKBONE) via one.one.one.one | cands=273

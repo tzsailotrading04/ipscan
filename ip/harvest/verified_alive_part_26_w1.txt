@@ -304,3 +304,6 @@
 38.50.165.126:999	one.one.one.one	QUEUE	0	NEXTELECOM
 78.155.66.84:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
 79.98.32.147:8080	www.google.com	QUEUE	0	RESERVED
+103.147.40.65:8080	speed.cloudflare.com	QUEUE	0	ASHANET-AS-AP
+103.163.244.49:83	one.one.one.one	QUEUE	0	INFO22-AS
+110.44.115.83:8080	speed.cloudflare.com	QUEUE	0	VIANET-NP

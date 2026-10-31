@@ -472,3 +472,9 @@
 45.229.32.147:999	speed.cloudflare.com	QUEUE	0	AS-GOLD
 78.155.66.84:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
 79.98.32.147:8080	www.google.com	QUEUE	0	RESERVED
+103.145.45.237:8090	speed.cloudflare.com	QUEUE	0	BIC-AS-AP
+110.76.147.26:1111	www.google.com	QUEUE	0	T2NET-AS-ID
+115.236.37.105:2411	one.one.one.one	QUEUE	0	CHINANET-BACKBONE
+103.147.40.65:8080	speed.cloudflare.com	QUEUE	0	ASHANET-AS-AP
+103.163.244.49:83	one.one.one.one	QUEUE	0	INFO22-AS
+110.44.115.83:8080	speed.cloudflare.com	QUEUE	0	VIANET-NP
