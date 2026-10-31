@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_03.txt_0
-ts=1793450743
-offset=60868685
+stage=queue_slice_q_a0_http_1793448000_03.txt_500
+ts=1793450782
+offset=60869185
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:45:01] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:45:32] [SHARD 27 W0] [FOUND QUEUE] 161.22.33.121:999 (THUNDERNET) via speed.cloudflare.com | cands=300
-[2026-10-31 12:45:32] [SHARD 27 W0] [FOUND QUEUE] 176.114.203.165:10809 (ANNET) via speed.cloudflare.com | cands=301
-[2026-10-31 12:45:43] [SHARD 27 W0] [FOUND QUEUE] 188.228.168.202:8080 (ASDASD-AS) via speed.cloudflare.com | cands=302
-[2026-10-31 12:45:43] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:46:22] [SHARD 27 W0] [FOUND QUEUE] 203.115.123.163:1256 (PRIMENET-AS-AP) via one.one.one.one | cands=304
+[2026-10-31 12:46:22] [SHARD 27 W0] [FOUND QUEUE] 38.156.246.129:999 (SEQURE) via one.one.one.one | cands=305
+[2026-10-31 12:46:22] [SHARD 27 W0] [FOUND QUEUE] 43.252.107.46:8080 (LDP-AS-ID) via www.google.com | cands=306
+[2026-10-31 12:46:22] [SHARD 27 W0] [FOUND QUEUE] 45.165.216.25:9191 (OLHAR) via speed.cloudflare.com | cands=307
+[2026-10-31 12:46:22] [SHARD 27 W0] [FOUND QUEUE] 45.178.246.7:999 (ROMANO) via www.google.com | cands=308
