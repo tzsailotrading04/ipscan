@@ -216,3 +216,9 @@
 43.245.131.90:8080	one.one.one.one	QUEUE	0	CONNECT-AS-AP
 45.231.223.252:999	speed.cloudflare.com	QUEUE	0	DISTROKOM
 52.74.26.202:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+102.68.132.5:19000	speed.cloudflare.com	QUEUE	0	GPTC-AS
+103.179.46.49:6789	speed.cloudflare.com	QUEUE	0	STARNET7-AS
+103.22.99.46:3125	www.google.com	QUEUE	0	LDP-AS-ID
+103.71.162.28:8181	speed.cloudflare.com	QUEUE	0	MENAKSOPAL-AS-ID
+123.121.118.107:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+124.6.152.122:8080	speed.cloudflare.com	QUEUE	0	GLOBE-TELECOM-AS
