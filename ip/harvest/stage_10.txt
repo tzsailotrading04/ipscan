@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_01.txt_0
-ts=1793450233
-offset=64934028
+stage=queue_slice_q_a0_http_1793446000_01.txt_500
+ts=1793450287
+offset=64934528
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:35:39] [SHARD 10 W0] [FOUND QUEUE] 45.172.19.172:999 (WIRELESS) via speed.cloudflare.com | cands=245
-[2026-10-31 12:35:39] [SHARD 10 W0] [FOUND QUEUE] 45.229.17.130:999 (TURBONET) via speed.cloudflare.com | cands=246
-[2026-10-31 12:35:39] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_04.txt: total=27930 shard_slice=822 worker_slice=411 resume=0
-[2026-10-31 12:37:13] [SHARD 10 W0] [FOUND QUEUE] 51.17.99.116:54364 (AMAZON-02) via speed.cloudflare.com | cands=247
-[2026-10-31 12:37:13] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:38:05] [SHARD 10 W0] [FOUND QUEUE] 103.189.223.252:8080 (IDNIC-WIKAPLUS-ID) via speed.cloudflare.com | cands=250
+[2026-10-31 12:38:05] [SHARD 10 W0] [FOUND QUEUE] 103.239.23.133:3125 (FISNET-AS-ID) via one.one.one.one | cands=251
+[2026-10-31 12:38:05] [SHARD 10 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (159.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-10-31 12:38:07] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:38:07] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1177 worker_slice=589 resume=500
