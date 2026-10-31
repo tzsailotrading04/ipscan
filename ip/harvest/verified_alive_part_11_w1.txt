@@ -247,3 +247,6 @@
 182.78.42.112:84	one.one.one.one	QUEUE	0	BBIL-AP
 186.96.15.70:8080	www.google.com	QUEUE	0	TOTAL
 190.110.36.196:999	speed.cloudflare.com	QUEUE	0	CENTRIC
+203.128.75.195:8080	speed.cloudflare.com	QUEUE	0	NEUVIZ-AS-ID-AP
+43.199.29.225:23730	one.one.one.one	QUEUE	0	AMAZON-02
+45.171.111.255:999	speed.cloudflare.com	QUEUE	0	LAGONET-TV
