@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_0
-ts=1793450436
-offset=61702308
+stage=queue_slice_q_a0_http_1793446000_02.txt_500
+ts=1793450466
+offset=61702808
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:11] [SHARD 16 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:40:36] [SHARD 16 W0] [FOUND QUEUE] 141.98.235.33:3128 (TWC-EU) via one.one.one.one | cands=205
 [2026-10-31 12:40:36] [SHARD 16 W0] [FOUND QUEUE] 146.190.60.147:8019 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=206
 [2026-10-31 12:40:36] [SHARD 16 W0] [FOUND QUEUE] 147.161.247.9:10948 (ZSCALER-EMEA) via speed.cloudflare.com | cands=207
 [2026-10-31 12:40:36] [SHARD 16 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:41:06] [SHARD 16 W0] [FOUND QUEUE] 177.234.217.44:999 (UFINET) via speed.cloudflare.com | cands=208
+[2026-10-31 12:41:06] [SHARD 16 W0] [FOUND QUEUE] 177.87.15.141:8080 (L) via speed.cloudflare.com | cands=209
