@@ -297,3 +297,5 @@
 45.115.253.30:83	www.google.com	QUEUE	0	RGCOMP-AS-IN
 45.173.199.2:999	speed.cloudflare.com	QUEUE	0	360NET
 45.178.52.18:999	speed.cloudflare.com	QUEUE	0	GLOBALWEB
+81.31.234.70:80	speed.cloudflare.com	QUEUE	0	YUT-AS-AP
+82.86.112.48:999	www.google.com	QUEUE	0	360NET

@@ -263,3 +263,9 @@
 177.93.48.140:999	www.google.com	QUEUE	0	TV
 18.188.168.99:52523	speed.cloudflare.com	QUEUE	0	AMAZON-02
 181.78.198.7:8080	one.one.one.one	QUEUE	0	UFINET
+193.43.140.101:8080	one.one.one.one	QUEUE	0	INT-PDN-STE-AS
+202.1.24.114:8090	speed.cloudflare.com	QUEUE	0	IDNIC-GMJN-AS-ID
+38.159.63.8:999	speed.cloudflare.com	QUEUE	0	BOOM
+38.19.43.1:999	www.google.com	QUEUE	0	SUPER
+41.196.16.230:1981	speed.cloudflare.com	QUEUE	0	LINKDOTNET-AS
+45.174.243.24:999	www.google.com	QUEUE	0	SISTEMAS

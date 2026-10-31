@@ -308,3 +308,11 @@
 18.191.250.90:45053	speed.cloudflare.com	QUEUE	0	AMAZON-02
 180.180.156.117:80	speed.cloudflare.com	QUEUE	0	TOT-NET
 181.119.86.132:999	speed.cloudflare.com	QUEUE	0	UFINET
+195.142.16.74:8080	www.google.com	QUEUE	0	TELLCOM-AS
+201.4.69.46:8080	www.google.com	QUEUE	0	RESERVED
+212.175.50.76:8085	speed.cloudflare.com	QUEUE	0	TTNET
+27.123.222.193:8080	one.one.one.one	QUEUE	0	FIBERNET-AS-ID
+38.194.236.106:999	www.google.com	QUEUE	0	IENTC
+45.133.107.246:81	one.one.one.one	QUEUE	0	ARTNET
+47.245.30.253:8080	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+8.130.52.254:21056	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET

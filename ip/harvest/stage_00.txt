@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_03.txt_500
-ts=1793450486
-offset=70499906
+stage=queue_consuming
+ts=1793450788
+offset=70499995
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:40:37] [SHARD 00 W0] [FOUND QUEUE] 187.249.89.39:999 (TRANSTELCO-INC) via speed.cloudflare.com | cands=298
-[2026-10-31 12:40:37] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
-[2026-10-31 12:41:26] [SHARD 00 W0] [FOUND QUEUE] 193.33.157.118:8080 (RESERVED) via speed.cloudflare.com | cands=299
-[2026-10-31 12:41:26] [SHARD 00 W0] [FOUND QUEUE] 38.250.183.132:8069 (DESARROLLO) via www.google.com | cands=300
-[2026-10-31 12:41:26] [SHARD 00 W0] [FOUND QUEUE] 45.177.16.136:999 (MSW) via www.google.com | cands=301
+[2026-10-31 12:44:25] [SHARD 00 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:44:57] [SHARD 00 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:45:27] [SHARD 00 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:45:58] [SHARD 00 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:46:28] [SHARD 00 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning

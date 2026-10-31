@@ -417,3 +417,6 @@
 180.191.137.111:8082	one.one.one.one	QUEUE	0	GLOBE-TELECOM-AS
 181.198.75.186:999	www.google.com	QUEUE	0	TELCONET
 38.9.213.86:999	speed.cloudflare.com	QUEUE	0	OMIX
+78.155.66.87:8080	www.google.com	QUEUE	0	INT-PDN-STE-AS
+91.26.188.170:8080	www.google.com	QUEUE	0	DTAG
+92.63.83.23:3129	speed.cloudflare.com	QUEUE	0	MWTV-AS1
