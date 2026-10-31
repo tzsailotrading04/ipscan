@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793451128
-offset=66819315
+stage=res_loop
+ts=1793451258
+offset=66820134
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:50:05] [SHARD 04 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:50:36] [SHARD 04 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:06] [SHARD 04 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:51:37] [SHARD 04 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:52:08] [SHARD 04 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 59.36.172.219:5004 (CHINANET-BACKBONE) via speed.cloudflare.com | cands=250
+[2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 64.31.49.174:3128 (LIMESTONENETWORKS) via speed.cloudflare.com | cands=251
+[2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 65.108.159.129:1080 (HETZNER-AS) via speed.cloudflare.com | cands=252
+[2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 67.225.241.201:3128 (LIQUIDWEB) via speed.cloudflare.com | cands=253
+[2026-10-31 12:54:18] [SHARD 04 W0] [FOUND QUEUE] 90.156.160.234:3128 (BRM-AS) via speed.cloudflare.com | cands=254
