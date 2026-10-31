@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793456927
-offset=67195217
+ts=1793457200
+offset=67211473
 --- LAST 5 LOG LINES ---
 [2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 120.28.76.192:8082 (GLOBE-MOBILE-5TH-GEN-AS) via www.google.com | cands=275
 [2026-10-31 12:58:12] [SHARD 17 W0] [FOUND QUEUE] 125.25.167.202:443 (TOT-NET) via one.one.one.one | cands=276
