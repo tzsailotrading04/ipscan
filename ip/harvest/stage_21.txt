@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_03.txt_0
-ts=1793450003
-offset=58434138
+stage=queue_slice_q_a0_http_1793445000_03.txt_500
+ts=1793450055
+offset=58434638
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:33:15] [SHARD 21 W0] [FOUND QUEUE] 180.191.122.190:8181 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=235
-[2026-10-31 12:33:15] [SHARD 21 W0] [FOUND QUEUE] 182.52.149.42:443 (TOT-NET) via www.google.com | cands=236
-[2026-10-31 12:33:23] [SHARD 21 W0] [FOUND QUEUE] 186.167.114.146:999 (CORPORACION) via speed.cloudflare.com | cands=237
-[2026-10-31 12:33:23] [SHARD 21 W0] [FOUND QUEUE] 187.102.211.202:3128 (INTEL) via speed.cloudflare.com | cands=238
-[2026-10-31 12:33:23] [SHARD 21 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:34:15] [SHARD 21 W0] [FOUND QUEUE] 190.0.246.210:4040 (MEDIA) via www.google.com | cands=239
+[2026-10-31 12:34:15] [SHARD 21 W0] [FOUND QUEUE] 193.43.145.120:8080 (INT-PDN-STE-AS) via speed.cloudflare.com | cands=240
+[2026-10-31 12:34:15] [SHARD 21 W0] [FOUND QUEUE] 36.213.79.159:1080 (CHINAMOBILE-CN) via speed.cloudflare.com | cands=241
+[2026-10-31 12:34:15] [SHARD 21 W0] [FOUND QUEUE] 38.19.43.73:999 (SUPER) via speed.cloudflare.com | cands=242
+[2026-10-31 12:34:15] [SHARD 21 W0] [FOUND QUEUE] 43.251.205.146:8080 (EXPRESSDATA-AS) via speed.cloudflare.com | cands=243
