@@ -300,3 +300,5 @@
 178.207.11.148:3129	www.google.com	QUEUE	0	TATTELECOM-AS
 180.211.161.26:8080	www.google.com	QUEUE	0	BTCL-ISP-AS
 185.225.43.57:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+186.5.94.207:999	speed.cloudflare.com	QUEUE	0	TELCONET
+189.176.85.120:8080	speed.cloudflare.com	QUEUE	0	UNINET
