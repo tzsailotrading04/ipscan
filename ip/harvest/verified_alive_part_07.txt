@@ -389,3 +389,10 @@
 203.9.195.78:9000	one.one.one.one	QUEUE	0	GWC-AS-AP
 38.172.128.141:999	one.one.one.one	QUEUE	0	CONEX
 38.253.85.3:999	one.one.one.one	QUEUE	0	WIMAS
+190.61.40.188:8080	www.google.com	QUEUE	0	UFINET
+200.201.134.184:8787	www.google.com	QUEUE	0	TELIUM
+201.7.31.232:8080	www.google.com	QUEUE	0	RESERVED
+202.62.67.89:53281	speed.cloudflare.com	QUEUE	0	CITYON-AS-AP
+36.94.39.146:8080	speed.cloudflare.com	QUEUE	0	TELKOMNET-AS-AP
+38.75.82.214:999	www.google.com	QUEUE	0	ACOLME
+45.188.125.235:9991	speed.cloudflare.com	QUEUE	0	DIGY
