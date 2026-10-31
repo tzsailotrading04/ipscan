@@ -368,3 +368,12 @@
 182.52.149.67:443	one.one.one.one	QUEUE	0	TOT-NET
 186.31.135.201:999	one.one.one.one	QUEUE	0	ETB
 186.96.97.203:999	speed.cloudflare.com	QUEUE	0	TV
+188.241.217.138:3128	www.google.com	QUEUE	0	HOSTER-AST
+190.110.34.20:999	www.google.com	QUEUE	0	WIRELESS
+201.7.31.232:8080	www.google.com	QUEUE	0	RESERVED
+34.207.102.197:20845	one.one.one.one	QUEUE	0	AMAZON-AES
+34.43.46.91:80	speed.cloudflare.com	QUEUE	0	GOOGLE-CLOUD-PLATFORM
+38.159.63.8:999	one.one.one.one	QUEUE	0	BOOM
+41.78.184.38:8080	speed.cloudflare.com	QUEUE	0	SKYWIRE
+43.161.254.16:3128	speed.cloudflare.com	QUEUE	0	TENCENT-NET-AP-CN
+45.126.250.46:3125	speed.cloudflare.com	QUEUE	0	IDNIC-WLD-ID
