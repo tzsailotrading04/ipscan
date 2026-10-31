@@ -341,3 +341,11 @@
 43.207.113.167:2904	one.one.one.one	QUEUE	0	AMAZON-02
 45.71.186.212:999	speed.cloudflare.com	QUEUE	0	UFINET
 47.95.206.224:45138	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+102.0.25.36:8080	speed.cloudflare.com	QUEUE	0	CKL1-ASN
+103.153.202.201:8181	speed.cloudflare.com	QUEUE	0	SHWE-AS-AP
+103.171.255.204:8080	speed.cloudflare.com	QUEUE	0	IDNIC-ZKI-AS-ID
+103.182.22.48:8000	speed.cloudflare.com	QUEUE	0	INTERDIGI-VN
+103.205.223.49:8080	one.one.one.one	QUEUE	0	IDNIC-CTP-AS-ID
+103.81.195.150:3125	speed.cloudflare.com	QUEUE	0	RTIGA-AS-ID
+113.46.227.104:2388	speed.cloudflare.com	QUEUE	0	HWCSNET
+115.127.186.174:8080	www.google.com	QUEUE	0	BRAC-BDMAIL-AS-BD
