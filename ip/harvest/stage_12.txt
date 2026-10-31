@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793418550
-offset=61122390
+ts=1793422022
+offset=56809301
 --- LAST 5 LOG LINES ---
-[2026-10-30 21:56:09] [SHARD 12 W0] [FOUND QUEUE] 54.255.139.160:8000 (AMAZON-02) via one.one.one.one | cands=36
-[2026-10-30 21:56:09] [SHARD 12 W0] [FOUND QUEUE] 77.113.104.127:1081 (AMAZON-02) via speed.cloudflare.com | cands=37
-[2026-10-30 21:56:09] [SHARD 12 W0] [FOUND QUEUE] 89.60.37.24:80 (AMAZON-02) via speed.cloudflare.com | cands=38
-[2026-10-30 21:56:09] [SHARD 12 W0] [FOUND QUEUE] 93.127.212.198:3128 (AS-HOSTINGER) via speed.cloudflare.com | cands=39
-[2026-10-30 21:56:09] [SHARD 12 W0] [FOUND QUEUE] 98.130.119.128:80 (AMAZON-02) via speed.cloudflare.com | cands=40
+[2026-10-31 04:41:59] [SHARD 12 W0] [FOUND QUEUE] 78.14.33.189:8118 (AMAZON-02) via speed.cloudflare.com | cands=169
+[2026-10-31 04:41:59] [SHARD 12 W0] [FOUND QUEUE] 89.60.37.24:80 (AMAZON-02) via one.one.one.one | cands=170
+[2026-10-31 04:41:59] [SHARD 12 W0] [FOUND QUEUE] 93.127.212.198:3128 (AS-HOSTINGER) via speed.cloudflare.com | cands=171
+[2026-10-31 04:41:59] [SHARD 12 W0] [FOUND QUEUE] 98.130.119.128:80 (AMAZON-02) via www.google.com | cands=172
+[2026-10-31 04:41:59] [SHARD 12 W0] [FOUND QUEUE] 98.86.106.48:443 (AMAZON-AES) via www.google.com | cands=173

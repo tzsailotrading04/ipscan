@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793418799
-offset=64481542
+ts=1793422187
+offset=60211856
 --- LAST 5 LOG LINES ---
-[2026-10-30 21:55:59] [SHARD 11 W0] [FOUND QUEUE] 54.232.165.154:8080 (AMAZON-02) via speed.cloudflare.com | cands=89
-[2026-10-30 21:55:59] [SHARD 11 W0] [FOUND QUEUE] 54.255.139.160:80 (AMAZON-02) via one.one.one.one | cands=90
-[2026-10-30 21:55:59] [SHARD 11 W0] [FOUND QUEUE] 56.228.3.35:999 (AMAZON-02) via one.one.one.one | cands=91
-[2026-10-30 21:55:59] [SHARD 11 W0] [FOUND QUEUE] 89.60.37.24:443 (AMAZON-02) via speed.cloudflare.com | cands=92
-[2026-10-30 21:55:59] [SHARD 11 W0] [FOUND QUEUE] 98.130.119.128:3128 (AMAZON-02) via speed.cloudflare.com | cands=93
+[2026-10-31 04:38:35] [SHARD 11 W0] [FOUND QUEUE] 56.124.69.80:81 (AMAZON-02) via speed.cloudflare.com | cands=163
+[2026-10-31 04:38:35] [SHARD 11 W0] [FOUND QUEUE] 62.72.26.7:8080 (AS-HOSTINGER) via speed.cloudflare.com | cands=164
+[2026-10-31 04:38:35] [SHARD 11 W0] [FOUND QUEUE] 65.0.54.254:81 (AMAZON-02) via speed.cloudflare.com | cands=165
+[2026-10-31 04:38:35] [SHARD 11 W0] [FOUND QUEUE] 78.12.93.242:1080 (AMAZON-02) via speed.cloudflare.com | cands=166
+[2026-10-31 04:38:35] [SHARD 11 W0] [FOUND QUEUE] 8.219.97.248:80 (ALIBABA-CN-NET) via www.google.com | cands=167

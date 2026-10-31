@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793418688
-offset=64444567
+ts=1793422006
+offset=60111887
 --- LAST 5 LOG LINES ---
-[2026-10-30 21:57:13] [SHARD 28 W0] [FOUND QUEUE] 43.252.236.215:8080 (ASNET-AS-ID) via www.google.com | cands=91
-[2026-10-30 21:57:34] [SHARD 28 W0] [FOUND QUEUE] 54.20.67.118:1080 (AMAZON-02) via speed.cloudflare.com | cands=92
-[2026-10-30 21:57:34] [SHARD 28 W0] [FOUND QUEUE] 54.255.249.161:10782 (AMAZON-02) via speed.cloudflare.com | cands=93
-[2026-10-30 21:57:34] [SHARD 28 W0] [FOUND QUEUE] 78.13.62.133:443 (AMAZON-02) via speed.cloudflare.com | cands=94
-[2026-10-30 21:57:34] [SHARD 28 W0] [FOUND QUEUE] 95.40.98.38:8000 (AMAZON-02) via speed.cloudflare.com | cands=95
+[2026-10-31 04:41:02] [SHARD 28 W0] [FOUND QUEUE] 3.8.140.46:8888 (AMAZON-02) via speed.cloudflare.com | cands=145
+[2026-10-31 04:41:02] [SHARD 28 W0] [FOUND QUEUE] 43.210.115.207:8888 (AMAZON-02) via one.one.one.one | cands=146
+[2026-10-31 04:41:02] [SHARD 28 W0] [FOUND QUEUE] 43.218.88.78:443 (AMAZON-02) via speed.cloudflare.com | cands=147
+[2026-10-31 04:41:02] [SHARD 28 W0] [FOUND QUEUE] 51.84.242.253:1081 (AMAZON-02) via speed.cloudflare.com | cands=148
+[2026-10-31 04:41:17] [SHARD 28 W0] [FOUND QUEUE] 78.13.198.10:8000 (AMAZON-02) via one.one.one.one | cands=149
