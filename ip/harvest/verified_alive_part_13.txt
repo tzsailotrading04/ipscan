@@ -443,3 +443,6 @@
 18.222.28.236:13278	speed.cloudflare.com	QUEUE	0	AMAZON-02
 181.78.208.227:999	speed.cloudflare.com	QUEUE	0	UFINET
 181.78.80.122:999	speed.cloudflare.com	QUEUE	0	UFINET
+198.145.118.103:8080	www.google.com	QUEUE	0	HIGHSPEED
+34.169.107.92:443	www.google.com	QUEUE	0	GOOGLE-CLOUD-PLATFORM
+38.211.76.65:999	speed.cloudflare.com	QUEUE	0	FIBERNET
