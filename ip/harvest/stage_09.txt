@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793459567
-offset=66310667
+stage=queue_consuming
+ts=1793462211
+offset=66022279
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:54:53] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:55:24] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:55:55] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:56:26] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:56:56] [SHARD 09 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 15:54:48] [SHARD 09 W0] [FOUND QUEUE] 78.154.10.164:3128 (VIVACOM-AS) via speed.cloudflare.com | cands=331
+[2026-10-31 15:55:19] [SHARD 09 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:55:50] [SHARD 09 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:56:20] [SHARD 09 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:56:51] [SHARD 09 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning

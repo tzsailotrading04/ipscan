@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793459837
-offset=62900199
+stage=queue_consuming
+ts=1793462114
+offset=62591491
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:54:41] [SHARD 02 W0] [FOUND QUEUE] 103.246.109.114:8080 (CONNECT-AS-AP) via www.google.com | cands=266
-[2026-10-31 12:54:41] [SHARD 02 W0] [FOUND QUEUE] 103.4.95.90:8080 (HECPERN-AS-PK) via www.google.com | cands=267
-[2026-10-31 12:54:41] [SHARD 02 W0] [FOUND QUEUE] 15.223.187.219:36221 (AMAZON-02) via one.one.one.one | cands=268
-[2026-10-31 12:56:45] [SHARD 02 W0] [FOUND QUEUE] 83.212.72.114:3128 (GR-NET) via speed.cloudflare.com | cands=269
-[2026-10-31 12:56:45] [SHARD 02 W0] [FOUND QUEUE] 85.187.224.21:8080 (TECHNOLUX-AS) via one.one.one.one | cands=270
+[2026-10-31 15:53:44] [SHARD 02 W0] [FOUND QUEUE] 2.26.100.44:443 (PLAY2GO-NET) via speed.cloudflare.com | cands=351
+[2026-10-31 15:53:44] [SHARD 02 W0] [FOUND QUEUE] 185.225.43.248:8080 (INT-PDN-STE-AS) via www.google.com | cands=352
+[2026-10-31 15:54:14] [SHARD 02 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:54:44] [SHARD 02 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-10-31 15:55:14] [SHARD 02 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
