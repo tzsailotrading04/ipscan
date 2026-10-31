@@ -298,3 +298,6 @@
 35.78.252.142:8422	one.one.one.one	QUEUE	0	AMAZON-02
 38.172.160.16:999	www.google.com	QUEUE	0	RED
 42.115.72.145:2097	speed.cloudflare.com	QUEUE	0	FPT-AS-AP
+45.174.248.43:999	speed.cloudflare.com	QUEUE	0	WIFMAX
+45.185.163.235:999	speed.cloudflare.com	QUEUE	0	UFINET
+45.231.221.193:999	speed.cloudflare.com	QUEUE	0	DISTROKOM
