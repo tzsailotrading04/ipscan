@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_02.txt_500
-ts=1793450566
-offset=64936742
+stage=queue_slice_q_a0_http_1793448000_03.txt_0
+ts=1793450574
+offset=64936831
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:41:57] [SHARD 10 W0] [FOUND QUEUE] 124.6.156.226:8082 (GLOBE-TELECOM-AS) via www.google.com | cands=262
 [2026-10-31 12:42:12] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
 [2026-10-31 12:42:46] [SHARD 10 W0] [FOUND QUEUE] 160.187.174.121:8080 (IDNIC-NPN-AS-ID) via www.google.com | cands=263
 [2026-10-31 12:42:46] [SHARD 10 W0] [FOUND QUEUE] 175.111.96.154:3128 (IDNIC-WIFIPEDIA-AS-ID) via one.one.one.one | cands=264
 [2026-10-31 12:42:46] [SHARD 10 W0] [FOUND QUEUE] 180.180.156.96:80 (TOT-NET) via speed.cloudflare.com | cands=265
+[2026-10-31 12:42:54] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
