@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793447030
-offset=63127419
+stage=queue_slice_q_a0_http_1793442000_04.txt_0
+ts=1793449980
+offset=63129183
 --- LAST 5 LOG LINES ---
-[2026-10-31 10:52:42] [SHARD 25 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:53:13] [SHARD 25 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:53:44] [SHARD 25 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:54:14] [SHARD 25 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
-[2026-10-31 10:54:45] [SHARD 25 W0] [QUEUE STAGE] Found 15 queue files to consume before IP scanning
+[2026-10-31 12:32:34] [SHARD 25 W0] [FOUND QUEUE] 202.1.24.114:8090 (IDNIC-GMJN-AS-ID) via speed.cloudflare.com | cands=200
+[2026-10-31 12:32:34] [SHARD 25 W0] [FOUND QUEUE] 203.130.23.250:80 (SUPERNET-PAKISTAN-AS-AP) via speed.cloudflare.com | cands=201
+[2026-10-31 12:32:34] [SHARD 25 W0] [FOUND QUEUE] 38.50.38.130:999 (SOLUNET) via speed.cloudflare.com | cands=202
+[2026-10-31 12:32:34] [SHARD 25 W0] [FOUND QUEUE] 39.96.71.208:3128 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=203
+[2026-10-31 12:33:00] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793442000_04.txt: total=27847 shard_slice=819 worker_slice=410 resume=0
