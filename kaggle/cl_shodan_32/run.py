@@ -214,6 +214,21 @@ async def run_worker(shard_idx, worker_id, total_workers):
                     return port, t
             return None
 
+    async def check_port_socks(ip, port):
+        if not HAVE_SOCKS:
+            return None
+        async with sem:
+            try:
+                connector = ProxyConnector.from_url(f"socks5://{ip}:{port}")
+                timeout = aiohttp.ClientTimeout(total=8.0)
+                async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
+                    async with session.get("https://www.google.com") as resp:
+                        if resp.status == 200:
+                            return port, "www.google.com"
+            except Exception:
+                pass
+            return None
+
     BATCH_SIZE = 500
 
     prog_file = os.path.join(REPO, "ip", "harvest", f"shodan_progress_v98_{w_tag}.txt")
@@ -434,11 +449,16 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 chunk = worker_slice[i:i + 500]
                 tasks = []
                 for item in chunk:
-                    parts = item.split()[0].split(":")
+                    fields = item.strip().split("	")
+                    parts = fields[0].split()[0].split(":")
                     if len(parts) == 2 and parts[1].isdigit():
                         ip = parts[0]
                         port = int(parts[1])
-                        tasks.append((ip, port, check_port(ip, port)))
+                        proto = fields[2].strip().lower() if len(fields) >= 3 else ""
+                        if proto == "socks5":
+                            tasks.append((ip, port, check_port_socks(ip, port)))
+                        else:
+                            tasks.append((ip, port, check_port(ip, port)))
 
                 if tasks:
                     results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
