@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_04.txt_359
-ts=1793450779
-offset=64937780
+stage=queue_consuming
+ts=1793451061
+offset=64937781
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:48] [SHARD 10 W0] [FOUND QUEUE] 91.197.77.118:443 (REINFOCOM-AS) via www.google.com | cands=269
-[2026-10-31 12:45:18] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:45:48] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:46:19] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:46:19] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=719 worker_slice=360 resume=359
+[2026-10-31 12:48:59] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:49:29] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:00] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:30] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:51:01] [SHARD 10 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning

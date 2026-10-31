@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793448000_04.txt_0
-ts=1793450755
-offset=66852306
+stage=queue_consuming
+ts=1793451111
+offset=66852665
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 31.15.169.77:808 (TELEMACH) via www.google.com | cands=264
-[2026-10-31 12:45:27] [SHARD 17 W0] [FOUND QUEUE] 45.164.148.16:999 (JORGE) via one.one.one.one | cands=265
-[2026-10-31 12:45:53] [SHARD 17 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (124.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 12:45:55] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:45:55] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
+[2026-10-31 12:49:49] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:20] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:50] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:51:20] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:51:51] [SHARD 17 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning

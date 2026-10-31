@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793450774
+ts=1793451051
 offset=63033906
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:44:16] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
-[2026-10-31 12:44:16] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:44:52] [SHARD 20 W0] [FOUND QUEUE] 45.232.0.2:8080 (SISTEMAS) via speed.cloudflare.com | cands=261
-[2026-10-31 12:44:52] [SHARD 20 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
-[2026-10-31 12:46:14] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:48:47] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:49:18] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:49:49] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:20] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:51] [SHARD 20 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning

@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793450860
+ts=1793451166
 offset=60390089
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:46:03] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:46:22] [SHARD 30 W0] [QUEUE STAGE] Consuming q_a0_http_1793448000_04.txt: total=24424 shard_slice=718 worker_slice=359 resume=0
-[2026-10-31 12:47:10] [SHARD 30 W0] [FOUND QUEUE] 81.31.234.70:80 (YUT-AS-AP) via speed.cloudflare.com | cands=300
-[2026-10-31 12:47:10] [SHARD 30 W0] [FOUND QUEUE] 82.86.112.48:999 (360NET) via www.google.com | cands=301
-[2026-10-31 12:47:40] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:50:44] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:51:14] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:51:45] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:52:15] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
+[2026-10-31 12:52:46] [SHARD 30 W0] [QUEUE STAGE] Found 16 queue files to consume before IP scanning
