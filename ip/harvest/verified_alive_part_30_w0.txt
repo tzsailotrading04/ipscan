@@ -195,3 +195,7 @@
 45.65.226.169:999	speed.cloudflare.com	QUEUE	0	SOLUTION
 47.176.240.250:4228	speed.cloudflare.com	QUEUE	0	FRONTIER-FRTR
 54.255.249.161:1660	speed.cloudflare.com	QUEUE	0	AMAZON-02
+49.144.29.108:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+51.85.44.149:50908	one.one.one.one	QUEUE	0	AMAZON-02
+56.112.93.245:4443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+58.27.207.253:8080	www.google.com	QUEUE	0	WATEEN-IMS-PK-AS-AP

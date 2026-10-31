@@ -271,3 +271,9 @@
 47.80.60.84:3128	one.one.one.one	QUEUE	0	ALIBABA-CN-NET
 56.68.116.64:17892	speed.cloudflare.com	QUEUE	0	AMAZON-02
 59.145.185.162:8080	speed.cloudflare.com	QUEUE	0	BBIL-AP
+47.121.139.13:3128	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+51.94.221.175:1857	one.one.one.one	QUEUE	0	AMAZON-02
+56.155.73.159:35512	one.one.one.one	QUEUE	0	AMAZON-02
+59.145.185.162:8080	www.google.com	QUEUE	0	BBIL-AP
+83.222.11.222:3128	speed.cloudflare.com	QUEUE	0	TIMEWEB-AS
+89.111.153.21:3128	speed.cloudflare.com	QUEUE	0	AS-REG

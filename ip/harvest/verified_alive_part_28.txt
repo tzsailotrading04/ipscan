@@ -307,3 +307,7 @@
 77.110.107.229:8080	speed.cloudflare.com	QUEUE	0	GCS-AS
 51.16.4.39:18989	one.one.one.one	QUEUE	0	AMAZON-02
 56.68.116.64:53656	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.85.44.149:44334	speed.cloudflare.com	QUEUE	0	AMAZON-02
+54.255.249.161:1533	one.one.one.one	QUEUE	0	AMAZON-02
+74.242.169.16:3128	speed.cloudflare.com	QUEUE	0	MICROSOFT-CORP-MSN-AS-BLOCK
+79.98.32.137:8080	www.google.com	QUEUE	0	RESERVED
