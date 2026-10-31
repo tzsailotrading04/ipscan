@@ -6,7 +6,7 @@ OUTDIR = "ip/harvest/queue"
 ADDRS = 15000
 PORTS = (8080, 3128, 8888, 1080, 81, 8000, 999, 8118)
 CHUNK = 40000
-STAMP = "1793434000"
+STAMP = "1793435000"
 TOPN = 60
 
 org2asn = {}
@@ -53,7 +53,7 @@ for o in top:
                     break
                 picked.append(random.randint(base, min(base + 255, e)))
 
-random.seed(9)
+random.seed(23)
 random.shuffle(picked)
 
 os.makedirs(OUTDIR, exist_ok=True)
@@ -63,7 +63,7 @@ def flush():
     global buf, nfile
     if not buf:
         return
-    path = os.path.join(OUTDIR, f"q_ab_asn_{STAMP}_{nfile:02d}.txt")
+    path = os.path.join(OUTDIR, f"q_ac_asn_{STAMP}_{nfile:02d}.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(buf) + "\n")
     print("wrote", path, len(buf))
