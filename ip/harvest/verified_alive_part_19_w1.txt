@@ -194,3 +194,7 @@
 200.107.206.9:999	speed.cloudflare.com	QUEUE	0	DLD
 203.177.139.13:8082	speed.cloudflare.com	QUEUE	0	GLOBE-TELECOM-AS
 38.211.76.65:999	one.one.one.one	QUEUE	0	FIBERNET
+78.155.212.150:8118	www.google.com	QUEUE	0	XELENT-AS
+87.76.138.32:8080	www.google.com	QUEUE	0	RESERVED
+89.104.102.209:58080	speed.cloudflare.com	QUEUE	0	BRM-AS
+89.43.133.102:8080	speed.cloudflare.com	QUEUE	0	RESERVED

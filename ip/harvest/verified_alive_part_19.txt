@@ -432,3 +432,7 @@
 81.19.4.118:8000	speed.cloudflare.com	QUEUE	0	FASTER-AS
 103.105.78.163:3125	one.one.one.one	QUEUE	0	GARUDA-AS-ID
 103.145.34.155:1111	speed.cloudflare.com	QUEUE	0	LINTASDATA-AS-ID
+78.155.212.150:8118	www.google.com	QUEUE	0	XELENT-AS
+87.76.138.32:8080	www.google.com	QUEUE	0	RESERVED
+89.104.102.209:58080	speed.cloudflare.com	QUEUE	0	BRM-AS
+89.43.133.102:8080	speed.cloudflare.com	QUEUE	0	RESERVED
