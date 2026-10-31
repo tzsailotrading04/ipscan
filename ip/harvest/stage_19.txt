@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793446000_02.txt_500
-ts=1793450419
-offset=64027609
+stage=queue_slice_q_a0_http_1793446000_03.txt_500
+ts=1793450471
+offset=64028197
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:39:16] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_01.txt: total=40000 shard_slice=1176 worker_slice=588 resume=500
-[2026-10-31 12:39:48] [SHARD 19 W0] [FOUND QUEUE] 147.161.247.9:11720 (ZSCALER-EMEA) via one.one.one.one | cands=302
-[2026-10-31 12:39:48] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_02.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
-[2026-10-31 12:40:19] [SHARD 19 W0] [FOUND QUEUE] 177.234.217.85:999 (UFINET) via www.google.com | cands=303
-[2026-10-31 12:40:19] [SHARD 19 W0] [FOUND QUEUE] 179.1.127.91:999 (INTERNEXA) via speed.cloudflare.com | cands=304
+[2026-10-31 12:40:27] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793446000_03.txt: total=40000 shard_slice=1176 worker_slice=588 resume=0
+[2026-10-31 12:41:11] [SHARD 19 W0] [FOUND QUEUE] 194.124.36.162:8080 (HIGHSPEED) via www.google.com | cands=305
+[2026-10-31 12:41:11] [SHARD 19 W0] [FOUND QUEUE] 197.164.101.12:1981 (LINKDOTNET-AS) via one.one.one.one | cands=306
+[2026-10-31 12:41:11] [SHARD 19 W0] [FOUND QUEUE] 45.198.147.238:8080 (MYREPUBLIC-AS-ID) via www.google.com | cands=307
+[2026-10-31 12:41:11] [SHARD 19 W0] [FOUND QUEUE] 45.232.211.1:999 (NANOTIK) via speed.cloudflare.com | cands=308
