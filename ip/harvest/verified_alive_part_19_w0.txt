@@ -310,3 +310,9 @@
 81.19.4.118:8000	speed.cloudflare.com	QUEUE	0	FASTER-AS
 103.105.78.163:3125	one.one.one.one	QUEUE	0	GARUDA-AS-ID
 103.145.34.155:1111	speed.cloudflare.com	QUEUE	0	LINTASDATA-AS-ID
+157.10.7.211:8080	speed.cloudflare.com	QUEUE	0	ZCOMNETWORKS-AS-AP
+157.20.253.164:8080	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
+163.245.222.247:3128	speed.cloudflare.com	QUEUE	0	IS-AS-1
+163.61.245.4:8080	speed.cloudflare.com	QUEUE	0	IDNIC-NAOMI-AS-ID
+167.99.3.26:12345	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN
+181.209.78.75:999	speed.cloudflare.com	QUEUE	0	ARSAT
