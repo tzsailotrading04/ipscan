@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793445000_02.txt_0
-ts=1793449958
-offset=61557037
+stage=queue_slice_q_a0_http_1793445000_02.txt_500
+ts=1793449995
+offset=61557537
 --- LAST 5 LOG LINES ---
-[2026-10-31 12:32:10] [SHARD 01 W0] [FOUND QUEUE] 134.209.29.120:80 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=236
-[2026-10-31 12:32:38] [SHARD 01 W0] [FOUND QUEUE] 139.159.97.82:10900 (CHINANET-SHANGHAI-MAN) via www.google.com | cands=237
-[2026-10-31 12:32:38] [SHARD 01 W0] [FOUND QUEUE] 144.124.251.24:10809 (VDSINA) via speed.cloudflare.com | cands=238
-[2026-10-31 12:32:38] [SHARD 01 W0] [FOUND QUEUE] 146.190.60.147:8010 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=239
-[2026-10-31 12:32:38] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793445000_02.txt: total=40000 shard_slice=1177 worker_slice=589 resume=0
+[2026-10-31 12:33:15] [SHARD 01 W0] [FOUND QUEUE] 160.19.19.122:8090 (IDNIC-INTELMEDIA-AS-ID) via speed.cloudflare.com | cands=241
+[2026-10-31 12:33:15] [SHARD 01 W0] [FOUND QUEUE] 160.22.26.31:1080 (IDNIC-SINARTECH-AS-ID) via speed.cloudflare.com | cands=242
+[2026-10-31 12:33:15] [SHARD 01 W0] [FOUND QUEUE] 164.52.11.194:18080 (CDSC-AS1) via speed.cloudflare.com | cands=243
+[2026-10-31 12:33:15] [SHARD 01 W0] [FOUND QUEUE] 170.168.102.55:3128 (GLBBULUTTEKNOLOJISI-AS) via speed.cloudflare.com | cands=244
+[2026-10-31 12:33:15] [SHARD 01 W0] [FOUND QUEUE] 182.53.202.238:80 (TOT-NET) via www.google.com | cands=245
