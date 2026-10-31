@@ -201,3 +201,6 @@
 43.252.107.46:8080	www.google.com	QUEUE	0	LDP-AS-ID
 45.161.144.16:6666	speed.cloudflare.com	QUEUE	0	JS
 45.71.15.2:8080	speed.cloudflare.com	QUEUE	0	MILANIN
+51.85.44.149:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
+77.110.107.229:8080	speed.cloudflare.com	QUEUE	0	GCS-AS
+94.200.195.220:8080	www.google.com	QUEUE	0	DU-AS1
