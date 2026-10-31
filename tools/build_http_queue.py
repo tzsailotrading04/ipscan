@@ -7,6 +7,7 @@ ROOT = r"D:\DEpinFarm"
 QUEUE_DIR = os.path.join(ROOT, "ip", "harvest", "queue")
 BULK_ALL = os.path.join(ROOT, "ip", "harvest", "bulk_all.txt")
 REAL_POOL = os.path.join(ROOT, "ip", "harvest", "real_pool.txt")
+POOL_DEAD = os.path.join(ROOT, "cache", "pool_dead.txt")
 
 http_sources = [
     ('monosans_http', 'https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt'),
@@ -28,9 +29,11 @@ http_sources = [
     ('aliilapro_http', 'https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt'),
     ('sunny9577_http', 'https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/generated/http_proxies.txt'),
     ('vakhov_http', 'https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/http.txt'),
-    ('zloiuser_http', 'https://raw.githubusercontent.com/zloi-user/hideip.me/master/http.txt'),
+    ('zloiuser_http', 'https://raw.githubusercontent.com/zloi-user/hideip.me/main/http.txt'),
     ('roosterkid_https', 'https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt'),
     ('prxchk_http', 'https://raw.githubusercontent.com/prxchk/proxy-list/main/http.txt'),
+    ('clarketm_http', 'https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt'),
+    ('mmpx12_http', 'https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt'),
 ]
 
 def fetch_feed(item):
@@ -67,24 +70,32 @@ def scrape_spys_me():
     return found
 
 def main():
-    print("1. Loading bulk_all.txt and real_pool.txt...")
+    print("1. Loading bulk_all.txt, real_pool.txt, and pool_dead.txt...")
     bulk_all_list = []
     with open(BULK_ALL, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             if line:
                 bulk_all_list.append(line)
-    bulk_all_set = set(bulk_all_list)
     print(f"Total lines in bulk_all.txt: {len(bulk_all_list):,}")
 
     real_pool = set()
     if os.path.exists(REAL_POOL):
-        with open(REAL_POOL, 'r', encoding='utf-8') as f:
+        with open(REAL_POOL, 'r', encoding='utf-8', errors='ignore') as f:
             for line in f:
-                line = line.strip()
-                if line:
-                    real_pool.add(line)
-    print(f"Total lines in real_pool.txt: {len(real_pool):,}")
+                m = re.search(r'\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b', line)
+                if m:
+                    real_pool.add(m.group(1))
+    print(f"Total unique proxies in real_pool.txt: {len(real_pool):,}")
+
+    pool_dead = set()
+    if os.path.exists(POOL_DEAD):
+        with open(POOL_DEAD, 'r', encoding='utf-8', errors='ignore') as f:
+            for line in f:
+                m = re.search(r'\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b', line)
+                if m:
+                    pool_dead.add(m.group(1))
+    print(f"Total unique proxies in pool_dead.txt: {len(pool_dead):,}")
 
     print("2. Fetching HTTP and HTTPS sources...")
     http_candidates = set()
@@ -98,10 +109,11 @@ def main():
     http_candidates.update(spys_found)
     print(f"Total unique proxies from HTTP/HTTPS sources: {len(http_candidates):,}")
 
-    print("3. Filtering bulk_all.txt against HTTP/HTTPS sources and real_pool.txt...")
+    print("3. Filtering bulk_all.txt against HTTP/HTTPS sources, real_pool.txt, and pool_dead.txt...")
     kept = []
     dropped_non_http = 0
     dropped_in_pool = 0
+    dropped_in_dead = 0
 
     for p in bulk_all_list:
         if p not in http_candidates:
@@ -110,15 +122,19 @@ def main():
         if p in real_pool:
             dropped_in_pool += 1
             continue
+        if p in pool_dead:
+            dropped_in_dead += 1
+            continue
         kept.append(p)
 
-    total_dropped = dropped_non_http + dropped_in_pool
+    total_dropped = dropped_non_http + dropped_in_pool + dropped_in_dead
     print("\n=== FILTER RESULTS ===")
     print(f"Total bulk_all lines examined: {len(bulk_all_list):,}")
-    print(f"Kept (from HTTP/HTTPS sources, not in real_pool): {len(kept):,}")
+    print(f"Kept (from HTTP/HTTPS sources, not in real_pool, not in pool_dead): {len(kept):,}")
     print(f"Dropped total: {total_dropped:,}")
     print(f"  - Dropped (not in HTTP/HTTPS sources): {dropped_non_http:,}")
     print(f"  - Dropped (already in real_pool.txt): {dropped_in_pool:,}")
+    print(f"  - Dropped (already in pool_dead.txt): {dropped_in_dead:,}")
 
     # Cap at 200,000
     kept_capped = kept[:200000]
@@ -129,7 +145,7 @@ def main():
 
     os.makedirs(QUEUE_DIR, exist_ok=True)
     for idx, chunk in enumerate(chunks, 1):
-        filename = f"q_a0_http_1793445000_{idx:02d}.txt"
+        filename = f"q_a0_http_1793446000_{idx:02d}.txt"
         filepath = os.path.join(QUEUE_DIR, filename)
         with open(filepath, 'w', encoding='utf-8') as f:
             for p in chunk:
