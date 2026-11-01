@@ -22,7 +22,7 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-NUM_SHARDS = 30
+NUM_SHARDS = 35
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 20
 PROBE_CONCURRENCY = 600
@@ -421,7 +421,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
             except Exception:
                 continue
 
-            # Each shard takes its stride slice across NUM_SHARDS (30)
+            # Each shard takes its stride slice across NUM_SHARDS (35)
             shard_slice = [l for idx, l in enumerate(lines) if idx % NUM_SHARDS == shard_idx]
             worker_slice = shard_slice[worker_id::total_workers]
             try:

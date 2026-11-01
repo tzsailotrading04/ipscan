@@ -26,8 +26,8 @@ FLEET_MAPPING = [
     ("lalsangkima", os.path.join(REPO_ROOT, "kaggle", "acct4", "access_token"), ["15", "16", "17", "25", "26"]),
     # spectatorlone (acct6)
     ("spectatorlone", os.path.join(REPO_ROOT, "kaggle", "acct6", "access_token"), ["14", "18", "19", "27", "28"]),
-    # stephen34
-    ("stephen34", os.path.join(REPO_ROOT, "kaggle", "stephen34", "access_token"), ["29", "30", "31", "32", "33"]),
+    # lalruatmawiaralte (acct7)
+    ("lalruatmawiaralte", os.path.join(REPO_ROOT, "kaggle", "acct7", "access_token"), ["29", "30", "31", "32", "33"]),
 ]
 
 def set_credentials(username, token_file):
