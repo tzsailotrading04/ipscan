@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793556814
-offset=61169943
+ts=1793556901
+offset=61176042
 --- LAST 5 LOG LINES ---
-[2026-11-01 18:05:59] [SHARD 33 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 18:06:29] [SHARD 33 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 18:07:00] [SHARD 33 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 18:07:30] [SHARD 33 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
 [2026-11-01 18:08:01] [SHARD 33 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 18:14:33] [SHARD 33 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-01 18:14:33] [SHARD 33 W0] [QUEUE STAGE] Found 13 queue files to consume before IP scanning
+[2026-11-01 18:14:33] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=6 worker_slice=3 resume=0
+[2026-11-01 18:15:01] [SHARD 33 W0] [FOUND QUEUE] 111.192.49.27:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=427

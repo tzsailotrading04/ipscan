@@ -379,3 +379,6 @@
 159.254.254.171:443	speed.cloudflare.com	QUEUE	0	ZSCALER-SJC1
 16.18.147.222:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
 3.102.14.142:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+147.161.247.9:12251	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+185.166.196.14:8443	speed.cloudflare.com	QUEUE	0	TWC-EU
+63.180.203.233:24724	speed.cloudflare.com	QUEUE	0	AMAZON-02

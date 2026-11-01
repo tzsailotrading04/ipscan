@@ -693,3 +693,6 @@
 177.234.217.46:999	speed.cloudflare.com	QUEUE	0	UFINET
 98.91.21.32:443	speed.cloudflare.com	QUEUE	0	AMAZON-AES
 103.123.64.234:3128	speed.cloudflare.com	QUEUE	0	CEPATNET-AS-ID
+147.161.247.9:12251	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+185.166.196.14:8443	speed.cloudflare.com	QUEUE	0	TWC-EU
+63.180.203.233:24724	speed.cloudflare.com	QUEUE	0	AMAZON-02
