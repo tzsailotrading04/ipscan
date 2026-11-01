@@ -1,0 +1,13 @@
+[2026-11-01T19:24:22Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+
+[2026-11-01T19:24:36Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+  - unique_ips_added_this_hour (0) is under 1,000
+  - fleet_ips_sec (0.0) is under 2,000
+
+[2026-11-01T19:48:50Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+  - unique_ips_added_this_hour (515) is under 1,000
+  - fleet_ips_sec (0.0) is under 2,000
+

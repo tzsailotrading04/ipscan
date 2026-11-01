@@ -3,8 +3,14 @@
 tools/hourly_report.py
 Hourly fleet-wide per-shard progress reporter and alert monitor.
 Reads work/shNN_stats.txt for each shard, aggregates metrics, prints hourly table,
-computes derived lines (fleet_ips_sec, genuine_this_hour, unique_ips_added_this_hour, hours_to_15k),
-appends to work/WATCH.txt, and alerts to work/ALERT.txt and stdout on anomalies.
+computes derived lines:
+- fleet_ips_sec
+- genuine_this_hour
+- net_ips_per_hour (unique added minus unique removed)
+- queue_depth_lines
+- hours_to_15k from net_ips_per_hour (prints "never" if net <= 0)
+Appends to work/WATCH.txt, and alerts to work/ALERT.txt and stdout on anomalies
+(including queue_depth_lines < 2,000,000).
 """
 
 import os
@@ -20,8 +26,8 @@ WATCH_FILE = os.path.join(WORK_DIR, "WATCH.txt")
 ALERT_FILE = os.path.join(WORK_DIR, "ALERT.txt")
 STATE_FILE = os.path.join(WORK_DIR, "hourly_report_state.json")
 POOL_FILE = os.path.join(REPO_ROOT, "ip", "harvest", "real_pool.txt")
+QUEUE_DIR = os.path.join(REPO_ROOT, "ip", "harvest", "queue")
 
-# Active 25 shards (00 to 24 or all active in fleet)
 NUM_SHARDS = 25
 
 def get_unique_pool_count():
@@ -39,6 +45,19 @@ def get_unique_pool_count():
     except Exception:
         pass
     return len(unique_ips)
+
+def get_queue_depth():
+    if not os.path.exists(QUEUE_DIR):
+        return 0
+    total = 0
+    for f in os.listdir(QUEUE_DIR):
+        if f.startswith("q_") and f.endswith(".txt"):
+            p = os.path.join(QUEUE_DIR, f)
+            try:
+                total += sum(1 for _ in open(p, "rb"))
+            except Exception:
+                pass
+    return total
 
 def load_previous_state():
     if os.path.exists(STATE_FILE):
@@ -111,6 +130,10 @@ def generate_report():
     # Load previous state for delta calculations
     prev_state = load_previous_state()
     cur_unique_ips = get_unique_pool_count()
+    queue_depth_lines = get_queue_depth()
+
+    unique_added = 0
+    unique_removed = 0
 
     if prev_state:
         dt = max(1.0, now_ts - prev_state.get("ts", now_ts - 3600))
@@ -118,34 +141,45 @@ def generate_report():
         genuine_this_hour = max(0, tot_genuine - prev_state.get("genuine", 0))
         fleet_ips_sec = round(scanned_delta / dt, 1)
 
-        # Unique IPs added this hour from real_pool.txt diff or delta
-        prev_unique = prev_state.get("unique_pool", cur_unique_ips)
-        unique_ips_added_this_hour = max(0, cur_unique_ips - prev_unique)
-
-        # Try git diff --numstat if git commit exists
         prev_commit = prev_state.get("commit", "")
         if prev_commit:
             diff_out = run_git_cmd(f'git diff {prev_commit} HEAD --numstat ip/harvest/real_pool.txt')
             if diff_out:
                 try:
-                    added_lines = int(diff_out.split()[0])
-                    if added_lines > 0:
-                        unique_ips_added_this_hour = max(unique_ips_added_this_hour, added_lines)
+                    parts = diff_out.split()
+                    unique_added = int(parts[0])
+                    unique_removed = int(parts[1])
                 except Exception:
                     pass
+
+        # Fallback to pool delta if git diff was 0 or commit unchanged
+        prev_unique = prev_state.get("unique_pool", cur_unique_ips)
+        if unique_added == 0 and unique_removed == 0:
+            delta = cur_unique_ips - prev_unique
+            if delta >= 0:
+                unique_added = delta
+                unique_removed = 0
+            else:
+                unique_added = 0
+                unique_removed = abs(delta)
     else:
         dt = 3600.0
         fleet_ips_sec = 2100.0 if tot_scanned == 0 else round(tot_scanned / 3600.0, 1)
         genuine_this_hour = tot_genuine
-        unique_ips_added_this_hour = 1200
+        unique_added = 1200
+        unique_removed = 0
         scanned_delta = tot_scanned
 
-    # Hours to 15,000 unique IPs
+    # Net IPs per hour
+    net_ips_per_hour = unique_added - unique_removed
+
+    # Hours to 15,000 unique IPs from net rate (STEP 6)
     remaining_to_15k = max(0, 15000 - cur_unique_ips)
-    if unique_ips_added_this_hour > 0:
-        hours_to_15k = round(remaining_to_15k / unique_ips_added_this_hour, 1)
+    if net_ips_per_hour > 0:
+        hrs = remaining_to_15k / net_ips_per_hour
+        hours_to_15k_str = f"{hrs:.1f}h"
     else:
-        hours_to_15k = 999.9
+        hours_to_15k_str = "never"
 
     # Build report table
     report_lines = []
@@ -162,8 +196,10 @@ def generate_report():
     report_lines.append("=" * 80)
     report_lines.append(f"fleet_ips_sec              : {fleet_ips_sec:,.1f}")
     report_lines.append(f"genuine_this_hour          : {genuine_this_hour:,d}")
-    report_lines.append(f"unique_ips_added_this_hour : {unique_ips_added_this_hour:,d} (Pool Unique: {cur_unique_ips:,d})")
-    report_lines.append(f"hours_to_15k_at_this_rate  : {hours_to_15k:.1f}h ({remaining_to_15k:,d} IPs remaining)")
+    report_lines.append(f"unique_ips_added_this_hour : {unique_added:,d} (Removed: {unique_removed:,d})")
+    report_lines.append(f"net_ips_per_hour           : {net_ips_per_hour:,d} (Pool Unique: {cur_unique_ips:,d})")
+    report_lines.append(f"queue_depth_lines          : {queue_depth_lines:,d}")
+    report_lines.append(f"hours_to_15k_at_this_rate  : {hours_to_15k_str} ({remaining_to_15k:,d} IPs remaining)")
     report_lines.append("=" * 80)
     report_text = "\n".join(report_lines) + "\n"
 
@@ -177,16 +213,18 @@ def generate_report():
     except Exception as e:
         print(f"[WARN] Failed to write to {WATCH_FILE}: {e}")
 
-    # Check alert conditions (STEP 3)
+    # Check alert conditions (STEP 3 & STEP 6)
     alerts = []
     if genuine_this_hour < 3450:
         alerts.append(f"genuine_this_hour ({genuine_this_hour:,d}) is under 3,450")
-    if unique_ips_added_this_hour < 1000:
-        alerts.append(f"unique_ips_added_this_hour ({unique_ips_added_this_hour:,d}) is under 1,000")
+    if unique_added < 1000:
+        alerts.append(f"unique_ips_added_this_hour ({unique_added:,d}) is under 1,000")
     if tot_errno99 > 0:
         alerts.append(f"errno99 ({tot_errno99}) is above 0")
     if fleet_ips_sec < 2000.0:
         alerts.append(f"fleet_ips_sec ({fleet_ips_sec:,.1f}) is under 2,000")
+    if queue_depth_lines < 2000000:
+        alerts.append(f"queue_depth_lines ({queue_depth_lines:,d}) is under 2,000,000")
 
     zero_queue_shards = [s for s, d in shard_data.items() if d["queue_left"] == 0 and d["scanned"] > 0]
     if zero_queue_shards:
@@ -219,7 +257,7 @@ def main():
         generate_report()
         return
 
-    # Initial run immediately (STEP 5)
+    # Initial run immediately
     print("Starting hourly fleet reporter (Interval: 3600s)...", flush=True)
     generate_report()
 

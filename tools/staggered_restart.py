@@ -15,11 +15,11 @@ sys.path.insert(0, REPO_ROOT)
 from tools.fleet_cycle import FLEET_MAP, set_kaggle_creds, run_cmd
 
 ACCOUNTS_ORDER = [
-    ("lalthazualasailo", [2, 3, 4, 5, 22]),
-    ("zomuanpuia", [6, 7, 8, 9, 23]),
-    ("laldinthari", [10, 11, 12, 13, 24]),
-    ("lalsangkima", [15, 16, 17, 25, 26]),
-    ("spectatorlone", [14, 18, 19, 27, 28]),
+    ("lalthazualasailo", [0, 1, 2, 3, 18]),
+    ("zomuanpuia", [4, 5, 6, 7, 19]),
+    ("laldinthari", [8, 9, 10, 11, 20]),
+    ("lalsangkima", [13, 14, 15, 21, 22]),
+    ("spectatorlone", [12, 16, 17, 23, 24]),
 ]
 
 def check_account_running(uname, shards):

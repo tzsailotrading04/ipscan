@@ -342,6 +342,9 @@ async def run_worker(shard_idx, worker_id, total_workers):
                             parts = item.split()[0].split(":")
                             if len(parts) == 2 and parts[1].isdigit():
                                 batch.append((parts[0], int(parts[1]), "QUEUE"))
+                            elif len(parts) == 1 and parts[0]:
+                                for p in DIRECT_PORTS:
+                                    batch.append((parts[0], p, "QUEUE"))
                         if batch:
                             return batch, "QUEUE"
 
@@ -393,7 +396,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
         queue_start_t = time.time()
         QUEUE_WALLCLOCK_LIMIT = 120.0  # Wall-clock limit of 120 seconds per cycle
         failed_file = os.path.join(REPO, "ip", "harvest", f"queue_failed_part_{SHARD_TAG}.txt")
-        SLICE_SIZE = 2000  # Per-shard slice ceiling: 2,000 lines per slice
+        SLICE_SIZE = 10000  # Per-shard slice ceiling: 2,000 lines per slice
 
         for qf_name in q_files:
             qf_path = os.path.join(queue_dir, qf_name)
@@ -460,6 +463,10 @@ async def run_worker(shard_idx, worker_id, total_workers):
                         ip = parts[0]
                         port = int(parts[1])
                         tasks.append((ip, port, check_port(ip, port)))
+                    elif len(parts) == 1 and parts[0]:
+                        ip = parts[0]
+                        for port in DIRECT_PORTS:
+                            tasks.append((ip, port, check_port(ip, port)))
 
                 if tasks:
                     results = await asyncio.gather(*[t[2] for t in tasks], return_exceptions=True)
