@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_05.txt_0
-ts=1793550261
-offset=65905636
+stage=queue_slice_q_a5_dr_1793470000_01.txt_0
+ts=1793550302
+offset=65906044
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:23:14] [SHARD 26 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 16:23:14] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
-[2026-11-01 16:23:58] [SHARD 26 W0] [FOUND QUEUE] 161.97.115.10:3128 (CONTABO) via one.one.one.one | cands=421
 [2026-11-01 16:24:21] [SHARD 26 W0] [FOUND QUEUE] 89.237.34.174:37647 (TRANSTELECOM) via speed.cloudflare.com | cands=422
 [2026-11-01 16:24:21] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=816 worker_slice=408 resume=0
+[2026-11-01 16:25:02] [SHARD 26 W0] [FOUND QUEUE] 103.155.196.133:3125 (JEMBATANDATA-AS-ID) via speed.cloudflare.com | cands=423
+[2026-11-01 16:25:02] [SHARD 26 W0] [FOUND QUEUE] 38.10.240.130:3128 (TV) via speed.cloudflare.com | cands=424
+[2026-11-01 16:25:02] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a5_dr_1793470000_01.txt: total=2000 shard_slice=66 worker_slice=33 resume=0
