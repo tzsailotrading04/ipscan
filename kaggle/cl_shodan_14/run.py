@@ -143,7 +143,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
         "last_slice_seconds": 0.0
     }
 
-    def sync_tls_handshake(sock, target, timeout=8.0):
+    def sync_tls_handshake(sock, target, timeout=5.0):
         try:
             sock.setblocking(True)
             sock.settimeout(timeout)
@@ -157,10 +157,6 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 if len(resp) > 2048: return False
             first_line = resp.split(b"\r\n")[0]
             if not (b" 200" in first_line or b"HTTP/1.1 200" in first_line or b"HTTP/1.0 200" in first_line):
-                return False
-            parts = resp.split(b"\r\n\r\n", 1)
-            trailing = parts[1] if len(parts) > 1 else b""
-            if trailing and trailing[:1] != b"\x16":
                 return False
             ss = SSL_CTX.wrap_socket(sock, server_hostname=target)
             ss.settimeout(timeout)
@@ -176,7 +172,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
             except Exception: pass
             return False
 
-    def sync_probe_target(ip, port, target, timeout=8.0):
+    def sync_probe_target(ip, port, target, timeout=5.0):
         s = None
         try:
             s = socket.create_connection((ip, port), timeout=timeout)
@@ -193,7 +189,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.setblocking(False)
             try:
-                await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=8.0)
+                await asyncio.wait_for(loop.sock_connect(s, (ip, port)), timeout=5.0)
             except asyncio.TimeoutError:
                 STAT_TIMEOUT += 1
                 try: s.close()
@@ -219,11 +215,11 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 return None
 
             # Primary target probe with connected socket
-            if await loop.run_in_executor(None, sync_tls_handshake, s, "speed.cloudflare.com", 8.0):
+            if await loop.run_in_executor(None, sync_tls_handshake, s, "speed.cloudflare.com", 5.0):
                 return port, "speed.cloudflare.com"
 
             for t in ["www.google.com", "one.one.one.one"]:
-                if await loop.run_in_executor(None, sync_probe_target, ip, port, t, 8.0):
+                if await loop.run_in_executor(None, sync_probe_target, ip, port, t, 5.0):
                     return port, t
             return None
 
