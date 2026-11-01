@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_hosting_1793435000_02.txt_500
-ts=1793561063
-offset=64512222
+stage=res_loop
+ts=1793561374
+offset=64537440
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:17:48] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793560448_01.txt: total=211 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 19:24:07] [SHARD 06 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-01 19:24:07] [SHARD 06 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
 [2026-11-01 19:24:07] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_01.txt: total=40000 shard_slice=1334 worker_slice=667 resume=500
 [2026-11-01 19:24:15] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_02.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
+[2026-11-01 19:24:31] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_03.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
