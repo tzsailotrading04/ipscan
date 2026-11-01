@@ -1,6 +1,6 @@
-stage=queue_slice_q_a4_dead_1793562495_01.txt_500
-ts=1793562828
-offset=64144954
+stage=res_loop
+ts=1793563122
+offset=64165526
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:53:47] [SHARD 16 W0] [FOUND QUEUE] 89.43.135.68:8080 (RESERVED) via www.google.com | cands=385
 [2026-11-01 19:53:47] [SHARD 16 W0] [FOUND QUEUE] 35.78.252.142:11080 (AMAZON-02) via one.one.one.one | cands=386

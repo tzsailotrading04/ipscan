@@ -1,6 +1,6 @@
-stage=queue_slice_q_a4_dead_1793562495_01.txt_500
-ts=1793562935
-offset=67675202
+stage=res_loop
+ts=1793563218
+offset=67689678
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:52:42] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=0
 [2026-11-01 19:55:34] [SHARD 08 W0] [FOUND QUEUE] 103.19.78.138:1111 (IDNIC-PDM-AS-ID) via one.one.one.one | cands=445

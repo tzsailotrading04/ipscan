@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793562953
-offset=68294593
+ts=1793563277
+offset=68314913
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:54:54] [SHARD 09 W0] [FOUND QUEUE] 177.234.211.175:999 (VUELATECHNOLOGY) via www.google.com | cands=398
 [2026-11-01 19:54:54] [SHARD 09 W0] [FOUND QUEUE] 202.51.196.230:8080 (JLM-AS-ID) via speed.cloudflare.com | cands=399

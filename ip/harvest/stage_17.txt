@@ -1,6 +1,6 @@
-stage=queue_slice_q_a4_dead_1793562495_01.txt_500
-ts=1793562890
-offset=69320444
+stage=res_loop
+ts=1793563224
+offset=69345080
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:52:39] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562447_01.txt: total=9494 shard_slice=316 worker_slice=158 resume=0
 [2026-11-01 19:53:20] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=0
