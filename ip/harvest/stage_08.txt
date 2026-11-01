@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793463360
-offset=65435528
+stage=queue_slice_q_a4_dead_1793465000_05.txt_0
+ts=1793526497
+offset=65438196
 --- LAST 5 LOG LINES ---
-[2026-10-31 16:02:06] [SHARD 08 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 16:02:37] [SHARD 08 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 16:03:07] [SHARD 08 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 16:03:37] [SHARD 08 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
-[2026-10-31 16:04:08] [SHARD 08 W0] [QUEUE STAGE] Found 3 queue files to consume before IP scanning
+[2026-11-01 09:46:16] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
+[2026-11-01 09:47:13] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
+[2026-11-01 09:48:16] [SHARD 08 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (136.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-01 09:48:17] [SHARD 08 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:48:17] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=817 worker_slice=409 resume=0

@@ -415,3 +415,9 @@
 119.93.8.4:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 154.19.39.220:8090	www.google.com	QUEUE	0	IDNIC-LNS-AS-ID
 147.161.247.9:12094	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+16.28.29.244:8001	one.one.one.one	QUEUE	0	AMAZON-02
+181.78.240.17:999	speed.cloudflare.com	QUEUE	0	UFINET
+3.98.122.11:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+5.58.97.89:8080	one.one.one.one	QUEUE	0	COLUMBUS-PE-TE
+198.46.226.236:8118	one.one.one.one	QUEUE	0	AS-COLOCROSSING
+181.78.95.59:999	speed.cloudflare.com	QUEUE	0	UFINET

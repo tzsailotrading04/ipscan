@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793463090_01.txt_0
-ts=1793463322
-offset=61966385
+stage=queue_slice_q_a4_dead_1793465000_05.txt_0
+ts=1793526625
+offset=61961146
 --- LAST 5 LOG LINES ---
-[2026-10-31 16:15:21] [SHARD 18 W0] [FOUND QUEUE] 8.243.68.187:999 (LEVEL3) via speed.cloudflare.com | cands=482
-[2026-10-31 16:15:21] [SHARD 18 W0] [FOUND QUEUE] 95.211.83.181:3128 (LEASEWEB-NL-AMS-01) via one.one.one.one | cands=483
-[2026-10-31 16:15:21] [SHARD 18 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (121.2s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-10-31 16:15:22] [SHARD 18 W0] [QUEUE STAGE] Found 20 queue files to consume before IP scanning
-[2026-10-31 16:15:22] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_http_1793463090_01.txt: total=467 shard_slice=14 worker_slice=7 resume=0
+[2026-11-01 09:49:50] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 09:50:07] [SHARD 18 W0] [FOUND QUEUE] 123.57.0.163:8888 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=491
+[2026-11-01 09:50:07] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 09:50:25] [SHARD 18 W0] [FOUND QUEUE] 103.176.94.154:3125 (IDNIC-MITRAINET-AS-ID) via speed.cloudflare.com | cands=492
+[2026-11-01 09:50:25] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=816 worker_slice=408 resume=0

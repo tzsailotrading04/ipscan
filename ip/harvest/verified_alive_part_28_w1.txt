@@ -325,3 +325,9 @@
 201.182.204.18:9999	speed.cloudflare.com	QUEUE	0	CONECT
 56.112.8.169:81	speed.cloudflare.com	QUEUE	0	AMAZON-02
 85.117.63.207:8080	speed.cloudflare.com	QUEUE	0	CAUCASUS-CABLE-SYSTEM
+18.157.159.247:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.217.160.139:8080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+122.52.20.79:8081	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+43.200.174.95:8083	speed.cloudflare.com	QUEUE	0	AMAZON-02
+108.137.124.195:3127	one.one.one.one	QUEUE	0	AMAZON-02
+149.104.24.86:40001	one.one.one.one	QUEUE	0	LUCID-AS-AP
