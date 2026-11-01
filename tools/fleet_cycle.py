@@ -360,8 +360,7 @@ def merge_out_branches():
             f'"ip/harvest/queue_failed_part_{tag}*.txt" '
             f'"ip/harvest/shodan_stats_v98_{tag}*.txt" '
             f'"ip/harvest/shodan_progress_v98_{tag}*.txt" '
-            f'"ip/harvest/stage_{tag}.txt" '
-            f'"ip/harvest/masscan_test.txt"'
+            f'"ip/harvest/stage_{tag}.txt"'
         )
         if c_code == 0:
             merged_count += 1

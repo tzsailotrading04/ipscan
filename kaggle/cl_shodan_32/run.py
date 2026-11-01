@@ -1,70 +1,3 @@
-import subprocess as _sp, os as _os
-try:
-    _sp.run(["apt-get","-qq","install","-y","masscan","libpcap0.8"], capture_output=True, timeout=240)
-    r0 = _sp.run("ip route", shell=True, capture_output=True, text=True)
-    gw = ""
-    mac = ""
-    for line in r0.stdout.splitlines():
-        if line.startswith("default"):
-            parts = line.split()
-            gw = parts[2] if len(parts) > 2 else ""
-    if gw:
-        n = _sp.run(f"ip neigh show {gw}", shell=True, capture_output=True, text=True).stdout
-        toks = n.split()
-        if "lladdr" in toks:
-            mac = toks[toks.index("lladdr") + 1]
-    print("GW", gw, "MAC", mac)
-    cmd = "timeout 120 masscan 3.0.0.0/20 -p8080,3128,8888,1080,81,8000 --rate 5000 -e eth0"
-    if mac:
-        cmd += f" --router-mac {mac}"
-    r = _sp.run(cmd, shell=True, capture_output=True, text=True, timeout=150)
-    print("SCAN", r.returncode)
-    print("OUT", r.stdout[-2000:])
-    print("ERR", r.stderr[-2000:])
-except Exception as _e:
-    print("DIAG", _e)
-
-import subprocess as _sp, os as _os
-try:
-    _sp.run(["apt-get","-qq","install","-y","masscan"], capture_output=True, timeout=180)
-    r0 = _sp.run("ip route", shell=True, capture_output=True, text=True)
-    print("ROUTE", r0.stdout, r0.stderr)
-    gw = ""
-    mac = ""
-    for line in r0.stdout.splitlines():
-        if line.startswith("default"):
-            parts = line.split()
-            gw = parts[2] if len(parts) > 2 else ""
-    if gw:
-        n = _sp.run(f"ip neigh show {gw}", shell=True, capture_output=True, text=True).stdout
-        print("NEIGH", n)
-        toks = n.split()
-        if "lladdr" in toks:
-            mac = toks[toks.index("lladdr") + 1]
-    print("GW", gw, "MAC", mac)
-    cmd = "timeout 120 masscan 3.0.0.0/20 -p8080,3128,8888,1080,81,8000 --rate 5000 -e eth0"
-    if mac:
-        cmd += f" --router-mac {mac}"
-    r = _sp.run(cmd, shell=True, capture_output=True, text=True, timeout=150)
-    print("SCAN", r.returncode)
-    print("OUT", r.stdout[-2000:])
-    print("ERR", r.stderr[-2000:])
-except Exception as _e:
-    print("DIAG", _e)
-
-import subprocess as _sp, os as _os
-try:
-    _sp.run(["apt-get","-qq","update"], capture_output=True, timeout=180)
-    _sp.run(["apt-get","-qq","install","-y","masscan"], capture_output=True, timeout=180)
-    _v = _sp.run(["masscan","--version"], capture_output=True, text=True, timeout=30)
-    print("UID", _os.getuid())
-    print("VER", _v.returncode, _v.stdout, _v.stderr)
-    _r = _sp.run("timeout 120 masscan 3.0.0.0/20 -p8080,3128,8888,1080,81,8000 --rate 5000", shell=True, capture_output=True, text=True, timeout=150)
-    print("SCAN", _r.returncode)
-    print(_r.stdout[-3000:])
-except Exception as _e:
-    print("DIAG", _e)
-
 import os
 import re
 import sys
@@ -662,7 +595,6 @@ def git_sync_and_push(msg):
             f"ip/harvest/shodan_progress_v98_{SHARD_TAG}*.txt",
             f"ip/harvest/stage_{SHARD_TAG}.txt",
             f"ip/harvest/queue_failed_part_{SHARD_TAG}*.txt",
-            "ip/harvest/masscan_test.txt",
         ]
         for pat in patterns:
             subprocess.run(["git", "-C", REPO, "add", pat], capture_output=True, check=False)
@@ -686,55 +618,6 @@ def git_sync_and_push(msg):
         print(f"[GIT EXCEPTION] {e}", file=sys.stderr, flush=True)
         return False
 
-def run_environment_diagnostic():
-    if not os.environ.get("MASSCAN_TEST"):
-        return
-    try:
-        out_file = os.path.join(REPO, "ip", "harvest", "masscan_test.txt")
-        lines = []
-        ts = time.strftime("%Y-%m-%d %H:%M:%S")
-        lines.append(f"[{ts}] === CONTAINER ENVIRONMENT DIAGNOSTIC (MASSCAN_TEST) ===")
-
-        # 1. os.getuid()
-        try:
-            uid = os.getuid()
-            lines.append(f"[{ts}] os.getuid(): {uid}")
-        except Exception as e:
-            lines.append(f"[{ts}] os.getuid() error: {e}")
-
-        # 2. raw socket test with IPPROTO_RAW
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
-            s.close()
-            lines.append(f"[{ts}] raw_socket (IPPROTO_RAW): SUCCESS (CAP_NET_RAW present)")
-        except Exception as e:
-            lines.append(f"[{ts}] raw_socket (IPPROTO_RAW): FAILED ({e})")
-
-        # 3. apt-get -qq install -y masscan, fallback pip install masscan
-        try:
-            subprocess.run(["apt-get", "-qq", "update"], capture_output=True, text=True, timeout=60)
-            inst = subprocess.run(["apt-get", "-qq", "install", "-y", "masscan"], capture_output=True, text=True, timeout=120)
-            if inst.returncode == 0:
-                lines.append(f"[{ts}] install: apt-get success (code {inst.returncode})")
-            else:
-                pip_inst = subprocess.run([sys.executable, "-m", "pip", "install", "masscan"], capture_output=True, text=True, timeout=120)
-                lines.append(f"[{ts}] install: apt-get exit={inst.returncode} err={inst.stderr.strip()[:200]}; pip exit={pip_inst.returncode}")
-        except Exception as e:
-            lines.append(f"[{ts}] install error: {e}")
-
-        # 4. masscan --version
-        try:
-            ver = subprocess.run(["masscan", "--version"], capture_output=True, text=True, timeout=15)
-            lines.append(f"[{ts}] masscan --version: exit={ver.returncode} out={ver.stdout.strip()[:200]} err={ver.stderr.strip()[:200]}")
-        except Exception as e:
-            lines.append(f"[{ts}] masscan --version error: {e}")
-
-        os.makedirs(os.path.dirname(out_file), exist_ok=True)
-        with open(out_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines) + "\n")
-    except Exception as e:
-        print(f"[DIAGNOSTIC ERROR] {e}", file=sys.stderr)
-
 def run_master():
     def log(msg):
         t = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -751,7 +634,6 @@ def run_master():
             subprocess.run(["git", "clone", "--depth", "1", REPO_URL, REPO], check=True)
         subprocess.run(["git", "-C", REPO, "config", "user.name", f"W{SHARD_TAG}"], check=False)
         subprocess.run(["git", "-C", REPO, "config", "user.email", f"w{SHARD_TAG}@depinfarm.org"], check=False)
-        run_environment_diagnostic()
 
     try:
         import resource
