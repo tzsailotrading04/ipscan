@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793560734
-offset=63166420
+ts=1793561017
+offset=63184708
 --- LAST 5 LOG LINES ---
 [2026-11-01 18:13:12] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 19:18:19] [SHARD 27 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
