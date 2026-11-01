@@ -706,3 +706,8 @@
 56.69.255.84:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
 13.56.197.128:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
 103.166.226.48:3125	one.one.one.one	QUEUE	0	IDNIC-ARTAFLASH-AS-ID
+15.217.214.40:4673	speed.cloudflare.com	QUEUE	0	AMAZON-02
+75.102.134.206:8080	www.google.com	QUEUE	0	SINGLE-DIGITS
+212.227.182.100:110	speed.cloudflare.com	QUEUE	0	IONOS-AS
+45.180.26.1:999	speed.cloudflare.com	QUEUE	0	ROBERTO
+119.92.75.252:8181	speed.cloudflare.com	QUEUE	0	IPG-AS-AP

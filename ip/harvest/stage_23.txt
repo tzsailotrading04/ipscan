@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793562592
-offset=62942527
+stage=queue_loop
+ts=1793562728
+offset=62948939
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:24:03] [SHARD 23 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-01 19:24:03] [SHARD 23 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
 [2026-11-01 19:24:03] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_01.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
 [2026-11-01 19:24:19] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_02.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
 [2026-11-01 19:24:35] [SHARD 23 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
+[2026-11-01 19:52:08] [SHARD 23 W0] [FOUND QUEUE] 103.217.108.231:8080 (DOTINTERNET-AS-AP) via www.google.com | cands=479

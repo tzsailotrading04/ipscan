@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793562580
-offset=64622784
+ts=1793562843
+offset=64629791
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:24:07] [SHARD 06 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-01 19:24:07] [SHARD 06 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
-[2026-11-01 19:24:07] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_01.txt: total=40000 shard_slice=1334 worker_slice=667 resume=500
-[2026-11-01 19:24:15] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_02.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
-[2026-11-01 19:24:31] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_03.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
+[2026-11-01 19:53:20] [SHARD 06 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (143.2s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-01 19:53:21] [SHARD 06 W0] [QUEUE STAGE] Found 39 queue files to consume before IP scanning
+[2026-11-01 19:53:21] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=500
+[2026-11-01 19:54:03] [SHARD 06 W0] [FOUND QUEUE] 45.180.26.1:999 (ROBERTO) via speed.cloudflare.com | cands=431
+[2026-11-01 19:54:03] [SHARD 06 W0] [FOUND QUEUE] 119.92.75.252:8181 (IPG-AS-AP) via speed.cloudflare.com | cands=432
