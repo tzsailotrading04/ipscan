@@ -1,9 +1,9 @@
-stage=queue_slice_q_a5_dr_1793474000_01.txt_0
-ts=1793562354
-offset=67876834
+stage=queue_consuming
+ts=1793562656
+offset=67876850
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:45:50] [SHARD 05 W0] [FOUND QUEUE] 13.63.176.228:1080 (AMAZON-02) via speed.cloudflare.com | cands=447
-[2026-11-01 19:45:50] [SHARD 05 W0] [FOUND QUEUE] 147.161.247.9:10268 (ZSCALER-EMEA) via speed.cloudflare.com | cands=448
-[2026-11-01 19:45:50] [SHARD 05 W0] [FOUND QUEUE] 147.161.247.9:18000 (ZSCALER-EMEA) via www.google.com | cands=449
-[2026-11-01 19:45:50] [SHARD 05 W0] [STAGGER] Sleeping 4.7s before consuming slice of q_a5_dr_1793474000_01.txt...
-[2026-11-01 19:45:54] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a5_dr_1793474000_01.txt: total=770 shard_slice=31 worker_slice=16 resume=0
+[2026-11-01 19:48:48] [SHARD 05 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:49:19] [SHARD 05 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:49:50] [SHARD 05 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:50:21] [SHARD 05 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:50:56] [SHARD 05 W0] [QUEUE STAGE] Found 39 queue files to consume before IP scanning

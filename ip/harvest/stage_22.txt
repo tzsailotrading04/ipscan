@@ -1,9 +1,9 @@
-stage=queue_slice_q_a5_dr_1793474000_01.txt_0
-ts=1793562279
-offset=64979870
+stage=queue_consuming
+ts=1793562564
+offset=64979885
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:44:21] [SHARD 22 W0] [FOUND QUEUE] 203.171.31.68:3128 (CMCTELECOM-VN) via speed.cloudflare.com | cands=477
-[2026-11-01 19:44:21] [SHARD 22 W0] [FOUND QUEUE] 13.208.185.47:8001 (AMAZON-02) via speed.cloudflare.com | cands=478
-[2026-11-01 19:44:21] [SHARD 22 W0] [FOUND QUEUE] 18.204.230.205:8888 (AMAZON-AES) via one.one.one.one | cands=479
-[2026-11-01 19:44:21] [SHARD 22 W0] [STAGGER] Sleeping 18.0s before consuming slice of q_a5_dr_1793474000_01.txt...
-[2026-11-01 19:44:39] [SHARD 22 W0] [QUEUE STAGE] Consuming q_a5_dr_1793474000_01.txt: total=770 shard_slice=30 worker_slice=15 resume=0
+[2026-11-01 19:47:21] [SHARD 22 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:47:52] [SHARD 22 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:48:23] [SHARD 22 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:48:53] [SHARD 22 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
+[2026-11-01 19:49:24] [SHARD 22 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning

@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793562185
-offset=65064928
+ts=1793562508
+offset=65089312
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:18:10] [SHARD 24 W0] [FOUND QUEUE] 147.161.247.9:12670 (ZSCALER-EMEA) via speed.cloudflare.com | cands=379
 [2026-11-01 19:18:10] [SHARD 24 W0] [FOUND QUEUE] 89.150.34.208:3128 (CLODO) via speed.cloudflare.com | cands=380
 [2026-11-01 19:24:39] [SHARD 24 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-01 19:24:39] [SHARD 24 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
 [2026-11-01 19:24:39] [SHARD 24 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 19:47:55] [SHARD 24 W0] [FOUND RES] 115.247.125.218:8080 (RELIANCEJIO-IN) via speed.cloudflare.com | cands=381
