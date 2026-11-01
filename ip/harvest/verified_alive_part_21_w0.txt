@@ -362,3 +362,6 @@
 185.200.37.238:8080	speed.cloudflare.com	QUEUE	0	HIGHSPEED
 202.65.158.237:84	speed.cloudflare.com	QUEUE	0	PEL-AS-IN
 103.103.115.11:3125	www.google.com	QUEUE	0	IDNIC-HFM-AS-ID
+18.231.126.121:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+13.229.211.223:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.94.221.175:8080	one.one.one.one	QUEUE	0	AMAZON-02

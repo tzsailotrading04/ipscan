@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793526820
+stage=res_loop
+ts=1793527093
 offset=62887703
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:51:39] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:52:09] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:52:40] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:53:10] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:53:40] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:56:12] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:56:42] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:57:13] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:57:43] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:58:13] [SHARD 22 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
