@@ -631,3 +631,5 @@
 200.24.141.161:999	www.google.com	QUEUE	0	UFINET
 115.127.39.18:11211	speed.cloudflare.com	QUEUE	0	BRAC-BDMAIL-AS-BD
 38.224.150.83:999	speed.cloudflare.com	QUEUE	0	AARONKA
+103.74.144.57:80	speed.cloudflare.com	RES	0	ABSPL-AS-IN
+103.87.92.185:80	speed.cloudflare.com	RES	0	BBNL-IN

@@ -393,3 +393,4 @@
 139.255.5.98:443	www.google.com	QUEUE	0	LINKNET-ID-AP
 45.127.56.194:84	www.google.com	QUEUE	0	PEL-AS-IN
 103.151.17.201:8080	speed.cloudflare.com	QUEUE	0	RISNET-AS-IN
+103.74.144.57:80	speed.cloudflare.com	RES	0	ABSPL-AS-IN

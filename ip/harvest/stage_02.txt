@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793535001
-offset=63149304
+ts=1793535164
+offset=63161496
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:56:03] [SHARD 02 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:56:33] [SHARD 02 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:57:04] [SHARD 02 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:57:34] [SHARD 02 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:58:05] [SHARD 02 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 12:12:44] [SHARD 02 W0] [FOUND RES] 103.74.146.1:80 (ABSPL-AS-IN) via one.one.one.one | cands=367
