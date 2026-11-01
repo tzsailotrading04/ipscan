@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793561298
-offset=67572785
+ts=1793561601
+offset=67593105
 --- LAST 5 LOG LINES ---
 [2026-11-01 18:13:11] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 19:01:34] [SHARD 08 W0] [FOUND RES] 106.51.71.18:8080 (CABLELITE-AS-AP) via speed.cloudflare.com | cands=441
