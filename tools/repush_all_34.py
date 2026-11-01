@@ -6,12 +6,12 @@ kaggle_dir = os.path.join(userprofile, '.kaggle')
 os.makedirs(kaggle_dir, exist_ok=True)
 
 groups = [
-    ('remruata', ['00', '01', '20', '29', '30']),
+    ('remruata', ['00', '01', '20', '21', '29']),
     ('lalthazualasailo', ['02', '03', '04', '05', '22']),
     ('zomuanpuia', ['06', '07', '08', '09', '23']),
     ('laldinthari', ['10', '11', '12', '13', '24']),
     ('lalsangkima', ['15', '16', '17', '25', '26']),
-    ('spectatorlone', ['14', '18', '19', '31', '32']),
+    ('spectatorlone', ['14', '18', '19', '27', '28']),
 ]
 
 successes = []

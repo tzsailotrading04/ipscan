@@ -12,8 +12,8 @@ accounts = {
     'acct2': ('zomuanpuia', [6, 7, 8, 9, 23]),
     'acct3': ('laldinthari', [10, 11, 12, 13, 24]),
     'acct4': ('lalsangkima', [15, 16, 17, 25, 26]),
-    'acct5': ('remruata', [0, 1, 20, 29, 30]),
-    'acct6': ('spectatorlone', [14, 18, 19, 31, 32]),
+    'acct5': ('remruata', [0, 1, 20, 21, 29]),
+    'acct6': ('spectatorlone', [14, 18, 19, 27, 28]),
 }
 
 deleted = []
