@@ -22,11 +22,12 @@ try:
 except Exception:
     HAVE_SOCKS = False
 
-NUM_SHARDS = 25
+NUM_SHARDS = 20
 DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 20
 CONC = 600
 PACER_HI = 150.0
+MAX_UPTIME_SECONDS = 21600  # 6-hour session cap
 PROBE_CONCURRENCY = CONC
 
 ENGINE_VER = "v98.189"
@@ -119,6 +120,7 @@ def rand_ipv4():
 # ==============================================================================
 async def run_worker(shard_idx, worker_id, total_workers):
     w_tag = f"{shard_idx:02d}_w{worker_id}"
+    worker_start_t = time.time()
     log_pfx = f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [{ENGINE_VER} W{w_tag}]"
     print(f"{log_pfx} Initializing Worker {worker_id}/{total_workers} (Random IPv4 Looping)", flush=True)
 
@@ -613,6 +615,9 @@ async def run_worker(shard_idx, worker_id, total_workers):
     QUEUE_POLL_INTERVAL = 120  # Poll origin/main every 2 minutes
 
     while True:
+        if (time.time() - worker_start_t) >= MAX_UPTIME_SECONDS:
+            shard_log(f"[6-HOUR CAP REACHED] Worker uptime {time.time() - worker_start_t:.1f}s >= {MAX_UPTIME_SECONDS}s. Exiting cleanly.", flush=True)
+            sys.exit(0)
         now_poll = time.time()
         if (now_poll - last_queue_poll_t) >= QUEUE_POLL_INTERVAL:
             last_queue_poll_t = now_poll
@@ -744,9 +749,19 @@ def run_master():
     shard_part = os.path.join(REPO, "ip", "harvest", f"verified_alive_part_{SHARD_TAG}.txt")
     last_shard_sig = (os.path.getmtime(shard_part), os.path.getsize(shard_part)) if os.path.exists(shard_part) else None
     last_push_t = time.time()
+    master_start_t = time.time()
 
     while True:
         time.sleep(10)
+        uptime = time.time() - master_start_t
+        if uptime >= MAX_UPTIME_SECONDS:
+            log(f"[6-HOUR CAP REACHED] Master uptime {uptime:.1f}s >= {MAX_UPTIME_SECONDS}s. Exiting cleanly.")
+            for p in procs:
+                try: p.terminate()
+                except Exception: pass
+            commit_msg = f"{ENGINE_VER} shard_{SHARD_TAG}: 6h_clean_exit offset={total_offset} cands={total_cands}"
+            git_sync_and_push(commit_msg)
+            sys.exit(0)
         total_offset = 0
         total_total = 4294967296
         total_cands = 0

@@ -11,3 +11,12 @@
   - unique_ips_added_this_hour (515) is under 1,000
   - fleet_ips_sec (0.0) is under 2,000
 
+[2026-11-01T19:52:27Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+  - unique_ips_added_this_hour (43) is under 1,000
+  - fleet_ips_sec (0.0) is under 2,000
+
+[2026-11-01T20:21:01Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+  - fleet_ips_sec (0.0) is under 2,000
+

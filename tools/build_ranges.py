@@ -38,7 +38,7 @@ AZURE_FALLBACK = "https://download.microsoft.com/download/7/1/d/71d86715-5596-45
 
 CHUNK_SIZE = 500000
 TARGET_QUEUE_DEPTH = 15000000
-NUM_SHARDS = 25
+NUM_SHARDS = 20
 
 def fetch_json(url, headers=None, timeout=30):
     hdr = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}

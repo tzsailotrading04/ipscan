@@ -60,27 +60,23 @@ def save_pool_dict(pool_dict):
             pf.write(line + "\n")
     os.replace(tmp_path, POOL_FILE)
 
-# Account Shard Assignments (25 active shards, 5 per account across 5 accounts)
+# Account Shard Assignments (20 active shards, 5 per account across 4 accounts)
 FLEET_MAP = {
     "lalthazualasailo": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct1", "access_token"),
-        "shards": [0, 1, 2, 3, 18]
+        "shards": [0, 1, 2, 3, 16]
     },
     "zomuanpuia": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct2", "access_token"),
-        "shards": [4, 5, 6, 7, 19]
+        "shards": [4, 5, 6, 7, 17]
     },
     "laldinthari": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct3", "access_token"),
-        "shards": [8, 9, 10, 11, 20]
+        "shards": [8, 9, 10, 11, 18]
     },
     "lalsangkima": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct4", "access_token"),
-        "shards": [13, 14, 15, 21, 22]
-    },
-    "spectatorlone": {
-        "token_file": os.path.join(REPO_ROOT, "kaggle", "acct6", "access_token"),
-        "shards": [12, 16, 17, 23, 24]
+        "shards": [12, 13, 14, 15, 19]
     }
 }
 

@@ -28,7 +28,7 @@ STATE_FILE = os.path.join(WORK_DIR, "hourly_report_state.json")
 POOL_FILE = os.path.join(REPO_ROOT, "ip", "harvest", "real_pool.txt")
 QUEUE_DIR = os.path.join(REPO_ROOT, "ip", "harvest", "queue")
 
-NUM_SHARDS = 25
+NUM_SHARDS = 20
 
 def get_unique_pool_count():
     if not os.path.exists(POOL_FILE):
