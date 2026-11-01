@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_04.txt_500
-ts=1793550376
-offset=64142867
+stage=queue_slice_q_a4_dead_1793465000_05.txt_0
+ts=1793550407
+offset=64143034
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:24:56] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
-[2026-11-01 16:25:17] [SHARD 28 W0] [FOUND QUEUE] 213.131.85.26:1981 (LINKDOTNET-AS) via speed.cloudflare.com | cands=407
 [2026-11-01 16:25:17] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
 [2026-11-01 16:26:16] [SHARD 28 W0] [FOUND QUEUE] 103.180.119.77:8090 (IDNIC-PDM-AS-ID) via speed.cloudflare.com | cands=408
 [2026-11-01 16:26:16] [SHARD 28 W0] [FOUND QUEUE] 82.129.233.3:1976 (RAYA-AS) via www.google.com | cands=409
+[2026-11-01 16:26:47] [SHARD 28 W0] [FOUND QUEUE] 180.191.32.166:8081 (GLOBE-MOBILE-5TH-GEN-AS) via www.google.com | cands=410
+[2026-11-01 16:26:47] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=816 worker_slice=408 resume=0
