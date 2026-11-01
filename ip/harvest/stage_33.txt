@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_03.txt_0
-ts=1793555732
-offset=61154187
+stage=queue_slice_q_a5_dr_1793474000_01.txt_0
+ts=1793555891
+offset=61155708
 --- LAST 5 LOG LINES ---
-[2026-11-01 17:55:24] [SHARD 33 W0] [FOUND QUEUE] 180.191.139.199:8080 (GLOBE-TELECOM-AS) via speed.cloudflare.com | cands=394
-[2026-11-01 17:55:24] [SHARD 33 W0] [FOUND QUEUE] 103.217.216.94:8080 (INFOTAMA-AS-ID) via www.google.com | cands=395
-[2026-11-01 17:55:24] [SHARD 33 W0] [FOUND QUEUE] 45.174.56.21:999 (2M) via one.one.one.one | cands=396
-[2026-11-01 17:55:24] [SHARD 33 W0] [FOUND QUEUE] 203.207.56.117:3125 (STARNET-AS-ID) via speed.cloudflare.com | cands=397
-[2026-11-01 17:55:32] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1142 worker_slice=571 resume=0
+[2026-11-01 17:58:11] [SHARD 33 W0] [FOUND QUEUE] 103.172.42.235:8080 (IDNIC-MEDIASOLUSISUKSES-AS-ID) via speed.cloudflare.com | cands=413
+[2026-11-01 17:58:11] [SHARD 33 W0] [FOUND QUEUE] 56.124.69.80:81 (AMAZON-02) via speed.cloudflare.com | cands=414
+[2026-11-01 17:58:11] [SHARD 33 W0] [FOUND QUEUE] 16.79.60.249:8080 (AMAZON-02) via speed.cloudflare.com | cands=415
+[2026-11-01 17:58:11] [SHARD 33 W0] [FOUND QUEUE] 202.179.95.174:58080 (STARNET7-AS) via speed.cloudflare.com | cands=416
+[2026-11-01 17:58:11] [SHARD 33 W0] [QUEUE STAGE] Consuming q_a5_dr_1793474000_01.txt: total=770 shard_slice=22 worker_slice=11 resume=0
