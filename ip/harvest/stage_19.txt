@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793558710
-offset=66150422
+ts=1793559029
+offset=66170742
 --- LAST 5 LOG LINES ---
 [2026-11-01 16:36:50] [SHARD 19 W0] [FOUND QUEUE] 109.127.199.90:9999 (ARNES-NET) via www.google.com | cands=589
 [2026-11-01 18:14:54] [SHARD 19 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
