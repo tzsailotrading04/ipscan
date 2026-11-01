@@ -700,3 +700,8 @@
 89.43.135.68:8080	www.google.com	QUEUE	0	RESERVED
 35.78.252.142:11080	one.one.one.one	QUEUE	0	AMAZON-02
 3.14.5.30:8888	www.google.com	QUEUE	0	AMAZON-02
+3.26.144.112:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.26.144.112:3128	www.google.com	QUEUE	0	AMAZON-02
+3.26.144.112:8080	www.google.com	QUEUE	0	AMAZON-02
+3.26.144.112:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.26.144.112:1080	one.one.one.one	QUEUE	0	AMAZON-02
