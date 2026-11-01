@@ -1,9 +1,9 @@
 stage=queue_slice_q_a0_hosting_1793562359_01.txt_0
-ts=1793563031
-offset=66421137
+ts=1793564744
+offset=66421737
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:55:50] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_02.txt: total=40000 shard_slice=1600 worker_slice=800 resume=0
-[2026-11-01 19:56:09] [SHARD 03 W0] [STAGGER] Sleeping 14.7s before consuming slice of q_a0_hosting_1793435000_03.txt...
-[2026-11-01 19:56:23] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_03.txt: total=40000 shard_slice=1600 worker_slice=800 resume=0
-[2026-11-01 19:56:42] [SHARD 03 W0] [STAGGER] Sleeping 28.6s before consuming slice of q_a0_hosting_1793562359_01.txt...
-[2026-11-01 19:57:11] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_01.txt: total=500000 shard_slice=20000 worker_slice=10000 resume=0
+[2026-11-01 20:24:45] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_02.txt: total=40000 shard_slice=2000 worker_slice=1000 resume=0
+[2026-11-01 20:25:05] [SHARD 03 W0] [STAGGER] Sleeping 1.1s before consuming slice of q_a0_hosting_1793435000_03.txt...
+[2026-11-01 20:25:06] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793435000_03.txt: total=40000 shard_slice=2000 worker_slice=1000 resume=0
+[2026-11-01 20:25:26] [SHARD 03 W0] [STAGGER] Sleeping 18.0s before consuming slice of q_a0_hosting_1793562359_01.txt...
+[2026-11-01 20:25:44] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_01.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=0
