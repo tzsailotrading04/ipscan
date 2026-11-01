@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793540192
-offset=66917404
+ts=1793540481
+offset=66935692
 --- LAST 5 LOG LINES ---
 [2026-11-01 09:57:57] [SHARD 09 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:58:28] [SHARD 09 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
