@@ -648,3 +648,6 @@
 101.255.209.249:3128	www.google.com	QUEUE	0	TACHYON-AS-ID
 89.58.37.131:8899	speed.cloudflare.com	QUEUE	0	NETCUP-AS
 103.136.82.252:82	www.google.com	QUEUE	0	PDNPL-AS
+190.26.209.125:999	speed.cloudflare.com	QUEUE	0	ETB
+165.99.71.194:3125	speed.cloudflare.com	QUEUE	0	IDNIC-RDP-AS-ID
+38.49.140.226:999	speed.cloudflare.com	QUEUE	0	IENTC
