@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793563480
-offset=61766372
+stage=queue_slice_q_a0_http_1793563899_01.txt_0
+ts=1793563962
+offset=61796852
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:52:51] [SHARD 12 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-01 19:52:51] [SHARD 12 W0] [QUEUE STAGE] Found 39 queue files to consume before IP scanning
-[2026-11-01 19:52:51] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=0
 [2026-11-01 19:54:01] [SHARD 12 W0] [FOUND QUEUE] 201.165.190.26:8080 (MEGA) via speed.cloudflare.com | cands=428
 [2026-11-01 19:54:01] [SHARD 12 W0] [FOUND QUEUE] 103.177.199.67:1111 (IDNIC-NETEKSA-AS-ID) via one.one.one.one | cands=429
+[2026-11-01 20:12:42] [SHARD 12 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-01 20:12:42] [SHARD 12 W0] [QUEUE STAGE] Found 50 queue files to consume before IP scanning
+[2026-11-01 20:12:42] [SHARD 12 W0] [QUEUE STAGE] Consuming q_a0_http_1793563899_01.txt: total=268 shard_slice=9 worker_slice=5 resume=0

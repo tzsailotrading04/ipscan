@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793563454
-offset=65678451
+ts=1793563765
+offset=65704867
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:52:36] [SHARD 15 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=0
 [2026-11-01 19:54:13] [SHARD 15 W0] [FOUND QUEUE] 103.147.134.179:8080 (STATIONHOTSPOT-AS-ID) via www.google.com | cands=448
