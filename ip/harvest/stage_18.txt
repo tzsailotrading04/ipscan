@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_04.txt_500
-ts=1793550302
-offset=63416991
+stage=queue_slice_q_a5_dr_1793470000_01.txt_0
+ts=1793550382
+offset=63417733
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:23:55] [SHARD 18 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 16:23:55] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
-[2026-11-01 16:24:12] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
-[2026-11-01 16:25:02] [SHARD 18 W0] [FOUND QUEUE] 103.179.253.43:8181 (IDNIC-KUMARAHOTSPOT-AS-ID) via www.google.com | cands=511
-[2026-11-01 16:25:02] [SHARD 18 W0] [FOUND QUEUE] 103.187.136.20:3838 (TIMESCOMMUNICATION-AS-AP) via one.one.one.one | cands=512
+[2026-11-01 16:25:55] [SHARD 18 W0] [FOUND QUEUE] 43.129.66.216:59394 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=519
+[2026-11-01 16:25:55] [SHARD 18 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (120.2s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-01 16:25:58] [SHARD 18 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:25:58] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 16:26:22] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a5_dr_1793470000_01.txt: total=2000 shard_slice=67 worker_slice=34 resume=0

@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_04.txt_500
-ts=1793550274
-offset=65679588
+stage=queue_slice_q_a5_dr_1793474000_01.txt_0
+ts=1793550367
+offset=65680197
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:23:34] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
-[2026-11-01 16:23:58] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
-[2026-11-01 16:24:34] [SHARD 19 W0] [FOUND QUEUE] 5.7.135.228:80 (TDDE-ASN1) via speed.cloudflare.com | cands=558
-[2026-11-01 16:24:34] [SHARD 19 W0] [FOUND QUEUE] 103.222.255.161:8055 (IDNIC-INNET-AS-ID) via one.one.one.one | cands=559
-[2026-11-01 16:24:34] [SHARD 19 W0] [FOUND QUEUE] 106.0.168.138:8080 (MOE-AS-AP) via one.one.one.one | cands=560
+[2026-11-01 16:26:07] [SHARD 19 W0] [FOUND QUEUE] 43.213.53.73:8000 (AMAZON-02) via speed.cloudflare.com | cands=573
+[2026-11-01 16:26:07] [SHARD 19 W0] [FOUND QUEUE] 103.25.79.150:8054 (GTCL-AS-AP) via www.google.com | cands=574
+[2026-11-01 16:26:07] [SHARD 19 W0] [FOUND QUEUE] 56.68.113.189:10000 (AMAZON-02) via speed.cloudflare.com | cands=575
+[2026-11-01 16:26:07] [SHARD 19 W0] [FOUND QUEUE] 182.53.202.218:80 (TOT-NET) via www.google.com | cands=576
+[2026-11-01 16:26:07] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a5_dr_1793474000_01.txt: total=770 shard_slice=26 worker_slice=13 resume=0

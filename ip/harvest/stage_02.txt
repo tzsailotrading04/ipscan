@@ -1,9 +1,9 @@
-stage=queue_slice_q_a5_dr_1793470000_01.txt_0
-ts=1793550078
-offset=64089177
+stage=queue_consuming
+ts=1793550415
+offset=64089211
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:21:16] [SHARD 02 W0] [FOUND QUEUE] 40.177.180.197:8010 (AMAZON-02) via speed.cloudflare.com | cands=386
-[2026-11-01 16:21:16] [SHARD 02 W0] [FOUND QUEUE] 202.150.89.242:3128 (CEPATNET-AS-ID) via speed.cloudflare.com | cands=387
-[2026-11-01 16:21:16] [SHARD 02 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (124.2s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-01 16:21:17] [SHARD 02 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 16:21:17] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a5_dr_1793470000_01.txt: total=2000 shard_slice=67 worker_slice=34 resume=0
+[2026-11-01 16:24:53] [SHARD 02 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:25:24] [SHARD 02 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:25:54] [SHARD 02 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:26:25] [SHARD 02 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:26:55] [SHARD 02 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
