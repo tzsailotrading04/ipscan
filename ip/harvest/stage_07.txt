@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793563261
-offset=66295193
+ts=1793563568
+offset=66315513
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:55:27] [SHARD 07 W0] [FOUND QUEUE] 154.222.29.105:8888 (COGNETCLOUD-2) via one.one.one.one | cands=457
 [2026-11-01 19:55:27] [SHARD 07 W0] [FOUND QUEUE] 122.3.77.180:8082 (IPG-AS-AP) via www.google.com | cands=458

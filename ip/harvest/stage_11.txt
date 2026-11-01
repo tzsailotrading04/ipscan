@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793563109
-offset=65051158
+ts=1793563435
+offset=65073510
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:52:16] [SHARD 11 W0] [FOUND QUEUE] 56.112.93.245:443 (AMAZON-02) via speed.cloudflare.com | cands=443
 [2026-11-01 19:52:16] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=0

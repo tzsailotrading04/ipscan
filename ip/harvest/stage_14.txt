@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793563137
-offset=63558903
+ts=1793563422
+offset=63581255
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:51:52] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1503 worker_slice=752 resume=0
 [2026-11-01 19:53:48] [SHARD 14 W0] [FOUND QUEUE] 45.198.20.192:3125 (IMEDIANET-AS-ID) via speed.cloudflare.com | cands=462
