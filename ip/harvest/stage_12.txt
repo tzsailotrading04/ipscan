@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793564252
-offset=61815145
+ts=1793564566
+offset=61835465
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:54:01] [SHARD 12 W0] [FOUND QUEUE] 201.165.190.26:8080 (MEGA) via speed.cloudflare.com | cands=428
 [2026-11-01 19:54:01] [SHARD 12 W0] [FOUND QUEUE] 103.177.199.67:1111 (IDNIC-NETEKSA-AS-ID) via one.one.one.one | cands=429
