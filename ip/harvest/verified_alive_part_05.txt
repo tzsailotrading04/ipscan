@@ -767,3 +767,8 @@
 18.60.239.183:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
 52.53.173.174:80	speed.cloudflare.com	QUEUE	0	AMAZON-02
 102.244.78.61:8080	speed.cloudflare.com	QUEUE	0	ORANGE
+3.8.177.99:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.8.177.99:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.8.177.99:8080	www.google.com	QUEUE	0	AMAZON-02
+3.8.177.99:8888	www.google.com	QUEUE	0	AMAZON-02
+3.8.177.99:1080	one.one.one.one	QUEUE	0	AMAZON-02
