@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793549519
-offset=64852096
+stage=queue_slice_q_a4_dead_1793465000_02.txt_0
+ts=1793550049
+offset=64852808
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:58:00] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:58:30] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:01] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:32] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 10:00:02] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 16:20:16] [SHARD 25 W0] [FOUND QUEUE] 16.51.53.116:3128 (AMAZON-02) via one.one.one.one | cands=403
+[2026-11-01 16:20:16] [SHARD 25 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (144.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-01 16:20:17] [SHARD 25 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:20:17] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_01.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 16:20:49] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_02.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
