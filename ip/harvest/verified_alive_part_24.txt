@@ -654,3 +654,15 @@
 102.218.41.98:8082	www.google.com	QUEUE	0	IIL3-AS
 103.1.50.46:3125	speed.cloudflare.com	QUEUE	0	IDNIC-TAHTA-ID
 203.177.139.10:8082	speed.cloudflare.com	QUEUE	0	GLOBE-TELECOM-AS
+103.76.44.175:8090	www.google.com	QUEUE	0	UTURN-AS-AP
+205.209.66.132:3128	speed.cloudflare.com	QUEUE	0	RCELL
+147.161.247.9:12762	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+144.79.219.4:3128	speed.cloudflare.com	QUEUE	0	EXONHOST-AS-AP
+13.204.143.22:8882	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.182.22.175:8000	speed.cloudflare.com	QUEUE	0	INTERDIGI-VN
+51.17.127.212:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+52.59.42.97:10000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+161.118.169.151:3128	speed.cloudflare.com	QUEUE	0	ORACLE-BMC-31898
+119.188.131.55:17981	speed.cloudflare.com	QUEUE	0	CHINA169-BACKBONE
+13.53.172.83:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.99.60.244:8089	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
