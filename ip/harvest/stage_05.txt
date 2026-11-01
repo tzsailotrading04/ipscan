@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793549451
-offset=67233468
+stage=queue_slice_q_a4_dead_1793465000_05.txt_0
+ts=1793550005
+offset=67215860
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:56:16] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:56:47] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:57:17] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:57:48] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:58:18] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 16:18:53] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1334 worker_slice=667 resume=500
+[2026-11-01 16:19:12] [SHARD 05 W0] [FOUND QUEUE] 119.92.252.190:8082 (IPG-AS-AP) via speed.cloudflare.com | cands=357
+[2026-11-01 16:19:12] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1334 worker_slice=667 resume=0
+[2026-11-01 16:20:05] [SHARD 05 W0] [FOUND QUEUE] 103.156.71.121:3128 (ONET-AS-ID) via speed.cloudflare.com | cands=358
+[2026-11-01 16:20:05] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=817 worker_slice=409 resume=0

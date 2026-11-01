@@ -347,3 +347,16 @@
 191.36.128.73:8080	speed.cloudflare.com	QUEUE	0	NETFI
 180.194.78.50:8082	one.one.one.one	QUEUE	0	IPG-AS-AP
 13.63.176.228:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+125.16.250.62:8080	one.one.one.one	QUEUE	0	BBIL-AP
+202.150.89.245:3128	speed.cloudflare.com	QUEUE	0	CEPATNET-AS-ID
+144.124.251.24:10816	speed.cloudflare.com	QUEUE	0	VDSINA
+18.222.231.188:48094	one.one.one.one	QUEUE	0	AMAZON-02
+203.9.195.4:9000	speed.cloudflare.com	QUEUE	0	GWC-AS-AP
+147.161.247.9:10240	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+160.191.180.145:8089	one.one.one.one	QUEUE	0	GMDP-AS-ID
+202.150.89.243:3128	speed.cloudflare.com	QUEUE	0	CEPATNET-AS-ID
+103.180.119.146:8090	speed.cloudflare.com	QUEUE	0	IDNIC-PDM-AS-ID
+144.124.251.24:11198	one.one.one.one	QUEUE	0	VDSINA
+202.150.89.246:3128	speed.cloudflare.com	QUEUE	0	CEPATNET-AS-ID
+144.124.251.24:10766	one.one.one.one	QUEUE	0	VDSINA
+182.53.202.218:8080	speed.cloudflare.com	QUEUE	0	TOT-NET

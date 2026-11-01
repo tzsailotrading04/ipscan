@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793549526
-offset=64293226
+stage=queue_slice_q_a4_dead_1793465000_02.txt_500
+ts=1793549983
+offset=64276161
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:57:19] [SHARD 11 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:57:49] [SHARD 11 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:58:20] [SHARD 11 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:58:50] [SHARD 11 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:20] [SHARD 11 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 16:18:32] [SHARD 11 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:18:32] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_01.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 16:19:01] [SHARD 11 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_02.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
+[2026-11-01 16:19:43] [SHARD 11 W0] [FOUND QUEUE] 3.103.31.149:443 (AMAZON-02) via speed.cloudflare.com | cands=405
+[2026-11-01 16:19:43] [SHARD 11 W0] [FOUND QUEUE] 103.26.176.25:8080 (IDNIC-LJN-AS-ID) via www.google.com | cands=406
