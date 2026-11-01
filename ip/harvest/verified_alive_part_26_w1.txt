@@ -458,3 +458,5 @@
 103.132.54.150:8080	one.one.one.one	QUEUE	0	DEXA-AS-ID
 103.56.163.147:3128	speed.cloudflare.com	QUEUE	0	VNPT-AS-VN
 45.224.149.77:999	www.google.com	QUEUE	0	UFINET
+147.161.247.9:10881	www.google.com	QUEUE	0	ZSCALER-EMEA
+206.135.12.153:999	speed.cloudflare.com	QUEUE	0	IENTC
