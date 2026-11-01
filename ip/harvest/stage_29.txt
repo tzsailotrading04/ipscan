@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793545870
-offset=66860926
+ts=1793546177
+offset=66881246
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:55:38] [SHARD 29 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:56:08] [SHARD 29 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:56:39] [SHARD 29 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:57:10] [SHARD 29 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:57:40] [SHARD 29 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 15:16:17] [SHARD 29 W0] [FOUND RES] 117.244.80.73:8080 (BSNL-NIB) via speed.cloudflare.com | cands=409
+[2026-11-01 15:16:17] [SHARD 29 W0] [FOUND RES] 117.244.80.77:8080 (BSNL-NIB) via speed.cloudflare.com | cands=410
