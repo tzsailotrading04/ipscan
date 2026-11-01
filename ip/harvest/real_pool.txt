@@ -12513,3 +12513,8 @@
 103.172.172.243:8080	speed.cloudflare.com	QUEUE	0	IDNIC-SIM-SKYNETWORK-AS-ID
 16.28.29.244:2062	speed.cloudflare.com	QUEUE	0	AMAZON-02
 3.21.37.31:80	one.one.one.one	QUEUE	0	AMAZON-02
+3.26.144.112:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.26.144.112:3128	www.google.com	QUEUE	0	AMAZON-02
+3.26.144.112:8080	www.google.com	QUEUE	0	AMAZON-02
+3.26.144.112:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.26.144.112:1080	one.one.one.one	QUEUE	0	AMAZON-02
