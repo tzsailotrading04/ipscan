@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793560086
-offset=69141694
+ts=1793560755
+offset=69178277
 --- LAST 5 LOG LINES ---
-[2026-11-01 18:13:23] [SHARD 17 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-01 18:13:23] [SHARD 17 W0] [QUEUE STAGE] Found 13 queue files to consume before IP scanning
-[2026-11-01 18:13:23] [SHARD 17 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 18:13:51] [SHARD 17 W0] [FOUND QUEUE] 103.183.58.230:8085 (CDNETID-AS-ID) via speed.cloudflare.com | cands=404
 [2026-11-01 18:13:51] [SHARD 17 W0] [FOUND QUEUE] 147.161.247.9:12480 (ZSCALER-EMEA) via one.one.one.one | cands=405
+[2026-11-01 19:19:15] [SHARD 17 W0] [FOUND QUEUE] 139.162.60.92:3128 (AKAMAI-LINODE-AP) via one.one.one.one | cands=406
+[2026-11-01 19:19:15] [SHARD 17 W0] [FOUND QUEUE] 147.161.247.9:11805 (ZSCALER-EMEA) via speed.cloudflare.com | cands=407
+[2026-11-01 19:19:15] [SHARD 17 W0] [FOUND QUEUE] 56.68.116.64:47483 (AMAZON-02) via one.one.one.one | cands=408
