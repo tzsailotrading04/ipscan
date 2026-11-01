@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793571220
-offset=65419262
+ts=1793571712
+offset=65449747
 --- LAST 5 LOG LINES ---
-[2026-11-01 20:13:10] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793563899_01.txt: total=268 shard_slice=8 worker_slice=4 resume=0
-[2026-11-01 21:18:16] [SHARD 28 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-01 21:18:16] [SHARD 28 W0] [QUEUE STAGE] Found 51 queue files to consume before IP scanning
-[2026-11-01 21:18:16] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793567821_01.txt: total=245 shard_slice=8 worker_slice=4 resume=0
-[2026-11-01 21:18:26] [SHARD 28 W0] [FOUND QUEUE] 111.192.55.16:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=444
+[2026-11-01 22:16:26] [SHARD 28 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-01 22:16:26] [SHARD 28 W0] [QUEUE STAGE] Found 52 queue files to consume before IP scanning
+[2026-11-01 22:16:26] [SHARD 28 W0] [QUEUE STAGE] Consuming q_a0_http_1793571331_01.txt: total=306 shard_slice=10 worker_slice=5 resume=0
+[2026-11-01 22:16:53] [SHARD 28 W0] [FOUND QUEUE] 18.157.159.247:29448 (AMAZON-02) via speed.cloudflare.com | cands=445
+[2026-11-01 22:16:53] [SHARD 28 W0] [FOUND QUEUE] 210.77.22.10:7890 (CSTNET-AS-AP) via speed.cloudflare.com | cands=446
