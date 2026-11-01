@@ -6,13 +6,12 @@ kaggle_dir = os.path.join(userprofile, '.kaggle')
 os.makedirs(kaggle_dir, exist_ok=True)
 
 groups = [
-    ('remruata', ['00', '01', '20', '21']),
+    ('remruata', ['00', '01', '20', '29', '30']),
     ('lalthazualasailo', ['02', '03', '04', '05', '22']),
     ('zomuanpuia', ['06', '07', '08', '09', '23']),
     ('laldinthari', ['10', '11', '12', '13', '24']),
     ('lalsangkima', ['15', '16', '17', '25', '26']),
-    ('spectatorlone', ['14', '18', '19', '27', '28']),
-    ('stephen34', ['29', '30', '31', '32', '33']),
+    ('spectatorlone', ['14', '18', '19', '31', '32']),
 ]
 
 successes = []
@@ -53,11 +52,11 @@ for username, shards in groups:
         time.sleep(3)
 
 print("\n==========================================")
-print(f"SUMMARY: {len(successes)}/34 SUCCESSFUL, {len(failures)} FAILED")
+print(f"SUMMARY: {len(successes)}/30 SUCCESSFUL, {len(failures)} FAILED")
 if failures:
     print("FAILURES:")
     for s, u, err in failures:
         print(f"  Shard {s} ({u}): {err}")
 else:
-    print("ALL 34 SHARDS PUSHED SUCCESSFULLY WITH 0 FAILURES")
+    print("ALL 30 SHARDS PUSHED SUCCESSFULLY WITH 0 FAILURES")
 print("==========================================")

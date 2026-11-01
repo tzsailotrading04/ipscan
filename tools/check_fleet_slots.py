@@ -28,19 +28,15 @@ FLEET = [
     (18, "spectatorlone", "kaggle/acct6/access_token"),
     (19, "spectatorlone", "kaggle/acct6/access_token"),
     (20, "remruata", "kaggle/acct5/access_token"),
-    (21, "remruata", "kaggle/acct5/access_token"),
     (22, "lalthazualasailo", "kaggle/acct1/access_token"),
     (23, "zomuanpuia", "kaggle/acct2/access_token"),
     (24, "laldinthari", "kaggle/acct3/access_token"),
     (25, "lalsangkima", "kaggle/acct4/access_token"),
     (26, "lalsangkima", "kaggle/acct4/access_token"),
-    (27, "spectatorlone", "kaggle/acct6/access_token"),
-    (28, "spectatorlone", "kaggle/acct6/access_token"),
-    (29, "stephen34", "kaggle/stephen34/access_token"),
-    (30, "stephen34", "kaggle/stephen34/access_token"),
-    (31, "stephen34", "kaggle/stephen34/access_token"),
-    (32, "stephen34", "kaggle/stephen34/access_token"),
-    (33, "stephen34", "kaggle/stephen34/access_token"),
+    (29, "remruata", "kaggle/acct5/access_token"),
+    (30, "remruata", "kaggle/acct5/access_token"),
+    (31, "spectatorlone", "kaggle/acct6/access_token"),
+    (32, "spectatorlone", "kaggle/acct6/access_token"),
 ]
 
 tokens = {tp: open(os.path.join(REPO, tp)).read().strip() for _, _, tp in FLEET}
@@ -90,11 +86,12 @@ for s, u, kid, st in sorted(results):
     if u == "stephen34":
         print(f"shard_{s:02d} ({u}): {st}")
 
-print("\n=== STEPHEN34 BREAKDOWN ===")
-s_running = acct_counts["stephen34"]["RUNNING"]
-s_free = 5 - s_running
-print(f"stephen34 Running Shards : {s_running}")
-print(f"stephen34 Free Slots     : {s_free} (Max capacity: 5)")
+if "stephen34" in acct_counts:
+    print("\n=== STEPHEN34 BREAKDOWN ===")
+    s_running = acct_counts["stephen34"]["RUNNING"]
+    s_free = 5 - s_running
+    print(f"stephen34 Running Shards : {s_running}")
+    print(f"stephen34 Free Slots     : {s_free} (Max capacity: 5)")
 
 print("\n=== PER-ACCOUNT RUNNING ===")
 for u, c in sorted(acct_counts.items()):

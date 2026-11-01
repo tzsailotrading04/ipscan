@@ -8,13 +8,12 @@ with open(os.path.join(repo, 'work', 'STOP_SHODAN'), 'w') as f:
 print("Placed work/STOP_SHODAN flag.")
 
 accounts = {
-    'acct0': ('stephen34', [29, 30, 31, 32, 33]),
     'acct1': ('lalthazualasailo', [2, 3, 4, 5, 22]),
     'acct2': ('zomuanpuia', [6, 7, 8, 9, 23]),
     'acct3': ('laldinthari', [10, 11, 12, 13, 24]),
     'acct4': ('lalsangkima', [15, 16, 17, 25, 26]),
-    'acct5': ('remruata', [0, 1, 20]),
-    'acct6': ('spectatorlone', [14, 18, 19, 27, 28]),
+    'acct5': ('remruata', [0, 1, 20, 29, 30]),
+    'acct6': ('spectatorlone', [14, 18, 19, 31, 32]),
 }
 
 deleted = []
