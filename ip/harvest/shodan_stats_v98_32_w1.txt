@@ -1,8 +1,8 @@
-offset=63719798
+offset=63744185
 total=4294967296
 cands=514
 errno99=0
-timeout=13333
-refused=742
-req_s=48748.3
+timeout=31411
+refused=6817
+req_s=38764.1
 stage=res_loop
