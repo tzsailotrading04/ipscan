@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793561933
-offset=67373054
+ts=1793562218
+offset=67393374
 --- LAST 5 LOG LINES ---
-[2026-11-01 18:14:47] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 18:15:17] [SHARD 10 W0] [FOUND QUEUE] 51.17.99.135:24430 (AMAZON-02) via one.one.one.one | cands=413
 [2026-11-01 19:18:21] [SHARD 10 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-01 19:18:21] [SHARD 10 W0] [QUEUE STAGE] Found 14 queue files to consume before IP scanning
 [2026-11-01 19:18:21] [SHARD 10 W0] [QUEUE STAGE] Consuming q_a0_http_1793560448_01.txt: total=211 shard_slice=7 worker_slice=4 resume=0
+[2026-11-01 19:42:24] [SHARD 10 W0] [FOUND RES] 115.244.219.158:8080 (RELIANCEJIO-IN) via speed.cloudflare.com | cands=414

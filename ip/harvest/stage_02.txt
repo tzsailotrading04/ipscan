@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_04.txt_0
-ts=1793561984
-offset=64774807
+stage=queue_slice_q_a5_dr_1793474000_01.txt_0
+ts=1793562144
+offset=64776137
 --- LAST 5 LOG LINES ---
-[2026-11-01 19:39:23] [SHARD 02 W0] [FOUND QUEUE] 187.249.159.60:999 (TRANSTELCO-INC) via speed.cloudflare.com | cands=428
-[2026-11-01 19:39:23] [SHARD 02 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (153.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-01 19:39:25] [SHARD 02 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
-[2026-11-01 19:39:25] [SHARD 02 W0] [STAGGER] Sleeping 19.3s before consuming slice of q_a4_dead_1793465000_04.txt...
-[2026-11-01 19:39:44] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1600 worker_slice=800 resume=0
+[2026-11-01 19:42:22] [SHARD 02 W0] [FOUND QUEUE] 65.0.54.254:81 (AMAZON-02) via speed.cloudflare.com | cands=449
+[2026-11-01 19:42:22] [SHARD 02 W0] [FOUND QUEUE] 45.198.20.149:3125 (IMEDIANET-AS-ID) via speed.cloudflare.com | cands=450
+[2026-11-01 19:42:22] [SHARD 02 W0] [FOUND QUEUE] 78.12.28.21:8000 (AMAZON-02) via speed.cloudflare.com | cands=451
+[2026-11-01 19:42:22] [SHARD 02 W0] [STAGGER] Sleeping 1.9s before consuming slice of q_a5_dr_1793474000_01.txt...
+[2026-11-01 19:42:24] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a5_dr_1793474000_01.txt: total=770 shard_slice=31 worker_slice=16 resume=0

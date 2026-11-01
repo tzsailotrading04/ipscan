@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793561906
-offset=66349527
+ts=1793562213
+offset=66369847
 --- LAST 5 LOG LINES ---
 [2026-11-01 19:25:21] [SHARD 19 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-01 19:25:21] [SHARD 19 W0] [QUEUE STAGE] Found 17 queue files to consume before IP scanning
