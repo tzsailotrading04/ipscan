@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793551034
-offset=64143488
+stage=res_loop
+ts=1793551115
+offset=64144304
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:35:13] [SHARD 28 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 16:35:43] [SHARD 28 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
 [2026-11-01 16:36:13] [SHARD 28 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
 [2026-11-01 16:36:44] [SHARD 28 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
 [2026-11-01 16:37:14] [SHARD 28 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:38:35] [SHARD 28 W0] [FOUND QUEUE] 196.251.212.52:8081 (INFOGRO) via www.google.com | cands=440
+[2026-11-01 16:38:35] [SHARD 28 W0] [FOUND QUEUE] 181.114.230.37:8080 (CYBERWAVE) via one.one.one.one | cands=441
