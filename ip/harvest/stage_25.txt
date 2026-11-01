@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_02.txt_500
-ts=1793550099
-offset=64853308
+stage=queue_slice_q_a4_dead_1793465000_03.txt_0
+ts=1793550127
+offset=64853475
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:21:39] [SHARD 25 W0] [FOUND QUEUE] 181.188.203.112:999 (UFINET) via www.google.com | cands=404
-[2026-11-01 16:21:39] [SHARD 25 W0] [FOUND QUEUE] 16.28.101.55:3127 (AMAZON-02) via one.one.one.one | cands=405
 [2026-11-01 16:21:39] [SHARD 25 W0] [FOUND QUEUE] 103.156.233.189:3125 (MULTIMEDIALINKTECH-AS-ID) via speed.cloudflare.com | cands=406
 [2026-11-01 16:21:39] [SHARD 25 W0] [FOUND QUEUE] 147.161.246.37:11692 (ZSCALER-EMEA) via speed.cloudflare.com | cands=407
 [2026-11-01 16:21:39] [SHARD 25 W0] [FOUND QUEUE] 147.161.246.37:10011 (ZSCALER-EMEA) via speed.cloudflare.com | cands=408
+[2026-11-01 16:22:07] [SHARD 25 W0] [FOUND QUEUE] 154.27.196.79:999 (JOSE) via speed.cloudflare.com | cands=409
+[2026-11-01 16:22:07] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
