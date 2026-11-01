@@ -27,14 +27,14 @@ DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 20
 CONC = 600
 PACER_HI = 150.0
-MAX_UPTIME_SECONDS = 21600  # 6-hour session cap
+MAX_UPTIME_SECONDS = 28800  # 8-hour session cap
 PROBE_CONCURRENCY = CONC
 
 ENGINE_VER = "v98.189"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
-DIRECT_PORTS = [443, 3128, 8080, 8888, 1080, 8118, 80, 4145]
+DIRECT_PORTS = [3128, 8080, 8000, 8118, 8888, 1080]
 
 TARGETS = ["speed.cloudflare.com", "www.google.com", "one.one.one.one"]
 SSL_CTX = ssl.create_default_context()

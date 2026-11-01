@@ -389,3 +389,8 @@
 3.26.144.112:8080	www.google.com	QUEUE	0	AMAZON-02
 3.26.144.112:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
 3.26.144.112:1080	one.one.one.one	QUEUE	0	AMAZON-02
+3.77.150.228:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.77.150.228:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.77.150.228:8080	www.google.com	QUEUE	0	AMAZON-02
+3.77.150.228:8888	one.one.one.one	QUEUE	0	AMAZON-02
+3.77.150.228:1080	www.google.com	QUEUE	0	AMAZON-02
