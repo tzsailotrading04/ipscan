@@ -27,7 +27,7 @@ DEFAULT_WORKERS = 2
 BACKOFF_WORKERS = 20
 PROBE_CONCURRENCY = 600
 
-ENGINE_VER = "v98.188"
+ENGINE_VER = "v98.189"
 OUT_PREFIX = "v98_"
 
 SCAN_MODE = "direct"
@@ -506,6 +506,20 @@ async def run_worker(shard_idx, worker_id, total_workers):
                 _rem += 1
         return _rem
 
+    def check_unconsumed_queue():
+        if not os.path.exists(queue_dir):
+            return False
+        q_files = sorted([f for f in os.listdir(queue_dir) if f.startswith("q_") and f.endswith(".txt")])
+        qcur_dir = os.path.join(REPO, "cache", "qcursor")
+        for _f in q_files:
+            _p = os.path.join(qcur_dir, f"{_f}.cur_{shard_idx}")
+            try:
+                if not (os.path.exists(_p) and open(_p, "r", encoding="utf-8").read().strip() == "DONE"):
+                    return True
+            except Exception:
+                return True
+        return False
+
     write_stage_file("init:enter_consume_queue_stage", offset)
     _empty = 0
     for _pass in range(600):
@@ -527,7 +541,28 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
     # MAIN WORKER EXECUTION LOOP
     write_stage_file("scanning_start", offset)
+    last_queue_poll_t = time.time()
+    QUEUE_POLL_INTERVAL = 120  # Poll origin/main every 2 minutes
+
     while True:
+        now_poll = time.time()
+        if (now_poll - last_queue_poll_t) >= QUEUE_POLL_INTERVAL:
+            last_queue_poll_t = now_poll
+            try:
+                subprocess.run(["git", "fetch", "--depth", "1", "origin", "main"], cwd=REPO, capture_output=True, timeout=90)
+                subprocess.run(["git", "checkout", "FETCH_HEAD", "--", "ip/harvest/queue"], cwd=REPO, capture_output=True, timeout=90)
+            except Exception:
+                pass
+            if check_unconsumed_queue():
+                shard_log(f"[QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.", flush=True)
+                write_stage_file("queue_interrupt", offset)
+                while True:
+                    _left = await consume_queue_stage()
+                    if not _left:
+                        break
+                    await asyncio.sleep(1)
+                write_stage_file("scanning_resume", offset)
+
         task_items, current_tier = get_candidate_batch()
         write_stage_file(f"{current_tier.lower()}_loop", offset)
         tasks = []
