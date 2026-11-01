@@ -63,7 +63,7 @@ def flush():
     global buf, nfile
     if not buf:
         return
-    path = os.path.join(OUTDIR, f"q_ac_asn_{STAMP}_{nfile:02d}.txt")
+    path = os.path.join(OUTDIR, f"q_a0_hosting_{STAMP}_{nfile:02d}.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(buf) + "\n")
     print("wrote", path, len(buf))
