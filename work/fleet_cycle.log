@@ -1,0 +1,473 @@
+
+[2026-10-31 19:03:44] [MERGE] Fetching all out/sh* branches...
+
+[2026-10-31 19:11:12] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:11:12] === STARTING FLEET CYCLE 1 ===
+NOT RUNNING: Shard 00 (remruata) -> NOT RUNNING
+  Failed to repush Shard 00: 
+NOT RUNNING: Shard 01 (remruata) -> NOT RUNNING
+  Failed to repush Shard 01: 
+NOT RUNNING: Shard 20 (remruata) -> NOT RUNNING
+  Failed to repush Shard 20: 
+NOT RUNNING: Shard 21 (remruata) -> NOT RUNNING
+  Failed to repush Shard 21: 
+NOT RUNNING: Shard 02 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 02: 
+NOT RUNNING: Shard 03 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 03: 
+NOT RUNNING: Shard 04 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 04: 
+NOT RUNNING: Shard 05 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 05: 
+NOT RUNNING: Shard 22 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 22: 
+NOT RUNNING: Shard 06 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 06: 
+NOT RUNNING: Shard 07 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 07: 
+NOT RUNNING: Shard 08 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 08: 
+NOT RUNNING: Shard 09 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 09: 
+NOT RUNNING: Shard 23 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 23: 
+NOT RUNNING: Shard 10 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 10: 
+NOT RUNNING: Shard 11 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 11: 
+NOT RUNNING: Shard 12 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 12: 
+NOT RUNNING: Shard 13 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 13: 
+NOT RUNNING: Shard 24 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 24: 
+NOT RUNNING: Shard 15 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 15: 
+NOT RUNNING: Shard 16 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 16: 
+NOT RUNNING: Shard 17 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 17: 
+NOT RUNNING: Shard 25 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 25: 
+NOT RUNNING: Shard 26 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 26: 
+NOT RUNNING: Shard 14 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 14: 
+NOT RUNNING: Shard 18 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 18: 
+NOT RUNNING: Shard 19 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 19: 
+NOT RUNNING: Shard 27 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 27: 
+NOT RUNNING: Shard 28 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 28: 
+NOT RUNNING: Shard 29 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 29: 
+NOT RUNNING: Shard 30 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 30: 
+NOT RUNNING: Shard 31 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 31: 
+NOT RUNNING: Shard 32 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 32: 
+NOT RUNNING: Shard 33 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 33: 
+RESULT: cycle=1 dead=34 repushed=0 new_pool=0 pool_total=10599
+
+[2026-10-31 19:16:16] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:21:16] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:25:59] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:26:00] === STARTING FLEET CYCLE 1 ===
+NOT RUNNING: Shard 00 (remruata) -> NOT RUNNING
+  Failed to repush Shard 00: 
+NOT RUNNING: Shard 01 (remruata) -> NOT RUNNING
+  Failed to repush Shard 01: 
+NOT RUNNING: Shard 20 (remruata) -> NOT RUNNING
+  Failed to repush Shard 20: 
+NOT RUNNING: Shard 21 (remruata) -> NOT RUNNING
+  Failed to repush Shard 21: 
+NOT RUNNING: Shard 02 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 02: 
+NOT RUNNING: Shard 03 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 03: 
+NOT RUNNING: Shard 04 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 04: 
+NOT RUNNING: Shard 05 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 05: 
+NOT RUNNING: Shard 22 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 22: 
+NOT RUNNING: Shard 06 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 06: 
+NOT RUNNING: Shard 07 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 07: 
+NOT RUNNING: Shard 08 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 08: 
+NOT RUNNING: Shard 09 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 09: 
+NOT RUNNING: Shard 23 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 23: 
+NOT RUNNING: Shard 10 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 10: 
+NOT RUNNING: Shard 11 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 11: 
+NOT RUNNING: Shard 12 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 12: 
+NOT RUNNING: Shard 13 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 13: 
+NOT RUNNING: Shard 24 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 24: 
+NOT RUNNING: Shard 15 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 15: 
+NOT RUNNING: Shard 16 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 16: 
+NOT RUNNING: Shard 17 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 17: 
+NOT RUNNING: Shard 25 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 25: 
+NOT RUNNING: Shard 26 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 26: 
+NOT RUNNING: Shard 14 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 14: 
+NOT RUNNING: Shard 18 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 18: 
+NOT RUNNING: Shard 19 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 19: 
+NOT RUNNING: Shard 27 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 27: 
+NOT RUNNING: Shard 28 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 28: 
+NOT RUNNING: Shard 29 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 29: 
+NOT RUNNING: Shard 30 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 30: 
+NOT RUNNING: Shard 31 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 31: 
+NOT RUNNING: Shard 32 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 32: 
+NOT RUNNING: Shard 33 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 33: 
+RESULT: cycle=1 dead=34 repushed=0 new_pool=738 pool_total=10598
+
+[2026-10-31 19:31:03] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:36:03] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:41:03] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 19:41:03] === STARTING FLEET CYCLE 2 ===
+NOT RUNNING: Shard 00 (remruata) -> NOT RUNNING
+  Failed to repush Shard 00: 
+NOT RUNNING: Shard 01 (remruata) -> NOT RUNNING
+  Failed to repush Shard 01: 
+NOT RUNNING: Shard 20 (remruata) -> NOT RUNNING
+  Failed to repush Shard 20: 
+NOT RUNNING: Shard 21 (remruata) -> NOT RUNNING
+  Failed to repush Shard 21: 
+NOT RUNNING: Shard 02 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 02: 
+NOT RUNNING: Shard 03 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 03: 
+NOT RUNNING: Shard 04 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 04: 
+NOT RUNNING: Shard 05 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 05: 
+NOT RUNNING: Shard 22 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 22: 
+NOT RUNNING: Shard 06 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 06: 
+NOT RUNNING: Shard 07 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 07: 
+NOT RUNNING: Shard 08 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 08: 
+NOT RUNNING: Shard 09 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 09: 
+NOT RUNNING: Shard 23 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 23: 
+NOT RUNNING: Shard 10 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 10: 
+NOT RUNNING: Shard 11 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 11: 
+NOT RUNNING: Shard 12 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 12: 
+NOT RUNNING: Shard 13 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 13: 
+NOT RUNNING: Shard 24 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 24: 
+NOT RUNNING: Shard 15 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 15: 
+NOT RUNNING: Shard 16 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 16: 
+NOT RUNNING: Shard 17 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 17: 
+NOT RUNNING: Shard 25 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 25: 
+NOT RUNNING: Shard 26 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 26: 
+NOT RUNNING: Shard 14 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 14: 
+NOT RUNNING: Shard 18 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 18: 
+NOT RUNNING: Shard 19 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 19: 
+NOT RUNNING: Shard 27 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 27: 
+NOT RUNNING: Shard 28 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 28: 
+NOT RUNNING: Shard 29 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 29: 
+NOT RUNNING: Shard 30 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 30: 
+NOT RUNNING: Shard 31 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 31: 
+NOT RUNNING: Shard 32 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 32: 
+NOT RUNNING: Shard 33 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 33: 
+RESULT: cycle=2 dead=34 repushed=0 new_pool=0 pool_total=10598
+
+[2026-10-31 20:00:35] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:00:35] === STARTING FLEET CYCLE 1 ===
+NOT RUNNING: Shard 00 (remruata) -> NOT RUNNING
+  Failed to repush Shard 00: 
+NOT RUNNING: Shard 01 (remruata) -> NOT RUNNING
+  Failed to repush Shard 01: 
+NOT RUNNING: Shard 20 (remruata) -> NOT RUNNING
+  Failed to repush Shard 20: 
+NOT RUNNING: Shard 21 (remruata) -> NOT RUNNING
+  Failed to repush Shard 21: 
+NOT RUNNING: Shard 02 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 02: 
+NOT RUNNING: Shard 03 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 03: 
+NOT RUNNING: Shard 04 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 04: 
+NOT RUNNING: Shard 05 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 05: 
+NOT RUNNING: Shard 22 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 22: 
+NOT RUNNING: Shard 06 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 06: 
+NOT RUNNING: Shard 07 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 07: 
+NOT RUNNING: Shard 08 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 08: 
+NOT RUNNING: Shard 09 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 09: 
+NOT RUNNING: Shard 23 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 23: 
+NOT RUNNING: Shard 10 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 10: 
+NOT RUNNING: Shard 11 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 11: 
+NOT RUNNING: Shard 12 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 12: 
+NOT RUNNING: Shard 13 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 13: 
+NOT RUNNING: Shard 24 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 24: 
+NOT RUNNING: Shard 15 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 15: 
+NOT RUNNING: Shard 16 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 16: 
+NOT RUNNING: Shard 17 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 17: 
+NOT RUNNING: Shard 25 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 25: 
+NOT RUNNING: Shard 26 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 26: 
+NOT RUNNING: Shard 14 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 14: 
+NOT RUNNING: Shard 18 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 18: 
+NOT RUNNING: Shard 19 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 19: 
+NOT RUNNING: Shard 27 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 27: 
+NOT RUNNING: Shard 28 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 28: 
+NOT RUNNING: Shard 29 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 29: 
+NOT RUNNING: Shard 30 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 30: 
+NOT RUNNING: Shard 31 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 31: 
+NOT RUNNING: Shard 32 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 32: 
+NOT RUNNING: Shard 33 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 33: 
+RESULT: cycle=1 dead=34 repushed=0 new_pool=5070 pool_total=10594
+
+[2026-10-31 20:05:40] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:10:41] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:15:41] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:15:41] === STARTING FLEET CYCLE 2 ===
+NOT RUNNING: Shard 00 (remruata) -> NOT RUNNING
+  Failed to repush Shard 00: 
+NOT RUNNING: Shard 01 (remruata) -> NOT RUNNING
+  Failed to repush Shard 01: 
+NOT RUNNING: Shard 20 (remruata) -> NOT RUNNING
+  Failed to repush Shard 20: 
+NOT RUNNING: Shard 21 (remruata) -> NOT RUNNING
+  Failed to repush Shard 21: 
+NOT RUNNING: Shard 02 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 02: 
+NOT RUNNING: Shard 03 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 03: 
+NOT RUNNING: Shard 04 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 04: 
+NOT RUNNING: Shard 05 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 05: 
+NOT RUNNING: Shard 22 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 22: 
+NOT RUNNING: Shard 06 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 06: 
+NOT RUNNING: Shard 07 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 07: 
+NOT RUNNING: Shard 08 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 08: 
+NOT RUNNING: Shard 09 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 09: 
+NOT RUNNING: Shard 23 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 23: 
+NOT RUNNING: Shard 10 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 10: 
+NOT RUNNING: Shard 11 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 11: 
+NOT RUNNING: Shard 12 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 12: 
+NOT RUNNING: Shard 13 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 13: 
+NOT RUNNING: Shard 24 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 24: 
+NOT RUNNING: Shard 15 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 15: 
+NOT RUNNING: Shard 16 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 16: 
+NOT RUNNING: Shard 17 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 17: 
+NOT RUNNING: Shard 25 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 25: 
+NOT RUNNING: Shard 26 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 26: 
+NOT RUNNING: Shard 14 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 14: 
+NOT RUNNING: Shard 18 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 18: 
+NOT RUNNING: Shard 19 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 19: 
+NOT RUNNING: Shard 27 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 27: 
+NOT RUNNING: Shard 28 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 28: 
+NOT RUNNING: Shard 29 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 29: 
+NOT RUNNING: Shard 30 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 30: 
+NOT RUNNING: Shard 31 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 31: 
+NOT RUNNING: Shard 32 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 32: 
+NOT RUNNING: Shard 33 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 33: 
+RESULT: cycle=2 dead=34 repushed=0 new_pool=1409 pool_total=10591
+
+[2026-10-31 20:20:48] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:25:48] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:30:48] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.
+
+[2026-10-31 20:30:49] === STARTING FLEET CYCLE 3 ===
+NOT RUNNING: Shard 00 (remruata) -> NOT RUNNING
+  Failed to repush Shard 00: 
+NOT RUNNING: Shard 01 (remruata) -> NOT RUNNING
+  Failed to repush Shard 01: 
+NOT RUNNING: Shard 20 (remruata) -> NOT RUNNING
+  Failed to repush Shard 20: 
+NOT RUNNING: Shard 21 (remruata) -> NOT RUNNING
+  Failed to repush Shard 21: 
+NOT RUNNING: Shard 02 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 02: 
+NOT RUNNING: Shard 03 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 03: 
+NOT RUNNING: Shard 04 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 04: 
+NOT RUNNING: Shard 05 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 05: 
+NOT RUNNING: Shard 22 (lalthazualasailo) -> NOT RUNNING
+  Failed to repush Shard 22: 
+NOT RUNNING: Shard 06 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 06: 
+NOT RUNNING: Shard 07 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 07: 
+NOT RUNNING: Shard 08 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 08: 
+NOT RUNNING: Shard 09 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 09: 
+NOT RUNNING: Shard 23 (zomuanpuia) -> NOT RUNNING
+  Failed to repush Shard 23: 
+NOT RUNNING: Shard 10 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 10: 
+NOT RUNNING: Shard 11 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 11: 
+NOT RUNNING: Shard 12 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 12: 
+NOT RUNNING: Shard 13 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 13: 
+NOT RUNNING: Shard 24 (laldinthari) -> NOT RUNNING
+  Failed to repush Shard 24: 
+NOT RUNNING: Shard 15 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 15: 
+NOT RUNNING: Shard 16 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 16: 
+NOT RUNNING: Shard 17 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 17: 
+NOT RUNNING: Shard 25 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 25: 
+NOT RUNNING: Shard 26 (lalsangkima) -> NOT RUNNING
+  Failed to repush Shard 26: 
+NOT RUNNING: Shard 14 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 14: 
+NOT RUNNING: Shard 18 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 18: 
+NOT RUNNING: Shard 19 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 19: 
+NOT RUNNING: Shard 27 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 27: 
+NOT RUNNING: Shard 28 (spectatorlone) -> NOT RUNNING
+  Failed to repush Shard 28: 
+NOT RUNNING: Shard 29 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 29: 
+NOT RUNNING: Shard 30 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 30: 
+NOT RUNNING: Shard 31 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 31: 
+NOT RUNNING: Shard 32 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 32: 
+NOT RUNNING: Shard 33 (stephen34) -> NOT RUNNING
+  Failed to repush Shard 33: 
+RESULT: cycle=3 dead=34 repushed=0 new_pool=0 pool_total=10591
+
+[2026-10-31 20:35:54] [MERGE] Fetching all out/sh* branches...
+[MERGE] No out/sh* branches found on remote.

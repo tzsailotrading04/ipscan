@@ -1,0 +1,69 @@
+=================================================================
+  POOL REVERIFY DAEMON v3 (EXACT SHARD PROBE, CONCURRENCY 150)
+=================================================================
+
+[2026-10-31 18:30:39] Starting strict pool reverification pass on 10811 proxies (CONCURRENCY=350, TIMEOUT=8.0s)...
+Loaded 71 previously suspect proxies from D:\DEpinFarm\cache\pool_suspect.txt
+[18:30:54] Progress: 2000/10811 (18.5%) | Passed: 1874 (93.7%)
+[18:31:20] Progress: 4000/10811 (37.0%) | Passed: 2548 (63.7%)
+[18:31:57] Progress: 6000/10811 (55.5%) | Passed: 3015 (50.2%)
+[18:32:48] Progress: 8000/10811 (74.0%) | Passed: 3353 (41.9%)
+[18:33:35] Progress: 10000/10811 (92.5%) | Passed: 3804 (38.0%)
+[18:34:15] Progress: 10811/10811 (100.0%) | Passed: 3905 (36.1%)
+PASS RESULT: tested=10811 survived=10795 died=16 suspects=6890 survival=99.9% pool_size=10795
+Sleeping 1200 seconds until next reverify pass...
+
+[2026-10-31 18:54:15] Starting strict pool reverification pass on 10858 proxies (CONCURRENCY=350, TIMEOUT=8.0s)...
+Loaded 6882 previously suspect proxies from D:\DEpinFarm\cache\pool_suspect.txt
+[18:54:28] Progress: 2000/10858 (18.4%) | Passed: 1875 (93.8%)
+[18:54:51] Progress: 4000/10858 (36.8%) | Passed: 2567 (64.2%)
+[18:55:27] Progress: 6000/10858 (55.3%) | Passed: 3133 (52.2%)
+[18:56:17] Progress: 8000/10858 (73.7%) | Passed: 3504 (43.8%)
+[18:57:06] Progress: 10000/10858 (92.1%) | Passed: 3853 (38.5%)
+[18:58:01] Progress: 10858/10858 (100.0%) | Passed: 4017 (37.0%)
+PASS RESULT: tested=10858 survived=5233 died=5625 suspects=1216 survival=48.2% pool_size=5233
+Sleeping 1200 seconds until next reverify pass...
+
+[2026-10-31 19:18:01] Starting strict pool reverification pass on 10841 proxies (CONCURRENCY=350, TIMEOUT=8.0s)...
+Loaded 1211 previously suspect proxies from D:\DEpinFarm\cache\pool_suspect.txt
+[19:18:14] Progress: 2000/10841 (18.4%) | Passed: 1914 (95.7%)
+[19:18:55] Progress: 4000/10841 (36.9%) | Passed: 2899 (72.5%)
+[19:19:37] Progress: 6000/10841 (55.3%) | Passed: 3540 (59.0%)
+[19:20:18] Progress: 8000/10841 (73.8%) | Passed: 3782 (47.3%)
+[19:21:00] Progress: 10000/10841 (92.2%) | Passed: 4016 (40.2%)
+[19:21:47] Progress: 10841/10841 (100.0%) | Passed: 4132 (38.1%)
+PASS RESULT: tested=10841 survived=10102 died=739 suspects=5970 survival=93.2% pool_size=10102
+Sleeping 1200 seconds until next reverify pass...
+
+[2026-10-31 19:41:47] Starting strict pool reverification pass on 10840 proxies (CONCURRENCY=350, TIMEOUT=8.0s)...
+Loaded 5968 previously suspect proxies from D:\DEpinFarm\cache\pool_suspect.txt
+[19:41:59] Progress: 2000/10840 (18.5%) | Passed: 1905 (95.2%)
+[19:42:43] Progress: 4000/10840 (36.9%) | Passed: 2780 (69.5%)
+[19:43:23] Progress: 6000/10840 (55.4%) | Passed: 3126 (52.1%)
+[19:44:03] Progress: 8000/10840 (73.8%) | Passed: 3410 (42.6%)
+[19:44:47] Progress: 10000/10840 (92.3%) | Passed: 3648 (36.5%)
+[19:45:33] Progress: 10840/10840 (100.0%) | Passed: 3788 (34.9%)
+PASS RESULT: tested=10840 survived=5766 died=5074 suspects=1978 survival=53.2% pool_size=5766
+Sleeping 1200 seconds until next reverify pass...
+
+[2026-10-31 20:05:33] Starting strict pool reverification pass on 10836 proxies (CONCURRENCY=350, TIMEOUT=8.0s)...
+Loaded 1978 previously suspect proxies from D:\DEpinFarm\cache\pool_suspect.txt
+[20:05:49] Progress: 2000/10836 (18.5%) | Passed: 1900 (95.0%)
+[20:06:34] Progress: 4000/10836 (36.9%) | Passed: 2780 (69.5%)
+[20:07:21] Progress: 6000/10836 (55.4%) | Passed: 3231 (53.8%)
+[20:07:59] Progress: 8000/10836 (73.8%) | Passed: 3471 (43.4%)
+[20:08:40] Progress: 10000/10836 (92.3%) | Passed: 3622 (36.2%)
+[20:09:22] Progress: 10836/10836 (100.0%) | Passed: 3708 (34.2%)
+PASS RESULT: tested=10836 survived=9424 died=1412 suspects=5716 survival=87.0% pool_size=9424
+Sleeping 1200 seconds until next reverify pass...
+
+[2026-10-31 20:29:22] Starting strict pool reverification pass on 10833 proxies (CONCURRENCY=350, TIMEOUT=8.0s)...
+Loaded 5710 previously suspect proxies from D:\DEpinFarm\cache\pool_suspect.txt
+[20:29:35] Progress: 2000/10833 (18.5%) | Passed: 1909 (95.5%)
+[20:30:24] Progress: 4000/10833 (36.9%) | Passed: 2735 (68.4%)
+[20:31:03] Progress: 6000/10833 (55.4%) | Passed: 3076 (51.3%)
+[20:31:42] Progress: 8000/10833 (73.8%) | Passed: 3277 (41.0%)
+[20:32:27] Progress: 10000/10833 (92.3%) | Passed: 3517 (35.2%)
+[20:33:14] Progress: 10833/10833 (100.0%) | Passed: 3666 (33.8%)
+PASS RESULT: tested=10833 survived=5923 died=4910 suspects=2257 survival=54.7% pool_size=5923
+Sleeping 1200 seconds until next reverify pass...

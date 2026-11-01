@@ -1,0 +1,25 @@
+===========================================================
+           DEATH RATE WATERFALL EXPERIMENT REPORT          
+===========================================================
+Initial Pool Sample: 2,000 endpoints
+-----------------------------------------------------------
+Pass 1 (Immediate):
+  Queue file:        q_a5_dr_1793470000_01.txt
+  Tested:            2,000 endpoints (initial pool sample)
+  Alive (survived):  770
+  Survival Rate:     38.50% of initial stage (2,000 sample)
+  Output file:       work/deathrate_pass1.txt
+-----------------------------------------------------------
+Pass 2 (1 hour after Pass 1):
+  Queue file:        q_a5_dr_1793474000_01.txt
+  Tested:            770 endpoints (Pass 1 survivors)
+  Alive (survived):  595
+  Survival Rate:     77.27% of previous stage (770 Pass 1 survivors)
+  Duration:          41.8s
+  Output file:       work/deathrate_pass2.txt
+-----------------------------------------------------------
+Pass 3 (1 hour after Pass 2):
+  Queue file:        q_a5_dr_1793480000_01.txt (595 endpoints)
+  Status:            PENDING (Scheduled for ~23:37 local time)
+  Output file:       work/deathrate_pass3.txt
+===========================================================

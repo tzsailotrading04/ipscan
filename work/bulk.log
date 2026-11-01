@@ -1,0 +1,129 @@
+=== 1. EXTRACTING FROM KAGGLE DATASETS ===
+
+=== 2. SCRAPING SPYS.ONE TABLES ===
+Scraped spys.one/free-proxy-list: 30 rows
+Scraped spys.one/socks-proxy-list: 30 rows
+Scraped spys.one/http-proxy-list: 30 rows
+Scraped spys.one/anonymous-proxy-list: 30 rows
+Scraped spys.one/https-ssl-proxy: 30 rows
+
+=== 3. FETCHING PUBLIC LIST REPOS ===
+Fetched proxifly_socks4: 435 candidatesFetched monosans_http: 716 candidates
+
+Fetched monosans_all: 1,806 candidates
+Fetched proxifly_http: 4,846 candidates
+Fetched proxifly_socks5: 4,882 candidates
+Fetched monosans_socks4: 119 candidates
+Fetched thespeedx_http: 2,702 candidatesFetched monosans_socks5: 971 candidates
+
+Fetched thespeedx_socks4: 2,241 candidates
+Fetched proxmint_all: 1,443 candidatesFetched proxmint_socks5: 407 candidates
+
+Fetched thespeedx_socks5: 2,344 candidates
+Fetched r00tee_socks5: 2,006 candidates
+Fetched r00tee_socks4: 2,643 candidates
+Fetched r00tee_http: 5,020 candidates
+Fetched dpangestuw_socks4: 2,945 candidatesFetched proxmint_http: 681 candidates
+
+Fetched dpangestuw_http: 4,779 candidates
+Fetched dpangestuw_socks5: 6,930 candidates
+Fetched komutan234_http: 2,681 candidates
+Fetched dpangestuw_all: 14,654 candidates
+Fetched proxyspace_https: 424 candidates
+Fetched hookzof_socks5: 4,882 candidates
+Fetched komutan234_socks5: 6,155 candidates
+Fetched kangproxy_http: 1,343 candidates
+Fetched proxyspace_http: 4,029 candidates
+Fetched zevtyardt_socks5: 23,130 candidates
+Fetched proxyspace_socks4: 3,731 candidates
+Fetched kangproxy_all: 12,903 candidates
+Fetched proxyspace_socks5: 3,330 candidatesFetched anonym0uswork_socks5: 5,057 candidates
+
+Fetched b4rc0de_http: 3,186 candidates
+Fetched anonym0uswork_http: 6,518 candidates
+Fetched b4rc0de_socks5: 257 candidatesFetched jetkai_http: 1,801 candidates
+
+Fetched jetkai_socks5: 405 candidates
+Fetched sunny9577_http: 1,663 candidates
+Fetched zevtyardt_http: 64,236 candidatesFetched ercindedeoglu_socks5: 28,368 candidates
+Fetched aliilapro_socks5: 0 candidatesFetched aliilapro_http: 0 candidates
+
+
+Fetched hendrikbgr_all: 684 candidates
+Fetched vakhov_socks5: 21 candidates
+Fetched vakhov_http: 528 candidates
+Fetched shiftytr_socks5: 279 candidatesFetched zloiuser_socks5: 285 candidates
+Fetched roosterkid_https: 150 candidatesFetched zloiuser_http: 252 candidates
+
+Fetched prxchk_http: 58 candidates
+
+Fetched prxchk_socks5: 10 candidatesFetched roosterkid_socks5: 15 candidates
+
+Fetched ercindedeoglu_http: 65,203 candidates
+Fetched murongpig_http: 101,627 candidates
+Fetched murongpig_socks5: 100,668 candidates
+
+=== WRITING DEDUPED BULK_ALL.TXT ===
+
+Written 165,313 unique ip:port to D:\DEpinFarm\ip\harvest\bulk_all.txt
+
+=== SOURCE BREAKDOWN ===
+  murongpig_http: 101,616
+  murongpig_socks5: 100,659
+  ercindedeoglu_http: 65,197
+  zevtyardt_http: 64,230
+  ercindedeoglu_socks5: 28,366
+  zevtyardt_socks5: 23,128
+  dpangestuw_all: 14,648
+  kangproxy_all: 12,901
+  dpangestuw_socks5: 6,928
+  anonym0uswork_http: 6,517
+  komutan234_socks5: 6,153
+  anonym0uswork_socks5: 5,057
+  r00tee_http: 5,018
+  proxifly_socks5: 4,882
+  hookzof_socks5: 4,882
+  proxifly_http: 4,845
+  dpangestuw_http: 4,777
+  proxyspace_http: 4,029
+  proxyspace_socks4: 3,731
+  proxyspace_socks5: 3,330
+  b4rc0de_http: 3,184
+  dpangestuw_socks4: 2,943
+  thespeedx_http: 2,702
+  komutan234_http: 2,679
+  r00tee_socks4: 2,641
+  thespeedx_socks5: 2,344
+  thespeedx_socks4: 2,241
+  r00tee_socks5: 2,004
+  monosans_all: 1,806
+  jetkai_http: 1,801
+  sunny9577_http: 1,663
+  proxmint_all: 1,443
+  kangproxy_http: 1,343
+  monosans_socks5: 971
+  monosans_http: 716
+  hendrikbgr_all: 684
+  proxmint_http: 681
+  vakhov_http: 528
+  proxifly_socks4: 435
+  proxyspace_https: 424
+  proxmint_socks5: 407
+  jetkai_socks5: 405
+  spys_me_http: 400
+  spys_me_socks: 400
+  zloiuser_socks5: 285
+  shiftytr_socks5: 279
+  b4rc0de_socks5: 257
+  zloiuser_http: 252
+  roosterkid_https: 150
+  monosans_socks4: 119
+  prxchk_http: 58
+  spys_one_free-proxy-list: 30
+  spys_one_socks-proxy-list: 30
+  spys_one_http-proxy-list: 30
+  spys_one_anonymous-proxy-list: 30
+  vakhov_socks5: 21
+  roosterkid_socks5: 15
+  prxchk_socks5: 10
+TOTAL UNIQUE PROXIES: 165,313

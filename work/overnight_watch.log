@@ -1,0 +1,20 @@
+[2026-10-31 03:45:22] === Overnight Watch Started (Target: 18 readings / 9 hours / strictly read-only) ===
+[2026-10-31 03:45:22] Reading 01/18: real_pool=4,352 | parts_touched_30m=102 | total_part_lines=8,053
+[2026-10-31 04:15:23] Reading 02/18: real_pool=3,082 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 04:45:23] Reading 03/18: real_pool=2,894 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 05:15:23] Reading 04/18: real_pool=2,709 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 05:45:24] Reading 05/18: real_pool=2,633 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 06:15:24] Reading 06/18: real_pool=2,549 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 06:45:24] Reading 07/18: real_pool=2,509 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 07:15:24] Reading 08/18: real_pool=2,439 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 07:45:24] Reading 09/18: real_pool=2,874 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 08:15:24] Reading 10/18: real_pool=2,614 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 08:45:24] Reading 11/18: real_pool=2,543 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 09:15:25] Reading 12/18: real_pool=2,331 | parts_touched_30m=0 | total_part_lines=8,053 [WARNING: THINNING]
+[2026-10-31 09:45:25] Reading 13/18: real_pool=2,144 | parts_touched_30m=41 | total_part_lines=8,110
+[2026-10-31 10:15:25] Reading 14/18: real_pool=2,144 | parts_touched_30m=0 | total_part_lines=8,110 [WARNING: THINNING]
+[2026-10-31 10:45:25] Reading 15/18: real_pool=5,131 | parts_touched_30m=102 | total_part_lines=17,002
+[2026-10-31 11:15:25] Reading 16/18: real_pool=5,136 | parts_touched_30m=22 | total_part_lines=17,025 [WARNING: THINNING]
+[2026-10-31 11:45:26] Reading 17/18: real_pool=5,136 | parts_touched_30m=0 | total_part_lines=17,025 [WARNING: THINNING]
+[2026-10-31 12:15:29] Reading 18/18: real_pool=5,137 | parts_touched_30m=4 | total_part_lines=17,029 [WARNING: THINNING]
+[2026-10-31 12:15:29] === Overnight watch has ended. All 18 readings completed. ===

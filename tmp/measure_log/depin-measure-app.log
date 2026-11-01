@@ -1,0 +1,11 @@
+[{"stream_name":"stdout","time":0.901023552,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":0.901074292,"data":"KAGGLE CONTAINER PROBE: REAL_POOL APP-WIRABLE MEASUREMENT\n"}
+,{"stream_name":"stdout","time":0.901079711,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":0.901082647,"data":"Error: /kaggle/src/real_pool.txt not found!\n"}
+,{"stream_name":"stderr","time":3.709403929,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3.709437302,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4.106923227,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4.106954124,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":5.831098262,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7.098567565,"data":"[NbConvertApp] Writing 350354 bytes to __results__.html\n"}
+]

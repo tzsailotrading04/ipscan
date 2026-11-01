@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Fleet Cycle - 15-Minute Fleet Supervisor & Harvest Aggregator
-Supervises all 34 Kaggle shards across 7 accounts every 900 seconds.
+Supervises all 29 Kaggle shards across 6 accounts every 900 seconds.
 Revives dead/completed shards (with 10-minute cooldown).
 Deduplicates verified_alive_part_*.txt into real_pool.txt against harvest_seen_set.txt.
 Never touches work/STOP_SHODAN.
@@ -85,10 +85,6 @@ FLEET_MAP = {
     "spectatorlone": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct6", "access_token"),
         "shards": [14, 18, 19, 27, 28]
-    },
-    "lalruatmawiaralte": {
-        "token_file": os.path.join(REPO_ROOT, "kaggle", "acct7", "access_token"),
-        "shards": [29, 30, 31, 32, 33]
     }
 }
 
