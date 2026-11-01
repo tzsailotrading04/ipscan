@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793562495_01.txt_0
-ts=1793562801
-offset=66672950
+stage=queue_slice_q_a4_dead_1793562495_01.txt_500
+ts=1793562874
+offset=66673450
 --- LAST 5 LOG LINES ---
-[2026-11-01 18:14:39] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 19:52:37] [SHARD 26 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-01 19:52:37] [SHARD 26 W0] [QUEUE STAGE] Found 39 queue files to consume before IP scanning
 [2026-11-01 19:52:37] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562447_01.txt: total=9494 shard_slice=316 worker_slice=158 resume=0
 [2026-11-01 19:53:21] [SHARD 26 W0] [QUEUE STAGE] Consuming q_a4_dead_1793562495_01.txt: total=45078 shard_slice=1502 worker_slice=751 resume=0
+[2026-11-01 19:54:34] [SHARD 26 W0] [FOUND QUEUE] 180.180.156.53:80 (TOT-NET) via www.google.com | cands=457
