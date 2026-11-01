@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793549658
-offset=63414434
+stage=queue_slice_q_a4_dead_1793465000_04.txt_500
+ts=1793550302
+offset=63416991
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:58:47] [SHARD 18 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:18] [SHARD 18 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:48] [SHARD 18 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 10:00:19] [SHARD 18 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 10:00:50] [SHARD 18 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 16:23:55] [SHARD 18 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
+[2026-11-01 16:23:55] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_03.txt: total=40000 shard_slice=1333 worker_slice=667 resume=500
+[2026-11-01 16:24:12] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
+[2026-11-01 16:25:02] [SHARD 18 W0] [FOUND QUEUE] 103.179.253.43:8181 (IDNIC-KUMARAHOTSPOT-AS-ID) via www.google.com | cands=511
+[2026-11-01 16:25:02] [SHARD 18 W0] [FOUND QUEUE] 103.187.136.20:3838 (TIMESCOMMUNICATION-AS-AP) via one.one.one.one | cands=512

@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793549519
-offset=64852096
+stage=queue_slice_q_a4_dead_1793465000_05.txt_0
+ts=1793550256
+offset=64854809
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:58:00] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:58:30] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:01] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:32] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 10:00:02] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 16:23:20] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1333 worker_slice=667 resume=0
+[2026-11-01 16:23:59] [SHARD 25 W0] [FOUND QUEUE] 8.215.25.3:2081 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=410
+[2026-11-01 16:23:59] [SHARD 25 W0] [FOUND QUEUE] 147.161.246.37:10705 (ZSCALER-EMEA) via speed.cloudflare.com | cands=411
+[2026-11-01 16:24:16] [SHARD 25 W0] [FOUND QUEUE] 103.48.68.68:83 (COUNTRYONLINE-AS-IN) via speed.cloudflare.com | cands=412
+[2026-11-01 16:24:16] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=816 worker_slice=408 resume=0

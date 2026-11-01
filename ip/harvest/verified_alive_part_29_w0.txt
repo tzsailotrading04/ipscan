@@ -427,3 +427,13 @@
 145.220.227.144:3128	one.one.one.one	QUEUE	0	IP-EEND-AS
 98.94.14.234:22507	speed.cloudflare.com	QUEUE	0	AMAZON-AES
 103.36.8.53:3125	speed.cloudflare.com	QUEUE	0	IDNIC-AWINET-AS-ID
+3.148.193.142:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.51.93.34:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+41.59.82.157:3128	speed.cloudflare.com	QUEUE	0	TTCLDATA
+43.210.115.207:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.230.161.171:8118	speed.cloudflare.com	QUEUE	0	SHOCK-1
+144.124.251.24:10412	speed.cloudflare.com	QUEUE	0	VDSINA
+43.208.175.145:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+31.76.50.228:443	speed.cloudflare.com	QUEUE	0	DPKGSOFT-AS
+51.118.1.202:8000	speed.cloudflare.com	QUEUE	0	AMAZON-02
+102.222.240.10:9999	speed.cloudflare.com	QUEUE	0	TCS-WI-FI

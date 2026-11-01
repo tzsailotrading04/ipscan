@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793549565
-offset=65489108
+stage=queue_slice_q_a5_dr_1793470000_01.txt_0
+ts=1793550295
+offset=65491741
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:58:08] [SHARD 13 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:58:39] [SHARD 13 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:09] [SHARD 13 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:59:39] [SHARD 13 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 10:00:09] [SHARD 13 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 16:24:02] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=817 worker_slice=409 resume=0
+[2026-11-01 16:24:55] [SHARD 13 W0] [FOUND QUEUE] 45.190.87.241:999 (RIMTEL) via www.google.com | cands=448
+[2026-11-01 16:24:55] [SHARD 13 W0] [FOUND QUEUE] 163.227.135.146:8080 (IDNIC-EKONEK-AS-ID) via speed.cloudflare.com | cands=449
+[2026-11-01 16:24:55] [SHARD 13 W0] [FOUND QUEUE] 144.124.251.24:10456 (VDSINA) via speed.cloudflare.com | cands=450
+[2026-11-01 16:24:55] [SHARD 13 W0] [QUEUE STAGE] Consuming q_a5_dr_1793470000_01.txt: total=2000 shard_slice=67 worker_slice=34 resume=0
