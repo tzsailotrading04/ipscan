@@ -2,13 +2,16 @@
 """
 tools/staggered_restart.py
 Restarts 25 fleet shards across 5 accounts, one account at a time, 10 minutes apart.
-For each shard: deletes kernel to cleanly release batch CPU slot, then pushes new version.
-Prints RUNNING count per account after each account finishes.
+For each account:
+1) Deletes all existing ipscan-cl-shodan-* kernels on that account to cleanly release batch CPU slots.
+2) Pushes the new renumbered shards (5 shards per account, 25 total).
+3) Verifies RUNNING status per account after each finishes.
 """
 
 import os
 import sys
 import time
+import re
 
 REPO_ROOT = r"D:\DEpinFarm" if os.path.exists(r"D:\DEpinFarm") else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPO_ROOT)
@@ -34,6 +37,17 @@ def check_account_running(uname, shards):
             running += 1
     return running
 
+def get_existing_shodan_kernels(uname):
+    out, err, code = run_cmd("kaggle kernels list --mine")
+    kernels = []
+    for line in out.splitlines():
+        parts = line.split()
+        if parts:
+            ref = parts[0]
+            if f"{uname}/ipscan-cl-shodan" in ref:
+                kernels.append(ref)
+    return kernels
+
 def restart_account(uname, shards):
     print(f"\n=======================================================", flush=True)
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Restarting {uname} (shards {shards})...", flush=True)
@@ -42,19 +56,35 @@ def restart_account(uname, shards):
     token = open(cfg["token_file"]).read().strip()
     set_kaggle_creds(uname, token)
 
+    # 1. Cleanly delete all existing shodan kernels on this account to free the 5 CPU batch slots
+    existing = get_existing_shodan_kernels(uname)
+    print(f"  Found {len(existing)} existing shodan kernel(s) on {uname} to release slots: {existing}")
+    for ref in existing:
+        print(f"    Deleting {ref}...", end="", flush=True)
+        d_out, d_err, d_code = run_cmd(f"kaggle kernels delete -y {ref}")
+        print(" OK", flush=True)
+        time.sleep(2)
+
+    # Also delete target refs if not already in list
     for s in shards:
         ref = f"{uname}/ipscan-cl-shodan-{s:02d}"
+        if ref not in existing:
+            run_cmd(f"kaggle kernels delete -y {ref}")
+            time.sleep(1)
+
+    time.sleep(3)
+
+    # 2. Push new shard code
+    for s in shards:
         shard_dir = os.path.join(REPO_ROOT, "kaggle", f"cl_shodan_{s:02d}")
-        print(f"  [{s:02d}] Deleting {ref}...", end="", flush=True)
-        run_cmd(f"kaggle kernels delete -y {ref}")
-        time.sleep(2)
-        print(f" pushing {shard_dir}...", end="", flush=True)
+        ref = f"{uname}/ipscan-cl-shodan-{s:02d}"
+        print(f"  [{s:02d}] Pushing {shard_dir} ({ref})...", end="", flush=True)
         p_out, p_err, p_code = run_cmd(f'kaggle kernels push -p "{shard_dir}"')
         res = "OK" if "successfully pushed" in p_out else (p_out.splitlines()[-1] if p_out else p_err)
         print(f" -> {res}", flush=True)
         time.sleep(3)
 
-    # Verify status
+    # 3. Verify status
     time.sleep(5)
     running = check_account_running(uname, shards)
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {uname} RUNNING: {running}/{len(shards)}", flush=True)
