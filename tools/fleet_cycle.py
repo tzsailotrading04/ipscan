@@ -206,6 +206,13 @@ def run_single_cycle(cycle_num, seen):
     dead_count = 0
     repushed_count = 0
 
+    if os.path.exists(os.path.join(REPO_ROOT, "work", "STOP_SHODAN")):
+        print(f"\n[{time.strftime('%Y-%m-%d %H:%M:%S')}] STOP_SHODAN flag present. Skipping shard repush. Harvesting only.")
+        new_pool, pool_total = harvest_and_dedupe(seen)
+        log_line = f"cycle={cycle_num} STOP_SHODAN active new_pool={new_pool} pool_total={pool_total}"
+        print(f"RESULT: {log_line}")
+        return
+
     print(f"\n[{time.strftime('%Y-%m-%d %H:%M:%S')}] === STARTING FLEET CYCLE {cycle_num} ===")
 
     for uname, info in FLEET_MAP.items():
@@ -353,7 +360,8 @@ def merge_out_branches():
             f'"ip/harvest/queue_failed_part_{tag}*.txt" '
             f'"ip/harvest/shodan_stats_v98_{tag}*.txt" '
             f'"ip/harvest/shodan_progress_v98_{tag}*.txt" '
-            f'"ip/harvest/stage_{tag}.txt"'
+            f'"ip/harvest/stage_{tag}.txt" '
+            f'"ip/harvest/masscan_test.txt"'
         )
         if c_code == 0:
             merged_count += 1
