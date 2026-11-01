@@ -19,6 +19,7 @@ import time
 import datetime
 import subprocess
 import json
+import glob
 
 REPO_ROOT = r"D:\DEpinFarm" if os.path.exists(r"D:\DEpinFarm") else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORK_DIR = os.path.join(REPO_ROOT, "work")
@@ -89,26 +90,79 @@ def generate_report():
     now_ts = time.time()
     iso_now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    # Read stats files for all 25 shards
+    # Read stats files for all shards (summing both workers if separate)
     shard_data = {}
     for s in range(NUM_SHARDS):
         stag = f"sh{s:02d}"
-        sf = os.path.join(WORK_DIR, f"{stag}_stats.txt")
-        scanned, genuine, per1000, errno99, other, queue_left, slice_secs = 0, 0, 0.0, 0, 0, 0, 0.0
-        if os.path.exists(sf):
+        scanned, genuine, errno99, other, queue_left, slice_secs = 0, 0, 0, 0, 0, 0.0
+
+        # 1. Check local files in WORK_DIR
+        worker_files = sorted(glob.glob(os.path.join(WORK_DIR, f"{stag}_w*_stats.txt")))
+        if not worker_files:
+            single_f = os.path.join(WORK_DIR, f"{stag}_stats.txt")
+            if os.path.exists(single_f):
+                worker_files = [single_f]
+
+        found_local = False
+        for wf in worker_files:
             try:
-                line = open(sf, "r", encoding="utf-8", errors="ignore").readline().strip()
+                line = open(wf, "r", encoding="utf-8", errors="ignore").readline().strip()
                 parts = line.split()
                 if len(parts) >= 8:
-                    scanned = int(parts[1])
-                    genuine = int(parts[2])
-                    per1000 = float(parts[3])
-                    errno99 = int(parts[4])
-                    other = int(parts[5])
-                    queue_left = int(parts[6])
-                    slice_secs = float(parts[7])
+                    scanned += int(parts[1])
+                    genuine += int(parts[2])
+                    errno99 += int(parts[4])
+                    other += int(parts[5])
+                    queue_left += int(parts[6])
+                    slice_secs = max(slice_secs, float(parts[7]))
+                    found_local = True
             except Exception:
                 pass
+
+        # 2. If not found locally, query remote shard branch
+        if not found_local:
+            # Check for w0 and w1 remote stats files
+            found_remote = False
+            for w in [0, 1]:
+                ref = f"origin/out/{stag}:work/{stag}_w{w}_stats.txt"
+                out = run_git_cmd(f"git show {ref}")
+                if out:
+                    parts = out.strip().split()
+                    if len(parts) >= 8:
+                        scanned += int(parts[1])
+                        genuine += int(parts[2])
+                        errno99 += int(parts[4])
+                        other += int(parts[5])
+                        queue_left += int(parts[6])
+                        slice_secs = max(slice_secs, float(parts[7]))
+                        found_remote = True
+
+            if not found_remote:
+                # Fallback to single remote stats file
+                ref = f"origin/out/{stag}:work/{stag}_stats.txt"
+                out = run_git_cmd(f"git show {ref}")
+                if out:
+                    parts = out.strip().split()
+                    if len(parts) >= 8:
+                        scanned = int(parts[1])
+                        genuine = int(parts[2])
+                        errno99 = int(parts[4])
+                        other = int(parts[5])
+                        queue_left = int(parts[6])
+                        slice_secs = float(parts[7])
+                        found_remote = True
+
+            if not found_remote:
+                # Fallback to harvest stats file
+                s_num = f"{s:02d}"
+                ref_h = f"origin/out/{stag}:ip/harvest/shodan_stats_v98_{s_num}.txt"
+                out_h = run_git_cmd(f"git show {ref_h}")
+                if out_h:
+                    kv = dict(l.split("=", 1) for l in out_h.splitlines() if "=" in l)
+                    scanned = int(kv.get("offset", 0))
+                    genuine = int(kv.get("cands", 0))
+
+        per1000 = (genuine / max(1, scanned) * 1000.0) if scanned > 0 else 0.0
         shard_data[stag] = {
             "scanned": scanned,
             "genuine": genuine,

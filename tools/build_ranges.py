@@ -2,14 +2,15 @@
 """
 tools/build_ranges.py
 Top-up Range Queue Daemon:
-- Emits from the full address set of AWS, GCP, and Azure (no cap).
-- Persists position in work/ranges_cursor.json so restarts resume smoothly.
-- Never re-emits an address already written.
-- Every 60s: counts total lines across all ip/harvest/queue/q_*.txt.
-  If queue_depth < 15,000,000:
-    appends more q_a0_hosting_<ts>_<nn>.txt files of 500,000 lines until >= 15,000,000.
-- Deletes any queue file whose lines have all been consumed (acks >= 25 or all cur == DONE).
-- Prints each cycle: iso_time queue_depth files_added files_deleted ranges_cursor.
+- Sourced exclusively from 11 target hosting ASNs via the RIPEstat announced-prefixes API:
+    AS16276 OVH, AS24940 Hetzner, AS51167 Contabo, AS20473 Vultr,
+    AS63949 Linode, AS14061 DigitalOcean, AS28753 & AS60781 Leaseweb,
+    AS9009 M247, AS36352 ColoCrossing, AS47583 Hostinger.
+- AWS, GCP, and Azure are completely dropped.
+- Emits IPs into chunked files: q_a0_hosting_<ts>_<nn>.txt of 500,000 lines.
+- Maintains queue depth >= 15,000,000 lines.
+- Persists progress in work/ranges_cursor.json.
+- Deletes consumed queue files.
 - With --once: runs one full check/top-up cycle and exits.
 """
 
@@ -31,72 +32,77 @@ QCUR_DIR = os.path.join(REPO_ROOT, "cache", "qcursor")
 WORK_DIR = os.path.join(REPO_ROOT, "work")
 CURSOR_FILE = os.path.join(WORK_DIR, "ranges_cursor.json")
 
-AWS_URL = "https://ip-ranges.amazonaws.com/ip-ranges.json"
-GCP_URL = "https://www.gstatic.com/ipranges/cloud.json"
-AZURE_PAGE = "https://www.microsoft.com/en-us/download/details.aspx?id=56519"
-AZURE_FALLBACK = "https://download.microsoft.com/download/7/1/d/71d86715-5596-4529-9b13-da13a5de5b63/ServiceTags_Public_20261026.json"
+TARGET_ASNS = [
+    ("AS16276", "OVH"),
+    ("AS24940", "Hetzner"),
+    ("AS51167", "Contabo"),
+    ("AS20473", "Vultr"),
+    ("AS63949", "Linode"),
+    ("AS14061", "DigitalOcean"),
+    ("AS28753", "Leaseweb"),
+    ("AS60781", "Leaseweb"),
+    ("AS9009", "M247"),
+    ("AS36352", "ColoCrossing"),
+    ("AS47583", "Hostinger"),
+]
 
 CHUNK_SIZE = 500000
 TARGET_QUEUE_DEPTH = 15000000
 NUM_SHARDS = 20
 
 def fetch_json(url, headers=None, timeout=30):
-    hdr = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    hdr = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
     if headers:
         hdr.update(headers)
     req = urllib.request.Request(url, headers=hdr)
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode("utf-8", errors="ignore")
 
-def fetch_all_cloud_cidrs():
-    # 1. AWS
-    aws_raw = fetch_json(AWS_URL)
-    aws_data = json.loads(aws_raw)
-    aws_cidrs = [p["ip_prefix"] for p in aws_data.get("prefixes", []) if "ip_prefix" in p and ":" not in p["ip_prefix"]]
-    aws_nets = [ipaddress.ip_network(c, strict=False) for c in set(aws_cidrs)]
-    aws_collapsed = list(ipaddress.collapse_addresses(aws_nets))
-    aws_total_ips = sum(n.num_addresses for n in aws_collapsed)
-
-    # 2. GCP
-    gcp_raw = fetch_json(GCP_URL)
-    gcp_data = json.loads(gcp_raw)
-    gcp_cidrs = [p["ipv4Prefix"] for p in gcp_data.get("prefixes", []) if "ipv4Prefix" in p and ":" not in p["ipv4Prefix"]]
-    gcp_nets = [ipaddress.ip_network(c, strict=False) for c in set(gcp_cidrs)]
-    gcp_collapsed = list(ipaddress.collapse_addresses(gcp_nets))
-    gcp_total_ips = sum(n.num_addresses for n in gcp_collapsed)
-
-    # 3. Azure
-    azure_url = AZURE_FALLBACK
+def fetch_asn_prefixes(asn_tuple):
+    asn, name = asn_tuple
+    url = f"https://stat.ripe.net/data/announced-prefixes/data.json?resource={asn}"
     try:
-        html = fetch_json(AZURE_PAGE)
-        matches = re.findall(r'https://download\.microsoft\.com/download/[^"\'\s]+/ServiceTags_Public_[0-9]+\.json', html)
-        if matches:
-            azure_url = matches[0]
-    except Exception:
-        pass
-
-    azure_raw = fetch_json(azure_url)
-    azure_data = json.loads(azure_raw)
-    azure_cidrs = []
-    for val in azure_data.get("values", []):
-        for p in val.get("properties", {}).get("addressPrefixes", []):
+        raw = fetch_json(url)
+        data = json.loads(raw)
+        prefixes = data.get("data", {}).get("prefixes", [])
+        v4_nets = []
+        for p_obj in prefixes:
+            p = p_obj.get("prefix", "")
             if ":" not in p and "/" in p:
-                azure_cidrs.append(p)
-    azure_nets = [ipaddress.ip_network(c, strict=False) for c in set(azure_cidrs)]
-    azure_collapsed = list(ipaddress.collapse_addresses(azure_nets))
-    azure_total_ips = sum(n.num_addresses for n in azure_collapsed)
+                try:
+                    v4_nets.append(ipaddress.ip_network(p, strict=False))
+                except Exception:
+                    pass
+        collapsed = list(ipaddress.collapse_addresses(set(v4_nets)))
+        total_ips = sum(n.num_addresses for n in collapsed)
+        return {
+            "asn": asn,
+            "name": name,
+            "networks": collapsed,
+            "prefix_count": len(collapsed),
+            "total_ips": total_ips
+        }
+    except Exception as e:
+        print(f"[WARN] Failed fetching prefixes for {asn} ({name}): {e}", file=sys.stderr, flush=True)
+        return {
+            "asn": asn,
+            "name": name,
+            "networks": [],
+            "prefix_count": 0,
+            "total_ips": 0
+        }
 
-    # Grand collapsed list of all three providers
-    all_nets = list(ipaddress.collapse_addresses(set(aws_nets + gcp_nets + azure_nets)))
-    grand_total_ips = sum(n.num_addresses for n in all_nets)
+def fetch_all_asn_networks():
+    asn_stats = []
+    all_raw_nets = []
+    for asn_entry in TARGET_ASNS:
+        res = fetch_asn_prefixes(asn_entry)
+        asn_stats.append(res)
+        all_raw_nets.extend(res["networks"])
 
-    counts = {
-        "aws_total": aws_total_ips,
-        "gcp_total": gcp_total_ips,
-        "azure_total": azure_total_ips,
-        "grand_total": grand_total_ips
-    }
-    return all_nets, counts
+    grand_collapsed = list(ipaddress.collapse_addresses(set(all_raw_nets)))
+    grand_total_ips = sum(n.num_addresses for n in grand_collapsed)
+    return grand_collapsed, asn_stats, grand_total_ips
 
 def load_subtracted_ips():
     subtracted = set()
@@ -197,18 +203,7 @@ def load_cursor():
         except Exception:
             pass
 
-    # If cursor does not exist, check existing q_a0_hosting files to initialize past already emitted addresses
-    initial_cursor = 0
-    if os.path.exists(QUEUE_DIR):
-        for f in os.listdir(QUEUE_DIR):
-            if f.startswith("q_a0_hosting_") and f.endswith(".txt"):
-                p = os.path.join(QUEUE_DIR, f)
-                try:
-                    initial_cursor += sum(1 for _ in open(p, "rb"))
-                except Exception:
-                    pass
-
-    return {"cursor": initial_cursor, "total_emitted": initial_cursor, "file_seq": 1}
+    return {"cursor": 0, "total_emitted": 0, "file_seq": 1}
 
 def save_cursor(state):
     os.makedirs(WORK_DIR, exist_ok=True)
@@ -268,12 +263,12 @@ class AddressStream:
             self.net_idx += 1
             self.net_offset = 0
 
-        # Wrap around to start if full cloud space exhausted
+        # Wrap around to start if space exhausted
         self.net_idx = 0
         self.net_offset = 0
         return self.next_ip()
 
-def run_topup_cycle(networks, subtracted_ips, counts=None, is_first_run=False):
+def run_topup_cycle(networks, subtracted_ips):
     os.makedirs(QUEUE_DIR, exist_ok=True)
     os.makedirs(WORK_DIR, exist_ok=True)
 
@@ -283,11 +278,9 @@ def run_topup_cycle(networks, subtracted_ips, counts=None, is_first_run=False):
     cursor_val = cursor_state.get("cursor", 0)
 
     files_added = 0
-    first_file_count = 0
     stream = AddressStream(networks, subtracted_ips, start_cursor=cursor_val)
 
     if queue_depth < TARGET_QUEUE_DEPTH:
-        needed_lines = TARGET_QUEUE_DEPTH - queue_depth
         ts = int(time.time())
         file_seq = cursor_state.get("file_seq", 1)
 
@@ -302,9 +295,6 @@ def run_topup_cycle(networks, subtracted_ips, counts=None, is_first_run=False):
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write("\n".join(chunk) + "\n")
 
-            if files_added == 0:
-                first_file_count = len(chunk)
-
             files_added += 1
             file_seq += 1
             queue_depth += len(chunk)
@@ -317,36 +307,64 @@ def run_topup_cycle(networks, subtracted_ips, counts=None, is_first_run=False):
 
     iso_time = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     print(f"{iso_time} queue_depth={queue_depth:,} files_added={files_added} files_deleted={files_deleted} ranges_cursor={cursor_state['cursor']:,}", flush=True)
+    return queue_depth, files_added, files_deleted, cursor_state["cursor"]
 
-    return queue_depth, files_added, files_deleted, cursor_state["cursor"], first_file_count
+def clear_existing_hosting_files():
+    if not os.path.exists(QUEUE_DIR):
+        return 0
+    cleared = 0
+    for f in os.listdir(QUEUE_DIR):
+        if f.startswith("q_a0_hosting_") and f.endswith(".txt"):
+            try:
+                os.remove(os.path.join(QUEUE_DIR, f))
+                cleared += 1
+            except Exception:
+                pass
+    # Also clean up related acks and cursor files
+    if os.path.exists(ACKS_DIR):
+        for f in os.listdir(ACKS_DIR):
+            if f.startswith("q_a0_hosting_"):
+                try: os.remove(os.path.join(ACKS_DIR, f))
+                except Exception: pass
+    if os.path.exists(QCUR_DIR):
+        for f in os.listdir(QCUR_DIR):
+            if f.startswith("q_a0_hosting_"):
+                try: os.remove(os.path.join(QCUR_DIR, f))
+                except Exception: pass
+
+    # Reset ranges cursor
+    if os.path.exists(CURSOR_FILE):
+        try: os.remove(CURSOR_FILE)
+        except Exception: pass
+
+    return cleared
 
 def main():
-    print("Initializing Range Top-up Engine (Fetching cloud networks)...", flush=True)
-    networks, counts = fetch_all_cloud_cidrs()
+    print("Initializing ASN Range Top-up Engine (Fetching announced prefixes via RIPEstat)...", flush=True)
+    networks, asn_stats, grand_total = fetch_all_asn_networks()
     subtracted = load_subtracted_ips()
 
+    print("\n" + "=" * 65)
+    print("ANNOUNCED PREFIX AND ADDRESS COUNTS PER TARGET ASN:")
+    print("-" * 65)
+    for stat in asn_stats:
+        print(f"  {stat['asn']:<8} {stat['name']:<15} | Prefixes: {stat['prefix_count']:<6} | Addresses: {stat['total_ips']:,}")
+    print("-" * 65)
+    print(f"  TOTAL COMBINED COLLAPSED SPACE : {len(networks):<6} prefixes | {grand_total:,} addresses")
+    print("=" * 65 + "\n")
+
+    if "--clear" in sys.argv:
+        cleared = clear_existing_hosting_files()
+        print(f"Cleared {cleared} existing q_a0_hosting_* queue files and reset ranges cursor.\n", flush=True)
+
     if "--once" in sys.argv:
-        print("\n" + "=" * 65)
-        print("TRUE TOTAL ADDRESS COUNTS BY PROVIDER (NO CAP):")
-        print(f"  AWS True Total Addresses   : {counts['aws_total']:,}")
-        print(f"  GCP True Total Addresses   : {counts['gcp_total']:,}")
-        print(f"  Azure True Total Addresses : {counts['azure_total']:,}")
-        print(f"  Combined Collapsed Space   : {counts['grand_total']:,}")
-        print("=" * 65)
-
-        q_depth, added, deleted, cur, first_count = run_topup_cycle(networks, subtracted, counts, is_first_run=True)
-        if first_count == 0 and os.path.exists(QUEUE_DIR):
-            first_f = sorted([f for f in os.listdir(QUEUE_DIR) if f.startswith("q_a0_hosting_")])[0]
-            first_count = sum(1 for _ in open(os.path.join(QUEUE_DIR, first_f), "rb"))
-
-        print(f"First File Line Count: {first_count:,} lines")
-        print("=" * 65 + "\n")
+        run_topup_cycle(networks, subtracted)
         return
 
     print("Starting background top-up daemon (Interval: 60s, Target: 15M lines)...", flush=True)
     while True:
         try:
-            run_topup_cycle(networks, subtracted, counts)
+            run_topup_cycle(networks, subtracted)
         except Exception as e:
             print(f"[ERROR] Exception in top-up cycle: {e}", file=sys.stderr, flush=True)
         time.sleep(60)

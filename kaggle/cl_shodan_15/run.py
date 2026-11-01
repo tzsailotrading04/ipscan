@@ -523,7 +523,7 @@ async def run_worker(shard_idx, worker_id, total_workers):
 
                 work_dir = os.path.join(REPO, "work")
                 os.makedirs(work_dir, exist_ok=True)
-                sh_stats_file = os.path.join(work_dir, f"sh{SHARD_TAG}_stats.txt")
+                sh_stats_file = os.path.join(work_dir, f"sh{SHARD_TAG}_w{worker_id}_stats.txt")
                 try:
                     with open(sh_stats_file + ".tmp", "w", encoding="utf-8") as sf:
                         sf.write(stats_line)
@@ -679,7 +679,7 @@ def git_sync_and_push(msg):
             f"ip/harvest/shodan_progress_v98_{SHARD_TAG}*.txt",
             f"ip/harvest/stage_{SHARD_TAG}.txt",
             f"ip/harvest/queue_failed_part_{SHARD_TAG}*.txt",
-            f"work/sh{SHARD_TAG}_stats.txt",
+            f"work/sh{SHARD_TAG}*_stats.txt",
         ]
         for pat in patterns:
             subprocess.run(["git", "-C", REPO, "add", pat], capture_output=True, check=False)
