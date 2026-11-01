@@ -1,9 +1,9 @@
-stage=queue_slice_q_a4_dead_1793465000_05.txt_0
-ts=1793526474
-offset=65782211
+stage=queue_consuming
+ts=1793526823
+offset=65782620
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:47:35] [SHARD 05 W0] [FOUND QUEUE] 138.117.13.65:999 (TAMAYO) via www.google.com | cands=339
-[2026-11-01 09:47:35] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (124.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-01 09:47:36] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
-[2026-11-01 09:47:36] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_04.txt: total=40000 shard_slice=1334 worker_slice=667 resume=500
-[2026-11-01 09:47:54] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=817 worker_slice=409 resume=0
+[2026-11-01 09:51:41] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:52:11] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:52:42] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:53:12] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:53:43] [SHARD 05 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning

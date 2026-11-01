@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793526651
+ts=1793526927
 offset=63401248
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:49:49] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a4_dead_1793465000_05.txt: total=24498 shard_slice=816 worker_slice=408 resume=0
-[2026-11-01 09:50:21] [SHARD 25 W0] [FOUND QUEUE] 1.20.101.24:8080 (TOT-NET) via speed.cloudflare.com | cands=389
-[2026-11-01 09:50:21] [SHARD 25 W0] [FOUND QUEUE] 157.15.67.163:3125 (IDNIC-TRITAMA-AS-ID) via speed.cloudflare.com | cands=390
-[2026-11-01 09:50:21] [SHARD 25 W0] [FOUND QUEUE] 193.43.140.129:8080 (INT-PDN-STE-AS) via speed.cloudflare.com | cands=391
-[2026-11-01 09:50:51] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:53:24] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:53:55] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:54:26] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:54:56] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 09:55:27] [SHARD 25 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
