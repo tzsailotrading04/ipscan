@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793560755
-offset=69178277
+ts=1793561063
+offset=69198597
 --- LAST 5 LOG LINES ---
 [2026-11-01 18:13:51] [SHARD 17 W0] [FOUND QUEUE] 103.183.58.230:8085 (CDNETID-AS-ID) via speed.cloudflare.com | cands=404
 [2026-11-01 18:13:51] [SHARD 17 W0] [FOUND QUEUE] 147.161.247.9:12480 (ZSCALER-EMEA) via one.one.one.one | cands=405

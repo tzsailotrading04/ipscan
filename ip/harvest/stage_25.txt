@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793560607
-offset=65464854
+ts=1793561050
+offset=65491274
 --- LAST 5 LOG LINES ---
-[2026-11-01 16:35:18] [SHARD 25 W0] [QUEUE STAGE] Found 12 queue files to consume before IP scanning
-[2026-11-01 18:14:10] [SHARD 25 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-01 18:14:10] [SHARD 25 W0] [QUEUE STAGE] Found 13 queue files to consume before IP scanning
-[2026-11-01 18:14:10] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 18:52:02] [SHARD 25 W0] [FOUND RES] 103.70.44.6:8080 (MEGHBELA-IN) via speed.cloudflare.com | cands=435
+[2026-11-01 19:18:57] [SHARD 25 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-01 19:18:57] [SHARD 25 W0] [QUEUE STAGE] Found 14 queue files to consume before IP scanning
+[2026-11-01 19:18:57] [SHARD 25 W0] [QUEUE STAGE] Consuming q_a0_http_1793560448_01.txt: total=211 shard_slice=7 worker_slice=4 resume=0
+[2026-11-01 19:19:19] [SHARD 25 W0] [FOUND QUEUE] 147.161.247.9:12702 (ZSCALER-EMEA) via www.google.com | cands=436
