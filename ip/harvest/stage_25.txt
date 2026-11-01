@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793560759
-offset=65472986
+ts=1793561050
+offset=65491274
 --- LAST 5 LOG LINES ---
 [2026-11-01 18:52:02] [SHARD 25 W0] [FOUND RES] 103.70.44.6:8080 (MEGHBELA-IN) via speed.cloudflare.com | cands=435
 [2026-11-01 19:18:57] [SHARD 25 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
