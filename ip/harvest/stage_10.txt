@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793537619
-offset=65910278
+ts=1793537981
+offset=65936694
 --- LAST 5 LOG LINES ---
-[2026-11-01 09:58:32] [SHARD 10 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:59:02] [SHARD 10 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 09:59:33] [SHARD 10 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 10:00:04] [SHARD 10 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
 [2026-11-01 10:00:35] [SHARD 10 W0] [QUEUE STAGE] Found 5 queue files to consume before IP scanning
+[2026-11-01 12:59:41] [SHARD 10 W0] [FOUND RES] 115.244.219.158:8080 (RELIANCEJIO-IN) via speed.cloudflare.com | cands=369
