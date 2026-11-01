@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793559822
-offset=68089144
+ts=1793560146
+offset=68109464
 --- LAST 5 LOG LINES ---
 [2026-11-01 18:13:33] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793556767_01.txt: total=215 shard_slice=7 worker_slice=4 resume=0
 [2026-11-01 18:13:41] [SHARD 09 W0] [FOUND QUEUE] 147.161.247.9:11729 (ZSCALER-EMEA) via speed.cloudflare.com | cands=393
