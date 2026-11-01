@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793573235
-offset=63967920
+ts=1793573513
+offset=63984176
 --- LAST 5 LOG LINES ---
 [2026-11-01 21:18:55] [SHARD 27 W0] [FOUND QUEUE] 202.58.66.89:5678 (IDNIC-MAMURA-AS-ID) via speed.cloudflare.com | cands=470
 [2026-11-01 22:16:22] [SHARD 27 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
