@@ -743,3 +743,8 @@
 23.225.30.115:9999	speed.cloudflare.com	QUEUE	0	CNSERVERS
 45.71.114.154:999	speed.cloudflare.com	QUEUE	0	UFINET
 47.129.130.0:17777	one.one.one.one	QUEUE	0	AMAZON-02
+3.71.94.153:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.71.94.153:8888	one.one.one.one	QUEUE	0	AMAZON-02
+3.71.94.153:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.71.94.153:8118	www.google.com	QUEUE	0	AMAZON-02
+3.71.94.153:4145	www.google.com	QUEUE	0	AMAZON-02

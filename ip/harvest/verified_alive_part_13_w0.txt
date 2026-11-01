@@ -491,3 +491,8 @@
 103.48.68.6:84	one.one.one.one	QUEUE	0	COUNTRYONLINE-AS-IN
 103.163.13.14:1111	speed.cloudflare.com	QUEUE	0	IDNIC-SIMTEL-AS-ID
 45.71.114.154:999	speed.cloudflare.com	QUEUE	0	UFINET
+3.71.94.153:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.71.94.153:8888	one.one.one.one	QUEUE	0	AMAZON-02
+3.71.94.153:1080	speed.cloudflare.com	QUEUE	0	AMAZON-02
+3.71.94.153:8118	www.google.com	QUEUE	0	AMAZON-02
+3.71.94.153:4145	www.google.com	QUEUE	0	AMAZON-02
