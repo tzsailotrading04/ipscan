@@ -1120,3 +1120,5 @@
 31.76.42.91:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
 130.61.148.213:8888	speed.cloudflare.com	QUEUE	0	ORACLE-BMC-31898
 201.62.82.4:8080	speed.cloudflare.com	QUEUE	0	LIFE
+18.166.56.240:17882	one.one.one.one	QUEUE	0	AMAZON-02
+45.190.78.131:999	speed.cloudflare.com	QUEUE	0	META

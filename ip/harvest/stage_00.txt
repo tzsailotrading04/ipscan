@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793654036_03.txt_0
-ts=1793654352
-offset=74912710
+stage=res_loop
+ts=1793654959
+offset=75204704
 --- LAST 5 LOG LINES ---
-[2026-11-02 21:18:13] [SHARD 00 W0] [STAGGER] Sleeping 7.6s before consuming slice of q_a0_http_1793654036_02.txt...
-[2026-11-02 21:18:21] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-02 21:19:11] [SHARD 00 W0] [FOUND QUEUE] 16.176.232.186:35329 (AMAZON-02) via speed.cloudflare.com | cands=612
-[2026-11-02 21:19:11] [SHARD 00 W0] [STAGGER] Sleeping 1.3s before consuming slice of q_a0_http_1793654036_03.txt...
-[2026-11-02 21:19:12] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 21:19:18] [SHARD 00 W0] [QUEUE STAGE] Found 54 queue files to consume before IP scanning
+[2026-11-02 21:19:18] [SHARD 00 W0] [STAGGER] Sleeping 8.5s before consuming slice of q_a0_http_1793654036_04.txt...
+[2026-11-02 21:19:27] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_04.txt: total=19188 shard_slice=1919 worker_slice=960 resume=0
+[2026-11-02 21:22:31] [SHARD 00 W0] [FOUND QUEUE] 16.176.232.186:35329 (AMAZON-02) via speed.cloudflare.com | cands=619
+[2026-11-02 21:22:31] [SHARD 00 W0] [FOUND QUEUE] 18.191.250.90:5050 (AMAZON-02) via speed.cloudflare.com | cands=620
