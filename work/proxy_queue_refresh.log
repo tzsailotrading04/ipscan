@@ -401,3 +401,22 @@ error: cannot rebase: You have unstaged changes.
 error: Please commit or stash them.
 [2026-11-02 14:17:46] Successfully pushed to origin/main on attempt 2.
 [2026-11-02 14:17:46] === PROXY QUEUE REFRESH JOB FINISHED ===
+[2026-11-02 14:41:01] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 14:41:01] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 14:41:10] Completed: pull_aggregators.py
+[2026-11-02 14:41:10] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 14:41:21] Completed: bulk_harvest.py
+[2026-11-02 14:41:21] Loaded 169,477 lines from bulk_all.txt
+[2026-11-02 14:41:21] Loaded 12,671 unique endpoints from real_pool.txt
+[2026-11-02 14:41:54] Loaded 2,046,723 unique endpoints from pool_dead.txt
+[2026-11-02 14:41:54] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 14:41:58] Gathered 148,243 unique proxies from HTTP/HTTPS sources.
+[2026-11-02 14:41:58] Filter Results: Kept=141,013, Dropped Total=28,464 (Non-HTTP=21,234, RealPool=7,230, DeadPool=0)
+[2026-11-02 14:41:58] Writing 4 queue files for epoch 1793610718 (capped at 200,000)...
+[2026-11-02 14:41:58]   Wrote q_a0_http_1793610718_01.txt (40,000 lines)
+[2026-11-02 14:41:58]   Wrote q_a0_http_1793610718_02.txt (40,000 lines)
+[2026-11-02 14:41:58]   Wrote q_a0_http_1793610718_03.txt (40,000 lines)
+[2026-11-02 14:41:58]   Wrote q_a0_http_1793610718_04.txt (21,013 lines)
+[2026-11-02 14:41:58] Committing and pushing to git...
+[2026-11-02 14:42:05] Successfully pushed to origin/main on attempt 1.
+[2026-11-02 14:42:05] === PROXY QUEUE REFRESH JOB FINISHED ===
