@@ -1083,3 +1083,14 @@
 147.161.247.9:11074	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:11398	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:11960	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+193.43.140.84:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+196.251.193.116:8082	speed.cloudflare.com	QUEUE	0	INFOGRO
+198.12.37.18:8080	speed.cloudflare.com	QUEUE	0	SERVICIOS
+200.107.206.113:999	speed.cloudflare.com	QUEUE	0	DLD
+201.7.31.170:8080	one.one.one.one	QUEUE	0	RESERVED
+204.186.254.106:8080	one.one.one.one	QUEUE	0	AS-PTD
+41.93.63.66:8080	one.one.one.one	QUEUE	0	TERNET
+45.32.127.81:3128	speed.cloudflare.com	QUEUE	0	AS-VULTR
+49.51.252.36:3128	speed.cloudflare.com	QUEUE	0	TENCENT-NET-AP-CN
+77.42.95.221:8888	one.one.one.one	QUEUE	0	HETZNER-AS
+93.115.175.190:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
