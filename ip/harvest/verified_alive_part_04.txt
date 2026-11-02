@@ -1061,3 +1061,5 @@
 161.132.45.17:1081	one.one.one.one	QUEUE	0	RED
 18.144.86.139:54554	one.one.one.one	QUEUE	0	AMAZON-02
 181.78.170.205:999	speed.cloudflare.com	QUEUE	0	UFINET
+200.3.197.65:8080	speed.cloudflare.com	QUEUE	0	INACIO
+45.115.253.30:80	one.one.one.one	QUEUE	0	RGCOMP-AS-IN
