@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793638014
-offset=69507040
+ts=1793638311
+offset=69546664
 --- LAST 5 LOG LINES ---
 [2026-11-02 16:24:00] [SHARD 08 W0] [QUEUE STAGE] Found 34 queue files to consume before IP scanning
 [2026-11-02 16:26:40] [SHARD 08 W0] [FOUND QUEUE] 201.4.69.40:8080 (RESERVED) via one.one.one.one | cands=530
