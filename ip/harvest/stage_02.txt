@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793642442
-offset=67238103
+stage=queue_consuming
+ts=1793643467
+offset=67248931
 --- LAST 5 LOG LINES ---
-[2026-11-02 17:21:14] [SHARD 02 W0] [FOUND QUEUE] 89.237.32.161:37647 (TRANSTELECOM) via speed.cloudflare.com | cands=593
-[2026-11-02 17:21:14] [SHARD 02 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (142.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 17:21:15] [SHARD 02 W0] [QUEUE STAGE] Found 38 queue files to consume before IP scanning
-[2026-11-02 17:22:29] [SHARD 02 W0] [FOUND QUEUE] 163.52.18.157:8087 (UEIESC-AS-AP) via speed.cloudflare.com | cands=594
-[2026-11-02 17:22:29] [SHARD 02 W0] [FOUND QUEUE] 18.224.94.46:43023 (AMAZON-02) via speed.cloudflare.com | cands=595
+[2026-11-02 18:17:45] [SHARD 02 W0] [FOUND QUEUE] 38.191.203.229:999 (HOLA) via one.one.one.one | cands=606
+[2026-11-02 18:17:45] [SHARD 02 W0] [FOUND QUEUE] 38.75.83.167:999 (ACOLME) via www.google.com | cands=607
+[2026-11-02 18:17:45] [SHARD 02 W0] [FOUND QUEUE] 41.128.72.138:1976 (LINKDOTNET-AS) via www.google.com | cands=608
+[2026-11-02 18:17:45] [SHARD 02 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (234.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 18:17:47] [SHARD 02 W0] [QUEUE STAGE] Found 42 queue files to consume before IP scanning
