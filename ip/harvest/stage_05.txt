@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793641768
-offset=70076642
+ts=1793642363
+offset=70136078
 --- LAST 5 LOG LINES ---
 [2026-11-02 17:21:24] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (143.2s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
 [2026-11-02 17:21:25] [SHARD 05 W0] [QUEUE STAGE] Found 38 queue files to consume before IP scanning
