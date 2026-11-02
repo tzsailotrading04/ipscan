@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793639619_03.txt_0
-ts=1793646280
-offset=71602153
+stage=queue_slice_q_a0_http_1793643365_04.txt_0
+ts=1793646796
+offset=71606153
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:03:10] [SHARD 04 W0] [QUEUE STAGE] Found 42 queue files to consume before IP scanning
-[2026-11-02 19:03:10] [SHARD 04 W0] [STAGGER] Sleeping 19.5s before consuming slice of q_a0_http_1793639619_02.txt...
-[2026-11-02 19:03:30] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-02 19:04:32] [SHARD 04 W0] [STAGGER] Sleeping 7.7s before consuming slice of q_a0_http_1793639619_03.txt...
-[2026-11-02 19:04:40] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:11:35] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:13:13] [SHARD 04 W0] [FOUND QUEUE] 43.252.107.218:3125 (LDP-AS-ID) via speed.cloudflare.com | cands=679
+[2026-11-02 19:13:13] [SHARD 04 W0] [FOUND QUEUE] 45.190.87.46:999 (RIMTEL) via speed.cloudflare.com | cands=680
+[2026-11-02 19:13:13] [SHARD 04 W0] [STAGGER] Sleeping 2.3s before consuming slice of q_a0_http_1793643365_04.txt...
+[2026-11-02 19:13:16] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_04.txt: total=18646 shard_slice=1865 worker_slice=933 resume=0

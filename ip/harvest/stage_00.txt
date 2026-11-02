@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793643365_03.txt_0
-ts=1793646474
-offset=74688718
+stage=queue_slice_q_a0_http_1793632425_03.txt_0
+ts=1793646805
+offset=74667763
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:06:45] [SHARD 00 W0] [STAGGER] Sleeping 11.9s before consuming slice of q_a0_http_1793643365_02.txt...
-[2026-11-02 19:06:57] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-02 19:07:43] [SHARD 00 W0] [FOUND QUEUE] 176.88.191.237:8080 (TELLCOM-AS) via www.google.com | cands=563
-[2026-11-02 19:07:43] [SHARD 00 W0] [STAGGER] Sleeping 10.1s before consuming slice of q_a0_http_1793643365_03.txt...
-[2026-11-02 19:07:54] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:12:08] [SHARD 00 W0] [QUEUE STAGE] Found 42 queue files to consume before IP scanning
+[2026-11-02 19:12:08] [SHARD 00 W0] [STAGGER] Sleeping 13.2s before consuming slice of q_a0_http_1793632425_02.txt...
+[2026-11-02 19:12:21] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793632425_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:13:21] [SHARD 00 W0] [STAGGER] Sleeping 4.6s before consuming slice of q_a0_http_1793632425_03.txt...
+[2026-11-02 19:13:25] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793632425_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

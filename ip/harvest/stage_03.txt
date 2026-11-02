@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793636166_03.txt_0
-ts=1793646127
-offset=68863729
+stage=queue_consuming
+ts=1793646823
+offset=68869729
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:00:43] [SHARD 03 W0] [STAGGER] Sleeping 10.2s before consuming slice of q_a0_http_1793636166_02.txt...
-[2026-11-02 19:00:53] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-02 19:01:45] [SHARD 03 W0] [FOUND QUEUE] 18.157.159.247:2499 (AMAZON-02) via speed.cloudflare.com | cands=790
-[2026-11-02 19:01:45] [SHARD 03 W0] [STAGGER] Sleeping 21.7s before consuming slice of q_a0_http_1793636166_03.txt...
-[2026-11-02 19:02:07] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:11:12] [SHARD 03 W0] [STAGGER] Sleeping 5.2s before consuming slice of q_a0_http_1793643365_03.txt...
+[2026-11-02 19:11:17] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:13:41] [SHARD 03 W0] [FOUND QUEUE] 203.205.49.2:10194 (CMCTELECOM-VN) via speed.cloudflare.com | cands=793
+[2026-11-02 19:13:41] [SHARD 03 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (197.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 19:13:43] [SHARD 03 W0] [QUEUE STAGE] Found 42 queue files to consume before IP scanning

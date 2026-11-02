@@ -590,3 +590,9 @@
 107.155.87.251:3128	speed.cloudflare.com	QUEUE	0	HVC-AS
 144.124.251.24:10574	one.one.one.one	QUEUE	0	VDSINA
 147.161.246.37:11480	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+43.207.141.180:11980	one.one.one.one	QUEUE	0	AMAZON-02
+45.178.54.65:999	speed.cloudflare.com	QUEUE	0	GLOBALWEB
+47.129.105.10:5680	speed.cloudflare.com	QUEUE	0	AMAZON-02
+65.108.159.129:8080	one.one.one.one	QUEUE	0	HETZNER-AS
+115.127.95.82:8080	speed.cloudflare.com	QUEUE	0	BRAC-BDMAIL-AS-BD
+143.208.84.2:8589	www.google.com	QUEUE	0	V

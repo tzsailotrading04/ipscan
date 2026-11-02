@@ -535,3 +535,6 @@
 147.161.246.39:10116	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:10071	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 182.52.149.42:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+34.220.80.147:18081	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.199.29.225:8085	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.216.197.62:52849	one.one.one.one	QUEUE	0	AMAZON-02
