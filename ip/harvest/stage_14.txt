@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_hosting_1793562359_10.txt_0
-ts=1793578469
-offset=64841900
+stage=res_loop
+ts=1793579588
+offset=64597284
 --- LAST 5 LOG LINES ---
-[2026-11-02 00:11:00] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_09.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=10000
-[2026-11-02 00:14:02] [SHARD 14 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (207.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 00:14:03] [SHARD 14 W0] [QUEUE STAGE] Found 83 queue files to consume before IP scanning
-[2026-11-02 00:14:04] [SHARD 14 W0] [STAGGER] Sleeping 25.8s before consuming slice of q_a0_hosting_1793562359_10.txt...
-[2026-11-02 00:14:29] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_10.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=0
+[2026-11-01 22:25:14] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793571487_28.txt: total=500000 shard_slice=16667 worker_slice=8334 resume=0
+[2026-11-01 22:25:15] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793571487_29.txt: total=500000 shard_slice=16667 worker_slice=8334 resume=0
+[2026-11-01 22:25:15] [SHARD 14 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793571487_30.txt: total=500000 shard_slice=16667 worker_slice=8334 resume=0
+[2026-11-01 23:21:11] [SHARD 14 W0] [FOUND QUEUE] 147.161.247.9:10694 (ZSCALER-EMEA) via speed.cloudflare.com | cands=463
+[2026-11-01 23:21:11] [SHARD 14 W0] [FOUND QUEUE] 38.19.41.173:8080 (SUPER) via speed.cloudflare.com | cands=464
