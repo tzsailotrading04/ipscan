@@ -1130,3 +1130,5 @@
 103.130.106.65:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
 13.215.184.250:54159	speed.cloudflare.com	QUEUE	0	AMAZON-02
 16.174.124.173:7589	one.one.one.one	QUEUE	0	AMAZON-02
+16.28.101.55:21005	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.174.124.173:7589	speed.cloudflare.com	QUEUE	0	AMAZON-02

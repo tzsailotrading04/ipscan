@@ -702,3 +702,5 @@
 64.176.55.231:8886	www.google.com	QUEUE	0	AS-VULTR
 93.55.126.190:8080	one.one.one.one	QUEUE	0	FASTWEB
 119.2.48.18:9669	one.one.one.one	QUEUE	0	IDNIC-BLIP-AS-ID
+24.152.58.98:999	speed.cloudflare.com	QUEUE	0	ATENEA
+54.198.140.56:40784	speed.cloudflare.com	QUEUE	0	AMAZON-AES
