@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793618284
-offset=72472812
+stage=queue_loop
+ts=1793618411
+offset=72473837
 --- LAST 5 LOG LINES ---
-[2026-11-02 11:15:36] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793617905_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-02 11:18:03] [SHARD 00 W0] [FOUND QUEUE] 38.156.23.34:999 (VISNETWORK) via one.one.one.one | cands=443
-[2026-11-02 11:18:03] [SHARD 00 W0] [FOUND QUEUE] 49.0.27.175:1111 (IDNIC-PDM-AS-ID) via one.one.one.one | cands=444
-[2026-11-02 11:18:03] [SHARD 00 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (230.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 11:18:04] [SHARD 00 W0] [QUEUE STAGE] Found 14 queue files to consume before IP scanning
+[2026-11-02 11:18:12] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793617905_04.txt: total=20481 shard_slice=2049 worker_slice=1025 resume=0
+[2026-11-02 11:20:10] [SHARD 00 W0] [FOUND QUEUE] 84.1.150.26:8080 (MAGYAR-TELEKOM-MAIN-AS) via speed.cloudflare.com | cands=445
+[2026-11-02 11:20:10] [SHARD 00 W0] [FOUND QUEUE] 84.8.216.34:80 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=446
+[2026-11-02 11:20:10] [SHARD 00 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (125.4s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 11:20:11] [SHARD 00 W0] [QUEUE STAGE] Found 14 queue files to consume before IP scanning
