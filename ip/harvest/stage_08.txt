@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793650155
-offset=70160648
+stage=queue_slice_q_a0_http_1793650412_02.txt_0
+ts=1793650510
+offset=70162648
 --- LAST 5 LOG LINES ---
-[2026-11-02 20:07:13] [SHARD 08 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 20:07:43] [SHARD 08 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 20:08:14] [SHARD 08 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 20:08:44] [SHARD 08 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 20:09:15] [SHARD 08 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 20:13:50] [SHARD 08 W0] [QUEUE STAGE] Found 50 queue files to consume before IP scanning
+[2026-11-02 20:13:50] [SHARD 08 W0] [STAGGER] Sleeping 1.8s before consuming slice of q_a0_http_1793650412_01.txt...
+[2026-11-02 20:13:52] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 20:15:06] [SHARD 08 W0] [STAGGER] Sleeping 3.3s before consuming slice of q_a0_http_1793650412_02.txt...
+[2026-11-02 20:15:10] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

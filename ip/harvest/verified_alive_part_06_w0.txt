@@ -624,3 +624,10 @@
 154.159.247.119:8080	www.google.com	QUEUE	0	CKL1-ASN
 165.101.231.153:8080	www.google.com	QUEUE	0	IDNIC-CDNNET-AS-ID
 170.83.242.76:999	speed.cloudflare.com	QUEUE	0	UFINET
+149.28.120.94:3128	speed.cloudflare.com	QUEUE	0	AS-VULTR
+157.173.120.204:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+213.136.80.176:3128	www.google.com	QUEUE	0	CONTABO
+157.230.43.16:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+54.36.150.233:3128	speed.cloudflare.com	QUEUE	0	OVH
+62.171.168.211:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+64.76.106.88:8080	www.google.com	QUEUE	0	LOA

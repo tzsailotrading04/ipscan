@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793649594
-offset=67144048
+stage=queue_consuming
+ts=1793650579
+offset=67155676
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:57:52] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:58:22] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:58:53] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:59:23] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:59:54] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 20:13:00] [SHARD 06 W0] [FOUND QUEUE] 54.36.150.233:3128 (OVH) via speed.cloudflare.com | cands=631
+[2026-11-02 20:16:19] [SHARD 06 W0] [FOUND QUEUE] 62.171.168.211:3128 (CONTABO) via speed.cloudflare.com | cands=632
+[2026-11-02 20:16:19] [SHARD 06 W0] [FOUND QUEUE] 64.76.106.88:8080 (LOA) via www.google.com | cands=633
+[2026-11-02 20:16:19] [SHARD 06 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-02 20:16:19] [SHARD 06 W0] [QUEUE STAGE] Found 50 queue files to consume before IP scanning
