@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793646812_02.txt_0
-ts=1793648817
-offset=67139079
+stage=queue_consuming
+ts=1793649137
+offset=67144048
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:45:39] [SHARD 06 W0] [STAGGER] Sleeping 7.7s before consuming slice of q_a0_http_1793646812_01.txt...
-[2026-11-02 19:45:47] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793646812_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-02 19:46:52] [SHARD 06 W0] [FOUND QUEUE] 154.159.247.119:8080 (CKL1-ASN) via www.google.com | cands=624
-[2026-11-02 19:46:52] [SHARD 06 W0] [STAGGER] Sleeping 5.2s before consuming slice of q_a0_http_1793646812_02.txt...
-[2026-11-02 19:46:57] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793646812_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:50:15] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 19:50:46] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 19:51:16] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 19:51:47] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 19:52:17] [SHARD 06 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning

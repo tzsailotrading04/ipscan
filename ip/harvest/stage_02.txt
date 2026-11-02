@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793648881
-offset=67374984
+ts=1793649178
+offset=67420704
 --- LAST 5 LOG LINES ---
 [2026-11-02 19:38:04] [SHARD 02 W0] [FOUND QUEUE] 203.128.75.194:8080 (NEUVIZ-AS-ID-AP) via speed.cloudflare.com | cands=681
 [2026-11-02 19:38:04] [SHARD 02 W0] [FOUND QUEUE] 38.158.83.233:999 (FIBERRED) via one.one.one.one | cands=682
