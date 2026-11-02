@@ -863,3 +863,8 @@
 103.163.245.9:83	www.google.com	QUEUE	0	INFO22-AS
 149.56.110.191:8118	www.google.com	QUEUE	0	OVH
 190.97.246.194:999	speed.cloudflare.com	QUEUE	0	VIGINET
+208.163.39.218:53281	www.google.com	QUEUE	0	CWJ-1
+83.221.219.245:7890	speed.cloudflare.com	QUEUE	0	ROSTOV-TELEGRAF-AS
+85.122.120.46:20000	speed.cloudflare.com	QUEUE	0	SELL-AS
+65.108.159.129:3128	one.one.one.one	QUEUE	0	HETZNER-AS
+93.90.41.104:10809	speed.cloudflare.com	QUEUE	0	MEGAFON-AS
