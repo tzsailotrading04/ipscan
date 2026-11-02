@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793624109
-offset=66702608
+ts=1793624411
+offset=66733088
 --- LAST 5 LOG LINES ---
 [2026-11-02 12:20:50] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793621603_04.txt: total=20262 shard_slice=2026 worker_slice=1013 resume=0
 [2026-11-02 12:24:46] [SHARD 07 W0] [FOUND QUEUE] 203.128.75.194:8080 (NEUVIZ-AS-ID-AP) via speed.cloudflare.com | cands=551
