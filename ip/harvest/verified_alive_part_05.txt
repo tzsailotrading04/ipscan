@@ -778,3 +778,5 @@
 23.95.60.86:8080	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
 23.95.60.66:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
 45.32.253.68:8888	speed.cloudflare.com	QUEUE	0	AS-VULTR
+51.68.54.130:8080	speed.cloudflare.com	QUEUE	0	OVH
+51.68.54.130:8118	speed.cloudflare.com	QUEUE	0	OVH
