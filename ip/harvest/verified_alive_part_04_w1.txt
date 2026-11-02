@@ -690,3 +690,6 @@
 18.175.170.244:24951	one.one.one.one	QUEUE	0	AMAZON-02
 185.135.99.14:8080	speed.cloudflare.com	QUEUE	0	EXTEND
 51.79.142.230:38414	speed.cloudflare.com	QUEUE	0	OVH
+111.192.50.81:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+123.253.4.50:8080	www.google.com	QUEUE	0	SOLUSINET-AS-ID
+45.172.226.51:999	one.one.one.one	QUEUE	0	WAYCOM
