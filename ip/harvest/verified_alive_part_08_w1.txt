@@ -557,3 +557,8 @@
 38.210.107.13:999	speed.cloudflare.com	QUEUE	0	CONEXION
 38.63.117.68:999	one.one.one.one	QUEUE	0	COLNETWORK
 45.229.17.74:999	one.one.one.one	QUEUE	0	TURBONET
+103.104.142.161:8080	speed.cloudflare.com	QUEUE	0	BROSIS4-AS-AP
+103.181.255.69:1111	one.one.one.one	QUEUE	0	GIGANET-AS-ID
+147.161.247.9:11027	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:11639	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+16.51.5.77:43427	speed.cloudflare.com	QUEUE	0	AMAZON-02
