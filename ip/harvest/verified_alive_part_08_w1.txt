@@ -578,3 +578,8 @@
 126.209.17.234:8080	www.google.com	QUEUE	0	INFINIVAN-AS-AP
 159.89.175.22:8888	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
 38.191.204.21:999	one.one.one.one	QUEUE	0	HOLA
+63.180.203.233:38249	speed.cloudflare.com	QUEUE	0	AMAZON-02
+89.43.132.226:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+103.139.99.173:8080	speed.cloudflare.com	QUEUE	0	DNS-AS-ID
+103.194.46.100:8082	www.google.com	QUEUE	0	JABNET-AS-ID
+189.196.32.16:8080	speed.cloudflare.com	QUEUE	0	MEGA
