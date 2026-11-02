@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793636166_04.txt_0
-ts=1793636523
-offset=66355973
+stage=res_loop
+ts=1793636864
+offset=66360959
 --- LAST 5 LOG LINES ---
-[2026-11-02 16:22:01] [SHARD 06 W0] [FOUND QUEUE] 38.156.23.26:999 (VISNETWORK) via www.google.com | cands=540
-[2026-11-02 16:22:02] [SHARD 06 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (171.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 16:22:03] [SHARD 06 W0] [QUEUE STAGE] Found 34 queue files to consume before IP scanning
 [2026-11-02 16:22:03] [SHARD 06 W0] [STAGGER] Sleeping 0.9s before consuming slice of q_a0_http_1793636166_04.txt...
 [2026-11-02 16:22:03] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_04.txt: total=19724 shard_slice=1972 worker_slice=986 resume=0
+[2026-11-02 16:24:35] [SHARD 06 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (152.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 16:24:36] [SHARD 06 W0] [QUEUE STAGE] Found 34 queue files to consume before IP scanning
+[2026-11-02 16:27:43] [SHARD 06 W0] [FOUND QUEUE] 195.178.33.86:8080 (TELEKOM-AS) via www.google.com | cands=541

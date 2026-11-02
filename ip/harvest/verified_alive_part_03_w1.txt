@@ -753,3 +753,7 @@
 12.49.24.22:8080	one.one.one.one	QUEUE	0	PC-INTERNET
 154.219.101.12:1081	www.google.com	QUEUE	0	COGNETCLOUD-2
 43.199.29.225:31031	speed.cloudflare.com	QUEUE	0	AMAZON-02
+65.108.159.129:8080	speed.cloudflare.com	QUEUE	0	HETZNER-AS
+18.157.159.247:2499	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.231.214.206:48968	speed.cloudflare.com	QUEUE	0	AMAZON-02
+180.180.123.40:8080	speed.cloudflare.com	QUEUE	0	TOT-NET

@@ -602,3 +602,8 @@
 38.156.23.250:999	www.google.com	QUEUE	0	VISNETWORK
 38.211.78.49:999	speed.cloudflare.com	QUEUE	0	FIBERNET
 38.58.117.43:80	www.google.com	QUEUE	0	IDNIC-LJN-AS-ID
+56.228.13.15:21190	speed.cloudflare.com	QUEUE	0	AMAZON-02
+195.205.134.1:8080	speed.cloudflare.com	QUEUE	0	TPNET
+38.211.78.49:999	speed.cloudflare.com	QUEUE	0	FIBERNET
+38.52.209.229:999	speed.cloudflare.com	QUEUE	0	CENTRAL
+51.94.221.175:8097	speed.cloudflare.com	QUEUE	0	AMAZON-02

@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793636441
-offset=74089340
+stage=res_loop
+ts=1793636808
+offset=74096327
 --- LAST 5 LOG LINES ---
-[2026-11-02 16:20:41] [SHARD 00 W0] [FOUND QUEUE] 103.23.98.73:3125 (IDNIC-SAKTINET-AS-ID) via speed.cloudflare.com | cands=497
-[2026-11-02 16:20:41] [SHARD 00 W0] [FOUND QUEUE] 103.55.104.57:8080 (SBRTELECOM-AS) via speed.cloudflare.com | cands=498
-[2026-11-02 16:20:41] [SHARD 00 W0] [FOUND QUEUE] 137.66.56.136:8080 (FLY) via speed.cloudflare.com | cands=499
-[2026-11-02 16:20:41] [SHARD 00 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-02 16:20:41] [SHARD 00 W0] [QUEUE STAGE] Found 34 queue files to consume before IP scanning
+[2026-11-02 16:23:42] [SHARD 00 W0] [QUEUE STAGE] Found 34 queue files to consume before IP scanning
+[2026-11-02 16:23:42] [SHARD 00 W0] [STAGGER] Sleeping 14.1s before consuming slice of q_a0_http_1793636166_04.txt...
+[2026-11-02 16:23:56] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_04.txt: total=19724 shard_slice=1973 worker_slice=987 resume=0
+[2026-11-02 16:26:48] [SHARD 00 W0] [FOUND QUEUE] 157.66.16.48:8181 (IDNIC-MMNET-AS-ID) via www.google.com | cands=501
+[2026-11-02 16:26:48] [SHARD 00 W0] [FOUND QUEUE] 16.51.53.116:54579 (AMAZON-02) via speed.cloudflare.com | cands=502

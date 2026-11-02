@@ -1012,3 +1012,11 @@
 38.156.23.250:999	www.google.com	QUEUE	0	VISNETWORK
 38.211.78.49:999	speed.cloudflare.com	QUEUE	0	FIBERNET
 38.58.117.43:80	www.google.com	QUEUE	0	IDNIC-LJN-AS-ID
+81.0.49.104:20500	one.one.one.one	QUEUE	0	XTRA
+56.228.13.15:21190	speed.cloudflare.com	QUEUE	0	AMAZON-02
+167.99.3.26:10801	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+18.191.250.90:8104	one.one.one.one	QUEUE	0	AMAZON-02
+190.93.191.10:999	one.one.one.one	QUEUE	0	JOSE
+190.97.254.180:8080	speed.cloudflare.com	QUEUE	0	VIGINET
+195.205.134.1:8080	speed.cloudflare.com	QUEUE	0	TPNET
+38.52.209.229:999	speed.cloudflare.com	QUEUE	0	CENTRAL

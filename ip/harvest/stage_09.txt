@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793636166_03.txt_0
-ts=1793636393
-offset=69967666
+stage=res_loop
+ts=1793636741
+offset=69974652
 --- LAST 5 LOG LINES ---
-[2026-11-02 16:19:42] [SHARD 09 W0] [FOUND QUEUE] 163.52.18.235:8087 (UEIESC-AS-AP) via www.google.com | cands=518
-[2026-11-02 16:19:42] [SHARD 09 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (138.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 16:19:43] [SHARD 09 W0] [QUEUE STAGE] Found 34 queue files to consume before IP scanning
-[2026-11-02 16:19:43] [SHARD 09 W0] [STAGGER] Sleeping 10.4s before consuming slice of q_a0_http_1793636166_03.txt...
-[2026-11-02 16:19:53] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 16:22:31] [SHARD 09 W0] [STAGGER] Sleeping 3.8s before consuming slice of q_a0_http_1793636166_04.txt...
+[2026-11-02 16:22:35] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_04.txt: total=19724 shard_slice=1972 worker_slice=986 resume=0
+[2026-11-02 16:25:40] [SHARD 09 W0] [FOUND QUEUE] 16.176.232.186:2928 (AMAZON-02) via speed.cloudflare.com | cands=522
+[2026-11-02 16:25:40] [SHARD 09 W0] [FOUND QUEUE] 16.51.5.77:27569 (AMAZON-02) via speed.cloudflare.com | cands=523
+[2026-11-02 16:25:40] [SHARD 09 W0] [FOUND QUEUE] 165.0.136.30:8080 (RSAWEB-AS) via speed.cloudflare.com | cands=524
