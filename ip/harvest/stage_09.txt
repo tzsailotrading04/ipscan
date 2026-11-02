@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793618675
-offset=68369284
+ts=1793618981
+offset=68404336
 --- LAST 5 LOG LINES ---
 [2026-11-02 11:24:34] [SHARD 09 W0] [FOUND QUEUE] 196.251.222.229:8080 (INFOGRO) via www.google.com | cands=465
 [2026-11-02 11:24:34] [SHARD 09 W0] [FOUND QUEUE] 203.205.49.2:10218 (CMCTELECOM-VN) via speed.cloudflare.com | cands=466
