@@ -773,3 +773,7 @@
 3.8.177.99:8888	www.google.com	QUEUE	0	AMAZON-02
 3.8.177.99:1080	one.one.one.one	QUEUE	0	AMAZON-02
 3.89.212.20:3128	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+13.140.178.224:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+23.95.60.86:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
+23.95.60.86:8080	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
+23.95.60.66:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
