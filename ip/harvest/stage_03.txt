@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793629733
-offset=67636348
+ts=1793630041
+offset=67668352
 --- LAST 5 LOG LINES ---
 [2026-11-02 14:19:53] [SHARD 03 W0] [FOUND QUEUE] 45.174.168.5:999 (TELECOMUNICACIONES) via one.one.one.one | cands=706
 [2026-11-02 14:19:53] [SHARD 03 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (261.1s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
