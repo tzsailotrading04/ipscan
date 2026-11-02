@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793579469
-offset=64358070
+ts=1793580697
+offset=64433262
 --- LAST 5 LOG LINES ---
-[2026-11-01 22:16:32] [SHARD 27 W0] [FOUND QUEUE] 52.140.7.131:80 (MICROSOFT-CORP-MSN-AS-BLOCK) via speed.cloudflare.com | cands=471
-[2026-11-01 23:20:45] [SHARD 27 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-01 23:20:45] [SHARD 27 W0] [QUEUE STAGE] Found 83 queue files to consume before IP scanning
-[2026-11-01 23:20:45] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793575031_01.txt: total=331 shard_slice=11 worker_slice=6 resume=0
-[2026-11-01 23:21:10] [SHARD 27 W0] [FOUND QUEUE] 147.161.247.9:11822 (ZSCALER-EMEA) via www.google.com | cands=472
+[2026-11-02 00:51:13] [SHARD 27 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-02 00:51:13] [SHARD 27 W0] [QUEUE STAGE] Found 84 queue files to consume before IP scanning
+[2026-11-02 00:51:13] [SHARD 27 W0] [QUEUE STAGE] Consuming q_a0_http_1793580612_01.txt: total=465 shard_slice=15 worker_slice=8 resume=0
+[2026-11-02 00:51:37] [SHARD 27 W0] [FOUND QUEUE] 147.161.247.9:10264 (ZSCALER-EMEA) via speed.cloudflare.com | cands=473
+[2026-11-02 00:51:37] [SHARD 27 W0] [FOUND QUEUE] 83.45.174.12:8080 (TELEFONICA_DE_ESPANA) via speed.cloudflare.com | cands=474
