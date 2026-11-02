@@ -789,5 +789,7 @@
 165.101.231.147:8080	www.google.com	QUEUE	0	IDNIC-CDNNET-AS-ID
 144.124.251.24:10588	speed.cloudflare.com	QUEUE	0	VDSINA
 47.129.130.0:20113	speed.cloudflare.com	QUEUE	0	AMAZON-02
-3.109.65.62:8888	www.google.com	QUEUE	0	AMAZON-02
-3.127.135.54:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.217.248.118:24092	one.one.one.one	QUEUE	0	AMAZON-02
+147.161.247.9:10694	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+38.19.41.173:8080	speed.cloudflare.com	QUEUE	0	SUPER
+147.161.247.9:12512	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA

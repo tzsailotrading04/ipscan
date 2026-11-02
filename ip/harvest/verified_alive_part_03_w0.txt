@@ -601,3 +601,5 @@
 3.21.37.31:80	one.one.one.one	QUEUE	0	AMAZON-02
 3.77.151.39:443	speed.cloudflare.com	QUEUE	0	AMAZON-02
 51.178.209.5:8080	www.google.com	QUEUE	0	OVH
+104.248.33.144:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+104.248.33.144:8080	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN

@@ -712,3 +712,5 @@
 45.180.26.1:999	speed.cloudflare.com	QUEUE	0	ROBERTO
 119.92.75.252:8181	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 3.88.167.17:3128	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+68.183.220.201:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+68.183.220.201:8080	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
