@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793618575
-offset=67907555
+stage=res_loop
+ts=1793618643
+offset=67911555
 --- LAST 5 LOG LINES ---
-[2026-11-02 11:22:54] [SHARD 05 W0] [FOUND QUEUE] 204.9.208.237:8080 (CNSI-01) via one.one.one.one | cands=546
-[2026-11-02 11:22:54] [SHARD 05 W0] [FOUND QUEUE] 210.87.124.215:1111 (IDNIC-BRAGANETWORK-AS-ID) via www.google.com | cands=547
-[2026-11-02 11:22:54] [SHARD 05 W0] [FOUND QUEUE] 23.95.60.71:3129 (AS-COLOCROSSING) via speed.cloudflare.com | cands=548
-[2026-11-02 11:22:54] [SHARD 05 W0] [FOUND QUEUE] 35.183.29.62:48760 (AMAZON-02) via speed.cloudflare.com | cands=549
-[2026-11-02 11:22:54] [SHARD 05 W0] [FOUND QUEUE] 49.156.44.116:8080 (IIT-WICAM-AS-AP) via speed.cloudflare.com | cands=550
+[2026-11-02 11:24:03] [SHARD 05 W0] [FOUND QUEUE] 165.99.194.139:8080 (IDNIC-NBS-ID) via www.google.com | cands=551
+[2026-11-02 11:24:03] [SHARD 05 W0] [FOUND QUEUE] 178.251.111.26:8080 (DATALINE-AS) via speed.cloudflare.com | cands=552
+[2026-11-02 11:24:03] [SHARD 05 W0] [FOUND QUEUE] 179.1.182.28:999 (INTERNEXA) via www.google.com | cands=553
+[2026-11-02 11:24:03] [SHARD 05 W0] [FOUND QUEUE] 183.88.213.178:8080 (TTBP-AS-AP) via www.google.com | cands=554
+[2026-11-02 11:24:03] [SHARD 05 W0] [FOUND QUEUE] 191.5.126.28:8080 (VIA) via www.google.com | cands=555

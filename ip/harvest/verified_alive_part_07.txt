@@ -802,3 +802,5 @@
 38.248.80.19:999	speed.cloudflare.com	QUEUE	0	GB
 45.144.53.63:5004	speed.cloudflare.com	QUEUE	0	H2NEXUS-AS
 45.182.22.249:999	speed.cloudflare.com	QUEUE	0	MULTICABLE
+54.255.249.161:29943	one.one.one.one	QUEUE	0	AMAZON-02
+80.225.88.28:8082	www.google.com	QUEUE	0	ORACLE-BMC-31898
