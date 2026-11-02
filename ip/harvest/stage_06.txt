@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793628704_02.txt_0
-ts=1793628974
-offset=65645137
+stage=queue_consuming
+ts=1793629234
+offset=65649137
 --- LAST 5 LOG LINES ---
-[2026-11-02 14:15:59] [SHARD 06 W0] [FOUND QUEUE] 111.90.188.156:8080 (MEKONGNET-ADC-AS-AP) via one.one.one.one | cands=526
-[2026-11-02 14:16:00] [SHARD 06 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-02 14:16:00] [SHARD 06 W0] [QUEUE STAGE] Found 26 queue files to consume before IP scanning
-[2026-11-02 14:16:00] [SHARD 06 W0] [STAGGER] Sleeping 13.9s before consuming slice of q_a0_http_1793628704_02.txt...
-[2026-11-02 14:16:14] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793628704_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 14:17:31] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793628704_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 14:20:33] [SHARD 06 W0] [FOUND QUEUE] 38.19.43.75:999 (SUPER) via www.google.com | cands=527
+[2026-11-02 14:20:33] [SHARD 06 W0] [FOUND QUEUE] 46.30.245.153:8080 (SERVERPLAN-AS) via speed.cloudflare.com | cands=528
+[2026-11-02 14:20:33] [SHARD 06 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (272.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 14:20:34] [SHARD 06 W0] [QUEUE STAGE] Found 26 queue files to consume before IP scanning
