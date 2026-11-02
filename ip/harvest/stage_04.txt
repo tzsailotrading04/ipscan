@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793638920
-offset=71278237
+ts=1793639223
+offset=71308717
 --- LAST 5 LOG LINES ---
 [2026-11-02 16:21:40] [SHARD 04 W0] [STAGGER] Sleeping 25.6s before consuming slice of q_a0_http_1793636166_04.txt...
 [2026-11-02 16:22:05] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_04.txt: total=19724 shard_slice=1972 worker_slice=986 resume=0
