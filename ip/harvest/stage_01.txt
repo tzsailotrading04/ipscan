@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793641252
-offset=65533720
+ts=1793641565
+offset=65565724
 --- LAST 5 LOG LINES ---
 [2026-11-02 17:20:44] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_04.txt: total=19639 shard_slice=1964 worker_slice=982 resume=0
 [2026-11-02 17:22:42] [SHARD 01 W0] [FOUND QUEUE] 82.67.105.31:8888 (PROXAD) via one.one.one.one | cands=492
