@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793621603_04.txt_0
-ts=1793621948
-offset=72794733
+stage=queue_loop
+ts=1793622131
+offset=72799747
 --- LAST 5 LOG LINES ---
-[2026-11-02 12:19:03] [SHARD 00 W0] [FOUND QUEUE] 38.191.211.62:999 (SERVICIOS) via one.one.one.one | cands=462
-[2026-11-02 12:19:03] [SHARD 00 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (133.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 12:19:04] [SHARD 00 W0] [QUEUE STAGE] Found 18 queue files to consume before IP scanning
-[2026-11-02 12:19:04] [SHARD 00 W0] [STAGGER] Sleeping 4.4s before consuming slice of q_a0_http_1793621603_04.txt...
 [2026-11-02 12:19:08] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793621603_04.txt: total=20262 shard_slice=2027 worker_slice=1014 resume=0
+[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 157.15.40.222:8080 (TRIDATA-AS-ID) via speed.cloudflare.com | cands=463
+[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 170.81.131.70:3128 (AS28330) via speed.cloudflare.com | cands=464
+[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 190.26.209.126:999 (ETB) via www.google.com | cands=465
+[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 190.94.213.5:999 (IFX) via speed.cloudflare.com | cands=466

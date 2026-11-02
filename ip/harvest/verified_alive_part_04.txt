@@ -1002,3 +1002,13 @@
 200.125.169.116:999	one.one.one.one	QUEUE	0	WIRELESS
 201.159.107.165:8081	speed.cloudflare.com	QUEUE	0	JOSE
 203.205.49.2:10037	speed.cloudflare.com	QUEUE	0	CMCTELECOM-VN
+85.117.56.114:8080	one.one.one.one	QUEUE	0	CAUCASUS-CABLE-SYSTEM
+54.198.140.56:21921	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+167.250.180.125:999	one.one.one.one	QUEUE	0	UFINET
+8.140.105.75:8009	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+200.125.169.116:999	speed.cloudflare.com	QUEUE	0	WIRELESS
+213.217.34.2:8080	www.google.com	QUEUE	0	INT-PDN-STE-AS
+38.252.215.193:999	www.google.com	QUEUE	0	TELDRA
+38.41.0.116:999	speed.cloudflare.com	QUEUE	0	MDS
+41.250.148.6:8080	speed.cloudflare.com	QUEUE	0	MT-MPLS
+51.75.156.167:10015	speed.cloudflare.com	QUEUE	0	OVH

@@ -839,3 +839,8 @@
 51.85.44.162:8070	one.one.one.one	QUEUE	0	AMAZON-02
 37.247.58.246:8888	speed.cloudflare.com	QUEUE	0	PSM_WINOGRADY
 47.80.26.236:8080	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+79.76.121.87:3128	speed.cloudflare.com	QUEUE	0	ORACLE-BMC-31898
+93.115.175.190:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
+79.98.32.82:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+36.88.247.75:8081	speed.cloudflare.com	QUEUE	0	TELKOMNET-AS-AP
+51.85.44.162:8070	speed.cloudflare.com	QUEUE	0	AMAZON-02

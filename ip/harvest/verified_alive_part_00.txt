@@ -763,3 +763,8 @@
 147.161.247.9:12029	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:12390	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 38.191.211.62:999	one.one.one.one	QUEUE	0	SERVICIOS
+157.15.40.222:8080	speed.cloudflare.com	QUEUE	0	TRIDATA-AS-ID
+170.81.131.70:3128	speed.cloudflare.com	QUEUE	0	AS28330
+190.26.209.126:999	www.google.com	QUEUE	0	ETB
+190.94.213.5:999	speed.cloudflare.com	QUEUE	0	IFX
+45.189.252.18:999	www.google.com	QUEUE	0	TRACERED

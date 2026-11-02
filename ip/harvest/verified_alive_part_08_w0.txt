@@ -501,3 +501,6 @@
 103.46.11.92:8080	speed.cloudflare.com	QUEUE	0	LDP-AS-ID
 38.253.86.46:999	speed.cloudflare.com	QUEUE	0	WIMAS
 51.85.44.162:8070	one.one.one.one	QUEUE	0	AMAZON-02
+79.76.121.87:3128	speed.cloudflare.com	QUEUE	0	ORACLE-BMC-31898
+93.115.175.190:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
+79.98.32.82:8080	speed.cloudflare.com	QUEUE	0	RESERVED
