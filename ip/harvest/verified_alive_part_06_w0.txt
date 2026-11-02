@@ -483,3 +483,8 @@
 45.198.11.175:9191	one.one.one.one	QUEUE	0	AZNET-ID
 54.198.140.56:1242	speed.cloudflare.com	QUEUE	0	AMAZON-AES
 78.14.19.3:48898	speed.cloudflare.com	QUEUE	0	AMAZON-02
+149.28.120.94:3128	speed.cloudflare.com	QUEUE	0	AS-VULTR
+157.230.43.16:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+54.36.150.233:3128	speed.cloudflare.com	QUEUE	0	OVH
+165.232.86.212:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+160.19.18.115:3127	speed.cloudflare.com	QUEUE	0	IDNIC-INTELMEDIA-AS-ID
