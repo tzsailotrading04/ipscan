@@ -638,3 +638,6 @@
 49.12.146.229:3128	speed.cloudflare.com	QUEUE	0	HETZNER-AS
 51.68.54.45:8080	speed.cloudflare.com	QUEUE	0	OVH
 51.68.54.65:8080	www.google.com	QUEUE	0	OVH
+162.55.188.21:3128	www.google.com	QUEUE	0	HETZNER-AS
+206.189.123.80:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+159.203.54.45:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN

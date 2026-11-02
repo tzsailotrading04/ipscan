@@ -398,3 +398,6 @@
 3.14.5.30:8888	www.google.com	QUEUE	0	AMAZON-02
 3.14.5.30:8888	www.google.com	QUEUE	0	AMAZON-02
 3.38.165.185:3128	speed.cloudflare.com	QUEUE	0	AMAZON-02
+157.173.120.204:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+213.136.80.176:3128	www.google.com	QUEUE	0	CONTABO
+157.230.43.16:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN

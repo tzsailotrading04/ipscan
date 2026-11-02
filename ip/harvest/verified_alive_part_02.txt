@@ -824,3 +824,5 @@
 98.94.14.234:37654	one.one.one.one	QUEUE	0	AMAZON-AES
 23.95.60.63:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
 23.95.60.83:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
+134.209.64.182:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+51.68.102.5:3128	speed.cloudflare.com	QUEUE	0	OVH
