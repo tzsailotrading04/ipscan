@@ -1187,3 +1187,12 @@
 181.78.170.205:999	www.google.com	QUEUE	0	UFINET
 51.16.4.39:20420	one.one.one.one	QUEUE	0	AMAZON-02
 45.190.87.41:999	speed.cloudflare.com	QUEUE	0	RIMTEL
+103.170.100.96:8080	speed.cloudflare.com	QUEUE	0	SDN-AS-ID
+147.161.246.35:10048	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+103.81.194.173:3125	www.google.com	QUEUE	0	RTIGA-AS-ID
+109.224.242.21:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+147.161.247.9:11355	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+18.175.170.244:24951	one.one.one.one	QUEUE	0	AMAZON-02
+185.135.99.14:8080	speed.cloudflare.com	QUEUE	0	EXTEND
+179.49.160.94:999	one.one.one.one	QUEUE	0	SAMM
+83.222.7.47:3333	speed.cloudflare.com	QUEUE	0	BRM-AS

@@ -665,3 +665,9 @@
 165.154.7.156:8888	speed.cloudflare.com	QUEUE	0	UCLOUD-HK-AS-AP
 181.78.170.205:999	www.google.com	QUEUE	0	UFINET
 45.190.87.41:999	speed.cloudflare.com	QUEUE	0	RIMTEL
+103.81.194.173:3125	www.google.com	QUEUE	0	RTIGA-AS-ID
+109.224.242.21:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+147.161.246.36:11080	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:11355	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+179.49.160.94:999	one.one.one.one	QUEUE	0	SAMM
+83.222.7.47:3333	speed.cloudflare.com	QUEUE	0	BRM-AS
