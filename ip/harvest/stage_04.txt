@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_hosting_1793571487_03.txt_0
-ts=1793584498
-offset=69364260
+stage=queue_slice_q_a0_hosting_1793571487_06.txt_0
+ts=1793586224
+offset=69589260
 --- LAST 5 LOG LINES ---
-[2026-11-02 01:54:35] [SHARD 04 W0] [FOUND QUEUE] 23.95.60.65:3128 (AS-COLOCROSSING) via speed.cloudflare.com | cands=437
-[2026-11-02 01:54:39] [SHARD 04 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (124.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 01:54:40] [SHARD 04 W0] [QUEUE STAGE] Found 51 queue files to consume before IP scanning
-[2026-11-02 01:54:40] [SHARD 04 W0] [STAGGER] Sleeping 17.5s before consuming slice of q_a0_hosting_1793571487_03.txt...
-[2026-11-02 01:54:58] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793571487_03.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=0
+[2026-11-02 02:21:12] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793571487_05.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=10000
+[2026-11-02 02:23:11] [SHARD 04 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (144.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 02:23:18] [SHARD 04 W0] [QUEUE STAGE] Found 51 queue files to consume before IP scanning
+[2026-11-02 02:23:18] [SHARD 04 W0] [STAGGER] Sleeping 25.8s before consuming slice of q_a0_hosting_1793571487_06.txt...
+[2026-11-02 02:23:44] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793571487_06.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=0
