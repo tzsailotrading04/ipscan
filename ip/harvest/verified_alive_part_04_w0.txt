@@ -658,3 +658,10 @@
 154.73.29.33:8080	one.one.one.one	QUEUE	0	GPTC-AS
 156.200.116.78:8080	speed.cloudflare.com	QUEUE	0	TE-AS
 35.183.78.223:6402	one.one.one.one	QUEUE	0	AMAZON-02
+56.112.93.245:9443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+147.161.246.36:10177	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+16.174.124.173:47040	speed.cloudflare.com	QUEUE	0	AMAZON-02
+160.19.41.37:80	www.google.com	QUEUE	0	ATCINFO-AS-IN
+165.154.7.156:8888	speed.cloudflare.com	QUEUE	0	UCLOUD-HK-AS-AP
+181.78.170.205:999	www.google.com	QUEUE	0	UFINET
+45.190.87.41:999	speed.cloudflare.com	QUEUE	0	RIMTEL
