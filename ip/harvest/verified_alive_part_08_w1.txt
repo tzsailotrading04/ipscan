@@ -499,3 +499,4 @@
 189.196.32.16:8080	one.one.one.one	QUEUE	0	MEGA
 201.58.182.153:3128	speed.cloudflare.com	QUEUE	0	NOT
 51.85.44.149:7092	speed.cloudflare.com	QUEUE	0	AMAZON-02
+51.85.44.149:7092	one.one.one.one	QUEUE	0	AMAZON-02
