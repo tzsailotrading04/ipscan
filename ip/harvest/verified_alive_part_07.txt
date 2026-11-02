@@ -988,3 +988,6 @@
 103.181.255.69:1111	one.one.one.one	QUEUE	0	GIGANET-AS-ID
 103.31.235.212:3125	speed.cloudflare.com	QUEUE	0	ASNET-AS-ID
 122.3.132.132:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+160.187.174.201:8080	speed.cloudflare.com	QUEUE	0	IDNIC-NPN-AS-ID
+65.108.156.253:3128	one.one.one.one	QUEUE	0	HETZNER-AS
+202.58.77.214:8080	www.google.com	QUEUE	0	DBN-AS-ID
