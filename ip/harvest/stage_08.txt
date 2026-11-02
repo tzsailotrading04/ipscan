@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793626129
-offset=68412853
+ts=1793626432
+offset=68441809
 --- LAST 5 LOG LINES ---
 [2026-11-02 13:18:49] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_04.txt: total=19955 shard_slice=1995 worker_slice=998 resume=0
 [2026-11-02 13:20:32] [SHARD 08 W0] [FOUND QUEUE] 8.213.37.17:8888 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=510
