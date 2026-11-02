@@ -1,0 +1,116 @@
+[2026-11-02T00:01:40Z] Starting Fleet Sequential Restart Orchestrator (PID 26076)...
+[2026-11-02T00:01:40Z] ============================================================
+[2026-11-02T00:01:40Z] STARTING RESTART FOR ACCOUNT: lalthazualasailo (shards: [0, 1, 2, 3, 16])
+[2026-11-02T00:01:40Z] ============================================================
+[2026-11-02T00:01:40Z] Deleting 5 kernels for lalthazualasailo...
+[2026-11-02T00:01:44Z]   Delete lalthazualasailo/ipscan-cl-shodan-00: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalthazualasailo/ipscan-cl-shodan-00 deleted successfully
+[2026-11-02T00:01:48Z]   Delete lalthazualasailo/ipscan-cl-shodan-01: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalthazualasailo/ipscan-cl-shodan-01 deleted successfully
+[2026-11-02T00:01:53Z]   Delete lalthazualasailo/ipscan-cl-shodan-02: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalthazualasailo/ipscan-cl-shodan-02 deleted successfully
+[2026-11-02T00:01:59Z]   Delete lalthazualasailo/ipscan-cl-shodan-03: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalthazualasailo/ipscan-cl-shodan-03 deleted successfully
+[2026-11-02T00:02:04Z]   Delete lalthazualasailo/ipscan-cl-shodan-16: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalthazualasailo/ipscan-cl-shodan-16 deleted successfully
+[2026-11-02T00:02:04Z] Deleted kernels for lalthazualasailo. Waiting 30 minutes (1800s) for cooldown...
+[2026-11-02T00:32:04Z] Pushing 5 shards for lalthazualasailo...
+[2026-11-02T00:32:11Z]   Push Shard 00 (lalthazualasailo): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalthazualasailo/ipscan-cl-shodan-00
+[2026-11-02T00:32:18Z]   Push Shard 01 (lalthazualasailo): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalthazualasailo/ipscan-cl-shodan-01
+[2026-11-02T00:32:23Z]   Push Shard 02 (lalthazualasailo): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalthazualasailo/ipscan-cl-shodan-02
+[2026-11-02T00:32:26Z]   Push Shard 03 (lalthazualasailo): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T00:32:31Z]   Push Shard 16 (lalthazualasailo): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T00:33:57Z] RUNNING PER ACCOUNT AFTER PUSH FOR lalthazualasailo: lalthazualasailo: 4/5 | zomuanpuia: 5/5 | laldinthari: 5/5 | lalsangkima: 5/5
+[2026-11-02T00:33:57Z] Waiting 30 minutes (1800s) before starting the next account...
+[2026-11-02T01:03:57Z] ============================================================
+[2026-11-02T01:03:57Z] STARTING RESTART FOR ACCOUNT: zomuanpuia (shards: [4, 5, 6, 7, 17])
+[2026-11-02T01:03:57Z] ============================================================
+[2026-11-02T01:03:57Z] Deleting 5 kernels for zomuanpuia...
+[2026-11-02T01:04:01Z]   Delete zomuanpuia/ipscan-cl-shodan-04: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel zomuanpuia/ipscan-cl-shodan-04 deleted successfully
+[2026-11-02T01:04:06Z]   Delete zomuanpuia/ipscan-cl-shodan-05: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel zomuanpuia/ipscan-cl-shodan-05 deleted successfully
+[2026-11-02T01:04:10Z]   Delete zomuanpuia/ipscan-cl-shodan-06: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel zomuanpuia/ipscan-cl-shodan-06 deleted successfully
+[2026-11-02T01:04:13Z]   Delete zomuanpuia/ipscan-cl-shodan-07: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel zomuanpuia/ipscan-cl-shodan-07 deleted successfully
+[2026-11-02T01:04:18Z]   Delete zomuanpuia/ipscan-cl-shodan-17: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel zomuanpuia/ipscan-cl-shodan-17 deleted successfully
+[2026-11-02T01:04:18Z] Deleted kernels for zomuanpuia. Waiting 30 minutes (1800s) for cooldown...
+[2026-11-02T01:34:18Z] Pushing 5 shards for zomuanpuia...
+[2026-11-02T01:34:23Z]   Push Shard 04 (zomuanpuia): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/zomuanpuia/ipscan-cl-shodan-04
+[2026-11-02T01:34:28Z]   Push Shard 05 (zomuanpuia): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/zomuanpuia/ipscan-cl-shodan-05
+[2026-11-02T01:34:33Z]   Push Shard 06 (zomuanpuia): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/zomuanpuia/ipscan-cl-shodan-06
+[2026-11-02T01:34:40Z]   Push Shard 07 (zomuanpuia): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T01:34:44Z]   Push Shard 17 (zomuanpuia): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T01:36:17Z] RUNNING PER ACCOUNT AFTER PUSH FOR zomuanpuia: lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 5/5 | lalsangkima: 5/5
+[2026-11-02T01:36:17Z] Waiting 30 minutes (1800s) before starting the next account...
+[2026-11-02T02:06:17Z] ============================================================
+[2026-11-02T02:06:17Z] STARTING RESTART FOR ACCOUNT: laldinthari (shards: [8, 9, 10, 11, 18])
+[2026-11-02T02:06:17Z] ============================================================
+[2026-11-02T02:06:17Z] Deleting 5 kernels for laldinthari...
+[2026-11-02T02:06:21Z]   Delete laldinthari/ipscan-cl-shodan-08: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel laldinthari/ipscan-cl-shodan-08 deleted successfully
+[2026-11-02T02:06:26Z]   Delete laldinthari/ipscan-cl-shodan-09: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel laldinthari/ipscan-cl-shodan-09 deleted successfully
+[2026-11-02T02:06:31Z]   Delete laldinthari/ipscan-cl-shodan-10: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel laldinthari/ipscan-cl-shodan-10 deleted successfully
+[2026-11-02T02:06:34Z]   Delete laldinthari/ipscan-cl-shodan-11: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel laldinthari/ipscan-cl-shodan-11 deleted successfully
+[2026-11-02T02:06:39Z]   Delete laldinthari/ipscan-cl-shodan-18: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel laldinthari/ipscan-cl-shodan-18 deleted successfully
+[2026-11-02T02:06:39Z] Deleted kernels for laldinthari. Waiting 30 minutes (1800s) for cooldown...
+[2026-11-02T02:36:39Z] Pushing 5 shards for laldinthari...
+[2026-11-02T02:36:46Z]   Push Shard 08 (laldinthari): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/laldinthari/ipscan-cl-shodan-08
+[2026-11-02T02:36:52Z]   Push Shard 09 (laldinthari): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/laldinthari/ipscan-cl-shodan-09
+[2026-11-02T02:36:58Z]   Push Shard 10 (laldinthari): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/laldinthari/ipscan-cl-shodan-10
+[2026-11-02T02:37:03Z]   Push Shard 11 (laldinthari): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T02:37:09Z]   Push Shard 18 (laldinthari): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T02:38:46Z] RUNNING PER ACCOUNT AFTER PUSH FOR laldinthari: lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 5/5
+[2026-11-02T02:38:46Z] Waiting 30 minutes (1800s) before starting the next account...
+[2026-11-02T03:08:46Z] ============================================================
+[2026-11-02T03:08:46Z] STARTING RESTART FOR ACCOUNT: lalsangkima (shards: [12, 13, 14, 15, 19])
+[2026-11-02T03:08:46Z] ============================================================
+[2026-11-02T03:08:46Z] Deleting 5 kernels for lalsangkima...
+[2026-11-02T03:08:53Z]   Delete lalsangkima/ipscan-cl-shodan-12: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalsangkima/ipscan-cl-shodan-12 deleted successfully
+[2026-11-02T03:08:57Z]   Delete lalsangkima/ipscan-cl-shodan-13: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalsangkima/ipscan-cl-shodan-13 deleted successfully
+[2026-11-02T03:09:01Z]   Delete lalsangkima/ipscan-cl-shodan-14: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalsangkima/ipscan-cl-shodan-14 deleted successfully
+[2026-11-02T03:09:04Z]   Delete lalsangkima/ipscan-cl-shodan-15: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalsangkima/ipscan-cl-shodan-15 deleted successfully
+[2026-11-02T03:09:07Z]   Delete lalsangkima/ipscan-cl-shodan-19: code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel lalsangkima/ipscan-cl-shodan-19 deleted successfully
+[2026-11-02T03:09:07Z] Deleted kernels for lalsangkima. Waiting 30 minutes (1800s) for cooldown...
+[2026-11-02T03:39:07Z] Pushing 5 shards for lalsangkima...
+[2026-11-02T03:39:12Z]   Push Shard 12 (lalsangkima): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalsangkima/ipscan-cl-shodan-12
+[2026-11-02T03:39:18Z]   Push Shard 13 (lalsangkima): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalsangkima/ipscan-cl-shodan-13
+[2026-11-02T03:39:24Z]   Push Shard 14 (lalsangkima): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalsangkima/ipscan-cl-shodan-14
+[2026-11-02T03:39:29Z]   Push Shard 15 (lalsangkima): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/lalsangkima/ipscan-cl-shodan-15
+[2026-11-02T03:39:33Z]   Push Shard 19 (lalsangkima): code=0 Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+Kernel push error: Maximum batch CPU session count of 5 reached.
+[2026-11-02T03:40:59Z] RUNNING PER ACCOUNT AFTER PUSH FOR lalsangkima: lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 4/5
+[2026-11-02T03:40:59Z] ============================================================
+[2026-11-02T03:40:59Z] ALL 4 ACCOUNTS HAVE COMPLETED SEQUENTIAL RESTART!
+[2026-11-02T03:42:34Z] FINAL FLEET STATUS: lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 4/5
+[2026-11-02T03:42:34Z] ============================================================

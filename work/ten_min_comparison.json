@@ -1,0 +1,26 @@
+{
+  "t0_utc": "2026-11-01 20:52:28 UTC",
+  "t0_ts": 1793566348,
+  "shards": {
+    "sh00": {
+      "scanned": 72235460,
+      "genuine": 397
+    },
+    "sh01": {
+      "scanned": 63256843,
+      "genuine": 369
+    },
+    "sh02": {
+      "scanned": 68525621,
+      "genuine": 501
+    },
+    "sh03": {
+      "scanned": 66895560,
+      "genuine": 649
+    },
+    "sh16": {
+      "scanned": 67403103,
+      "genuine": 397
+    }
+  }
+}

@@ -1,0 +1,16 @@
+[{"stream_name":"stdout","time":1.420412318,"data":"Testing 200 groundtruth proxies with exact variant-1 probe...\n"}
+,{"stream_name":"stdout","time":59.694732794,"data":"Retrying 98 transient failures...\n"}
+,{"stream_name":"stdout","time":179.30522789,"data":"\n"}
+,{"stream_name":"stdout","time":179.30528079,"data":"================ GROUNDTRUTH TEST RESULT ================\n"}
+,{"stream_name":"stdout","time":179.305287154,"data":"Total Proxies Tested : 200\n"}
+,{"stream_name":"stdout","time":179.305292696,"data":"Passed               : 126\n"}
+,{"stream_name":"stdout","time":179.305297684,"data":"Percentage           : 63.00%\n"}
+,{"stream_name":"stdout","time":179.305303101,"data":"Duration             : 177.9s\n"}
+,{"stream_name":"stdout","time":179.305307894,"data":"=========================================================\n"}
+,{"stream_name":"stderr","time":182.546186832,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":182.546235304,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":183.107324873,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":183.107367823,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":185.753392849,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":187.238321549,"data":"[NbConvertApp] Writing 306169 bytes to __results__.html\n"}
+]

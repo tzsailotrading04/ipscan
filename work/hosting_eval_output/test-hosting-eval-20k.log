@@ -1,0 +1,97 @@
+[{"stream_name":"stdout","time":1.083327417,"data":"Loaded 200 Groundtruth proxies and 20000 Hosting addresses.\n"}
+,{"stream_name":"stdout","time":1.083381842,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":1.083387696,"data":"RUNNING GROUNDTRUTH CONTROL: 200 PROXIES (Concurrency: 200, Timeout: 5.0s)\n"}
+,{"stream_name":"stdout","time":1.083391899,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":20.408995246,"data":"Groundtruth Control Finished in 19.33s\n"}
+,{"stream_name":"stdout","time":20.409041459,"data":"Total Tested : 200\n"}
+,{"stream_name":"stdout","time":20.409047515,"data":"Passed       : 70 / 200 (35.00%)\n"}
+,{"stream_name":"stdout","time":20.40905255,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":20.409057742999998,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":20.409062671,"data":"RUNNING HOSTING EVALUATION: 20000 ADDRESSES (Concurrency: 200, Timeout: 5.0s)\n"}
+,{"stream_name":"stdout","time":20.409067685,"data":"Ports per address: [443, 3128, 8080, 8888, 1080, 8118, 80, 4145] (Total probes: 160000)\n"}
+,{"stream_name":"stdout","time":20.409072633,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":100.816518459,"data":"[PROGRESS 1/40] 500/20000 IPs (2.5%) | Probes: 4000 | Passed IPs: 0 | Elapsed: 80.4s | Rate: 49.7 probes/s (6.2 ips/s)\n"}
+,{"stream_name":"stdout","time":171.131193108,"data":"[PROGRESS 2/40] 1000/20000 IPs (5.0%) | Probes: 8000 | Passed IPs: 0 | Elapsed: 150.7s | Rate: 53.1 probes/s (6.6 ips/s)\n"}
+,{"stream_name":"stdout","time":256.536232015,"data":"[PROGRESS 3/40] 1500/20000 IPs (7.5%) | Probes: 12000 | Passed IPs: 0 | Elapsed: 236.1s | Rate: 50.8 probes/s (6.4 ips/s)\n"}
+,{"stream_name":"stdout","time":336.886364447,"data":"[PROGRESS 4/40] 2000/20000 IPs (10.0%) | Probes: 16000 | Passed IPs: 0 | Elapsed: 316.5s | Rate: 50.6 probes/s (6.3 ips/s)\n"}
+,{"stream_name":"stdout","time":422.272591108,"data":"[PROGRESS 5/40] 2500/20000 IPs (12.5%) | Probes: 20000 | Passed IPs: 0 | Elapsed: 401.9s | Rate: 49.8 probes/s (6.2 ips/s)\n"}
+,{"stream_name":"stdout","time":497.581968695,"data":"[PROGRESS 6/40] 3000/20000 IPs (15.0%) | Probes: 24000 | Passed IPs: 0 | Elapsed: 477.2s | Rate: 50.3 probes/s (6.3 ips/s)\n"}
+,{"stream_name":"stdout","time":562.20161368,"data":"[PROGRESS 7/40] 3500/20000 IPs (17.5%) | Probes: 28000 | Passed IPs: 0 | Elapsed: 541.8s | Rate: 51.7 probes/s (6.5 ips/s)\n"}
+,{"stream_name":"stdout","time":652.396443884,"data":"[PROGRESS 8/40] 4000/20000 IPs (20.0%) | Probes: 32000 | Passed IPs: 0 | Elapsed: 632.0s | Rate: 50.6 probes/s (6.3 ips/s)\n"}
+,{"stream_name":"stdout","time":717.791562141,"data":"[PROGRESS 9/40] 4500/20000 IPs (22.5%) | Probes: 36000 | Passed IPs: 0 | Elapsed: 697.4s | Rate: 51.6 probes/s (6.5 ips/s)\n"}
+,{"stream_name":"stdout","time":798.889403366,"data":"[PROGRESS 10/40] 5000/20000 IPs (25.0%) | Probes: 40000 | Passed IPs: 0 | Elapsed: 778.5s | Rate: 51.4 probes/s (6.4 ips/s)\n"}
+,{"stream_name":"stdout","time":868.116778684,"data":"[PROGRESS 11/40] 5500/20000 IPs (27.5%) | Probes: 44000 | Passed IPs: 0 | Elapsed: 847.7s | Rate: 51.9 probes/s (6.5 ips/s)\n"}
+,{"stream_name":"stdout","time":920.894560691,"data":"[PROGRESS 12/40] 6000/20000 IPs (30.0%) | Probes: 48000 | Passed IPs: 0 | Elapsed: 900.5s | Rate: 53.3 probes/s (6.7 ips/s)\n"}
+,{"stream_name":"stdout","time":976.842096299,"data":"[PROGRESS 13/40] 6500/20000 IPs (32.5%) | Probes: 52000 | Passed IPs: 0 | Elapsed: 956.4s | Rate: 54.4 probes/s (6.8 ips/s)\n"}
+,{"stream_name":"stdout","time":1044.390115516,"data":"[PROGRESS 14/40] 7000/20000 IPs (35.0%) | Probes: 56000 | Passed IPs: 0 | Elapsed: 1024.0s | Rate: 54.7 probes/s (6.8 ips/s)\n"}
+,{"stream_name":"stdout","time":1118.817237546,"data":"[PROGRESS 15/40] 7500/20000 IPs (37.5%) | Probes: 60000 | Passed IPs: 0 | Elapsed: 1098.4s | Rate: 54.6 probes/s (6.8 ips/s)\n"}
+,{"stream_name":"stdout","time":1214.941731157,"data":"[PROGRESS 16/40] 8000/20000 IPs (40.0%) | Probes: 64000 | Passed IPs: 0 | Elapsed: 1194.5s | Rate: 53.6 probes/s (6.7 ips/s)\n"}
+,{"stream_name":"stdout","time":1285.650870749,"data":"[PROGRESS 17/40] 8500/20000 IPs (42.5%) | Probes: 68000 | Passed IPs: 0 | Elapsed: 1265.2s | Rate: 53.7 probes/s (6.7 ips/s)\n"}
+,{"stream_name":"stdout","time":1350.102677523,"data":"[PROGRESS 18/40] 9000/20000 IPs (45.0%) | Probes: 72000 | Passed IPs: 0 | Elapsed: 1329.7s | Rate: 54.1 probes/s (6.8 ips/s)\n"}
+,{"stream_name":"stdout","time":1402.674691238,"data":"[PROGRESS 19/40] 9500/20000 IPs (47.5%) | Probes: 76000 | Passed IPs: 0 | Elapsed: 1382.3s | Rate: 55.0 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":1451.272275235,"data":"[PROGRESS 20/40] 10000/20000 IPs (50.0%) | Probes: 80000 | Passed IPs: 0 | Elapsed: 1430.9s | Rate: 55.9 probes/s (7.0 ips/s)\n"}
+,{"stream_name":"stdout","time":1509.679446389,"data":"[PROGRESS 21/40] 10500/20000 IPs (52.5%) | Probes: 84000 | Passed IPs: 0 | Elapsed: 1489.3s | Rate: 56.4 probes/s (7.1 ips/s)\n"}
+,{"stream_name":"stdout","time":1568.661961632,"data":"[PROGRESS 22/40] 11000/20000 IPs (55.0%) | Probes: 88000 | Passed IPs: 0 | Elapsed: 1548.3s | Rate: 56.8 probes/s (7.1 ips/s)\n"}
+,{"stream_name":"stdout","time":1634.806438073,"data":"[PROGRESS 23/40] 11500/20000 IPs (57.5%) | Probes: 92000 | Passed IPs: 0 | Elapsed: 1614.4s | Rate: 57.0 probes/s (7.1 ips/s)\n"}
+,{"stream_name":"stdout","time":1697.996371429,"data":"[PROGRESS 24/40] 12000/20000 IPs (60.0%) | Probes: 96000 | Passed IPs: 0 | Elapsed: 1677.6s | Rate: 57.2 probes/s (7.2 ips/s)\n"}
+,{"stream_name":"stdout","time":1753.695591707,"data":"[PROGRESS 25/40] 12500/20000 IPs (62.5%) | Probes: 100000 | Passed IPs: 0 | Elapsed: 1733.3s | Rate: 57.7 probes/s (7.2 ips/s)\n"}
+,{"stream_name":"stdout","time":1820.48237906,"data":"[PROGRESS 26/40] 13000/20000 IPs (65.0%) | Probes: 104000 | Passed IPs: 0 | Elapsed: 1800.1s | Rate: 57.8 probes/s (7.2 ips/s)\n"}
+,{"stream_name":"stdout","time":1892.443215651,"data":"[PROGRESS 27/40] 13500/20000 IPs (67.5%) | Probes: 108000 | Passed IPs: 0 | Elapsed: 1872.0s | Rate: 57.7 probes/s (7.2 ips/s)\n"}
+,{"stream_name":"stdout","time":1983.521253186,"data":"[PROGRESS 28/40] 14000/20000 IPs (70.0%) | Probes: 112000 | Passed IPs: 0 | Elapsed: 1963.1s | Rate: 57.1 probes/s (7.1 ips/s)\n"}
+,{"stream_name":"stdout","time":2078.769932339,"data":"[PROGRESS 29/40] 14500/20000 IPs (72.5%) | Probes: 116000 | Passed IPs: 0 | Elapsed: 2058.4s | Rate: 56.4 probes/s (7.0 ips/s)\n"}
+,{"stream_name":"stdout","time":2168.988640314,"data":"[PROGRESS 30/40] 15000/20000 IPs (75.0%) | Probes: 120000 | Passed IPs: 0 | Elapsed: 2148.6s | Rate: 55.9 probes/s (7.0 ips/s)\n"}
+,{"stream_name":"stdout","time":2245.368676496,"data":"[PROGRESS 31/40] 15500/20000 IPs (77.5%) | Probes: 124000 | Passed IPs: 0 | Elapsed: 2225.0s | Rate: 55.7 probes/s (7.0 ips/s)\n"}
+,{"stream_name":"stdout","time":2336.488236531,"data":"[PROGRESS 32/40] 16000/20000 IPs (80.0%) | Probes: 128000 | Passed IPs: 0 | Elapsed: 2316.1s | Rate: 55.3 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2414.313989231,"data":"[PROGRESS 33/40] 16500/20000 IPs (82.5%) | Probes: 132000 | Passed IPs: 0 | Elapsed: 2393.9s | Rate: 55.1 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2484.952460502,"data":"[PROGRESS 34/40] 17000/20000 IPs (85.0%) | Probes: 136000 | Passed IPs: 0 | Elapsed: 2464.5s | Rate: 55.2 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2567.204467007,"data":"[PROGRESS 35/40] 17500/20000 IPs (87.5%) | Probes: 140000 | Passed IPs: 0 | Elapsed: 2546.8s | Rate: 55.0 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2639.700015663,"data":"[PROGRESS 36/40] 18000/20000 IPs (90.0%) | Probes: 144000 | Passed IPs: 0 | Elapsed: 2619.3s | Rate: 55.0 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2707.670259678,"data":"[PROGRESS 37/40] 18500/20000 IPs (92.5%) | Probes: 148000 | Passed IPs: 0 | Elapsed: 2687.3s | Rate: 55.1 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2776.79303445,"data":"[PROGRESS 38/40] 19000/20000 IPs (95.0%) | Probes: 152000 | Passed IPs: 0 | Elapsed: 2756.4s | Rate: 55.1 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2837.414679541,"data":"[PROGRESS 39/40] 19500/20000 IPs (97.5%) | Probes: 156000 | Passed IPs: 0 | Elapsed: 2817.0s | Rate: 55.4 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2928.667720694,"data":"[PROGRESS 40/40] 20000/20000 IPs (100.0%) | Probes: 160000 | Passed IPs: 0 | Elapsed: 2908.3s | Rate: 55.0 probes/s (6.9 ips/s)\n"}
+,{"stream_name":"stdout","time":2928.66777797,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":2928.667783122,"data":"Hosting Evaluation Finished in 2908.26s\n"}
+,{"stream_name":"stdout","time":2928.667786819,"data":"Total Addresses Tested : 20000\n"}
+,{"stream_name":"stdout","time":2928.667790421,"data":"Passed Addresses       : 0 / 20000 (0.00%)\n"}
+,{"stream_name":"stdout","time":2928.66779417,"data":"Total Working Ports    : 0\n"}
+,{"stream_name":"stdout","time":2928.667797606,"data":"===========================================================================\n"}
+,{"stream_name":"stdout","time":2928.668113529,"data":"\n"}
+,{"stream_name":"stdout","time":2928.668142109,"data":"################################################################################\n"}
+,{"stream_name":"stdout","time":2928.668148861,"data":"# FINAL SIDE-BY-SIDE PROBE EVALUATION RESULTS\n"}
+,{"stream_name":"stdout","time":2928.668153102,"data":"################################################################################\n"}
+,{"stream_name":"stdout","time":2928.668156827,"data":"Metric                         |  Groundtruth Control |  Hosting Queue (20k)\n"}
+,{"stream_name":"stdout","time":2928.668160494,"data":"------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":2928.66816399,"data":"Input Total Tested             |                  200 |               20,000\n"}
+,{"stream_name":"stdout","time":2928.668167367,"data":"Pass Count                     |                   70 |                    0\n"}
+,{"stream_name":"stdout","time":2928.668170746,"data":"Pass Percentage                |               35.00% |                0.00%\n"}
+,{"stream_name":"stdout","time":2928.668174182,"data":"Pass Count (per 20,000)        |               7000.0 |                    0\n"}
+,{"stream_name":"stdout","time":2928.668177557,"data":"Duration (seconds)             |                19.3s |              2908.3s\n"}
+,{"stream_name":"stdout","time":2928.668180934,"data":"################################################################################\n"}
+,{"stream_name":"stderr","time":2928.706090937,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":2928.707127495,"data":"  File \"/kaggle/src/script.py\", line 234, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":2928.707146249,"data":"    main()\n"}
+,{"stream_name":"stderr","time":2928.707158923,"data":"    ~~~~^^\n"}
+,{"stream_name":"stderr","time":2928.707181433,"data":"  File \"/kaggle/src/script.py\", line 231, in main\n"}
+,{"stream_name":"stderr","time":2928.707202235,"data":"    asyncio.run(main_async())\n"}
+,{"stream_name":"stderr","time":2928.707207667,"data":"    ~~~~~~~~~~~^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":2928.707211922,"data":"  File \"/usr/lib/python3.13/asyncio/runners.py\", line 196, in run\n"}
+,{"stream_name":"stderr","time":2928.707217005,"data":"    return runner.run(main)\n"}
+,{"stream_name":"stderr","time":2928.707220973,"data":"           ~~~~~~~~~~^^^^^^\n"}
+,{"stream_name":"stderr","time":2928.707224814,"data":"  File \"/usr/lib/python3.13/asyncio/runners.py\", line 119, in run\n"}
+,{"stream_name":"stderr","time":2928.707228871,"data":"    return self._loop.run_until_complete(task)\n"}
+,{"stream_name":"stderr","time":2928.707232849,"data":"           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n"}
+,{"stream_name":"stderr","time":2928.707236862,"data":"  File \"/usr/lib/python3.13/asyncio/base_events.py\", line 726, in run_until_complete\n"}
+,{"stream_name":"stderr","time":2928.707241106,"data":"    return future.result()\n"}
+,{"stream_name":"stderr","time":2928.707246953,"data":"           ~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":2928.707254829,"data":"  File \"/kaggle/src/script.py\", line 227, in main_async\n"}
+,{"stream_name":"stderr","time":2928.707257859,"data":"    json.dump(summary, f, indent=2)\n"}
+,{"stream_name":"stderr","time":2928.707260518,"data":"    ^^^^\n"}
+,{"stream_name":"stderr","time":2928.707263219,"data":"NameError: name 'json' is not defined. Did you forget to import 'json'?\n"}
+,{"stream_name":"stderr","time":2931.366250335,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2931.36630492,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2931.717897882,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2931.717924349,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2933.456880487,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2934.654608324,"data":"[NbConvertApp] Writing 391140 bytes to __results__.html\n"}
+]

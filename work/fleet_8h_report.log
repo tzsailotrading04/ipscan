@@ -1,0 +1,182 @@
+
+=====================================================================================
+[2026-11-02 00:01:48 UTC] FLEET 15-MINUTE REPORT (1/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 0/5 | zomuanpuia: 5/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,657,762,275 (from origin/out/sh00..sh19)
+Summed Genuine      : 17,465 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 04:40:21] cycle=17 dead=18 repushed=0 new_pool=0 pool_total=12522
+  [2026-11-02 04:57:53] cycle=18 dead=18 repushed=0 new_pool=0 pool_total=12535
+  [2026-11-02 05:16:19] cycle=19 dead=18 repushed=0 new_pool=0 pool_total=12546
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 00:18:33 UTC] FLEET 15-MINUTE REPORT (2/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 0/5 | zomuanpuia: 5/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,655,573,775 (from origin/out/sh00..sh19)
+Summed Genuine      : 17,459 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 04:57:53] cycle=18 dead=18 repushed=0 new_pool=0 pool_total=12535
+  [2026-11-02 05:16:19] cycle=19 dead=18 repushed=0 new_pool=0 pool_total=12546
+  [2026-11-02 05:33:49] cycle=20 dead=18 repushed=0 new_pool=0 pool_total=12552
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 00:35:42 UTC] FLEET 15-MINUTE REPORT (3/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 5/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,658,582,472 (from origin/out/sh00..sh19)
+Summed Genuine      : 17,725 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 05:16:19] cycle=19 dead=18 repushed=0 new_pool=0 pool_total=12546
+  [2026-11-02 05:33:49] cycle=20 dead=18 repushed=0 new_pool=0 pool_total=12552
+  [2026-11-02 05:53:28] cycle=21 dead=20 repushed=2 new_pool=0 pool_total=12559
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 00:53:11 UTC] FLEET 15-MINUTE REPORT (4/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 5/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,659,791,147 (from origin/out/sh00..sh19)
+Summed Genuine      : 17,724 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 05:33:49] cycle=20 dead=18 repushed=0 new_pool=0 pool_total=12552
+  [2026-11-02 05:53:28] cycle=21 dead=20 repushed=2 new_pool=0 pool_total=12559
+  [2026-11-02 06:22:22] cycle=22 dead=18 repushed=0 new_pool=0 pool_total=12560
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 01:09:51 UTC] FLEET 15-MINUTE REPORT (5/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 0/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,657,465,807 (from origin/out/sh00..sh19)
+Summed Genuine      : 17,719 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 05:33:49] cycle=20 dead=18 repushed=0 new_pool=0 pool_total=12552
+  [2026-11-02 05:53:28] cycle=21 dead=20 repushed=2 new_pool=0 pool_total=12559
+  [2026-11-02 06:22:22] cycle=22 dead=18 repushed=0 new_pool=0 pool_total=12560
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 01:27:24 UTC] FLEET 15-MINUTE REPORT (6/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 2/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,660,635,068 (from origin/out/sh00..sh19)
+Summed Genuine      : 17,730 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 05:53:28] cycle=21 dead=20 repushed=2 new_pool=0 pool_total=12559
+  [2026-11-02 06:22:22] cycle=22 dead=18 repushed=0 new_pool=0 pool_total=12560
+  [2026-11-02 06:49:09] cycle=23 dead=20 repushed=2 new_pool=0 pool_total=12579
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 01:45:42 UTC] FLEET 15-MINUTE REPORT (7/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,662,458,872 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,016 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 06:22:22] cycle=22 dead=18 repushed=0 new_pool=0 pool_total=12560
+  [2026-11-02 06:49:09] cycle=23 dead=20 repushed=2 new_pool=0 pool_total=12579
+  [2026-11-02 07:07:50] cycle=24 dead=18 repushed=0 new_pool=0 pool_total=12582
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 02:03:34 UTC] FLEET 15-MINUTE REPORT (8/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 5/5 | lalsangkima: 5/5
+Summed Scanned      : 2,666,711,258 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,027 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 06:49:09] cycle=23 dead=20 repushed=2 new_pool=0 pool_total=12579
+  [2026-11-02 07:07:50] cycle=24 dead=18 repushed=0 new_pool=0 pool_total=12582
+  [2026-11-02 07:28:35] cycle=25 dead=18 repushed=0 new_pool=0 pool_total=12589
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 02:20:31 UTC] FLEET 15-MINUTE REPORT (9/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 0/5 | lalsangkima: 5/5
+Summed Scanned      : 2,667,225,064 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,028 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 06:49:09] cycle=23 dead=20 repushed=2 new_pool=0 pool_total=12579
+  [2026-11-02 07:07:50] cycle=24 dead=18 repushed=0 new_pool=0 pool_total=12582
+  [2026-11-02 07:28:35] cycle=25 dead=18 repushed=0 new_pool=0 pool_total=12589
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 02:39:50 UTC] FLEET 15-MINUTE REPORT (10/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 5/5
+Summed Scanned      : 2,674,712,331 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,042 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 07:07:50] cycle=24 dead=18 repushed=0 new_pool=0 pool_total=12582
+  [2026-11-02 07:28:35] cycle=25 dead=18 repushed=0 new_pool=0 pool_total=12589
+  [2026-11-02 07:56:05] cycle=26 dead=20 repushed=2 new_pool=0 pool_total=12603
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 02:57:51 UTC] FLEET 15-MINUTE REPORT (11/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 5/5
+Summed Scanned      : 2,673,000,800 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,042 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 07:28:35] cycle=25 dead=18 repushed=0 new_pool=0 pool_total=12589
+  [2026-11-02 07:56:05] cycle=26 dead=20 repushed=2 new_pool=0 pool_total=12603
+  [2026-11-02 08:21:58] cycle=27 dead=18 repushed=0 new_pool=0 pool_total=12606
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 03:15:17 UTC] FLEET 15-MINUTE REPORT (12/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 0/5
+Summed Scanned      : 2,681,940,291 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,059 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 07:28:35] cycle=25 dead=18 repushed=0 new_pool=0 pool_total=12589
+  [2026-11-02 07:56:05] cycle=26 dead=20 repushed=2 new_pool=0 pool_total=12603
+  [2026-11-02 08:21:58] cycle=27 dead=18 repushed=0 new_pool=0 pool_total=12606
+=====================================================================================
+
+=====================================================================================
+[2026-11-02 03:34:49 UTC] FLEET 15-MINUTE REPORT (13/32)
+=====================================================================================
+RUNNING per account : lalthazualasailo: 4/5 | zomuanpuia: 4/5 | laldinthari: 4/5 | lalsangkima: 1/5
+Summed Scanned      : 2,686,185,619 (from origin/out/sh00..sh19)
+Summed Genuine      : 18,061 (from origin/out/sh00..sh19)
+new_pool last 3     : new_pool=0 | new_pool=0 | new_pool=0
+-------------------------------------------------------------------------------------
+Last 3 lines of work/FLEET_CYCLE.txt:
+  [2026-11-02 07:56:05] cycle=26 dead=20 repushed=2 new_pool=0 pool_total=12603
+  [2026-11-02 08:21:58] cycle=27 dead=18 repushed=0 new_pool=0 pool_total=12606
+  [2026-11-02 08:57:33] cycle=28 dead=19 repushed=1 new_pool=0 pool_total=12615
+=====================================================================================

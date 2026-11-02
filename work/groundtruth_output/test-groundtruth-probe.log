@@ -1,0 +1,28 @@
+[{"stream_name":"stdout","time":1.082456167,"data":"Starting Groundtruth Evaluation on 200 proxies from Kaggle container...\n"}
+,{"stream_name":"stdout","time":1.082502653,"data":"\n"}
+,{"stream_name":"stdout","time":1.08251923,"data":"--- 1. Running exact shard probe (5.0s timeout) ---\n"}
+,{"stream_name":"stdout","time":41.368170952,"data":"Shard Probe (5.0s): 101/200 passed (50.50%)\n"}
+,{"stream_name":"stdout","time":41.368216696,"data":"\n"}
+,{"stream_name":"stdout","time":41.368222768,"data":"--- 2. Running shard probe with 8-second timeout ---\n"}
+,{"stream_name":"stdout","time":117.017321301,"data":"Shard Probe (8.0s): 78/200 passed (39.00%)\n"}
+,{"stream_name":"stdout","time":117.017381837,"data":"\n"}
+,{"stream_name":"stdout","time":117.017388593,"data":"--- 3. Running ClientHello via ssl.MemoryBIO with correct SNI (8.0s timeout) ---\n"}
+,{"stream_name":"stdout","time":189.795752296,"data":"MemoryBIO with SNI (8.0s): 85/200 passed (42.50%)\n"}
+,{"stream_name":"stdout","time":189.795806036,"data":"\n"}
+,{"stream_name":"stdout","time":189.795814019,"data":"--- 4. Reference: Hardcoded bytes without correct SNI (8.0s timeout) ---\n"}
+,{"stream_name":"stdout","time":299.911786192,"data":"Hardcoded bytes (8.0s): 0/200 passed (0.00%)\n"}
+,{"stream_name":"stdout","time":299.911838895,"data":"\n"}
+,{"stream_name":"stdout","time":299.911843117,"data":"================ FINAL SUMMARY ================\n"}
+,{"stream_name":"stdout","time":299.911846458,"data":"Total Groundtruth Tested      : 200\n"}
+,{"stream_name":"stdout","time":299.911849528,"data":"1. Shard Probe (5.0s)          : 101/200 (50.50%)\n"}
+,{"stream_name":"stdout","time":299.911852563,"data":"2. Shard Probe (8.0s timeout)  : 78/200 (39.00%)\n"}
+,{"stream_name":"stdout","time":299.911855774,"data":"3. MemoryBIO SNI ClientHello   : 85/200 (42.50%)\n"}
+,{"stream_name":"stdout","time":299.911859016,"data":"4. Hardcoded Bytes (no SNI)    : 0/200 (0.00%)\n"}
+,{"stream_name":"stdout","time":299.911861946,"data":"===============================================\n"}
+,{"stream_name":"stderr","time":302.578738003,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":302.578775476,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":302.954803125,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":302.954833722,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":304.530674385,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":305.678923788,"data":"[NbConvertApp] Writing 330848 bytes to __results__.html\n"}
+]

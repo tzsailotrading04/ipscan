@@ -259,19 +259,42 @@ def run_single_cycle(cycle_num, seen):
 last_merge_ts = 0
 
 
+def load_dead_dict():
+    dead = {}
+    if os.path.exists(DEAD_FILE):
+        with open(DEAD_FILE, "r", encoding="utf-8", errors="ignore") as f:
+            for line in f:
+                l = line.strip()
+                if l:
+                    m = re.search(r"\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b", l)
+                    if m:
+                        dead[m.group(1)] = l
+    return dead
+
+def save_dead_dict(dead_dict):
+    os.makedirs(os.path.dirname(DEAD_FILE), exist_ok=True)
+    tmp_path = DEAD_FILE + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        for ep in sorted(dead_dict):
+            f.write(dead_dict[ep] + "\n")
+    os.replace(tmp_path, DEAD_FILE)
+
+def retire_endpoints(endpoints, reason="FAIL_CONNECT_KAGGLE"):
+    """Deduplicated retire path: loads dead file into a dict, rewrites endpoint line in place instead of appending."""
+    if not endpoints:
+        return
+    dead_dict = load_dead_dict()
+    now_str = time.strftime("%Y-%m-%d %H:%M:%S")
+    for ep in endpoints:
+        dead_dict[ep] = f"[{now_str}] {ep}\tspeed.cloudflare.com\tQUEUE\tREASON:{reason}\tCONSECUTIVE_FAIL:2\tRETIRED"
+    save_dead_dict(dead_dict)
+
 def process_queue_failed_files():
     failed_files = glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "queue_failed_part_*.txt"))
     if not failed_files:
         return 0
 
-    dead_eps = set()
-    if os.path.exists(DEAD_FILE):
-        with open(DEAD_FILE, "r", encoding="utf-8", errors="ignore") as df:
-            for line in df:
-                m = re.search(r"\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b", line)
-                if m:
-                    dead_eps.add(m.group(1))
-
+    dead_dict = load_dead_dict()
     suspects = load_suspect_set()
     pool_dict = load_pool_dict()
     new_dead = []
@@ -287,14 +310,12 @@ def process_queue_failed_files():
                         if ep in suspects:
                             # Strike 2: Second consecutive failure -> Confirmed dead, purge from pool
                             suspects.remove(ep)
-                            if ep not in dead_eps:
-                                dead_eps.add(ep)
-                                new_dead.append(ep)
                             if ep in pool_dict:
                                 del pool_dict[ep]
+                            new_dead.append(ep)
                         else:
                             # Strike 1: First failure -> Mark suspect, keep in pool
-                            if ep not in dead_eps:
+                            if ep not in dead_dict:
                                 suspects.add(ep)
                                 new_suspects.append(ep)
             # Clear the failed part file
@@ -303,14 +324,10 @@ def process_queue_failed_files():
         except Exception as e:
             print(f"[FAILED PART ERROR] {ff}: {e}")
 
-    now_str = time.strftime("%Y-%m-%d %H:%M:%S")
+    # Queue failures are no longer written into cache/pool_dead.txt (stopped fold)
     if new_dead:
-        os.makedirs(os.path.dirname(DEAD_FILE), exist_ok=True)
-        with open(DEAD_FILE, "a", encoding="utf-8") as df:
-            for ep in new_dead:
-                df.write(f"[{now_str}] {ep}\tspeed.cloudflare.com\tQUEUE\tREASON:FAIL_CONNECT_KAGGLE\tCONSECUTIVE_FAIL:2\tRETIRED\n")
         save_pool_dict(pool_dict)
-        print(f"[FAILED QUEUE] Appended {len(new_dead):,} Strike-2 dead endpoints to cache/pool_dead.txt and purged from real_pool.txt.")
+        print(f"[FAILED QUEUE] Purged {len(new_dead):,} Strike-2 dead endpoints from real_pool.txt (not written to pool_dead.txt).")
 
     if new_suspects or new_dead:
         save_suspect_set(suspects)
@@ -345,7 +362,6 @@ def merge_out_branches():
         c_out, c_err, c_code = run_cmd(
             f'git -C "{REPO_ROOT}" checkout {rb} -- '
             f'"ip/harvest/verified_alive_part_{tag}*.txt" '
-            f'"ip/harvest/queue_failed_part_{tag}*.txt" '
             f'"ip/harvest/shodan_stats_v98_{tag}*.txt" '
             f'"ip/harvest/shodan_progress_v98_{tag}*.txt" '
             f'"ip/harvest/stage_{tag}.txt"'

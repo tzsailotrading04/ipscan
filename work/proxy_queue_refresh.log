@@ -294,3 +294,105 @@ Another git process seems to be running in this repository, or the lock file may
 [2026-11-02 01:41:39] Committing and pushing to git...
 [2026-11-02 01:42:11] Successfully pushed to origin/main on attempt 1.
 [2026-11-02 01:42:11] === PROXY QUEUE REFRESH JOB FINISHED ===
+[2026-11-02 02:41:02] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 02:41:02] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 02:41:41] Completed: pull_aggregators.py
+[2026-11-02 02:41:41] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 02:43:26] Completed: bulk_harvest.py
+[2026-11-02 02:43:26] Loaded 168,942 lines from bulk_all.txt
+[2026-11-02 02:43:27] Loaded 12,522 unique endpoints from real_pool.txt
+[2026-11-02 02:46:13] Loaded 1,303,522 unique endpoints from pool_dead.txt
+[2026-11-02 02:46:13] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 02:47:01] Gathered 148,189 unique proxies from HTTP/HTTPS sources.
+[2026-11-02 02:47:01] Filter Results: Kept=245, Dropped Total=168,697 (Non-HTTP=20,940, RealPool=7,248, DeadPool=140,509)
+[2026-11-02 02:47:01] Writing 1 queue files for epoch 1793567821 (capped at 200,000)...
+[2026-11-02 02:47:01]   Wrote q_a0_http_1793567821_01.txt (245 lines)
+[2026-11-02 02:47:01] Committing and pushing to git...
+[2026-11-02 02:47:07] Successfully pushed to origin/main on attempt 1.
+[2026-11-02 02:47:07] === PROXY QUEUE REFRESH JOB FINISHED ===
+[2026-11-02 03:41:03] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 03:41:03] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 03:41:44] Completed: pull_aggregators.py
+[2026-11-02 03:41:44] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 03:43:29] Completed: bulk_harvest.py
+[2026-11-02 03:43:29] Loaded 169,041 lines from bulk_all.txt
+[2026-11-02 03:43:29] Loaded 12,515 unique endpoints from real_pool.txt
+[2026-11-02 03:44:25] Loaded 5,521,628 unique endpoints from pool_dead.txt
+[2026-11-02 03:44:25] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 03:45:13] Gathered 148,197 unique proxies from HTTP/HTTPS sources.
+[2026-11-02 03:45:31] Filter Results: Kept=306, Dropped Total=168,735 (Non-HTTP=21,031, RealPool=7,204, DeadPool=140,500)
+[2026-11-02 03:45:31] Writing 1 queue files for epoch 1793571331 (capped at 200,000)...
+[2026-11-02 03:45:31]   Wrote q_a0_http_1793571331_01.txt (306 lines)
+[2026-11-02 03:45:31] Committing and pushing to git...
+[2026-11-02 03:45:38] Successfully pushed to origin/main on attempt 1.
+[2026-11-02 03:45:38] === PROXY QUEUE REFRESH JOB FINISHED ===
+[2026-11-02 04:41:02] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 04:41:02] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 04:41:41] Completed: pull_aggregators.py
+[2026-11-02 04:41:41] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 04:43:20] Completed: bulk_harvest.py
+[2026-11-02 04:43:20] Loaded 168,307 lines from bulk_all.txt
+[2026-11-02 04:43:21] Loaded 12,527 unique endpoints from real_pool.txt
+[2026-11-02 04:46:20] Loaded 15,662,936 unique endpoints from pool_dead.txt
+[2026-11-02 04:46:20] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 04:47:11] Gathered 148,145 unique proxies from HTTP/HTTPS sources.
+[2026-11-02 04:47:11] Filter Results: Kept=331, Dropped Total=167,976 (Non-HTTP=20,162, RealPool=7,231, DeadPool=140,583)
+[2026-11-02 04:47:11] Writing 1 queue files for epoch 1793575031 (capped at 200,000)...
+[2026-11-02 04:47:11]   Wrote q_a0_http_1793575031_01.txt (331 lines)
+[2026-11-02 04:47:11] Committing and pushing to git...
+[2026-11-02 04:48:21] Push attempt 1 failed: remote: error: unable to write file /data/repositories/b/nw/b3/85/d5/1277136085/1423199399.git/objects/ghq_vpwdcYpSIOa/pack/pack-f0d968f378fdaa48eefdb854563459d00e5f84c8.pack: No such file or directory        
+remote: fatal: unable to rename temporary '*.pack' file to '/data/repositories/b/nw/b3/85/d5/1277136085/1423199399.git/objects/ghq_vpwdcYpSIOa/pack/pack-f0d968f378fdaa48eefdb854563459d00e5f84c8.pack'        
+error: remote unpack failed: index-pack failed
+To https://github.com/tzsailotrading04/ipscan.git
+ ! [remote rejected]       main -> main (failed)
+error: failed to push some refs to 'https://github.com/tzsailotrading04/ipscan.git'. Pulling with rebase...
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+[2026-11-02 04:49:09] Successfully pushed to origin/main on attempt 2.
+[2026-11-02 04:49:09] === PROXY QUEUE REFRESH JOB FINISHED ===
+[2026-11-02 05:41:09] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 05:41:09] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 05:41:20] Completed: pull_aggregators.py
+[2026-11-02 05:41:20] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 05:41:30] Completed: bulk_harvest.py
+[2026-11-02 05:41:30] Loaded 170,576 lines from bulk_all.txt
+[2026-11-02 05:41:30] Loaded 12,552 unique endpoints from real_pool.txt
+[2026-11-02 05:53:19] Loaded 31,368,436 unique endpoints from pool_dead.txt
+[2026-11-02 05:53:19] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 06:19:33] Gathered 148,678 unique proxies from HTTP/HTTPS sources.
+[2026-11-02 06:20:12] Filter Results: Kept=465, Dropped Total=170,111 (Non-HTTP=22,060, RealPool=7,388, DeadPool=140,663)
+[2026-11-02 06:20:12] Writing 1 queue files for epoch 1793580612 (capped at 200,000)...
+[2026-11-02 06:20:12]   Wrote q_a0_http_1793580612_01.txt (465 lines)
+[2026-11-02 06:20:12] Committing and pushing to git...
+[2026-11-02 06:20:20] Successfully pushed to origin/main on attempt 1.
+[2026-11-02 06:20:20] === PROXY QUEUE REFRESH JOB FINISHED ===
+[2026-11-02 06:41:04] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 06:41:04] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 06:41:51] Completed: pull_aggregators.py
+[2026-11-02 06:41:51] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 06:43:46] Completed: bulk_harvest.py
+[2026-11-02 06:44:12] Loaded 169,152 lines from bulk_all.txt
+[2026-11-02 06:44:16] Loaded 12,579 unique endpoints from real_pool.txt
+[2026-11-02 07:09:24] Loaded 43,158,400 unique endpoints from pool_dead.txt
+[2026-11-02 07:09:24] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 09:42:42] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 09:42:42] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 09:47:07] Completed: pull_aggregators.py
+[2026-11-02 09:47:07] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 10:09:50] Completed: bulk_harvest.py
+[2026-11-02 10:10:22] Loaded 169,176 lines from bulk_all.txt
+[2026-11-02 10:10:30] Loaded 12,621 unique endpoints from real_pool.txt
+[2026-11-02 13:00:09] === STARTING PROXY QUEUE REFRESH JOB ===
+[2026-11-02 13:00:09] Starting: pull_aggregators.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\pull_aggregators.py)
+[2026-11-02 13:01:46] Completed: pull_aggregators.py
+[2026-11-02 13:01:46] Starting: bulk_harvest.py (C:\Users\pc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\DEpinFarm\tools\bulk_harvest.py)
+[2026-11-02 13:03:26] Completed: bulk_harvest.py
+[2026-11-02 13:03:26] Loaded 168,274 lines from bulk_all.txt
+[2026-11-02 13:03:26] Loaded 12,643 unique endpoints from real_pool.txt
+[2026-11-02 14:06:02] Loaded 13,074,039 unique endpoints from pool_dead.txt
+[2026-11-02 14:06:13] Fetching 24 HTTP/HTTPS feeds in parallel...
+[2026-11-02 14:09:33] Gathered 148,266 unique proxies from HTTP/HTTPS sources.
+[2026-11-02 14:09:33] Filter Results: Kept=495, Dropped Total=167,779 (Non-HTTP=20,219, RealPool=7,162, DeadPool=140,398)
+[2026-11-02 14:09:33] Writing 1 queue files for epoch 1793608773 (capped at 200,000)...
+[2026-11-02 14:09:33]   Wrote q_a0_http_1793608773_01.txt (495 lines)
+[2026-11-02 14:09:33] Committing and pushing to git...

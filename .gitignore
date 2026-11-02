@@ -27,3 +27,7 @@ kaggle/acct*/access_token
 
 config/traffmonetizer.token
 config/*.token
+
+cache/pool_dead.txt
+cache/pool_suspect.txt
+cache/*.bak.txt

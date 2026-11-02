@@ -1,0 +1,106 @@
+{
+  "t0_utc": "2026-11-01 22:00:37 UTC",
+  "t0_ts": 1793570437.905952,
+  "shards": {
+    "sh00": {
+      "scanned": 72235460,
+      "genuine": 397,
+      "source": "work"
+    },
+    "sh01": {
+      "scanned": 68994147,
+      "genuine": 414,
+      "source": "work"
+    },
+    "sh02": {
+      "scanned": 64772931,
+      "genuine": 466,
+      "source": "work"
+    },
+    "sh03": {
+      "scanned": 66420737,
+      "genuine": 600,
+      "source": "work"
+    },
+    "sh04": {
+      "scanned": 54200496,
+      "genuine": 509,
+      "source": "work"
+    },
+    "sh05": {
+      "scanned": 67873628,
+      "genuine": 463,
+      "source": "work"
+    },
+    "sh06": {
+      "scanned": 64651331,
+      "genuine": 432,
+      "source": "work"
+    },
+    "sh07": {
+      "scanned": 66318513,
+      "genuine": 458,
+      "source": "work"
+    },
+    "sh08": {
+      "scanned": 67504046,
+      "genuine": 370,
+      "source": "work"
+    },
+    "sh09": {
+      "scanned": 67340221,
+      "genuine": 483,
+      "source": "work"
+    },
+    "sh10": {
+      "scanned": 67730965,
+      "genuine": 417,
+      "source": "work"
+    },
+    "sh11": {
+      "scanned": 61325213,
+      "genuine": 403,
+      "source": "work"
+    },
+    "sh12": {
+      "scanned": 64940279,
+      "genuine": 432,
+      "source": "work"
+    },
+    "sh13": {
+      "scanned": 66475788,
+      "genuine": 493,
+      "source": "work"
+    },
+    "sh14": {
+      "scanned": 130788271,
+      "genuine": 917,
+      "source": "ip/harvest"
+    },
+    "sh15": {
+      "scanned": 69059977,
+      "genuine": 507,
+      "source": "work"
+    },
+    "sh16": {
+      "scanned": 64210198,
+      "genuine": 386,
+      "source": "work"
+    },
+    "sh17": {
+      "scanned": 69465941,
+      "genuine": 408,
+      "source": "work"
+    },
+    "sh18": {
+      "scanned": 67962139,
+      "genuine": 540,
+      "source": "work"
+    },
+    "sh19": {
+      "scanned": 134157506,
+      "genuine": 1069,
+      "source": "ip/harvest"
+    }
+  }
+}

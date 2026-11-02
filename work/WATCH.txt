@@ -253,3 +253,346 @@ queue_depth_lines          : 15,365,752
 hours_to_15k_at_this_rate  : 80.0h (6,797 IPs remaining)
 ================================================================================
 
+[2026-11-01T21:21:04Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh01     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh02     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh03     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh04     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh05     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh06     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh07     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh08     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh09     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh10     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh11     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh12     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh13     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh14     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh15     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh16     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh17     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh18     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh19     |          0 |        0 |     0.00 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    |          0 |        0 |     0.00 |        0 |        0 |          0
+================================================================================
+fleet_ips_sec              : 0.0
+genuine_this_hour          : 0
+unique_ips_added_this_hour : 770 (Removed: 762)
+net_ips_per_hour           : 8 (Pool Unique: 8,207)
+queue_depth_lines          : 15,365,997
+hours_to_15k_at_this_rate  : 849.1h (6,793 IPs remaining)
+================================================================================
+
+[2026-11-01T22:20:45Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 72,335,460 |      397 |     0.01 |        0 |       18 |    368,657
+sh01     | 63,356,843 |      369 |     0.01 |        0 |       21 |    368,657
+sh02     | 64,872,931 |      466 |     0.01 |        0 |       35 |    368,656
+sh03     | 67,076,560 |      649 |     0.01 |        0 |       41 |    358,648
+sh04     | 54,300,496 |      509 |     0.01 |        0 |       11 |    368,648
+sh05     | 67,973,628 |      463 |     0.01 |        0 |       35 |    368,655
+sh06     | 64,751,331 |      432 |     0.01 |        0 |       35 |    368,655
+sh07     | 67,862,238 |      365 |     0.01 |        0 |       21 |    368,648
+sh08     | 67,604,046 |      370 |     0.01 |        0 |       27 |    368,647
+sh09     | 67,340,221 |      483 |     0.01 |        0 |       28 |    368,647
+sh10     | 67,730,965 |      417 |     0.01 |        0 |       36 |    368,654
+sh11     | 65,347,203 |      443 |     0.01 |        0 |       22 |    368,652
+sh12     | 65,040,279 |      432 |     0.01 |        0 |       84 |    368,646
+sh13     | 66,622,712 |      390 |     0.01 |        0 |       20 |    368,646
+sh14     |          0 |        0 |     0.00 |        0 |        0 |          0
+sh15     | 69,159,977 |      507 |     0.01 |        0 |       24 |    368,645
+sh16     | 67,503,103 |      398 |     0.01 |        0 |       26 |    368,645
+sh17     | 69,565,941 |      408 |     0.01 |        0 |       21 |    368,650
+sh18     | 64,679,563 |      541 |     0.01 |        0 |       34 |    368,649
+sh19     |          0 |        0 |     0.00 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    | 1,193,123,497 |    8,039 |     0.01 |        0 |      539 |  6,625,705
+================================================================================
+fleet_ips_sec              : 333,253.5
+genuine_this_hour          : 8,039
+unique_ips_added_this_hour : 970 (Removed: 980)
+net_ips_per_hour           : -10 (Pool Unique: 8,201)
+queue_depth_lines          : 15,246,303
+hours_to_15k_at_this_rate  : never (6,799 IPs remaining)
+================================================================================
+
+[2026-11-01T22:21:22Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 72,335,460 |      397 |     0.01 |        0 |       18 |    368,657
+sh01     | 63,356,843 |      369 |     0.01 |        0 |       21 |    368,657
+sh02     | 64,872,931 |      466 |     0.01 |        0 |       35 |    368,656
+sh03     | 67,076,560 |      649 |     0.01 |        0 |       41 |    358,648
+sh04     | 54,300,496 |      509 |     0.01 |        0 |       11 |    368,648
+sh05     | 67,973,628 |      463 |     0.01 |        0 |       35 |    368,655
+sh06     | 64,751,331 |      432 |     0.01 |        0 |       35 |    368,655
+sh07     | 67,862,238 |      365 |     0.01 |        0 |       21 |    368,648
+sh08     | 67,604,046 |      370 |     0.01 |        0 |       27 |    368,647
+sh09     | 67,340,221 |      483 |     0.01 |        0 |       28 |    368,647
+sh10     | 67,730,965 |      417 |     0.01 |        0 |       36 |    368,654
+sh11     | 65,347,203 |      443 |     0.01 |        0 |       22 |    368,652
+sh12     | 65,040,279 |      432 |     0.01 |        0 |       84 |    368,646
+sh13     | 66,622,712 |      390 |     0.01 |        0 |       20 |    368,646
+sh14     | 130,904,095 |      917 |     0.01 |        0 |        0 |          0
+sh15     | 69,159,977 |      507 |     0.01 |        0 |       24 |    368,645
+sh16     | 67,503,103 |      398 |     0.01 |        0 |       26 |    368,645
+sh17     | 69,565,941 |      408 |     0.01 |        0 |       21 |    368,650
+sh18     | 64,679,563 |      541 |     0.01 |        0 |       34 |    368,649
+sh19     | 134,271,298 |    1,069 |     0.01 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    | 1,458,298,890 |   10,025 |     0.01 |        0 |      539 |  6,625,705
+================================================================================
+fleet_ips_sec              : 7,122,743.7
+genuine_this_hour          : 1,986
+unique_ips_added_this_hour : 0 (Removed: 0)
+net_ips_per_hour           : 0 (Pool Unique: 8,201)
+queue_depth_lines          : 15,246,303
+hours_to_15k_at_this_rate  : never (6,799 IPs remaining)
+================================================================================
+
+[2026-11-01T23:21:41Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 72,735,460 |      397 |     0.01 |        0 |       71 |    693,665
+sh01     | 63,756,843 |      369 |     0.01 |        0 |       80 |    693,665
+sh02     | 69,025,621 |      501 |     0.01 |        0 |       56 |    693,656
+sh03     | 66,920,737 |      601 |     0.01 |        0 |       65 |    693,664
+sh04     | 54,700,496 |      509 |     0.01 |        0 |       81 |    693,656
+sh05     | 68,373,628 |      463 |     0.01 |        0 |       84 |    693,663
+sh06     | 65,151,331 |      432 |     0.01 |        0 |       79 |    693,663
+sh07     | 66,818,513 |      462 |     0.01 |        0 |       85 |    693,663
+sh08     | 68,215,030 |      445 |     0.01 |        0 |      111 |    693,663
+sh09     | 67,740,221 |      483 |     0.01 |        0 |       56 |    693,654
+sh10     | 69,848,233 |      399 |     0.01 |        0 |       84 |    693,653
+sh11     | 65,747,203 |      443 |     0.01 |        0 |       71 |    693,660
+sh12     | 65,440,279 |      432 |     0.01 |        0 |      128 |    693,653
+sh13     | 67,022,712 |      390 |     0.01 |        0 |       56 |    693,653
+sh14     | 131,408,052 |      920 |     0.01 |        0 |        0 |          0
+sh15     | 66,398,880 |      450 |     0.01 |        0 |       88 |    693,658
+sh16     | 67,983,103 |      400 |     0.01 |        0 |       99 |    683,652
+sh17     | 70,813,947 |      451 |     0.01 |        0 |       82 |    693,652
+sh18     | 65,079,563 |      541 |     0.01 |        0 |       88 |    693,657
+sh19     | 134,752,892 |    1,070 |     0.01 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    | 1,467,932,744 |   10,158 |     0.01 |        0 |    1,464 | 12,475,850
+================================================================================
+fleet_ips_sec              : 2,661.7
+genuine_this_hour          : 133
+unique_ips_added_this_hour : 182 (Removed: 172)
+net_ips_per_hour           : 10 (Pool Unique: 8,206)
+queue_depth_lines          : 15,246,634
+hours_to_15k_at_this_rate  : 679.4h (6,794 IPs remaining)
+================================================================================
+
+2026-11-02T00:00:58Z running: lalthazualasailo=5 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:07:17Z running: lalthazualasailo=0 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:13:23Z running: lalthazualasailo=0 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:19:33Z running: lalthazualasailo=0 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+[2026-11-02T00:22:00Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 72,300,492 |      378 |     0.01 |        0 |      143 |    656,165
+sh01     | 69,794,147 |      414 |     0.01 |        0 |      133 |    656,164
+sh02     | 69,325,621 |      501 |     0.01 |        0 |       72 |    656,164
+sh03     | 67,696,560 |      649 |     0.01 |        0 |       95 |    656,164
+sh04     | 55,180,496 |      509 |     0.01 |        0 |      119 |    633,664
+sh05     | 65,177,128 |      439 |     0.01 |        0 |      111 |    643,664
+sh06     | 65,551,331 |      433 |     0.01 |        0 |      113 |    643,672
+sh07     | 68,662,238 |      365 |     0.01 |        0 |       92 |    643,663
+sh08     | 68,404,046 |      370 |     0.01 |        0 |      106 |    643,662
+sh09     | 69,236,201 |      399 |     0.01 |        0 |      113 |    643,672
+sh10     | 68,530,965 |      417 |     0.01 |        0 |      113 |    643,671
+sh11     | 66,147,203 |      443 |     0.01 |        0 |      121 |    643,668
+sh12     | 62,833,969 |      429 |     0.01 |        0 |      146 |    643,668
+sh13     | 67,375,788 |      498 |     0.01 |        0 |      102 |    643,668
+sh14     | 64,841,900 |      462 |     0.01 |        0 |      120 |    643,667
+sh15     | 69,959,977 |      507 |     0.01 |        0 |       95 |    643,660
+sh16     | 65,010,198 |      396 |     0.01 |        0 |       97 |    656,166
+sh17     | 71,213,947 |      451 |     0.01 |        0 |      127 |    643,660
+sh18     | 68,862,139 |      540 |     0.01 |        0 |       85 |    643,659
+sh19     | 66,905,761 |      441 |     0.01 |        0 |      134 |    643,659
+--------------------------------------------------------------------------------
+TOTAL    | 1,343,010,107 |    9,041 |     0.01 |        0 |    2,237 | 12,925,800
+================================================================================
+fleet_ips_sec              : 0.0
+genuine_this_hour          : 0
+unique_ips_added_this_hour : 426 (Removed: 396)
+net_ips_per_hour           : 30 (Pool Unique: 8,218)
+queue_depth_lines          : 15,246,634
+hours_to_15k_at_this_rate  : 226.1h (6,782 IPs remaining)
+================================================================================
+
+2026-11-02T00:25:52Z running: lalthazualasailo=2 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:32:03Z running: lalthazualasailo=2 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:38:17Z running: lalthazualasailo=4 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: lalthazualasailo:[sh16]
+2026-11-02T00:45:16Z running: lalthazualasailo=4 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:51:50Z running: lalthazualasailo=4 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T00:57:56Z running: lalthazualasailo=4 zomuanpuia=5 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T01:04:08Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T01:10:15Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=5 lalsangkima=5 repushed: lalthazualasailo:[sh16]
+2026-11-02T01:16:44Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=5 lalsangkima=5 repushed: none
+[2026-11-02T01:22:17Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 144,329,952 |      775 |     0.01 |        0 |   22,465 |    662,363
+sh01     | 132,844,990 |      783 |     0.01 |        0 |   22,332 |    662,362
+sh02     | 133,892,552 |      969 |     0.01 |        0 |   22,812 |    662,361
+sh03     | 134,002,297 |    1,254 |     0.01 |        0 |   24,654 |    637,361
+sh04     | 70,417,260 |      436 |     0.01 |        0 |      167 |    606,173
+sh05     | 69,073,628 |      463 |     0.01 |        0 |      163 |    606,172
+sh06     | 65,851,331 |      433 |     0.01 |        0 |      168 |    606,184
+sh07     | 68,962,238 |      365 |     0.01 |        0 |      170 |    606,163
+sh08     | 69,015,030 |      450 |     0.01 |        0 |      196 |    593,684
+sh09     | 69,636,201 |      399 |     0.01 |        0 |      203 |    593,684
+sh10     | 68,930,965 |      417 |     0.01 |        0 |      158 |    593,683
+sh11     | 66,547,203 |      444 |     0.01 |        0 |      200 |    593,680
+sh12     | 66,240,279 |      432 |     0.01 |        0 |      226 |    593,672
+sh13     | 67,822,712 |      390 |     0.01 |        0 |      173 |    593,672
+sh14     | 132,279,788 |      921 |     0.01 |        0 |        0 |          0
+sh15     | 70,359,977 |      507 |     0.01 |        0 |      163 |    593,671
+sh16     | 65,010,198 |      396 |     0.01 |        0 |       97 |    656,166
+sh17     | 71,513,947 |      451 |     0.01 |        0 |      176 |    606,171
+sh18     | 69,262,139 |      540 |     0.01 |        0 |      145 |    593,670
+sh19     | 135,642,928 |    1,074 |     0.01 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    | 1,771,635,615 |   11,899 |     0.01 |        0 |   94,668 | 11,060,892
+================================================================================
+fleet_ips_sec              : 118,487.9
+genuine_this_hour          : 2,858
+unique_ips_added_this_hour : 563 (Removed: 536)
+net_ips_per_hour           : 27 (Pool Unique: 8,228)
+queue_depth_lines          : 15,247,099
+hours_to_15k_at_this_rate  : 250.8h (6,772 IPs remaining)
+================================================================================
+
+2026-11-02T01:22:52Z running: lalthazualasailo=4 zomuanpuia=2 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T01:29:04Z running: lalthazualasailo=4 zomuanpuia=2 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T01:35:32Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=5 lalsangkima=5 repushed: zomuanpuia:[sh17]
+2026-11-02T01:41:50Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=5 lalsangkima=5 repushed: lalthazualasailo:[sh16]
+2026-11-02T01:48:08Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T01:54:22Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T02:00:42Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=5 lalsangkima=5 repushed: none
+2026-11-02T02:06:46Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=0 lalsangkima=5 repushed: zomuanpuia:[sh17]
+2026-11-02T02:13:07Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=0 lalsangkima=5 repushed: lalthazualasailo:[sh16]
+2026-11-02T02:19:20Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=0 lalsangkima=5 repushed: none
+[2026-11-02T02:22:34Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 145,079,952 |      778 |     0.01 |        0 |   40,002 |    537,363
+sh01     | 133,594,990 |      784 |     0.01 |        0 |   39,886 |    537,362
+sh02     | 134,642,552 |      969 |     0.01 |        0 |   40,094 |    537,361
+sh03     | 134,752,297 |    1,258 |     0.01 |        0 |   42,682 |    512,361
+sh04     | 123,712,756 |      946 |     0.01 |        0 |   10,607 |    712,361
+sh05     | 132,444,756 |      907 |     0.01 |        0 |   10,648 |    712,359
+sh06     | 127,771,564 |      820 |     0.01 |        0 |   16,177 |    692,358
+sh07     | 134,674,751 |      831 |     0.01 |        0 |   22,697 |    662,358
+sh08     | 69,315,030 |      450 |     0.01 |        0 |      231 |    556,184
+sh09     | 69,936,201 |      399 |     0.01 |        0 |      237 |    556,184
+sh10     | 70,948,233 |      400 |     0.01 |        0 |      222 |    556,172
+sh11     | 66,847,203 |      444 |     0.01 |        0 |      262 |    556,180
+sh12     | 66,540,279 |      432 |     0.01 |        0 |      278 |    556,172
+sh13     | 68,075,788 |      498 |     0.01 |        0 |      202 |    556,180
+sh14     | 132,629,292 |      921 |     0.01 |        0 |        0 |          0
+sh15     | 70,659,977 |      507 |     0.01 |        0 |      172 |    556,171
+sh16     | 65,010,198 |      396 |     0.01 |        0 |       97 |    656,166
+sh17     | 71,513,947 |      451 |     0.01 |        0 |      176 |    606,171
+sh18     | 66,179,563 |      541 |     0.01 |        0 |      227 |    556,177
+sh19     | 135,992,432 |    1,074 |     0.01 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    | 2,020,321,761 |   13,806 |     0.01 |        0 |  224,897 | 10,615,640
+================================================================================
+fleet_ips_sec              : 68,749.4
+genuine_this_hour          : 1,907
+unique_ips_added_this_hour : 309 (Removed: 299)
+net_ips_per_hour           : 10 (Pool Unique: 8,245)
+queue_depth_lines          : 15,247,099
+hours_to_15k_at_this_rate  : 675.5h (6,755 IPs remaining)
+================================================================================
+
+2026-11-02T02:25:39Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=2 lalsangkima=5 repushed: none
+2026-11-02T02:31:48Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=2 lalsangkima=5 repushed: none
+2026-11-02T02:38:03Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=5 repushed: zomuanpuia:[sh17] laldinthari:[sh18]
+2026-11-02T02:44:33Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=5 repushed: lalthazualasailo:[sh16]
+2026-11-02T02:50:51Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=5 repushed: none
+2026-11-02T02:56:55Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=5 repushed: none
+2026-11-02T03:03:00Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=5 repushed: none
+2026-11-02T03:09:21Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=0 repushed: zomuanpuia:[sh17] laldinthari:[sh18]
+2026-11-02T03:15:32Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=0 repushed: lalthazualasailo:[sh16]
+[2026-11-02T03:22:53Z] FLEET HOURLY REPORT (Active Shards: 20)
+================================================================================
+shard    |    scanned |  genuine |  per1000 |  errno99 |    other | queue_left
+--------------------------------------------------------------------------------
+sh00     | 146,129,952 |      778 |     0.01 |        0 |  102,787 |    362,363
+sh01     | 134,644,990 |      784 |     0.01 |        0 |  101,882 |    362,362
+sh02     | 135,812,552 |      969 |     0.01 |        0 |  104,201 |    342,361
+sh03     | 135,802,297 |    1,260 |     0.01 |        0 |  103,075 |    337,361
+sh04     | 124,912,756 |      946 |     0.01 |        0 |   44,679 |    512,361
+sh05     | 133,659,756 |      910 |     0.01 |        0 |   45,074 |    512,359
+sh06     | 129,061,564 |      822 |     0.01 |        0 |   48,237 |    477,358
+sh07     | 135,859,751 |      833 |     0.01 |        0 |   51,456 |    462,358
+sh08     | 135,663,076 |      821 |     0.01 |        0 |   17,191 |    687,357
+sh09     | 136,020,422 |      882 |     0.01 |        0 |   16,979 |    687,357
+sh10     | 137,723,198 |      821 |     0.01 |        0 |   27,271 |    637,355
+sh11     | 127,316,416 |      850 |     0.01 |        0 |   27,284 |    637,352
+sh12     | 66,540,279 |      432 |     0.01 |        0 |      278 |    556,172
+sh13     | 68,155,788 |      498 |     0.01 |        0 |      211 |    546,180
+sh14     | 133,173,868 |      921 |     0.01 |        0 |        0 |          0
+sh15     | 70,659,977 |      507 |     0.01 |        0 |      172 |    556,171
+sh16     | 65,010,198 |      396 |     0.01 |        0 |       97 |    656,166
+sh17     | 71,513,947 |      451 |     0.01 |        0 |      176 |    606,171
+sh18     | 136,210,243 |    1,093 |     0.01 |        0 |        0 |          0
+sh19     | 136,539,040 |    1,074 |     0.01 |        0 |        0 |          0
+--------------------------------------------------------------------------------
+TOTAL    | 2,360,410,070 |   16,048 |     0.01 |        0 |  691,050 |  8,939,164
+================================================================================
+fleet_ips_sec              : 93,982.8
+genuine_this_hour          : 2,242
+unique_ips_added_this_hour : 282 (Removed: 265)
+net_ips_per_hour           : 17 (Pool Unique: 8,254)
+queue_depth_lines          : 15,247,099
+hours_to_15k_at_this_rate  : 396.8h (6,746 IPs remaining)
+================================================================================
+
+2026-11-02T03:22:03Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=0 repushed: none
+2026-11-02T03:28:38Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=1 repushed: none
+2026-11-02T03:34:48Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=1 repushed: none
+2026-11-02T03:40:55Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: zomuanpuia:[sh17] laldinthari:[sh18] lalsangkima:[sh19]
+2026-11-02T03:47:36Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: lalthazualasailo:[sh16]
+2026-11-02T03:54:06Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T04:00:24Z running: lalthazualasailo=0 zomuanpuia=0 laldinthari=0 lalsangkima=0 repushed: none
+2026-11-02T04:05:50Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T04:12:15Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=3 repushed: zomuanpuia:[sh17] laldinthari:[sh18] lalsangkima:[sh14,sh19]
+2026-11-02T04:19:29Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: lalthazualasailo:[sh16]
+2026-11-02T04:27:00Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T04:33:30Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T04:39:52Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T04:46:02Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=3 repushed: zomuanpuia:[sh17] laldinthari:[sh18] lalsangkima:[sh14,sh19]
+2026-11-02T04:52:23Z running: lalthazualasailo=4 zomuanpuia=4 laldinthari=4 lalsangkima=4 repushed: lalthazualasailo:[sh16]
+2026-11-02T04:59:12Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T05:05:30Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T05:12:59Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=3 repushed: none
+2026-11-02T05:21:19Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=3 repushed: laldinthari:[sh18] lalsangkima:[sh14,sh19]
+2026-11-02T05:31:38Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: lalthazualasailo:[sh16]
+2026-11-02T05:39:50Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T05:48:51Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T05:55:24Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: laldinthari:[sh18] lalsangkima:[sh19]
+2026-11-02T06:02:19Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: lalthazualasailo:[sh16]
+2026-11-02T06:09:22Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T06:16:39Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: none
+2026-11-02T06:24:07Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=3 repushed: none
+2026-11-02T06:30:50Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=3 repushed: laldinthari:[sh18] lalsangkima:[sh13,sh19]
+2026-11-02T06:38:14Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=4 repushed: lalthazualasailo:[sh16]
+2026-11-02T06:45:05Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=0 repushed: none
+2026-11-02T06:52:30Z running: lalthazualasailo=4 zomuanpuia=0 laldinthari=4 lalsangkima=0 repushed: none

@@ -20,3 +20,212 @@
   - genuine_this_hour (0) is under 3,450
   - fleet_ips_sec (0.0) is under 2,000
 
+[2026-11-01T21:21:04Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+  - unique_ips_added_this_hour (770) is under 1,000
+  - fleet_ips_sec (0.0) is under 2,000
+
+[2026-11-01T22:20:45Z] [ALERT] Anomalies detected:
+  - unique_ips_added_this_hour (970) is under 1,000
+
+[2026-11-01T22:21:22Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (1,986) is under 3,450
+  - unique_ips_added_this_hour (0) is under 1,000
+  - Shards with queue_left at 0: sh14, sh19
+
+[2026-11-01T23:21:41Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (133) is under 3,450
+  - unique_ips_added_this_hour (182) is under 1,000
+  - Shards with queue_left at 0: sh14, sh19
+
+[2026-11-02T00:22:00Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (0) is under 3,450
+  - unique_ips_added_this_hour (426) is under 1,000
+  - fleet_ips_sec (0.0) is under 2,000
+
+[2026-11-02T00:38:17Z] [ALERT] Account lalthazualasailo has 4/5 running for 6 consecutive checks.
+[2026-11-02T00:45:16Z] [ALERT] Account lalthazualasailo has 4/5 running for 7 consecutive checks.
+[2026-11-02T00:51:50Z] [ALERT] Account lalthazualasailo has 4/5 running for 8 consecutive checks.
+[2026-11-02T00:57:56Z] [ALERT] Account lalthazualasailo has 4/5 running for 9 consecutive checks.
+[2026-11-02T01:04:08Z] [ALERT] Account lalthazualasailo has 4/5 running for 10 consecutive checks.
+[2026-11-02T01:10:15Z] [ALERT] Account lalthazualasailo has 4/5 running for 11 consecutive checks.
+[2026-11-02T01:16:44Z] [ALERT] Account lalthazualasailo has 4/5 running for 12 consecutive checks.
+[2026-11-02T01:22:17Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (2,858) is under 3,450
+  - unique_ips_added_this_hour (563) is under 1,000
+  - Shards with queue_left at 0: sh14, sh19
+
+[2026-11-02T01:22:52Z] [ALERT] Account lalthazualasailo has 4/5 running for 13 consecutive checks.
+[2026-11-02T01:29:04Z] [ALERT] Account lalthazualasailo has 4/5 running for 14 consecutive checks.
+[2026-11-02T01:35:32Z] [ALERT] Account lalthazualasailo has 4/5 running for 15 consecutive checks.
+[2026-11-02T01:35:32Z] [ALERT] Account zomuanpuia has 4/5 running for 6 consecutive checks.
+[2026-11-02T01:41:50Z] [ALERT] Account lalthazualasailo has 4/5 running for 16 consecutive checks.
+[2026-11-02T01:41:50Z] [ALERT] Account zomuanpuia has 4/5 running for 7 consecutive checks.
+[2026-11-02T01:48:08Z] [ALERT] Account lalthazualasailo has 4/5 running for 17 consecutive checks.
+[2026-11-02T01:48:08Z] [ALERT] Account zomuanpuia has 4/5 running for 8 consecutive checks.
+[2026-11-02T01:54:22Z] [ALERT] Account lalthazualasailo has 4/5 running for 18 consecutive checks.
+[2026-11-02T01:54:22Z] [ALERT] Account zomuanpuia has 4/5 running for 9 consecutive checks.
+[2026-11-02T02:00:42Z] [ALERT] Account lalthazualasailo has 4/5 running for 19 consecutive checks.
+[2026-11-02T02:00:42Z] [ALERT] Account zomuanpuia has 4/5 running for 10 consecutive checks.
+[2026-11-02T02:06:46Z] [ALERT] Account lalthazualasailo has 4/5 running for 20 consecutive checks.
+[2026-11-02T02:06:46Z] [ALERT] Account zomuanpuia has 4/5 running for 11 consecutive checks.
+[2026-11-02T02:13:07Z] [ALERT] Account lalthazualasailo has 4/5 running for 21 consecutive checks.
+[2026-11-02T02:13:07Z] [ALERT] Account zomuanpuia has 4/5 running for 12 consecutive checks.
+[2026-11-02T02:19:20Z] [ALERT] Account lalthazualasailo has 4/5 running for 22 consecutive checks.
+[2026-11-02T02:19:20Z] [ALERT] Account zomuanpuia has 4/5 running for 13 consecutive checks.
+[2026-11-02T02:22:34Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (1,907) is under 3,450
+  - unique_ips_added_this_hour (309) is under 1,000
+  - Shards with queue_left at 0: sh14, sh19
+
+[2026-11-02T02:25:39Z] [ALERT] Account lalthazualasailo has 4/5 running for 23 consecutive checks.
+[2026-11-02T02:25:39Z] [ALERT] Account zomuanpuia has 4/5 running for 14 consecutive checks.
+[2026-11-02T02:31:48Z] [ALERT] Account lalthazualasailo has 4/5 running for 24 consecutive checks.
+[2026-11-02T02:31:48Z] [ALERT] Account zomuanpuia has 4/5 running for 15 consecutive checks.
+[2026-11-02T02:38:03Z] [ALERT] Account lalthazualasailo has 4/5 running for 25 consecutive checks.
+[2026-11-02T02:38:03Z] [ALERT] Account zomuanpuia has 4/5 running for 16 consecutive checks.
+[2026-11-02T02:38:03Z] [ALERT] Account laldinthari has 4/5 running for 6 consecutive checks.
+[2026-11-02T02:44:33Z] [ALERT] Account lalthazualasailo has 4/5 running for 26 consecutive checks.
+[2026-11-02T02:44:33Z] [ALERT] Account zomuanpuia has 4/5 running for 17 consecutive checks.
+[2026-11-02T02:44:33Z] [ALERT] Account laldinthari has 4/5 running for 7 consecutive checks.
+[2026-11-02T02:50:51Z] [ALERT] Account lalthazualasailo has 4/5 running for 27 consecutive checks.
+[2026-11-02T02:50:51Z] [ALERT] Account zomuanpuia has 4/5 running for 18 consecutive checks.
+[2026-11-02T02:50:51Z] [ALERT] Account laldinthari has 4/5 running for 8 consecutive checks.
+[2026-11-02T02:56:55Z] [ALERT] Account lalthazualasailo has 4/5 running for 28 consecutive checks.
+[2026-11-02T02:56:55Z] [ALERT] Account zomuanpuia has 4/5 running for 19 consecutive checks.
+[2026-11-02T02:56:55Z] [ALERT] Account laldinthari has 4/5 running for 9 consecutive checks.
+[2026-11-02T03:03:00Z] [ALERT] Account lalthazualasailo has 4/5 running for 29 consecutive checks.
+[2026-11-02T03:03:00Z] [ALERT] Account zomuanpuia has 4/5 running for 20 consecutive checks.
+[2026-11-02T03:03:00Z] [ALERT] Account laldinthari has 4/5 running for 10 consecutive checks.
+[2026-11-02T03:09:21Z] [ALERT] Account lalthazualasailo has 4/5 running for 30 consecutive checks.
+[2026-11-02T03:09:21Z] [ALERT] Account zomuanpuia has 4/5 running for 21 consecutive checks.
+[2026-11-02T03:09:21Z] [ALERT] Account laldinthari has 4/5 running for 11 consecutive checks.
+[2026-11-02T03:15:32Z] [ALERT] Account lalthazualasailo has 4/5 running for 31 consecutive checks.
+[2026-11-02T03:15:32Z] [ALERT] Account zomuanpuia has 4/5 running for 22 consecutive checks.
+[2026-11-02T03:15:32Z] [ALERT] Account laldinthari has 4/5 running for 12 consecutive checks.
+[2026-11-02T03:22:53Z] [ALERT] Anomalies detected:
+  - genuine_this_hour (2,242) is under 3,450
+  - unique_ips_added_this_hour (282) is under 1,000
+  - Shards with queue_left at 0: sh14, sh18, sh19
+
+[2026-11-02T03:22:03Z] [ALERT] Account lalthazualasailo has 4/5 running for 32 consecutive checks.
+[2026-11-02T03:22:03Z] [ALERT] Account zomuanpuia has 4/5 running for 23 consecutive checks.
+[2026-11-02T03:22:03Z] [ALERT] Account laldinthari has 4/5 running for 13 consecutive checks.
+[2026-11-02T03:28:38Z] [ALERT] Account lalthazualasailo has 4/5 running for 33 consecutive checks.
+[2026-11-02T03:28:38Z] [ALERT] Account zomuanpuia has 4/5 running for 24 consecutive checks.
+[2026-11-02T03:28:38Z] [ALERT] Account laldinthari has 4/5 running for 14 consecutive checks.
+[2026-11-02T03:34:48Z] [ALERT] Account lalthazualasailo has 4/5 running for 34 consecutive checks.
+[2026-11-02T03:34:48Z] [ALERT] Account zomuanpuia has 4/5 running for 25 consecutive checks.
+[2026-11-02T03:34:48Z] [ALERT] Account laldinthari has 4/5 running for 15 consecutive checks.
+[2026-11-02T03:40:55Z] [ALERT] Account lalthazualasailo has 4/5 running for 35 consecutive checks.
+[2026-11-02T03:40:55Z] [ALERT] Account zomuanpuia has 4/5 running for 26 consecutive checks.
+[2026-11-02T03:40:55Z] [ALERT] Account laldinthari has 4/5 running for 16 consecutive checks.
+[2026-11-02T03:40:55Z] [ALERT] Account lalsangkima has 4/5 running for 6 consecutive checks.
+[2026-11-02T03:47:36Z] [ALERT] Account lalthazualasailo has 4/5 running for 36 consecutive checks.
+[2026-11-02T03:47:36Z] [ALERT] Account zomuanpuia has 4/5 running for 27 consecutive checks.
+[2026-11-02T03:47:36Z] [ALERT] Account laldinthari has 4/5 running for 17 consecutive checks.
+[2026-11-02T03:47:36Z] [ALERT] Account lalsangkima has 4/5 running for 7 consecutive checks.
+[2026-11-02T03:54:06Z] [ALERT] Account lalthazualasailo has 4/5 running for 37 consecutive checks.
+[2026-11-02T03:54:06Z] [ALERT] Account zomuanpuia has 4/5 running for 28 consecutive checks.
+[2026-11-02T03:54:06Z] [ALERT] Account laldinthari has 4/5 running for 18 consecutive checks.
+[2026-11-02T03:54:06Z] [ALERT] Account lalsangkima has 4/5 running for 8 consecutive checks.
+[2026-11-02T04:00:24Z] [ALERT] Account lalthazualasailo has 0/5 running for 38 consecutive checks.
+[2026-11-02T04:00:24Z] [ALERT] Account zomuanpuia has 0/5 running for 29 consecutive checks.
+[2026-11-02T04:00:24Z] [ALERT] Account laldinthari has 0/5 running for 19 consecutive checks.
+[2026-11-02T04:00:24Z] [ALERT] Account lalsangkima has 0/5 running for 9 consecutive checks.
+[2026-11-02T04:05:50Z] [ALERT] Account lalthazualasailo has 4/5 running for 39 consecutive checks.
+[2026-11-02T04:05:50Z] [ALERT] Account zomuanpuia has 4/5 running for 30 consecutive checks.
+[2026-11-02T04:05:50Z] [ALERT] Account laldinthari has 4/5 running for 20 consecutive checks.
+[2026-11-02T04:05:50Z] [ALERT] Account lalsangkima has 4/5 running for 10 consecutive checks.
+[2026-11-02T04:12:15Z] [ALERT] Account lalthazualasailo has 4/5 running for 40 consecutive checks.
+[2026-11-02T04:12:15Z] [ALERT] Account zomuanpuia has 4/5 running for 31 consecutive checks.
+[2026-11-02T04:12:15Z] [ALERT] Account laldinthari has 4/5 running for 21 consecutive checks.
+[2026-11-02T04:12:15Z] [ALERT] Account lalsangkima has 3/5 running for 11 consecutive checks.
+[2026-11-02T04:19:29Z] [ALERT] Account lalthazualasailo has 4/5 running for 41 consecutive checks.
+[2026-11-02T04:19:29Z] [ALERT] Account zomuanpuia has 4/5 running for 32 consecutive checks.
+[2026-11-02T04:19:29Z] [ALERT] Account laldinthari has 4/5 running for 22 consecutive checks.
+[2026-11-02T04:19:29Z] [ALERT] Account lalsangkima has 4/5 running for 12 consecutive checks.
+[2026-11-02T04:27:00Z] [ALERT] Account lalthazualasailo has 4/5 running for 42 consecutive checks.
+[2026-11-02T04:27:00Z] [ALERT] Account zomuanpuia has 4/5 running for 33 consecutive checks.
+[2026-11-02T04:27:00Z] [ALERT] Account laldinthari has 4/5 running for 23 consecutive checks.
+[2026-11-02T04:27:00Z] [ALERT] Account lalsangkima has 4/5 running for 13 consecutive checks.
+[2026-11-02T04:33:30Z] [ALERT] Account lalthazualasailo has 4/5 running for 43 consecutive checks.
+[2026-11-02T04:33:30Z] [ALERT] Account zomuanpuia has 4/5 running for 34 consecutive checks.
+[2026-11-02T04:33:30Z] [ALERT] Account laldinthari has 4/5 running for 24 consecutive checks.
+[2026-11-02T04:33:30Z] [ALERT] Account lalsangkima has 4/5 running for 14 consecutive checks.
+[2026-11-02T04:39:52Z] [ALERT] Account lalthazualasailo has 4/5 running for 44 consecutive checks.
+[2026-11-02T04:39:52Z] [ALERT] Account zomuanpuia has 4/5 running for 35 consecutive checks.
+[2026-11-02T04:39:52Z] [ALERT] Account laldinthari has 4/5 running for 25 consecutive checks.
+[2026-11-02T04:39:52Z] [ALERT] Account lalsangkima has 4/5 running for 15 consecutive checks.
+[2026-11-02T04:46:02Z] [ALERT] Account lalthazualasailo has 4/5 running for 45 consecutive checks.
+[2026-11-02T04:46:02Z] [ALERT] Account zomuanpuia has 4/5 running for 36 consecutive checks.
+[2026-11-02T04:46:02Z] [ALERT] Account laldinthari has 4/5 running for 26 consecutive checks.
+[2026-11-02T04:46:02Z] [ALERT] Account lalsangkima has 3/5 running for 16 consecutive checks.
+[2026-11-02T04:52:23Z] [ALERT] Account lalthazualasailo has 4/5 running for 46 consecutive checks.
+[2026-11-02T04:52:23Z] [ALERT] Account zomuanpuia has 4/5 running for 37 consecutive checks.
+[2026-11-02T04:52:23Z] [ALERT] Account laldinthari has 4/5 running for 27 consecutive checks.
+[2026-11-02T04:52:23Z] [ALERT] Account lalsangkima has 4/5 running for 17 consecutive checks.
+[2026-11-02T04:59:12Z] [ALERT] Account lalthazualasailo has 4/5 running for 47 consecutive checks.
+[2026-11-02T04:59:12Z] [ALERT] Account zomuanpuia has 0/5 running for 38 consecutive checks.
+[2026-11-02T04:59:12Z] [ALERT] Account laldinthari has 4/5 running for 28 consecutive checks.
+[2026-11-02T04:59:12Z] [ALERT] Account lalsangkima has 4/5 running for 18 consecutive checks.
+[2026-11-02T05:05:30Z] [ALERT] Account lalthazualasailo has 4/5 running for 48 consecutive checks.
+[2026-11-02T05:05:30Z] [ALERT] Account zomuanpuia has 0/5 running for 39 consecutive checks.
+[2026-11-02T05:05:30Z] [ALERT] Account laldinthari has 4/5 running for 29 consecutive checks.
+[2026-11-02T05:05:30Z] [ALERT] Account lalsangkima has 4/5 running for 19 consecutive checks.
+[2026-11-02T05:12:59Z] [ALERT] Account lalthazualasailo has 4/5 running for 49 consecutive checks.
+[2026-11-02T05:12:59Z] [ALERT] Account zomuanpuia has 0/5 running for 40 consecutive checks.
+[2026-11-02T05:12:59Z] [ALERT] Account laldinthari has 4/5 running for 30 consecutive checks.
+[2026-11-02T05:12:59Z] [ALERT] Account lalsangkima has 3/5 running for 20 consecutive checks.
+[2026-11-02T05:21:19Z] [ALERT] Account lalthazualasailo has 4/5 running for 50 consecutive checks.
+[2026-11-02T05:21:19Z] [ALERT] Account zomuanpuia has 0/5 running for 41 consecutive checks.
+[2026-11-02T05:21:19Z] [ALERT] Account laldinthari has 4/5 running for 31 consecutive checks.
+[2026-11-02T05:21:19Z] [ALERT] Account lalsangkima has 3/5 running for 21 consecutive checks.
+[2026-11-02T05:31:38Z] [ALERT] Account lalthazualasailo has 4/5 running for 51 consecutive checks.
+[2026-11-02T05:31:38Z] [ALERT] Account zomuanpuia has 0/5 running for 42 consecutive checks.
+[2026-11-02T05:31:38Z] [ALERT] Account laldinthari has 4/5 running for 32 consecutive checks.
+[2026-11-02T05:31:38Z] [ALERT] Account lalsangkima has 4/5 running for 22 consecutive checks.
+[2026-11-02T05:39:50Z] [ALERT] Account lalthazualasailo has 4/5 running for 52 consecutive checks.
+[2026-11-02T05:39:50Z] [ALERT] Account zomuanpuia has 0/5 running for 43 consecutive checks.
+[2026-11-02T05:39:50Z] [ALERT] Account laldinthari has 4/5 running for 33 consecutive checks.
+[2026-11-02T05:39:50Z] [ALERT] Account lalsangkima has 4/5 running for 23 consecutive checks.
+[2026-11-02T05:48:51Z] [ALERT] Account lalthazualasailo has 4/5 running for 53 consecutive checks.
+[2026-11-02T05:48:51Z] [ALERT] Account zomuanpuia has 0/5 running for 44 consecutive checks.
+[2026-11-02T05:48:51Z] [ALERT] Account laldinthari has 4/5 running for 34 consecutive checks.
+[2026-11-02T05:48:51Z] [ALERT] Account lalsangkima has 4/5 running for 24 consecutive checks.
+[2026-11-02T05:55:24Z] [ALERT] Account lalthazualasailo has 4/5 running for 54 consecutive checks.
+[2026-11-02T05:55:24Z] [ALERT] Account zomuanpuia has 0/5 running for 45 consecutive checks.
+[2026-11-02T05:55:24Z] [ALERT] Account laldinthari has 4/5 running for 35 consecutive checks.
+[2026-11-02T05:55:24Z] [ALERT] Account lalsangkima has 4/5 running for 25 consecutive checks.
+[2026-11-02T06:02:19Z] [ALERT] Account lalthazualasailo has 4/5 running for 55 consecutive checks.
+[2026-11-02T06:02:19Z] [ALERT] Account zomuanpuia has 0/5 running for 46 consecutive checks.
+[2026-11-02T06:02:19Z] [ALERT] Account laldinthari has 4/5 running for 36 consecutive checks.
+[2026-11-02T06:02:19Z] [ALERT] Account lalsangkima has 4/5 running for 26 consecutive checks.
+[2026-11-02T06:09:22Z] [ALERT] Account lalthazualasailo has 4/5 running for 56 consecutive checks.
+[2026-11-02T06:09:22Z] [ALERT] Account zomuanpuia has 0/5 running for 47 consecutive checks.
+[2026-11-02T06:09:22Z] [ALERT] Account laldinthari has 4/5 running for 37 consecutive checks.
+[2026-11-02T06:09:22Z] [ALERT] Account lalsangkima has 4/5 running for 27 consecutive checks.
+[2026-11-02T06:16:39Z] [ALERT] Account lalthazualasailo has 4/5 running for 57 consecutive checks.
+[2026-11-02T06:16:39Z] [ALERT] Account zomuanpuia has 0/5 running for 48 consecutive checks.
+[2026-11-02T06:16:39Z] [ALERT] Account laldinthari has 4/5 running for 38 consecutive checks.
+[2026-11-02T06:16:39Z] [ALERT] Account lalsangkima has 4/5 running for 28 consecutive checks.
+[2026-11-02T06:24:07Z] [ALERT] Account lalthazualasailo has 4/5 running for 58 consecutive checks.
+[2026-11-02T06:24:07Z] [ALERT] Account zomuanpuia has 0/5 running for 49 consecutive checks.
+[2026-11-02T06:24:07Z] [ALERT] Account laldinthari has 4/5 running for 39 consecutive checks.
+[2026-11-02T06:24:07Z] [ALERT] Account lalsangkima has 3/5 running for 29 consecutive checks.
+[2026-11-02T06:30:50Z] [ALERT] Account lalthazualasailo has 4/5 running for 59 consecutive checks.
+[2026-11-02T06:30:50Z] [ALERT] Account zomuanpuia has 0/5 running for 50 consecutive checks.
+[2026-11-02T06:30:50Z] [ALERT] Account laldinthari has 4/5 running for 40 consecutive checks.
+[2026-11-02T06:30:50Z] [ALERT] Account lalsangkima has 3/5 running for 30 consecutive checks.
+[2026-11-02T06:38:14Z] [ALERT] Account lalthazualasailo has 4/5 running for 60 consecutive checks.
+[2026-11-02T06:38:14Z] [ALERT] Account zomuanpuia has 0/5 running for 51 consecutive checks.
+[2026-11-02T06:38:14Z] [ALERT] Account laldinthari has 4/5 running for 41 consecutive checks.
+[2026-11-02T06:38:14Z] [ALERT] Account lalsangkima has 4/5 running for 31 consecutive checks.
+[2026-11-02T06:45:05Z] [ALERT] Account lalthazualasailo has 4/5 running for 61 consecutive checks.
+[2026-11-02T06:45:05Z] [ALERT] Account zomuanpuia has 0/5 running for 52 consecutive checks.
+[2026-11-02T06:45:05Z] [ALERT] Account laldinthari has 4/5 running for 42 consecutive checks.
+[2026-11-02T06:45:05Z] [ALERT] Account lalsangkima has 0/5 running for 32 consecutive checks.
+[2026-11-02T06:52:30Z] [ALERT] Account lalthazualasailo has 4/5 running for 62 consecutive checks.
+[2026-11-02T06:52:30Z] [ALERT] Account zomuanpuia has 0/5 running for 53 consecutive checks.
+[2026-11-02T06:52:30Z] [ALERT] Account laldinthari has 4/5 running for 43 consecutive checks.
+[2026-11-02T06:52:30Z] [ALERT] Account lalsangkima has 0/5 running for 33 consecutive checks.

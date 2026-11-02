@@ -1,0 +1,186 @@
+{
+  "t0_utc": "2026-11-01 22:27:31 UTC",
+  "t0_ts": 1793572051.938258,
+  "shards": {
+    "sh00": {
+      "w0_scanned": 72232460,
+      "w1_scanned": 71497492,
+      "sum_scanned": 143729952,
+      "w0_genuine": 397,
+      "w1_genuine": 378,
+      "sum_genuine": 775,
+      "source": "ip/harvest_w*"
+    },
+    "sh01": {
+      "w0_scanned": 63253843,
+      "w1_scanned": 68991147,
+      "sum_scanned": 132244990,
+      "w0_genuine": 369,
+      "w1_genuine": 414,
+      "sum_genuine": 783,
+      "source": "ip/harvest_w*"
+    },
+    "sh02": {
+      "w0_scanned": 64769931,
+      "w1_scanned": 68520589,
+      "sum_scanned": 133290520,
+      "w0_genuine": 401,
+      "w1_genuine": 448,
+      "sum_genuine": 849,
+      "source": "ip/harvest_w*"
+    },
+    "sh03": {
+      "w0_scanned": 66418737,
+      "w1_scanned": 66893560,
+      "sum_scanned": 133312297,
+      "w0_genuine": 530,
+      "w1_genuine": 582,
+      "sum_genuine": 1112,
+      "source": "ip/harvest_w*"
+    },
+    "sh04": {
+      "w0_scanned": 69214260,
+      "w1_scanned": 54198496,
+      "sum_scanned": 123412756,
+      "w0_genuine": 376,
+      "w1_genuine": 447,
+      "sum_genuine": 823,
+      "source": "ip/harvest_w*"
+    },
+    "sh05": {
+      "w0_scanned": 67870628,
+      "w1_scanned": 64274128,
+      "sum_scanned": 132144756,
+      "w0_genuine": 392,
+      "w1_genuine": 358,
+      "sum_genuine": 750,
+      "source": "ip/harvest_w*"
+    },
+    "sh06": {
+      "w0_scanned": 64648331,
+      "w1_scanned": 62703233,
+      "sum_scanned": 127351564,
+      "w0_genuine": 432,
+      "w1_genuine": 387,
+      "sum_genuine": 819,
+      "source": "ip/harvest_w*"
+    },
+    "sh07": {
+      "w0_scanned": 66315513,
+      "w1_scanned": 67759238,
+      "sum_scanned": 134074751,
+      "w0_genuine": 458,
+      "w1_genuine": 365,
+      "sum_genuine": 823,
+      "source": "ip/harvest_w*"
+    },
+    "sh08": {
+      "w0_scanned": 67712030,
+      "w1_scanned": 67501046,
+      "sum_scanned": 135213076,
+      "w0_genuine": 445,
+      "w1_genuine": 370,
+      "sum_genuine": 815,
+      "source": "ip/harvest_w*"
+    },
+    "sh09": {
+      "w0_scanned": 68333201,
+      "w1_scanned": 67237221,
+      "sum_scanned": 135570422,
+      "w0_genuine": 399,
+      "w1_genuine": 483,
+      "sum_genuine": 882,
+      "source": "ip/harvest_w*"
+    },
+    "sh10": {
+      "w0_scanned": 67627965,
+      "w1_scanned": 69345233,
+      "sum_scanned": 136973198,
+      "w0_genuine": 417,
+      "w1_genuine": 399,
+      "sum_genuine": 816,
+      "source": "ip/harvest_w*"
+    },
+    "sh11": {
+      "w0_scanned": 65244203,
+      "w1_scanned": 61322213,
+      "sum_scanned": 126566416,
+      "w0_genuine": 443,
+      "w1_genuine": 403,
+      "sum_genuine": 846,
+      "source": "ip/harvest_w*"
+    },
+    "sh12": {
+      "w0_scanned": 61930969,
+      "w1_scanned": 64937279,
+      "sum_scanned": 126868248,
+      "w0_genuine": 429,
+      "w1_genuine": 432,
+      "sum_genuine": 861,
+      "source": "ip/harvest_w*"
+    },
+    "sh13": {
+      "w0_scanned": 66472788,
+      "w1_scanned": 66519712,
+      "sum_scanned": 132992500,
+      "w0_genuine": 493,
+      "w1_genuine": 390,
+      "sum_genuine": 883,
+      "source": "ip/harvest_w*"
+    },
+    "sh14": {
+      "w0_scanned": 63938900,
+      "w1_scanned": 66218471,
+      "sum_scanned": 130157371,
+      "w0_genuine": 462,
+      "w1_genuine": 446,
+      "sum_genuine": 908,
+      "source": "ip/harvest_w*"
+    },
+    "sh15": {
+      "w0_scanned": 65895880,
+      "w1_scanned": 69056977,
+      "sum_scanned": 134952857,
+      "w0_genuine": 450,
+      "w1_genuine": 507,
+      "sum_genuine": 957,
+      "source": "ip/harvest_w*"
+    },
+    "sh16": {
+      "w0_scanned": 64208198,
+      "w1_scanned": 67400103,
+      "sum_scanned": 131608301,
+      "w0_genuine": 386,
+      "w1_genuine": 397,
+      "sum_genuine": 783,
+      "source": "ip/harvest_w*"
+    },
+    "sh17": {
+      "w0_scanned": 69462941,
+      "w1_scanned": 70310947,
+      "sum_scanned": 139773888,
+      "w0_genuine": 408,
+      "w1_genuine": 451,
+      "sum_genuine": 859,
+      "source": "ip/harvest_w*"
+    },
+    "sh18": {
+      "w0_scanned": 64577563,
+      "w1_scanned": 67959139,
+      "sum_scanned": 132536702,
+      "w0_genuine": 541,
+      "w1_genuine": 540,
+      "sum_genuine": 1081,
+      "source": "ip/harvest_w*"
+    },
+    "sh19": {
+      "w0_scanned": 66795449,
+      "w1_scanned": 66003761,
+      "sum_scanned": 132799210,
+      "w0_genuine": 593,
+      "w1_genuine": 441,
+      "sum_genuine": 1034,
+      "source": "ip/harvest_w*"
+    }
+  }
+}

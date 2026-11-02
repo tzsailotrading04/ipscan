@@ -404,3 +404,7 @@
 3.71.80.75:8888	speed.cloudflare.com	QUEUE	0	AMAZON-02
 23.95.60.51:3128	www.google.com	QUEUE	0	AS-COLOCROSSING
 23.95.60.51:8080	www.google.com	QUEUE	0	AS-COLOCROSSING
+51.79.127.109:3128	speed.cloudflare.com	QUEUE	0	OVH
+51.210.24.30:8080	speed.cloudflare.com	QUEUE	0	OVH
+57.129.59.97:8080	www.google.com	QUEUE	0	OVH
+57.129.96.186:8080	speed.cloudflare.com	QUEUE	0	OVH
