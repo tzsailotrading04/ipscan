@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793656234
-offset=69464903
+ts=1793656536
+offset=69495383
 --- LAST 5 LOG LINES ---
 [2026-11-02 21:22:17] [SHARD 03 W0] [QUEUE STAGE] Found 54 queue files to consume before IP scanning
 [2026-11-02 21:23:33] [SHARD 03 W0] [FOUND QUEUE] 160.22.134.233:1111 (IDNIC-GSNET-ID) via speed.cloudflare.com | cands=857
