@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793617055
-offset=63397803
+ts=1793617352
+offset=63426759
 --- LAST 5 LOG LINES ---
 [2026-11-02 10:32:27] [SHARD 01 W0] [QUEUE STAGE] Found 10 queue files to consume before IP scanning
 [2026-11-02 10:42:41] [SHARD 01 W0] [FOUND QUEUE] 167.99.200.146:3128 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=428
