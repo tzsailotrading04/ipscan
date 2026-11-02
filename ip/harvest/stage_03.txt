@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793649482
-offset=68913429
+ts=1793649920
+offset=68921429
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:58:01] [SHARD 03 W0] [FOUND QUEUE] 103.139.99.173:8080 (DNS-AS-ID) via speed.cloudflare.com | cands=832
-[2026-11-02 19:58:01] [SHARD 03 W0] [FOUND QUEUE] 103.48.68.82:84 (COUNTRYONLINE-AS-IN) via www.google.com | cands=833
-[2026-11-02 19:58:01] [SHARD 03 W0] [FOUND QUEUE] 147.161.246.38:10000 (ZSCALER-EMEA) via speed.cloudflare.com | cands=834
-[2026-11-02 19:58:01] [SHARD 03 W0] [FOUND QUEUE] 147.161.247.9:10494 (ZSCALER-EMEA) via speed.cloudflare.com | cands=835
-[2026-11-02 19:58:01] [SHARD 03 W0] [FOUND QUEUE] 147.161.247.9:11092 (ZSCALER-EMEA) via speed.cloudflare.com | cands=836
+[2026-11-02 20:02:50] [SHARD 03 W0] [FOUND QUEUE] 38.252.213.243:999 (TELCOM) via one.one.one.one | cands=838
+[2026-11-02 20:02:50] [SHARD 03 W0] [FOUND QUEUE] 43.164.129.36:3128 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=839
+[2026-11-02 20:05:19] [SHARD 03 W0] [FOUND QUEUE] 107.173.211.190:3128 (AS-COLOCROSSING) via speed.cloudflare.com | cands=840
+[2026-11-02 20:05:19] [SHARD 03 W0] [FOUND QUEUE] 111.192.59.105:8888 (CHINA169-BJ) via speed.cloudflare.com | cands=841
+[2026-11-02 20:05:19] [SHARD 03 W0] [FOUND QUEUE] 145.239.80.10:3128 (OVH) via speed.cloudflare.com | cands=842
