@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793579774
-offset=64376358
+ts=1793580095
+offset=64396678
 --- LAST 5 LOG LINES ---
 [2026-11-01 22:16:32] [SHARD 27 W0] [FOUND QUEUE] 52.140.7.131:80 (MICROSOFT-CORP-MSN-AS-BLOCK) via speed.cloudflare.com | cands=471
 [2026-11-01 23:20:45] [SHARD 27 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
