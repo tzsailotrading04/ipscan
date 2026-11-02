@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793616004
-offset=64796890
+stage=res_loop
+ts=1793616213
+offset=64800890
 --- LAST 5 LOG LINES ---
-[2026-11-02 10:35:04] [SHARD 02 W0] [FOUND QUEUE] 103.95.23.242:3125 (IDNIC-HASTEL-ID) via speed.cloudflare.com | cands=513
-[2026-11-02 10:35:04] [SHARD 02 W0] [FOUND QUEUE] 144.124.251.24:10605 (VDSINA) via one.one.one.one | cands=514
-[2026-11-02 10:40:04] [SHARD 02 W0] [FOUND QUEUE] 194.124.36.22:8080 (HIGHSPEED) via speed.cloudflare.com | cands=515
-[2026-11-02 10:40:04] [SHARD 02 W0] [FOUND QUEUE] 3.21.129.156:17689 (AMAZON-02) via one.one.one.one | cands=516
-[2026-11-02 10:40:04] [SHARD 02 W0] [FOUND QUEUE] 38.19.42.183:999 (SUPER) via speed.cloudflare.com | cands=517
+[2026-11-02 10:43:32] [SHARD 02 W0] [FOUND QUEUE] 38.7.22.165:999 (INTERNET) via one.one.one.one | cands=524
+[2026-11-02 10:43:32] [SHARD 02 W0] [FOUND QUEUE] 38.75.83.173:999 (ACOLME) via one.one.one.one | cands=525
+[2026-11-02 10:43:32] [SHARD 02 W0] [FOUND QUEUE] 43.200.174.95:8507 (AMAZON-02) via www.google.com | cands=526
+[2026-11-02 10:43:32] [SHARD 02 W0] [FOUND QUEUE] 45.189.117.198:999 (CONEX) via speed.cloudflare.com | cands=527
+[2026-11-02 10:43:32] [SHARD 02 W0] [FOUND QUEUE] 5.42.97.67:8080 (TIMEWEB-AS) via speed.cloudflare.com | cands=528

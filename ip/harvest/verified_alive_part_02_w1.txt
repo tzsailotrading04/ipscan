@@ -544,3 +544,8 @@
 51.94.221.175:3523	speed.cloudflare.com	QUEUE	0	AMAZON-02
 72.46.158.193:8087	www.google.com	QUEUE	0	OSNET
 89.150.34.208:3128	speed.cloudflare.com	QUEUE	0	CLODO
+134.209.64.182:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+209.38.183.26:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+62.171.138.103:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+51.68.102.5:3128	speed.cloudflare.com	QUEUE	0	OVH
+172.245.71.18:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING

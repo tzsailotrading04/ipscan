@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793615754
-offset=66434645
+stage=res_loop
+ts=1793616354
+offset=66442645
 --- LAST 5 LOG LINES ---
-[2026-11-02 10:35:54] [SHARD 03 W0] [FOUND QUEUE] 113.192.48.195:7777 (GMDP-AS-ID) via www.google.com | cands=638
-[2026-11-02 10:35:54] [SHARD 03 W0] [FOUND QUEUE] 138.118.106.237:999 (ONNO) via www.google.com | cands=639
-[2026-11-02 10:35:54] [SHARD 03 W0] [FOUND QUEUE] 14.199.167.175:3128 (HKBN-AS-AP) via speed.cloudflare.com | cands=640
-[2026-11-02 10:35:54] [SHARD 03 W0] [FOUND QUEUE] 143.198.85.218:3128 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=641
-[2026-11-02 10:35:54] [SHARD 03 W0] [FOUND QUEUE] 144.124.251.24:10748 (VDSINA) via one.one.one.one | cands=642
+[2026-11-02 10:45:54] [SHARD 03 W0] [FOUND QUEUE] 18.231.214.206:47897 (AMAZON-02) via one.one.one.one | cands=654
+[2026-11-02 10:45:54] [SHARD 03 W0] [FOUND QUEUE] 180.180.156.126:8080 (TOT-NET) via www.google.com | cands=655
+[2026-11-02 10:45:54] [SHARD 03 W0] [FOUND QUEUE] 181.225.75.83:999 (MEDIA) via speed.cloudflare.com | cands=656
+[2026-11-02 10:45:54] [SHARD 03 W0] [FOUND QUEUE] 182.50.65.169:8080 (BROADLINK-AS-AP) via one.one.one.one | cands=657
+[2026-11-02 10:45:54] [SHARD 03 W0] [FOUND QUEUE] 186.15.187.158:999 (TELEFONICA) via www.google.com | cands=658
