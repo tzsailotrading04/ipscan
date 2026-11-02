@@ -628,3 +628,10 @@
 202.6.206.78:8082	speed.cloudflare.com	QUEUE	0	JAT-AS-AP
 34.220.80.147:36342	speed.cloudflare.com	QUEUE	0	AMAZON-02
 38.156.235.34:999	one.one.one.one	QUEUE	0	BITNET
+147.161.246.36:11080	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.246.39:22222	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:12208	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+163.223.78.87:3127	speed.cloudflare.com	QUEUE	0	IDNIC-MYBIG-ID
+170.80.203.17:999	speed.cloudflare.com	QUEUE	0	RUDDY
+185.94.164.182:8080	speed.cloudflare.com	QUEUE	0	FIRST-SERVER-EU-AS
+41.220.131.48:8040	speed.cloudflare.com	QUEUE	0	HABARI-CO-TZ-AS
