@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793622663
-offset=69773801
+ts=1793622966
+offset=69804281
 --- LAST 5 LOG LINES ---
 [2026-11-02 12:26:00] [SHARD 04 W0] [FOUND QUEUE] 213.217.34.2:8080 (INT-PDN-STE-AS) via www.google.com | cands=551
 [2026-11-02 12:26:00] [SHARD 04 W0] [FOUND QUEUE] 38.252.215.193:999 (TELDRA) via www.google.com | cands=552
