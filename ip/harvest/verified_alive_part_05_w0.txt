@@ -607,3 +607,6 @@
 38.211.78.49:999	speed.cloudflare.com	QUEUE	0	FIBERNET
 38.52.209.229:999	speed.cloudflare.com	QUEUE	0	CENTRAL
 51.94.221.175:8097	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.238.232.70:8080	speed.cloudflare.com	QUEUE	0	IDNIC-DIGITALNETCOM-AS-ID
+147.161.246.35:10810	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+47.129.130.0:48241	one.one.one.one	QUEUE	0	AMAZON-02

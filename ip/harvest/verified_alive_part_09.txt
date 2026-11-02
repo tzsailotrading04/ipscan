@@ -976,3 +976,9 @@
 16.176.232.186:2928	speed.cloudflare.com	QUEUE	0	AMAZON-02
 16.51.5.77:27569	speed.cloudflare.com	QUEUE	0	AMAZON-02
 165.0.136.30:8080	speed.cloudflare.com	QUEUE	0	RSAWEB-AS
+13.38.27.183:8118	speed.cloudflare.com	QUEUE	0	AMAZON-02
+167.99.3.26:6671	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+190.237.238.183:999	one.one.one.one	QUEUE	0	TELEFONICA
+190.60.61.54:999	speed.cloudflare.com	QUEUE	0	UFINET
+13.38.27.183:8118	one.one.one.one	QUEUE	0	AMAZON-02
+131.221.41.1:4040	speed.cloudflare.com	QUEUE	0	CABLE

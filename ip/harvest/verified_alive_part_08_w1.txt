@@ -490,3 +490,7 @@
 18.170.45.5:49885	www.google.com	QUEUE	0	AMAZON-02
 190.109.6.114:999	www.google.com	QUEUE	0	LIBERTY
 64.76.106.88:8080	speed.cloudflare.com	QUEUE	0	LOA
+103.153.190.49:3128	speed.cloudflare.com	QUEUE	0	WANET-AS-ID
+167.99.3.26:5443	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+186.65.106.90:2024	speed.cloudflare.com	QUEUE	0	BAHIADADOS
+57.129.128.223:3128	speed.cloudflare.com	QUEUE	0	OVH
