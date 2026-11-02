@@ -750,3 +750,7 @@
 147.161.246.39:22222	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:10783	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:11306	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+185.227.144.57:9191	speed.cloudflare.com	QUEUE	0	ANTON-LEVIN-AS
+190.2.209.59:999	one.one.one.one	QUEUE	0	TV
+207.180.29.28:3128	speed.cloudflare.com	QUEUE	0	HVC-AS
+38.41.0.116:999	www.google.com	QUEUE	0	MDS
