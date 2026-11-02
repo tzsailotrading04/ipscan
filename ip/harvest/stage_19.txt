@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_hosting_1793562359_13.txt_0
-ts=1793580927
-offset=67998449
+stage=res_loop
+ts=1793582305
+offset=67634678
 --- LAST 5 LOG LINES ---
-[2026-11-02 00:52:07] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_12.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=10000
-[2026-11-02 00:55:01] [SHARD 19 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (181.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 00:55:03] [SHARD 19 W0] [QUEUE STAGE] Found 84 queue files to consume before IP scanning
-[2026-11-02 00:55:03] [SHARD 19 W0] [STAGGER] Sleeping 24.0s before consuming slice of q_a0_hosting_1793562359_13.txt...
-[2026-11-02 00:55:27] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_13.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=0
+[2026-11-02 00:52:09] [SHARD 19 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-02 00:52:09] [SHARD 19 W0] [QUEUE STAGE] Found 84 queue files to consume before IP scanning
+[2026-11-02 00:52:09] [SHARD 19 W0] [QUEUE STAGE] Consuming q_a0_http_1793580612_01.txt: total=465 shard_slice=15 worker_slice=8 resume=0
+[2026-11-02 00:52:47] [SHARD 19 W0] [FOUND QUEUE] 144.124.251.24:10857 (VDSINA) via one.one.one.one | cands=595
+[2026-11-02 00:52:47] [SHARD 19 W0] [FOUND QUEUE] 147.161.247.9:12757 (ZSCALER-EMEA) via one.one.one.one | cands=596

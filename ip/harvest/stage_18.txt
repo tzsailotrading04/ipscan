@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793581381
-offset=65347715
+stage=queue_slice_q_a0_hosting_1793562359_14.txt_0
+ts=1793581769
+offset=65879563
 --- LAST 5 LOG LINES ---
-[2026-11-01 23:20:35] [SHARD 18 W0] [FOUND QUEUE] 147.161.247.9:10971 (ZSCALER-EMEA) via speed.cloudflare.com | cands=543
-[2026-11-01 23:20:35] [SHARD 18 W0] [FOUND QUEUE] 83.45.174.12:8080 (TELEFONICA_DE_ESPANA) via speed.cloudflare.com | cands=544
-[2026-11-02 00:52:03] [SHARD 18 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-02 00:52:03] [SHARD 18 W0] [QUEUE STAGE] Found 84 queue files to consume before IP scanning
-[2026-11-02 00:52:03] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_http_1793580612_01.txt: total=465 shard_slice=15 worker_slice=8 resume=0
+[2026-11-02 01:06:08] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_13.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=10000
+[2026-11-02 01:09:01] [SHARD 18 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (183.3s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 01:09:03] [SHARD 18 W0] [QUEUE STAGE] Found 84 queue files to consume before IP scanning
+[2026-11-02 01:09:03] [SHARD 18 W0] [STAGGER] Sleeping 26.2s before consuming slice of q_a0_hosting_1793562359_14.txt...
+[2026-11-02 01:09:29] [SHARD 18 W0] [QUEUE STAGE] Consuming q_a0_hosting_1793562359_14.txt: total=500000 shard_slice=25000 worker_slice=12500 resume=0

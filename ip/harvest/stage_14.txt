@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793581337
-offset=64707020
+ts=1793582277
+offset=64765948
 --- LAST 5 LOG LINES ---
 [2026-11-01 23:21:11] [SHARD 14 W0] [FOUND QUEUE] 38.19.41.173:8080 (SUPER) via speed.cloudflare.com | cands=464
 [2026-11-02 00:51:22] [SHARD 14 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
