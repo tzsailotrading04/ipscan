@@ -980,3 +980,6 @@
 23.95.60.65:3129	one.one.one.one	QUEUE	0	AS-COLOCROSSING
 38.156.235.36:999	www.google.com	QUEUE	0	BITNET
 3.26.199.107:2733	one.one.one.one	QUEUE	0	AMAZON-02
+16.28.101.55:14378	speed.cloudflare.com	QUEUE	0	AMAZON-02
+161.97.138.117:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+34.229.190.39:51912	speed.cloudflare.com	QUEUE	0	AMAZON-AES
