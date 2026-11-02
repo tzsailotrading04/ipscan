@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793640778
-offset=70374254
+ts=1793641079
+offset=70404734
 --- LAST 5 LOG LINES ---
 [2026-11-02 17:20:11] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_04.txt: total=19639 shard_slice=1963 worker_slice=982 resume=0
 [2026-11-02 17:21:51] [SHARD 09 W0] [FOUND QUEUE] 88.28.222.20:44380 (TELEFONICA_DE_ESPANA) via speed.cloudflare.com | cands=529
