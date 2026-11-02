@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793647853
-offset=67319932
+stage=res_loop
+ts=1793648580
+offset=67339932
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:28:50] [SHARD 02 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:29:20] [SHARD 02 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:29:52] [SHARD 02 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:30:22] [SHARD 02 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:30:52] [SHARD 02 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
+[2026-11-02 19:38:04] [SHARD 02 W0] [FOUND QUEUE] 203.128.75.194:8080 (NEUVIZ-AS-ID-AP) via speed.cloudflare.com | cands=681
+[2026-11-02 19:38:04] [SHARD 02 W0] [FOUND QUEUE] 38.158.83.233:999 (FIBERRED) via one.one.one.one | cands=682
+[2026-11-02 19:39:58] [SHARD 02 W0] [FOUND QUEUE] 193.43.159.168:8080 (INT-PDN-STE-AS) via speed.cloudflare.com | cands=683
+[2026-11-02 19:41:13] [SHARD 02 W0] [FOUND QUEUE] 16.28.32.67:9236 (AMAZON-02) via one.one.one.one | cands=684
+[2026-11-02 19:43:00] [SHARD 02 W0] [FOUND QUEUE] 35.78.212.217:16545 (AMAZON-02) via one.one.one.one | cands=685
