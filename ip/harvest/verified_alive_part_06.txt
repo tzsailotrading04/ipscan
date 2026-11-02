@@ -1115,3 +1115,7 @@
 181.119.109.10:999	www.google.com	QUEUE	0	UFINET
 189.196.32.16:8080	www.google.com	QUEUE	0	MEGA
 190.2.209.59:999	speed.cloudflare.com	QUEUE	0	TV
+203.20.42.57:8082	www.google.com	QUEUE	0	RNDSNETWORK-AS-AP
+38.75.81.10:999	speed.cloudflare.com	QUEUE	0	ACOLME
+52.214.92.206:51038	one.one.one.one	QUEUE	0	AMAZON-02
+56.68.116.64:9295	speed.cloudflare.com	QUEUE	0	AMAZON-02
