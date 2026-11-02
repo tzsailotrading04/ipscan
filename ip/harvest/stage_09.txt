@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793639858
-offset=70306312
+stage=res_loop
+ts=1793640174
+offset=70313294
 --- LAST 5 LOG LINES ---
-[2026-11-02 16:25:40] [SHARD 09 W0] [FOUND QUEUE] 165.0.136.30:8080 (RSAWEB-AS) via speed.cloudflare.com | cands=524
-[2026-11-02 17:17:38] [SHARD 09 W0] [FOUND QUEUE] 13.38.27.183:8118 (AMAZON-02) via one.one.one.one | cands=525
-[2026-11-02 17:17:38] [SHARD 09 W0] [FOUND QUEUE] 131.221.41.1:4040 (CABLE) via speed.cloudflare.com | cands=526
-[2026-11-02 17:17:38] [SHARD 09 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-02 17:17:38] [SHARD 09 W0] [QUEUE STAGE] Found 38 queue files to consume before IP scanning
+[2026-11-02 17:20:11] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_04.txt: total=19639 shard_slice=1963 worker_slice=982 resume=0
+[2026-11-02 17:21:51] [SHARD 09 W0] [FOUND QUEUE] 88.28.222.20:44380 (TELEFONICA_DE_ESPANA) via speed.cloudflare.com | cands=529
+[2026-11-02 17:22:54] [SHARD 09 W0] [FOUND QUEUE] 178.128.78.109:80 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=530
+[2026-11-02 17:22:54] [SHARD 09 W0] [FOUND QUEUE] 181.209.111.82:999 (ARSAT) via speed.cloudflare.com | cands=531
+[2026-11-02 17:22:54] [SHARD 09 W0] [FOUND QUEUE] 181.78.175.66:999 (UFINET) via speed.cloudflare.com | cands=532

@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793639619_02.txt_0
-ts=1793639878
-offset=68106343
+stage=queue_slice_q_a0_http_1793639619_03.txt_0
+ts=1793639941
+offset=68108343
 --- LAST 5 LOG LINES ---
-[2026-11-02 17:17:32] [SHARD 07 W0] [FOUND QUEUE] 147.161.246.38:11698 (ZSCALER-EMEA) via speed.cloudflare.com | cands=599
-[2026-11-02 17:17:32] [SHARD 07 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-02 17:17:32] [SHARD 07 W0] [QUEUE STAGE] Found 38 queue files to consume before IP scanning
 [2026-11-02 17:17:32] [SHARD 07 W0] [STAGGER] Sleeping 26.0s before consuming slice of q_a0_http_1793639619_02.txt...
 [2026-11-02 17:17:58] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 17:18:41] [SHARD 07 W0] [STAGGER] Sleeping 20.4s before consuming slice of q_a0_http_1793639619_03.txt...
+[2026-11-02 17:19:01] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
