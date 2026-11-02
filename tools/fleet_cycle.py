@@ -290,51 +290,8 @@ def retire_endpoints(endpoints, reason="FAIL_CONNECT_KAGGLE"):
     save_dead_dict(dead_dict)
 
 def process_queue_failed_files():
-    failed_files = glob.glob(os.path.join(REPO_ROOT, "ip", "harvest", "queue_failed_part_*.txt"))
-    if not failed_files:
-        return 0
-
-    dead_dict = load_dead_dict()
-    suspects = load_suspect_set()
-    pool_dict = load_pool_dict()
-    new_dead = []
-    new_suspects = []
-
-    for ff in failed_files:
-        try:
-            with open(ff, "r", encoding="utf-8", errors="ignore") as f:
-                for line in f:
-                    m = re.search(r"\b(\d{1,3}(?:\.\d{1,3}){3}:\d{2,5})\b", line)
-                    if m:
-                        ep = m.group(1)
-                        if ep in suspects:
-                            # Strike 2: Second consecutive failure -> Confirmed dead, purge from pool
-                            suspects.remove(ep)
-                            if ep in pool_dict:
-                                del pool_dict[ep]
-                            new_dead.append(ep)
-                        else:
-                            # Strike 1: First failure -> Mark suspect, keep in pool
-                            if ep not in dead_dict:
-                                suspects.add(ep)
-                                new_suspects.append(ep)
-            # Clear the failed part file
-            with open(ff, "w", encoding="utf-8") as f:
-                pass
-        except Exception as e:
-            print(f"[FAILED PART ERROR] {ff}: {e}")
-
-    # Queue failures are no longer written into cache/pool_dead.txt (stopped fold)
-    if new_dead:
-        save_pool_dict(pool_dict)
-        print(f"[FAILED QUEUE] Purged {len(new_dead):,} Strike-2 dead endpoints from real_pool.txt (not written to pool_dead.txt).")
-
-    if new_suspects or new_dead:
-        save_suspect_set(suspects)
-        if new_suspects:
-            print(f"[FAILED QUEUE] Added {len(new_suspects):,} Strike-1 endpoints to cache/pool_suspect.txt.")
-
-    return len(new_dead)
+    """Queue failure fold removed: queue failures are no longer written to cache/pool_dead.txt."""
+    return 0
 
 def merge_out_branches():
     """Every 300s, fetch all out/sh* branches and merge their files into main, then push once."""
@@ -370,7 +327,6 @@ def merge_out_branches():
             merged_count += 1
 
     new_pool, pool_total = harvest_and_dedupe()
-    process_queue_failed_files()
 
     run_cmd(f'git -C "{REPO_ROOT}" add ip/harvest/ real_pool.txt cache/ work/FLEET_CYCLE.txt')
     st_out, _, _ = run_cmd(f'git -C "{REPO_ROOT}" status --porcelain')

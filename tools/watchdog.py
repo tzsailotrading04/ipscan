@@ -19,6 +19,8 @@ WATCH_FILE = os.path.join(REPO_ROOT, "work", "WATCH.txt")
 ALERT_FILE = os.path.join(REPO_ROOT, "work", "ALERT.txt")
 STATE_FILE = os.path.join(REPO_ROOT, "work", "watchdog_state.json")
 RESTART_STATE = os.path.join(REPO_ROOT, "work", "fleet_restart_state.json")
+FLEET_CYCLE_FILE = os.path.join(REPO_ROOT, "work", "FLEET_CYCLE.txt")
+HARVESTER_STALL_SECONDS = 1200  # 20 minutes
 
 FLEET_MAP = {
     "lalthazualasailo": {
@@ -118,7 +120,34 @@ def repush_shard(uname, info, s):
     out, err, code = run_cmd(f'kaggle kernels push -p "{shard_dir}"')
     return code == 0, out or err
 
+def check_harvester():
+    """If work/FLEET_CYCLE.txt has not been written in 20 minutes, restart fleet_cycle.py and append harvester_restarted to work/WATCH.txt."""
+    now_ts = time.time()
+    iso_time = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    stalled = False
+    if not os.path.exists(FLEET_CYCLE_FILE):
+        stalled = True
+    else:
+        mtime = os.path.getmtime(FLEET_CYCLE_FILE)
+        if (now_ts - mtime) > HARVESTER_STALL_SECONDS:
+            stalled = True
+
+    if stalled:
+        print(f"[{iso_time}] [WATCHDOG] Harvester stalled (>20m without FLEET_CYCLE.txt update). Restarting...", flush=True)
+        # Terminate any existing fleet_cycle.py processes
+        run_cmd('powershell -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like \'*fleet_cycle.py*\' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"')
+        time.sleep(1)
+        # Start fresh fleet_cycle.py in background
+        run_cmd('powershell -NoProfile -Command "Start-Process python -ArgumentList \'D:\\DEpinFarm\\tools\\fleet_cycle.py\' -WindowStyle Hidden"')
+        with open(WATCH_FILE, "a", encoding="utf-8") as wf:
+            wf.write(f"{iso_time} harvester_restarted\n")
+        print(f"[{iso_time}] [WATCHDOG] Appended harvester_restarted to work/WATCH.txt and restarted fleet_cycle.py.", flush=True)
+        return True
+    return False
+
 def watchdog_cycle(state):
+    check_harvester()
     now_ts = time.time()
     iso_time = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     restarting_acct = get_restart_account()
