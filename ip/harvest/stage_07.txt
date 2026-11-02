@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793653115
-offset=68575798
+ts=1793653498
+offset=68583798
 --- LAST 5 LOG LINES ---
-[2026-11-02 20:58:34] [SHARD 07 W0] [FOUND QUEUE] 103.22.98.69:8080 (IDNIC-KHALISTAGROUP-ID) via one.one.one.one | cands=704
 [2026-11-02 20:58:34] [SHARD 07 W0] [FOUND QUEUE] 103.81.194.173:3125 (RTIGA-AS-ID) via speed.cloudflare.com | cands=705
 [2026-11-02 20:58:34] [SHARD 07 W0] [FOUND QUEUE] 118.69.32.171:8080 (FPT-AS-AP) via www.google.com | cands=706
 [2026-11-02 20:58:34] [SHARD 07 W0] [FOUND QUEUE] 147.161.246.36:10937 (ZSCALER-EMEA) via speed.cloudflare.com | cands=707
 [2026-11-02 20:58:34] [SHARD 07 W0] [FOUND QUEUE] 147.161.247.9:11966 (ZSCALER-EMEA) via www.google.com | cands=708
+[2026-11-02 21:04:57] [SHARD 07 W0] [FOUND QUEUE] 38.180.2.107:3128 (M247) via speed.cloudflare.com | cands=709

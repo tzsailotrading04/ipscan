@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793653333
-offset=74819842
+ts=1793653632
+offset=74856418
 --- LAST 5 LOG LINES ---
 [2026-11-02 20:45:30] [SHARD 00 W0] [FOUND QUEUE] 202.73.24.21:3125 (ASNET-AS-ID) via speed.cloudflare.com | cands=605
 [2026-11-02 20:45:30] [SHARD 00 W0] [FOUND QUEUE] 203.205.49.2:10171 (CMCTELECOM-VN) via speed.cloudflare.com | cands=606
