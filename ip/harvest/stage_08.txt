@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793653739
-offset=70207239
+stage=queue_slice_q_a0_http_1793654036_02.txt_0
+ts=1793654208
+offset=70217239
 --- LAST 5 LOG LINES ---
-[2026-11-02 21:08:59] [SHARD 08 W0] [FOUND QUEUE] 203.142.69.69:8080 (BIZNET-AS-AP) via speed.cloudflare.com | cands=676
-[2026-11-02 21:08:59] [SHARD 08 W0] [FOUND QUEUE] 27.124.81.146:8080 (ICONPLN-ID-AP-ISP) via speed.cloudflare.com | cands=677
-[2026-11-02 21:08:59] [SHARD 08 W0] [FOUND QUEUE] 3.26.199.107:46314 (AMAZON-02) via one.one.one.one | cands=678
-[2026-11-02 21:08:59] [SHARD 08 W0] [FOUND QUEUE] 38.191.211.58:999 (SERVICIOS) via one.one.one.one | cands=679
-[2026-11-02 21:08:59] [SHARD 08 W0] [FOUND QUEUE] 52.214.92.206:3900 (AMAZON-02) via one.one.one.one | cands=680
+[2026-11-02 21:15:23] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 21:16:18] [SHARD 08 W0] [FOUND QUEUE] 147.161.247.9:10612 (ZSCALER-EMEA) via speed.cloudflare.com | cands=687
+[2026-11-02 21:16:18] [SHARD 08 W0] [FOUND QUEUE] 147.161.247.9:12336 (ZSCALER-EMEA) via speed.cloudflare.com | cands=688
+[2026-11-02 21:16:18] [SHARD 08 W0] [STAGGER] Sleeping 29.3s before consuming slice of q_a0_http_1793654036_02.txt...
+[2026-11-02 21:16:48] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
