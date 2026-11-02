@@ -806,3 +806,12 @@
 63.180.203.233:7379	speed.cloudflare.com	QUEUE	0	AMAZON-02
 77.42.95.221:8888	one.one.one.one	QUEUE	0	HETZNER-AS
 84.247.171.137:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+201.4.69.43:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+207.180.29.28:3128	speed.cloudflare.com	QUEUE	0	HVC-AS
+223.25.110.58:3125	speed.cloudflare.com	QUEUE	0	MEGADATA-AS-ID
+45.167.126.42:999	www.google.com	QUEUE	0	SEPCOM
+63.180.203.233:7379	speed.cloudflare.com	QUEUE	0	AMAZON-02
+65.108.159.129:3128	one.one.one.one	QUEUE	0	HETZNER-AS
+85.1.140.150:3128	speed.cloudflare.com	QUEUE	0	SWISSCOM
+160.19.203.108:18080	speed.cloudflare.com	QUEUE	0	MAKRONET
+18.191.250.90:10808	speed.cloudflare.com	QUEUE	0	AMAZON-02
