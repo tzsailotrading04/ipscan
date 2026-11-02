@@ -649,3 +649,6 @@
 147.161.246.39:10810	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 18.144.86.139:27431	speed.cloudflare.com	QUEUE	0	AMAZON-02
 189.1.236.200:3128	speed.cloudflare.com	QUEUE	0	HWCLOUDS-AS-AP
+83.222.7.47:3333	www.google.com	QUEUE	0	BRM-AS
+148.230.4.230:999	one.one.one.one	QUEUE	0	DIGY
+190.97.243.27:999	speed.cloudflare.com	QUEUE	0	VIGINET

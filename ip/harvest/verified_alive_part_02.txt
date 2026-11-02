@@ -1167,3 +1167,10 @@
 185.200.191.232:8080	speed.cloudflare.com	QUEUE	0	FIRST-SERVER-US-AS
 190.61.40.91:999	one.one.one.one	QUEUE	0	UFINET
 181.119.109.10:999	speed.cloudflare.com	QUEUE	0	UFINET
+102.209.18.68:8080	speed.cloudflare.com	QUEUE	0	VEENET-AFRICA
+13.245.161.189:43159	speed.cloudflare.com	QUEUE	0	AMAZON-02
+147.161.247.9:12354	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+154.27.192.67:999	speed.cloudflare.com	QUEUE	0	JOSE
+13.208.246.143:2219	speed.cloudflare.com	QUEUE	0	AMAZON-02
+16.28.32.67:9236	speed.cloudflare.com	QUEUE	0	AMAZON-02
+35.78.212.217:16545	speed.cloudflare.com	QUEUE	0	AMAZON-02
