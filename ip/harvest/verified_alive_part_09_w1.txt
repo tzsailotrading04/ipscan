@@ -670,3 +670,7 @@
 147.161.247.9:11612	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 191.160.36.7:8080	speed.cloudflare.com	QUEUE	0	MAXSERV
 18.217.248.118:29325	speed.cloudflare.com	QUEUE	0	AMAZON-02
+15.235.245.115:3128	speed.cloudflare.com	QUEUE	0	OVH
+37.187.157.135:3128	www.google.com	QUEUE	0	OVH
+159.203.61.169:3128	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+192.3.90.204:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING

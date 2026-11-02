@@ -1,6 +1,6 @@
-stage=queue_loop
-ts=1793649920
-offset=68921429
+stage=res_loop
+ts=1793650136
+offset=68926342
 --- LAST 5 LOG LINES ---
 [2026-11-02 20:02:50] [SHARD 03 W0] [FOUND QUEUE] 38.252.213.243:999 (TELCOM) via one.one.one.one | cands=838
 [2026-11-02 20:02:50] [SHARD 03 W0] [FOUND QUEUE] 43.164.129.36:3128 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=839
