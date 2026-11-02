@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793626361
-offset=64182171
+ts=1793626664
+offset=64212651
 --- LAST 5 LOG LINES ---
 [2026-11-02 13:19:20] [SHARD 01 W0] [FOUND QUEUE] 85.122.120.46:20000 (SELL-AS) via speed.cloudflare.com | cands=472
 [2026-11-02 13:20:47] [SHARD 01 W0] [FOUND QUEUE] 160.20.128.237:1080 (IDNIC-ASTIDIGITAL-ID) via speed.cloudflare.com | cands=473
