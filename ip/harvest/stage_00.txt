@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793622131
-offset=72799747
+stage=res_loop
+ts=1793622655
+offset=72803747
 --- LAST 5 LOG LINES ---
-[2026-11-02 12:19:08] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793621603_04.txt: total=20262 shard_slice=2027 worker_slice=1014 resume=0
-[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 157.15.40.222:8080 (TRIDATA-AS-ID) via speed.cloudflare.com | cands=463
-[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 170.81.131.70:3128 (AS28330) via speed.cloudflare.com | cands=464
-[2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 190.26.209.126:999 (ETB) via www.google.com | cands=465
 [2026-11-02 12:22:11] [SHARD 00 W0] [FOUND QUEUE] 190.94.213.5:999 (IFX) via speed.cloudflare.com | cands=466
+[2026-11-02 12:30:55] [SHARD 00 W0] [FOUND QUEUE] 193.43.140.240:8080 (INT-PDN-STE-AS) via speed.cloudflare.com | cands=467
+[2026-11-02 12:30:55] [SHARD 00 W0] [FOUND QUEUE] 201.4.68.236:8080 (RESERVED) via www.google.com | cands=468
+[2026-11-02 12:30:55] [SHARD 00 W0] [FOUND QUEUE] 38.242.204.27:3128 (CONTABO) via speed.cloudflare.com | cands=469
+[2026-11-02 12:30:55] [SHARD 00 W0] [FOUND QUEUE] 45.189.252.18:999 (TRACERED) via www.google.com | cands=470

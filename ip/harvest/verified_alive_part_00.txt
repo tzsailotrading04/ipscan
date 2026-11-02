@@ -768,3 +768,6 @@
 190.26.209.126:999	www.google.com	QUEUE	0	ETB
 190.94.213.5:999	speed.cloudflare.com	QUEUE	0	IFX
 45.189.252.18:999	www.google.com	QUEUE	0	TRACERED
+193.43.140.240:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+201.4.68.236:8080	www.google.com	QUEUE	0	RESERVED
+38.242.204.27:3128	speed.cloudflare.com	QUEUE	0	CONTABO
