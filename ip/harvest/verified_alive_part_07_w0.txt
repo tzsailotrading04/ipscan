@@ -527,3 +527,6 @@
 38.7.195.86:999	www.google.com	QUEUE	0	GRUPO
 49.144.25.228:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 56.228.13.15:12638	speed.cloudflare.com	QUEUE	0	AMAZON-02
+206.189.3.77:3128	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+204.44.122.146:3128	speed.cloudflare.com	QUEUE	0	AS-COLOCROSSING
+51.222.28.208:3128	speed.cloudflare.com	QUEUE	0	OVH
