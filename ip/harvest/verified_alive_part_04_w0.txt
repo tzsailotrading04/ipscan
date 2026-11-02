@@ -553,3 +553,9 @@
 38.41.0.116:999	speed.cloudflare.com	QUEUE	0	MDS
 41.250.148.6:8080	speed.cloudflare.com	QUEUE	0	MT-MPLS
 51.75.156.167:10015	speed.cloudflare.com	QUEUE	0	OVH
+103.209.88.74:8080	speed.cloudflare.com	QUEUE	0	TRANSMEDIA-AS-IN
+103.216.104.6:1080	www.google.com	QUEUE	0	IDNIC-DISNET-AS-ID
+104.129.196.34:10000	www.google.com	QUEUE	0	ZSCALER-SJC1
+144.124.251.24:10465	one.one.one.one	QUEUE	0	VDSINA
+147.161.246.37:11033	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.246.39:10116	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
