@@ -64,19 +64,11 @@ def save_pool_dict(pool_dict):
 FLEET_MAP = {
     "lalthazualasailo": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct1", "access_token"),
-        "shards": [0, 1, 2, 3, 16]
-    },
-    "zomuanpuia": {
-        "token_file": os.path.join(REPO_ROOT, "kaggle", "acct2", "access_token"),
-        "shards": [4, 5, 6, 7, 17]
+        "shards": [0, 1, 2, 3, 4]
     },
     "laldinthari": {
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct3", "access_token"),
-        "shards": [8, 9, 10, 11, 18]
-    },
-    "lalsangkima": {
-        "token_file": os.path.join(REPO_ROOT, "kaggle", "acct4", "access_token"),
-        "shards": [12, 13, 14, 15, 19]
+        "shards": [5, 6, 7, 8, 9]
     }
 }
 

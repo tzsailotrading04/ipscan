@@ -24,20 +24,12 @@ HARVESTER_STALL_SECONDS = 1200  # 20 minutes
 
 FLEET_MAP = {
     "lalthazualasailo": {
-        "shards": [0, 1, 2, 3, 16],
+        "shards": [0, 1, 2, 3, 4],
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct1", "access_token")
     },
-    "zomuanpuia": {
-        "shards": [4, 5, 6, 7, 17],
-        "token_file": os.path.join(REPO_ROOT, "kaggle", "acct2", "access_token")
-    },
     "laldinthari": {
-        "shards": [8, 9, 10, 11, 18],
+        "shards": [5, 6, 7, 8, 9],
         "token_file": os.path.join(REPO_ROOT, "kaggle", "acct3", "access_token")
-    },
-    "lalsangkima": {
-        "shards": [12, 13, 14, 15, 19],
-        "token_file": os.path.join(REPO_ROOT, "kaggle", "acct4", "access_token")
     }
 }
 
