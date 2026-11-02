@@ -545,3 +545,9 @@
 143.208.84.2:8589	www.google.com	QUEUE	0	V
 147.161.246.36:10825	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.246.38:10131	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+49.146.53.14:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+98.81.204.137:29379	one.one.one.one	QUEUE	0	AMAZON-AES
+16.51.53.116:30889	speed.cloudflare.com	QUEUE	0	AMAZON-02
+160.22.134.73:1111	speed.cloudflare.com	QUEUE	0	IDNIC-GSNET-ID
+167.99.3.26:10813	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+18.217.248.118:19763	speed.cloudflare.com	QUEUE	0	AMAZON-02
