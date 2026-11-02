@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793632425_02.txt_0
-ts=1793647415
-offset=70348905
+stage=queue_consuming
+ts=1793647819
+offset=70357893
 --- LAST 5 LOG LINES ---
-[2026-11-02 19:23:14] [SHARD 05 W0] [FOUND QUEUE] 147.161.246.36:10825 (ZSCALER-EMEA) via speed.cloudflare.com | cands=682
-[2026-11-02 19:23:14] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (151.1s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-02 19:23:15] [SHARD 05 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning
-[2026-11-02 19:23:15] [SHARD 05 W0] [STAGGER] Sleeping 19.8s before consuming slice of q_a0_http_1793632425_02.txt...
-[2026-11-02 19:23:35] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793632425_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:29:41] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-02 19:30:18] [SHARD 05 W0] [FOUND QUEUE] 177.234.199.88:999 (UFINET) via www.google.com | cands=688
+[2026-11-02 19:30:18] [SHARD 05 W0] [FOUND QUEUE] 18.191.250.90:8104 (AMAZON-02) via speed.cloudflare.com | cands=689
+[2026-11-02 19:30:18] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (128.4s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-02 19:30:19] [SHARD 05 W0] [QUEUE STAGE] Found 46 queue files to consume before IP scanning

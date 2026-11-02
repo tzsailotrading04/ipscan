@@ -601,3 +601,11 @@
 182.79.60.210:3129	speed.cloudflare.com	QUEUE	0	BBIL-AP
 49.151.189.78:8082	one.one.one.one	QUEUE	0	IPG-AS-AP
 51.85.44.162:8070	speed.cloudflare.com	QUEUE	0	AMAZON-02
+147.161.246.37:11720	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.246.39:22222	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+149.202.47.125:3128	www.google.com	QUEUE	0	OVH
+161.82.141.218:8080	speed.cloudflare.com	QUEUE	0	SYMPHONY-AP-TH
+18.217.248.118:11376	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.191.42.200:999	www.google.com	QUEUE	0	SERVINET
+8.213.37.17:8888	one.one.one.one	QUEUE	0	ALIBABA-CN-NET
+89.208.103.84:3128	speed.cloudflare.com	QUEUE	0	AEZA-AS
