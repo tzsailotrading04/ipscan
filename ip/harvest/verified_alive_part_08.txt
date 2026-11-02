@@ -864,3 +864,9 @@
 203.205.49.2:10131	one.one.one.one	QUEUE	0	CMCTELECOM-VN
 38.156.233.77:999	speed.cloudflare.com	QUEUE	0	BITNET
 45.225.205.10:999	speed.cloudflare.com	QUEUE	0	NETDELSUR
+1.2.248.41:80	www.google.com	QUEUE	0	TOT-NET
+123.56.196.188:8080	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
+161.49.210.196:10101	speed.cloudflare.com	QUEUE	0	CONVERGE-AS
+181.225.32.10:999	speed.cloudflare.com	QUEUE	0	IFX
+183.236.232.160:8080	speed.cloudflare.com	QUEUE	0	CHINAMOBILE-CN
+18.61.230.250:1762	speed.cloudflare.com	QUEUE	0	AMAZON-02

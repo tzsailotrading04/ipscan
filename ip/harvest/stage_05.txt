@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793628464
-offset=68847014
+stage=queue_consuming
+ts=1793629012
+offset=68889114
 --- LAST 5 LOG LINES ---
-[2026-11-02 13:17:22] [SHARD 05 W0] [QUEUE STAGE] Found 22 queue files to consume before IP scanning
-[2026-11-02 13:17:22] [SHARD 05 W0] [STAGGER] Sleeping 6.1s before consuming slice of q_a0_http_1793625108_04.txt...
-[2026-11-02 13:17:28] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_04.txt: total=19955 shard_slice=1995 worker_slice=998 resume=0
-[2026-11-02 13:19:22] [SHARD 05 W0] [FOUND QUEUE] 77.42.95.221:8888 (HETZNER-AS) via www.google.com | cands=576
-[2026-11-02 13:20:53] [SHARD 05 W0] [FOUND QUEUE] 187.190.114.60:999 (TOTAL) via speed.cloudflare.com | cands=577
+[2026-11-02 14:16:52] [SHARD 05 W0] [FOUND QUEUE] 147.161.246.36:11769 (ZSCALER-EMEA) via speed.cloudflare.com | cands=582
+[2026-11-02 14:16:52] [SHARD 05 W0] [FOUND QUEUE] 147.161.246.38:10750 (ZSCALER-EMEA) via speed.cloudflare.com | cands=583
+[2026-11-02 14:16:52] [SHARD 05 W0] [FOUND QUEUE] 147.161.247.9:10766 (ZSCALER-EMEA) via one.one.one.one | cands=584
+[2026-11-02 14:16:52] [SHARD 05 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-02 14:16:52] [SHARD 05 W0] [QUEUE STAGE] Found 26 queue files to consume before IP scanning

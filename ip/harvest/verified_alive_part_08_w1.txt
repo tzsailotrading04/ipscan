@@ -467,3 +467,7 @@
 161.82.141.218:8080	www.google.com	QUEUE	0	SYMPHONY-AP-TH
 18.217.248.118:11376	one.one.one.one	QUEUE	0	AMAZON-02
 181.78.234.82:999	one.one.one.one	QUEUE	0	UFINET
+1.2.248.41:80	www.google.com	QUEUE	0	TOT-NET
+161.49.210.196:10101	speed.cloudflare.com	QUEUE	0	CONVERGE-AS
+181.225.32.10:999	speed.cloudflare.com	QUEUE	0	IFX
+183.236.232.160:8080	speed.cloudflare.com	QUEUE	0	CHINAMOBILE-CN
