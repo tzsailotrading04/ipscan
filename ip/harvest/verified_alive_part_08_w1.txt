@@ -475,3 +475,6 @@
 201.159.107.113:8081	speed.cloudflare.com	QUEUE	0	JOSE
 41.217.220.61:32650	speed.cloudflare.com	QUEUE	0	MYISP-AS
 51.17.99.135:35272	www.google.com	QUEUE	0	AMAZON-02
+131.72.89.53:9500	www.google.com	QUEUE	0	AZEVEDO
+147.161.247.9:11370	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:12103	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
