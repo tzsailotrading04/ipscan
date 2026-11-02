@@ -12577,3 +12577,6 @@
 147.161.247.9:11722	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 18.175.170.244:24120	speed.cloudflare.com	QUEUE	0	AMAZON-02
 147.161.247.9:10264	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+46.105.71.25:8080	speed.cloudflare.com	QUEUE	0	OVH
+46.105.71.25:8118	speed.cloudflare.com	QUEUE	0	OVH
+3.113.186.182:3128	www.google.com	QUEUE	0	AMAZON-02
