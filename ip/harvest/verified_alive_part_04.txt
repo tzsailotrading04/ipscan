@@ -1822,3 +1822,6 @@
 18.191.250.90:30419	speed.cloudflare.com	QUEUE	0	AMAZON-02
 18.231.214.206:13502	speed.cloudflare.com	QUEUE	0	AMAZON-02
 182.253.109.68:8080	www.google.com	QUEUE	0	BIZNET-AS-AP
+201.238.242.38:999	speed.cloudflare.com	QUEUE	0	GTD
+212.86.41.150:8080	speed.cloudflare.com	QUEUE	0	DNSNET
+47.129.130.0:54500	one.one.one.one	QUEUE	0	AMAZON-02
