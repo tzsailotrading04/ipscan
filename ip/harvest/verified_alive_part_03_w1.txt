@@ -1314,3 +1314,5 @@
 45.195.90.142:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
 47.129.130.0:34615	one.one.one.one	QUEUE	0	AMAZON-02
 52.195.147.51:6961	speed.cloudflare.com	QUEUE	0	AMAZON-02
+23.225.30.116:9999	speed.cloudflare.com	QUEUE	0	CNSERVERS
+3.21.129.156:10299	speed.cloudflare.com	QUEUE	0	AMAZON-02
