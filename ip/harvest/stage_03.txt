@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793657445
-offset=69586823
+ts=1793671286
+offset=70857200
 --- LAST 5 LOG LINES ---
-[2026-11-02 21:22:17] [SHARD 03 W0] [QUEUE STAGE] Found 54 queue files to consume before IP scanning
-[2026-11-02 21:23:33] [SHARD 03 W0] [FOUND QUEUE] 160.22.134.233:1111 (IDNIC-GSNET-ID) via speed.cloudflare.com | cands=857
-[2026-11-02 21:23:33] [SHARD 03 W0] [FOUND QUEUE] 165.99.252.41:3125 (IDNIC-K2NET-ID) via speed.cloudflare.com | cands=858
-[2026-11-02 21:23:33] [SHARD 03 W0] [FOUND QUEUE] 18.144.86.139:4440 (AMAZON-02) via speed.cloudflare.com | cands=859
-[2026-11-02 21:23:33] [SHARD 03 W0] [FOUND QUEUE] 18.222.231.188:24513 (AMAZON-02) via speed.cloudflare.com | cands=860
+[2026-11-03 01:38:33] [SHARD 03 W0] [QUEUE STAGE] Found 75 queue files to consume before IP scanning
+[2026-11-03 01:38:33] [SHARD 03 W0] [STAGGER] Sleeping 7.1s before consuming slice of q_gold_asn_1793669699_04.txt...
+[2026-11-03 01:38:40] [SHARD 03 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_04.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 01:39:11] [SHARD 03 W0] [STAGGER] Sleeping 4.2s before consuming slice of q_gold_asn_1793669699_05.txt...
+[2026-11-03 01:39:15] [SHARD 03 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_05.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

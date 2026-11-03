@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793657340
-offset=68169577
+ts=1793671065
+offset=69457377
 --- LAST 5 LOG LINES ---
-[2026-11-02 21:20:50] [SHARD 02 W0] [QUEUE STAGE] Found 54 queue files to consume before IP scanning
-[2026-11-02 21:20:50] [SHARD 02 W0] [STAGGER] Sleeping 2.7s before consuming slice of q_a0_http_1793654036_04.txt...
-[2026-11-02 21:20:53] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_04.txt: total=19188 shard_slice=1919 worker_slice=960 resume=0
-[2026-11-02 21:23:48] [SHARD 02 W0] [FOUND QUEUE] 16.18.22.211:5952 (AMAZON-02) via speed.cloudflare.com | cands=705
-[2026-11-02 21:23:48] [SHARD 02 W0] [FOUND QUEUE] 160.22.217.53:3125 (IDNIC-LINTASMEDIASOLUSINDO-AS-ID) via speed.cloudflare.com | cands=706
+[2026-11-03 01:37:51] [SHARD 02 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 01:38:06] [SHARD 02 W0] [STAGGER] Sleeping 2.8s before consuming slice of q_gold_asn_1793669699_04.txt...
+[2026-11-03 01:38:09] [SHARD 02 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_04.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 01:38:26] [SHARD 02 W0] [STAGGER] Sleeping 13.2s before consuming slice of q_gold_asn_1793669699_05.txt...
+[2026-11-03 01:38:39] [SHARD 02 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_05.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
