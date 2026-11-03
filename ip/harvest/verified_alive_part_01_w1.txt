@@ -936,3 +936,6 @@
 51.38.120.110:10008	www.google.com	QUEUE	0	OVH
 103.251.232.32:8090	www.google.com	QUEUE	0	VACL-AS-AP
 132.255.8.221:999	one.one.one.one	QUEUE	0	NETROPOLYS
+201.58.182.153:3128	speed.cloudflare.com	QUEUE	0	NOT
+31.57.28.179:4433	speed.cloudflare.com	QUEUE	0	AS56971
+38.19.238.161:999	one.one.one.one	QUEUE	0	RED
