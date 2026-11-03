@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723351
-offset=75276751
+ts=1793724108
+offset=75286404
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:27:08] [SHARD 04 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:27:39] [SHARD 04 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:28:09] [SHARD 04 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:28:40] [SHARD 04 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:29:11] [SHARD 04 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
+[2026-11-03 16:41:47] [SHARD 04 W0] [FOUND QUEUE] 139.59.1.14:3128 (DIGITALOCEAN-ASN) via www.google.com | cands=1113
+[2026-11-03 16:41:47] [SHARD 04 W0] [FOUND QUEUE] 138.68.60.8:3128 (DIGITALOCEAN-ASN) via www.google.com | cands=1114
+[2026-11-03 16:41:47] [SHARD 04 W0] [FOUND QUEUE] 51.89.42.14:3128 (OVH) via speed.cloudflare.com | cands=1115
+[2026-11-03 16:41:47] [SHARD 04 W0] [FOUND QUEUE] 209.97.150.167:3128 (DIGITALOCEAN-ASN) via www.google.com | cands=1116
+[2026-11-03 16:41:47] [SHARD 04 W0] [FOUND QUEUE] 164.92.218.223:3128 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=1117
