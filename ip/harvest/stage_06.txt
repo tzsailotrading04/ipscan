@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793687681
-offset=69222028
+ts=1793688083
+offset=69228076
 --- LAST 5 LOG LINES ---
-[2026-11-03 06:34:40] [SHARD 06 W0] [FOUND QUEUE] 116.204.166.194:8080 (RESERVED) via one.one.one.one | cands=798
-[2026-11-03 06:34:40] [SHARD 06 W0] [FOUND QUEUE] 119.92.138.118:8088 (IPG-AS-AP) via one.one.one.one | cands=799
-[2026-11-03 06:34:40] [SHARD 06 W0] [FOUND QUEUE] 147.161.246.36:10825 (ZSCALER-EMEA) via speed.cloudflare.com | cands=800
-[2026-11-03 06:34:40] [SHARD 06 W0] [FOUND QUEUE] 148.224.14.251:999 (JORGE) via speed.cloudflare.com | cands=801
-[2026-11-03 06:34:40] [SHARD 06 W0] [FOUND QUEUE] 15.235.240.177:3128 (OVH) via speed.cloudflare.com | cands=802
+[2026-11-03 06:41:23] [SHARD 06 W0] [FOUND QUEUE] 103.22.98.69:8080 (IDNIC-KHALISTAGROUP-ID) via www.google.com | cands=808
+[2026-11-03 06:41:23] [SHARD 06 W0] [FOUND QUEUE] 104.244.78.150:5555 (PONYNET) via speed.cloudflare.com | cands=809
+[2026-11-03 06:41:23] [SHARD 06 W0] [FOUND QUEUE] 108.174.49.185:3128 (AS-COLOCROSSING) via speed.cloudflare.com | cands=810
+[2026-11-03 06:41:23] [SHARD 06 W0] [FOUND QUEUE] 147.161.246.36:10878 (ZSCALER-EMEA) via speed.cloudflare.com | cands=811
+[2026-11-03 06:41:23] [SHARD 06 W0] [FOUND QUEUE] 147.161.246.39:10919 (ZSCALER-EMEA) via speed.cloudflare.com | cands=812
