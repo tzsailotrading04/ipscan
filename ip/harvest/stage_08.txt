@@ -1,6 +1,6 @@
 stage=queue_loop
-ts=1793735435
-offset=73299148
+ts=1793735624
+offset=73303148
 --- LAST 5 LOG LINES ---
 [2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 103.154.146.74:8080 (CEPATNET-AS-ID) via one.one.one.one | cands=2770
 [2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 103.245.96.165:3214 (MAXHUBLTD-AS-AP) via speed.cloudflare.com | cands=2771
