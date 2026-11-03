@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793661354_02.txt_0
-ts=1793682467
-offset=65774093
+stage=queue_slice_q_a0_http_1793664992_02.txt_0
+ts=1793682941
+offset=65781052
 --- LAST 5 LOG LINES ---
-[2026-11-03 05:07:19] [SHARD 01 W0] [FOUND QUEUE] 103.155.197.96:3125 (JEMBATANDATA-AS-ID) via speed.cloudflare.com | cands=607
-[2026-11-03 05:07:20] [SHARD 01 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (155.0s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 05:07:21] [SHARD 01 W0] [QUEUE STAGE] Found 87 queue files to consume before IP scanning
-[2026-11-03 05:07:21] [SHARD 01 W0] [STAGGER] Sleeping 25.3s before consuming slice of q_a0_http_1793661354_02.txt...
-[2026-11-03 05:07:47] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793661354_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 05:15:32] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793664992_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 05:15:32] [SHARD 01 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (121.3s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 05:15:34] [SHARD 01 W0] [QUEUE STAGE] Found 91 queue files to consume before IP scanning
+[2026-11-03 05:15:34] [SHARD 01 W0] [STAGGER] Sleeping 7.0s before consuming slice of q_a0_http_1793664992_02.txt...
+[2026-11-03 05:15:41] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793664992_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
