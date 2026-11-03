@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793729395
+stage=queue_slice_q_cloud_candidates.txt_10000
+ts=1793729421
 offset=75339235
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:09:54] [SHARD 04 W0] [FOUND QUEUE] 163.227.149.137:3128 (IDNIC-ASNETWORK-AS-ID) via www.google.com | cands=2751
-[2026-11-03 18:09:54] [SHARD 04 W0] [FOUND QUEUE] 47.110.226.74:19991 (ALIBABA-CN-NET) via one.one.one.one | cands=2752
 [2026-11-03 18:09:54] [SHARD 04 W0] [FOUND QUEUE] 113.45.186.52:3128 (HWCSNET) via www.google.com | cands=2753
 [2026-11-03 18:09:54] [SHARD 04 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (2917.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
 [2026-11-03 18:09:55] [SHARD 04 W0] [QUEUE STAGE] Found 136 queue files to consume before IP scanning
+[2026-11-03 18:09:56] [SHARD 04 W0] [STAGGER] Sleeping 25.0s before consuming slice of q_cloud_candidates.txt...
+[2026-11-03 18:10:21] [SHARD 04 W0] [QUEUE STAGE] Consuming q_cloud_candidates.txt: total=220614 shard_slice=22061 worker_slice=11031 resume=10000
