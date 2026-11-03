@@ -1800,3 +1800,5 @@
 45.175.39.72:999	speed.cloudflare.com	QUEUE	0	TCA
 45.178.246.8:999	www.google.com	QUEUE	0	ROMANO
 45.195.90.142:8080	one.one.one.one	QUEUE	0	CTRLS-AS-IN
+45.188.76.102:999	one.one.one.one	QUEUE	0	ONT
+52.195.147.51:8448	one.one.one.one	QUEUE	0	AMAZON-02
