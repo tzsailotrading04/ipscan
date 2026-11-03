@@ -3564,3 +3564,8 @@
 181.119.224.25:8080	speed.cloudflare.com	QUEUE	0	UFINET
 223.70.245.73:3128	speed.cloudflare.com	QUEUE	0	CMNET-BEIJING-AP
 3.21.129.156:15035	speed.cloudflare.com	QUEUE	0	AMAZON-02
+200.53.2.161:8403	www.google.com	QUEUE	0	HQV
+3.21.129.156:15035	one.one.one.one	QUEUE	0	AMAZON-02
+45.178.68.245:999	www.google.com	QUEUE	0	ISP
+56.112.93.245:57677	one.one.one.one	QUEUE	0	AMAZON-02
+56.68.116.64:30239	one.one.one.one	QUEUE	0	AMAZON-02
