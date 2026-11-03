@@ -940,3 +940,5 @@
 31.57.28.179:4433	speed.cloudflare.com	QUEUE	0	AS56971
 38.19.238.161:999	one.one.one.one	QUEUE	0	RED
 112.211.72.133:9999	www.google.com	QUEUE	0	IPG-AS-AP
+118.97.47.250:55443	www.google.com	QUEUE	0	TELKOMNET-AS-AP
+148.224.14.252:999	www.google.com	QUEUE	0	JORGE
