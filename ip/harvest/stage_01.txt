@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723399
-offset=66872609
+ts=1793723474
+offset=66876609
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:26:58] [SHARD 01 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:27:28] [SHARD 01 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
 [2026-11-03 16:27:59] [SHARD 01 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
 [2026-11-03 16:28:30] [SHARD 01 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
 [2026-11-03 16:29:59] [SHARD 01 W0] [FOUND QUEUE] 77.42.95.221:8889 (HETZNER-AS) via one.one.one.one | cands=796
+[2026-11-03 16:31:13] [SHARD 01 W0] [FOUND QUEUE] 181.78.10.110:999 (UFINET) via www.google.com | cands=797
+[2026-11-03 16:31:13] [SHARD 01 W0] [FOUND QUEUE] 190.83.3.33:999 (AIR) via speed.cloudflare.com | cands=798
