@@ -915,3 +915,12 @@
 147.161.247.9:10604	www.google.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:10755	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 15.235.140.52:3128	speed.cloudflare.com	QUEUE	0	OVH
+201.163.154.14:999	www.google.com	QUEUE	0	ALESTRA
+201.4.68.106:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+203.205.49.2:10120	www.google.com	QUEUE	0	CMCTELECOM-VN
+3.21.129.156:37051	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.191.210.97:999	speed.cloudflare.com	QUEUE	0	SERVICIOS
+38.226.251.67:999	www.google.com	QUEUE	0	SAN
+43.160.246.46:3128	speed.cloudflare.com	QUEUE	0	TENCENT-NET-AP-CN
+47.129.105.10:2104	speed.cloudflare.com	QUEUE	0	AMAZON-02
+47.252.41.213:443	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET

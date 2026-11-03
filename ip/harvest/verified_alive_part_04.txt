@@ -1514,3 +1514,9 @@
 16.28.29.244:11703	speed.cloudflare.com	QUEUE	0	AMAZON-02
 45.198.153.80:3125	speed.cloudflare.com	QUEUE	0	MYREPUBLIC-AS-ID
 63.180.203.233:45215	one.one.one.one	QUEUE	0	AMAZON-02
+1.20.101.19:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+101.255.209.250:3128	www.google.com	QUEUE	0	TACHYON-AS-ID
+103.130.106.73:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
+103.130.116.47:8085	speed.cloudflare.com	QUEUE	0	LDP-AS-ID
+103.146.26.106:8080	speed.cloudflare.com	QUEUE	0	INMEET-AS-ID
+15.235.240.177:3128	speed.cloudflare.com	QUEUE	0	OVH
