@@ -1,9 +1,9 @@
 stage=queue_consuming
-ts=1793722909
+ts=1793723214
 offset=71266516
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:18:28] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793722311_04.txt: total=18767 shard_slice=1877 worker_slice=939 resume=0
-[2026-11-03 16:20:17] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:20:48] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:21:19] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:21:49] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
+[2026-11-03 16:24:52] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
+[2026-11-03 16:25:23] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
+[2026-11-03 16:25:53] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
+[2026-11-03 16:26:23] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
+[2026-11-03 16:26:54] [SHARD 02 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
