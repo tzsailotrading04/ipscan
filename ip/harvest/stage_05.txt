@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793729746
-offset=74332369
+ts=1793729820
+offset=74336369
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:15:26] [SHARD 05 W0] [FOUND QUEUE] 103.169.160.38:3128 (DIANAHOSTLTD-AS-AP) via speed.cloudflare.com | cands=2955
-[2026-11-03 18:15:26] [SHARD 05 W0] [FOUND QUEUE] 103.19.78.125:1080 (IDNIC-PDM-AS-ID) via speed.cloudflare.com | cands=2956
 [2026-11-03 18:15:26] [SHARD 05 W0] [FOUND QUEUE] 103.82.246.27:6080 (IDNIC-MSN-AS-ID) via speed.cloudflare.com | cands=2957
 [2026-11-03 18:15:26] [SHARD 05 W0] [STAGGER] Sleeping 9.6s before consuming slice of q_snowball.txt...
 [2026-11-03 18:15:36] [SHARD 05 W0] [QUEUE STAGE] Consuming q_snowball.txt: total=20068 shard_slice=2007 worker_slice=1004 resume=0
+[2026-11-03 18:17:00] [SHARD 05 W0] [FOUND QUEUE] 16.52.81.236:11797 (AMAZON-02) via speed.cloudflare.com | cands=2958
+[2026-11-03 18:17:00] [SHARD 05 W0] [FOUND QUEUE] 178.156.206.253:8118 (HETZNER-CLOUD2-AS) via one.one.one.one | cands=2959
