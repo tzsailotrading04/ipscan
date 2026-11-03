@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793689752
-offset=74092917
+stage=queue_consuming
+ts=1793690138
+offset=74121301
 --- LAST 5 LOG LINES ---
-[2026-11-03 06:24:42] [SHARD 04 W0] [FOUND QUEUE] 56.155.73.159:9002 (AMAZON-02) via one.one.one.one | cands=953
-[2026-11-03 06:26:48] [SHARD 04 W0] [FOUND QUEUE] 103.176.96.163:8082 (IDNIC-GFIBER-AS-ID) via www.google.com | cands=954
-[2026-11-03 06:26:48] [SHARD 04 W0] [FOUND QUEUE] 147.161.246.37:11596 (ZSCALER-EMEA) via speed.cloudflare.com | cands=955
 [2026-11-03 06:28:53] [SHARD 04 W0] [FOUND QUEUE] 43.153.28.68:3128 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=956
 [2026-11-03 06:28:53] [SHARD 04 W0] [FOUND QUEUE] 45.171.129.1:8080 (STOK) via speed.cloudflare.com | cands=957
+[2026-11-03 07:15:37] [SHARD 04 W0] [FOUND QUEUE] 15.206.99.63:3001 (AMAZON-02) via speed.cloudflare.com | cands=958
+[2026-11-03 07:15:38] [SHARD 04 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-03 07:15:38] [SHARD 04 W0] [QUEUE STAGE] Found 99 queue files to consume before IP scanning
