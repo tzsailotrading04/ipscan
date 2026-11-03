@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793650412_03.txt_0
-ts=1793680502
-offset=71721984
+stage=queue_slice_q_a0_http_1793654036_03.txt_0
+ts=1793680852
+offset=71728949
 --- LAST 5 LOG LINES ---
-[2026-11-03 04:34:03] [SHARD 08 W0] [STAGGER] Sleeping 4.2s before consuming slice of q_a0_http_1793650412_02.txt...
-[2026-11-03 04:34:07] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 04:34:56] [SHARD 08 W0] [FOUND QUEUE] 188.132.221.21:8080 (HIGHSPEED) via speed.cloudflare.com | cands=812
-[2026-11-03 04:34:57] [SHARD 08 W0] [STAGGER] Sleeping 5.4s before consuming slice of q_a0_http_1793650412_03.txt...
-[2026-11-03 04:35:02] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:39:44] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:40:45] [SHARD 08 W0] [FOUND QUEUE] 168.100.8.162:8080 (BLNWX) via speed.cloudflare.com | cands=814
+[2026-11-03 04:40:45] [SHARD 08 W0] [FOUND QUEUE] 177.93.49.113:999 (TV) via speed.cloudflare.com | cands=815
+[2026-11-03 04:40:45] [SHARD 08 W0] [STAGGER] Sleeping 6.5s before consuming slice of q_a0_http_1793654036_03.txt...
+[2026-11-03 04:40:52] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

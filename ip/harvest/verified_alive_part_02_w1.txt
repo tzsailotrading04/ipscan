@@ -855,3 +855,9 @@
 122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 14.103.201.137:3128	speed.cloudflare.com	QUEUE	0	VOLCANO-ENGINE
 167.99.3.26:8091	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+103.14.2.138:2020	speed.cloudflare.com	QUEUE	0	MADA-AS-ID
+113.192.12.191:3125	speed.cloudflare.com	QUEUE	0	HSPNET-AS-ID
+167.233.243.116:3128	speed.cloudflare.com	QUEUE	0	HETZNER-AS
+167.99.3.26:5860	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+177.93.59.66:999	speed.cloudflare.com	QUEUE	0	TV
+18.142.95.213:4063	speed.cloudflare.com	QUEUE	0	AMAZON-02

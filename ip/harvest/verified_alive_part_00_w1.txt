@@ -730,3 +730,10 @@
 18.163.182.106:17544	speed.cloudflare.com	QUEUE	0	AMAZON-02
 181.119.111.239:999	speed.cloudflare.com	QUEUE	0	UFINET
 56.112.92.32:45931	speed.cloudflare.com	QUEUE	0	AMAZON-02
+18.224.94.46:9050	one.one.one.one	QUEUE	0	AMAZON-02
+18.230.23.72:8025	speed.cloudflare.com	QUEUE	0	AMAZON-02
+43.198.78.37:54406	speed.cloudflare.com	QUEUE	0	AMAZON-02
+104.129.196.91:10000	speed.cloudflare.com	QUEUE	0	ZSCALER-SJC1
+113.160.130.82:443	one.one.one.one	QUEUE	0	VNPT-AS-VN
+147.161.247.9:10842	www.google.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:12126	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
