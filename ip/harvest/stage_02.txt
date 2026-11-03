@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793737245
-offset=71413312
+stage=res_loop
+ts=1793737518
+offset=71417312
 --- LAST 5 LOG LINES ---
-[2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 79.137.202.109:3128 (AEZA-AS) via speed.cloudflare.com | cands=5971
-[2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 103.172.14.49:5452 (WEB1-AS-AP) via www.google.com | cands=5972
-[2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 104.245.158.40:8080 (CC-3272) via speed.cloudflare.com | cands=5973
 [2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 23.225.30.117:9999 (CNSERVERS) via speed.cloudflare.com | cands=5974
 [2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 101.32.253.58:3128 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=5975
+[2026-11-03 20:25:04] [SHARD 02 W0] [FOUND QUEUE] 212.252.73.83:8080 (TELLCOM-AS) via www.google.com | cands=5976
+[2026-11-03 20:25:04] [SHARD 02 W0] [FOUND QUEUE] 43.207.141.180:46135 (AMAZON-02) via one.one.one.one | cands=5977
+[2026-11-03 20:25:04] [SHARD 02 W0] [FOUND QUEUE] 45.9.72.212:2080 (CYBERFLAT-AS) via speed.cloudflare.com | cands=5978

@@ -5973,3 +5973,6 @@
 104.245.158.40:8080	speed.cloudflare.com	QUEUE	0	CC-3272
 23.225.30.117:9999	speed.cloudflare.com	QUEUE	0	CNSERVERS
 101.32.253.58:3128	speed.cloudflare.com	QUEUE	0	TENCENT-NET-AP-CN
+212.252.73.83:8080	www.google.com	QUEUE	0	TELLCOM-AS
+43.207.141.180:46135	one.one.one.one	QUEUE	0	AMAZON-02
+45.9.72.212:2080	speed.cloudflare.com	QUEUE	0	CYBERFLAT-AS
