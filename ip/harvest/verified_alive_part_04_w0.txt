@@ -1025,3 +1025,8 @@
 156.155.51.117:8080	speed.cloudflare.com	QUEUE	0	AFRIHOST-SP
 167.99.8.113:8011	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
 179.49.160.94:999	speed.cloudflare.com	QUEUE	0	SAMM
+200.125.170.222:999	speed.cloudflare.com	QUEUE	0	WIRELESS
+201.58.182.153:3128	speed.cloudflare.com	QUEUE	0	NOT
+205.234.123.22:8080	www.google.com	QUEUE	0	RESERVED
+27.124.81.146:8080	www.google.com	QUEUE	0	ICONPLN-ID-AP-ISP
+5.161.50.82:8118	speed.cloudflare.com	QUEUE	0	HETZNER-CLOUD2-AS
