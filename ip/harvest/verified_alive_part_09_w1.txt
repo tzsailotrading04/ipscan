@@ -2884,3 +2884,5 @@
 52.214.92.206:58131	speed.cloudflare.com	QUEUE	0	AMAZON-02
 3.26.199.107:22442	one.one.one.one	QUEUE	0	AMAZON-02
 54.198.140.56:53479	www.google.com	QUEUE	0	AMAZON-AES
+81.31.228.10:1090	speed.cloudflare.com	QUEUE	0	OLKA
+82.67.114.12:8888	one.one.one.one	QUEUE	0	PROXAD
