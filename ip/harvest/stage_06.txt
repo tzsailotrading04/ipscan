@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793733358
-offset=70767853
+ts=1793733488
+offset=70771853
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:23:58] [SHARD 06 W0] [FOUND QUEUE] 196.204.26.243:1976 (RAYA-AS) via www.google.com | cands=2834
-[2026-11-03 18:23:58] [SHARD 06 W0] [FOUND QUEUE] 3.21.247.154:29764 (AMAZON-02) via speed.cloudflare.com | cands=2835
-[2026-11-03 18:23:58] [SHARD 06 W0] [FOUND QUEUE] 43.156.137.7:10809 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=2836
-[2026-11-03 18:23:58] [SHARD 06 W0] [FOUND QUEUE] 46.48.26.53:10808 (MIRALOGIC-AS) via speed.cloudflare.com | cands=2837
-[2026-11-03 18:23:58] [SHARD 06 W0] [FOUND QUEUE] 5.161.50.82:8118 (HETZNER-CLOUD2-AS) via speed.cloudflare.com | cands=2838
+[2026-11-03 19:18:08] [SHARD 06 W0] [FOUND QUEUE] 103.154.146.74:8080 (CEPATNET-AS-ID) via speed.cloudflare.com | cands=2839
+[2026-11-03 19:18:08] [SHARD 06 W0] [FOUND QUEUE] 13.126.183.60:9088 (AMAZON-02) via www.google.com | cands=2840
+[2026-11-03 19:18:08] [SHARD 06 W0] [FOUND QUEUE] 13.245.161.189:43052 (AMAZON-02) via speed.cloudflare.com | cands=2841
+[2026-11-03 19:18:08] [SHARD 06 W0] [FOUND QUEUE] 144.24.94.153:1080 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=2842
+[2026-11-03 19:18:08] [SHARD 06 W0] [FOUND QUEUE] 147.161.246.36:11368 (ZSCALER-EMEA) via speed.cloudflare.com | cands=2843
