@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723745
-offset=74182036
+ts=1793724003
+offset=74186036
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 38.51.220.197:999 (TECNOVEN) via speed.cloudflare.com | cands=1088
 [2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 41.93.63.66:8080 (TERNET) via one.one.one.one | cands=1089
 [2026-11-03 16:29:13] [SHARD 05 W0] [FOUND QUEUE] 193.181.35.188:8118 (PVDATANET) via speed.cloudflare.com | cands=1090
 [2026-11-03 16:31:54] [SHARD 05 W0] [FOUND QUEUE] 103.48.68.106:83 (COUNTRYONLINE-AS-IN) via speed.cloudflare.com | cands=1091
 [2026-11-03 16:35:45] [SHARD 05 W0] [FOUND QUEUE] 112.198.131.53:8082 (GLOBE-MOBILE-5TH-GEN-AS) via speed.cloudflare.com | cands=1092
+[2026-11-03 16:40:02] [SHARD 05 W0] [FOUND QUEUE] 49.156.44.117:8080 (IIT-WICAM-AS-AP) via www.google.com | cands=1093
