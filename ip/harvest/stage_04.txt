@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793725362
-offset=75314295
+stage=queue_consuming
+ts=1793726066
+offset=75322295
 --- LAST 5 LOG LINES ---
-[2026-11-03 17:00:13] [SHARD 04 W0] [FOUND QUEUE] 84.46.249.66:3128 (CONTABO) via speed.cloudflare.com | cands=1150
-[2026-11-03 17:02:42] [SHARD 04 W0] [FOUND QUEUE] 103.152.148.29:3125 (IDNIC-DINETKAN-AS-ID) via speed.cloudflare.com | cands=1151
-[2026-11-03 17:02:42] [SHARD 04 W0] [FOUND QUEUE] 103.169.139.4:8081 (IDNIC-DINKOMINFOKABREMBANG-AS-ID) via speed.cloudflare.com | cands=1152
-[2026-11-03 17:02:42] [SHARD 04 W0] [FOUND QUEUE] 13.38.27.183:1480 (AMAZON-02) via one.one.one.one | cands=1153
-[2026-11-03 17:02:42] [SHARD 04 W0] [FOUND QUEUE] 138.99.176.26:999 (NETWIN) via www.google.com | cands=1154
+[2026-11-03 17:11:57] [SHARD 04 W0] [FOUND QUEUE] 49.156.44.117:8080 (IIT-WICAM-AS-AP) via www.google.com | cands=1161
+[2026-11-03 17:14:25] [SHARD 04 W0] [FOUND QUEUE] 40.177.104.199:2051 (AMAZON-02) via one.one.one.one | cands=1162
+[2026-11-03 17:14:25] [SHARD 04 W0] [FOUND QUEUE] 45.195.90.142:8080 (CTRLS-AS-IN) via www.google.com | cands=1163
+[2026-11-03 17:14:26] [SHARD 04 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-03 17:14:26] [SHARD 04 W0] [QUEUE STAGE] Found 136 queue files to consume before IP scanning
