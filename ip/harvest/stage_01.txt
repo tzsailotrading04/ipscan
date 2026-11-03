@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793691247
-offset=65892264
+ts=1793691730
+offset=65900264
 --- LAST 5 LOG LINES ---
-[2026-11-03 07:24:09] [SHARD 01 W0] [FOUND QUEUE] 103.156.75.215:9980 (IDNIC-TRIKANET-AS-ID) via speed.cloudflare.com | cands=651
-[2026-11-03 07:27:30] [SHARD 01 W0] [FOUND QUEUE] 202.6.200.253:3125 (IDNIC-ADNNET-ID) via speed.cloudflare.com | cands=652
-[2026-11-03 07:27:30] [SHARD 01 W0] [FOUND QUEUE] 49.156.44.117:8080 (IIT-WICAM-AS-AP) via speed.cloudflare.com | cands=653
-[2026-11-03 07:30:58] [SHARD 01 W0] [FOUND QUEUE] 51.94.221.175:33254 (AMAZON-02) via speed.cloudflare.com | cands=654
 [2026-11-03 07:34:06] [SHARD 01 W0] [FOUND QUEUE] 43.198.78.37:7283 (AMAZON-02) via speed.cloudflare.com | cands=655
+[2026-11-03 07:42:09] [SHARD 01 W0] [FOUND QUEUE] 101.255.137.49:80 (TACHYON-AS-ID) via speed.cloudflare.com | cands=656
+[2026-11-03 07:42:09] [SHARD 01 W0] [FOUND QUEUE] 103.247.83.246:8085 (IDNIC-SENTRADATA-AS-ID) via speed.cloudflare.com | cands=657
+[2026-11-03 07:42:09] [SHARD 01 W0] [FOUND QUEUE] 147.161.246.39:11489 (ZSCALER-EMEA) via speed.cloudflare.com | cands=658
+[2026-11-03 07:42:09] [SHARD 01 W0] [FOUND QUEUE] 147.161.247.9:11972 (ZSCALER-EMEA) via speed.cloudflare.com | cands=659
