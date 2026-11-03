@@ -1018,3 +1018,9 @@
 196.204.83.232:1981	www.google.com	QUEUE	0	RAYA-AS
 51.38.120.110:10010	speed.cloudflare.com	QUEUE	0	OVH
 82.78.114.54:8080	speed.cloudflare.com	QUEUE	0	RCS-RDS
+147.161.247.9:11929	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:35621	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+190.9.109.79:999	one.one.one.one	QUEUE	0	MEGABIT
+203.205.49.2:10118	speed.cloudflare.com	QUEUE	0	CMCTELECOM-VN
+91.134.141.4:3128	speed.cloudflare.com	QUEUE	0	OVH
+94.247.128.156:3129	speed.cloudflare.com	QUEUE	0	PSKZ-ALA

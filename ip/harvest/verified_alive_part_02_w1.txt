@@ -835,3 +835,12 @@
 147.161.247.9:35621	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 163.52.18.157:8087	one.one.one.one	QUEUE	0	UEIESC-AS-AP
 82.78.114.56:8080	speed.cloudflare.com	QUEUE	0	RCS-RDS
+103.230.244.1:8090	speed.cloudflare.com	QUEUE	0	KMNETWORK-AS-AP
+112.78.187.186:8080	speed.cloudflare.com	QUEUE	0	BIZNET2-AS-ID
+147.161.247.9:11355	www.google.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:12577	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+176.12.73.250:3128	speed.cloudflare.com	QUEUE	0	HOSTLAB
+190.7.138.78:8080	speed.cloudflare.com	QUEUE	0	UNE
+196.204.83.232:1976	one.one.one.one	QUEUE	0	RAYA-AS
+200.251.41.61:8002	speed.cloudflare.com	QUEUE	0	CLARO
+3.21.156.147:8097	speed.cloudflare.com	QUEUE	0	AMAZON-02

@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793632425_04.txt_0
-ts=1793679216
-offset=69100917
+stage=queue_consuming
+ts=1793679659
+offset=69107905
 --- LAST 5 LOG LINES ---
-[2026-11-03 04:13:13] [SHARD 06 W0] [FOUND QUEUE] 41.93.63.66:8080 (TERNET) via www.google.com | cands=739
-[2026-11-03 04:13:13] [SHARD 06 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (230.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 04:13:15] [SHARD 06 W0] [QUEUE STAGE] Found 87 queue files to consume before IP scanning
-[2026-11-03 04:13:15] [SHARD 06 W0] [STAGGER] Sleeping 20.9s before consuming slice of q_a0_http_1793632425_04.txt...
-[2026-11-03 04:13:36] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793632425_04.txt: total=19748 shard_slice=1975 worker_slice=988 resume=0
+[2026-11-03 04:19:10] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:20:57] [SHARD 06 W0] [FOUND QUEUE] 203.205.49.2:10120 (CMCTELECOM-VN) via speed.cloudflare.com | cands=742
+[2026-11-03 04:20:57] [SHARD 06 W0] [FOUND QUEUE] 217.154.71.75:3128 (IONOS-AS) via speed.cloudflare.com | cands=743
+[2026-11-03 04:20:58] [SHARD 06 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (190.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 04:20:59] [SHARD 06 W0] [QUEUE STAGE] Found 87 queue files to consume before IP scanning
