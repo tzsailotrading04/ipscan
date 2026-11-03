@@ -1,9 +1,9 @@
-stage=res_loop
-ts=1793733348
-offset=74073373
+stage=queue_slice_q_a0_http_1793733272_03.txt_0
+ts=1793733597
+offset=74084993
 --- LAST 5 LOG LINES ---
-[2026-11-03 19:03:04] [SHARD 09 W0] [FOUND QUEUE] 180.190.222.184:8080 (GLOBE-TELECOM-AS) via www.google.com | cands=2933
-[2026-11-03 19:10:33] [SHARD 09 W0] [FOUND QUEUE] 203.205.49.2:10169 (CMCTELECOM-VN) via www.google.com | cands=2934
-[2026-11-03 19:10:33] [SHARD 09 W0] [FOUND QUEUE] 212.86.41.150:8080 (DNSNET) via one.one.one.one | cands=2935
-[2026-11-03 19:10:33] [SHARD 09 W0] [FOUND QUEUE] 43.156.137.7:10809 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=2936
-[2026-11-03 19:10:33] [SHARD 09 W0] [FOUND QUEUE] 43.207.141.180:58085 (AMAZON-02) via one.one.one.one | cands=2937
+[2026-11-03 19:19:12] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793733272_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 19:19:52] [SHARD 09 W0] [FOUND QUEUE] 167.99.8.113:8008 (DIGITALOCEAN-ASN) via one.one.one.one | cands=2938
+[2026-11-03 19:19:52] [SHARD 09 W0] [FOUND QUEUE] 181.119.224.25:8080 (UFINET) via speed.cloudflare.com | cands=2939
+[2026-11-03 19:19:52] [SHARD 09 W0] [STAGGER] Sleeping 5.0s before consuming slice of q_a0_http_1793733272_03.txt...
+[2026-11-03 19:19:57] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793733272_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
