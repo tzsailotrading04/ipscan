@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793736406
-offset=74477302
+ts=1793736709
+offset=74504734
 --- LAST 5 LOG LINES ---
 [2026-11-03 19:46:11] [SHARD 05 W0] [FOUND QUEUE] 104.219.55.50:8118 (ATLANTIC-NET-1) via www.google.com | cands=5765
 [2026-11-03 19:46:11] [SHARD 05 W0] [FOUND QUEUE] 46.29.192.130:81 (SYNTSIB-AS) via one.one.one.one | cands=5766
