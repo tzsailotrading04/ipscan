@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723139
-offset=74164119
+ts=1793723249
+offset=74168119
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:19:34] [SHARD 05 W0] [STAGGER] Sleeping 10.3s before consuming slice of q_a0_http_1793722311_04.txt...
-[2026-11-03 16:19:44] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793722311_04.txt: total=18767 shard_slice=1877 worker_slice=939 resume=0
-[2026-11-03 16:25:38] [SHARD 05 W0] [FOUND QUEUE] 200.107.206.114:999 (DLD) via speed.cloudflare.com | cands=1082
-[2026-11-03 16:25:38] [SHARD 05 W0] [FOUND QUEUE] 202.62.67.209:53281 (CITYON-AS-AP) via www.google.com | cands=1083
-[2026-11-03 16:25:38] [SHARD 05 W0] [FOUND QUEUE] 3.26.199.107:9157 (AMAZON-02) via speed.cloudflare.com | cands=1084
+[2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 3.26.199.107:2733 (AMAZON-02) via one.one.one.one | cands=1085
+[2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 36.37.251.137:8080 (VIETTELCAMBODIA-AS-AP) via speed.cloudflare.com | cands=1086
+[2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 38.191.210.97:999 (SERVICIOS) via speed.cloudflare.com | cands=1087
+[2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 38.51.220.197:999 (TECNOVEN) via speed.cloudflare.com | cands=1088
+[2026-11-03 16:27:29] [SHARD 05 W0] [FOUND QUEUE] 41.93.63.66:8080 (TERNET) via one.one.one.one | cands=1089
