@@ -598,3 +598,7 @@
 15.217.107.97:24062	one.one.one.one	QUEUE	0	AMAZON-02
 16.176.232.186:9619	one.one.one.one	QUEUE	0	AMAZON-02
 18.142.95.213:4063	speed.cloudflare.com	QUEUE	0	AMAZON-02
+1.20.101.26:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+103.130.106.97:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
+122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+163.61.245.45:3125	speed.cloudflare.com	QUEUE	0	IDNIC-NAOMI-AS-ID
