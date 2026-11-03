@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723854
-offset=71274516
+ts=1793724147
+offset=71280618
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:37:34] [SHARD 02 W0] [FOUND QUEUE] 36.112.125.156:3226 (CNIX-AP) via speed.cloudflare.com | cands=1056
-[2026-11-03 16:37:34] [SHARD 02 W0] [FOUND QUEUE] 38.19.42.183:999 (SUPER) via speed.cloudflare.com | cands=1057
-[2026-11-03 16:37:34] [SHARD 02 W0] [FOUND QUEUE] 45.174.168.25:999 (TELECOMUNICACIONES) via www.google.com | cands=1058
-[2026-11-03 16:37:34] [SHARD 02 W0] [FOUND QUEUE] 45.225.205.5:999 (NETDELSUR) via speed.cloudflare.com | cands=1059
-[2026-11-03 16:37:34] [SHARD 02 W0] [FOUND QUEUE] 49.156.44.117:8080 (IIT-WICAM-AS-AP) via speed.cloudflare.com | cands=1060
+[2026-11-03 16:42:27] [SHARD 02 W0] [FOUND QUEUE] 179.48.8.25:8088 (CARNAUBANET) via one.one.one.one | cands=1067
+[2026-11-03 16:42:27] [SHARD 02 W0] [FOUND QUEUE] 18.231.214.206:27441 (AMAZON-02) via speed.cloudflare.com | cands=1068
+[2026-11-03 16:42:27] [SHARD 02 W0] [FOUND QUEUE] 181.114.230.2:8080 (CYBERWAVE) via speed.cloudflare.com | cands=1069
+[2026-11-03 16:42:27] [SHARD 02 W0] [FOUND QUEUE] 190.26.255.30:999 (ETB) via www.google.com | cands=1070
+[2026-11-03 16:42:27] [SHARD 02 W0] [FOUND QUEUE] 190.60.39.197:999 (UFINET) via speed.cloudflare.com | cands=1071
