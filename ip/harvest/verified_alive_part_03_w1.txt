@@ -1235,3 +1235,5 @@
 144.124.251.24:11415	one.one.one.one	QUEUE	0	VDSINA
 181.78.207.50:999	one.one.one.one	QUEUE	0	UFINET
 190.7.138.78:8080	speed.cloudflare.com	QUEUE	0	UNE
+43.207.113.167:8919	speed.cloudflare.com	QUEUE	0	AMAZON-02
+78.12.246.160:55055	speed.cloudflare.com	QUEUE	0	AMAZON-02
