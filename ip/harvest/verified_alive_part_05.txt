@@ -1713,3 +1713,7 @@
 8.242.153.172:999	one.one.one.one	QUEUE	0	LVLT-3549
 200.107.206.114:999	speed.cloudflare.com	QUEUE	0	DLD
 202.62.67.209:53281	www.google.com	QUEUE	0	CITYON-AS-AP
+217.154.71.75:3128	speed.cloudflare.com	QUEUE	0	IONOS-AS
+38.156.233.218:999	www.google.com	QUEUE	0	BITNET
+45.195.90.142:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
+45.229.17.94:999	one.one.one.one	QUEUE	0	TURBONET
