@@ -1728,3 +1728,8 @@
 148.153.56.51:80	speed.cloudflare.com	QUEUE	0	CDSC-AS1
 38.224.164.195:999	www.google.com	QUEUE	0	DANIEL
 45.129.141.174:3128	speed.cloudflare.com	QUEUE	0	ESERVER-SK-AS
+103.130.106.169:84	speed.cloudflare.com	QUEUE	0	ONPL-AS
+103.138.71.20:3125	speed.cloudflare.com	QUEUE	0	CENTRONETWORK-AS-ID
+103.172.121.61:7778	one.one.one.one	QUEUE	0	IDNIC-DIGTANET-AS-ID
+144.24.94.153:1080	speed.cloudflare.com	QUEUE	0	ORACLE-BMC-31898
+149.202.47.125:3128	speed.cloudflare.com	QUEUE	0	OVH
