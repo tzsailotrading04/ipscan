@@ -871,3 +871,5 @@
 122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 158.172.217.1:999	speed.cloudflare.com	QUEUE	0	UFINET
 186.33.54.244:999	www.google.com	QUEUE	0	UFINET
+172.237.126.94:3128	speed.cloudflare.com	QUEUE	0	AKAMAI-LINODE-AP
+45.229.17.62:999	speed.cloudflare.com	QUEUE	0	TURBONET

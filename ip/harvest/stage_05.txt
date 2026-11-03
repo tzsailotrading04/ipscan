@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793661354_02.txt_0
-ts=1793680927
-offset=72449207
+stage=queue_consuming
+ts=1793681344
+offset=72460166
 --- LAST 5 LOG LINES ---
-[2026-11-03 04:41:55] [SHARD 05 W0] [FOUND QUEUE] 122.2.48.121:8080 (IPG-AS-AP) via speed.cloudflare.com | cands=871
-[2026-11-03 04:41:55] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (182.1s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 04:41:56] [SHARD 05 W0] [QUEUE STAGE] Found 87 queue files to consume before IP scanning
-[2026-11-03 04:41:57] [SHARD 05 W0] [STAGGER] Sleeping 10.3s before consuming slice of q_a0_http_1793661354_02.txt...
-[2026-11-03 04:42:07] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793661354_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:47:37] [SHARD 05 W0] [STAGGER] Sleeping 13.6s before consuming slice of q_a0_http_1793664992_03.txt...
+[2026-11-03 04:47:50] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793664992_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:49:02] [SHARD 05 W0] [FOUND QUEUE] 45.229.17.62:999 (TURBONET) via speed.cloudflare.com | cands=875
+[2026-11-03 04:49:02] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (130.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 04:49:04] [SHARD 05 W0] [QUEUE STAGE] Found 87 queue files to consume before IP scanning
