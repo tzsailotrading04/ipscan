@@ -1045,3 +1045,7 @@
 34.229.190.39:12018	one.one.one.one	QUEUE	0	AMAZON-AES
 51.16.4.39:16547	speed.cloudflare.com	QUEUE	0	AMAZON-02
 56.68.116.64:9295	speed.cloudflare.com	QUEUE	0	AMAZON-02
+82.67.114.12:8888	www.google.com	QUEUE	0	PROXAD
+84.46.249.66:3128	speed.cloudflare.com	QUEUE	0	CONTABO
+85.90.207.232:3128	speed.cloudflare.com	QUEUE	0	GHOST
+95.81.107.187:3128	speed.cloudflare.com	QUEUE	0	MELBICOM-EU-AS
