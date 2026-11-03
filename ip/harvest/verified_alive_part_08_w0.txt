@@ -754,3 +754,17 @@
 89.43.132.226:8080	speed.cloudflare.com	QUEUE	0	RESERVED
 103.46.11.92:8080	speed.cloudflare.com	QUEUE	0	LDP-AS-ID
 147.161.246.37:10082	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+167.99.3.26:9191	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN
+18.170.45.5:34625	one.one.one.one	QUEUE	0	AMAZON-02
+38.156.233.218:999	www.google.com	QUEUE	0	BITNET
+41.65.162.72:1981	one.one.one.one	QUEUE	0	ETISALAT-MISR
+49.151.189.78:8082	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+51.85.44.162:8070	speed.cloudflare.com	QUEUE	0	AMAZON-02
+80.87.193.111:12345	speed.cloudflare.com	QUEUE	0	RU-JSCIOT
+91.134.141.4:3128	speed.cloudflare.com	QUEUE	0	OVH
+93.188.85.150:8080	speed.cloudflare.com	QUEUE	0	BRM-AS
+103.130.116.47:8085	one.one.one.one	QUEUE	0	LDP-AS-ID
+103.169.188.126:8080	speed.cloudflare.com	QUEUE	0	IDNIC-JAGONET-AS-ID
+103.173.72.3:1111	speed.cloudflare.com	QUEUE	0	IDNIC-NETEKSA-AS-ID
+147.161.246.37:11720	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.246.39:22222	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
