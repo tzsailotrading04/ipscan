@@ -1547,3 +1547,7 @@
 38.19.43.77:999	one.one.one.one	QUEUE	0	SUPER
 103.130.106.97:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
 34.153.18.123:443	speed.cloudflare.com	QUEUE	0	GOOGLE-CLOUD-PLATFORM
+101.33.242.76:3128	speed.cloudflare.com	QUEUE	0	TENCENT-NET-AP
+103.188.169.21:3125	speed.cloudflare.com	QUEUE	0	IDNIC-LJN-AS-ID
+103.80.77.1:443	speed.cloudflare.com	QUEUE	0	IDNIC-DKN-AS-ID
+111.68.122.154:8080	one.one.one.one	QUEUE	0	VARNION-AS-ID
