@@ -1,6 +1,6 @@
 stage=queue_loop
-ts=1793731164
-offset=73995465
+ts=1793731289
+offset=73999465
 --- LAST 5 LOG LINES ---
 [2026-11-03 18:35:03] [SHARD 09 W0] [FOUND QUEUE] 206.1.97.133:3128 (NETLEN) via speed.cloudflare.com | cands=2909
 [2026-11-03 18:35:03] [SHARD 09 W0] [FOUND QUEUE] 56.155.73.159:9002 (AMAZON-02) via one.one.one.one | cands=2910
