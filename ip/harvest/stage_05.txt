@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793621603_02.txt_0
-ts=1793712299
-offset=73957162
+stage=queue_slice_q_a0_http_1793621603_03.txt_0
+ts=1793712353
+offset=73959162
 --- LAST 5 LOG LINES ---
-[2026-11-03 13:24:37] [SHARD 05 W0] [FOUND QUEUE] 140.245.66.105:8081 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=991
-[2026-11-03 13:24:38] [SHARD 05 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (185.0s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 13:24:40] [SHARD 05 W0] [QUEUE STAGE] Found 117 queue files to consume before IP scanning
-[2026-11-03 13:24:40] [SHARD 05 W0] [STAGGER] Sleeping 19.2s before consuming slice of q_a0_http_1793621603_02.txt...
 [2026-11-03 13:24:59] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793621603_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 13:25:43] [SHARD 05 W0] [FOUND QUEUE] 156.200.116.67:8080 (TE-AS) via www.google.com | cands=992
+[2026-11-03 13:25:43] [SHARD 05 W0] [FOUND QUEUE] 165.22.99.36:8003 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=993
+[2026-11-03 13:25:44] [SHARD 05 W0] [STAGGER] Sleeping 8.7s before consuming slice of q_a0_http_1793621603_03.txt...
+[2026-11-03 13:25:53] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793621603_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
