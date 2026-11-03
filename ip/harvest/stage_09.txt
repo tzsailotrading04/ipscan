@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793683012
-offset=72735250
+stage=queue_slice_q_a0_http_1793671900_02.txt_0
+ts=1793683869
+offset=72749169
 --- LAST 5 LOG LINES ---
-[2026-11-03 05:15:31] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793664992_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 05:16:50] [SHARD 09 W0] [FOUND QUEUE] 103.234.31.253:8080 (IDNIC-JENIUSNET-AS-ID) via speed.cloudflare.com | cands=823
-[2026-11-03 05:16:50] [SHARD 09 W0] [FOUND QUEUE] 147.161.247.20:80 (ZSCALER-EMEA) via one.one.one.one | cands=824
-[2026-11-03 05:16:50] [SHARD 09 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (196.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 05:16:52] [SHARD 09 W0] [QUEUE STAGE] Found 91 queue files to consume before IP scanning
+[2026-11-03 05:31:06] [SHARD 09 W0] [FOUND QUEUE] 13.208.246.143:17121 (AMAZON-02) via one.one.one.one | cands=830
+[2026-11-03 05:31:06] [SHARD 09 W0] [FOUND QUEUE] 147.161.247.9:11146 (ZSCALER-EMEA) via speed.cloudflare.com | cands=831
+[2026-11-03 05:31:06] [SHARD 09 W0] [FOUND QUEUE] 147.161.247.9:12382 (ZSCALER-EMEA) via speed.cloudflare.com | cands=832
+[2026-11-03 05:31:06] [SHARD 09 W0] [STAGGER] Sleeping 3.1s before consuming slice of q_a0_http_1793671900_02.txt...
+[2026-11-03 05:31:09] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793671900_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
