@@ -1406,3 +1406,8 @@
 161.132.45.17:1081	speed.cloudflare.com	QUEUE	0	RED
 170.81.243.99:999	www.google.com	QUEUE	0	INVENTA
 160.191.167.216:39212	speed.cloudflare.com	QUEUE	0	NEFONET-VN
+203.205.49.2:10063	speed.cloudflare.com	QUEUE	0	CMCTELECOM-VN
+103.161.31.249:82	speed.cloudflare.com	QUEUE	0	CTRLS-AS-IN
+103.4.76.233:1111	speed.cloudflare.com	QUEUE	0	IDNIC-KHZ-AS-ID
+122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+167.99.3.26:9150	www.google.com	QUEUE	0	DIGITALOCEAN-ASN

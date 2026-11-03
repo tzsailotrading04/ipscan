@@ -815,3 +815,13 @@
 156.200.116.78:8080	www.google.com	QUEUE	0	TE-AS
 161.132.45.17:1081	speed.cloudflare.com	QUEUE	0	RED
 170.81.243.99:999	www.google.com	QUEUE	0	INVENTA
+203.205.49.2:10063	speed.cloudflare.com	QUEUE	0	CMCTELECOM-VN
+38.191.42.200:999	www.google.com	QUEUE	0	SERVINET
+56.112.93.245:9443	speed.cloudflare.com	QUEUE	0	AMAZON-02
+103.161.31.249:82	speed.cloudflare.com	QUEUE	0	CTRLS-AS-IN
+103.4.76.233:1111	speed.cloudflare.com	QUEUE	0	IDNIC-KHZ-AS-ID
+122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+160.19.41.37:80	one.one.one.one	QUEUE	0	ATCINFO-AS-IN
+165.154.7.156:8888	speed.cloudflare.com	QUEUE	0	UCLOUD-HK-AS-AP
+18.144.86.139:54554	www.google.com	QUEUE	0	AMAZON-02
+188.132.221.21:8080	speed.cloudflare.com	QUEUE	0	HIGHSPEED
