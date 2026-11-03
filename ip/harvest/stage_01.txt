@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793654036_02.txt_0
-ts=1793715242
-offset=66743413
+stage=queue_slice_q_a0_http_1793654036_04.txt_0
+ts=1793715376
+offset=66747413
 --- LAST 5 LOG LINES ---
-[2026-11-03 14:12:18] [SHARD 01 W0] [QUEUE STAGE] Found 117 queue files to consume before IP scanning
-[2026-11-03 14:12:18] [SHARD 01 W0] [STAGGER] Sleeping 22.6s before consuming slice of q_a0_http_1793654036_01.txt...
-[2026-11-03 14:12:41] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 14:13:50] [SHARD 01 W0] [STAGGER] Sleeping 12.1s before consuming slice of q_a0_http_1793654036_02.txt...
-[2026-11-03 14:14:02] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 14:14:39] [SHARD 01 W0] [STAGGER] Sleeping 22.5s before consuming slice of q_a0_http_1793654036_03.txt...
+[2026-11-03 14:15:02] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 14:16:14] [SHARD 01 W0] [FOUND QUEUE] 203.205.49.2:10140 (CMCTELECOM-VN) via www.google.com | cands=754
+[2026-11-03 14:16:14] [SHARD 01 W0] [STAGGER] Sleeping 1.7s before consuming slice of q_a0_http_1793654036_04.txt...
+[2026-11-03 14:16:16] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793654036_04.txt: total=19188 shard_slice=1919 worker_slice=960 resume=0
