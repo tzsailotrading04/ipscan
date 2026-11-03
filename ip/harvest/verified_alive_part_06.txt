@@ -1614,3 +1614,6 @@
 45.129.141.174:3128	speed.cloudflare.com	QUEUE	0	ESERVER-SK-AS
 169.58.34.213:3130	www.google.com	QUEUE	0	CONTABO
 34.220.80.147:15690	speed.cloudflare.com	QUEUE	0	AMAZON-02
+65.108.159.129:8080	speed.cloudflare.com	QUEUE	0	HETZNER-AS
+82.67.114.12:8888	www.google.com	QUEUE	0	PROXAD
+82.78.114.56:8080	speed.cloudflare.com	QUEUE	0	RCS-RDS
