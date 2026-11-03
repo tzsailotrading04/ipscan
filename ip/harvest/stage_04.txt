@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793718706_04.txt_0
-ts=1793721655
-offset=75258878
+stage=queue_consuming
+ts=1793721968
+offset=75269812
 --- LAST 5 LOG LINES ---
-[2026-11-03 15:59:27] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793718706_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 16:00:26] [SHARD 04 W0] [FOUND QUEUE] 3.21.247.154:29764 (AMAZON-02) via one.one.one.one | cands=1110
-[2026-11-03 16:00:26] [SHARD 04 W0] [FOUND QUEUE] 56.112.92.32:22922 (AMAZON-02) via speed.cloudflare.com | cands=1111
-[2026-11-03 16:00:26] [SHARD 04 W0] [STAGGER] Sleeping 29.3s before consuming slice of q_a0_http_1793718706_04.txt...
-[2026-11-03 16:00:55] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793718706_04.txt: total=18681 shard_slice=1868 worker_slice=934 resume=0
+[2026-11-03 16:04:11] [SHARD 04 W0] [STAGGER] Sleeping 4.6s before consuming slice of q_gold_asn_1793669699_05.txt...
+[2026-11-03 16:04:15] [SHARD 04 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_05.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 16:05:07] [SHARD 04 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 16:05:38] [SHARD 04 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 16:06:08] [SHARD 04 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
