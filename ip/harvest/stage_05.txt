@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793636166_02.txt_0
-ts=1793713559
-offset=73985161
+stage=queue_slice_q_a0_http_1793636166_04.txt_0
+ts=1793713724
+offset=73989161
 --- LAST 5 LOG LINES ---
-[2026-11-03 13:44:35] [SHARD 05 W0] [STAGGER] Sleeping 1.7s before consuming slice of q_a0_http_1793636166_01.txt...
-[2026-11-03 13:44:37] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 13:45:44] [SHARD 05 W0] [FOUND QUEUE] 115.178.52.12:8080 (IDNIC-CIFO-AS-ID) via speed.cloudflare.com | cands=1010
-[2026-11-03 13:45:45] [SHARD 05 W0] [STAGGER] Sleeping 13.5s before consuming slice of q_a0_http_1793636166_02.txt...
-[2026-11-03 13:45:59] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 13:46:45] [SHARD 05 W0] [STAGGER] Sleeping 6.6s before consuming slice of q_a0_http_1793636166_03.txt...
+[2026-11-03 13:46:52] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 13:48:40] [SHARD 05 W0] [FOUND QUEUE] 202.169.250.149:8111 (BLUELINE-AS-ID) via speed.cloudflare.com | cands=1013
+[2026-11-03 13:48:41] [SHARD 05 W0] [STAGGER] Sleeping 2.8s before consuming slice of q_a0_http_1793636166_04.txt...
+[2026-11-03 13:48:44] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793636166_04.txt: total=19724 shard_slice=1972 worker_slice=986 resume=0
