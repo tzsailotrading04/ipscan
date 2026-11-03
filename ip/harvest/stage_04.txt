@@ -1,9 +1,9 @@
-stage=queue_loop
-ts=1793732558
-offset=75403328
+stage=res_loop
+ts=1793733053
+offset=75407328
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:47:47] [SHARD 04 W0] [FOUND QUEUE] 186.219.212.243:8080 (MEGAMINAS) via www.google.com | cands=2928
-[2026-11-03 18:58:02] [SHARD 04 W0] [FOUND QUEUE] 3.134.245.77:58941 (AMAZON-02) via one.one.one.one | cands=2929
-[2026-11-03 18:58:02] [SHARD 04 W0] [FOUND QUEUE] 38.172.130.248:999 (CONEX) via one.one.one.one | cands=2930
-[2026-11-03 18:59:55] [SHARD 04 W0] [FOUND QUEUE] 41.65.71.140:1981 (ETISALAT-MISR) via one.one.one.one | cands=2931
-[2026-11-03 19:02:38] [SHARD 04 W0] [FOUND QUEUE] 18.231.214.206:13502 (AMAZON-02) via speed.cloudflare.com | cands=2932
+[2026-11-03 19:10:52] [SHARD 04 W0] [FOUND QUEUE] 201.238.242.38:999 (GTD) via one.one.one.one | cands=2933
+[2026-11-03 19:10:52] [SHARD 04 W0] [FOUND QUEUE] 201.71.2.41:999 (INVERSIONES) via speed.cloudflare.com | cands=2934
+[2026-11-03 19:10:52] [SHARD 04 W0] [FOUND QUEUE] 203.76.222.172:1212 (BUSINESSNETWORK-AS-AP) via speed.cloudflare.com | cands=2935
+[2026-11-03 19:10:52] [SHARD 04 W0] [FOUND QUEUE] 212.86.41.150:8080 (DNSNET) via www.google.com | cands=2936
+[2026-11-03 19:10:52] [SHARD 04 W0] [FOUND QUEUE] 34.229.190.39:28420 (AMAZON-AES) via speed.cloudflare.com | cands=2937
