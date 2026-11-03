@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723136
-offset=70306526
+ts=1793723220
+offset=70310526
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:15:48] [SHARD 06 W0] [STAGGER] Sleeping 28.7s before consuming slice of q_a0_http_1793722311_04.txt...
-[2026-11-03 16:16:16] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793722311_04.txt: total=18767 shard_slice=1877 worker_slice=939 resume=0
-[2026-11-03 16:17:48] [SHARD 06 W0] [FOUND QUEUE] 177.93.59.66:999 (TV) via one.one.one.one | cands=1030
-[2026-11-03 16:17:48] [SHARD 06 W0] [FOUND QUEUE] 190.26.255.30:999 (ETB) via speed.cloudflare.com | cands=1031
-[2026-11-03 16:22:31] [SHARD 06 W0] [FOUND QUEUE] 38.51.207.118:999 (TECNOVEN) via www.google.com | cands=1032
+[2026-11-03 16:27:00] [SHARD 06 W0] [FOUND QUEUE] 167.99.3.26:10124 (DIGITALOCEAN-ASN) via one.one.one.one | cands=1033
+[2026-11-03 16:27:00] [SHARD 06 W0] [FOUND QUEUE] 172.85.99.192:16062 (FRONTIER-FRTR) via speed.cloudflare.com | cands=1034
+[2026-11-03 16:27:00] [SHARD 06 W0] [FOUND QUEUE] 181.174.231.139:999 (SINERGY) via speed.cloudflare.com | cands=1035
+[2026-11-03 16:27:00] [SHARD 06 W0] [FOUND QUEUE] 185.82.238.42:8888 (ORIGINAL) via speed.cloudflare.com | cands=1036
+[2026-11-03 16:27:00] [SHARD 06 W0] [FOUND QUEUE] 190.9.109.118:999 (MEGABIT) via one.one.one.one | cands=1037
