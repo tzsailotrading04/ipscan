@@ -1452,3 +1452,5 @@
 45.175.39.115:999	www.google.com	QUEUE	0	TCA
 206.1.97.133:3128	speed.cloudflare.com	QUEUE	0	NETLEN
 51.17.99.116:20438	one.one.one.one	QUEUE	0	AMAZON-02
+45.188.125.37:999	one.one.one.one	QUEUE	0	DIGY
+45.194.46.57:8080	one.one.one.one	QUEUE	0	CTRLS-AS-IN

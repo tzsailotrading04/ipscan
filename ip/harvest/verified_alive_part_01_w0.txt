@@ -825,3 +825,6 @@
 84.46.249.66:3128	speed.cloudflare.com	QUEUE	0	CONTABO
 167.99.3.26:8787	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
 185.82.97.10:8080	www.google.com	QUEUE	0	NET360
+3.21.247.154:19171	speed.cloudflare.com	QUEUE	0	AMAZON-02
+45.188.125.37:999	one.one.one.one	QUEUE	0	DIGY
+45.194.46.57:8080	one.one.one.one	QUEUE	0	CTRLS-AS-IN
