@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793725530
-offset=74246612
+ts=1793725823
+offset=74293856
 --- LAST 5 LOG LINES ---
 [2026-11-03 16:43:56] [SHARD 05 W0] [FOUND QUEUE] 38.252.218.77:999 (TELDRA) via speed.cloudflare.com | cands=1096
 [2026-11-03 16:46:29] [SHARD 05 W0] [FOUND QUEUE] 45.129.141.174:3128 (ESERVER-SK-AS) via speed.cloudflare.com | cands=1097
