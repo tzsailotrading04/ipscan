@@ -1666,3 +1666,7 @@
 167.250.180.125:999	speed.cloudflare.com	QUEUE	0	UFINET
 172.233.39.76:3128	speed.cloudflare.com	QUEUE	0	AKAMAI-LINODE-AP
 191.36.128.67:8080	one.one.one.one	QUEUE	0	NETFI
+51.16.4.39:40674	speed.cloudflare.com	QUEUE	0	AMAZON-02
+62.241.133.227:1974	speed.cloudflare.com	QUEUE	0	LINKDOTNET-AS
+8.213.37.17:8888	one.one.one.one	QUEUE	0	ALIBABA-CN-NET
+94.79.152.14:80	speed.cloudflare.com	QUEUE	0	VODANET

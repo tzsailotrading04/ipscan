@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793684408
-offset=76507058
+ts=1793684713
+offset=76511058
 --- LAST 5 LOG LINES ---
-[2026-11-03 05:40:07] [SHARD 00 W0] [FOUND QUEUE] 147.161.247.9:12013 (ZSCALER-EMEA) via speed.cloudflare.com | cands=768
-[2026-11-03 05:40:07] [SHARD 00 W0] [FOUND QUEUE] 147.161.247.9:12169 (ZSCALER-EMEA) via speed.cloudflare.com | cands=769
-[2026-11-03 05:40:07] [SHARD 00 W0] [FOUND QUEUE] 147.161.247.9:12343 (ZSCALER-EMEA) via speed.cloudflare.com | cands=770
-[2026-11-03 05:40:07] [SHARD 00 W0] [FOUND QUEUE] 147.161.247.9:12784 (ZSCALER-EMEA) via speed.cloudflare.com | cands=771
-[2026-11-03 05:40:07] [SHARD 00 W0] [FOUND QUEUE] 154.27.192.100:999 (JOSE) via speed.cloudflare.com | cands=772
+[2026-11-03 05:45:13] [SHARD 00 W0] [FOUND QUEUE] 38.50.38.131:999 (SOLUNET) via speed.cloudflare.com | cands=784
+[2026-11-03 05:45:13] [SHARD 00 W0] [FOUND QUEUE] 38.51.207.119:999 (TECNOVEN) via www.google.com | cands=785
+[2026-11-03 05:45:13] [SHARD 00 W0] [FOUND QUEUE] 38.58.117.72:8080 (IDNIC-LJN-AS-ID) via www.google.com | cands=786
+[2026-11-03 05:45:13] [SHARD 00 W0] [FOUND QUEUE] 43.216.197.62:52849 (AMAZON-02) via speed.cloudflare.com | cands=787
+[2026-11-03 05:45:13] [SHARD 00 W0] [FOUND QUEUE] 45.225.205.10:999 (NETDELSUR) via speed.cloudflare.com | cands=788
