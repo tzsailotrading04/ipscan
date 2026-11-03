@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793738712
-offset=71557520
+ts=1793739015
+offset=71586476
 --- LAST 5 LOG LINES ---
 [2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 23.225.30.117:9999 (CNSERVERS) via speed.cloudflare.com | cands=5974
 [2026-11-03 20:20:45] [SHARD 02 W0] [FOUND QUEUE] 101.32.253.58:3128 (TENCENT-NET-AP-CN) via speed.cloudflare.com | cands=5975
