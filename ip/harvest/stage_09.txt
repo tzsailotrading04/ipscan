@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793724648
-offset=73904298
+ts=1793724724
+offset=73908298
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:50:48] [SHARD 09 W0] [FOUND QUEUE] 103.11.76.177:10808 (MULTA-ASN1) via speed.cloudflare.com | cands=1035
-[2026-11-03 16:50:48] [SHARD 09 W0] [FOUND QUEUE] 103.162.136.23:8080 (ICIL-AS-AP) via speed.cloudflare.com | cands=1036
-[2026-11-03 16:50:48] [SHARD 09 W0] [FOUND QUEUE] 105.28.176.41:9812 (SEACOM-AS) via speed.cloudflare.com | cands=1037
-[2026-11-03 16:50:48] [SHARD 09 W0] [FOUND QUEUE] 106.12.86.76:3128 (BAIDU) via speed.cloudflare.com | cands=1038
 [2026-11-03 16:50:48] [SHARD 09 W0] [FOUND QUEUE] 148.224.14.252:999 (JORGE) via speed.cloudflare.com | cands=1039
+[2026-11-03 16:52:04] [SHARD 09 W0] [FOUND QUEUE] 157.100.56.12:8080 (UFINET) via speed.cloudflare.com | cands=1040
+[2026-11-03 16:52:04] [SHARD 09 W0] [FOUND QUEUE] 16.51.53.116:54579 (AMAZON-02) via speed.cloudflare.com | cands=1041
+[2026-11-03 16:52:04] [SHARD 09 W0] [FOUND QUEUE] 169.58.165.34:8118 (CONTABO) via one.one.one.one | cands=1042
+[2026-11-03 16:52:04] [SHARD 09 W0] [FOUND QUEUE] 193.181.35.133:8118 (PVDATANET) via www.google.com | cands=1043
