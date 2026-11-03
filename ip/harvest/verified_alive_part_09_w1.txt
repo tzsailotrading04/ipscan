@@ -809,3 +809,6 @@
 147.161.246.35:9443	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 160.22.22.62:3125	one.one.one.one	QUEUE	0	IDNIC-SDNET-AS-ID
 190.7.138.78:8080	speed.cloudflare.com	QUEUE	0	UNE
+196.204.83.232:1981	www.google.com	QUEUE	0	RAYA-AS
+45.160.74.35:999	one.one.one.one	QUEUE	0	BESTHOST
+45.220.22.245:8080	www.google.com	QUEUE	0	LEVEL7-AS

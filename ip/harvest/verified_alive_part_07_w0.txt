@@ -877,3 +877,5 @@
 190.7.138.78:8080	www.google.com	QUEUE	0	UNE
 38.19.226.5:999	one.one.one.one	QUEUE	0	INTEGRA
 45.220.22.245:8080	speed.cloudflare.com	QUEUE	0	LEVEL7-AS
+40.177.104.199:12985	one.one.one.one	QUEUE	0	AMAZON-02
+103.154.178.109:3125	speed.cloudflare.com	QUEUE	0	ANEKANET-AS-ID

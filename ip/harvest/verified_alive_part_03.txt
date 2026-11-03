@@ -1636,3 +1636,6 @@
 147.161.247.9:11931	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:12824	www.google.com	QUEUE	0	ZSCALER-EMEA
 38.51.207.116:999	www.google.com	QUEUE	0	TECNOVEN
+105.159.55.163:2022	speed.cloudflare.com	QUEUE	0	MT-MPLS
+193.43.159.141:8080	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+201.4.65.74:8080	speed.cloudflare.com	QUEUE	0	RESERVED

@@ -602,3 +602,6 @@
 103.130.106.97:83	speed.cloudflare.com	QUEUE	0	ONPL-AS
 122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
 163.61.245.45:3125	speed.cloudflare.com	QUEUE	0	IDNIC-NAOMI-AS-ID
+63.180.203.233:59983	one.one.one.one	QUEUE	0	AMAZON-02
+1.20.101.27:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+103.155.197.96:3125	speed.cloudflare.com	QUEUE	0	JEMBATANDATA-AS-ID
