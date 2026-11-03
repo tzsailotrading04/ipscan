@@ -1,6 +1,6 @@
 stage=queue_loop
-ts=1793731154
-offset=72670961
+ts=1793731228
+offset=72674961
 --- LAST 5 LOG LINES ---
 [2026-11-03 18:36:05] [SHARD 03 W0] [FOUND QUEUE] 45.129.141.174:3128 (ESERVER-SK-AS) via speed.cloudflare.com | cands=3066
 [2026-11-03 18:36:05] [SHARD 03 W0] [FOUND QUEUE] 56.112.92.32:37039 (AMAZON-02) via speed.cloudflare.com | cands=3067
