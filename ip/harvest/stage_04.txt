@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793733782
-offset=75441130
+ts=1793734057
+offset=75445130
 --- LAST 5 LOG LINES ---
-[2026-11-03 19:19:47] [SHARD 04 W0] [STAGGER] Sleeping 16.2s before consuming slice of q_a0_http_1793733272_04.txt...
-[2026-11-03 19:20:03] [SHARD 04 W0] [QUEUE STAGE] Consuming q_a0_http_1793733272_04.txt: total=18833 shard_slice=1883 worker_slice=942 resume=0
-[2026-11-03 19:23:00] [SHARD 04 W0] [FOUND QUEUE] 16.28.29.244:24866 (AMAZON-02) via one.one.one.one | cands=2940
-[2026-11-03 19:23:00] [SHARD 04 W0] [FOUND QUEUE] 18.142.95.213:39184 (AMAZON-02) via speed.cloudflare.com | cands=2941
-[2026-11-03 19:23:00] [SHARD 04 W0] [FOUND QUEUE] 18.166.56.240:47740 (AMAZON-02) via one.one.one.one | cands=2942
+[2026-11-03 19:27:37] [SHARD 04 W0] [FOUND QUEUE] 3.21.247.154:30375 (AMAZON-02) via one.one.one.one | cands=2943
+[2026-11-03 19:27:37] [SHARD 04 W0] [FOUND QUEUE] 40.192.70.191:15877 (AMAZON-02) via one.one.one.one | cands=2944
+[2026-11-03 19:27:37] [SHARD 04 W0] [FOUND QUEUE] 45.189.57.114:3128 (CBVISION) via www.google.com | cands=2945
+[2026-11-03 19:27:37] [SHARD 04 W0] [FOUND QUEUE] 45.9.72.212:2080 (CYBERFLAT-AS) via speed.cloudflare.com | cands=2946
+[2026-11-03 19:27:37] [SHARD 04 W0] [FOUND QUEUE] 56.228.13.15:30811 (AMAZON-02) via one.one.one.one | cands=2947
