@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793731289
-offset=73999465
+ts=1793731411
+offset=74003465
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:35:03] [SHARD 09 W0] [FOUND QUEUE] 206.1.97.133:3128 (NETLEN) via speed.cloudflare.com | cands=2909
-[2026-11-03 18:35:03] [SHARD 09 W0] [FOUND QUEUE] 56.155.73.159:9002 (AMAZON-02) via one.one.one.one | cands=2910
 [2026-11-03 18:39:23] [SHARD 09 W0] [FOUND QUEUE] 103.242.105.245:3125 (IDNIC-LJN-AS-ID) via speed.cloudflare.com | cands=2911
 [2026-11-03 18:39:23] [SHARD 09 W0] [FOUND QUEUE] 122.102.52.24:1080 (MEGAXUS-AS-ID-AP) via speed.cloudflare.com | cands=2912
 [2026-11-03 18:39:23] [SHARD 09 W0] [FOUND QUEUE] 15.217.214.40:28079 (AMAZON-02) via speed.cloudflare.com | cands=2913
+[2026-11-03 18:43:31] [SHARD 09 W0] [FOUND QUEUE] 103.168.191.5:3125 (IDNIC-AIRANET-AS-ID) via one.one.one.one | cands=2914
+[2026-11-03 18:43:31] [SHARD 09 W0] [FOUND QUEUE] 103.36.11.178:3125 (IDNIC-AWINET-AS-ID) via speed.cloudflare.com | cands=2915
