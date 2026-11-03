@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793718706_01.txt_0
-ts=1793720493
-offset=70260588
+stage=queue_slice_q_a0_http_1793718706_03.txt_0
+ts=1793720616
+offset=70264588
 --- LAST 5 LOG LINES ---
-[2026-11-03 15:40:25] [SHARD 06 W0] [STAGGER] Sleeping 11.8s before consuming slice of q_a0_http_1793715123_04.txt...
-[2026-11-03 15:40:37] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793715123_04.txt: total=18638 shard_slice=1864 worker_slice=932 resume=0
-[2026-11-03 15:41:26] [SHARD 06 W0] [FOUND QUEUE] 98.81.204.137:16919 (AMAZON-AES) via one.one.one.one | cands=993
-[2026-11-03 15:41:26] [SHARD 06 W0] [STAGGER] Sleeping 6.6s before consuming slice of q_a0_http_1793718706_01.txt...
-[2026-11-03 15:41:33] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793718706_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 15:42:32] [SHARD 06 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 15:42:32] [SHARD 06 W0] [STAGGER] Sleeping 10.4s before consuming slice of q_a0_http_1793718706_02.txt...
+[2026-11-03 15:42:42] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793718706_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 15:43:18] [SHARD 06 W0] [STAGGER] Sleeping 17.6s before consuming slice of q_a0_http_1793718706_03.txt...
+[2026-11-03 15:43:36] [SHARD 06 W0] [QUEUE STAGE] Consuming q_a0_http_1793718706_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
