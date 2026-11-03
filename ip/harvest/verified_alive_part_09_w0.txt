@@ -2900,3 +2900,6 @@
 43.200.174.95:42071	one.one.one.one	QUEUE	0	AMAZON-02
 45.174.248.16:999	one.one.one.one	QUEUE	0	WIFMAX
 56.112.92.32:15584	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.19.43.77:999	www.google.com	QUEUE	0	SUPER
+43.207.113.167:8919	one.one.one.one	QUEUE	0	AMAZON-02
+45.194.46.57:8080	one.one.one.one	QUEUE	0	CTRLS-AS-IN
