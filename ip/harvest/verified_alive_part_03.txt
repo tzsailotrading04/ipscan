@@ -1751,3 +1751,7 @@
 131.221.41.84:4040	speed.cloudflare.com	QUEUE	0	CABLE
 167.99.3.26:10001	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
 149.202.47.125:3128	one.one.one.one	QUEUE	0	OVH
+161.22.39.97:999	speed.cloudflare.com	QUEUE	0	THUNDERNET
+177.240.243.4:999	www.google.com	QUEUE	0	MEGA
+181.129.158.131:999	speed.cloudflare.com	QUEUE	0	UNE
+190.97.227.9:999	speed.cloudflare.com	QUEUE	0	VIGINET
