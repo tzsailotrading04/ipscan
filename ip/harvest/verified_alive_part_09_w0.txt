@@ -1070,3 +1070,6 @@
 40.177.104.199:1145	speed.cloudflare.com	QUEUE	0	AMAZON-02
 45.190.78.146:999	www.google.com	QUEUE	0	META
 54.198.140.56:40784	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+111.192.62.191:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+116.202.172.187:11000	speed.cloudflare.com	QUEUE	0	HETZNER-AS
+13.208.246.143:32628	one.one.one.one	QUEUE	0	AMAZON-02
