@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793688633
-offset=76734966
+ts=1793688934
+offset=76765446
 --- LAST 5 LOG LINES ---
 [2026-11-03 06:17:50] [SHARD 00 W0] [QUEUE STAGE] Consuming q_a0_http_1793686302_04.txt: total=18706 shard_slice=1871 worker_slice=936 resume=0
 [2026-11-03 06:21:30] [SHARD 00 W0] [FOUND QUEUE] 43.202.114.177:9237 (AMAZON-02) via one.one.one.one | cands=823

@@ -743,3 +743,7 @@
 147.161.247.9:11248	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.247.9:11465	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 154.73.29.130:8080	www.google.com	QUEUE	0	GPTC-AS
+202.183.236.221:8080	www.google.com	QUEUE	0	SBN-AWN-AS-02-AP
+35.183.29.62:12187	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.51.207.116:999	www.google.com	QUEUE	0	TECNOVEN
+45.32.127.81:3128	speed.cloudflare.com	QUEUE	0	AS-VULTR
