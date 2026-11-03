@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793691619
-offset=69274914
+ts=1793692456
+offset=69278914
 --- LAST 5 LOG LINES ---
-[2026-11-03 07:23:58] [SHARD 06 W0] [QUEUE STAGE] Found 99 queue files to consume before IP scanning
-[2026-11-03 07:29:41] [SHARD 06 W0] [FOUND QUEUE] 38.51.207.116:999 (TECNOVEN) via one.one.one.one | cands=840
 [2026-11-03 07:29:41] [SHARD 06 W0] [FOUND QUEUE] 49.156.44.117:8080 (IIT-WICAM-AS-AP) via speed.cloudflare.com | cands=841
 [2026-11-03 07:40:19] [SHARD 06 W0] [FOUND QUEUE] 202.154.19.56:8090 (DIGITNET-AS-ID) via one.one.one.one | cands=842
 [2026-11-03 07:40:19] [SHARD 06 W0] [FOUND QUEUE] 3.21.156.147:56287 (AMAZON-02) via one.one.one.one | cands=843
+[2026-11-03 07:54:15] [SHARD 06 W0] [FOUND QUEUE] 51.17.99.116:20438 (AMAZON-02) via speed.cloudflare.com | cands=844
+[2026-11-03 07:54:15] [SHARD 06 W0] [FOUND QUEUE] 54.198.140.56:10088 (AMAZON-AES) via one.one.one.one | cands=845
