@@ -869,3 +869,6 @@
 185.218.202.182:8080	speed.cloudflare.com	QUEUE	0	DOMINET-AS
 5.161.50.82:8118	speed.cloudflare.com	QUEUE	0	HETZNER-CLOUD2-AS
 61.155.242.150:5566	speed.cloudflare.com	QUEUE	0	CHINANET-BACKBONE
+103.162.221.164:3125	speed.cloudflare.com	QUEUE	0	TRIDATA-AS-ID
+103.184.181.220:8080	speed.cloudflare.com	QUEUE	0	LDP-AS-ID
+13.209.65.136:8010	speed.cloudflare.com	QUEUE	0	AMAZON-02
