@@ -977,3 +977,5 @@
 38.58.174.8:999	speed.cloudflare.com	QUEUE	0	COGENT-174
 78.14.19.3:36528	speed.cloudflare.com	QUEUE	0	AMAZON-02
 103.163.13.120:3125	www.google.com	QUEUE	0	IDNIC-SIMTEL-AS-ID
+167.99.3.26:6060	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+182.52.113.85:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
