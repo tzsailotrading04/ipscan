@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793617905_02.txt_0
-ts=1793676973
-offset=69521008
+stage=queue_slice_q_a0_http_1793621603_01.txt_0
+ts=1793677330
+offset=69526032
 --- LAST 5 LOG LINES ---
-[2026-11-03 03:36:05] [SHARD 02 W0] [FOUND QUEUE] 103.182.22.85:8000 (INTERDIGI-VN) via one.one.one.one | cands=771
-[2026-11-03 03:36:05] [SHARD 02 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (125.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 03:36:06] [SHARD 02 W0] [QUEUE STAGE] Found 83 queue files to consume before IP scanning
-[2026-11-03 03:36:06] [SHARD 02 W0] [STAGGER] Sleeping 6.9s before consuming slice of q_a0_http_1793617905_02.txt...
-[2026-11-03 03:36:13] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793617905_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 03:42:01] [SHARD 02 W0] [FOUND QUEUE] 85.208.51.228:1443 (CONTABO) via speed.cloudflare.com | cands=781
+[2026-11-03 03:42:02] [SHARD 02 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (136.1s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 03:42:03] [SHARD 02 W0] [QUEUE STAGE] Found 83 queue files to consume before IP scanning
+[2026-11-03 03:42:03] [SHARD 02 W0] [STAGGER] Sleeping 6.9s before consuming slice of q_a0_http_1793621603_01.txt...
+[2026-11-03 03:42:10] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793621603_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
