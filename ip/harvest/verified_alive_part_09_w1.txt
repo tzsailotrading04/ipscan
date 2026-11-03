@@ -935,3 +935,7 @@
 190.93.229.1:18080	speed.cloudflare.com	QUEUE	0	MAKRONET
 222.129.142.219:9000	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
 45.195.90.142:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
+103.150.218.128:3125	speed.cloudflare.com	QUEUE	0	PROXINET-AS-ID
+103.157.78.33:3125	speed.cloudflare.com	QUEUE	0	EASTMEDIA-AS-ID
+103.81.194.173:3125	speed.cloudflare.com	QUEUE	0	RTIGA-AS-ID
+13.208.246.143:16034	speed.cloudflare.com	QUEUE	0	AMAZON-02
