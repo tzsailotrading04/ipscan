@@ -1,9 +1,9 @@
-stage=queue_slice_q_snowball.txt_0
-ts=1793729510
-offset=70466915
+stage=queue_consuming
+ts=1793729611
+offset=70471919
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:11:48] [SHARD 06 W0] [FOUND QUEUE] 103.22.99.95:1111 (LDP-AS-ID) via www.google.com | cands=2826
-[2026-11-03 18:11:48] [SHARD 06 W0] [FOUND QUEUE] 103.54.169.91:3125 (IDNIC-KNA-AS-ID) via speed.cloudflare.com | cands=2827
-[2026-11-03 18:11:48] [SHARD 06 W0] [FOUND QUEUE] 103.95.23.130:8097 (IDNIC-HASTEL-ID) via www.google.com | cands=2828
-[2026-11-03 18:11:48] [SHARD 06 W0] [STAGGER] Sleeping 1.2s before consuming slice of q_snowball.txt...
-[2026-11-03 18:11:50] [SHARD 06 W0] [QUEUE STAGE] Consuming q_snowball.txt: total=20068 shard_slice=2007 worker_slice=1004 resume=0
+[2026-11-03 18:13:20] [SHARD 06 W0] [FOUND QUEUE] 16.52.81.236:49950 (AMAZON-02) via one.one.one.one | cands=2829
+[2026-11-03 18:13:20] [SHARD 06 W0] [FOUND QUEUE] 160.22.136.200:1080 (IDNIC-STNET-ID) via one.one.one.one | cands=2830
+[2026-11-03 18:13:20] [SHARD 06 W0] [FOUND QUEUE] 165.22.99.36:8017 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=2831
+[2026-11-03 18:13:31] [SHARD 06 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
+[2026-11-03 18:13:31] [SHARD 06 W0] [QUEUE STAGE] Found 140 queue files to consume before IP scanning
