@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793685666
-offset=72540584
+ts=1793686058
+offset=72548584
 --- LAST 5 LOG LINES ---
-[2026-11-03 05:54:37] [SHARD 05 W0] [FOUND QUEUE] 162.4.96.24:4567 (IDNIC-AZNETLINK-ID) via one.one.one.one | cands=931
-[2026-11-03 05:54:37] [SHARD 05 W0] [FOUND QUEUE] 185.82.97.10:8080 (NET360) via speed.cloudflare.com | cands=932
-[2026-11-03 05:58:37] [SHARD 05 W0] [FOUND QUEUE] 45.174.248.47:999 (WIFMAX) via www.google.com | cands=933
 [2026-11-03 06:01:05] [SHARD 05 W0] [FOUND QUEUE] 38.51.207.117:999 (TECNOVEN) via www.google.com | cands=934
 [2026-11-03 06:01:05] [SHARD 05 W0] [FOUND QUEUE] 45.133.107.128:81 (ARTNET) via www.google.com | cands=935
+[2026-11-03 06:05:33] [SHARD 05 W0] [FOUND QUEUE] 42.96.12.214:80 (BKNS-AS-VN) via www.google.com | cands=936
+[2026-11-03 06:07:37] [SHARD 05 W0] [FOUND QUEUE] 15.232.45.244:42629 (AMAZON-02) via one.one.one.one | cands=937
+[2026-11-03 06:07:37] [SHARD 05 W0] [FOUND QUEUE] 154.236.177.117:1981 (ETISALAT-MISR) via speed.cloudflare.com | cands=938
