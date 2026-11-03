@@ -939,3 +939,6 @@
 103.157.78.33:3125	speed.cloudflare.com	QUEUE	0	EASTMEDIA-AS-ID
 103.81.194.173:3125	speed.cloudflare.com	QUEUE	0	RTIGA-AS-ID
 13.208.246.143:16034	speed.cloudflare.com	QUEUE	0	AMAZON-02
+209.14.109.128:999	www.google.com	QUEUE	0	CORPORACION
+43.216.197.62:9311	speed.cloudflare.com	QUEUE	0	AMAZON-02
+45.194.46.57:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
