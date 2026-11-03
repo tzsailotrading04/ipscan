@@ -827,3 +827,11 @@
 143.208.84.2:8589	www.google.com	QUEUE	0	V
 181.78.175.66:999	speed.cloudflare.com	QUEUE	0	UFINET
 190.90.121.249:8080	one.one.one.one	QUEUE	0	INTERNEXA
+193.43.140.222:7890	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+85.122.120.119:20016	speed.cloudflare.com	QUEUE	0	SELL-AS
+103.169.139.13:8081	speed.cloudflare.com	QUEUE	0	IDNIC-DINKOMINFOKABREMBANG-AS-ID
+110.76.147.31:8080	www.google.com	QUEUE	0	T2NET-AS-ID
+122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+151.158.133.132:8080	one.one.one.one	QUEUE	0	RESERVED
+18.191.250.90:8104	speed.cloudflare.com	QUEUE	0	AMAZON-02
+181.78.10.110:999	speed.cloudflare.com	QUEUE	0	UFINET

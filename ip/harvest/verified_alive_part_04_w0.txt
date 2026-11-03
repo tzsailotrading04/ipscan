@@ -825,3 +825,8 @@
 165.154.7.156:8888	speed.cloudflare.com	QUEUE	0	UCLOUD-HK-AS-AP
 18.144.86.139:54554	www.google.com	QUEUE	0	AMAZON-02
 188.132.221.21:8080	speed.cloudflare.com	QUEUE	0	HIGHSPEED
+38.49.138.197:999	www.google.com	QUEUE	0	IENTC
+89.43.132.242:8080	speed.cloudflare.com	QUEUE	0	RESERVED
+1.20.101.27:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
+103.162.221.3:8080	speed.cloudflare.com	QUEUE	0	TRIDATA-AS-ID
+109.224.242.21:8080	one.one.one.one	QUEUE	0	RESERVED
