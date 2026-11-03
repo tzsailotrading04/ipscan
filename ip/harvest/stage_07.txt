@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793675530_03.txt_0
-ts=1793720470
-offset=71645068
+stage=queue_slice_q_a0_http_1793679102_01.txt_0
+ts=1793720755
+offset=71648024
 --- LAST 5 LOG LINES ---
-[2026-11-03 15:40:00] [SHARD 07 W0] [STAGGER] Sleeping 0.7s before consuming slice of q_a0_http_1793675530_02.txt...
-[2026-11-03 15:40:01] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793675530_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 15:41:07] [SHARD 07 W0] [FOUND QUEUE] 18.170.45.5:47808 (AMAZON-02) via one.one.one.one | cands=1022
-[2026-11-03 15:41:08] [SHARD 07 W0] [STAGGER] Sleeping 2.6s before consuming slice of q_a0_http_1793675530_03.txt...
-[2026-11-03 15:41:10] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793675530_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 15:43:59] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793675530_04.txt: total=19121 shard_slice=1912 worker_slice=956 resume=0
+[2026-11-03 15:45:51] [SHARD 07 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (123.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 15:45:53] [SHARD 07 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 15:45:53] [SHARD 07 W0] [STAGGER] Sleeping 2.4s before consuming slice of q_a0_http_1793679102_01.txt...
+[2026-11-03 15:45:55] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793679102_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
