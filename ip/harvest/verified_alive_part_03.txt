@@ -1780,3 +1780,6 @@
 49.0.2.54:8080	speed.cloudflare.com	QUEUE	0	ASNET-AS-ID
 89.208.96.190:3128	speed.cloudflare.com	QUEUE	0	AEZA-AS
 77.50.183.34:8080	www.google.com	QUEUE	0	STARLINK-AS
+103.14.2.138:2020	speed.cloudflare.com	QUEUE	0	MADA-AS-ID
+113.23.230.90:8080	one.one.one.one	QUEUE	0	EXTREMEBB-AS-MY
+128.199.247.154:8080	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
