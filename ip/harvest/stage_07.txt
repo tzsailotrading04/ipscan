@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793632425_01.txt_0
-ts=1793714488
-offset=71559497
+stage=queue_slice_q_a0_http_1793632425_04.txt_0
+ts=1793714870
+offset=71565497
 --- LAST 5 LOG LINES ---
-[2026-11-03 13:59:51] [SHARD 07 W0] [STAGGER] Sleeping 4.9s before consuming slice of q_a0_http_1793628704_04.txt...
-[2026-11-03 13:59:55] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793628704_04.txt: total=19991 shard_slice=1999 worker_slice=1000 resume=0
-[2026-11-03 14:01:10] [SHARD 07 W0] [FOUND QUEUE] 56.228.13.15:45522 (AMAZON-02) via one.one.one.one | cands=984
-[2026-11-03 14:01:11] [SHARD 07 W0] [STAGGER] Sleeping 17.2s before consuming slice of q_a0_http_1793632425_01.txt...
-[2026-11-03 14:01:28] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793632425_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 14:07:43] [SHARD 07 W0] [FOUND QUEUE] 51.79.142.230:38414 (OVH) via speed.cloudflare.com | cands=989
+[2026-11-03 14:07:43] [SHARD 07 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (273.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 14:07:45] [SHARD 07 W0] [QUEUE STAGE] Found 117 queue files to consume before IP scanning
+[2026-11-03 14:07:45] [SHARD 07 W0] [STAGGER] Sleeping 4.8s before consuming slice of q_a0_http_1793632425_04.txt...
+[2026-11-03 14:07:50] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793632425_04.txt: total=19748 shard_slice=1975 worker_slice=988 resume=0
