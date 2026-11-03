@@ -1227,3 +1227,6 @@
 103.154.76.90:3125	speed.cloudflare.com	QUEUE	0	T2NET-AS-ID
 89.45.94.130:3128	speed.cloudflare.com	QUEUE	0	MUVHOST
 38.7.195.82:999	www.google.com	QUEUE	0	GRUPO
+18.170.45.5:24540	one.one.one.one	QUEUE	0	AMAZON-02
+103.168.191.5:3125	speed.cloudflare.com	QUEUE	0	IDNIC-AIRANET-AS-ID
+52.195.147.51:33706	one.one.one.one	QUEUE	0	AMAZON-02
