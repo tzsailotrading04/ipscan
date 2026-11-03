@@ -874,3 +874,5 @@
 13.209.65.136:8010	speed.cloudflare.com	QUEUE	0	AMAZON-02
 16.18.22.211:40001	speed.cloudflare.com	QUEUE	0	AMAZON-02
 170.80.203.20:999	speed.cloudflare.com	QUEUE	0	RUDDY
+167.233.243.116:3129	www.google.com	QUEUE	0	HETZNER-AS
+167.99.3.26:5860	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
