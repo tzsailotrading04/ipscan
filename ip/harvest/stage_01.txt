@@ -1,9 +1,9 @@
-stage=queue_slice_q_gold_asn_1793669699_04.txt_0
-ts=1793721189
-offset=66861643
+stage=queue_consuming
+ts=1793722260
+offset=66863643
 --- LAST 5 LOG LINES ---
-[2026-11-03 15:52:07] [SHARD 01 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 15:52:29] [SHARD 01 W0] [STAGGER] Sleeping 10.2s before consuming slice of q_gold_asn_1793669699_03.txt...
-[2026-11-03 15:52:39] [SHARD 01 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 15:53:03] [SHARD 01 W0] [STAGGER] Sleeping 5.9s before consuming slice of q_gold_asn_1793669699_04.txt...
-[2026-11-03 15:53:09] [SHARD 01 W0] [QUEUE STAGE] Consuming q_gold_asn_1793669699_04.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 16:08:55] [SHARD 01 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 16:09:26] [SHARD 01 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 16:09:58] [SHARD 01 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 16:10:29] [SHARD 01 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
+[2026-11-03 16:11:00] [SHARD 01 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
