@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793725956
-offset=66946403
+ts=1793726030
+offset=66950403
 --- LAST 5 LOG LINES ---
-[2026-11-03 17:05:11] [SHARD 01 W0] [FOUND QUEUE] 41.242.119.123:50002 (STOI-AS) via www.google.com | cands=832
 [2026-11-03 17:05:11] [SHARD 01 W0] [FOUND QUEUE] 52.195.147.51:33706 (AMAZON-02) via speed.cloudflare.com | cands=833
 [2026-11-03 17:09:38] [SHARD 01 W0] [FOUND QUEUE] 116.202.172.187:11000 (HETZNER-AS) via speed.cloudflare.com | cands=834
 [2026-11-03 17:12:34] [SHARD 01 W0] [FOUND QUEUE] 201.71.2.41:999 (INVERSIONES) via speed.cloudflare.com | cands=835
 [2026-11-03 17:12:34] [SHARD 01 W0] [FOUND QUEUE] 203.205.49.2:10060 (CMCTELECOM-VN) via speed.cloudflare.com | cands=836
+[2026-11-03 17:13:50] [SHARD 01 W0] [FOUND QUEUE] 181.191.223.178:999 (WIRELESS) via speed.cloudflare.com | cands=837
