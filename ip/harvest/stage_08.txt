@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793687094
-offset=71823581
+ts=1793687402
+offset=71831581
 --- LAST 5 LOG LINES ---
-[2026-11-03 06:22:16] [SHARD 08 W0] [FOUND QUEUE] 45.229.9.146:8402 (MEGANET) via speed.cloudflare.com | cands=890
-[2026-11-03 06:22:16] [SHARD 08 W0] [FOUND QUEUE] 51.85.44.149:7092 (AMAZON-02) via speed.cloudflare.com | cands=891
-[2026-11-03 06:24:53] [SHARD 08 W0] [FOUND QUEUE] 103.173.72.25:1111 (IDNIC-NETEKSA-AS-ID) via speed.cloudflare.com | cands=892
-[2026-11-03 06:24:53] [SHARD 08 W0] [FOUND QUEUE] 103.254.85.66:8080 (HRCTECH-01-AS-AP) via one.one.one.one | cands=893
 [2026-11-03 06:24:53] [SHARD 08 W0] [FOUND QUEUE] 103.75.85.140:3125 (MEGADATA-AS-ID) via www.google.com | cands=894
+[2026-11-03 06:27:34] [SHARD 08 W0] [FOUND QUEUE] 38.51.207.118:999 (TECNOVEN) via www.google.com | cands=895
+[2026-11-03 06:27:34] [SHARD 08 W0] [FOUND QUEUE] 52.195.147.51:19278 (AMAZON-02) via one.one.one.one | cands=896
+[2026-11-03 06:30:02] [SHARD 08 W0] [FOUND QUEUE] 45.133.107.128:81 (ARTNET) via speed.cloudflare.com | cands=897
+[2026-11-03 06:30:02] [SHARD 08 W0] [FOUND QUEUE] 51.85.44.162:5915 (AMAZON-02) via speed.cloudflare.com | cands=898
