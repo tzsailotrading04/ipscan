@@ -781,3 +781,12 @@
 122.54.147.110:8082	www.google.com	QUEUE	0	IPG-AS-AP
 147.161.246.37:10801	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 147.161.246.37:11624	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+179.61.111.209:999	www.google.com	QUEUE	0	SOC
+194.28.212.61:8118	speed.cloudflare.com	QUEUE	0	MTREND-AS
+200.53.2.161:8402	one.one.one.one	QUEUE	0	HQV
+3.231.160.150:1769	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+31.131.248.51:3129	speed.cloudflare.com	QUEUE	0	SELECTEL
+35.183.29.62:48760	speed.cloudflare.com	QUEUE	0	AMAZON-02
+38.9.184.137:999	one.one.one.one	QUEUE	0	INVERSIONES
+45.10.53.62:81	www.google.com	QUEUE	0	MTW-AS
+45.123.142.17:8181	www.google.com	QUEUE	0	IDNIC-ANTEN-AS-ID
