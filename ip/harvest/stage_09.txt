@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793686302_02.txt_0
-ts=1793718741
-offset=73828783
+stage=queue_slice_q_a0_http_1793686302_03.txt_0
+ts=1793718798
+offset=73830783
 --- LAST 5 LOG LINES ---
-[2026-11-03 15:12:15] [SHARD 09 W0] [FOUND QUEUE] 122.102.52.24:1080 (MEGAXUS-AS-ID-AP) via speed.cloudflare.com | cands=992
-[2026-11-03 15:12:15] [SHARD 09 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (188.5s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 15:12:17] [SHARD 09 W0] [QUEUE STAGE] Found 125 queue files to consume before IP scanning
 [2026-11-03 15:12:17] [SHARD 09 W0] [STAGGER] Sleeping 4.5s before consuming slice of q_a0_http_1793686302_02.txt...
 [2026-11-03 15:12:21] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793686302_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 15:13:01] [SHARD 09 W0] [FOUND QUEUE] 181.78.94.157:999 (UFINET) via www.google.com | cands=993
+[2026-11-03 15:13:02] [SHARD 09 W0] [STAGGER] Sleeping 16.9s before consuming slice of q_a0_http_1793686302_03.txt...
+[2026-11-03 15:13:18] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793686302_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
