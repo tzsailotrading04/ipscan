@@ -795,3 +795,5 @@
 191.5.126.28:8080	www.google.com	QUEUE	0	VIA
 38.19.239.94:999	one.one.one.one	QUEUE	0	RED
 41.78.170.178:8040	one.one.one.one	QUEUE	0	HABARI-CO-TZ-AS
+103.156.17.35:8181	www.google.com	QUEUE	0	RSTNET-AS-ID
+108.137.124.195:47998	speed.cloudflare.com	QUEUE	0	AMAZON-02
