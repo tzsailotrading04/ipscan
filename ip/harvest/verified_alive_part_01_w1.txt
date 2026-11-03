@@ -840,3 +840,6 @@
 31.76.42.91:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
 38.252.213.243:999	speed.cloudflare.com	QUEUE	0	TELCOM
 77.50.183.34:8080	speed.cloudflare.com	QUEUE	0	STARLINK-AS
+103.48.70.29:84	www.google.com	QUEUE	0	COUNTRYONLINE-AS-IN
+111.192.61.51:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+128.199.247.154:8080	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
