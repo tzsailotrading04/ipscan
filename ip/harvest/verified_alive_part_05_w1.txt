@@ -1111,3 +1111,5 @@
 91.134.141.4:3128	speed.cloudflare.com	QUEUE	0	OVH
 18.222.28.236:625	speed.cloudflare.com	QUEUE	0	AMAZON-02
 45.194.46.57:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
+172.237.126.94:3128	speed.cloudflare.com	QUEUE	0	AKAMAI-LINODE-AP
+191.44.127.148:8080	one.one.one.one	QUEUE	0	RESERVED
