@@ -768,3 +768,6 @@
 45.194.46.57:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
 1.20.101.19:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
 157.15.67.175:3125	speed.cloudflare.com	QUEUE	0	IDNIC-TRITAMA-AS-ID
+203.210.85.215:3128	www.google.com	QUEUE	0	STARNET-AS-ID
+34.207.102.197:38666	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+56.112.92.32:29825	speed.cloudflare.com	QUEUE	0	AMAZON-02
