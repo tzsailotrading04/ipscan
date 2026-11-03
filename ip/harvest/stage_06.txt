@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793721713
-offset=70281522
+ts=1793721996
+offset=70285522
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:01:52] [SHARD 06 W0] [FOUND QUEUE] 112.207.166.195:8082 (IPG-AS-AP) via speed.cloudflare.com | cands=1005
-[2026-11-03 16:01:52] [SHARD 06 W0] [FOUND QUEUE] 114.31.15.190:2024 (BDCOM-BD) via www.google.com | cands=1006
-[2026-11-03 16:01:52] [SHARD 06 W0] [FOUND QUEUE] 139.135.170.12:8082 (CONVERGE-AS) via speed.cloudflare.com | cands=1007
-[2026-11-03 16:01:52] [SHARD 06 W0] [FOUND QUEUE] 144.24.94.153:1080 (ORACLE-BMC-31898) via speed.cloudflare.com | cands=1008
-[2026-11-03 16:01:52] [SHARD 06 W0] [FOUND QUEUE] 147.161.246.36:10825 (ZSCALER-EMEA) via speed.cloudflare.com | cands=1009
+[2026-11-03 16:06:35] [SHARD 06 W0] [FOUND QUEUE] 36.253.25.11:8181 (NCELL-AS-NP) via speed.cloudflare.com | cands=1016
+[2026-11-03 16:06:35] [SHARD 06 W0] [FOUND QUEUE] 38.19.226.2:8080 (INTEGRA) via one.one.one.one | cands=1017
+[2026-11-03 16:06:35] [SHARD 06 W0] [FOUND QUEUE] 38.19.43.5:999 (SUPER) via one.one.one.one | cands=1018
+[2026-11-03 16:06:35] [SHARD 06 W0] [FOUND QUEUE] 45.231.220.78:999 (DISTROKOM) via one.one.one.one | cands=1019
+[2026-11-03 16:06:35] [SHARD 06 W0] [FOUND QUEUE] 49.147.63.121:8080 (IPG-AS-AP) via speed.cloudflare.com | cands=1020
