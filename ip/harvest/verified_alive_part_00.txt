@@ -1295,3 +1295,5 @@
 103.122.60.229:8080	speed.cloudflare.com	RES	0	VIZAGBROADBAND-AS-IN
 180.191.232.115:8082	speed.cloudflare.com	QUEUE	0	GLOBE-TELECOM-AS
 181.225.32.12:999	speed.cloudflare.com	QUEUE	0	IFX
+45.195.90.142:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
+38.50.38.141:999	speed.cloudflare.com	QUEUE	0	SOLUNET
