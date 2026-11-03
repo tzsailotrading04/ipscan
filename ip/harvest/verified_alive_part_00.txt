@@ -1245,3 +1245,9 @@
 204.168.225.55:8888	speed.cloudflare.com	QUEUE	0	HETZNER-AS
 51.85.44.162:52547	www.google.com	QUEUE	0	AMAZON-02
 200.3.197.81:8080	speed.cloudflare.com	QUEUE	0	INACIO
+202.58.73.176:1111	speed.cloudflare.com	QUEUE	0	DBN-AS-ID
+213.199.46.59:8082	speed.cloudflare.com	QUEUE	0	CONTABO
+102.0.25.8:8080	one.one.one.one	QUEUE	0	CKL1-ASN
+103.169.255.201:6080	one.one.one.one	QUEUE	0	IDNIC-MSN-AS-ID
+103.230.244.8:8090	one.one.one.one	QUEUE	0	KMNETWORK-AS-AP
+137.66.56.136:8080	www.google.com	QUEUE	0	FLY
