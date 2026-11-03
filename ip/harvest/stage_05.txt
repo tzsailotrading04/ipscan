@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793682696_02.txt_0
-ts=1793717974
-offset=74072720
+stage=queue_slice_q_a0_http_1793686302_02.txt_0
+ts=1793718263
+offset=74079660
 --- LAST 5 LOG LINES ---
-[2026-11-03 14:58:28] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793682696_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 14:59:31] [SHARD 05 W0] [FOUND QUEUE] 1.10.248.248:8080 (TOT-NET) via speed.cloudflare.com | cands=1047
-[2026-11-03 14:59:31] [SHARD 05 W0] [FOUND QUEUE] 156.200.116.67:8080 (TE-AS) via www.google.com | cands=1048
-[2026-11-03 14:59:32] [SHARD 05 W0] [STAGGER] Sleeping 2.5s before consuming slice of q_a0_http_1793682696_02.txt...
-[2026-11-03 14:59:34] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793682696_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 15:03:03] [SHARD 05 W0] [QUEUE STAGE] Found 121 queue files to consume before IP scanning
+[2026-11-03 15:03:03] [SHARD 05 W0] [STAGGER] Sleeping 14.5s before consuming slice of q_a0_http_1793686302_01.txt...
+[2026-11-03 15:03:18] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793686302_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 15:04:10] [SHARD 05 W0] [STAGGER] Sleeping 12.5s before consuming slice of q_a0_http_1793686302_02.txt...
+[2026-11-03 15:04:23] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793686302_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
