@@ -1,6 +1,6 @@
 stage=queue_loop
-ts=1793723355
-offset=70314526
+ts=1793723394
+offset=70316442
 --- LAST 5 LOG LINES ---
 [2026-11-03 16:29:14] [SHARD 06 W0] [FOUND QUEUE] 201.71.2.41:999 (INVERSIONES) via speed.cloudflare.com | cands=1038
 [2026-11-03 16:29:14] [SHARD 06 W0] [FOUND QUEUE] 203.205.49.2:10197 (CMCTELECOM-VN) via www.google.com | cands=1039
