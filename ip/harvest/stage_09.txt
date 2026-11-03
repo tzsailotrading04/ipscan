@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793725952
+stage=queue_slice_q_a0_http_1793725925_01.txt_0
+ts=1793725962
 offset=73940298
 --- LAST 5 LOG LINES ---
-[2026-11-03 17:12:30] [SHARD 09 W0] [FOUND QUEUE] 40.177.104.199:1145 (AMAZON-02) via speed.cloudflare.com | cands=1070
-[2026-11-03 17:12:30] [SHARD 09 W0] [FOUND QUEUE] 45.190.78.146:999 (META) via www.google.com | cands=1071
 [2026-11-03 17:12:30] [SHARD 09 W0] [FOUND QUEUE] 54.198.140.56:40784 (AMAZON-AES) via speed.cloudflare.com | cands=1072
 [2026-11-03 17:12:32] [SHARD 09 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
 [2026-11-03 17:12:32] [SHARD 09 W0] [QUEUE STAGE] Found 136 queue files to consume before IP scanning
+[2026-11-03 17:12:32] [SHARD 09 W0] [STAGGER] Sleeping 10.1s before consuming slice of q_a0_http_1793725925_01.txt...
+[2026-11-03 17:12:42] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793725925_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
