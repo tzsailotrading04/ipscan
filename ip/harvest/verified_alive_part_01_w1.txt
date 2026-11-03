@@ -648,3 +648,6 @@
 147.161.246.36:11724	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 185.17.2.127:3128	speed.cloudflare.com	QUEUE	0	I-SERVERS-NORTH-EU
 193.43.140.222:7890	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+88.255.227.35:3134	speed.cloudflare.com	QUEUE	0	TTNET
+89.237.33.193:37647	speed.cloudflare.com	QUEUE	0	TRANSTELECOM
+91.210.108.19:8080	www.google.com	QUEUE	0	BV-EU-AS

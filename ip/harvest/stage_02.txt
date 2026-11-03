@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793650412_01.txt_0
-ts=1793680054
-offset=69578904
+stage=queue_slice_q_a0_http_1793650412_03.txt_0
+ts=1793680208
+offset=69582904
 --- LAST 5 LOG LINES ---
-[2026-11-03 04:26:10] [SHARD 02 W0] [STAGGER] Sleeping 24.8s before consuming slice of q_a0_http_1793646812_04.txt...
-[2026-11-03 04:26:35] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793646812_04.txt: total=19377 shard_slice=1938 worker_slice=969 resume=0
-[2026-11-03 04:27:31] [SHARD 02 W0] [FOUND QUEUE] 62.213.13.54:3128 (ROSTELECOM-AS) via speed.cloudflare.com | cands=828
-[2026-11-03 04:27:31] [SHARD 02 W0] [STAGGER] Sleeping 2.8s before consuming slice of q_a0_http_1793650412_01.txt...
-[2026-11-03 04:27:34] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:29:50] [SHARD 02 W0] [FOUND QUEUE] 18.188.168.99:11011 (AMAZON-02) via speed.cloudflare.com | cands=833
+[2026-11-03 04:29:50] [SHARD 02 W0] [FOUND QUEUE] 18.222.231.188:27768 (AMAZON-02) via one.one.one.one | cands=834
+[2026-11-03 04:29:50] [SHARD 02 W0] [FOUND QUEUE] 18.61.230.250:12184 (AMAZON-02) via one.one.one.one | cands=835
+[2026-11-03 04:29:50] [SHARD 02 W0] [STAGGER] Sleeping 18.3s before consuming slice of q_a0_http_1793650412_03.txt...
+[2026-11-03 04:30:08] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

@@ -1063,3 +1063,9 @@
 165.101.231.153:8080	speed.cloudflare.com	QUEUE	0	IDNIC-CDNNET-AS-ID
 185.17.2.127:3128	speed.cloudflare.com	QUEUE	0	I-SERVERS-NORTH-EU
 193.43.140.222:7890	speed.cloudflare.com	QUEUE	0	INT-PDN-STE-AS
+207.180.29.28:3128	speed.cloudflare.com	QUEUE	0	HVC-AS
+45.229.17.57:999	www.google.com	QUEUE	0	TURBONET
+51.38.120.110:10010	speed.cloudflare.com	QUEUE	0	OVH
+88.255.227.35:3134	speed.cloudflare.com	QUEUE	0	TTNET
+89.237.33.193:37647	speed.cloudflare.com	QUEUE	0	TRANSTELECOM
+91.210.108.19:8080	www.google.com	QUEUE	0	BV-EU-AS
