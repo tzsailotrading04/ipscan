@@ -982,3 +982,7 @@
 157.20.142.34:9595	one.one.one.one	QUEUE	0	GIGAFIBERCORP-AS-AP
 167.99.3.26:9050	one.one.one.one	QUEUE	0	DIGITALOCEAN-ASN
 179.60.219.72:999	speed.cloudflare.com	QUEUE	0	WNET
+202.179.188.6:8080	speed.cloudflare.com	QUEUE	0	TDS-AS-ID
+202.58.77.214:8080	speed.cloudflare.com	QUEUE	0	DBN-AS-ID
+38.191.204.103:999	www.google.com	QUEUE	0	HOLA
+45.159.173.68:3128	speed.cloudflare.com	QUEUE	0	NOT

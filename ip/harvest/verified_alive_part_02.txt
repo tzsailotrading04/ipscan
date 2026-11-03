@@ -1580,3 +1580,7 @@
 161.49.215.28:10101	one.one.one.one	QUEUE	0	CONVERGE-AS
 45.123.142.11:8181	www.google.com	QUEUE	0	IDNIC-ANTEN-AS-ID
 45.229.16.35:999	one.one.one.one	QUEUE	0	TURBONET
+202.179.188.6:8080	speed.cloudflare.com	QUEUE	0	TDS-AS-ID
+202.58.77.214:8080	speed.cloudflare.com	QUEUE	0	DBN-AS-ID
+38.191.204.103:999	www.google.com	QUEUE	0	HOLA
+45.159.173.68:3128	speed.cloudflare.com	QUEUE	0	NOT
