@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793639619_04.txt_0
-ts=1793679008
-offset=72411441
+stage=queue_slice_q_a0_http_1793643365_04.txt_0
+ts=1793679408
+offset=72418423
 --- LAST 5 LOG LINES ---
-[2026-11-03 04:08:19] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 04:10:05] [SHARD 05 W0] [FOUND QUEUE] 31.76.42.91:3128 (AS-WAF) via speed.cloudflare.com | cands=843
-[2026-11-03 04:10:05] [SHARD 05 W0] [FOUND QUEUE] 45.17.96.43:8888 (ATT-INTERNET4) via speed.cloudflare.com | cands=844
-[2026-11-03 04:10:06] [SHARD 05 W0] [STAGGER] Sleeping 2.9s before consuming slice of q_a0_http_1793639619_04.txt...
-[2026-11-03 04:10:08] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793639619_04.txt: total=19639 shard_slice=1964 worker_slice=982 resume=0
+[2026-11-03 04:15:18] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:16:42] [SHARD 05 W0] [FOUND QUEUE] 217.142.24.106:8085 (SPACEX-STARLINK) via www.google.com | cands=849
+[2026-11-03 04:16:42] [SHARD 05 W0] [FOUND QUEUE] 38.191.161.190:999 (THREE) via www.google.com | cands=850
+[2026-11-03 04:16:42] [SHARD 05 W0] [STAGGER] Sleeping 6.0s before consuming slice of q_a0_http_1793643365_04.txt...
+[2026-11-03 04:16:48] [SHARD 05 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_04.txt: total=18646 shard_slice=1865 worker_slice=933 resume=0

@@ -1250,3 +1250,9 @@
 145.239.80.10:3128	speed.cloudflare.com	QUEUE	0	OVH
 103.41.97.225:82	speed.cloudflare.com	QUEUE	0	PEL-AS-IN
 176.12.73.250:3128	speed.cloudflare.com	QUEUE	0	HOSTLAB
+196.204.83.232:1981	www.google.com	QUEUE	0	RAYA-AS
+202.62.67.209:53281	speed.cloudflare.com	QUEUE	0	CITYON-AS-AP
+41.128.72.139:1981	www.google.com	QUEUE	0	LINKDOTNET-AS
+38.51.207.119:999	www.google.com	QUEUE	0	TECNOVEN
+45.198.10.106:8080	one.one.one.one	QUEUE	0	AZNET-ID
+88.255.227.36:3128	speed.cloudflare.com	QUEUE	0	TTNET

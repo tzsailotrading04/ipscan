@@ -706,3 +706,6 @@
 137.66.56.136:8080	speed.cloudflare.com	QUEUE	0	FLY
 16.51.53.116:54579	speed.cloudflare.com	QUEUE	0	AMAZON-02
 38.19.43.5:999	www.google.com	QUEUE	0	SUPER
+88.255.227.35:3134	speed.cloudflare.com	QUEUE	0	TTNET
+103.141.70.18:8080	speed.cloudflare.com	QUEUE	0	DOIBS-AS-AP
+190.26.255.30:999	www.google.com	QUEUE	0	ETB
