@@ -1,9 +1,9 @@
 stage=res_loop
-ts=1793692894
-offset=71602118
+ts=1793694980
+offset=71762403
 --- LAST 5 LOG LINES ---
-[2026-11-03 07:18:01] [SHARD 03 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (135.7s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 07:18:02] [SHARD 03 W0] [QUEUE STAGE] Found 99 queue files to consume before IP scanning
-[2026-11-03 07:18:02] [SHARD 03 W0] [STAGGER] Sleeping 4.4s before consuming slice of q_a0_http_1793689957_04.txt...
-[2026-11-03 07:18:07] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793689957_04.txt: total=18722 shard_slice=1872 worker_slice=936 resume=0
-[2026-11-03 07:21:22] [SHARD 03 W0] [FOUND QUEUE] 18.61.230.250:8865 (AMAZON-02) via speed.cloudflare.com | cands=1053
+[2026-11-03 08:21:51] [SHARD 03 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (193.8s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 08:21:52] [SHARD 03 W0] [QUEUE STAGE] Found 103 queue files to consume before IP scanning
+[2026-11-03 08:21:52] [SHARD 03 W0] [STAGGER] Sleeping 18.6s before consuming slice of q_a0_http_1793693731_04.txt...
+[2026-11-03 08:22:11] [SHARD 03 W0] [QUEUE STAGE] Consuming q_a0_http_1793693731_04.txt: total=18646 shard_slice=1865 worker_slice=933 resume=0
+[2026-11-03 08:26:14] [SHARD 03 W0] [FOUND QUEUE] 56.112.92.32:37039 (AMAZON-02) via speed.cloudflare.com | cands=1054
