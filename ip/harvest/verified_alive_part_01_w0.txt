@@ -2636,3 +2636,6 @@
 18.61.230.250:28415	speed.cloudflare.com	QUEUE	0	AMAZON-02
 34.220.80.147:8359	one.one.one.one	QUEUE	0	AMAZON-02
 45.129.141.174:3128	speed.cloudflare.com	QUEUE	0	ESERVER-SK-AS
+111.192.50.184:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+111.192.62.191:8888	speed.cloudflare.com	QUEUE	0	CHINA169-BJ
+156.200.116.67:8080	www.google.com	QUEUE	0	TE-AS
