@@ -899,3 +899,5 @@
 38.56.80.9:3125	speed.cloudflare.com	QUEUE	0	LAMS-AS-ID
 147.161.246.35:9443	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
 38.196.176.131:999	one.one.one.one	QUEUE	0	VALNET
+202.183.236.221:8080	speed.cloudflare.com	QUEUE	0	SBN-AWN-AS-02-AP
+45.220.22.245:8080	www.google.com	QUEUE	0	LEVEL7-AS

@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793690851
-offset=65884264
+ts=1793691059
+offset=65888264
 --- LAST 5 LOG LINES ---
-[2026-11-03 07:19:13] [SHARD 01 W0] [QUEUE STAGE] Consuming q_a0_http_1793689957_04.txt: total=18722 shard_slice=1873 worker_slice=937 resume=0
 [2026-11-03 07:24:09] [SHARD 01 W0] [FOUND QUEUE] 103.155.168.169:8299 (IDNIC-ABYSNET-AS-ID) via speed.cloudflare.com | cands=650
 [2026-11-03 07:24:09] [SHARD 01 W0] [FOUND QUEUE] 103.156.75.215:9980 (IDNIC-TRIKANET-AS-ID) via speed.cloudflare.com | cands=651
 [2026-11-03 07:27:30] [SHARD 01 W0] [FOUND QUEUE] 202.6.200.253:3125 (IDNIC-ADNNET-ID) via speed.cloudflare.com | cands=652
 [2026-11-03 07:27:30] [SHARD 01 W0] [FOUND QUEUE] 49.156.44.117:8080 (IIT-WICAM-AS-AP) via speed.cloudflare.com | cands=653
+[2026-11-03 07:30:58] [SHARD 01 W0] [FOUND QUEUE] 51.94.221.175:33254 (AMAZON-02) via speed.cloudflare.com | cands=654
