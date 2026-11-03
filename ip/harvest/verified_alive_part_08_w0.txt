@@ -2752,3 +2752,6 @@
 131.221.41.1:4040	one.one.one.one	QUEUE	0	CABLE
 8.213.37.17:8888	one.one.one.one	QUEUE	0	ALIBABA-CN-NET
 91.134.141.4:3128	speed.cloudflare.com	QUEUE	0	OVH
+196.204.26.243:1976	www.google.com	QUEUE	0	RAYA-AS
+203.210.85.215:8080	speed.cloudflare.com	QUEUE	0	STARNET-AS-ID
+51.17.99.135:35272	one.one.one.one	QUEUE	0	AMAZON-02
