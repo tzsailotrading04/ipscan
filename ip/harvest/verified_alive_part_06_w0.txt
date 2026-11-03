@@ -958,3 +958,6 @@
 108.137.124.195:42369	speed.cloudflare.com	QUEUE	0	AMAZON-02
 170.83.242.77:999	speed.cloudflare.com	QUEUE	0	UFINET
 185.82.238.42:8888	www.google.com	QUEUE	0	ORIGINAL
+38.172.129.34:999	one.one.one.one	QUEUE	0	CONEX
+38.19.43.77:999	one.one.one.one	QUEUE	0	SUPER
+51.16.4.39:16547	one.one.one.one	QUEUE	0	AMAZON-02

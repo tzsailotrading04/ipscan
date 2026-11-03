@@ -979,3 +979,7 @@
 103.83.87.150:3128	speed.cloudflare.com	QUEUE	0	WHITELABEL
 13.239.253.213:27203	speed.cloudflare.com	QUEUE	0	AMAZON-02
 172.233.39.76:3128	speed.cloudflare.com	QUEUE	0	AKAMAI-LINODE-AP
+34.229.190.39:12018	speed.cloudflare.com	QUEUE	0	AMAZON-AES
+38.224.32.188:999	www.google.com	QUEUE	0	SPEEDNET
+52.214.92.206:51038	one.one.one.one	QUEUE	0	AMAZON-02
+56.68.116.64:9295	speed.cloudflare.com	QUEUE	0	AMAZON-02
