@@ -1736,3 +1736,6 @@
 217.154.71.75:3128	speed.cloudflare.com	QUEUE	0	IONOS-AS
 38.150.19.148:3125	speed.cloudflare.com	QUEUE	0	IDNIC-MMSDIGI-AS-ID
 38.58.66.175:999	www.google.com	QUEUE	0	VELOCOM
+167.99.3.26:8091	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+190.2.209.59:999	speed.cloudflare.com	QUEUE	0	TV
+191.160.36.7:8080	www.google.com	QUEUE	0	MAXSERV
