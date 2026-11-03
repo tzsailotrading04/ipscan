@@ -1,9 +1,9 @@
-stage=queue_consuming
-ts=1793714018
-offset=73061352
+stage=queue_slice_q_a0_http_1793628704_01.txt_0
+ts=1793714176
+offset=73062350
 --- LAST 5 LOG LINES ---
-[2026-11-03 13:49:17] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 13:50:21] [SHARD 08 W0] [STAGGER] Sleeping 7.4s before consuming slice of q_a0_http_1793625108_03.txt...
-[2026-11-03 13:50:28] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 13:53:36] [SHARD 08 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (287.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 13:53:38] [SHARD 08 W0] [QUEUE STAGE] Found 117 queue files to consume before IP scanning
+[2026-11-03 13:54:00] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_04.txt: total=19955 shard_slice=1995 worker_slice=998 resume=0
+[2026-11-03 13:55:55] [SHARD 08 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (137.0s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 13:55:57] [SHARD 08 W0] [QUEUE STAGE] Found 117 queue files to consume before IP scanning
+[2026-11-03 13:55:57] [SHARD 08 W0] [STAGGER] Sleeping 18.8s before consuming slice of q_a0_http_1793628704_01.txt...
+[2026-11-03 13:56:16] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793628704_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
