@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793736705_01.txt_0
-ts=1793736752
-offset=74339182
+stage=queue_consuming
+ts=1793736890
+offset=74343182
 --- LAST 5 LOG LINES ---
-[2026-11-03 19:31:41] [SHARD 09 W0] [FOUND QUEUE] 98.81.204.137:22616 (AMAZON-AES) via one.one.one.one | cands=2950
-[2026-11-03 20:12:17] [SHARD 09 W0] [QUEUE DETECTED] Unconsumed queue file(s) found in ip/harvest/queue/. Pausing scan loop to process queue.
-[2026-11-03 20:12:17] [SHARD 09 W0] [QUEUE STAGE] Found 148 queue files to consume before IP scanning
-[2026-11-03 20:12:17] [SHARD 09 W0] [STAGGER] Sleeping 14.8s before consuming slice of q_a0_http_1793736705_01.txt...
-[2026-11-03 20:12:32] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793736705_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 20:14:09] [SHARD 09 W0] [QUEUE STAGE] Consuming q_a0_http_1793736705_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 20:14:49] [SHARD 09 W0] [FOUND QUEUE] 18.142.95.213:39184 (AMAZON-02) via speed.cloudflare.com | cands=2952
+[2026-11-03 20:14:49] [SHARD 09 W0] [FOUND QUEUE] 185.21.156.73:4080 (ECO-AS) via speed.cloudflare.com | cands=2953
+[2026-11-03 20:14:49] [SHARD 09 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (151.9s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 20:14:50] [SHARD 09 W0] [QUEUE STAGE] Found 148 queue files to consume before IP scanning
