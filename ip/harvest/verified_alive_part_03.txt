@@ -1493,3 +1493,17 @@
 169.58.34.213:3131	speed.cloudflare.com	QUEUE	0	CONTABO
 158.172.217.1:999	speed.cloudflare.com	QUEUE	0	UFINET
 167.99.3.26:9005	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+1.4.141.34:80	speed.cloudflare.com	QUEUE	0	TOT-NET
+103.156.17.35:8181	one.one.one.one	QUEUE	0	RSTNET-AS-ID
+122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+131.221.41.84:4040	one.one.one.one	QUEUE	0	CABLE
+147.161.247.9:10077	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+103.88.239.122:84	speed.cloudflare.com	QUEUE	0	ASPTNPL-AS-IN
+106.0.158.114:8080	speed.cloudflare.com	QUEUE	0	MOE-AS-AP
+147.161.247.9:11158	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+147.161.247.9:11955	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+177.234.192.68:999	speed.cloudflare.com	QUEUE	0	UFINET
+180.191.125.218:8081	www.google.com	QUEUE	0	GLOBE-TELECOM-AS
+187.249.158.195:999	www.google.com	QUEUE	0	TRANSTELCO-INC
+154.73.29.65:8080	speed.cloudflare.com	QUEUE	0	GPTC-AS
+181.214.29.86:999	speed.cloudflare.com	QUEUE	0	TELERY
