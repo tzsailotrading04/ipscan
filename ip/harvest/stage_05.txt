@@ -1,6 +1,6 @@
 stage=res_loop
-ts=1793689488
-offset=72849460
+ts=1793689785
+offset=72879940
 --- LAST 5 LOG LINES ---
 [2026-11-03 06:17:54] [SHARD 05 W0] [QUEUE STAGE] Found 95 queue files to consume before IP scanning
 [2026-11-03 06:17:54] [SHARD 05 W0] [STAGGER] Sleeping 25.0s before consuming slice of q_a0_http_1793686302_04.txt...
