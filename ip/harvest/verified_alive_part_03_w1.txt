@@ -1089,3 +1089,6 @@
 38.51.207.118:999	www.google.com	QUEUE	0	TECNOVEN
 38.63.117.67:999	www.google.com	QUEUE	0	COLNETWORK
 45.150.33.253:3128	speed.cloudflare.com	QUEUE	0	AEZA-AS
+31.76.42.91:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
+38.183.146.25:8090	www.google.com	QUEUE	0	IMEDIANET-AS-ID
+47.254.122.220:5443	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET

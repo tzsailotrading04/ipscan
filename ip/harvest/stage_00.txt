@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793685283
-offset=76523058
+ts=1793685812
+offset=76535058
 --- LAST 5 LOG LINES ---
-[2026-11-03 05:54:43] [SHARD 00 W0] [FOUND QUEUE] 103.169.188.126:8080 (IDNIC-JAGONET-AS-ID) via speed.cloudflare.com | cands=799
-[2026-11-03 05:54:43] [SHARD 00 W0] [FOUND QUEUE] 103.169.255.201:6080 (IDNIC-MSN-AS-ID) via one.one.one.one | cands=800
-[2026-11-03 05:54:43] [SHARD 00 W0] [FOUND QUEUE] 103.230.244.8:8090 (KMNETWORK-AS-AP) via one.one.one.one | cands=801
-[2026-11-03 05:54:43] [SHARD 00 W0] [FOUND QUEUE] 137.66.56.136:8080 (FLY) via www.google.com | cands=802
-[2026-11-03 05:54:43] [SHARD 00 W0] [FOUND QUEUE] 147.161.246.38:10462 (ZSCALER-EMEA) via speed.cloudflare.com | cands=803
+[2026-11-03 06:01:23] [SHARD 00 W0] [FOUND QUEUE] 38.224.150.84:999 (AARONKA) via www.google.com | cands=809
+[2026-11-03 06:01:23] [SHARD 00 W0] [FOUND QUEUE] 38.75.81.2:999 (ACOLME) via speed.cloudflare.com | cands=810
+[2026-11-03 06:03:32] [SHARD 00 W0] [FOUND QUEUE] 45.77.249.199:1236 (AS-VULTR) via one.one.one.one | cands=811
+[2026-11-03 06:03:32] [SHARD 00 W0] [FOUND QUEUE] 47.129.105.10:2104 (AMAZON-02) via one.one.one.one | cands=812
+[2026-11-03 06:03:32] [SHARD 00 W0] [FOUND QUEUE] 47.254.122.220:5443 (ALIBABA-CN-NET) via speed.cloudflare.com | cands=813
