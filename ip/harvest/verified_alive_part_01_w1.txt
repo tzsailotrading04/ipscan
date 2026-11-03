@@ -651,3 +651,6 @@
 88.255.227.35:3134	speed.cloudflare.com	QUEUE	0	TTNET
 89.237.33.193:37647	speed.cloudflare.com	QUEUE	0	TRANSTELECOM
 91.210.108.19:8080	www.google.com	QUEUE	0	BV-EU-AS
+103.124.137.69:8080	speed.cloudflare.com	QUEUE	0	GMDP-AS-ID
+213.217.34.20:8080	one.one.one.one	QUEUE	0	INT-PDN-STE-AS
+38.51.207.119:999	www.google.com	QUEUE	0	TECNOVEN

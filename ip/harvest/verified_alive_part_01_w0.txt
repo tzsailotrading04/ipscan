@@ -579,3 +579,6 @@
 44.200.234.67:57829	speed.cloudflare.com	QUEUE	0	AMAZON-AES
 45.229.17.57:999	www.google.com	QUEUE	0	TURBONET
 51.38.120.110:10010	speed.cloudflare.com	QUEUE	0	OVH
+103.122.60.245:8080	speed.cloudflare.com	QUEUE	0	VIZAGBROADBAND-AS-IN
+103.172.14.5:5452	speed.cloudflare.com	QUEUE	0	WEB1-AS-AP
+103.48.71.2:83	one.one.one.one	QUEUE	0	COUNTRYONLINE-AS-IN
