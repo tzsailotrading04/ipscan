@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793646812_01.txt_0
-ts=1793679720
-offset=69571935
+stage=queue_slice_q_a0_http_1793650412_01.txt_0
+ts=1793680054
+offset=69578904
 --- LAST 5 LOG LINES ---
-[2026-11-03 04:20:40] [SHARD 02 W0] [QUEUE STAGE] Found 87 queue files to consume before IP scanning
-[2026-11-03 04:20:40] [SHARD 02 W0] [STAGGER] Sleeping 23.2s before consuming slice of q_a0_http_1793643365_04.txt...
-[2026-11-03 04:21:03] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793643365_04.txt: total=18646 shard_slice=1865 worker_slice=933 resume=0
-[2026-11-03 04:21:40] [SHARD 02 W0] [STAGGER] Sleeping 20.3s before consuming slice of q_a0_http_1793646812_01.txt...
-[2026-11-03 04:22:00] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793646812_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 04:26:10] [SHARD 02 W0] [STAGGER] Sleeping 24.8s before consuming slice of q_a0_http_1793646812_04.txt...
+[2026-11-03 04:26:35] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793646812_04.txt: total=19377 shard_slice=1938 worker_slice=969 resume=0
+[2026-11-03 04:27:31] [SHARD 02 W0] [FOUND QUEUE] 62.213.13.54:3128 (ROSTELECOM-AS) via speed.cloudflare.com | cands=828
+[2026-11-03 04:27:31] [SHARD 02 W0] [STAGGER] Sleeping 2.8s before consuming slice of q_a0_http_1793650412_01.txt...
+[2026-11-03 04:27:34] [SHARD 02 W0] [QUEUE STAGE] Consuming q_a0_http_1793650412_01.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

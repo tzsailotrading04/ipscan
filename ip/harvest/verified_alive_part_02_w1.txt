@@ -844,3 +844,7 @@
 196.204.83.232:1976	one.one.one.one	QUEUE	0	RAYA-AS
 200.251.41.61:8002	speed.cloudflare.com	QUEUE	0	CLARO
 3.21.156.147:8097	speed.cloudflare.com	QUEUE	0	AMAZON-02
+101.255.137.49:80	speed.cloudflare.com	QUEUE	0	TACHYON-AS-ID
+103.189.223.57:8080	speed.cloudflare.com	QUEUE	0	IDNIC-WIKAPLUS-ID
+16.28.32.67:9236	speed.cloudflare.com	QUEUE	0	AMAZON-02
+169.58.34.213:3131	www.google.com	QUEUE	0	CONTABO
