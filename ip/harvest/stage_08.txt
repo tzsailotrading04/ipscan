@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793687607
-offset=71839581
+ts=1793688305
+offset=71847581
 --- LAST 5 LOG LINES ---
-[2026-11-03 06:30:02] [SHARD 08 W0] [FOUND QUEUE] 45.133.107.128:81 (ARTNET) via speed.cloudflare.com | cands=897
-[2026-11-03 06:30:02] [SHARD 08 W0] [FOUND QUEUE] 51.85.44.162:5915 (AMAZON-02) via speed.cloudflare.com | cands=898
-[2026-11-03 06:32:05] [SHARD 08 W0] [FOUND QUEUE] 45.190.85.1:999 (TELECOM.CORPORATIVAS) via www.google.com | cands=899
-[2026-11-03 06:33:27] [SHARD 08 W0] [FOUND QUEUE] 178.115.236.219:8080 (H3G-AUSTRIA-AS) via one.one.one.one | cands=900
-[2026-11-03 06:33:27] [SHARD 08 W0] [FOUND QUEUE] 185.218.202.182:8080 (DOMINET-AS) via speed.cloudflare.com | cands=901
+[2026-11-03 06:45:05] [SHARD 08 W0] [FOUND QUEUE] 110.74.206.40:8181 (EZECOM-AS-AP) via speed.cloudflare.com | cands=905
+[2026-11-03 06:45:05] [SHARD 08 W0] [FOUND QUEUE] 144.124.251.24:10428 (VDSINA) via one.one.one.one | cands=906
+[2026-11-03 06:45:05] [SHARD 08 W0] [FOUND QUEUE] 147.161.247.9:10482 (ZSCALER-EMEA) via speed.cloudflare.com | cands=907
+[2026-11-03 06:45:05] [SHARD 08 W0] [FOUND QUEUE] 147.161.247.9:11728 (ZSCALER-EMEA) via speed.cloudflare.com | cands=908
+[2026-11-03 06:45:05] [SHARD 08 W0] [FOUND QUEUE] 147.161.247.9:12363 (ZSCALER-EMEA) via speed.cloudflare.com | cands=909
