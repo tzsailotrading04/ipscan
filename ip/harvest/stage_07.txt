@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793625108_02.txt_0
-ts=1793713678
-offset=71547499
+stage=queue_slice_q_a0_http_1793625108_03.txt_0
+ts=1793713752
+offset=71549499
 --- LAST 5 LOG LINES ---
-[2026-11-03 13:47:35] [SHARD 07 W0] [FOUND QUEUE] 103.163.13.17:1111 (IDNIC-SIMTEL-AS-ID) via speed.cloudflare.com | cands=971
-[2026-11-03 13:47:36] [SHARD 07 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (205.4s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
-[2026-11-03 13:47:38] [SHARD 07 W0] [QUEUE STAGE] Found 117 queue files to consume before IP scanning
 [2026-11-03 13:47:38] [SHARD 07 W0] [STAGGER] Sleeping 20.4s before consuming slice of q_a0_http_1793625108_02.txt...
 [2026-11-03 13:47:58] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 13:48:52] [SHARD 07 W0] [FOUND QUEUE] 16.18.22.211:9585 (AMAZON-02) via www.google.com | cands=972
+[2026-11-03 13:48:53] [SHARD 07 W0] [STAGGER] Sleeping 18.4s before consuming slice of q_a0_http_1793625108_03.txt...
+[2026-11-03 13:49:12] [SHARD 07 W0] [QUEUE STAGE] Consuming q_a0_http_1793625108_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0

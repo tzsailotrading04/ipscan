@@ -818,3 +818,6 @@
 147.161.247.9:10873	one.one.one.one	QUEUE	0	ZSCALER-EMEA
 8.213.37.17:8888	speed.cloudflare.com	QUEUE	0	ALIBABA-CN-NET
 102.214.104.58:8080	speed.cloudflare.com	QUEUE	0	GPTC-AS
+170.106.188.46:5432	one.one.one.one	QUEUE	0	TENCENT-NET-AP-CN
+181.209.125.186:999	one.one.one.one	QUEUE	0	ARSAT
+190.61.37.136:999	speed.cloudflare.com	QUEUE	0	UFINET
