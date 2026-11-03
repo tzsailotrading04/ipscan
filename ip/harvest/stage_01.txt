@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793723474
-offset=66876609
+ts=1793723642
+offset=66880609
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:27:59] [SHARD 01 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:28:30] [SHARD 01 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
-[2026-11-03 16:29:59] [SHARD 01 W0] [FOUND QUEUE] 77.42.95.221:8889 (HETZNER-AS) via one.one.one.one | cands=796
-[2026-11-03 16:31:13] [SHARD 01 W0] [FOUND QUEUE] 181.78.10.110:999 (UFINET) via www.google.com | cands=797
-[2026-11-03 16:31:13] [SHARD 01 W0] [FOUND QUEUE] 190.83.3.33:999 (AIR) via speed.cloudflare.com | cands=798
+[2026-11-03 16:34:01] [SHARD 01 W0] [FOUND QUEUE] 201.71.2.24:999 (INVERSIONES) via speed.cloudflare.com | cands=800
+[2026-11-03 16:34:01] [SHARD 01 W0] [FOUND QUEUE] 38.51.207.116:999 (TECNOVEN) via www.google.com | cands=801
+[2026-11-03 16:34:01] [SHARD 01 W0] [FOUND QUEUE] 45.129.141.174:3128 (ESERVER-SK-AS) via speed.cloudflare.com | cands=802
+[2026-11-03 16:34:01] [SHARD 01 W0] [FOUND QUEUE] 45.194.46.57:8080 (CTRLS-AS-IN) via www.google.com | cands=803
+[2026-11-03 16:34:01] [SHARD 01 W0] [FOUND QUEUE] 54.117.6.131:34344 (AMAZON-02) via speed.cloudflare.com | cands=804
