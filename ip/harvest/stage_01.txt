@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793688989
-offset=65847363
+ts=1793689373
+offset=65855363
 --- LAST 5 LOG LINES ---
-[2026-11-03 06:50:26] [SHARD 01 W0] [FOUND QUEUE] 157.230.45.102:3128 (DIGITALOCEAN-ASN) via www.google.com | cands=631
-[2026-11-03 06:50:26] [SHARD 01 W0] [FOUND QUEUE] 188.165.48.48:3128 (OVH) via www.google.com | cands=632
-[2026-11-03 06:50:26] [SHARD 01 W0] [FOUND QUEUE] 192.99.44.178:3128 (OVH) via speed.cloudflare.com | cands=633
-[2026-11-03 06:56:27] [SHARD 01 W0] [FOUND QUEUE] 200.115.96.50:999 (HONDUVISION) via speed.cloudflare.com | cands=634
-[2026-11-03 06:56:27] [SHARD 01 W0] [FOUND QUEUE] 3.26.199.107:54490 (AMAZON-02) via www.google.com | cands=635
+[2026-11-03 06:59:04] [SHARD 01 W0] [FOUND QUEUE] 12.49.24.22:8080 (PC-INTERNET) via one.one.one.one | cands=639
+[2026-11-03 06:59:04] [SHARD 01 W0] [FOUND QUEUE] 147.161.246.36:11769 (ZSCALER-EMEA) via speed.cloudflare.com | cands=640
+[2026-11-03 07:02:52] [SHARD 01 W0] [FOUND QUEUE] 201.71.2.24:999 (INVERSIONES) via speed.cloudflare.com | cands=641
+[2026-11-03 07:02:52] [SHARD 01 W0] [FOUND QUEUE] 38.51.207.116:999 (TECNOVEN) via one.one.one.one | cands=642
+[2026-11-03 07:02:52] [SHARD 01 W0] [FOUND QUEUE] 38.58.117.97:3125 (IDNIC-LJN-AS-ID) via www.google.com | cands=643
