@@ -986,3 +986,5 @@
 203.142.71.53:8080	speed.cloudflare.com	QUEUE	0	BIZNET-AS-AP
 47.129.130.0:45923	one.one.one.one	QUEUE	0	AMAZON-02
 43.198.78.37:8087	one.one.one.one	QUEUE	0	AMAZON-02
+165.22.99.36:8003	speed.cloudflare.com	QUEUE	0	DIGITALOCEAN-ASN
+182.52.113.85:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
