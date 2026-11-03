@@ -1052,3 +1052,6 @@
 54.198.140.56:10088	speed.cloudflare.com	QUEUE	0	AMAZON-AES
 203.210.85.215:3128	speed.cloudflare.com	QUEUE	0	STARNET-AS-ID
 45.195.90.142:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
+103.139.242.1:84	speed.cloudflare.com	QUEUE	0	SPCTRM-AS-IN
+108.181.132.59:8080	speed.cloudflare.com	QUEUE	0	AS40676
+195.154.191.26:1090	one.one.one.one	QUEUE	0	ONLINE
