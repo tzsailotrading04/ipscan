@@ -1,9 +1,9 @@
-stage=queue_slice_q_a0_http_1793693731_03.txt_0
-ts=1793723200
-offset=73173747
+stage=queue_consuming
+ts=1793723391
+offset=73175747
 --- LAST 5 LOG LINES ---
-[2026-11-03 16:25:19] [SHARD 08 W0] [STAGGER] Sleeping 23.1s before consuming slice of q_a0_http_1793693731_02.txt...
-[2026-11-03 16:25:42] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793693731_02.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
-[2026-11-03 16:26:33] [SHARD 08 W0] [FOUND QUEUE] 180.191.231.149:8082 (GLOBE-TELECOM-AS) via www.google.com | cands=1029
-[2026-11-03 16:26:33] [SHARD 08 W0] [STAGGER] Sleeping 7.2s before consuming slice of q_a0_http_1793693731_03.txt...
 [2026-11-03 16:26:40] [SHARD 08 W0] [QUEUE STAGE] Consuming q_a0_http_1793693731_03.txt: total=40000 shard_slice=4000 worker_slice=2000 resume=0
+[2026-11-03 16:29:49] [SHARD 08 W0] [FOUND QUEUE] 195.154.191.26:1090 (ONLINE) via www.google.com | cands=1030
+[2026-11-03 16:29:49] [SHARD 08 W0] [FOUND QUEUE] 45.174.250.10:999 (WIFMAX) via speed.cloudflare.com | cands=1031
+[2026-11-03 16:29:50] [SHARD 08 W0] [QUEUE TIMEOUT] Wall-clock limit (120.0s) expired (270.6s). Abandoning remainder of queue slice, writing ack, and falling through to scanning.
+[2026-11-03 16:29:51] [SHARD 08 W0] [QUEUE STAGE] Found 129 queue files to consume before IP scanning
