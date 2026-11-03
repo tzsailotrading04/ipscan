@@ -1719,3 +1719,6 @@
 190.26.255.30:999	www.google.com	QUEUE	0	ETB
 190.60.39.197:999	speed.cloudflare.com	QUEUE	0	UFINET
 38.226.251.67:999	one.one.one.one	QUEUE	0	SAN
+202.57.2.20:8080	speed.cloudflare.com	QUEUE	0	CENTRIN-AS-AP
+203.205.49.2:10030	www.google.com	QUEUE	0	CMCTELECOM-VN
+41.57.35.211:6060	www.google.com	QUEUE	0	SCREAMER
