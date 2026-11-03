@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793735054
-offset=73295148
+ts=1793735435
+offset=73299148
 --- LAST 5 LOG LINES ---
-[2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 103.150.218.128:3125 (PROXINET-AS-ID) via speed.cloudflare.com | cands=2769
 [2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 103.154.146.74:8080 (CEPATNET-AS-ID) via one.one.one.one | cands=2770
 [2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 103.245.96.165:3214 (MAXHUBLTD-AS-AP) via speed.cloudflare.com | cands=2771
 [2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 103.247.21.254:1111 (WIFIAN-AS-ID) via one.one.one.one | cands=2772
 [2026-11-03 19:44:13] [SHARD 08 W0] [FOUND QUEUE] 15.235.140.52:3128 (OVH) via speed.cloudflare.com | cands=2773
+[2026-11-03 19:50:34] [SHARD 08 W0] [FOUND QUEUE] 201.58.182.153:3128 (NOT) via speed.cloudflare.com | cands=2774
