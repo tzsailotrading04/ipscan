@@ -836,3 +836,6 @@
 12.199.82.230:8080	one.one.one.one	QUEUE	0	ATT-INTERNET4
 160.187.174.201:8080	speed.cloudflare.com	QUEUE	0	IDNIC-NPN-AS-ID
 160.19.19.171:3125	one.one.one.one	QUEUE	0	IDNIC-INTELMEDIA-AS-ID
+201.58.182.153:3128	speed.cloudflare.com	QUEUE	0	NOT
+31.76.42.91:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
+38.252.213.243:999	speed.cloudflare.com	QUEUE	0	TELCOM
