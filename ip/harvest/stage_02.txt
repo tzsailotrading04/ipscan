@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793684788
-offset=69667159
+ts=1793685068
+offset=69675159
 --- LAST 5 LOG LINES ---
-[2026-11-03 05:46:28] [SHARD 02 W0] [FOUND QUEUE] 134.209.64.182:3128 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=856
-[2026-11-03 05:46:28] [SHARD 02 W0] [FOUND QUEUE] 159.65.194.38:3128 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=857
-[2026-11-03 05:46:28] [SHARD 02 W0] [FOUND QUEUE] 62.171.138.103:3128 (CONTABO) via speed.cloudflare.com | cands=858
-[2026-11-03 05:46:28] [SHARD 02 W0] [FOUND QUEUE] 51.68.102.5:3128 (OVH) via speed.cloudflare.com | cands=859
-[2026-11-03 05:46:28] [SHARD 02 W0] [FOUND QUEUE] 172.245.71.18:3128 (AS-COLOCROSSING) via speed.cloudflare.com | cands=860
+[2026-11-03 05:51:08] [SHARD 02 W0] [FOUND QUEUE] 178.115.236.219:8080 (H3G-AUSTRIA-AS) via speed.cloudflare.com | cands=867
+[2026-11-03 05:51:08] [SHARD 02 W0] [FOUND QUEUE] 181.119.109.10:999 (UFINET) via speed.cloudflare.com | cands=868
+[2026-11-03 05:51:08] [SHARD 02 W0] [FOUND QUEUE] 181.78.175.66:999 (UFINET) via speed.cloudflare.com | cands=869
+[2026-11-03 05:51:08] [SHARD 02 W0] [FOUND QUEUE] 182.52.113.84:80 (TOT-NET) via one.one.one.one | cands=870
+[2026-11-03 05:51:08] [SHARD 02 W0] [FOUND QUEUE] 190.110.36.198:999 (CENTRIC) via one.one.one.one | cands=871
