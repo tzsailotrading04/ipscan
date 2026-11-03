@@ -1797,3 +1797,6 @@
 180.191.232.115:8082	one.one.one.one	QUEUE	0	GLOBE-TELECOM-AS
 181.78.203.146:999	www.google.com	QUEUE	0	UFINET
 185.111.159.230:8080	speed.cloudflare.com	QUEUE	0	CAPL-AS-AP
+45.175.39.72:999	speed.cloudflare.com	QUEUE	0	TCA
+45.178.246.8:999	www.google.com	QUEUE	0	ROMANO
+45.195.90.142:8080	one.one.one.one	QUEUE	0	CTRLS-AS-IN
