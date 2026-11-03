@@ -619,3 +619,11 @@
 88.156.178.59:1122	speed.cloudflare.com	QUEUE	0	VECTRANET-AS
 103.176.97.107:8082	speed.cloudflare.com	QUEUE	0	IDNIC-GFIBER-AS-ID
 148.113.167.24:8080	speed.cloudflare.com	QUEUE	0	OVH
+165.22.99.36:8002	www.google.com	QUEUE	0	DIGITALOCEAN-ASN
+213.6.249.37:18000	speed.cloudflare.com	QUEUE	0	PALTEL-AS
+38.51.207.116:999	speed.cloudflare.com	QUEUE	0	TECNOVEN
+54.117.6.131:34344	one.one.one.one	QUEUE	0	AMAZON-02
+56.68.116.64:17012	speed.cloudflare.com	QUEUE	0	AMAZON-02
+102.214.104.58:8080	www.google.com	QUEUE	0	GPTC-AS
+103.245.16.133:8080	speed.cloudflare.com	QUEUE	0	QUANTUMNET-AS-ID
+15.235.140.52:3128	speed.cloudflare.com	QUEUE	0	OVH

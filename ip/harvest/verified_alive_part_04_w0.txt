@@ -830,3 +830,7 @@
 1.20.101.27:8080	speed.cloudflare.com	QUEUE	0	TOT-NET
 103.162.221.3:8080	speed.cloudflare.com	QUEUE	0	TRIDATA-AS-ID
 109.224.242.21:8080	one.one.one.one	QUEUE	0	RESERVED
+103.143.105.138:8080	speed.cloudflare.com	QUEUE	0	LINTASARTA-AS-AP
+147.161.247.9:12428	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+18.166.56.240:11901	one.one.one.one	QUEUE	0	AMAZON-02
+181.129.158.131:999	one.one.one.one	QUEUE	0	UNE

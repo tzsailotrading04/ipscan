@@ -835,3 +835,10 @@
 151.158.133.132:8080	one.one.one.one	QUEUE	0	RESERVED
 18.191.250.90:8104	speed.cloudflare.com	QUEUE	0	AMAZON-02
 181.78.10.110:999	speed.cloudflare.com	QUEUE	0	UFINET
+38.58.117.43:80	www.google.com	QUEUE	0	IDNIC-LJN-AS-ID
+56.228.13.15:21190	speed.cloudflare.com	QUEUE	0	AMAZON-02
+1.10.248.236:443	one.one.one.one	QUEUE	0	TOT-NET
+103.151.88.45:8080	www.google.com	QUEUE	0	SNISP-AS-AP
+103.169.132.86:3125	speed.cloudflare.com	QUEUE	0	IDNIC-ALOI-AS-ID
+31.76.42.91:3128	speed.cloudflare.com	QUEUE	0	AS-WAF
+45.17.96.43:8888	speed.cloudflare.com	QUEUE	0	ATT-INTERNET4
