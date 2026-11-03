@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793731189
-offset=71755542
+ts=1793731384
+offset=71759542
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:37:46] [SHARD 07 W0] [QUEUE STAGE] Found 140 queue files to consume before IP scanning
-[2026-11-03 18:38:17] [SHARD 07 W0] [QUEUE STAGE] Found 140 queue files to consume before IP scanning
-[2026-11-03 18:38:48] [SHARD 07 W0] [QUEUE STAGE] Found 140 queue files to consume before IP scanning
-[2026-11-03 18:39:19] [SHARD 07 W0] [QUEUE STAGE] Found 140 queue files to consume before IP scanning
-[2026-11-03 18:39:49] [SHARD 07 W0] [QUEUE STAGE] Found 140 queue files to consume before IP scanning
+[2026-11-03 18:43:03] [SHARD 07 W0] [FOUND QUEUE] 103.173.142.251:3125 (IDNIC-LESTARINET-AS-ID) via speed.cloudflare.com | cands=2858
+[2026-11-03 18:43:03] [SHARD 07 W0] [FOUND QUEUE] 104.218.199.86:16062 (FRONTIER-FRTR) via speed.cloudflare.com | cands=2859
+[2026-11-03 18:43:03] [SHARD 07 W0] [FOUND QUEUE] 125.209.80.146:8080 (MULTINET-AS-AP) via speed.cloudflare.com | cands=2860
+[2026-11-03 18:43:03] [SHARD 07 W0] [FOUND QUEUE] 128.140.113.110:5153 (HETZNER-AS) via speed.cloudflare.com | cands=2861
+[2026-11-03 18:43:03] [SHARD 07 W0] [FOUND QUEUE] 134.199.145.240:3128 (DIGITALOCEAN-ASN) via speed.cloudflare.com | cands=2862
