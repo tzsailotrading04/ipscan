@@ -725,3 +725,8 @@
 18.191.250.90:5050	speed.cloudflare.com	QUEUE	0	AMAZON-02
 103.1.51.101:3125	speed.cloudflare.com	QUEUE	0	IDNIC-TAHTA-ID
 147.161.246.38:11107	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
+91.134.141.4:3128	speed.cloudflare.com	QUEUE	0	OVH
+119.235.19.229:8080	speed.cloudflare.com	QUEUE	0	INET-AS-ID
+122.2.48.121:8080	speed.cloudflare.com	QUEUE	0	IPG-AS-AP
+147.161.247.9:11022	one.one.one.one	QUEUE	0	ZSCALER-EMEA
+18.188.168.99:2444	one.one.one.one	QUEUE	0	AMAZON-02

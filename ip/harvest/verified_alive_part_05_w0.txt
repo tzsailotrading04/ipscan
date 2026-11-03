@@ -873,3 +873,7 @@
 186.33.54.244:999	www.google.com	QUEUE	0	UFINET
 172.237.126.94:3128	speed.cloudflare.com	QUEUE	0	AKAMAI-LINODE-AP
 45.229.17.62:999	speed.cloudflare.com	QUEUE	0	TURBONET
+16.52.81.236:58789	speed.cloudflare.com	QUEUE	0	AMAZON-02
+170.83.242.77:999	speed.cloudflare.com	QUEUE	0	UFINET
+42.96.12.214:80	www.google.com	QUEUE	0	BKNS-AS-VN
+45.144.53.63:5005	speed.cloudflare.com	QUEUE	0	H2NEXUS-AS
