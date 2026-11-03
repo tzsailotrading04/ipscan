@@ -1,9 +1,9 @@
 stage=queue_loop
-ts=1793730726
-offset=73983465
+ts=1793730903
+offset=73987465
 --- LAST 5 LOG LINES ---
-[2026-11-03 18:27:53] [SHARD 09 W0] [FOUND QUEUE] 43.207.113.167:8919 (AMAZON-02) via one.one.one.one | cands=2904
-[2026-11-03 18:27:53] [SHARD 09 W0] [FOUND QUEUE] 45.194.46.57:8080 (CTRLS-AS-IN) via one.one.one.one | cands=2905
 [2026-11-03 18:32:06] [SHARD 09 W0] [FOUND QUEUE] 101.33.242.76:3128 (TENCENT-NET-AP) via speed.cloudflare.com | cands=2906
 [2026-11-03 18:32:06] [SHARD 09 W0] [FOUND QUEUE] 103.1.51.155:3125 (IDNIC-TAHTA-ID) via speed.cloudflare.com | cands=2907
 [2026-11-03 18:32:06] [SHARD 09 W0] [FOUND QUEUE] 108.131.152.118:13430 (AMAZON-02) via one.one.one.one | cands=2908
+[2026-11-03 18:35:03] [SHARD 09 W0] [FOUND QUEUE] 206.1.97.133:3128 (NETLEN) via speed.cloudflare.com | cands=2909
+[2026-11-03 18:35:03] [SHARD 09 W0] [FOUND QUEUE] 56.155.73.159:9002 (AMAZON-02) via one.one.one.one | cands=2910
