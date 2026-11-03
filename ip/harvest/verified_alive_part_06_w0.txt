@@ -895,3 +895,8 @@
 38.50.38.119:999	speed.cloudflare.com	QUEUE	0	SOLUNET
 45.190.85.1:999	one.one.one.one	QUEUE	0	TELECOM.CORPORATIVAS
 5.161.50.82:8118	one.one.one.one	QUEUE	0	HETZNER-CLOUD2-AS
+85.90.207.232:3128	speed.cloudflare.com	QUEUE	0	GHOST
+91.134.141.4:3128	speed.cloudflare.com	QUEUE	0	OVH
+115.178.52.12:8080	speed.cloudflare.com	QUEUE	0	IDNIC-CIFO-AS-ID
+124.105.236.145:9090	one.one.one.one	QUEUE	0	IPG-AS-AP
+147.161.246.36:11769	speed.cloudflare.com	QUEUE	0	ZSCALER-EMEA
