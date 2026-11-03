@@ -1,6 +1,6 @@
-stage=queue_slice_q_snowball.txt_0
-ts=1793729736
-offset=74331365
+stage=queue_loop
+ts=1793729746
+offset=74332369
 --- LAST 5 LOG LINES ---
 [2026-11-03 18:15:26] [SHARD 05 W0] [FOUND QUEUE] 103.169.160.38:3128 (DIANAHOSTLTD-AS-AP) via speed.cloudflare.com | cands=2955
 [2026-11-03 18:15:26] [SHARD 05 W0] [FOUND QUEUE] 103.19.78.125:1080 (IDNIC-PDM-AS-ID) via speed.cloudflare.com | cands=2956
