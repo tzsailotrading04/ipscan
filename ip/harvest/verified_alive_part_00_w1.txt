@@ -801,3 +801,5 @@
 38.50.38.141:999	speed.cloudflare.com	QUEUE	0	SOLUNET
 45.195.90.142:8080	www.google.com	QUEUE	0	CTRLS-AS-IN
 56.228.13.15:2183	one.one.one.one	QUEUE	0	AMAZON-02
+202.142.170.115:1080	traffmonetizer:socks4	QUEUE	0	MULTINET-AS-AP
+31.44.5.192:1081	traffmonetizer:socks5	QUEUE	0	AS-ITGLOBALCOM
